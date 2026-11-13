@@ -1,0 +1,155 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "DocumentOption": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "$ref": "#/$defs/Id"
+        },
+        "display_name": {
+          "$ref": "#/$defs/Text"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "key_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_type",
+        "display_name",
+        "key_fields",
+        "basis"
+      ],
+      "type": "object"
+    },
+    "DocumentRequirementStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "any_of": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "satisfied": {
+          "$ref": "#/$defs/Bool"
+        },
+        "satisfied_by": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "uncataloged": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "any_of",
+        "uncataloged",
+        "satisfied_by",
+        "satisfied"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.requirements.resolve:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "missing": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "options": {
+      "items": {
+        "$ref": "#/$defs/DocumentOption"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "present": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "request_types": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "requirements": {
+      "items": {
+        "$ref": "#/$defs/DocumentRequirementStatus"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "satisfied": {
+      "type": "boolean"
+    },
+    "uncataloged": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "requirements",
+    "present",
+    "missing",
+    "request_types",
+    "satisfied",
+    "options",
+    "uncataloged"
+  ],
+  "type": "object"
+}

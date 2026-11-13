@@ -1,0 +1,87 @@
+{
+  "context_products": [
+    "document.intelligence",
+    "party360",
+    "policy.intelligence"
+  ],
+  "execution": {
+    "allowed_skills": {
+      "case.create": "0.3.0",
+      "decision.requirements.compile": "0.3.0",
+      "document.request.generate": "0.3.0",
+      "document.requirements.evaluate": "0.3.0",
+      "party.activity.profile": "0.3.0",
+      "party.profile.build": "0.3.0",
+      "party.profile.completeness": "0.3.0",
+      "party.type.classify": "0.3.0"
+    },
+    "capabilities": [],
+    "context_fields": {
+      "Document": [
+        "document_type",
+        "expires_at",
+        "issued_at"
+      ],
+      "ExpectedActivity": [
+        "declared",
+        "observed",
+        "window"
+      ],
+      "Party": [
+        "customer_type",
+        "entity_id",
+        "profile",
+        "role"
+      ]
+    },
+    "id": "agent.intake_profile",
+    "instructions": "Establish legal customer, party roles, capacity, banking products, expected activity and lifecycle-specific information gaps. Use admitted evidence. Keep proposed actions and authorized decisions separate.",
+    "max_agent_steps": 16,
+    "max_objects": 1000,
+    "model_char_budget": 64000,
+    "model_config_ref": null,
+    "permissions": [
+      "effect:internal_write",
+      "skill:case.create",
+      "skill:decision.requirements.compile",
+      "skill:document.request.generate",
+      "skill:document.requirements.evaluate",
+      "skill:party.activity.profile",
+      "skill:party.profile.build",
+      "skill:party.profile.completeness",
+      "skill:party.type.classify"
+    ],
+    "policy_fields": [
+      "customer_types",
+      "freshness_seconds",
+      "jurisdiction",
+      "permissions",
+      "profile_fields",
+      "required_document_types",
+      "requirements",
+      "version"
+    ],
+    "purposes": [
+      "investigation",
+      "onboarding",
+      "review"
+    ],
+    "timeout_seconds": 30,
+    "version": "0.5.0"
+  },
+  "human_gates": [
+    "ambiguous evidence",
+    "policy exception",
+    "consequential decision"
+  ],
+  "id": "agent.intake_profile",
+  "mandate": "Establish legal customer, party roles, capacity, banking products, expected activity and lifecycle-specific information gaps.",
+  "personas": [
+    "relationship_manager",
+    "onboarding_specialist"
+  ],
+  "task_ids": [
+    "task.intake_profile"
+  ],
+  "version": "1.0.0"
+}

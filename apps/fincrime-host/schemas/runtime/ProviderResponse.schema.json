@@ -1,0 +1,1113 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "jurisdictions": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "pages_complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "provider": {
+          "$ref": "#/$defs/Id"
+        },
+        "query": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "complete"
+      ],
+      "type": "object"
+    },
+    "DetectorAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment": {
+          "$ref": "#/$defs/Id"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "model_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "score": {
+          "$ref": "#/$defs/Fraction"
+        }
+      },
+      "required": [
+        "score",
+        "model_version",
+        "limitations",
+        "assessment"
+      ],
+      "type": "object"
+    },
+    "ExtractionObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "note": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/ExtractionSpan"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/ObservationStatus"
+        }
+      },
+      "required": [
+        "path",
+        "status",
+        "confidence",
+        "spans",
+        "note"
+      ],
+      "type": "object"
+    },
+    "ExtractionResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "extracted_fields": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/$defs/ExtractionObservation"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "profile_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_digest": {
+          "$ref": "#/$defs/Hash"
+        }
+      },
+      "required": [
+        "document_type",
+        "profile_version",
+        "contract_hash",
+        "document_version",
+        "source_digest",
+        "extracted_fields",
+        "observations"
+      ],
+      "type": "object"
+    },
+    "ExtractionSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "quote": {
+          "$ref": "#/$defs/Text"
+        },
+        "start": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "page_id",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "ForensicsAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment": {
+          "$ref": "#/$defs/Id"
+        },
+        "indicators": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "model_version": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "assessment",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "Mention": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "start": {
+          "$ref": "#/$defs/Count"
+        },
+        "text": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "page_id",
+        "text",
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "ModelFieldCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "content": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "page": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PositiveCount"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        },
+        "provider_field": {
+          "$ref": "#/$defs/Text"
+        },
+        "transform": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "path",
+        "value",
+        "content",
+        "confidence",
+        "page",
+        "transform",
+        "provider_field"
+      ],
+      "type": "object"
+    },
+    "ModelFields": {
+      "additionalProperties": false,
+      "properties": {
+        "contract": {
+          "const": "document.model_fields.v1"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/ModelFieldCandidate"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "model": {
+          "$ref": "#/$defs/Id"
+        },
+        "model_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "provider": {
+          "$ref": "#/$defs/Id"
+        },
+        "provider_document_confidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provider_document_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/Hash"
+        }
+      },
+      "required": [
+        "contract",
+        "provider",
+        "model",
+        "document_type",
+        "source_sha256",
+        "provider_document_type",
+        "provider_document_confidence",
+        "fields"
+      ],
+      "type": "object"
+    },
+    "ObservationStatus": {
+      "enum": [
+        "present",
+        "not_present",
+        "illegible",
+        "redacted",
+        "ambiguous",
+        "not_applicable"
+      ]
+    },
+    "OcrPage": {
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "text": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "page",
+        "text"
+      ],
+      "type": "object"
+    },
+    "OcrParser": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/Id"
+        },
+        "version": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "ProviderEnvelope": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "document.entities"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "additionalProperties": false,
+              "properties": {
+                "entities": {
+                  "items": {
+                    "$ref": "#/$defs/Mention"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "entities"
+              ],
+              "type": "object"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "document.forensics"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/ForensicsAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "document.translate"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "additionalProperties": false,
+              "properties": {
+                "translations": {
+                  "items": {
+                    "$ref": "#/$defs/Translation"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "translations"
+              ],
+              "type": "object"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "document.fields"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/ExtractionResponse"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "document.ocr"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "additionalProperties": false,
+              "properties": {
+                "pages": {
+                  "items": {
+                    "$ref": "#/$defs/OcrPage"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "parser": {
+                  "$ref": "#/$defs/OcrParser"
+                }
+              },
+              "required": [
+                "pages",
+                "parser"
+              ],
+              "type": "object"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "document.model"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/ModelFields"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "fraud.synthetic_identity"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/DetectorAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "fraud.identity_theft"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/DetectorAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "fraud.document_tamper"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/DetectorAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "fraud.deepfake"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/DetectorAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "fraud.liveness"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/DetectorAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capability": {
+              "const": "fraud.account_takeover"
+            },
+            "coverage": {
+              "$ref": "#/$defs/Coverage"
+            },
+            "evidence_refs": {
+              "items": {
+                "$ref": "#/$defs/Ref"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "payload": {
+              "$ref": "#/$defs/DetectorAssessment"
+            },
+            "provider_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "request_hash": {
+              "$ref": "#/$defs/Hash"
+            },
+            "source_version": {
+              "$ref": "#/$defs/Id"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "provider_id",
+            "capability",
+            "request_hash",
+            "payload",
+            "evidence_refs",
+            "source_version",
+            "coverage",
+            "synthetic"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Translation": {
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "$ref": "#/$defs/Id"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "source_text": {
+          "$ref": "#/$defs/Text"
+        },
+        "synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "text": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "page_id",
+        "source_text",
+        "text",
+        "language",
+        "synthetic"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/ProviderEnvelope",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

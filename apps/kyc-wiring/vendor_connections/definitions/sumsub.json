@@ -1,0 +1,88 @@
+{
+  "provider_id": "sumsub",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.sumsub.com"
+  },
+  "auth": {
+    "type": "sumsub",
+    "keys": [
+      "APP_TOKEN",
+      "SECRET_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.sumsub.com/reference/authentication",
+    "https://docs.sumsub.com/reference/create-applicant",
+    "https://docs.sumsub.com/reference/get-applicant-review-status",
+    "https://docs.sumsub.com/reference/get-applicant-data",
+    "https://docs.sumsub.com/reference/get-aml-case-data"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_applicant": {
+      "method": "POST",
+      "path": "/resources/applicants",
+      "required_body": [
+        "externalUserId"
+      ],
+      "required_query": [
+        "levelName"
+      ],
+      "body_example": {
+        "externalUserId": "YOUR_USER_ID"
+      },
+      "content": "json",
+      "semantics": "session",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://docs.sumsub.com/reference/create-applicant",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_applicant": {
+      "method": "GET",
+      "path": "/resources/applicants/{applicantId}/one",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "resource",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://docs.sumsub.com/reference/get-applicant-data",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "review_status": {
+      "method": "GET",
+      "path": "/resources/applicants/{applicantId}/status",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/reviewStatus",
+      "resource_pointer": null,
+      "source": "https://docs.sumsub.com/reference/get-applicant-review-status",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "aml_case": {
+      "method": "GET",
+      "path": "/resources/api/applicants/{applicantId}/amlCase",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.sumsub.com/reference/get-aml-case-data",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

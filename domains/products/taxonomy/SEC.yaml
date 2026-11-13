@@ -1,0 +1,41 @@
+# Investment instruments. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: SEC
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - SECURITIES
+  - CAPITAL_MARKETS
+  name: Investment instruments
+  definition: Financial instruments customers hold or trade; classified separately from the services that provide them.
+  riskDimensions:
+  - TRANSFERABILITY
+  classes:
+  - code: EQUITIES
+    name: Equities
+    definition: Listed and unlisted shares and depositary receipts.
+  - code: FIXED_INCOME
+    name: Fixed income
+    definition: Government, agency and corporate bonds and notes.
+  - code: FUNDS
+    name: Fund units
+    definition: Units or shares of collective investment schemes and exchange-traded funds.
+  - code: DERIVATIVES
+    name: Derivatives
+    definition: Futures, options, swaps and forwards, exchange-traded or OTC.
+  - code: STRUCTURED
+    name: Structured products
+    definition: Notes and certificates combining a debt instrument with embedded derivatives.
+  - code: MONEY_MARKET_INSTRUMENTS
+    name: Money-market instruments
+    definition: Treasury bills, commercial paper and certificates of deposit.
+  - code: PRIVATE_MARKETS
+    name: Private-market interests
+    definition: Interests in private equity, private credit, real estate and venture vehicles.
+  - code: TOKENIZED
+    name: Tokenised securities
+    definition: Securities issued or represented on a distributed ledger.

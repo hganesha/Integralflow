@@ -1,0 +1,22 @@
+{
+  "$id": "urn:financial-crime:skill:risk.score.calibrate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "brier_score": {
+      "type": "number"
+    },
+    "promoted": {
+      "type": "boolean"
+    },
+    "sample_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "sample_count",
+    "brier_score",
+    "promoted"
+  ],
+  "type": "object"
+}

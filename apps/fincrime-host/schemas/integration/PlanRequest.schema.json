@@ -1,0 +1,76 @@
+{
+  "$defs": {
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "api_version": {
+      "const": "fincrime.ehf/plan-request-v1",
+      "default": "fincrime.ehf/plan-request-v1",
+      "title": "Api Version",
+      "type": "string"
+    },
+    "inputs": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Inputs",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "profile_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Profile Hash",
+      "type": "string"
+    },
+    "task_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Task Hash",
+      "type": "string"
+    },
+    "task_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Task Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "task_hash",
+    "profile_hash",
+    "inputs"
+  ],
+  "title": "PlanRequest",
+  "type": "object"
+}

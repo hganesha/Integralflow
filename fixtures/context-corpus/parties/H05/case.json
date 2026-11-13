@@ -1,0 +1,48 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h05.entity.corvane",
+  "external_ref": "corpus-H05",
+  "party_id": "H05",
+  "record_count": 703,
+  "relationship_record_id": "h05.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h05.entity.corvane",
+      "identifiers": [],
+      "name": "Corvane Trading FZE",
+      "ref": "corvane",
+      "role": "customer",
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h05.entity.orson",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H05-PP-0001"
+        }
+      ],
+      "name": "Orson Pemberton",
+      "ref": "orson",
+      "role": "beneficial_owner",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h05.entity.yara",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "DE-SPECIMEN",
+          "value": "SPECIMEN-H05-PP-0002"
+        }
+      ],
+      "name": "Yara Zeller",
+      "ref": "yara",
+      "role": "beneficial_owner",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

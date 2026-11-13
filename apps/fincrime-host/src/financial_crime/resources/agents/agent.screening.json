@@ -1,0 +1,88 @@
+{
+  "context_products": [
+    "identity.intelligence",
+    "screening.intelligence",
+    "policy.intelligence"
+  ],
+  "execution": {
+    "allowed_skills": {
+      "screening.match.disambiguate": "0.3.0",
+      "screening.pep.execute": "0.3.0",
+      "screening.sanctions.execute": "0.3.0",
+      "screening.watchlist.execute": "0.3.0"
+    },
+    "capabilities": [],
+    "context_fields": {
+      "Entity": [
+        "identifiers",
+        "name"
+      ],
+      "ScreeningExecution": [
+        "candidate_count",
+        "dataset_versions",
+        "limitations",
+        "provider",
+        "query",
+        "query_time",
+        "scope",
+        "screening_type",
+        "status",
+        "subject",
+        "truncated"
+      ],
+      "ScreeningHit": [
+        "entity_id",
+        "entry_id",
+        "features"
+      ],
+      "WatchlistEntry": [
+        "coverage",
+        "identifiers",
+        "list_type",
+        "list_version",
+        "name"
+      ]
+    },
+    "id": "agent.screening",
+    "instructions": "Assess required customer and related-party sanctions, PEP and watchlist scope; retain search completion, negative scope, ownership/control restrictions and unresolved matches. Use admitted evidence. Keep proposed actions and authorized decisions separate.",
+    "max_agent_steps": 16,
+    "max_objects": 1000,
+    "model_char_budget": 64000,
+    "model_config_ref": null,
+    "permissions": [
+      "skill:screening.match.disambiguate",
+      "skill:screening.pep.execute",
+      "skill:screening.sanctions.execute",
+      "skill:screening.watchlist.execute"
+    ],
+    "policy_fields": [
+      "freshness_seconds",
+      "jurisdiction",
+      "permissions",
+      "screening_threshold",
+      "version"
+    ],
+    "purposes": [
+      "investigation",
+      "onboarding",
+      "review"
+    ],
+    "timeout_seconds": 30,
+    "version": "0.5.0"
+  },
+  "human_gates": [
+    "ambiguous evidence",
+    "policy exception",
+    "consequential decision"
+  ],
+  "id": "agent.screening",
+  "mandate": "Assess required customer and related-party sanctions, PEP and watchlist scope; retain search completion, negative scope, ownership/control restrictions and unresolved matches.",
+  "personas": [
+    "sanctions_analyst",
+    "kyb_analyst"
+  ],
+  "task_ids": [
+    "task.screening"
+  ],
+  "version": "1.0.0"
+}

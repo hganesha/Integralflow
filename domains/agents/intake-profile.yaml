@@ -1,0 +1,49 @@
+id: agent.intake_profile
+version: 1.1.0
+source: { library: agent.intake_profile }
+name: Intake and profile agent
+role: Onboarding specialist
+modelTier: standard
+customerTypes: [individual, corporate]
+skills:
+  required: [party.profile.build, party.type.classify, party.profile.completeness]
+  optional: [party.activity.profile]
+tools: [business.registry.lookup.v1, reference.identifier.lookup.v1]
+# The bank's relationship record states who the customer is and what it is opening (wave 5: a live run
+# found the review classifying the customer without it).
+reads: [BankingRelationship, Product]
+completion: { libraryTask: task.intake_profile }
+prompt: >-
+  Establish who the customer is, which parties hold which roles, which products are requested and what
+  information the case still lacks. You describe the case; you do not judge its risk or acceptability.
+instruction: >-
+  Read the canonical party, relationship and product records; the banking relationship names the customer and
+  each party's legal form. Classify the customer, list every party with its
+  roles, and name each missing piece of information with the record or document that would supply it. Look a
+  company up in a registry or an identifier service only when a party's legal identity is unclear.
+requiresHumanReview: when_needed
+outputFields:
+  required: [profile, missingInformation]
+  properties:
+    profile:
+      type: object
+      additionalProperties: false
+      required: [customerType, products, parties]
+      properties:
+        customerType: { type: string, enum: [individual, corporate, unknown] }
+        products: { type: array, items: { type: string } }
+        parties:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required: [entityRef, roles]
+            properties: { entityRef: { type: string, minLength: 1 }, roles: { type: array, items: { type: string } } }
+    missingInformation: { type: array, items: { type: string } }
+example:
+  summary: Corporate customer with two beneficial owners and three directors; deposit and payments requested.
+  findings: [{ type: PROFILE, severity: INFO, reason: "Parties and roles taken from the banking relationship.", sourceRefs: [rel-1] }]
+  gaps: []
+  requiresHumanReview: false
+  profile: { customerType: corporate, products: [deposit, payments], parties: [{ entityRef: e-customer, roles: [customer] }] }
+  missingInformation: []

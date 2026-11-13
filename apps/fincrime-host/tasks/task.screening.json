@@ -1,0 +1,106 @@
+{
+  "agent_profile": "agent.screening",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "hits",
+        "coverage",
+        "universal_clearance"
+      ],
+      "requires_human_decision": false,
+      "step_id": "screening_sanctions_execute"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "hits",
+        "coverage",
+        "universal_clearance"
+      ],
+      "requires_human_decision": false,
+      "step_id": "screening_pep_execute"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "hits",
+        "coverage",
+        "universal_clearance"
+      ],
+      "requires_human_decision": false,
+      "step_id": "screening_watchlist_execute"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "dispositions"
+      ],
+      "requires_human_decision": false,
+      "step_id": "screening_match_disambiguate"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.screening",
+  "input_fields": [],
+  "input_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {},
+    "required": [],
+    "type": "object"
+  },
+  "objective": "Assess required customer and related-party sanctions, PEP and watchlist scope; retain search completion, negative scope, ownership/control restrictions and unresolved matches.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "screening_sanctions_execute",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "screening.sanctions.execute",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [],
+      "id": "screening_pep_execute",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "screening.pep.execute",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [],
+      "id": "screening_watchlist_execute",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "screening.watchlist.execute",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "screening_sanctions_execute",
+        "screening_pep_execute",
+        "screening_watchlist_execute"
+      ],
+      "id": "screening_match_disambiguate",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "screening.match.disambiguate",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

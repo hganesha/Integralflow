@@ -1,0 +1,53 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TradeIndicator": {
+      "additionalProperties": false,
+      "properties": {
+        "invoice_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "reason": {
+          "$ref": "#/$defs/Id"
+        },
+        "shipment_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "trade_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "trade_id",
+        "invoice_id",
+        "shipment_id",
+        "reason"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:aml.trade_based.detect:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "indicators": {
+      "items": {
+        "$ref": "#/$defs/TradeIndicator"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "not_proof": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "indicators",
+    "not_proof"
+  ],
+  "type": "object"
+}

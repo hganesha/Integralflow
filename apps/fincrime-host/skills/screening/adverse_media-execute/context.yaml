@@ -1,0 +1,34 @@
+dynamic_target: null
+requirements:
+- fields:
+  - subjects
+  - title
+  - source
+  - status
+  - coverage
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: AdverseMediaEvent
+  optional: true
+- fields:
+  - subject
+  - screening_type
+  - provider
+  - query
+  - query_time
+  - status
+  - dataset_versions
+  - scope
+  - candidate_count
+  - truncated
+  - limitations
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ScreeningExecution
+  optional: true
+schema_version: 2.0.0
+skill_id: screening.adverse_media.execute

@@ -1,0 +1,23 @@
+import { afterEach, expect, it } from "vitest";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { tmpdir } from "node:os";
+const exec = promisify(execFile);
+const directories: string[] = [];
+afterEach(async () => { for (const directory of directories.splice(0)) await rm(directory, { recursive: true, force: true }); });
+it("requires stopped-executor acknowledgement before owner recovery can release an active deployment", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "owner-recovery-")); directories.push(directory);
+  const path = join(directory, "setup.json");
+  const original = { document: { revision: 2 }, claimed: true, identityVerified: true, sessions: [{ hash: "old-session" }], deployment: { phase: "running", leaseHash: "old-lease" }, events: [] };
+  await writeFile(path, JSON.stringify(original), { mode: 0o600 });
+  const args = ["--import", "tsx", fileURLToPath(new URL("./recover.ts", import.meta.url)), "--state", directory, "--acknowledge-stopped"];
+  await expect(exec(process.execPath, args)).rejects.toThrow();
+  expect(JSON.parse(await readFile(path, "utf8"))).toEqual(original);
+  await exec(process.execPath, [...args, "--acknowledge-executor-stopped"]);
+  const recovered = JSON.parse(await readFile(path, "utf8"));
+  expect(recovered).toMatchObject({ claimed: false, identityVerified: false, sessions: [], deployment: { phase: "failed" } });
+  expect(recovered.deployment).not.toHaveProperty("leaseHash");
+});

@@ -1,0 +1,22 @@
+{
+  "$id": "urn:financial-crime:skill:ownership.graph.expand:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_depth": {
+      "maximum": 30,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "target": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "target",
+    "max_depth"
+  ],
+  "type": "object"
+}

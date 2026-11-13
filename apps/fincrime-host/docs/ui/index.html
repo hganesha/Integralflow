@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Mockups · Financial Crime Experience Platform</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<style>
+  .wrap { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: var(--space-10) var(--space-8) var(--space-16); }
+  .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-8); align-items: end; margin-bottom: var(--space-10); }
+  .instruments { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+  .instrument { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); padding: var(--space-5); display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; }
+  .journey { counter-reset: j; display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: var(--space-3); margin-bottom: var(--space-10); }
+  .journey a { counter-increment: j; position: relative; background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); padding: var(--space-4); padding-top: 36px; text-decoration: none; color: inherit; font-size: var(--text-sm); display: flex; flex-direction: column; gap: 4px; }
+  .journey a::before { content: counter(j); position: absolute; top: 10px; left: 14px; font-family: var(--font-display); font-size: 22px; color: var(--emerald-700); }
+  .journey a:hover { border-color: var(--graphite-600); box-shadow: var(--shadow-2); }
+  .inv { width: 100%; }
+  .inv td a { font-weight: 500; }
+  .docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-bottom: var(--space-10); }
+  .docs a { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); padding: var(--space-5); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 6px; }
+  .docs a:hover { border-color: var(--graphite-600); }
+  h2.sec { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 36px; margin-bottom: var(--space-4); }
+</style>
+</head>
+<body data-root="" data-studio="" data-role="Product Design" data-user="UI Architecture">
+<header data-shell="chrome" style="position:sticky;top:0;height:var(--chrome-h)"></header>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="t-engraved">UI architecture · style guide · mockups — v1.0 · 2026-11-07</div>
+      <div class="t-display" style="font-size:54px;line-height:58px;margin-top:10px">One studio. <em>Three instruments.</em> One canonical truth.</div>
+      <p class="muted" style="margin-top:14px;font-size:16px;line-height:24px;max-width:62ch">High-fidelity HTML mockups for the Phase 1 KYB vertical slice. They're built on the real contracts in <span class="mono">schemas/</span> and <span class="mono">catalog/</span> (222 skills · 87 context types · ontology 2.0.0) and the synthetic KYB workflow. All data is synthetic.</p>
+    </div>
+    <div class="instruments">
+      <div class="instrument"><svg class="i i--xl"><use href="#i-stack"/></svg><b>Contextboard</b><span class="xs muted">What it knows</span></div>
+      <div class="instrument"><svg class="i i--xl"><use href="#i-sliders"/></svg><b>Skillboard</b><span class="xs muted">What it can do</span></div>
+      <div class="instrument"><svg class="i i--xl"><use href="#i-workflow"/></svg><b>Taskboard</b><span class="xs muted">What must be done</span></div>
+    </div>
+  </section>
+
+  <div class="docs">
+    <a href="ALIGNMENT.md"><span class="t-engraved">Read first · v2</span><b style="font-size:18px">Alignment</b><span class="small muted">Replaces control-ui: ownership, parity matrix, IA, gaps, drift control.</span></a>
+    <a href="BUILD-SPEC.md"><span class="t-engraved">Build</span><b style="font-size:18px">Build spec v2</b><span class="small muted">BFF, mock, 40 surfaces with acceptance criteria, milestones to cutover.</span></a>
+    <a href="UI-ARCHITECTURE.md"><span class="t-engraved">Rationale</span><b style="font-size:18px">UI Architecture</b><span class="small muted">Contract review, application architecture, IA &amp; routes, state model, component catalog, 25-screen spec.</span></a>
+    <a href="style-guide.html"><span class="t-engraved">Living reference</span><b style="font-size:18px">Style Guide</b><span class="small muted">Tokens, typography, semantic states from real enums, epistemic markers, trust classes, adaptation.</span></a>
+    <a href="STYLE-GUIDE.md"><span class="t-engraved">Written rules</span><b style="font-size:18px">Style Guide (text) + tokens.json</b><span class="small muted">Usage rules, do/don't, token reference for engineering.</span></a>
+  </div>
+
+  <h2 class="sec">Walk the first demonstrable product <span class="small muted" style="font-family:var(--font-ui)">— spec §17.1</span></h2>
+  <div class="journey">
+    <a href="mockups/cxt-01-contextboard.html"><b>Configure intelligence</b><span class="muted xs">Context architect · CXT-01/02/03</span></a>
+    <a href="mockups/agt-04-skillboard.html"><b>Compose an ownership task</b><span class="muted xs">Agent architect · AGT-03/04/05</span></a>
+    <a href="mockups/biz-01-my-workspace.html"><b>Pick up the case</b><span class="muted xs">CDD analyst · BIZ-01</span></a>
+    <a href="mockups/biz-03-case-cdd.html"><b>Resolve the discrepancy</b><span class="muted xs">CDD analyst · BIZ-02/03</span></a>
+    <a href="mockups/biz-07-decision-desk.html"><b>Record the decision</b><span class="muted xs">Compliance · BIZ-07</span></a>
+    <a href="mockups/asr-02-flight-recorder.html"><b>Reconstruct it</b><span class="muted xs">Auditor · ASR-02/03</span></a>
+  </div>
+
+  <h2 class="sec">Screen inventory</h2>
+  <div class="panel panel--flush">
+    <table class="table inv"><thead><tr><th>ID</th><th>Screen</th><th>Primary purpose</th><th>Mockup</th><th>Phase</th></tr></thead><tbody id="inv"></tbody></table>
+  </div>
+  <p class="xs muted" style="margin-top:12px">Mocked screens are interactive (tabs, selection, view switches, sheets, keyboard). Screens marked “Spec” have template, components and contracts defined in UI-ARCHITECTURE.md §8.</p>
+</div>
+<script src="assets/shell.js"></script>
+<script>
+const S = [
+ ["CXT-01","Contextboard Overview","Intelligence discovery","mockups/cxt-01-contextboard.html","1"],
+ ["CXT-02","Context Composition","Governed profile authoring","mockups/cxt-01-contextboard.html","1","Tune tab"],
+ ["CXT-03","Provider Workbench","Integrations and mappings","mockups/cxt-01-contextboard.html","1","Engineer tab"],
+ ["CXT-04","Context Preview","Context validation","mockups/cxt-04-context-preview.html","1"],
+ ["AGT-01","Workforce Atlas","Specialist agent discovery","mockups/agt-01-workforce-atlas.html","1"],
+ ["AGT-02","Agent Profile","Mandate and boundaries","mockups/agt-04-skillboard.html","1","header + nav"],
+ ["AGT-03","Taskboard","Task composition","mockups/agt-04-skillboard.html","1"],
+ ["AGT-04","Skillboard","Canonical skill composition","mockups/agt-04-skillboard.html","1"],
+ ["AGT-05","Context Handshake","Task-scoped context requirements","mockups/agt-04-skillboard.html","1","inspector · Context"],
+ ["AGT-06","Rehearsal","Test execution and evaluation","","1"],
+ ["AGT-07","Publish & Diff","Version validation","","1"],
+ ["BIZ-01","My Workspace","Role-based attention queue","mockups/biz-01-my-workspace.html","1"],
+ ["BIZ-02","Case Room","Shared case work","mockups/biz-03-case-cdd.html","1"],
+ ["BIZ-03","CDD Workbench","Identity and ownership","mockups/biz-03-case-cdd.html","1"],
+ ["BIZ-04","EDD Workbench","Enhanced investigations","","4"],
+ ["BIZ-05","AML Workbench","Transaction and fund-flow investigation","","4"],
+ ["BIZ-06","Screening Workbench","Screening adjudication","mockups/biz-06-screening.html","2"],
+ ["BIZ-07","Risk & Decision","Risk and compliance authority","mockups/biz-07-decision-desk.html","2"],
+ ["BIZ-08","QA & Policy","Verification and governance","","2"],
+ ["BIZ-09","Operations & Review","Operational flow and monitoring","","2"],
+ ["ASR-01","Mission Control","Cross-enterprise observability","","3"],
+ ["ASR-02","Flight Recorder","Execution reconstruction","mockups/asr-02-flight-recorder.html","1"],
+ ["ASR-03","Decision Lineage","Evidence and authority traceability","mockups/asr-03-decision-lineage.html","3"],
+ ["ASR-04","Assurance Lab","Evaluation and improvement","","5"],
+ ["ASR-05","Assurance Packages","Audit deliverables","","3"]
+];
+document.getElementById("inv").innerHTML = S.map(([id,n,p,h,ph,note]) => `<tr><td class="mono">${id}</td><td>${h?`<a href="${h}">${n}</a>`:n}</td><td class="muted">${p}</td><td>${h?`<span class="status" data-tone="positive">Mocked${note?` · ${note}`:""}</span>`:'<span class="status" data-tone="draft">Spec</span>'}</td><td class="num">Phase ${ph}</td></tr>`).join("");
+</script>
+</body>
+</html>

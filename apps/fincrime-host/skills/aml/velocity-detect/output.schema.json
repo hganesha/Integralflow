@@ -1,0 +1,65 @@
+{
+  "$defs": {
+    "CountIndicator": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "$ref": "#/$defs/Id"
+        },
+        "currency": {
+          "$ref": "#/$defs/Id"
+        },
+        "kind": {
+          "$ref": "#/$defs/Id"
+        },
+        "total": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "transaction_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "account",
+        "currency",
+        "transaction_ids",
+        "total",
+        "kind"
+      ],
+      "type": "object"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:aml.velocity.detect:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "indicators": {
+      "items": {
+        "$ref": "#/$defs/CountIndicator"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "not_proof": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "indicators",
+    "not_proof"
+  ],
+  "type": "object"
+}

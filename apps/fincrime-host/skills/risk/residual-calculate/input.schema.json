@@ -1,0 +1,28 @@
+{
+  "$defs": {
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:risk.residual.calculate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "control_effectiveness": {
+      "$ref": "#/$defs/Fraction"
+    },
+    "inherent_score": {
+      "$ref": "#/$defs/Decimal"
+    }
+  },
+  "required": [
+    "inherent_score",
+    "control_effectiveness"
+  ],
+  "type": "object"
+}

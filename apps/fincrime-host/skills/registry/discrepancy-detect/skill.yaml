@@ -1,0 +1,244 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:registry.discrepancy.detect
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Compare declared legal attributes against each admitted registry
+  record.
+code_hash: 5d5de3b96430444086d8a50a2b0b0992cb812f51a0c1cc0b08546e59f41970d6
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Compare declared legal attributes against each admitted registry record.
+effects: read_only
+entrypoint: financial_crime.skills.registry_sources:discrepancy
+evaluation_profile: registry.discrepancy.detect-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: registry-discrepancy-detect
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: registry.discrepancy.detect
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Extension:
+      additionalProperties: false
+      properties:
+        schema_version:
+          $ref: '#/$defs/Semver'
+        source_ref:
+          anyOf:
+          - $ref: '#/$defs/Ref'
+          - type: 'null'
+        value:
+          $ref: '#/$defs/JsonValue'
+      required:
+      - schema_version
+      - value
+      type: object
+    Extensions:
+      additionalProperties:
+        $ref: '#/$defs/Extension'
+      propertyNames:
+        pattern: ^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$
+        type: string
+      type: object
+      x-dynamic-map-reason: explicit versioned source/institution extensions
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    RegistryAttributes:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/$defs/Text'
+        extensions:
+          $ref: '#/$defs/Extensions'
+        jurisdiction:
+          $ref: '#/$defs/Id'
+        name:
+          $ref: '#/$defs/Id'
+        registration_id:
+          $ref: '#/$defs/Id'
+        status:
+          $ref: '#/$defs/Id'
+      required: []
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:registry.discrepancy.detect:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    declared:
+      $ref: '#/$defs/RegistryAttributes'
+  required:
+  - declared
+  type: object
+instruction_hash: f33f4446f591221de33f1003d0c32106aaf6126b9d8b42c8a51e42239891da65
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Change:
+      additionalProperties: false
+      properties:
+        after:
+          $ref: '#/$defs/JsonValue'
+        before:
+          $ref: '#/$defs/JsonValue'
+        field:
+          $ref: '#/$defs/Id'
+      required:
+      - field
+      - before
+      - after
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    RegistryDiscrepancy:
+      additionalProperties: false
+      properties:
+        changes:
+          items:
+            $ref: '#/$defs/Change'
+          maxItems: 10000
+          type: array
+        registry_id:
+          $ref: '#/$defs/Id'
+      required:
+      - registry_id
+      - changes
+      type: object
+  $id: urn:financial-crime:skill:registry.discrepancy.detect:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    discrepancies:
+      items:
+        $ref: '#/$defs/RegistryDiscrepancy'
+      maxItems: 10000
+      type: array
+  required:
+  - discrepancies
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - attributes
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: RegistryRecord
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

@@ -1,0 +1,1757 @@
+{
+  "_doc": "Domain records for scenario KYB-1042 (ownership_review state + later evidence). Each item validates against schemas/runtime/Record.schema.json. synthetic=true everywhere.",
+  "records": [
+    {
+      "id": "acme",
+      "object_type": "Entity",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "Acme Trading Ltd",
+        "entity_type": "company",
+        "identifiers": [
+          "SYN-0001"
+        ]
+      }
+    },
+    {
+      "id": "harbor",
+      "object_type": "Entity",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "Harbor Holdings BV",
+        "entity_type": "company",
+        "identifiers": [
+          "SYN-0101"
+        ]
+      }
+    },
+    {
+      "id": "meridian",
+      "object_type": "Entity",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "Meridian Nominees Ltd",
+        "entity_type": "company",
+        "identifiers": [
+          "SYN-0102"
+        ]
+      }
+    },
+    {
+      "id": "alice",
+      "object_type": "Entity",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "Alice Example",
+        "entity_type": "individual",
+        "identifiers": [
+          "SYN-0002"
+        ]
+      }
+    },
+    {
+      "id": "bram",
+      "object_type": "Entity",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "Bram Okoro",
+        "entity_type": "individual",
+        "identifiers": [
+          "SYN-0003"
+        ]
+      }
+    },
+    {
+      "id": "chen",
+      "object_type": "Entity",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "Chen Wei",
+        "entity_type": "individual",
+        "identifiers": [
+          "SYN-0004"
+        ]
+      }
+    },
+    {
+      "id": "party-acme",
+      "object_type": "Party",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "entity_id": "acme",
+        "customer_type": "corporate",
+        "role": "customer",
+        "industry": "wholesale_trade",
+        "profile": {
+          "legal_name": "Acme Trading Ltd",
+          "business_purpose": "Import and wholesale of industrial components"
+        }
+      }
+    },
+    {
+      "id": "oi-harbor-acme",
+      "object_type": "OwnershipInterest",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [
+        {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Evidence",
+          "object_id": "ev-f221",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      ],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "owner": "harbor",
+        "owned": "acme",
+        "interest": "0.60"
+      }
+    },
+    {
+      "id": "oi-alice-harbor",
+      "object_type": "OwnershipInterest",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [
+        {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Evidence",
+          "object_id": "ev-f221",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      ],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "owner": "alice",
+        "owned": "harbor",
+        "interest": "0.55"
+      }
+    },
+    {
+      "id": "oi-meridian-harbor",
+      "object_type": "OwnershipInterest",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [
+        {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Evidence",
+          "object_id": "ev-f221",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      ],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "owner": "meridian",
+        "owned": "harbor",
+        "interest": "0.45"
+      }
+    },
+    {
+      "id": "oi-bram-acme",
+      "object_type": "OwnershipInterest",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [
+        {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Evidence",
+          "object_id": "ev-f219",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      ],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "owner": "bram",
+        "owned": "acme",
+        "interest": "0.15"
+      }
+    },
+    {
+      "id": "oi-chen-meridian",
+      "object_type": "OwnershipInterest",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T10:05:00+00:00",
+      "recorded_at": "2026-11-08T10:05:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [
+        {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Evidence",
+          "object_id": "ev-register-v3",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      ],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "owner": "chen",
+        "owned": "meridian",
+        "interest": "1.0"
+      }
+    },
+    {
+      "id": "cr-alice-acme",
+      "object_type": "ControlRight",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "controller": "alice",
+        "controlled": "acme",
+        "basis": "board_appointment",
+        "verified": true
+      }
+    },
+    {
+      "id": "rel-meridian-nominee",
+      "object_type": "Relationship",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "source": "meridian",
+        "target": "harbor",
+        "relation": "nominee_shareholder",
+        "verified": false
+      }
+    },
+    {
+      "id": "VR-031",
+      "object_type": "VerificationRecord",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "subject": "alice",
+        "method": "document_and_registry",
+        "status": "VERIFIED",
+        "evidence_ids": [
+          "ev-f221",
+          "ev-passport-alice"
+        ]
+      }
+    },
+    {
+      "id": "VR-044",
+      "object_type": "VerificationRecord",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T10:30:00+00:00",
+      "recorded_at": "2026-11-08T10:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "subject": "chen",
+        "method": "document",
+        "status": "VERIFIED",
+        "evidence_ids": [
+          "ev-passport-chen"
+        ]
+      }
+    },
+    {
+      "id": "bo-alice",
+      "object_type": "BeneficialOwner",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "entity_id": "alice",
+        "interest": "0.33",
+        "evidence_ids": [
+          "ev-f221"
+        ],
+        "verification_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "VerificationRecord",
+          "object_id": "VR-031",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      }
+    },
+    {
+      "id": "ev-f221",
+      "object_type": "Evidence",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "source_id": "registry-capture",
+        "content": "Shareholders: Alice Example 55%; Meridian Nominees Ltd 45%",
+        "content_hash": "73fbd15571229907e3f92cadec2909390e3538dc9bb2b2482118621f2ad70897",
+        "requirement_ids": [
+          "req-ubo-identified"
+        ],
+        "verified": true
+      }
+    },
+    {
+      "id": "ev-f219",
+      "object_type": "Evidence",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "source_id": "registry-capture",
+        "content": "Shareholders: Harbor Holdings BV 60%; Bram Okoro 15%",
+        "content_hash": "8e0f7709fcf4a439605c85f29b9c8dd0ea3f1b2c6234ae69d0ca3566b85d2ec2",
+        "requirement_ids": [
+          "req-ubo-identified"
+        ],
+        "verified": true
+      }
+    },
+    {
+      "id": "ev-decl-07",
+      "object_type": "Evidence",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "source_id": "customer-upload",
+        "content": "Bram Okoro … holding: 25%",
+        "content_hash": "a8aa0e47541ba5df1fe1aa1ca5ceeeee7b3dbc787afbeee5b18452bd8b570a9e",
+        "requirement_ids": [
+          "req-ubo-identified"
+        ],
+        "verified": false
+      }
+    },
+    {
+      "id": "ev-passport-alice",
+      "object_type": "Evidence",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "source_id": "customer-upload",
+        "content": "[document image reference dv-41]",
+        "content_hash": "bbe51cbe1f730b0c296bc792a6acacd56d471ab5a7b1b2ed0792f8fb97becad0",
+        "requirement_ids": [
+          "req-ubo-identified"
+        ],
+        "verified": false
+      }
+    },
+    {
+      "id": "as-bram-decl",
+      "object_type": "Assertion",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-10-30T15:00:00+00:00",
+      "recorded_at": "2026-10-30T15:00:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "subject": "bram",
+        "field": "interest",
+        "value": "0.25",
+        "claim": "Bram Okoro holds 25% of Acme Trading Ltd",
+        "evidence_ids": [
+          "ev-decl-07"
+        ],
+        "verification": {
+          "status": "UNVERIFIED",
+          "method": "customer_declaration"
+        }
+      }
+    },
+    {
+      "id": "as-bram-reg",
+      "object_type": "Assertion",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "subject": "bram",
+        "field": "interest",
+        "value": "0.15",
+        "claim": "Registry records 15% holding by Bram Okoro",
+        "evidence_ids": [
+          "ev-f219"
+        ],
+        "verification": {
+          "status": "VERIFIED",
+          "method": "registry_complete_coverage"
+        }
+      }
+    },
+    {
+      "id": "cf-12",
+      "object_type": "Conflict",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "subject_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Entity",
+          "object_id": "bram",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "field": "interest",
+        "assertion_refs": [
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "Assertion",
+            "object_id": "as-bram-decl",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          },
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "Assertion",
+            "object_id": "as-bram-reg",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          }
+        ],
+        "status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "og-acme",
+      "object_type": "OwnershipGraph",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v3",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "root_entity_id": "acme",
+        "nodes": [
+          "acme",
+          "harbor",
+          "alice",
+          "meridian",
+          "bram"
+        ],
+        "edge_refs": [
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "OwnershipInterest",
+            "object_id": "oi-harbor-acme",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          },
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "OwnershipInterest",
+            "object_id": "oi-alice-harbor",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          },
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "OwnershipInterest",
+            "object_id": "oi-meridian-harbor",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          },
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "OwnershipInterest",
+            "object_id": "oi-bram-acme",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          }
+        ],
+        "complete": false,
+        "unresolved": [
+          {
+            "node": "meridian",
+            "reason": "NOMINEE_PRINCIPAL_UNKNOWN",
+            "path": [
+              "meridian",
+              "harbor",
+              "acme"
+            ],
+            "interest": "0.27"
+          },
+          {
+            "node": "acme",
+            "reason": "UNACCOUNTED_INTEREST",
+            "path": [
+              "acme"
+            ],
+            "interest": "0.15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fd-301",
+      "object_type": "Finding",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "claim": "Alice Example is a verified beneficial owner (33.0% effective).",
+        "evidence_ids": [
+          "ev-f221",
+          "ev-passport-alice"
+        ],
+        "status": "RESOLVED"
+      }
+    },
+    {
+      "id": "fd-302",
+      "object_type": "Finding",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "claim": "Bram Okoro's interest is disputed between declaration (25%) and registry (15%).",
+        "evidence_ids": [
+          "ev-decl-07",
+          "ev-f219"
+        ],
+        "status": "DISPUTED",
+        "question": "Which holding is current?"
+      }
+    },
+    {
+      "id": "fd-303",
+      "object_type": "Finding",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "claim": "Principal behind Meridian Nominees Ltd (27.0% effective) is unknown.",
+        "evidence_ids": [
+          "ev-f221"
+        ],
+        "status": "UNRESOLVED",
+        "question": "Who is the beneficial principal of the nominee holding?"
+      }
+    },
+    {
+      "id": "KYB-1042",
+      "object_type": "Case",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "r7",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "case_type": "KYB",
+        "state": "REVIEW",
+        "subject_refs": [
+          {
+            "tenant_id": "tenant-synthetic",
+            "object_type": "Entity",
+            "object_id": "acme",
+            "version_id": "v1",
+            "schema_version": "2.0.0"
+          }
+        ],
+        "revision": 7
+      }
+    },
+    {
+      "id": "t-77",
+      "object_type": "Task",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "role": "relationship_manager",
+        "skill_id": "document.request.generate",
+        "status": "PENDING",
+        "dependencies": [],
+        "parameters": {
+          "documents": [
+            "certified_share_register",
+            "nominee_declaration"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sla-1042",
+      "object_type": "SLA",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "task_id": "t-77",
+        "deadline": "2026-11-11T17:00:00+00:00"
+      }
+    },
+    {
+      "id": "cp-14",
+      "object_type": "Checkpoint",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "execution_id": "wf-kyb-1042",
+        "workflow_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "WorkflowDefinition",
+          "object_id": "synthetic-kyb",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "state_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Case",
+          "object_id": "KYB-1042",
+          "version_id": "r7",
+          "schema_version": "2.0.0"
+        },
+        "completed_step_ids": [
+          "case_create",
+          "decision_policy_resolve",
+          "decision_requirements_compile",
+          "entity_resolve",
+          "entity_match",
+          "registry_company_verify",
+          "document_classify",
+          "document_fields_extract",
+          "document_evidence_link",
+          "party_profile_build",
+          "ownership_graph_build",
+          "ownership_interest_calculate",
+          "ownership_ubo_resolve",
+          "ownership_ubo_verify"
+        ],
+        "pending_step_ids": [
+          "screening_sanctions_execute"
+        ]
+      }
+    },
+    {
+      "id": "pep-88231",
+      "object_type": "WatchlistEntry",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "CHEN Wei",
+        "identifiers": [],
+        "list_type": "pep",
+        "list_version": "2026.10",
+        "coverage": {
+          "complete": true,
+          "as_of": "2026-10-28T00:00:00+00:00",
+          "provider": "pep-list-provider"
+        }
+      }
+    },
+    {
+      "id": "hit-9",
+      "object_type": "ScreeningHit",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "entity_id": "chen",
+        "entry_id": "pep-88231",
+        "features": {
+          "identifier_conflict": true,
+          "shared_identifiers": [],
+          "verified_match": false
+        }
+      }
+    },
+    {
+      "id": "rf-geo",
+      "object_type": "RiskFactor",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "geography",
+        "score": "0.40"
+      }
+    },
+    {
+      "id": "rf-prod",
+      "object_type": "RiskFactor",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:12:00+00:00",
+      "recorded_at": "2026-11-06T09:12:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "name": "product",
+        "score": "0.50"
+      }
+    },
+    {
+      "id": "ra-77",
+      "object_type": "RiskAssessment",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:20:00+00:00",
+      "recorded_at": "2026-11-08T11:20:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "score": "0.46",
+        "tier": "MEDIUM",
+        "model_version": "risk-synthetic-0.1.0",
+        "contributions": [
+          {
+            "factor": "geography",
+            "weight": "0.4",
+            "value": "0.40",
+            "contribution": "0.16"
+          },
+          {
+            "factor": "product",
+            "weight": "0.6",
+            "value": "0.50",
+            "contribution": "0.30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ctl-req-legal-existence",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-legal-existence",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-ubo-identified",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-ubo-identified",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-conflicts-resolved",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-conflicts-resolved",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-sanctions",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-sanctions",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-pep",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-pep",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-documents",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-documents",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-risk-tier",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-risk-tier",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "id": "ctl-req-edd-sof",
+      "object_type": "Control",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T11:30:00+00:00",
+      "recorded_at": "2026-11-08T11:30:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "requirement_id": "req-edd-sof",
+        "outcome": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "id": "apr-5c19",
+      "object_type": "Approval",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-08T15:14:00+00:00",
+      "recorded_at": "2026-11-08T15:14:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "action": "decision.disposition.record",
+        "status": "PENDING",
+        "requester_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Actor",
+          "object_id": "r.okafor",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "approver_ref": null,
+        "request_hash": "4b2ce45a63eccb60baedd529c368393680824cb59a8bc69a8042a62802cc79a1",
+        "context_hash": "2e217cbf6d5614790ae410a6e0ede9ebec203eeaf19b2bf6c80f51a1ee4015cf",
+        "execution_lock_hash": "ec26f23f9b3fb995d8b9ee33761c693a70b6c622f40c652215aa71f157da5a5f",
+        "expires_at": "2026-11-08T15:42:00+00:00"
+      }
+    },
+    {
+      "id": "ae-0",
+      "object_type": "AuditEvent",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T09:00:00+00:00",
+      "recorded_at": "2026-11-06T09:00:00+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "event": "case.created",
+        "actor_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Actor",
+          "object_id": "d.patel",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "execution_id": "wf-kyb-1042",
+        "occurred_at": "2026-11-06T09:00:00+00:00",
+        "event_hash": "f80b58105a72d1a8b06821debb135855586f5b4ba093b48adfb9885cbda06f9d",
+        "previous_hash": null
+      }
+    },
+    {
+      "id": "ae-1",
+      "object_type": "AuditEvent",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T13:57:52+00:00",
+      "recorded_at": "2026-11-06T13:57:52+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "event": "skill.completed",
+        "actor_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Actor",
+          "object_id": "agent:A02",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "execution_id": "wf-kyb-1042",
+        "occurred_at": "2026-11-06T13:57:52+00:00",
+        "event_hash": "0d25605e045a72f02feb529805bb978d03a5af244cf2fe17d9e1ee61e16edc10",
+        "previous_hash": "f80b58105a72d1a8b06821debb135855586f5b4ba093b48adfb9885cbda06f9d"
+      }
+    },
+    {
+      "id": "ae-2",
+      "object_type": "AuditEvent",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-06T13:58:03+00:00",
+      "recorded_at": "2026-11-06T13:58:03+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "event": "workflow.interrupted",
+        "actor_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Actor",
+          "object_id": "service:workflow",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "execution_id": "wf-kyb-1042",
+        "occurred_at": "2026-11-06T13:58:03+00:00",
+        "event_hash": "937f12d3a5514a91e0c3b1a8beb33ca455ff389cbcaa99bd0149f23fd121d5ec",
+        "previous_hash": "0d25605e045a72f02feb529805bb978d03a5af244cf2fe17d9e1ee61e16edc10"
+      }
+    },
+    {
+      "id": "ae-3",
+      "object_type": "AuditEvent",
+      "tenant_id": "tenant-synthetic",
+      "version_id": "v1",
+      "schema_version": "2.0.0",
+      "classification": "internal",
+      "purposes": [
+        "onboarding",
+        "review",
+        "investigation",
+        "monitoring"
+      ],
+      "observed_at": "2026-11-07T11:12:40+00:00",
+      "recorded_at": "2026-11-07T11:12:40+00:00",
+      "valid_from": null,
+      "valid_to": null,
+      "source_refs": [],
+      "subject_ids": [
+        "acme"
+      ],
+      "supersedes": null,
+      "synthetic": true,
+      "data": {
+        "event": "human.reviewed",
+        "actor_ref": {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "Actor",
+          "object_id": "r.okafor",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        },
+        "execution_id": "wf-kyb-1042",
+        "occurred_at": "2026-11-07T11:12:40+00:00",
+        "event_hash": "f797f48ee76d602b600a3ae16ec9485c0b1dad48e6b509c21281d481e480160a",
+        "previous_hash": "937f12d3a5514a91e0c3b1a8beb33ca455ff389cbcaa99bd0149f23fd121d5ec"
+      }
+    }
+  ]
+}

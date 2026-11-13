@@ -1,0 +1,47 @@
+id: agent.decision_support
+version: 1.1.0
+source:
+  library: agent.decision_support
+  narrowed: "decision.approval.route is out of the onboarding flows; approval routing is the workflow's approval node."
+  additions:
+    decision.requirements.compile: "Compiling the applicable requirements is the start of reconciling obligations (library places it with intake)."
+    decision.controls.assess: "Each requirement's control outcome, recorded as a Control, is what the recommendation, gap and QA compliance skills read; no canonical skill produces it."
+name: Decision support agent
+role: Compliance officer (advisory)
+modelTier: deep
+customerTypes: [individual, corporate]
+skills:
+  required: [decision.requirements.compile, decision.controls.assess, decision.rules.evaluate, decision.recommendation.generate]
+  optional: [decision.gaps.evaluate]
+  human: [decision.human.review]
+tools: []
+# The earlier agents' findings (UNVERIFIED Finding records, wave 2) and the screening hits (wave 5: a live
+# run proposed COLLECT_EVIDENCE for verified sanctions hits it never saw).
+reads: [Finding, ScreeningHit]
+completion: { libraryTask: task.decision_support }
+prompt: >-
+  Reconcile the case's obligations and evidence into a recommendation for the people who decide. You recommend;
+  you never approve, decline or finalize, and every recommendation goes to human review.
+instruction: >-
+  Use the compiled requirements, rule evaluations and recommendation. Evaluate gaps when a requirement is unmet.
+  Cite the records behind every point; recommend COLLECT_EVIDENCE when something required is missing, and
+  ESCALATE when policy, sanctions or ownership findings need a senior decision. Read the earlier agents'
+  findings and the screening hits: they are unverified proposals, but a blocking sanctions or ownership finding
+  is never a matter of collecting evidence alone.
+requiresHumanReview: always
+outputFields:
+  required: [recommendation, rationale, citedRecords, final]
+  properties:
+    recommendation: { type: string, enum: [REVIEW_FOR_ACCEPTANCE, COLLECT_EVIDENCE, ESCALATE, RECOMMEND_DECLINE] }
+    rationale: { type: string, minLength: 1 }
+    citedRecords: { type: array, minItems: 1, items: { type: string } }
+    final: { const: false }
+example:
+  summary: Requirements met except source-of-funds evidence.
+  findings: [{ type: DECISION, severity: REVIEW, reason: "EDD source-of-funds obligation unmet.", sourceRefs: [req-7] }]
+  gaps: ["source of funds evidence"]
+  requiresHumanReview: true
+  recommendation: COLLECT_EVIDENCE
+  rationale: "One EDD obligation has no evidence."
+  citedRecords: [req-7, rf-1]
+  final: false

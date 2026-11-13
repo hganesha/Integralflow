@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "VelocityWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor": {
+          "$ref": "#/$defs/Id"
+        },
+        "count": {
+          "$ref": "#/$defs/Count"
+        },
+        "source": {
+          "$ref": "#/$defs/Id"
+        },
+        "totals": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Decimal"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        }
+      },
+      "required": [
+        "anchor",
+        "source",
+        "count",
+        "totals"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:transaction.velocity.analyze:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "windows": {
+      "items": {
+        "$ref": "#/$defs/VelocityWindow"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "windows"
+  ],
+  "type": "object"
+}

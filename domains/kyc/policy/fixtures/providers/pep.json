@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "harness.fixtures.screening.v1",
+  "capability": "screening.pep",
+  "description": "Provider-neutral politically exposed person screening results. Which tiers and associate degrees are in scope, and how long exposure decays after leaving office, are owner input D03.",
+  "thresholdsOwnerInput": "D03",
+  "fixtures": [
+    {
+      "id": "PEP-CLEAR-001",
+      "summary": "No politically exposed relationship found.",
+      "subject": { "name": "FIXTURE Alice Nakamura", "dateOfBirth": "1984-06-11", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-pep-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": []
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "PEP-TIER1-001",
+      "summary": "Sitting senior official. In scope under any reasonable reading of D03.",
+      "subject": { "name": "FIXTURE Rafael Costa", "dateOfBirth": "1965-07-08", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-pep-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_pep_tier1_001",
+            "listRecordId": "FIXTURE-PEP-9001",
+            "tier": "TIER_1",
+            "position": "FIXTURE Minister of Fictional Affairs",
+            "relationship": "SELF",
+            "inOfficeFrom": "2022-01-01",
+            "inOfficeTo": null,
+            "score": 0.96
+          }
+        ]
+      },
+      "expected": { "findingType": "PEP_SIGNAL", "screeningStatus": "OK" }
+    },
+    {
+      "id": "PEP-TIER2-001",
+      "summary": "Regional official. In scope only if D03 includes tier 2, which the placeholder does.",
+      "subject": { "name": "FIXTURE Nadia Osei", "dateOfBirth": "1981-03-25", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-pep-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_pep_tier2_001",
+            "listRecordId": "FIXTURE-PEP-9044",
+            "tier": "TIER_2",
+            "position": "FIXTURE Regional Assembly Member",
+            "relationship": "SELF",
+            "inOfficeFrom": "2024-05-01",
+            "inOfficeTo": null,
+            "score": 0.92
+          }
+        ]
+      },
+      "expected": { "findingType": "PEP_SIGNAL", "screeningStatus": "OK" }
+    },
+    {
+      "id": "PEP-ASSOCIATE-001",
+      "summary": "Close associate of a tier 1 official at one degree of separation.",
+      "subject": { "name": "FIXTURE Tomas Lindqvist", "dateOfBirth": "1977-12-02", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-pep-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_pep_assoc_001",
+            "listRecordId": "FIXTURE-PEP-9102",
+            "tier": "TIER_1",
+            "position": "FIXTURE Minister of Fictional Affairs",
+            "relationship": "CLOSE_ASSOCIATE",
+            "associateDegree": 1,
+            "inOfficeFrom": "2022-01-01",
+            "inOfficeTo": null,
+            "score": 0.88
+          }
+        ]
+      },
+      "expected": { "findingType": "PEP_SIGNAL", "screeningStatus": "OK" }
+    },
+    {
+      "id": "PEP-DECAYED-001",
+      "summary": "Left office longer ago than the decay period. Whether this is still a signal is exactly what D03 has to settle; until it does, the platform records the alert and a human decides.",
+      "subject": { "name": "FIXTURE Helena Broz", "dateOfBirth": "1958-10-14", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-pep-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_pep_decayed_001",
+            "listRecordId": "FIXTURE-PEP-9210",
+            "tier": "TIER_2",
+            "position": "FIXTURE Deputy Trade Envoy",
+            "relationship": "SELF",
+            "inOfficeFrom": "2009-01-01",
+            "inOfficeTo": "2013-06-30",
+            "score": 0.94
+          }
+        ]
+      },
+      "expected": { "findingType": "PEP_SIGNAL", "screeningStatus": "OK", "ownerInputRefs": ["D03"] }
+    }
+  ]
+}

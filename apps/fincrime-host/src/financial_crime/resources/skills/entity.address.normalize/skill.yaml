@@ -1,0 +1,110 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:entity.address.normalize
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Normalize Unicode and whitespace without asserting postal deliverability.
+code_hash: e14bba943904d7c66c8256dfafeca31403fea459c141d9cb612cec1a95bf1c25
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Normalize Unicode and whitespace without asserting postal deliverability.
+effects: read_only
+entrypoint: financial_crime.skills.identity:address_normalize
+evaluation_profile: entity.address.normalize-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: entity-address-normalize
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: entity.address.normalize
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:entity.address.normalize:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    address:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - address
+  type: object
+instruction_hash: b094a6828f0c3af0a74d6e2d1a6c1986c0cba08ef462d78855f4ddbb875bbf7d
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $id: urn:financial-crime:skill:entity.address.normalize:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    normalized:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    original:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    verified:
+      type: boolean
+  required:
+  - original
+  - normalized
+  - verified
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

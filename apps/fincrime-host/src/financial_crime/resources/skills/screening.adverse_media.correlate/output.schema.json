@@ -1,0 +1,45 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MediaCluster": {
+      "additionalProperties": false,
+      "properties": {
+        "article_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "event_key": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "event_key",
+        "article_ids"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:screening.adverse_media.correlate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clusters": {
+      "items": {
+        "$ref": "#/$defs/MediaCluster"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "clusters"
+  ],
+  "type": "object"
+}

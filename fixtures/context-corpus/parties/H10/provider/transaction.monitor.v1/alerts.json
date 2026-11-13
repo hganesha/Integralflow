@@ -1,0 +1,7 @@
+{
+  "alerts": [],
+  "as_of": "2026-09-30T00:00:00Z",
+  "monitor": "synthetic-rules-v1",
+  "schema": "transaction.monitor.v1/alerts",
+  "subject": "h10.entity.devon"
+}

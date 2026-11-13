@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SurfacePatch",
+  "description": "Realtime delivery envelope (addendum \u00a711.3). Also used for domain-event notifications on the SSE stream.",
+  "x-urn": "urn:financial-crime:ui-proposed:SurfacePatch:0.1.0",
+  "x-status": "proposed \u2014 UI-local until reviewed; migrate to schemas/presentation/SurfacePatch.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "stream": {
+      "enum": [
+        "surface",
+        "domain"
+      ]
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "surface_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "surface_revision": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "correlation_ref": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "object_ref": {
+      "anyOf": [
+        {
+          "$ref": "../../../../schemas/runtime/Ref.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "data_revision": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "patch_type": {
+      "enum": [
+        "create",
+        "replace",
+        "merge",
+        "append",
+        "delete",
+        "invalidate"
+      ]
+    },
+    "path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value": {},
+    "event_type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "freshness": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_status": {
+      "enum": [
+        "complete",
+        "qualified",
+        "degraded"
+      ]
+    },
+    "integrity": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "alg": {
+              "const": "sha256"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "alg",
+            "value"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "stream",
+    "sequence",
+    "patch_type",
+    "freshness",
+    "source_status"
+  ]
+}

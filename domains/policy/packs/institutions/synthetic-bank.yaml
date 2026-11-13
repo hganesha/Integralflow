@@ -1,0 +1,41 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.institution.bank-synthetic
+  version: 1.0.0
+  layer: institution
+  appliesTo: { institutions: [bank.synthetic], jurisdictions: [US, GB, AU] }
+  status: CANDIDATE
+  ownerRole: kyb-policy-owner
+  description: The corpus's synthetic bank (institutionId bank.synthetic); its risk appetite in both jurisdictions. Not a real institution's policy.
+values:
+  screening_threshold:
+    value: 0.85
+    basis: { text: "Owner input D01 (possible-match score) as used by the KYC reference policy." }
+  freshness_seconds:
+    value: { WatchlistEntry: 86400, VerificationRecord: 7776000 }
+    basis: { text: "Owner inputs D01 (list freshness 1 day) and D05 (identity verification 90 days)." }
+  verification_methods:
+    value: [government_id_document, registry_extract]
+    basis: { text: "Institution appetite: a government identity document for individuals and a registry extract for legal entities." }
+  required_screening_types:
+    value: [sanctions, pep]
+    basis: { text: "Institution appetite: PEP screening for every customer, in every jurisdiction." }
+  screening_roles:
+    value: [customer, beneficial_owner, control_person, director, signatory, trustee, settlor, protector, beneficiary]
+    basis: { text: "Institution appetite: directors and signatories are screened as well, and for a trust its trustees, settlor, protector and beneficiaries, the people the UK, US and Australian regimes treat as a trust's beneficial owners or controllers." }
+  required_party_roles:
+    value: { individual: [customer], corporate: [customer, beneficial_owner], trust: [customer, trustee] }
+    basis: { text: "Every jurisdiction's parties, and, as institution appetite, a trust is onboarded only with at least one named trustee, who holds its legal title and acts for it." }
+  dual_control_required:
+    value: true
+    basis: { text: "Institution appetite: two independent people approve every onboarding decision a person makes; only the low-risk carve-out (automatic_approval_low_risk) decides without one." }
+  automatic_approval_low_risk:
+    value: true
+    basis: { text: "SYNTHETIC placeholder, not a real institution's appetite: the disposition checkpoint may approve a low-risk case without a person. Every other decision needs dual control." }
+  low_risk_max_factor_score:
+    value: "0.20"
+    basis: { text: "SYNTHETIC placeholder: a case is low risk only when every risk factor scores at or below 0.20 (the corpus's clean individual, H01, scores at most 0.05)." }
+  simplified_due_diligence_permitted:
+    value: false
+    basis: { text: "Institution decision pending: simplified due diligence is not adopted until the policy owner approves where it applies, so an SDD cell is applied as CDD." }

@@ -1,0 +1,45 @@
+id: agent.risk_edd
+version: 1.1.0
+source:
+  library: agent.risk_edd
+  additions:
+    risk.factor.evaluate: "Evaluating a single risk factor is part of assessing customer risk."
+    edd.scope.plan: "Scoping enhanced due diligence is in the mandate."
+    risk.factors.derive: "The scored factors the risk model weighs come from the case's recorded exposures; no canonical skill records them."
+name: Risk and EDD agent
+role: EDD analyst
+modelTier: deep
+customerTypes: [individual, corporate]
+skills:
+  required: [risk.factors.derive, risk.customer.assess, risk.tier.assign, edd.trigger.evaluate]
+  optional: [risk.factor.evaluate, edd.scope.plan, edd.source_of_funds.verify, edd.source_of_wealth.assess]
+tools: []
+# What raises risk beyond the scored factors: a verified PEP relationship and the screening hits (wave 5:
+# a live run proposed no EDD for a customer whose sibling is a verified PEP).
+reads: [PEPRelationship, ScreeningHit]
+completion: { libraryTask: task.risk_edd }
+prompt: >-
+  Assess the customer's risk from the case's risk factors under the pinned policy, decide whether enhanced due
+  diligence is triggered and scope it. You propose a tier; the policy and a person decide it.
+instruction: >-
+  Use the skills' assessment, tier and EDD triggers. The trigger skill sees the tier and the diligence level the
+  policy's diligence gate derived; when that level is EDD, its tasks are the policy's EDD obligations, and you never
+  propose less. Weigh the PEP relationships and verified screening hits the records show, and when a party connected
+  to the customer is a verified PEP the level did not escalate for, propose EDD scoped to that connection and say so. Evaluate a single factor, verify source of funds or assess
+  source of wealth only when the case's facts make it material. Never lower a tier the skills assigned, and name
+  the evidence each EDD step needs.
+requiresHumanReview: when_needed
+outputFields:
+  required: [proposedTier, eddRecommended, eddScope]
+  properties:
+    proposedTier: { type: string, enum: [LOW, MEDIUM, HIGH, UNKNOWN] }
+    eddRecommended: { type: boolean }
+    eddScope: { type: array, items: { type: string } }
+example:
+  summary: High risk from ownership structure and sanctions exposure; EDD triggered.
+  findings: [{ type: RISK, severity: REVIEW, reason: "Ownership structure and sanctions exposure scores above 0.9.", sourceRefs: [rf-1, rf-2] }]
+  gaps: ["source of funds evidence"]
+  requiresHumanReview: true
+  proposedTier: HIGH
+  eddRecommended: true
+  eddScope: [source_of_funds, ownership_structure]

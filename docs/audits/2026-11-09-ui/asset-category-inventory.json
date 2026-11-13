@@ -1,0 +1,232 @@
+{
+  "sourceRelease": "0.5.0",
+  "counts": {
+    "agents": 7,
+    "context": 12,
+    "documents": 529,
+    "external-capabilities": 881,
+    "policies": 10,
+    "skills": 229
+  },
+  "entryTypeCounts": {
+    "agents": {
+      "definition": 7
+    },
+    "context": {
+      "definition": 12
+    },
+    "documents": {
+      "definition": 293,
+      "field": 236
+    },
+    "external-capabilities": {
+      "definition": 56,
+      "binding": 825
+    },
+    "policies": {
+      "definition": 10
+    },
+    "skills": {
+      "definition": 229
+    }
+  },
+  "groups": {
+    "skills": {
+      "definition": {
+        "AML": 12,
+        "Alert": 10,
+        "Case": 10,
+        "Decision": 12,
+        "Document": 19,
+        "EDD": 10,
+        "Entity": 12,
+        "Evidence": 10,
+        "Fraud": 12,
+        "Investigation": 12,
+        "Monitor": 10,
+        "Network": 10,
+        "Ownership": 12,
+        "Party": 10,
+        "Quality": 10,
+        "Registry": 10,
+        "Regulatory": 10,
+        "Risk": 12,
+        "Screening": 14,
+        "Transaction": 12
+      }
+    },
+    "external-capabilities": {
+      "binding": {
+        "Account": 25,
+        "Business": 139,
+        "Case": 32,
+        "Credential": 1,
+        "Crypto": 30,
+        "Document": 1,
+        "EDD": 18,
+        "Entity": 2,
+        "Financial": 21,
+        "Identity": 312,
+        "Questionnaire": 2,
+        "Reference": 17,
+        "Risk": 107,
+        "Screening": 72,
+        "Transaction": 32,
+        "Travel rule": 7,
+        "Workflow": 7
+      },
+      "definition": {
+        "Account": 3,
+        "Business": 4,
+        "Case": 1,
+        "Credential": 2,
+        "Crypto": 2,
+        "Document": 2,
+        "EDD": 1,
+        "Entity": 1,
+        "Financial": 7,
+        "Identity": 10,
+        "Monitoring": 1,
+        "Platform": 2,
+        "Questionnaire": 2,
+        "Reference": 2,
+        "Regulatory": 1,
+        "Risk": 6,
+        "Screening": 6,
+        "Transaction": 1,
+        "Travel rule": 1,
+        "Workflow": 1
+      }
+    }
+  },
+  "sprite": [
+    "sliders",
+    "layers",
+    "stack",
+    "fingerprint",
+    "sitemap",
+    "copy",
+    "shield",
+    "shieldcheck",
+    "users",
+    "user",
+    "swap",
+    "branch",
+    "check",
+    "checkcircle",
+    "alert",
+    "block",
+    "xcircle",
+    "info",
+    "lock",
+    "search",
+    "searchcheck",
+    "chevr",
+    "chevd",
+    "chevl",
+    "arrowr",
+    "arrowl",
+    "arrowd",
+    "clock",
+    "file",
+    "link",
+    "eye",
+    "play",
+    "pause",
+    "grid",
+    "flag",
+    "gauge",
+    "scale",
+    "bot",
+    "workflow",
+    "database",
+    "globe",
+    "filter",
+    "more",
+    "external",
+    "refresh",
+    "history",
+    "activity",
+    "panelr",
+    "panell",
+    "plus",
+    "x",
+    "hash",
+    "book",
+    "cpu",
+    "signal",
+    "table",
+    "graph",
+    "target",
+    "scan",
+    "compass",
+    "inbox",
+    "building",
+    "bell",
+    "send",
+    "download",
+    "package",
+    "gavel",
+    "flight",
+    "beaker",
+    "pin",
+    "split",
+    "keyboard",
+    "mic",
+    "phone",
+    "watch",
+    "monitor",
+    "hand",
+    "minus",
+    "help"
+  ],
+  "spriteCount": 79,
+  "assets": [
+    {
+      "path": "apps/web/icons/withtext.png",
+      "bytes": 974727
+    },
+    {
+      "path": "apps/web/icons/IntegralFlow.png",
+      "bytes": 1546639
+    },
+    {
+      "path": "apps/web/icons/withnamelight.png",
+      "bytes": 1240739
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/instrument-sans-latin-600-normal.woff2",
+      "bytes": 17408
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/instrument-sans-latin-700-normal.woff2",
+      "bytes": 17012
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/instrument-sans-latin-500-normal.woff2",
+      "bytes": 17232
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/instrument-serif-latin-400-normal.woff2",
+      "bytes": 21032
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/instrument-serif-latin-400-italic.woff2",
+      "bytes": 22128
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/instrument-sans-latin-400-normal.woff2",
+      "bytes": 16860
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/jetbrains-mono-latin-400-normal.woff2",
+      "bytes": 21168
+    },
+    {
+      "path": "apps/fincrime-host/docs/ui/assets/fonts/jetbrains-mono-latin-500-normal.woff2",
+      "bytes": 21832
+    }
+  ],
+  "entriesWithoutCategory": [],
+  "skillAndCapabilityTitlesWithoutIconMetadata": 1110
+}

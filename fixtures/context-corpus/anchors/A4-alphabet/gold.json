@@ -1,0 +1,121 @@
+{
+  "anchor": "A4",
+  "subject": "Alphabet Inc.",
+  "labelled_by": "assistant, from the filing text; not independently adjudicated",
+  "labelled_on": "2026-11-09",
+  "sources": {
+    "def14a": {
+      "form": "DEF 14A",
+      "filed": "2026-04-24",
+      "accession": "0001308179-26-000342",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000130817926000342/goog-20260424.htm",
+      "sha256": "b40e134ceffa9efdf9b1bd92c29b269a64afe4768a56d35f4c923db94dbf4888",
+      "section": "Common Stock Ownership of Certain Beneficial Owners and Management (p.35)"
+    },
+    "ex21": {
+      "form": "10-K Exhibit 21.01",
+      "filed": "2026-02-05",
+      "accession": "0001652044-26-000018",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/googexhibit2101q42025.htm",
+      "sha256": "79d48291f71556dacefba4d46dffe9601bac9b8b420f0df9852ab9fd64f1d42f"
+    }
+  },
+  "as_of": "2026-04-06",
+  "shares_outstanding": {
+    "class_a": 5823665113,
+    "class_b": 835779041
+  },
+  "votes_per_share": {
+    "class_a": 1,
+    "class_b": 10
+  },
+  "subsidiaries_ex21": [
+    {
+      "name": "Google LLC",
+      "jurisdiction": "Delaware"
+    },
+    {
+      "name": "XXVI Holdings Inc.",
+      "jurisdiction": "Delaware"
+    },
+    {
+      "name": "Alphabet Capital US LLC",
+      "jurisdiction": "Delaware"
+    }
+  ],
+  "holders": [
+    {
+      "name": "Larry Page",
+      "class_a": 0,
+      "class_b": 389051160,
+      "class_b_pct": 46.5,
+      "voting_pct": 27.4
+    },
+    {
+      "name": "Sergey Brin",
+      "class_a": 37469,
+      "class_b": 358939978,
+      "class_b_pct": 42.9,
+      "voting_pct": 25.3,
+      "note": "includes 172,700 Class B in each of two SMB Pacific 2021 Charitable Remainder Unitrusts (sole trustee)"
+    },
+    {
+      "name": "Sundar Pichai",
+      "class_a": 227560,
+      "class_b": 0,
+      "voting_pct": "<1"
+    },
+    {
+      "name": "Ruth M. Porat",
+      "class_a": 28060,
+      "class_b": 0,
+      "voting_pct": "<1",
+      "note": "held by Passfield Hall Foundation Inc.; shared authority; disclaims pecuniary interest"
+    },
+    {
+      "name": "L. John Doerr",
+      "class_a": 472165,
+      "class_b": 22348940,
+      "class_b_pct": 2.7,
+      "voting_pct": 1.6,
+      "note": "402,465 Class A via The Benificus Foundation (officer, trustee, shared investment authority, disclaims pecuniary interest); Class B via Vallejo Ventures Trust (trustee, shared voting and investment authority)"
+    },
+    {
+      "name": "John L. Hennessy",
+      "class_a": 20624,
+      "class_b": 0,
+      "voting_pct": "<1",
+      "note": "Hennessy 1993 Revocable Trust (trustee)"
+    },
+    {
+      "name": "K. Ram Shriram",
+      "class_a": 1811108,
+      "class_b": 0,
+      "voting_pct": "<1",
+      "note": "includes spouse and trusts/partnership holdings, footnote 6"
+    },
+    {
+      "name": "All executive officers and directors as a group (14 persons)",
+      "class_a": 2596986,
+      "class_b": 770340078,
+      "class_b_pct": 92.2,
+      "voting_pct": 54.3
+    },
+    {
+      "name": "BlackRock, Inc.",
+      "class_a": 356934964,
+      "class_a_pct": 6.1,
+      "class_b": 0,
+      "voting_pct": 2.5,
+      "note": "based on Schedule 13G/A filed 2024-02-12"
+    }
+  ],
+  "traps": [
+    "Class B carries 10 votes per share: voting power is not economic interest (Page: 46.5% of Class B but 27.4% of total votes)",
+    "Class C non-voting stock is excluded from the table",
+    "Vanguard 8.5% of Class A is footnote-only and, after a 2026-03-26 amendment, is not attributed to Vanguard Group as a single holder",
+    "BlackRock figure rests on a stale 2024 13G/A",
+    "Ex21 omits non-significant subsidiaries; it is not a complete subsidiary tree",
+    "Foundation and trust holdings are attributed to the individual with disclaimed pecuniary interest"
+  ]
+}

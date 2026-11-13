@@ -1,0 +1,215 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:regulatory.ctr.evaluate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Evaluate pinned currency thresholds per customer, business day,
+  currency and direction.
+code_hash: c0b39e2eea83ce40360209beb1d5e9cf88487a85c5e3ffe696a1cc5ef78c46fd
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Evaluate pinned currency thresholds per customer, business day, currency
+  and direction.
+effects: read_only
+entrypoint: financial_crime.skills.monitoring_reporting:ctr_evaluate
+evaluation_profile: regulatory.ctr.evaluate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: regulatory-ctr-evaluate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: regulatory.ctr.evaluate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:regulatory.ctr.evaluate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 484d7268be640c1face2cd4e8971ce336f1d6a8d2903c925d2bd3a23d1e541b3
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- 'This package is an implemented synthetic reference, not a qualified production
+  service. Its scope is the behavior stated above and the typed input/output contracts.
+  Independent representative evaluation, approved institution policy and supported
+  source mappings remain required. No independent real-source accuracy or institution-specific
+  acceptance authority is established by the bundled examples. Only the pinned transaction
+  types are aggregated: whether a type is cash is the policy''s statement, not inferred
+  from the record. A transaction with no `transaction_type` is a context gap. A holder
+  is the Account record''s `entity_id`; accounts held jointly or by related persons
+  are not aggregated together.'
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - entity_id
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Account
+  optional: true
+- fields:
+  - holidays
+  - working_weekdays
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: BusinessCalendar
+  optional: true
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    CtrDirection:
+      enum:
+      - in
+      - out
+    CtrEvaluation:
+      additionalProperties: false
+      properties:
+        business_day:
+          $ref: '#/$defs/Date'
+        currency:
+          $ref: '#/$defs/Id'
+        direction:
+          $ref: '#/$defs/CtrDirection'
+        entity_id:
+          $ref: '#/$defs/Id'
+        threshold_met:
+          anyOf:
+          - $ref: '#/$defs/Bool'
+          - type: 'null'
+        total:
+          $ref: '#/$defs/Decimal'
+        transaction_ids:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - entity_id
+      - business_day
+      - currency
+      - direction
+      - total
+      - transaction_ids
+      - threshold_met
+      type: object
+    Date:
+      format: date
+      type: string
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:regulatory.ctr.evaluate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    calendar_basis:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    evaluations:
+      items:
+        $ref: '#/$defs/CtrEvaluation'
+      maxItems: 10000
+      type: array
+    filing_decided:
+      type: boolean
+    time_zone:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - evaluations
+  - time_zone
+  - calendar_basis
+  - filing_decided
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- ctr_business_day
+- ctr_thresholds
+- ctr_time_zone
+- ctr_transaction_types
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - source
+  - target
+  - amount
+  - currency
+  - timestamp
+  - event_id
+  - status
+  - transaction_type
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Transaction
+  optional: false
+- fields:
+  - start
+  - end
+  - complete
+  - expected_count
+  - watermark
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DatasetScope
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

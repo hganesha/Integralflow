@@ -1,0 +1,134 @@
+{
+  "apiVersion": "harness.factory/policy-pack-index-v1",
+  "packs": [
+    {
+      "id": "policy.pack.us.bank-synthetic.personal-banking",
+      "digest": "695b9ca88d117753d25a65abb8bf1c9a2238ffd4a0418988b31e5b4d18b48e2e",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "US",
+        "institution": "bank.synthetic",
+        "productSet": "personal-banking",
+        "products": [
+          "card",
+          "deposit",
+          "payments"
+        ],
+        "customerTypes": [
+          "individual"
+        ]
+      }
+    },
+    {
+      "id": "policy.pack.us.bank-synthetic.business-banking",
+      "digest": "acf96d9a138948f5e11bb23db953f43b187c53740096ff3b26185c1ce44555c3",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "US",
+        "institution": "bank.synthetic",
+        "productSet": "business-banking",
+        "products": [
+          "deposit",
+          "lending",
+          "merchant_acquiring",
+          "payments"
+        ],
+        "customerTypes": [
+          "corporate"
+        ]
+      }
+    },
+    {
+      "id": "policy.pack.gb.bank-synthetic.personal-banking",
+      "digest": "a1e6bc34e1c3ec1ecadc12358ff8e9dd89c6f8c640741205cf74bc0bcc55890d",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "GB",
+        "institution": "bank.synthetic",
+        "productSet": "personal-banking",
+        "products": [
+          "card",
+          "deposit",
+          "payments"
+        ],
+        "customerTypes": [
+          "individual"
+        ]
+      }
+    },
+    {
+      "id": "policy.pack.gb.bank-synthetic.business-banking",
+      "digest": "afa96a4431bad715820191942844d164c69340e6c3c0c8828a8979782e253fb6",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "GB",
+        "institution": "bank.synthetic",
+        "productSet": "business-banking",
+        "products": [
+          "deposit",
+          "lending",
+          "merchant_acquiring",
+          "payments"
+        ],
+        "customerTypes": [
+          "corporate"
+        ]
+      }
+    },
+    {
+      "id": "policy.pack.au.bank-synthetic.personal-banking",
+      "digest": "77f1bd595af004b0ce8046140f0dc7f16273a8e2c8e8b09b5959fc132e53664f",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "AU",
+        "institution": "bank.synthetic",
+        "productSet": "personal-banking",
+        "products": [
+          "card",
+          "deposit",
+          "payments"
+        ],
+        "customerTypes": [
+          "individual"
+        ]
+      }
+    },
+    {
+      "id": "policy.pack.au.bank-synthetic.business-banking",
+      "digest": "5b403cf4a514edf33c4f6facc44affd92a75f6d7566c4d7fe2be78229328f676",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "AU",
+        "institution": "bank.synthetic",
+        "productSet": "business-banking",
+        "products": [
+          "deposit",
+          "lending",
+          "merchant_acquiring",
+          "payments"
+        ],
+        "customerTypes": [
+          "corporate"
+        ]
+      }
+    },
+    {
+      "id": "policy.pack.us.securities-synthetic.institutional-securities",
+      "digest": "18859fddccc295f8220694a78c7599aca62e20967430829b66e06e23cae4a3e0",
+      "status": "CANDIDATE",
+      "scope": {
+        "jurisdiction": "US",
+        "institution": "securities.synthetic",
+        "productSet": "institutional-securities",
+        "products": [
+          "BRK",
+          "CUS",
+          "WLT"
+        ],
+        "customerTypes": [
+          "corporate"
+        ]
+      }
+    }
+  ]
+}

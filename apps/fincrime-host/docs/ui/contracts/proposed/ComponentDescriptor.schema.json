@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ComponentDescriptor",
+  "description": "Versioned A2UI enterprise catalog entry (addendum \u00a75.3). trust_class P3 is never agent-composable.",
+  "x-urn": "urn:financial-crime:ui-proposed:ComponentDescriptor:0.1.0",
+  "x-status": "proposed \u2014 UI-local until reviewed; migrate to schemas/presentation/ComponentDescriptor.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "component_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Za-z]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "trust_class": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "agent_composable": {
+      "type": "boolean"
+    },
+    "props_schema": {
+      "type": "object"
+    },
+    "data_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "object_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "projection": {
+          "enum": [
+            "overview",
+            "working",
+            "assurance"
+          ]
+        },
+        "classifications": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      },
+      "required": [
+        "object_types",
+        "projection",
+        "classifications"
+      ]
+    },
+    "interactions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "action_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      },
+      "required": [
+        "events",
+        "action_ids"
+      ]
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "alternative": {
+          "enum": [
+            "none",
+            "text",
+            "table",
+            "list"
+          ]
+        },
+        "keyboard": {
+          "type": "string"
+        },
+        "reduced_motion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alternative",
+        "keyboard",
+        "reduced_motion"
+      ]
+    },
+    "attention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "glance": {
+          "type": "boolean"
+        },
+        "card": {
+          "type": "boolean"
+        },
+        "detail": {
+          "type": "boolean"
+        },
+        "workspace": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "glance",
+        "card",
+        "detail",
+        "workspace"
+      ]
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "desktop",
+          "tablet",
+          "mobile",
+          "watch",
+          "voice"
+        ]
+      }
+    },
+    "fallback_component": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "component_id",
+    "version",
+    "title",
+    "purpose",
+    "trust_class",
+    "agent_composable",
+    "props_schema",
+    "data_binding",
+    "interactions",
+    "accessibility",
+    "attention",
+    "devices",
+    "fallback_component"
+  ]
+}

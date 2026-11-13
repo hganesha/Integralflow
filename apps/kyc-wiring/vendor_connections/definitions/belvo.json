@@ -1,0 +1,119 @@
+{
+  "provider_id": "belvo",
+  "version": "documented-public",
+  "bases": {
+    "production": "https://api.belvo.com",
+    "sandbox": "https://sandbox.belvo.com"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "SECRET_ID",
+      "SECRET_PASSWORD"
+    ]
+  },
+  "sources": [
+    "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "owners": {
+      "method": "GET",
+      "path": "/api/owners/",
+      "required_body": [],
+      "required_query": [
+        "link"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "accounts": {
+      "method": "GET",
+      "path": "/api/accounts/",
+      "required_body": [],
+      "required_query": [
+        "link"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "transactions": {
+      "method": "GET",
+      "path": "/api/transactions/",
+      "required_body": [],
+      "required_query": [
+        "link"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "bills": {
+      "method": "GET",
+      "path": "/api/bills/",
+      "required_body": [],
+      "required_query": [
+        "link"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "investments": {
+      "method": "GET",
+      "path": "/api/investments/",
+      "required_body": [],
+      "required_query": [
+        "link"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "investment_transactions": {
+      "method": "GET",
+      "path": "/api/investment-transactions/",
+      "required_body": [],
+      "required_query": [
+        "link"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

@@ -1,0 +1,449 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.fields.contract_extract
+- effect:proposal
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Extract every field of each classified document's catalog contract
+  through an admitted provider, then validate schema, spans and source binding deterministically.
+code_hash: 8d9645985f56467cd19e8d7f2f93ceb86b2280218ca98a8c99cd56796792f76d
+composition_type: composite
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities:
+  - document.fields
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills:
+  - document.fields.extract
+deprecation_policy: new version for contract changes
+description: Extract every field of each classified document's catalog contract through
+  an admitted provider, then validate schema, spans and source binding deterministically.
+effects: proposal
+entrypoint: financial_crime.skills.document_wrappers:contract_extract
+evaluation_profile: document.fields.contract_extract-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: model
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EXTERNAL_ACTION_UNCONFIRMED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- LOW_CONFIDENCE
+- POLICY_UNRESOLVED
+- RATE_LIMITED
+- SOURCE_CONFLICT
+- SOURCE_UNAVAILABLE
+- TIMEOUT
+harness_name: document-fields-contract-extract
+human_interrupt_conditions:
+- 'none for the skill itself: its proposals are committed only through the node''s
+  grants and are never adopted without a checkpoint or a person'
+id: document.fields.contract_extract
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    CatalogCandidate:
+      additionalProperties: false
+      properties:
+        display_name:
+          $ref: '#/$defs/Text'
+        document_type:
+          $ref: '#/$defs/Id'
+        matches:
+          items:
+            $ref: '#/$defs/CatalogMatch'
+          maxItems: 10000
+          type: array
+      required:
+      - document_type
+      - display_name
+      - matches
+      type: object
+    CatalogClassification:
+      additionalProperties: false
+      properties:
+        basis:
+          $ref: '#/$defs/ClassificationBasis'
+        candidates:
+          items:
+            $ref: '#/$defs/CatalogCandidate'
+          maxItems: 10000
+          type: array
+        document_type:
+          $ref: '#/$defs/Id'
+        document_version:
+          $ref: '#/$defs/Id'
+      required:
+      - document_version
+      - document_type
+      - basis
+      - candidates
+      type: object
+    CatalogMatch:
+      additionalProperties: false
+      properties:
+        end:
+          $ref: '#/$defs/PositiveCount'
+        page:
+          $ref: '#/$defs/PositiveCount'
+        quote:
+          $ref: '#/$defs/Text'
+        start:
+          $ref: '#/$defs/Count'
+      required:
+      - page
+      - start
+      - end
+      - quote
+      type: object
+    ClassificationBasis:
+      enum:
+      - title
+      - unique_mention
+      - ambiguous_or_unmatched
+    Count:
+      minimum: 0
+      type: integer
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    PositiveCount:
+      minimum: 1
+      type: integer
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.fields.contract_extract:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    classifications:
+      items:
+        $ref: '#/$defs/CatalogClassification'
+      maxItems: 10000
+      minItems: 0
+      type: array
+    subject:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - classifications
+  - subject
+  type: object
+instruction_hash: 46c93545eecc1194ad043a8c8e2540878c1ecaf14c34cc97ef13c0ba80e98b37
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- External provider accuracy is not established by exact-request local recordings.
+  Valid spans prove location only. No automatic truth, authenticity, regulatory sufficiency
+  or canonical fact promotion. Current maturity remains implemented_synthetic. Independent
+  evaluation, policy/source approvals and operating qualification are required before
+  production.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    CandidateAssertion:
+      additionalProperties: false
+      properties:
+        context_targets:
+          items:
+            $ref: '#/$defs/ContextTargetDecl'
+          maxItems: 10000
+          type: array
+        contract_hash:
+          $ref: '#/$defs/Hash'
+        document_version:
+          $ref: '#/$defs/Id'
+        epistemic_status:
+          $ref: '#/$defs/Id'
+        path:
+          $ref: '#/$defs/Text'
+        source_digest:
+          $ref: '#/$defs/Hash'
+        source_spans:
+          items:
+            $ref: '#/$defs/ExtractionSpan'
+          maxItems: 10000
+          type: array
+        value:
+          $ref: '#/$defs/JsonValue'
+        verification:
+          $ref: '#/$defs/Id'
+      required:
+      - path
+      - value
+      - document_version
+      - source_digest
+      - contract_hash
+      - source_spans
+      - epistemic_status
+      - verification
+      - context_targets
+      type: object
+    ContextTargetDecl:
+      additionalProperties: false
+      properties:
+        condition:
+          $ref: '#/$defs/Text'
+        field_path:
+          $ref: '#/$defs/Id'
+        mode:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+      required:
+      - object_type
+      - field_path
+      - condition
+      - mode
+      type: object
+    Count:
+      minimum: 0
+      type: integer
+    DocumentExtraction:
+      additionalProperties: false
+      properties:
+        candidate_assertions:
+          items:
+            $ref: '#/$defs/CandidateAssertion'
+          maxItems: 10000
+          type: array
+        contract_hash:
+          $ref: '#/$defs/Hash'
+        document_type:
+          $ref: '#/$defs/Id'
+        document_version:
+          $ref: '#/$defs/Id'
+        extraction_status:
+          $ref: '#/$defs/Id'
+        issues:
+          items:
+            $ref: '#/$defs/ExtractionIssue'
+          maxItems: 10000
+          type: array
+        mapping_candidates:
+          items:
+            $ref: '#/$defs/MappingCandidate'
+          maxItems: 10000
+          type: array
+        profile_version:
+          $ref: '#/$defs/Semver'
+        source_digest:
+          $ref: '#/$defs/Hash'
+      required:
+      - document_type
+      - profile_version
+      - contract_hash
+      - document_version
+      - source_digest
+      - extraction_status
+      - candidate_assertions
+      - mapping_candidates
+      - issues
+      type: object
+    ExtractionIssue:
+      additionalProperties: false
+      properties:
+        code:
+          $ref: '#/$defs/Id'
+        message:
+          $ref: '#/$defs/Text'
+        path:
+          $ref: '#/$defs/Text'
+      required:
+      - code
+      - path
+      - message
+      type: object
+    ExtractionSpan:
+      additionalProperties: false
+      properties:
+        end:
+          $ref: '#/$defs/PositiveCount'
+        page_id:
+          $ref: '#/$defs/Id'
+        quote:
+          $ref: '#/$defs/Text'
+        start:
+          $ref: '#/$defs/Count'
+      required:
+      - page_id
+      - start
+      - end
+      - quote
+      type: object
+    Hash:
+      pattern: ^[a-f0-9]{64}$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonObject:
+      additionalProperties:
+        $ref: '#/$defs/JsonValue'
+      type: object
+      x-dynamic-map-reason: schema-selected or source-domain JSON values
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    MappingCandidate:
+      additionalProperties: false
+      properties:
+        requires_subject_resolution_and_transform:
+          $ref: '#/$defs/Bool'
+        source_path:
+          $ref: '#/$defs/Text'
+        source_value:
+          $ref: '#/$defs/JsonValue'
+        targets:
+          items:
+            $ref: '#/$defs/ContextTargetDecl'
+          maxItems: 10000
+          type: array
+      required:
+      - source_path
+      - source_value
+      - targets
+      - requires_subject_resolution_and_transform
+      type: object
+    PositiveCount:
+      minimum: 1
+      type: integer
+    ProposedRecord:
+      additionalProperties: false
+      properties:
+        body:
+          $ref: '#/$defs/JsonObject'
+        evidence:
+          items:
+            $ref: '#/$defs/JsonObject'
+          maxItems: 10000
+          type: array
+        local_ref:
+          $ref: '#/$defs/Id'
+        record_type:
+          $ref: '#/$defs/ProposedRecordType'
+      required:
+      - record_type
+      - local_ref
+      - body
+      - evidence
+      type: object
+    ProposedRecordType:
+      enum:
+      - CanonicalRecord
+      - UnresolvedQuestion
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.fields.contract_extract:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    catalog_hash:
+      $ref: '#/$defs/Hash'
+    extractions:
+      items:
+        $ref: '#/$defs/DocumentExtraction'
+      maxItems: 10000
+      type: array
+    promotion_allowed:
+      type: boolean
+    proposed_records:
+      items:
+        $ref: '#/$defs/ProposedRecord'
+      maxItems: 10000
+      type: array
+    review_required:
+      type: boolean
+    semantic_verification:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    subject:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    unclassified:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+  required:
+  - subject
+  - catalog_hash
+  - review_required
+  - promotion_allowed
+  - semantic_verification
+  - extractions
+  - unclassified
+  - proposed_records
+  type: object
+owner: financial-crime-skills
+permitted_capabilities:
+- document.fields
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- permitted_providers
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - text
+  - page
+  - document_version
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DocumentPage
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

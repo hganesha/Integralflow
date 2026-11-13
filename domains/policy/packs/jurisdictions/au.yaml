@@ -1,0 +1,59 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.jurisdiction.au
+  version: 1.0.0
+  layer: jurisdiction
+  appliesTo: { jurisdictions: [AU] }
+  status: CANDIDATE
+  ownerRole: kyc-policy-owner
+  description: Australian AML/CTF Act 2006 and AML/CTF Rules customer due diligence, and Australian sanctions requirements, for onboarding. Candidate content for an AUSTRAC reporting entity's owner to review, including against the 2024 reforms to the Act and Rules.
+values:
+  jurisdiction:
+    value: AU
+    basis: { text: "Australian policy jurisdiction (ISO 3166 AU), not the booking jurisdiction." }
+  ownership_threshold:
+    value: "0.25"
+    basis:
+      text: "AML/CTF Rules: a beneficial owner is an individual who ultimately owns, directly or indirectly, 25 percent or more of the customer, or controls it."
+      sources: ["https://www.austrac.gov.au/business/core-guidance/customer-identification-and-verification/beneficial-owners"]
+  control_bases:
+    value: [voting_majority, appoint_board, significant_influence]
+    basis:
+      text: "AML/CTF Rules: control includes control through trusts, agreements, arrangements, understandings and practices, whether or not having legal or equitable force, and through the capacity to determine decisions about financial and operating policies."
+      sources: ["https://www.austrac.gov.au/business/core-guidance/customer-identification-and-verification/beneficial-owners"]
+  sanctions_ownership:
+    value: { rule: ofac_50_percent, threshold: "0.5" }
+    basis:
+      text: "Australian sanctions laws prohibit dealing with assets owned or controlled by a designated person or entity; DFAT guidance treats ownership and control case by case."
+      sources: ["https://www.dfat.gov.au/international-relations/security/sanctions/about-sanctions"]
+  required_screening_types:
+    value: [sanctions, pep]
+    basis:
+      text: "AML/CTF Rules: a reporting entity must have systems to determine whether a customer or beneficial owner is a politically exposed person."
+      sources: ["https://www.austrac.gov.au/business/core-guidance/customer-identification-and-verification/politically-exposed-persons-peps"]
+  required_screening_lists:
+    value: [au-dfat-consolidated]
+    basis:
+      text: "The DFAT Consolidated List of persons and entities subject to Australian sanctions."
+      sources: ["https://www.dfat.gov.au/international-relations/security/sanctions/consolidated-list"]
+  pep_scope:
+    value: all
+    basis:
+      text: "The AML/CTF Rules cover domestic, foreign and international organisation politically exposed persons."
+      sources: ["https://www.austrac.gov.au/business/core-guidance/customer-identification-and-verification/politically-exposed-persons-peps"]
+  screening_roles:
+    value: [customer, beneficial_owner, control_person, director]
+    basis:
+      text: "AML/CTF Rules: for a company, collect the full name of each director as well as the beneficial owners."
+      sources: ["https://www.austrac.gov.au/business/core-guidance/customer-identification-and-verification"]
+  required_party_roles:
+    value: { individual: [customer], corporate: [customer, beneficial_owner] }
+    basis:
+      text: "AML/CTF Act 2006 and Rules: identify the customer and collect and verify information about each beneficial owner of a non-individual customer."
+      sources: ["https://www.legislation.gov.au/C2006A00169/latest/text"]
+knownDifferences:
+  - field: sanctions_ownership
+    text: "Australian law has no fixed percentage test: assets owned or controlled by a designated person are affected, assessed case by case. The library's ofac_50_percent rule flags aggregated majority ownership only; control without majority ownership must reach review through screening.sanctions.control.evaluate. The owner must confirm this mapping."
+  - field: ownership_threshold
+    text: "The 2024 amendments to the AML/CTF Act and the new AML/CTF Rules restate beneficial ownership; this layer follows the pre-reform 25 percent definition until the owner confirms the current text."

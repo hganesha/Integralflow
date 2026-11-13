@@ -1,0 +1,22 @@
+{
+  "$id": "urn:financial-crime:skill:case.escalate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "reason": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "role": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "reason",
+    "role"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "provider_id": "ipinfo",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.ipinfo.io"
+  },
+  "auth": {
+    "type": "query",
+    "name": "token",
+    "keys": [
+      "TOKEN"
+    ]
+  },
+  "sources": [
+    "https://ipinfo.io/developers/core-api"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "lookup": {
+      "method": "GET",
+      "path": "/lookup/{ip}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "network_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://ipinfo.io/developers/core-api",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

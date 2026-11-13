@@ -1,0 +1,116 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:registry.taxid.validate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Validate configured business identifier structure without asserting
+  registry existence.
+code_hash: 92f38c405f8042276f430af74681e8a21cb654fccad12a27fb546450d3bf30ea
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Validate configured business identifier structure without asserting registry
+  existence.
+effects: read_only
+entrypoint: financial_crime.skills.registry_sources:taxid
+evaluation_profile: registry.taxid.validate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: registry-taxid-validate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: registry.taxid.validate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:registry.taxid.validate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    issuer:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    value:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - issuer
+  - value
+  type: object
+instruction_hash: eb1489f3f9b5bd1dbfc0a68d0910cb890a462bb5e6ccbd090282849faa08bbf4
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $id: urn:financial-crime:skill:registry.taxid.validate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    existence_verified:
+      type: boolean
+    issuer:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    structurally_valid:
+      type: boolean
+  required:
+  - structurally_valid
+  - existence_verified
+  - issuer
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- identifier_rules
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

@@ -1,0 +1,71 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "DeadlineDays": {
+      "maximum": 366,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ReportType": {
+      "enum": [
+        "SAR",
+        "CTR"
+      ]
+    },
+    "ReportingObligation": {
+      "additionalProperties": false,
+      "properties": {
+        "business_days": {
+          "$ref": "#/$defs/Bool"
+        },
+        "deadline_days": {
+          "$ref": "#/$defs/DeadlineDays"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "time_zone": {
+          "$ref": "#/$defs/Id"
+        },
+        "type": {
+          "$ref": "#/$defs/ReportType"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "deadline_days",
+        "business_days",
+        "time_zone"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:regulatory.obligations.resolve:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "obligations": {
+      "items": {
+        "$ref": "#/$defs/ReportingObligation"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "synthetic": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "obligations",
+    "synthetic"
+  ],
+  "type": "object"
+}

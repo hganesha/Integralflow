@@ -1,0 +1,77 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "identifier_conflict": {
+          "$ref": "#/$defs/Bool"
+        },
+        "name_score": {
+          "$ref": "#/$defs/Probability"
+        },
+        "score": {
+          "$ref": "#/$defs/Probability"
+        },
+        "shared_identifiers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "verified_match": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "entity_id",
+        "score",
+        "shared_identifiers",
+        "identifier_conflict",
+        "name_score",
+        "verified_match"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "$id": "urn:financial-crime:skill:entity.resolve:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/Candidate"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "entity_id": {
+      "maxLength": 512,
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "entity_id",
+    "candidates"
+  ],
+  "type": "object"
+}

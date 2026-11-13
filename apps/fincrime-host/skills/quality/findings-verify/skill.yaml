@@ -1,0 +1,138 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:quality.findings.verify
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Validate finding citation existence; semantic truth remains a separate
+  review.
+code_hash: c3be18466feab6c694bc27250ac1f2153297b692317021a4823be4e11d8d7c7e
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Validate finding citation existence; semantic truth remains a separate
+  review.
+effects: read_only
+entrypoint: financial_crime.skills.governance:findings_verify
+evaluation_profile: quality.findings.verify-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: quality-findings-verify
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: quality.findings.verify
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:quality.findings.verify:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 393d6a569a0dee94f78e0d4dfea8384ca8bed042302a695ae499e80abfa8b0c9
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    CitationCheck:
+      additionalProperties: false
+      properties:
+        citations_valid:
+          $ref: '#/$defs/Bool'
+        id:
+          $ref: '#/$defs/Id'
+      required:
+      - id
+      - citations_valid
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:quality.findings.verify:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    checks:
+      items:
+        $ref: '#/$defs/CitationCheck'
+      maxItems: 10000
+      type: array
+    semantic_review_required:
+      type: boolean
+  required:
+  - checks
+  - semantic_review_required
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - claim
+  - evidence_ids
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Finding
+  optional: false
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

@@ -1,0 +1,31 @@
+dynamic_target: null
+requirements:
+- fields:
+  - invoice_id
+  - shipment_id
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: TradeRecord
+  optional: false
+- fields:
+  - unit_price
+  - quantity
+  - currency
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Invoice
+  optional: false
+- fields:
+  - quantity
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Shipment
+  optional: false
+schema_version: 2.0.0
+skill_id: aml.trade_based.detect

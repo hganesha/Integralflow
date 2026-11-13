@@ -1,0 +1,62 @@
+{
+  "provider_id": "shufti",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.shuftipro.com"
+  },
+  "auth": {
+    "type": "shufti",
+    "keys": [
+      "CLIENT_ID",
+      "SECRET_KEY"
+    ]
+  },
+  "sources": [
+    "https://developers.shuftipro.com/docs/verification_endpoints/requests",
+    "https://developers.shuftipro.com/docs/verification_endpoints/responses"
+  ],
+  "notes": "Basic authentication; post-2023-03-15 SHA256-secret response signature. Legacy signature accounts need an explicit documented change, not silent fallback.",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "verify": {
+      "method": "POST",
+      "path": "/",
+      "required_body": [
+        "reference"
+      ],
+      "required_query": [],
+      "body_example": {
+        "reference": "UNIQUE_REFERENCE",
+        "country": "GB",
+        "language": "EN",
+        "verification_mode": "any"
+      },
+      "content": "json",
+      "semantics": "session",
+      "status_pointer": "/event",
+      "resource_pointer": "/reference",
+      "source": "https://developers.shuftipro.com/docs/verification_endpoints/requests",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_status": {
+      "method": "POST",
+      "path": "/status",
+      "required_body": [
+        "reference"
+      ],
+      "required_query": [],
+      "body_example": {
+        "reference": "YOUR_REFERENCE"
+      },
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/event",
+      "resource_pointer": "/reference",
+      "source": "https://developers.shuftipro.com/docs/verification_endpoints/requests",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

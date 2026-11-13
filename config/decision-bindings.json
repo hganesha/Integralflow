@@ -1,0 +1,39 @@
+{
+  "$comment": "System 1 decision bindings (document factory plan §6.5-6.6). Each is a gateway connector decisions:<id>, pinned in compiled plans until switchboard activation exists. Switching provider means a new binding and a plan recompile, never a consumer change. Credentials and Foundry resources come from the environment only.",
+  "bindings": [
+    {
+      "id": "document.advisory.jev",
+      "adapter": "openrouter_decisions",
+      "model": "typesafe/jev-1.13",
+      "returnedModel": "typesafe/jev-1.13-20260917",
+      "timeoutMs": 30000,
+      "maxQuestions": 12,
+      "questionSet": "document.advisory.v1",
+      "description": "TypeSafe Jev System 1 through OpenRouter Decisions (alpha): a native distribution per question."
+    },
+    {
+      "id": "document.advisory.foundry_openai",
+      "adapter": "foundry_openai",
+      "model": "ehf-advisory-gpt",
+      "returnedModel": "gpt-4.1-2025-04-14",
+      "endpointEnv": "DECISION_FOUNDRY_ENDPOINT",
+      "deploymentType": "data_zone",
+      "timeoutMs": 30000,
+      "maxQuestions": 12,
+      "questionSet": "document.advisory.v1",
+      "description": "An Azure AI Foundry chat deployment (OpenAI v1) with strict structured output; a distribution only from token log-probabilities."
+    },
+    {
+      "id": "document.advisory.foundry_anthropic",
+      "adapter": "foundry_anthropic",
+      "model": "ehf-advisory-claude",
+      "returnedModel": "claude-sonnet-5-5",
+      "endpointEnv": "DECISION_FOUNDRY_ENDPOINT",
+      "deploymentType": "data_zone",
+      "timeoutMs": 30000,
+      "maxQuestions": 12,
+      "questionSet": "document.advisory.v1",
+      "description": "A Claude deployment on Azure AI Foundry (Anthropic Messages API) with a forced tool call; no distribution."
+    }
+  ]
+}

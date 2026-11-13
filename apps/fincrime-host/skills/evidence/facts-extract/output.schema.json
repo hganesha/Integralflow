@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "AssertionRow_claim_evidence_ids_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "_ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "_synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "claim": {
+          "$ref": "#/$defs/Text"
+        },
+        "evidence_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "verification": {
+          "$ref": "#/$defs/Verification"
+        }
+      },
+      "required": [
+        "id",
+        "claim",
+        "evidence_ids",
+        "verification",
+        "_ref",
+        "_synthetic"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Verification": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_ref": {
+          "$ref": "#/$defs/Id"
+        },
+        "evidence_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "method": {
+          "$ref": "#/$defs/Id"
+        },
+        "status": {
+          "$ref": "#/$defs/Id"
+        },
+        "verified_at": {
+          "$ref": "#/$defs/Timestamp"
+        }
+      },
+      "required": [
+        "status",
+        "method"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:evidence.facts.extract:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assertions": {
+      "items": {
+        "$ref": "#/$defs/AssertionRow_claim_evidence_ids_verification"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "verified_facts": {
+      "items": {
+        "$ref": "#/$defs/AssertionRow_claim_evidence_ids_verification"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "assertions",
+    "verified_facts"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,6542 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "KYC API Wiring",
+    "description": "Runnable host wiring for all catalog bindings. Simulation \u2260 external API completion. Unvalidated live routes are denied.",
+    "version": "2.0.0"
+  },
+  "paths": {
+    "/healthz": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Health",
+        "operationId": "health_healthz_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/capabilities": {
+      "get": {
+        "tags": [
+          "Registry"
+        ],
+        "summary": "Capabilities",
+        "operationId": "capabilities_v1_capabilities_get",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/providers": {
+      "get": {
+        "tags": [
+          "Registry"
+        ],
+        "summary": "Providers",
+        "operationId": "providers_v1_providers_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Q"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Category"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/providers/{provider_id}": {
+      "get": {
+        "tags": [
+          "Registry"
+        ],
+        "summary": "Provider",
+        "operationId": "provider_v1_providers__provider_id__get",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Provider Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/connections": {
+      "get": {
+        "tags": [
+          "Readiness"
+        ],
+        "summary": "Connections",
+        "operationId": "connections_v1_connections_get",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Provider Id"
+            }
+          },
+          {
+            "name": "live_ready",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Live Ready"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1000,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/schemas/{name}": {
+      "get": {
+        "tags": [
+          "Contracts"
+        ],
+        "summary": "Schema",
+        "operationId": "schema_v1_schemas__name__get",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/checks": {
+      "post": {
+        "tags": [
+          "Checks"
+        ],
+        "summary": "Submit",
+        "operationId": "submit_v1_checks_post",
+        "parameters": [
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Idempotency-Key"
+            }
+          },
+          {
+            "name": "x-source-authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "X-Source-Authorization"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCheck"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Checks"
+        ],
+        "summary": "Checks",
+        "operationId": "checks_v1_checks_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/checks/batch": {
+      "post": {
+        "tags": [
+          "Checks"
+        ],
+        "summary": "Batch",
+        "operationId": "batch_v1_checks_batch_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchCheck"
+              }
+            }
+          }
+        },
+        "responses": {
+          "207": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/checks/{check_id}": {
+      "get": {
+        "tags": [
+          "Checks"
+        ],
+        "summary": "Check",
+        "operationId": "check_v1_checks__check_id__get",
+        "parameters": [
+          {
+            "name": "check_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Check Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/checks/{check_id}/results": {
+      "get": {
+        "tags": [
+          "Checks"
+        ],
+        "summary": "Results",
+        "operationId": "results_v1_checks__check_id__results_get",
+        "parameters": [
+          {
+            "name": "check_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Check Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/checks/{check_id}/artifact": {
+      "get": {
+        "tags": [
+          "Restricted evidence"
+        ],
+        "summary": "Artifact",
+        "operationId": "artifact_v1_checks__check_id__artifact_get",
+        "parameters": [
+          {
+            "name": "check_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Check Id"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Result Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/checks/{check_id}/retry": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Retry",
+        "operationId": "retry_v1_checks__check_id__retry_post",
+        "parameters": [
+          {
+            "name": "check_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Check Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/events": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Events",
+        "operationId": "events_v1_events_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/event-subscriptions": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Subscription",
+        "operationId": "subscription_v1_event_subscriptions_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subscription"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/deliveries": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Deliveries",
+        "operationId": "deliveries_v1_deliveries_get",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/audit": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Audit",
+        "operationId": "audit_v1_audit_get",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/webhooks/{check_id}": {
+      "post": {
+        "tags": [
+          "Vendor ingress"
+        ],
+        "summary": "Webhook",
+        "operationId": "webhook_v1_webhooks__check_id__post",
+        "parameters": [
+          {
+            "name": "check_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Check Id"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/demo/run": {
+      "post": {
+        "tags": [
+          "Simulation"
+        ],
+        "summary": "Demo Run",
+        "operationId": "demo_run_v1_demo_run_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemoRun"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/vendor-connections": {
+      "get": {
+        "tags": [
+          "Documented vendor testing"
+        ],
+        "summary": "List Connections",
+        "operationId": "list_connections_v1_vendor_connections_get",
+        "parameters": [
+          {
+            "name": "implemented",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Implemented"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/vendor-connections/{provider_id}": {
+      "get": {
+        "tags": [
+          "Documented vendor testing"
+        ],
+        "summary": "Connection",
+        "operationId": "connection_v1_vendor_connections__provider_id__get",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Provider Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/vendor-connections/{provider_id}/operations/{operation_id}": {
+      "get": {
+        "tags": [
+          "Documented vendor testing"
+        ],
+        "summary": "Operation Contract",
+        "operationId": "operation_contract_v1_vendor_connections__provider_id__operations__operation_id__get",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Provider Id"
+            }
+          },
+          {
+            "name": "operation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Operation Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/vendor-connections/{provider_id}/operations/{operation_id}/invoke": {
+      "post": {
+        "tags": [
+          "Documented vendor testing"
+        ],
+        "summary": "Invoke",
+        "operationId": "invoke_v1_vendor_connections__provider_id__operations__operation_id__invoke_post",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Provider Id"
+            }
+          },
+          {
+            "name": "operation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Operation Id"
+            }
+          },
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "title": "Idempotency-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/vendor-invocations/{invocation_id}": {
+      "get": {
+        "tags": [
+          "Documented vendor testing"
+        ],
+        "summary": "Invocation",
+        "operationId": "invocation_v1_vendor_invocations__invocation_id__get",
+        "parameters": [
+          {
+            "name": "invocation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Invocation Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchCheck": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CreateCheck"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Items"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "BatchCheck"
+      },
+      "CreateCheck": {
+        "properties": {
+          "provider_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Provider Id"
+          },
+          "request": {
+            "$ref": "#/components/schemas/CanonicalHostRequest"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "provider_id",
+          "request"
+        ],
+        "title": "CreateCheck"
+      },
+      "DemoRun": {
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "title": "Operation Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "operation_id"
+        ],
+        "title": "DemoRun"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Subscription": {
+        "properties": {
+          "destination_ref": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Destination Ref"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "destination_ref"
+        ],
+        "title": "Subscription"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "VendorInput": {
+        "properties": {
+          "purpose": {
+            "type": "string",
+            "const": "vendor_integration_test",
+            "title": "Purpose",
+            "default": "vendor_integration_test"
+          },
+          "region": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Region"
+          },
+          "path": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Path"
+          },
+          "query": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Query"
+          },
+          "headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Headers"
+          },
+          "body": {
+            "title": "Body"
+          },
+          "files": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Files"
+          },
+          "request_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Request Id"
+          },
+          "subject_entity_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Subject Entity Id"
+          },
+          "canonical_request": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Request"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request_id",
+          "subject_entity_id"
+        ],
+        "title": "VendorInput"
+      },
+      "CanonicalHostRequest": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1.0.0"
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tenant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "idempotency_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "capability": {
+            "type": "string",
+            "enum": [
+              "identity.person.verify",
+              "identity.document.verify",
+              "identity.biometric.verify",
+              "identity.address.verify",
+              "identity.digital_id.verify",
+              "identity.tax_id.verify",
+              "business.verify",
+              "business.registry.lookup",
+              "business.ownership.discover",
+              "business.officers.lookup",
+              "screening.sanctions",
+              "screening.pep",
+              "screening.adverse_media",
+              "screening.enforcement",
+              "screening.payment",
+              "risk.device",
+              "risk.email",
+              "risk.phone",
+              "risk.network",
+              "risk.jurisdiction",
+              "risk.customer.assess",
+              "account.ownership.verify",
+              "financial.evidence.retrieve",
+              "transaction.monitor",
+              "case.manage",
+              "regulatory.report",
+              "crypto.wallet.screen",
+              "crypto.transaction.monitor",
+              "travel_rule.exchange",
+              "edd.report.retrieve",
+              "entity.resolve",
+              "monitoring.subscribe",
+              "reference.identifier.lookup",
+              "reference.list.ingest",
+              "workflow.orchestrate",
+              "credential.verify",
+              "questionnaire.collect"
+            ]
+          },
+          "subject_entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CanonicalHostRequest/$defs/entity"
+            }
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "legal_basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "consent_ref": {
+            "type": "string"
+          },
+          "policy": {
+            "type": "object",
+            "properties": {
+              "policy_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "policy_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "jurisdictions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ownership_threshold_percent": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "threshold_inclusive": {
+                "type": "boolean"
+              },
+              "data_residency_allowlist": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "maximum_data_age_seconds": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "policy_id",
+              "policy_version",
+              "jurisdictions",
+              "data_residency_allowlist"
+            ],
+            "additionalProperties": false
+          },
+          "routing": {
+            "type": "object",
+            "properties": {
+              "provider_allowlist": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "required_datasets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "deadline_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "allow_fallback": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "provider_allowlist",
+              "required_datasets",
+              "allow_fallback"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "type": "object",
+            "properties": {
+              "document_vault_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "account_token_ref": {
+                "type": "string"
+              },
+              "transaction": {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/transaction"
+              },
+              "questionnaire_ref": {
+                "type": "string"
+              },
+              "query": {
+                "type": "string"
+              },
+              "provider_record_id": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "extensions": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "schema_version",
+          "request_id",
+          "tenant_id",
+          "idempotency_key",
+          "capability",
+          "subject_entity_id",
+          "entities",
+          "purpose",
+          "legal_basis",
+          "policy",
+          "routing",
+          "input",
+          "extensions"
+        ],
+        "additionalProperties": false,
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "Canonical host request",
+        "$defs": {
+          "partialDate": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "precision": {
+                "type": "string",
+                "enum": [
+                  "year",
+                  "month",
+                  "day"
+                ]
+              },
+              "calendar": {
+                "type": "string",
+                "enum": [
+                  "gregorian",
+                  "other"
+                ]
+              },
+              "original": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "precision"
+            ],
+            "additionalProperties": false
+          },
+          "identifier": {
+            "type": "object",
+            "properties": {
+              "scheme": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "issuer": {
+                "type": "string"
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "verified": {
+                "type": "boolean"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "scheme",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "name": {
+            "type": "object",
+            "properties": {
+              "full": {
+                "type": "string"
+              },
+              "given": {
+                "type": "string"
+              },
+              "middle": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "family": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "legal",
+                  "alias",
+                  "former",
+                  "transliteration",
+                  "trading",
+                  "unknown"
+                ]
+              },
+              "language": {
+                "type": "string"
+              },
+              "script": {
+                "type": "string"
+              },
+              "original": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "full",
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "lines": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "city": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "postal_code": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$"
+              },
+              "country_original": {
+                "type": "string"
+              },
+              "full": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "registered",
+                  "residential",
+                  "business",
+                  "service",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "entity": {
+            "type": "object",
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entity_type": {
+                "type": "string",
+                "enum": [
+                  "person",
+                  "organization",
+                  "trust",
+                  "legal_arrangement",
+                  "account",
+                  "wallet",
+                  "vessel",
+                  "aircraft",
+                  "address",
+                  "device",
+                  "unknown"
+                ]
+              },
+              "names": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/name"
+                }
+              },
+              "identifiers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/identifier"
+                }
+              },
+              "addresses": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/address"
+                }
+              },
+              "birth_date": {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/partialDate"
+              },
+              "incorporation_date": {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/partialDate"
+              },
+              "nationalities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "legal_form": {
+                "type": "string"
+              },
+              "status_original": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "inactive",
+                  "dissolved",
+                  "unknown"
+                ]
+              },
+              "source_record_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "attributes": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "entity_id",
+              "entity_type",
+              "names",
+              "identifiers"
+            ],
+            "additionalProperties": false
+          },
+          "score": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "string",
+                  "null"
+                ]
+              },
+              "scale_min": {
+                "type": "number"
+              },
+              "scale_max": {
+                "type": "number"
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "higher_is_riskier",
+                  "higher_is_better_match",
+                  "higher_is_better",
+                  "unknown"
+                ]
+              },
+              "semantics": {
+                "type": "string"
+              },
+              "model_version": {
+                "type": "string"
+              },
+              "calibration_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value",
+              "direction",
+              "semantics"
+            ],
+            "additionalProperties": false
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "evidence_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provider_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_record_id": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "source_title": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "retrieved_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "effective_from": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "effective_to": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "source_pointer": {
+                "type": "string"
+              },
+              "content_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "authority": {
+                "type": "string",
+                "enum": [
+                  "official",
+                  "commercial",
+                  "customer_supplied",
+                  "inferred",
+                  "unknown"
+                ]
+              },
+              "license_ref": {
+                "type": "string"
+              },
+              "retention_policy_ref": {
+                "type": "string"
+              },
+              "access_classification": {
+                "type": "string",
+                "enum": [
+                  "public",
+                  "internal",
+                  "confidential",
+                  "restricted"
+                ]
+              }
+            },
+            "required": [
+              "evidence_id",
+              "provider_id",
+              "retrieved_at",
+              "authority",
+              "access_classification"
+            ],
+            "additionalProperties": false
+          },
+          "relationship": {
+            "type": "object",
+            "properties": {
+              "relationship_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "from_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "owns",
+                  "controls",
+                  "director_of",
+                  "officer_of",
+                  "beneficial_owner_of",
+                  "parent_of",
+                  "account_holder_of",
+                  "wallet_attributed_to",
+                  "same_as",
+                  "possible_same_as",
+                  "shares_address",
+                  "shares_device",
+                  "associated_with",
+                  "family_of",
+                  "close_associate_of",
+                  "transacts_with",
+                  "other"
+                ]
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "directed",
+                  "undirected"
+                ]
+              },
+              "assertion_status": {
+                "type": "string",
+                "enum": [
+                  "asserted",
+                  "inferred",
+                  "candidate",
+                  "confirmed",
+                  "rejected",
+                  "unknown"
+                ]
+              },
+              "ownership": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "equity",
+                      "voting",
+                      "economic",
+                      "control",
+                      "unknown"
+                    ]
+                  },
+                  "lower_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "upper_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "exact_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "directness": {
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "indirect",
+                      "unknown"
+                    ]
+                  },
+                  "calculation_policy_ref": {
+                    "type": "string"
+                  },
+                  "calculation_path_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "kind",
+                  "directness"
+                ],
+                "additionalProperties": false
+              },
+              "valid_from": {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/partialDate"
+              },
+              "valid_to": {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/partialDate"
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "confidence_basis": {
+                "type": "string"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "jurisdiction": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "relationship_id",
+              "from_entity_id",
+              "to_entity_id",
+              "type",
+              "direction",
+              "assertion_status",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "assertion": {
+            "type": "object",
+            "properties": {
+              "assertion_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "field_path": {
+                "type": "string"
+              },
+              "value": {},
+              "verification": {
+                "type": "string",
+                "enum": [
+                  "verified",
+                  "not_verified",
+                  "mismatch",
+                  "unknown",
+                  "not_checked"
+                ]
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "assertion_id",
+              "entity_id",
+              "field_path",
+              "value",
+              "verification",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "match": {
+            "type": "object",
+            "properties": {
+              "match_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "candidate_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "list_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "programs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "matched_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/score"
+                }
+              },
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "unresolved",
+                  "true_match",
+                  "false_positive",
+                  "inconclusive"
+                ]
+              },
+              "disposition_actor": {
+                "type": "string"
+              },
+              "disposition_policy_ref": {
+                "type": "string"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "match_id",
+              "subject_entity_id",
+              "candidate_entity_id",
+              "categories",
+              "disposition",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "check": {
+            "type": "object",
+            "properties": {
+              "check_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string",
+                "enum": [
+                  "passed",
+                  "failed",
+                  "inconclusive",
+                  "not_checked",
+                  "not_applicable",
+                  "unknown"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/score"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "check_id",
+              "name",
+              "outcome",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "alert": {
+            "type": "object",
+            "properties": {
+              "alert_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "transaction_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scenario_id": {
+                "type": "string"
+              },
+              "scenario_version": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "in_review",
+                  "closed",
+                  "unknown"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "window_start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "window_end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "alert_id",
+              "severity",
+              "status",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "money": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z0-9]{3,12}$"
+              }
+            },
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "additionalProperties": false
+          },
+          "transaction": {
+            "type": "object",
+            "properties": {
+              "transaction_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurred_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "amount": {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/money"
+              },
+              "originator_entity_id": {
+                "type": "string"
+              },
+              "beneficiary_entity_id": {
+                "type": "string"
+              },
+              "account_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rail": {
+                "type": "string"
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "inbound",
+                  "outbound",
+                  "internal",
+                  "unknown"
+                ]
+              },
+              "chain": {
+                "type": "string"
+              },
+              "tx_hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "transaction_id",
+              "occurred_at",
+              "amount"
+            ],
+            "additionalProperties": false
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "authentication",
+                  "authorization",
+                  "rate_limit",
+                  "validation",
+                  "not_found",
+                  "timeout",
+                  "provider_unavailable",
+                  "schema_drift",
+                  "unsupported",
+                  "unknown"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "retryable": {
+                "type": "boolean"
+              },
+              "retry_after_seconds": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "provider_code": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "category",
+              "message",
+              "retryable"
+            ],
+            "additionalProperties": false
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "complete_for_requested_scope",
+                  "partial",
+                  "unknown",
+                  "not_supported"
+                ]
+              },
+              "requested_scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "checked_scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "not_checked_scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "missing_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "requested_scope",
+              "checked_scope",
+              "not_checked_scope"
+            ],
+            "additionalProperties": false
+          },
+          "verificationResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "verification"
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/check"
+                }
+              },
+              "assertion_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "checks",
+              "assertion_ids"
+            ],
+            "additionalProperties": false
+          },
+          "businessResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "business"
+              },
+              "organization_entity_id": {
+                "type": "string"
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/check"
+                }
+              },
+              "assertion_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "organization_entity_id",
+              "checks",
+              "assertion_ids"
+            ],
+            "additionalProperties": false
+          },
+          "ownershipResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "ownership"
+              },
+              "root_entity_id": {
+                "type": "string"
+              },
+              "relationship_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "completeness": {
+                "type": "string",
+                "enum": [
+                  "complete",
+                  "partial",
+                  "unknown"
+                ]
+              },
+              "legal_test_policy_ref": {
+                "type": "string"
+              },
+              "unresolved_reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "root_entity_id",
+              "relationship_ids",
+              "completeness",
+              "legal_test_policy_ref",
+              "unresolved_reasons"
+            ],
+            "additionalProperties": false
+          },
+          "screeningResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "screening"
+              },
+              "matches": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/match"
+                }
+              },
+              "dataset_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "truncated": {
+                "type": "boolean"
+              },
+              "total_candidates": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "kind",
+              "matches",
+              "dataset_versions",
+              "scope",
+              "truncated",
+              "total_candidates"
+            ],
+            "additionalProperties": false
+          },
+          "riskResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "risk"
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/score"
+                }
+              },
+              "signals": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {},
+                    "reason_codes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "scores",
+              "signals"
+            ],
+            "additionalProperties": false
+          },
+          "accountResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "account"
+              },
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "account_entity_id": {
+                      "type": "string"
+                    },
+                    "field_scores": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostRequest/$defs/score"
+                      }
+                    },
+                    "ownership_outcome": {
+                      "type": "string",
+                      "enum": [
+                        "matched",
+                        "not_matched",
+                        "inconclusive",
+                        "not_checked"
+                      ]
+                    },
+                    "checks": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostRequest/$defs/check"
+                      }
+                    }
+                  },
+                  "required": [
+                    "account_entity_id",
+                    "field_scores",
+                    "ownership_outcome"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "accounts"
+            ],
+            "additionalProperties": false
+          },
+          "financialResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "financial"
+              },
+              "documents": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "document_id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "evidence_id": {
+                      "type": "string"
+                    },
+                    "period_start": {
+                      "$ref": "#/components/schemas/CanonicalHostRequest/$defs/partialDate"
+                    },
+                    "period_end": {
+                      "$ref": "#/components/schemas/CanonicalHostRequest/$defs/partialDate"
+                    },
+                    "extracted_facts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostRequest/$defs/assertion"
+                      }
+                    }
+                  },
+                  "required": [
+                    "document_id",
+                    "type",
+                    "evidence_id"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "monitoringResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "monitoring"
+              },
+              "alerts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/alert"
+                }
+              },
+              "transactions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/transaction"
+                }
+              },
+              "window_start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "window_end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "caseResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "case"
+              },
+              "case_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "assigned_actor": {
+                "type": "string"
+              },
+              "alert_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "decision_history": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "actor": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "policy_ref": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "at",
+                    "actor",
+                    "action"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "reportResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "report"
+              },
+              "report_id": {
+                "type": "string"
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "report_type": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "approved",
+                  "submitted",
+                  "accepted",
+                  "rejected",
+                  "unknown"
+                ]
+              },
+              "acknowledgement_id": {
+                "type": "string"
+              },
+              "filing_authority": {
+                "type": "string"
+              },
+              "restricted_evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "cryptoResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "crypto"
+              },
+              "wallet_entity_id": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "asset": {
+                "type": "string"
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/score"
+                }
+              },
+              "exposures": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "type": "string"
+                    },
+                    "counterparty_entity_id": {
+                      "type": "string"
+                    },
+                    "direction": {
+                      "type": "string",
+                      "enum": [
+                        "incoming",
+                        "outgoing",
+                        "both",
+                        "unknown"
+                      ]
+                    },
+                    "hops": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "share_percent": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "amount": {
+                      "$ref": "#/components/schemas/CanonicalHostRequest/$defs/money"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "direction",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "alerts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostRequest/$defs/alert"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "travel_ruleResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "travel_rule"
+              },
+              "message_id": {
+                "type": "string"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "protocol_version": {
+                "type": "string"
+              },
+              "originator_vasp_entity_id": {
+                "type": "string"
+              },
+              "beneficiary_vasp_entity_id": {
+                "type": "string"
+              },
+              "transfer_transaction_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "delivered",
+                  "accepted",
+                  "rejected",
+                  "failed",
+                  "unknown"
+                ]
+              },
+              "pii_vault_ref": {
+                "type": "string"
+              },
+              "counterparty_due_diligence_status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "eddResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "edd"
+              },
+              "report_id": {
+                "type": "string"
+              },
+              "summary_internal": {
+                "type": "string"
+              },
+              "findings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "finding_id": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "allegation_status": {
+                      "type": "string",
+                      "enum": [
+                        "alleged",
+                        "charged",
+                        "convicted",
+                        "acquitted",
+                        "dismissed",
+                        "unknown"
+                      ]
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "finding_id",
+                    "category",
+                    "allegation_status",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "resolutionResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "resolution"
+              },
+              "candidates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "left_entity_id": {
+                      "type": "string"
+                    },
+                    "right_entity_id": {
+                      "type": "string"
+                    },
+                    "outcome": {
+                      "type": "string",
+                      "enum": [
+                        "same",
+                        "different",
+                        "possible",
+                        "insufficient"
+                      ]
+                    },
+                    "method": {
+                      "type": "string"
+                    },
+                    "model_version": {
+                      "type": "string"
+                    },
+                    "matched_features": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "contradictions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "scores": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostRequest/$defs/score"
+                      }
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "left_entity_id",
+                    "right_entity_id",
+                    "outcome",
+                    "method",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "merge_policy_ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "subscriptionResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "subscription"
+              },
+              "subscription_id": {
+                "type": "string"
+              },
+              "subject_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "paused",
+                  "cancelled",
+                  "unknown"
+                ]
+              },
+              "capabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "identity.person.verify",
+                    "identity.document.verify",
+                    "identity.biometric.verify",
+                    "identity.address.verify",
+                    "identity.digital_id.verify",
+                    "identity.tax_id.verify",
+                    "business.verify",
+                    "business.registry.lookup",
+                    "business.ownership.discover",
+                    "business.officers.lookup",
+                    "screening.sanctions",
+                    "screening.pep",
+                    "screening.adverse_media",
+                    "screening.enforcement",
+                    "screening.payment",
+                    "risk.device",
+                    "risk.email",
+                    "risk.phone",
+                    "risk.network",
+                    "risk.jurisdiction",
+                    "risk.customer.assess",
+                    "account.ownership.verify",
+                    "financial.evidence.retrieve",
+                    "transaction.monitor",
+                    "case.manage",
+                    "regulatory.report",
+                    "crypto.wallet.screen",
+                    "crypto.transaction.monitor",
+                    "travel_rule.exchange",
+                    "edd.report.retrieve",
+                    "entity.resolve",
+                    "monitoring.subscribe",
+                    "reference.identifier.lookup",
+                    "reference.list.ingest",
+                    "workflow.orchestrate",
+                    "credential.verify",
+                    "questionnaire.collect"
+                  ]
+                }
+              },
+              "next_review_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "referenceResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "reference"
+              },
+              "record_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "dataset_id": {
+                "type": "string"
+              },
+              "dataset_version": {
+                "type": "string"
+              },
+              "record_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "relationship_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "workflowResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "workflow"
+              },
+              "workflow_id": {
+                "type": "string"
+              },
+              "workflow_version": {
+                "type": "string"
+              },
+              "step_run_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "running",
+                  "completed",
+                  "failed",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "questionnaireResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "questionnaire"
+              },
+              "questionnaire_id": {
+                "type": "string"
+              },
+              "template_version": {
+                "type": "string"
+              },
+              "answers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "question_id": {
+                      "type": "string"
+                    },
+                    "value": {},
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "question_id",
+                    "value",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "result": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/verificationResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/businessResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/ownershipResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/screeningResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/riskResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/accountResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/financialResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/monitoringResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/caseResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/reportResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/cryptoResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/travel_ruleResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/eddResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/resolutionResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/subscriptionResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/referenceResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/workflowResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostRequest/$defs/questionnaireResult"
+              }
+            ]
+          }
+        }
+      },
+      "CanonicalHostResult": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "KYC Host Result 1.0.0 \u2014 proposed bank-owned model",
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1.0.0"
+          },
+          "result_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tenant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "capability": {
+            "type": "string",
+            "enum": [
+              "identity.person.verify",
+              "identity.document.verify",
+              "identity.biometric.verify",
+              "identity.address.verify",
+              "identity.digital_id.verify",
+              "identity.tax_id.verify",
+              "business.verify",
+              "business.registry.lookup",
+              "business.ownership.discover",
+              "business.officers.lookup",
+              "screening.sanctions",
+              "screening.pep",
+              "screening.adverse_media",
+              "screening.enforcement",
+              "screening.payment",
+              "risk.device",
+              "risk.email",
+              "risk.phone",
+              "risk.network",
+              "risk.jurisdiction",
+              "risk.customer.assess",
+              "account.ownership.verify",
+              "financial.evidence.retrieve",
+              "transaction.monitor",
+              "case.manage",
+              "regulatory.report",
+              "crypto.wallet.screen",
+              "crypto.transaction.monitor",
+              "travel_rule.exchange",
+              "edd.report.retrieve",
+              "entity.resolve",
+              "monitoring.subscribe",
+              "reference.identifier.lookup",
+              "reference.list.ingest",
+              "workflow.orchestrate",
+              "credential.verify",
+              "questionnaire.collect"
+            ]
+          },
+          "provider": {
+            "type": "object",
+            "properties": {
+              "provider_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "product": {
+                "type": "string"
+              },
+              "api_version": {
+                "type": "string"
+              },
+              "adapter_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provider_request_id": {
+                "type": "string"
+              },
+              "provider_record_id": {
+                "type": "string"
+              },
+              "status_original": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "decision_origin": {
+                "type": "string",
+                "enum": [
+                  "provider_check",
+                  "provider_workflow",
+                  "client_workflow",
+                  "data_only",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "provider_id",
+              "adapter_version",
+              "status_original",
+              "decision_origin"
+            ],
+            "additionalProperties": false
+          },
+          "execution": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "completed",
+                  "partial",
+                  "failed",
+                  "cancelled",
+                  "unknown"
+                ]
+              },
+              "received_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "provider_observed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "duration_ms": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "status",
+              "received_at"
+            ],
+            "additionalProperties": false
+          },
+          "assessment": {
+            "type": "object",
+            "properties": {
+              "outcome": {
+                "type": "string",
+                "enum": [
+                  "passed",
+                  "failed",
+                  "review",
+                  "resubmit",
+                  "inconclusive",
+                  "not_checked",
+                  "not_applicable",
+                  "unknown"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "bank_decision": {
+                "type": "string",
+                "enum": [
+                  "not_evaluated",
+                  "approve",
+                  "reject",
+                  "hold",
+                  "escalate"
+                ]
+              },
+              "policy_id": {
+                "type": "string"
+              },
+              "policy_version": {
+                "type": "string"
+              },
+              "actor": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "outcome",
+              "reason_codes",
+              "bank_decision"
+            ],
+            "additionalProperties": false
+          },
+          "coverage": {
+            "$ref": "#/components/schemas/CanonicalHostResult/$defs/coverage"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CanonicalHostResult/$defs/entity"
+            }
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CanonicalHostResult/$defs/relationship"
+            }
+          },
+          "assertions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CanonicalHostResult/$defs/assertion"
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CanonicalHostResult/$defs/evidence"
+            }
+          },
+          "result": {
+            "$ref": "#/components/schemas/CanonicalHostResult/$defs/result"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CanonicalHostResult/$defs/error"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "raw_payload": {
+            "type": "object",
+            "properties": {
+              "vault_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "retention_policy_ref": {
+                "type": "string"
+              },
+              "classification": {
+                "type": "string",
+                "enum": [
+                  "confidential",
+                  "restricted"
+                ]
+              }
+            },
+            "required": [
+              "vault_ref",
+              "sha256",
+              "classification"
+            ],
+            "additionalProperties": false
+          },
+          "extensions": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "schema_version",
+          "result_id",
+          "request_id",
+          "tenant_id",
+          "subject_entity_id",
+          "capability",
+          "provider",
+          "execution",
+          "assessment",
+          "coverage",
+          "entities",
+          "relationships",
+          "assertions",
+          "evidence",
+          "result",
+          "errors",
+          "warnings",
+          "raw_payload",
+          "extensions"
+        ],
+        "additionalProperties": false,
+        "$defs": {
+          "partialDate": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "precision": {
+                "type": "string",
+                "enum": [
+                  "year",
+                  "month",
+                  "day"
+                ]
+              },
+              "calendar": {
+                "type": "string",
+                "enum": [
+                  "gregorian",
+                  "other"
+                ]
+              },
+              "original": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "precision"
+            ],
+            "additionalProperties": false
+          },
+          "identifier": {
+            "type": "object",
+            "properties": {
+              "scheme": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "issuer": {
+                "type": "string"
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "verified": {
+                "type": "boolean"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "scheme",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "name": {
+            "type": "object",
+            "properties": {
+              "full": {
+                "type": "string"
+              },
+              "given": {
+                "type": "string"
+              },
+              "middle": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "family": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "legal",
+                  "alias",
+                  "former",
+                  "transliteration",
+                  "trading",
+                  "unknown"
+                ]
+              },
+              "language": {
+                "type": "string"
+              },
+              "script": {
+                "type": "string"
+              },
+              "original": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "full",
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "lines": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "city": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "postal_code": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$"
+              },
+              "country_original": {
+                "type": "string"
+              },
+              "full": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "registered",
+                  "residential",
+                  "business",
+                  "service",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "entity": {
+            "type": "object",
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entity_type": {
+                "type": "string",
+                "enum": [
+                  "person",
+                  "organization",
+                  "trust",
+                  "legal_arrangement",
+                  "account",
+                  "wallet",
+                  "vessel",
+                  "aircraft",
+                  "address",
+                  "device",
+                  "unknown"
+                ]
+              },
+              "names": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/name"
+                }
+              },
+              "identifiers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/identifier"
+                }
+              },
+              "addresses": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/address"
+                }
+              },
+              "birth_date": {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/partialDate"
+              },
+              "incorporation_date": {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/partialDate"
+              },
+              "nationalities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "legal_form": {
+                "type": "string"
+              },
+              "status_original": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "inactive",
+                  "dissolved",
+                  "unknown"
+                ]
+              },
+              "source_record_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "attributes": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "entity_id",
+              "entity_type",
+              "names",
+              "identifiers"
+            ],
+            "additionalProperties": false
+          },
+          "score": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "string",
+                  "null"
+                ]
+              },
+              "scale_min": {
+                "type": "number"
+              },
+              "scale_max": {
+                "type": "number"
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "higher_is_riskier",
+                  "higher_is_better_match",
+                  "higher_is_better",
+                  "unknown"
+                ]
+              },
+              "semantics": {
+                "type": "string"
+              },
+              "model_version": {
+                "type": "string"
+              },
+              "calibration_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value",
+              "direction",
+              "semantics"
+            ],
+            "additionalProperties": false
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "evidence_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provider_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_record_id": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "source_title": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "retrieved_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "effective_from": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "effective_to": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "source_pointer": {
+                "type": "string"
+              },
+              "content_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "authority": {
+                "type": "string",
+                "enum": [
+                  "official",
+                  "commercial",
+                  "customer_supplied",
+                  "inferred",
+                  "unknown"
+                ]
+              },
+              "license_ref": {
+                "type": "string"
+              },
+              "retention_policy_ref": {
+                "type": "string"
+              },
+              "access_classification": {
+                "type": "string",
+                "enum": [
+                  "public",
+                  "internal",
+                  "confidential",
+                  "restricted"
+                ]
+              }
+            },
+            "required": [
+              "evidence_id",
+              "provider_id",
+              "retrieved_at",
+              "authority",
+              "access_classification"
+            ],
+            "additionalProperties": false
+          },
+          "relationship": {
+            "type": "object",
+            "properties": {
+              "relationship_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "from_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "owns",
+                  "controls",
+                  "director_of",
+                  "officer_of",
+                  "beneficial_owner_of",
+                  "parent_of",
+                  "account_holder_of",
+                  "wallet_attributed_to",
+                  "same_as",
+                  "possible_same_as",
+                  "shares_address",
+                  "shares_device",
+                  "associated_with",
+                  "family_of",
+                  "close_associate_of",
+                  "transacts_with",
+                  "other"
+                ]
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "directed",
+                  "undirected"
+                ]
+              },
+              "assertion_status": {
+                "type": "string",
+                "enum": [
+                  "asserted",
+                  "inferred",
+                  "candidate",
+                  "confirmed",
+                  "rejected",
+                  "unknown"
+                ]
+              },
+              "ownership": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "equity",
+                      "voting",
+                      "economic",
+                      "control",
+                      "unknown"
+                    ]
+                  },
+                  "lower_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "upper_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "exact_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "directness": {
+                    "type": "string",
+                    "enum": [
+                      "direct",
+                      "indirect",
+                      "unknown"
+                    ]
+                  },
+                  "calculation_policy_ref": {
+                    "type": "string"
+                  },
+                  "calculation_path_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "kind",
+                  "directness"
+                ],
+                "additionalProperties": false
+              },
+              "valid_from": {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/partialDate"
+              },
+              "valid_to": {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/partialDate"
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "confidence_basis": {
+                "type": "string"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "jurisdiction": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "relationship_id",
+              "from_entity_id",
+              "to_entity_id",
+              "type",
+              "direction",
+              "assertion_status",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "assertion": {
+            "type": "object",
+            "properties": {
+              "assertion_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "field_path": {
+                "type": "string"
+              },
+              "value": {},
+              "verification": {
+                "type": "string",
+                "enum": [
+                  "verified",
+                  "not_verified",
+                  "mismatch",
+                  "unknown",
+                  "not_checked"
+                ]
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "assertion_id",
+              "entity_id",
+              "field_path",
+              "value",
+              "verification",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "match": {
+            "type": "object",
+            "properties": {
+              "match_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "candidate_entity_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "list_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "programs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "matched_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "conflicting_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/score"
+                }
+              },
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "unresolved",
+                  "true_match",
+                  "false_positive",
+                  "inconclusive"
+                ]
+              },
+              "disposition_actor": {
+                "type": "string"
+              },
+              "disposition_policy_ref": {
+                "type": "string"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "match_id",
+              "subject_entity_id",
+              "candidate_entity_id",
+              "categories",
+              "disposition",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "check": {
+            "type": "object",
+            "properties": {
+              "check_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string",
+                "enum": [
+                  "passed",
+                  "failed",
+                  "inconclusive",
+                  "not_checked",
+                  "not_applicable",
+                  "unknown"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/score"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "check_id",
+              "name",
+              "outcome",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "alert": {
+            "type": "object",
+            "properties": {
+              "alert_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "transaction_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scenario_id": {
+                "type": "string"
+              },
+              "scenario_version": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high",
+                  "critical",
+                  "unknown"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "in_review",
+                  "closed",
+                  "unknown"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "window_start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "window_end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "alert_id",
+              "severity",
+              "status",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          },
+          "money": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z0-9]{3,12}$"
+              }
+            },
+            "required": [
+              "amount",
+              "currency"
+            ],
+            "additionalProperties": false
+          },
+          "transaction": {
+            "type": "object",
+            "properties": {
+              "transaction_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurred_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "amount": {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/money"
+              },
+              "originator_entity_id": {
+                "type": "string"
+              },
+              "beneficiary_entity_id": {
+                "type": "string"
+              },
+              "account_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rail": {
+                "type": "string"
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "inbound",
+                  "outbound",
+                  "internal",
+                  "unknown"
+                ]
+              },
+              "chain": {
+                "type": "string"
+              },
+              "tx_hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "transaction_id",
+              "occurred_at",
+              "amount"
+            ],
+            "additionalProperties": false
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "authentication",
+                  "authorization",
+                  "rate_limit",
+                  "validation",
+                  "not_found",
+                  "timeout",
+                  "provider_unavailable",
+                  "schema_drift",
+                  "unsupported",
+                  "unknown"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "retryable": {
+                "type": "boolean"
+              },
+              "retry_after_seconds": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "provider_code": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "category",
+              "message",
+              "retryable"
+            ],
+            "additionalProperties": false
+          },
+          "coverage": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "complete_for_requested_scope",
+                  "partial",
+                  "unknown",
+                  "not_supported"
+                ]
+              },
+              "requested_scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "checked_scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "not_checked_scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "missing_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "requested_scope",
+              "checked_scope",
+              "not_checked_scope"
+            ],
+            "additionalProperties": false
+          },
+          "verificationResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "verification"
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/check"
+                }
+              },
+              "assertion_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "checks",
+              "assertion_ids"
+            ],
+            "additionalProperties": false
+          },
+          "businessResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "business"
+              },
+              "organization_entity_id": {
+                "type": "string"
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/check"
+                }
+              },
+              "assertion_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "organization_entity_id",
+              "checks",
+              "assertion_ids"
+            ],
+            "additionalProperties": false
+          },
+          "ownershipResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "ownership"
+              },
+              "root_entity_id": {
+                "type": "string"
+              },
+              "relationship_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "completeness": {
+                "type": "string",
+                "enum": [
+                  "complete",
+                  "partial",
+                  "unknown"
+                ]
+              },
+              "legal_test_policy_ref": {
+                "type": "string"
+              },
+              "unresolved_reasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "root_entity_id",
+              "relationship_ids",
+              "completeness",
+              "legal_test_policy_ref",
+              "unresolved_reasons"
+            ],
+            "additionalProperties": false
+          },
+          "screeningResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "screening"
+              },
+              "matches": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/match"
+                }
+              },
+              "dataset_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scope": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "truncated": {
+                "type": "boolean"
+              },
+              "total_candidates": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "kind",
+              "matches",
+              "dataset_versions",
+              "scope",
+              "truncated",
+              "total_candidates"
+            ],
+            "additionalProperties": false
+          },
+          "riskResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "risk"
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/score"
+                }
+              },
+              "signals": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {},
+                    "reason_codes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "value",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "scores",
+              "signals"
+            ],
+            "additionalProperties": false
+          },
+          "accountResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "account"
+              },
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "account_entity_id": {
+                      "type": "string"
+                    },
+                    "field_scores": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostResult/$defs/score"
+                      }
+                    },
+                    "ownership_outcome": {
+                      "type": "string",
+                      "enum": [
+                        "matched",
+                        "not_matched",
+                        "inconclusive",
+                        "not_checked"
+                      ]
+                    },
+                    "checks": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostResult/$defs/check"
+                      }
+                    }
+                  },
+                  "required": [
+                    "account_entity_id",
+                    "field_scores",
+                    "ownership_outcome"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "accounts"
+            ],
+            "additionalProperties": false
+          },
+          "financialResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "financial"
+              },
+              "documents": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "document_id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "evidence_id": {
+                      "type": "string"
+                    },
+                    "period_start": {
+                      "$ref": "#/components/schemas/CanonicalHostResult/$defs/partialDate"
+                    },
+                    "period_end": {
+                      "$ref": "#/components/schemas/CanonicalHostResult/$defs/partialDate"
+                    },
+                    "extracted_facts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostResult/$defs/assertion"
+                      }
+                    }
+                  },
+                  "required": [
+                    "document_id",
+                    "type",
+                    "evidence_id"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "monitoringResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "monitoring"
+              },
+              "alerts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/alert"
+                }
+              },
+              "transactions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/transaction"
+                }
+              },
+              "window_start": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "window_end": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "caseResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "case"
+              },
+              "case_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "assigned_actor": {
+                "type": "string"
+              },
+              "alert_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "decision_history": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "actor": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "policy_ref": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "at",
+                    "actor",
+                    "action"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "reportResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "report"
+              },
+              "report_id": {
+                "type": "string"
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "report_type": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "approved",
+                  "submitted",
+                  "accepted",
+                  "rejected",
+                  "unknown"
+                ]
+              },
+              "acknowledgement_id": {
+                "type": "string"
+              },
+              "filing_authority": {
+                "type": "string"
+              },
+              "restricted_evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "cryptoResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "crypto"
+              },
+              "wallet_entity_id": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "asset": {
+                "type": "string"
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/score"
+                }
+              },
+              "exposures": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "type": "string"
+                    },
+                    "counterparty_entity_id": {
+                      "type": "string"
+                    },
+                    "direction": {
+                      "type": "string",
+                      "enum": [
+                        "incoming",
+                        "outgoing",
+                        "both",
+                        "unknown"
+                      ]
+                    },
+                    "hops": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "share_percent": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "amount": {
+                      "$ref": "#/components/schemas/CanonicalHostResult/$defs/money"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "direction",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "alerts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/alert"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "travel_ruleResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "travel_rule"
+              },
+              "message_id": {
+                "type": "string"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "protocol_version": {
+                "type": "string"
+              },
+              "originator_vasp_entity_id": {
+                "type": "string"
+              },
+              "beneficiary_vasp_entity_id": {
+                "type": "string"
+              },
+              "transfer_transaction_id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "delivered",
+                  "accepted",
+                  "rejected",
+                  "failed",
+                  "unknown"
+                ]
+              },
+              "pii_vault_ref": {
+                "type": "string"
+              },
+              "counterparty_due_diligence_status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "eddResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "edd"
+              },
+              "report_id": {
+                "type": "string"
+              },
+              "summary_internal": {
+                "type": "string"
+              },
+              "findings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "finding_id": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "allegation_status": {
+                      "type": "string",
+                      "enum": [
+                        "alleged",
+                        "charged",
+                        "convicted",
+                        "acquitted",
+                        "dismissed",
+                        "unknown"
+                      ]
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "finding_id",
+                    "category",
+                    "allegation_status",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "resolutionResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "resolution"
+              },
+              "candidates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "left_entity_id": {
+                      "type": "string"
+                    },
+                    "right_entity_id": {
+                      "type": "string"
+                    },
+                    "outcome": {
+                      "type": "string",
+                      "enum": [
+                        "same",
+                        "different",
+                        "possible",
+                        "insufficient"
+                      ]
+                    },
+                    "method": {
+                      "type": "string"
+                    },
+                    "model_version": {
+                      "type": "string"
+                    },
+                    "matched_features": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "contradictions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "scores": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CanonicalHostResult/$defs/score"
+                      }
+                    },
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "left_entity_id",
+                    "right_entity_id",
+                    "outcome",
+                    "method",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "merge_policy_ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "subscriptionResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "subscription"
+              },
+              "subscription_id": {
+                "type": "string"
+              },
+              "subject_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "paused",
+                  "cancelled",
+                  "unknown"
+                ]
+              },
+              "capabilities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "identity.person.verify",
+                    "identity.document.verify",
+                    "identity.biometric.verify",
+                    "identity.address.verify",
+                    "identity.digital_id.verify",
+                    "identity.tax_id.verify",
+                    "business.verify",
+                    "business.registry.lookup",
+                    "business.ownership.discover",
+                    "business.officers.lookup",
+                    "screening.sanctions",
+                    "screening.pep",
+                    "screening.adverse_media",
+                    "screening.enforcement",
+                    "screening.payment",
+                    "risk.device",
+                    "risk.email",
+                    "risk.phone",
+                    "risk.network",
+                    "risk.jurisdiction",
+                    "risk.customer.assess",
+                    "account.ownership.verify",
+                    "financial.evidence.retrieve",
+                    "transaction.monitor",
+                    "case.manage",
+                    "regulatory.report",
+                    "crypto.wallet.screen",
+                    "crypto.transaction.monitor",
+                    "travel_rule.exchange",
+                    "edd.report.retrieve",
+                    "entity.resolve",
+                    "monitoring.subscribe",
+                    "reference.identifier.lookup",
+                    "reference.list.ingest",
+                    "workflow.orchestrate",
+                    "credential.verify",
+                    "questionnaire.collect"
+                  ]
+                }
+              },
+              "next_review_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "referenceResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "reference"
+              },
+              "record_entity_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "dataset_id": {
+                "type": "string"
+              },
+              "dataset_version": {
+                "type": "string"
+              },
+              "record_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "relationship_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "workflowResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "workflow"
+              },
+              "workflow_id": {
+                "type": "string"
+              },
+              "workflow_version": {
+                "type": "string"
+              },
+              "step_run_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "running",
+                  "completed",
+                  "failed",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "questionnaireResult": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "questionnaire"
+              },
+              "questionnaire_id": {
+                "type": "string"
+              },
+              "template_version": {
+                "type": "string"
+              },
+              "answers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "question_id": {
+                      "type": "string"
+                    },
+                    "value": {},
+                    "evidence_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "question_id",
+                    "value",
+                    "evidence_ids"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "result": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/businessResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/ownershipResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/screeningResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/accountResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/financialResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/monitoringResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/caseResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/reportResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/cryptoResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/travel_ruleResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/eddResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/resolutionResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/subscriptionResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/referenceResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/workflowResult"
+              },
+              {
+                "$ref": "#/components/schemas/CanonicalHostResult/$defs/questionnaireResult"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "identity.person.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "identity.document.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "identity.biometric.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "identity.address.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "identity.digital_id.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "identity.tax_id.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "business.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/businessResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "business.registry.lookup"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/businessResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "business.ownership.discover"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/ownershipResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "business.officers.lookup"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/ownershipResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "screening.sanctions"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/screeningResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "screening.pep"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/screeningResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "screening.adverse_media"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/screeningResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "screening.enforcement"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/screeningResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "screening.payment"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/screeningResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "risk.device"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "risk.email"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "risk.phone"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "risk.network"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "risk.jurisdiction"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "risk.customer.assess"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/riskResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "account.ownership.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/accountResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "financial.evidence.retrieve"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/financialResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "transaction.monitor"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/monitoringResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "case.manage"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/caseResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "regulatory.report"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/reportResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "crypto.wallet.screen"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/cryptoResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "crypto.transaction.monitor"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/cryptoResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "travel_rule.exchange"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/travel_ruleResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "edd.report.retrieve"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/eddResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "entity.resolve"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/resolutionResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "monitoring.subscribe"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/subscriptionResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "reference.identifier.lookup"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/referenceResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "reference.list.ingest"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/referenceResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "workflow.orchestrate"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/workflowResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "credential.verify"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/verificationResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "capability": {
+                  "const": "questionnaire.collect"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/CanonicalHostResult/$defs/questionnaireResult"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "execution": {
+                  "properties": {
+                    "status": {
+                      "const": "failed"
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "errors": {
+                  "minItems": 1
+                },
+                "assessment": {
+                  "properties": {
+                    "outcome": {
+                      "enum": [
+                        "unknown",
+                        "inconclusive",
+                        "not_checked"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "assessment": {
+                  "properties": {
+                    "bank_decision": {
+                      "not": {
+                        "const": "not_evaluated"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "assessment": {
+                  "required": [
+                    "policy_id",
+                    "policy_version",
+                    "actor"
+                  ],
+                  "properties": {
+                    "policy_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "policy_version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "actor": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

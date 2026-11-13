@@ -1,0 +1,64 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.jurisdiction.uk
+  version: 1.0.0
+  layer: jurisdiction
+  appliesTo: { jurisdictions: [GB] }
+  status: CANDIDATE
+  ownerRole: kyc-policy-owner
+  description: United Kingdom Money Laundering Regulations 2017 and UK financial sanctions requirements for onboarding.
+values:
+  jurisdiction:
+    value: GB
+    basis: { text: "UK policy jurisdiction (ISO 3166 GB), not the booking jurisdiction." }
+  ownership_threshold:
+    value: "0.25"
+    basis:
+      text: "MLR 2017 reg 5: an individual who ultimately owns or controls more than 25 percent of the shares or voting rights of a body corporate."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/5"]
+  control_bases:
+    value: [voting_majority, appoint_board, significant_influence]
+    basis:
+      text: "MLR 2017 reg 5: control through voting rights, the right to appoint or remove a majority of the board, or otherwise exercising control over management."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/5"]
+  sanctions_ownership:
+    value: { rule: ofac_50_percent, threshold: "0.5" }
+    basis:
+      text: "UK ownership and control test: an entity owned more than 50 percent, or controlled, by a designated person is subject to the asset freeze (OFSI general guidance)."
+      sources: ["https://www.gov.uk/government/publications/financial-sanctions-general-guidance"]
+  required_screening_types:
+    value: [sanctions, pep]
+    basis:
+      text: "MLR 2017 reg 35: appropriate risk-management systems to determine whether a customer or beneficial owner is a politically exposed person."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/35"]
+  required_screening_lists:
+    value: [uk-sanctions]
+    basis:
+      text: "The UK Sanctions List."
+      sources: ["https://www.gov.uk/government/publications/the-uk-sanctions-list"]
+  pep_scope:
+    value: all
+    basis:
+      text: "MLR 2017 reg 35 applies to domestic as well as foreign politically exposed persons."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/35"]
+  screening_roles:
+    value: [customer, beneficial_owner, control_person, director]
+    basis:
+      text: "MLR 2017 reg 28: for a body corporate, obtain the names of the board of directors and senior persons responsible for operations."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/28"]
+  required_party_roles:
+    value: { individual: [customer], corporate: [customer, beneficial_owner] }
+    basis:
+      text: "MLR 2017 reg 28: identify the beneficial owner of a body corporate and take reasonable measures to verify their identity."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/28"]
+  mandatory_overlays:
+    value: [overlay.pep, overlay.high-risk-geography]
+    basis:
+      text: "MLR 2017 reg 35 requires enhanced due diligence for a PEP, a PEP's family member or known close associate; reg 33(1)(b) requires it for a relationship with a person established in a high-risk third country."
+      sources: ["https://www.legislation.gov.uk/uksi/2017/692/regulation/35", "https://www.legislation.gov.uk/uksi/2017/692/regulation/33"]
+knownDifferences:
+  - field: ownership_threshold
+    text: "UK law says more than 25 percent; the library's UBO skill counts 25 percent or more. An owner of exactly 25 percent is therefore treated as a beneficial owner: stricter than the regulation, never looser."
+  - field: sanctions_ownership
+    text: "OFSI does not aggregate the holdings of different designated persons; the library's ofac_50_percent rule does. Aggregation flags more entities than the UK test: stricter, never looser. A UK-specific rule needs a library change."

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASR-03 · Decision Lineage — KYB-1042 ACCEPT</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .lineage { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 28px; padding: var(--space-4); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); }
+  .lineage svg.wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .col { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+  .col > .t-engraved { margin-bottom: 2px; }
+  .ln { background: var(--surface-raised); border: 1px solid var(--line-1); border-radius: 10px; padding: 9px 10px; font-size: var(--text-sm); cursor: pointer; display: flex; flex-direction: column; gap: 4px; text-align: left; transition: opacity var(--dur-base), border-color var(--dur-fast); }
+  .ln:hover { border-color: var(--porcelain-500); }
+  .ln .mono { font-size: 11px; color: var(--ink-2); overflow-wrap: anywhere; }
+  .ln[aria-pressed="true"] { border-color: var(--graphite-900); box-shadow: 0 0 0 1px var(--graphite-900); background: var(--surface-panel); }
+  .lineage.has-focus .ln:not(.on) { opacity: .3; }
+  .ln.decision { background: var(--graphite-brand); color: #EEF4F0; border-color: var(--graphite-brand); }
+  .ln.decision .mono { color: #A9C2B5; }
+  .ln.corrected { border-color: var(--coral-500); border-style: dashed; }
+  .wire { fill: none; stroke: var(--porcelain-500); stroke-width: 1.3; transition: stroke var(--dur-base), opacity var(--dur-base); }
+  .wire.on { stroke: var(--graphite-800); stroke-width: 1.8; }
+  .lineage.has-focus .wire:not(.on) { opacity: .25; }
+</style>
+</head>
+<body data-studio="assurance" data-role="Internal Auditor" data-user="P. Lindgren">
+<div class="app">
+  <header data-shell="chrome"></header>
+  <nav class="orient" aria-label="Assurance">
+    <div class="orient__group"><span class="t-engraved">Assurance studio</span>
+      <a class="nav-item" href="#">Mission Control</a>
+      <a class="nav-item" href="asr-02-flight-recorder.html">Flight Recorder</a>
+      <a class="nav-item" href="#" aria-current="page">Decision Lineage</a>
+      <a class="nav-item" href="#">Assurance Lab</a>
+      <a class="nav-item" href="#">Assurance Packages</a></div>
+    <div class="orient__group"><span class="t-engraved">Direction</span>
+      <div class="segmented segmented--sm" style="margin:0 8px" data-select-group><button aria-pressed="true" id="dir-back">Backward</button><button aria-pressed="false" id="dir-rev">Reverse impact</button></div>
+      <p class="xs muted" style="padding:8px">Backward: from a decision to its sources. Reverse: from a corrected source or deprecated policy to everything that depended on it.</p></div>
+    <div class="orient__group"><span class="t-engraved">Epistemic key</span>
+      <div class="stack stack--tight" style="padding:0 8px">
+        <span class="epi" data-kind="observation">Observation (source)</span><span class="epi" data-kind="assertion">Assertion</span><span class="epi" data-kind="fact">Verified fact</span><span class="epi" data-kind="hypothesis">Hypothesis</span><span class="epi" data-kind="finding">Finding</span><span class="epi" data-kind="recommendation">Recommendation</span><span class="epi" data-kind="decision">Authorized decision</span></div></div>
+  </nav>
+
+  <main class="main">
+    <div class="row row--between" style="margin-bottom:var(--space-4)">
+      <div><div class="t-engraved">Decision lineage · dec-1042-01 · recorded 2026-11-07 15:21 UTC</div><h1>ACCEPT · Acme Trading Ltd</h1></div>
+      <div class="row"><span class="status" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>Lineage complete · 0 gaps</span><button class="btn btn--sm" data-icon="package" data-icon-class="i--sm"> Generate assurance package</button></div>
+    </div>
+    <div class="lineage" id="lin">
+      <svg class="wires" id="wires" aria-hidden="true"></svg>
+      <div class="col"><span class="t-engraved">Decision</span>
+        <button class="ln decision" id="d1"><span class="epi" data-kind="decision" style="color:#EEF4F0">Authorized</span><b>ACCEPT</b><span class="mono">S. Varga · apr-5c19</span></button></div>
+      <div class="col"><span class="t-engraved">Policy evaluation</span>
+        <button class="ln" id="p1" data-to="d1"><span class="strong">7 PASS · 1 N/A</span><span class="mono">rules · policy a17c…3e</span></button>
+        <button class="ln" id="p2" data-to="d1"><span class="strong">QA verified</span><span class="mono">quality.findings.verify</span></button></div>
+      <div class="col"><span class="t-engraved">Findings</span>
+        <button class="ln" id="f1" data-to="p1 p2"><span class="epi" data-kind="finding">Finding</span>UBO set complete (2)<span class="mono">fd-311</span></button>
+        <button class="ln" id="f2" data-to="p1"><span class="epi" data-kind="finding">Finding</span>No sanctions true match<span class="mono">fd-318</span></button>
+        <button class="ln" id="f3" data-to="p1"><span class="epi" data-kind="finding">Finding</span>Risk MEDIUM 0.46<span class="mono">ra-77</span></button></div>
+      <div class="col"><span class="t-engraved">Facts &amp; assertions</span>
+        <button class="ln" id="a1" data-to="f1"><span class="epi" data-kind="fact">Fact</span>Alice Example 33.0% eff.<span class="mono">VR-031</span></button>
+        <button class="ln" id="a2" data-to="f1"><span class="epi" data-kind="fact">Fact</span>Bram Okoro 15.0%<span class="mono">cf-12 resolved</span></button>
+        <button class="ln" id="a3" data-to="f1"><span class="epi" data-kind="fact">Fact</span>Chen Wei via Meridian 27.0%<span class="mono">VR-044</span></button>
+        <button class="ln" id="a4" data-to="f2"><span class="epi" data-kind="fact">Fact</span>PEP hit = false match<span class="mono">hit-9 · approved</span></button>
+        <button class="ln" id="a5" data-to="f3"><span class="epi" data-kind="fact">Fact</span>Risk factors · geo, product<span class="mono">RiskFactor ×2</span></button></div>
+      <div class="col"><span class="t-engraved">Evidence</span>
+        <button class="ln" id="e1" data-to="a1 a3"><span class="epi" data-kind="observation">Evidence</span>Filing F-221<span class="mono">sha256 4be1…09</span></button>
+        <button class="ln corrected" id="e2" data-to="a2"><span class="epi" data-kind="observation">Evidence</span>Share register v3<span class="mono">sha256 c0d2…7a</span></button>
+        <button class="ln" id="e3" data-to="a2"><span class="epi" data-kind="observation">Evidence</span>Filing F-219<span class="mono">sha256 19aa…e4</span></button>
+        <button class="ln" id="e4" data-to="a4"><span class="epi" data-kind="observation">Evidence</span>PEP list v2026.10<span class="mono">WatchlistEntry</span></button>
+        <button class="ln" id="e5" data-to="a5"><span class="epi" data-kind="observation">Evidence</span>Party profile P-120<span class="mono">GeographyExposure · Product</span></button></div>
+      <div class="col"><span class="t-engraved">Original sources</span>
+        <button class="ln" id="s1" data-to="e1 e3"><span class="strong">registry-capture</span><span class="mono">coverage: complete</span></button>
+        <button class="ln" id="s2" data-to="e2"><span class="strong">Customer upload</span><span class="mono">doc dv-55 · p.1–3</span></button>
+        <button class="ln" id="s3" data-to="e4"><span class="strong">PEP list provider</span><span class="mono">list_version 2026.10</span></button>
+        <button class="ln" id="s4" data-to="e5"><span class="strong">Party360 data product</span><span class="mono">internal · v2026.11</span></button></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:var(--space-4); gap: var(--space-4)">
+      <section class="panel"><h3 style="margin-bottom:8px">What was known at decision time</h3>
+        <p class="small muted">As-of <time>2026-11-07 15:21 UTC</time> · knowledge cutoff identical. Policy synthetic-neutral 0.1.0 was effective; no later policy version is substituted.</p>
+        <div class="disclosure" data-tone="attention" style="margin-top:12px"><svg class="i"><use href="#i-alert"/></svg><div><strong>Later correction detected.</strong> Share register v3 was superseded by v4 on <time>Nov 10</time>. Switch to <b>Reverse impact</b> to see dependent findings. The decision record itself is unchanged.</div></div></section>
+      <section class="panel"><h3 style="margin-bottom:8px">Authority</h3>
+        <dl class="kv"><dt>Decided by</dt><dd>S. Varga · compliance</dd><dt>Prepared by</dt><dd>R. Okafor · analyst</dd><dt>QA</dt><dd>T. Brandt</dd><dt>Approval</dt><dd class="mono xs">apr-5c19 · CONSUMED</dd><dt>Segregation</dt><dd><span class="status" data-tone="positive">3 distinct actors</span></dd></dl></section>
+    </div>
+  </main>
+
+  <aside class="inspector" id="insp" aria-live="polite">
+    <div class="inspector__head"><div class="t-engraved">Selected node</div><h2 id="ins-title">Decision · ACCEPT</h2></div>
+    <div class="inspector__section" id="ins-body"><dl class="kv"><dt>Type</dt><dd class="mono">Decision</dd><dt>disposition</dt><dd>ACCEPT</dd><dt>actor_ref</dt><dd class="mono xs">actor/s.varga@v3</dd><dt>context_hash</dt><dd class="hash">2d90…0e71</dd><dt>policy_ref</dt><dd class="mono xs">Policy/synthetic-neutral@0.1.0</dd><dt>finding_refs</dt><dd>3</dd><dt>approval_refs</dt><dd class="mono xs">apr-5c19</dd></dl></div>
+    <div class="inspector__section"><p class="xs muted">Select any node to highlight its causal path. Keyboard: Tab between nodes, Enter to focus path.</p></div>
+  </aside>
+  <footer class="rail"><div class="rail__bar"><span class="t-engraved">Lineage source</span><span class="xs muted">Decision.finding_refs → Finding.evidence_ids → Fact.assertion_refs/evidence_refs → Evidence.source_id → SourceRecord</span></div></footer>
+</div>
+<script src="../assets/shell.js"></script>
+<script>
+const lin = document.getElementById("lin"), wires = document.getElementById("wires");
+const nodes = [...lin.querySelectorAll(".ln")];
+const edges = []; nodes.forEach(n => (n.dataset.to || "").split(" ").filter(Boolean).forEach(t => edges.push([n.id, t])));
+function draw() {
+  const r0 = lin.getBoundingClientRect();
+  wires.innerHTML = edges.map(([a, b]) => {
+    const A = document.getElementById(a).getBoundingClientRect(), B = document.getElementById(b).getBoundingClientRect();
+    const x1 = A.left - r0.left, y1 = A.top + A.height/2 - r0.top, x2 = B.right - r0.left, y2 = B.top + B.height/2 - r0.top, m = (x1 + x2) / 2;
+    return `<path class="wire" data-a="${a}" data-b="${b}" d="M${x2} ${y2} C ${m} ${y2}, ${m} ${y1}, ${x1} ${y1}"/>`;
+  }).join("");
+}
+function focusPath(id, reverse) {
+  const on = new Set([id]); let grow = true;
+  while (grow) { grow = false; edges.forEach(([a, b]) => {
+    if (!reverse && on.has(b) && !on.has(a)) { on.add(a); grow = true; }   // backward: decision → sources
+    if (reverse && on.has(a) && !on.has(b)) { on.add(b); grow = true; }    // reverse: source → decisions
+  }); }
+  lin.classList.add("has-focus");
+  nodes.forEach(n => { n.classList.toggle("on", on.has(n.id)); n.setAttribute("aria-pressed", n.id === id); });
+  wires.querySelectorAll(".wire").forEach(w => w.classList.toggle("on", on.has(w.dataset.a) && on.has(w.dataset.b)));
+  const n = document.getElementById(id);
+  document.getElementById("ins-title").textContent = n.querySelector(".strong, b")?.textContent || n.childNodes[1]?.textContent || id;
+  if (reverse) document.getElementById("ins-body").innerHTML = `<div class="disclosure" data-tone="attention"><div><strong>Reverse impact:</strong> ${on.size - 1} downstream object(s) depend on this node, including <b>decision dec-1042-01</b>. Create a re-review task? Historical records stay unchanged.</div></div><button class="btn btn--sm" style="margin-top:10px">Propose re-review task</button>`;
+}
+let reverse = false;
+document.getElementById("dir-back").addEventListener("click", () => { reverse = false; focusPath("d1", false); });
+document.getElementById("dir-rev").addEventListener("click", () => { reverse = true; focusPath("e2", true); });
+nodes.forEach(n => n.addEventListener("click", () => focusPath(n.id, reverse)));
+addEventListener("resize", draw); draw(); focusPath("d1", false);
+</script>
+</body>
+</html>

@@ -1,0 +1,4532 @@
+{
+  "$defs": {
+    "Account": {
+      "additionalProperties": false,
+      "properties": {
+        "account_identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Visible account number or identifier preserving masking and leading zeros."
+        },
+        "account_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Account category expressly stated in the source."
+        },
+        "closing_balance": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Closing balance expressly stated for this account and reporting period."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "holder_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Account holder name as recorded, without inferred beneficial ownership."
+        },
+        "identifier_masked": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Whether the source explicitly displays a masked identifier."
+        },
+        "institution_identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Institution code or identifier exactly as printed with its scheme context."
+        },
+        "institution_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Financial institution name expressly associated with this account."
+        },
+        "opening_balance": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Opening balance expressly stated for this account and reporting period."
+        }
+      },
+      "required": [
+        "holder_name",
+        "account_identifier",
+        "identifier_masked",
+        "institution_name",
+        "institution_identifier",
+        "account_type",
+        "currency",
+        "opening_balance",
+        "closing_balance"
+      ],
+      "type": "object"
+    },
+    "Address": {
+      "additionalProperties": false,
+      "properties": {
+        "address_role": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source-stated role such as residential, registered, operating or correspondence."
+        },
+        "country": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Country label explicitly associated with this address in the source."
+        },
+        "lines": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Address lines exactly as supplied, preserving their original order and script."
+        },
+        "locality": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Town, city or locality expressly stated for this address."
+        },
+        "postal_code": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Postal or ZIP code exactly as visible, preserving leading zeros."
+        },
+        "region": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "State, province or administrative region expressly stated for this address."
+        },
+        "valid_from": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Start of the source-stated validity or occupancy interval."
+        },
+        "valid_to": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "End of the source-stated validity or occupancy interval."
+        }
+      },
+      "required": [
+        "lines",
+        "locality",
+        "region",
+        "postal_code",
+        "country",
+        "address_role",
+        "valid_from",
+        "valid_to"
+      ],
+      "type": "object"
+    },
+    "Asset": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Category of asset explicitly identified by the source."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "description": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Description explicitly printed for this item, asset, transaction or program."
+        },
+        "identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Identifier exactly as visible for this party, asset or credential; preserve masking."
+        },
+        "location": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source-stated physical, registry or custody location of this asset."
+        },
+        "owner_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the stated owner, distinct from nominee principals or controllers."
+        },
+        "valuation_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date to which this source-stated asset value relates."
+        },
+        "value": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Value expressly stated for this asset; not independently appraised or calculated."
+        }
+      },
+      "required": [
+        "asset_type",
+        "description",
+        "identifier",
+        "owner_name",
+        "location",
+        "value",
+        "currency",
+        "valuation_date"
+      ],
+      "type": "object"
+    },
+    "AuthorityLimit": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Representative, professional, fiduciary or other capacity expressly stated."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "effective_from": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Start date expressly stated for this role, interest, authority or right."
+        },
+        "effective_to": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "End date expressly stated for this role, interest, authority or right."
+        },
+        "joint_signing_rule": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Sole, joint or other co-signing rule expressly required for this authority."
+        },
+        "limit_amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Stated authority limit associated with this action and currency."
+        },
+        "permitted_action": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Specific action this row explicitly authorizes or restricts."
+        },
+        "person_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Person expressly authorized by this authority-limit row."
+        }
+      },
+      "required": [
+        "person_name",
+        "capacity",
+        "permitted_action",
+        "limit_amount",
+        "currency",
+        "joint_signing_rule",
+        "effective_from",
+        "effective_to"
+      ],
+      "type": "object"
+    },
+    "Check": {
+      "additionalProperties": false,
+      "properties": {
+        "check_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the verification or assessment check exactly as supplied."
+        },
+        "limitations": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Coverage, quality or methodological limitations explicitly stated by the provider."
+        },
+        "method": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Method or technique expressly reported for the assessment."
+        },
+        "performed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Explicit timestamp with offset at which the provider says this check occurred."
+        },
+        "provider_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Provider explicitly attributed to this particular check."
+        },
+        "result_stated": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Provider-reported check result without conversion to platform verification status."
+        },
+        "score": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Provider-reported numeric score; retain scale and avoid cross-provider calibration assumptions."
+        },
+        "score_scale": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Range, direction and interpretation of the score only as expressly supplied."
+        }
+      },
+      "required": [
+        "check_name",
+        "result_stated",
+        "score",
+        "score_scale",
+        "performed_at",
+        "provider_name",
+        "method",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "Control": {
+      "additionalProperties": false,
+      "properties": {
+        "conditions": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Conditions expressly limiting the operation or exercise of this right."
+        },
+        "controlled_party_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Party or arrangement over which the described right operates."
+        },
+        "controller_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Party expressly holding the described control right."
+        },
+        "effective_from": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Start date expressly stated for this role, interest, authority or right."
+        },
+        "effective_to": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "End date expressly stated for this role, interest, authority or right."
+        },
+        "right_description": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Operative description of the right, retaining qualifications and scope."
+        },
+        "right_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Voting, veto, appointment, revocation or other type of control expressly stated."
+        }
+      },
+      "required": [
+        "controller_name",
+        "controlled_party_name",
+        "right_type",
+        "right_description",
+        "conditions",
+        "effective_from",
+        "effective_to"
+      ],
+      "type": "object"
+    },
+    "CryptoTransaction": {
+      "additionalProperties": false,
+      "properties": {
+        "acquisition_basis": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Purchase, mining, staking, gift or other acquisition mechanism expressly stated."
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact source-stated amount on this row; preserve sign, scale and currency association."
+        },
+        "asset": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Digital asset symbol or designation explicitly recorded for this transaction."
+        },
+        "from_address": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Sending wallet address exactly as supplied; no inferred ownership."
+        },
+        "network": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Blockchain or payment network explicitly associated with this transaction."
+        },
+        "timestamp": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source timestamp with explicit timezone; an unknown offset remains unresolved."
+        },
+        "to_address": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Receiving wallet address exactly as supplied; no inferred ownership."
+        },
+        "transaction_hash": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Transaction identifier exactly as supplied on the stated blockchain network."
+        }
+      },
+      "required": [
+        "network",
+        "asset",
+        "transaction_hash",
+        "from_address",
+        "to_address",
+        "amount",
+        "timestamp",
+        "acquisition_basis"
+      ],
+      "type": "object"
+    },
+    "Distribution": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact source-stated amount on this row; preserve sign, scale and currency association."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "distribution_basis": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Dividend, gift, inheritance or other stated economic basis of the distribution."
+        },
+        "payer_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Party expressly making the distribution or payment."
+        },
+        "payment_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date expressly associated with the actual or scheduled payment, preserving source wording."
+        },
+        "recipient_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Party expressly receiving or entitled to this distribution."
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Reference exactly linking this row to a transaction, distribution or source."
+        }
+      },
+      "required": [
+        "payer_name",
+        "recipient_name",
+        "distribution_basis",
+        "amount",
+        "currency",
+        "payment_date",
+        "reference"
+      ],
+      "type": "object"
+    },
+    "ExpectedFlow": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact source-stated amount on this row; preserve sign, scale and currency association."
+        },
+        "count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Nonnegative whole-number transaction count explicitly declared for the stated period."
+        },
+        "counterparty_types": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Categories of counterparties expressly associated with this flow."
+        },
+        "countries": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Countries expressly associated with this flow, not the customer's entire geographic exposure."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "direction": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Debit, credit, inbound or outbound direction only as explicitly represented."
+        },
+        "frequency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source-stated frequency and period associated with the expected count or amount."
+        },
+        "transaction_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Payment, cash, transfer or other transaction category explicitly declared."
+        }
+      },
+      "required": [
+        "direction",
+        "transaction_type",
+        "amount",
+        "currency",
+        "frequency",
+        "count",
+        "countries",
+        "counterparty_types"
+      ],
+      "type": "object"
+    },
+    "FinancialLine": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact source-stated amount on this row; preserve sign, scale and currency association."
+        },
+        "comparative_or_current": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Current, prior-year, forecast or comparative column designation as printed."
+        },
+        "consolidation_basis": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Standalone, consolidated or other reporting scope only as expressly stated."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "label": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Financial line label exactly as printed, preserving gross, net and subtotal distinctions."
+        },
+        "period_end": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "End date of the reporting interval explicitly associated with this financial line."
+        },
+        "period_start": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Start date of the reporting interval explicitly associated with this financial line."
+        },
+        "scale": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Units, thousands, millions or other printed scaling associated with this financial line."
+        }
+      },
+      "required": [
+        "label",
+        "amount",
+        "currency",
+        "period_start",
+        "period_end",
+        "comparative_or_current",
+        "consolidation_basis",
+        "scale"
+      ],
+      "type": "object"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "author_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Author explicitly attributed to this finding or assessment."
+        },
+        "evidence_references": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Evidence or document references explicitly cited by the source finding."
+        },
+        "finding_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date expressly associated with this finding rather than ingestion time."
+        },
+        "finding_text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Finding or conclusion attributed to the source author, preserving qualifications."
+        },
+        "status_stated": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Status claimed by the source, not this platform's verification result."
+        },
+        "subject_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Subject expressly identified for this finding or assessment."
+        }
+      },
+      "required": [
+        "subject_name",
+        "finding_text",
+        "status_stated",
+        "evidence_references",
+        "author_name",
+        "finding_date"
+      ],
+      "type": "object"
+    },
+    "Licence": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Issuing or supervisory authority explicitly named for the licence."
+        },
+        "expiry_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Stated expiration date; do not invent an expiry for perpetual instruments."
+        },
+        "holder_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Account holder name as recorded, without inferred beneficial ownership."
+        },
+        "issue_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date the source says the licence or instrument was issued."
+        },
+        "jurisdiction": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Jurisdiction explicitly associated with this party, licence or tax-residence row."
+        },
+        "licence_number": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Licence or registration identifier exactly as stated by its issuer."
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Activities, territories or services expressly within the stated licence scope."
+        },
+        "status_stated": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Status claimed by the source, not this platform's verification result."
+        }
+      },
+      "required": [
+        "licence_number",
+        "authority",
+        "holder_name",
+        "scope",
+        "status_stated",
+        "issue_date",
+        "expiry_date",
+        "jurisdiction"
+      ],
+      "type": "object"
+    },
+    "LineItem": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact source-stated amount on this row; preserve sign, scale and currency association."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "description": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Description explicitly printed for this item, asset, transaction or program."
+        },
+        "line_number": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Printed line or item identifier, preserving nonnumeric labels."
+        },
+        "product_code": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Product, commodity or stock identifier explicitly printed with the item."
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source-stated quantity without inferred unit conversion."
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Unit of measure explicitly associated with the quantity."
+        },
+        "unit_price": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Unit price expressly associated with this item and currency."
+        }
+      },
+      "required": [
+        "line_number",
+        "description",
+        "product_code",
+        "quantity",
+        "unit",
+        "unit_price",
+        "amount",
+        "currency"
+      ],
+      "type": "object"
+    },
+    "Ownership": {
+      "additionalProperties": false,
+      "properties": {
+        "direct_or_indirect": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Direct or indirect interest designation only when explicitly stated."
+        },
+        "effective_from": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Start date expressly stated for this role, interest, authority or right."
+        },
+        "effective_to": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "End date expressly stated for this role, interest, authority or right."
+        },
+        "interest_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Economic, capital, profit-sharing or other interest type expressly stated."
+        },
+        "nominee_capacity": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Nominee, custodian or underlying-principal capacity expressly disclosed."
+        },
+        "owned_entity_identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Visible identifier for the entity owned on this ownership edge."
+        },
+        "owned_entity_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the entity whose interest is held in this source-stated edge."
+        },
+        "owner_identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Visible identifier for the owner on this ownership edge, retaining issuer context."
+        },
+        "owner_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the stated owner, distinct from nominee principals or controllers."
+        },
+        "percentage": {
+          "anyOf": [
+            {
+              "pattern": "^(?:0|[1-9][0-9]?)(?:\\.[0-9]+)?$|^100(?:\\.0+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source-stated ownership percentage on a 0–100 scale; no indirect calculation."
+        },
+        "percentage_basis": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Issued, outstanding, diluted, economic or other denominator basis as stated."
+        },
+        "share_class": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Class or series of shares, units or interests for this ownership row."
+        },
+        "total_units": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source-stated denominator of shares or units for this class and basis."
+        },
+        "units_held": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Number of shares or units expressly held on the stated basis; no derived values."
+        },
+        "voting_percentage": {
+          "anyOf": [
+            {
+              "pattern": "^(?:0|[1-9][0-9]?)(?:\\.[0-9]+)?$|^100(?:\\.0+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Voting percentage expressly stated, distinct from economic ownership."
+        }
+      },
+      "required": [
+        "owner_name",
+        "owned_entity_name",
+        "owner_identifier",
+        "owned_entity_identifier",
+        "interest_type",
+        "share_class",
+        "units_held",
+        "total_units",
+        "percentage",
+        "percentage_basis",
+        "voting_percentage",
+        "direct_or_indirect",
+        "nominee_capacity",
+        "effective_from",
+        "effective_to"
+      ],
+      "type": "object"
+    },
+    "Party": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Address"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Address explicitly associated with this row's party, with its role retained."
+        },
+        "date_of_birth": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date of birth expressly stated for this individual, preserving precision."
+        },
+        "effective_from": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Start date expressly stated for this role, interest, authority or right."
+        },
+        "effective_to": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "End date expressly stated for this role, interest, authority or right."
+        },
+        "identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Identifier exactly as visible for this party, asset or credential; preserve masking."
+        },
+        "identifier_issuer": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Authority or organization explicitly issuing the identifier."
+        },
+        "identifier_type": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Type or scheme expressly associated with the visible identifier."
+        },
+        "jurisdiction": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Jurisdiction explicitly associated with this party, licence or tax-residence row."
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the party or program explicitly identified in this source row."
+        },
+        "party_kind": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Natural person, legal entity or arrangement classification only when stated."
+        },
+        "role": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Capacity expressly attributed to this party in this instrument or row."
+        }
+      },
+      "required": [
+        "name",
+        "role",
+        "party_kind",
+        "identifier",
+        "identifier_type",
+        "identifier_issuer",
+        "address",
+        "date_of_birth",
+        "jurisdiction",
+        "effective_from",
+        "effective_to"
+      ],
+      "type": "object"
+    },
+    "Programme": {
+      "additionalProperties": false,
+      "properties": {
+        "beneficiary_description": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Named or class-based beneficiaries as expressly described, without inferred individuals."
+        },
+        "delivery_partners": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Named organizations expressly delivering this program."
+        },
+        "locations": {
+          "anyOf": [
+            {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Locations expressly within the stated program's delivery scope."
+        },
+        "name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the party or program explicitly identified in this source row."
+        },
+        "purpose": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Stated purpose of the program or activity rather than an inferred charitable objective."
+        }
+      },
+      "required": [
+        "name",
+        "purpose",
+        "locations",
+        "delivery_partners",
+        "beneficiary_description"
+      ],
+      "type": "object"
+    },
+    "QuestionAnswer": {
+      "additionalProperties": false,
+      "properties": {
+        "answer_text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Explicit answer including yes, no, partial or explanatory text; absence remains null."
+        },
+        "qualifications": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Explanations, exceptions or limitations explicitly qualifying the answer."
+        },
+        "question_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Question identifier exactly as used by the supplied questionnaire edition."
+        },
+        "question_text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Question wording as supplied, retaining its scope and conditions."
+        }
+      },
+      "required": [
+        "question_id",
+        "question_text",
+        "answer_text",
+        "qualifications"
+      ],
+      "type": "object"
+    },
+    "Signature": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Representative, professional, fiduciary or other capacity expressly stated."
+        },
+        "represented_party": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Party expressly represented by this signer in this action."
+        },
+        "signature_method": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Wet, electronic, witnessed or other method only when stated."
+        },
+        "signature_text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Printed signature attribution or notation; not a biometric signature template."
+        },
+        "signed_at": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date expressly associated with this signature or affirmation."
+        },
+        "signer_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the attributed signer without inferring authenticity of the signature."
+        }
+      },
+      "required": [
+        "signer_name",
+        "capacity",
+        "signed_at",
+        "signature_text",
+        "signature_method",
+        "represented_party"
+      ],
+      "type": "object"
+    },
+    "SourceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "issuer": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Issuer or publisher expressly attributed to the referenced source."
+        },
+        "published_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Publication or issue date explicitly stated for the referenced source."
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Reference exactly linking this row to a transaction, distribution or source."
+        },
+        "title": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Title of the referenced source or artifact as supplied."
+        },
+        "url": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Source URL as supplied; it is data and must not be fetched automatically."
+        }
+      },
+      "required": [
+        "title",
+        "issuer",
+        "reference",
+        "published_date",
+        "url"
+      ],
+      "type": "object"
+    },
+    "TaxResidence": {
+      "additionalProperties": false,
+      "properties": {
+        "jurisdiction": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Jurisdiction explicitly associated with this party, licence or tax-residence row."
+        },
+        "tax_identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Visible tax identifier for this residence row, without reconstructing hidden digits."
+        },
+        "tin_absence_reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Reason expressly given for an absent TIN in this jurisdiction."
+        }
+      },
+      "required": [
+        "jurisdiction",
+        "tax_identifier",
+        "tin_absence_reason"
+      ],
+      "type": "object"
+    },
+    "TransactionRow": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Exact source-stated amount on this row; preserve sign, scale and currency association."
+        },
+        "counterparty_account": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Visible counterparty account identifier, preserving masking."
+        },
+        "counterparty_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Name of the transaction counterparty as recorded by this source."
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Currency expressly associated with this particular row or amount."
+        },
+        "description": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Description explicitly printed for this item, asset, transaction or program."
+        },
+        "direction": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Debit, credit, inbound or outbound direction only as explicitly represented."
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Reference exactly linking this row to a transaction, distribution or source."
+        },
+        "running_balance": {
+          "anyOf": [
+            {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Running balance explicitly printed after this transaction."
+        },
+        "transaction_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Date explicitly attributed to the transaction rather than posting or value date."
+        },
+        "value_date": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Value date explicitly attributed to the transaction."
+        }
+      },
+      "required": [
+        "transaction_date",
+        "value_date",
+        "reference",
+        "description",
+        "amount",
+        "currency",
+        "direction",
+        "counterparty_name",
+        "counterparty_account",
+        "running_balance"
+      ],
+      "type": "object"
+    }
+  },
+  "fields": [
+    {
+      "context_targets": [],
+      "description": "Title of the supplied document, form, credential or report as printed.",
+      "name": "document_title",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "The passport number: identifier_type passport_number and issuer from the same passport's issuing_jurisdiction; resolve the holder first; verified stays false until separately verified.",
+          "document_types": [
+            "passport"
+          ],
+          "field_path": "value",
+          "mode": "candidate_assertion_only",
+          "object_type": "IdentityIdentifier"
+        }
+      ],
+      "description": "Identifier of this document or certificate, distinct from an account or party identifier.",
+      "name": "document_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "document",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Named organization, government body or person issuing this document.",
+      "name": "issuer_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Country, territory or legal jurisdiction stated for the document issuer.",
+      "name": "issuing_jurisdiction",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Date this document was issued; do not substitute upload or retrieval date.",
+      "name": "issue_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated expiration date; null when the document has no stated expiry.",
+      "name": "expiry_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Date the instrument or recorded change takes legal or operational effect as stated.",
+      "name": "effective_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Date on which the document says its information or register is current.",
+      "name": "record_as_of_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Start of the reporting, statement, earnings or covered period.",
+      "name": "period_start",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "End of the reporting, statement, earnings or covered period.",
+      "name": "period_end",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Status explicitly stated by the source; not the institution's independent verification result.",
+      "name": "status_stated",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "References to other documents, filings or sources expressly cited in this artifact.",
+      "name": "references",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "document",
+      "sensitivity": "internal",
+      "value_type": "[SourceReference]"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Resolve the identified natural person and preserve source script.",
+          "document_types": [],
+          "field_path": "name",
+          "mode": "candidate_assertion_only",
+          "object_type": "Entity"
+        }
+      ],
+      "description": "Full name of the individual identified by this document, preserving name order and script.",
+      "name": "person_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Given or personal names separately stated in the identity document.",
+      "name": "given_names",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Family or surname separately stated in the identity document.",
+      "name": "family_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Previous names, aliases or alternative-script names expressly listed in the document.",
+      "name": "previous_names",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Require a complete, unambiguous date and resolved person.",
+          "document_types": [],
+          "field_path": "attributes.date_of_birth",
+          "mode": "candidate_assertion_only",
+          "object_type": "Identity"
+        }
+      ],
+      "description": "Birth date of the identified individual; retain partial or ambiguous source evidence.",
+      "name": "date_of_birth",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Town, region or country of birth exactly as stated, without nationality inference.",
+      "name": "place_of_birth",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Citizenships or nationalities expressly stated; do not infer from residence or birthplace.",
+      "name": "nationalities",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Government or other identity identifier exactly as visible, including any masking.",
+      "name": "identity_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Identity credential type named by the source, rather than inferred legal acceptability.",
+      "name": "identity_type",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Residence, immigration or citizenship status explicitly granted or recorded.",
+      "name": "residence_status",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated permitted duration, restrictions or conditions of residence or entry.",
+      "name": "entry_or_stay_conditions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Marriage, court order, deed or other basis expressly stated for a name change.",
+      "name": "name_change_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "New legal name expressly established or recorded in a change-of-name instrument.",
+      "name": "new_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Family, guardianship, sponsorship or other relationship expressly described.",
+      "name": "relationship_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Date of death stated in the death or estate documentation.",
+      "name": "death_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "identity",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Name of the person, organization or arrangement to which the statement or evidence relates.",
+      "name": "subject_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Map structured components with subject and address-role resolution.",
+          "document_types": [],
+          "field_path": "lines",
+          "mode": "candidate_assertion_only",
+          "object_type": "Address"
+        }
+      ],
+      "description": "Address of the document subject with source-stated address role and effective dates.",
+      "name": "subject_address",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "Address"
+    },
+    {
+      "context_targets": [],
+      "description": "Registered legal office address explicitly distinguished from operating premises.",
+      "name": "registered_address",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "Address"
+    },
+    {
+      "context_targets": [],
+      "description": "Physical operating locations expressly listed; preserve registered-agent distinctions.",
+      "name": "operating_addresses",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "[Address]"
+    },
+    {
+      "context_targets": [],
+      "description": "Address of the property, leased premises or accommodation described.",
+      "name": "property_address",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "Address"
+    },
+    {
+      "context_targets": [],
+      "description": "Ownership, tenancy, licence, host, shelter or other stated basis of occupancy.",
+      "name": "occupancy_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Start of the occupancy or accommodation period stated in the evidence.",
+      "name": "occupancy_start",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "End of the occupancy or accommodation period stated in the evidence.",
+      "name": "occupancy_end",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Location where the billed service is supplied, distinct from a correspondence address.",
+      "name": "service_address",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "Address"
+    },
+    {
+      "context_targets": [],
+      "description": "Utility, housing, communications or other type of service identified by the issuer.",
+      "name": "service_type",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "address",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "All expressly identified parties with their distinct roles, identifiers and relevant dates.",
+      "name": "parties",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "parties",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Persons expressly acting for another party, with capacity and represented entity preserved.",
+      "name": "representatives",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "parties",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Named customers, suppliers, payers, payees or other counterparties with source-stated roles.",
+      "name": "counterparties",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "parties",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Resolve the legal entity; do not merge by name alone.",
+          "document_types": [],
+          "field_path": "name",
+          "mode": "candidate_assertion_only",
+          "object_type": "Entity"
+        }
+      ],
+      "description": "Full legal name of the company, organization or other legal entity named by the source.",
+      "name": "entity_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Trade, assumed, doing-business-as or registered business names explicitly listed.",
+      "name": "trading_names",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Legal form expressly stated, such as company, partnership, association or statutory body.",
+      "name": "entity_legal_form",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Require authority and jurisdiction from the same admitted evidence.",
+          "document_types": [],
+          "field_path": "registration_id",
+          "mode": "candidate_assertion_only",
+          "object_type": "Registration"
+        }
+      ],
+      "description": "Identifier assigned to the entity by the named registration authority.",
+      "name": "registration_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Resolve the issuing registry or competent authority.",
+          "document_types": [],
+          "field_path": "authority",
+          "mode": "candidate_assertion_only",
+          "object_type": "Registration"
+        }
+      ],
+      "description": "Registry or official authority maintaining the entity's legal registration.",
+      "name": "registration_authority",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Date of incorporation, establishment or registration as expressly stated.",
+      "name": "formation_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Disambiguate formation from residence and operational exposure.",
+          "document_types": [],
+          "field_path": "jurisdiction",
+          "mode": "candidate_assertion_only",
+          "object_type": "Registration"
+        }
+      ],
+      "description": "Jurisdiction under whose law the entity was formed or registered.",
+      "name": "formation_jurisdiction",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Law or legal jurisdiction stated to govern the instrument or arrangement.",
+      "name": "governing_law",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Objects, purposes or powers expressly established by the governing instrument.",
+      "name": "constitutional_purpose",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated decision-making, meeting, appointment and amendment rules.",
+      "name": "governance_rules",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Named parent, head office or predecessor entity; do not infer from a similar name.",
+      "name": "parent_entity_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Type of name, form, merger, continuation or other legal change recorded.",
+      "name": "change_type",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Legal name of the entity before the documented change.",
+      "name": "previous_entity_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Registry, court or other filing reference printed in the document.",
+      "name": "filing_reference",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Insolvency, liquidation, administration or restoration details expressly recorded.",
+      "name": "insolvency_details",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "legal",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Resolve both ends, class and basis; convert percent to a fraction deterministically; preserve dates.",
+          "document_types": [],
+          "field_path": "interest",
+          "mode": "candidate_assertion_only",
+          "object_type": "OwnershipInterest"
+        }
+      ],
+      "description": "Each source-stated ownership edge, share class, interest basis and effective period.",
+      "name": "ownership_interests",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "[Ownership]"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Resolve controller and controlled entity; legal interpretation requires separate review.",
+          "document_types": [],
+          "field_path": "basis",
+          "mode": "candidate_assertion_only",
+          "object_type": "ControlRight"
+        }
+      ],
+      "description": "Source-stated voting, veto, appointment, revocation or other control rights and conditions.",
+      "name": "control_rights",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "[Control]"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Declaration only; resolve natural persons and apply the admitted ownership/control policy separately.",
+          "document_types": [],
+          "field_path": "entity_id",
+          "mode": "candidate_assertion_only",
+          "object_type": "BeneficialOwner"
+        }
+      ],
+      "description": "Persons the source declares to be beneficial owners; this is not an independently resolved UBO finding.",
+      "name": "beneficial_owners_stated",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Classes of shares, membership interests or partnership interests expressly identified.",
+      "name": "share_classes",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated issued capital amount; units and currency are captured separately.",
+      "name": "issued_capital",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Currency expressly associated with stated share or contributed capital.",
+      "name": "capital_currency",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Total shares, units or interests expressly stated for the specified class or register.",
+      "name": "total_units",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Nominee or custodial capacity and underlying principal expressly disclosed.",
+      "name": "nominee_arrangements",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Exchange or market where the source says securities are listed.",
+      "name": "listing_venue",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "ISIN, ticker or other security identifier expressly printed with its context.",
+      "name": "security_identifier",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Entities, classes and layers the ownership document expressly claims to cover.",
+      "name": "ownership_scope",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "ownership",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Operative resolution authorizing the documented action, with conditions preserved.",
+      "name": "resolution_text",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "authority",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Actions expressly permitted to the representative, attorney or signatory.",
+      "name": "authorized_actions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "authority",
+      "sensitivity": "personal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Per-person action, amount, currency, signing-rule and temporal limits expressly stated.",
+      "name": "authority_limits",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "authority",
+      "sensitivity": "restricted",
+      "value_type": "[AuthorityLimit]"
+    },
+    {
+      "context_targets": [],
+      "description": "Sole, joint, quorum or other signing rule expressly required by the mandate.",
+      "name": "signing_rule",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "authority",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Revocation, termination, delegation and continuing-validity provisions expressly stated.",
+      "name": "revocation_terms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "authority",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Named signers, signing capacity, represented party and source-stated signing date or method.",
+      "name": "signatures",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "authority",
+      "sensitivity": "personal",
+      "value_type": "[Signature]"
+    },
+    {
+      "context_targets": [],
+      "description": "Date of the meeting adopting the resolution or recording the appointments.",
+      "name": "meeting_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "authority",
+      "sensitivity": "personal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Name of the employer or paying organization explicitly identified.",
+      "name": "employer_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Occupation, profession, trade or job title explicitly described.",
+      "name": "occupation",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated start date of employment, engagement or professional practice.",
+      "name": "employment_start",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated end date of employment, engagement or professional practice.",
+      "name": "employment_end",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Permanent, temporary, self-employed, retired or other status stated by the source.",
+      "name": "employment_status",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Frequency and basis of the stated pay or income, such as monthly gross salary.",
+      "name": "income_frequency",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Gross earnings expressly stated for the associated reporting period and currency.",
+      "name": "gross_income",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Net earnings expressly stated for the associated reporting period and currency.",
+      "name": "net_income",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Itemized tax, pension and other earnings deductions as printed.",
+      "name": "deductions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "[FinancialLine]"
+    },
+    {
+      "context_targets": [],
+      "description": "Registration or practising identifier printed for the named professional.",
+      "name": "professional_registration",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated enrollment, scholarship, benefits, pension or sponsorship arrangement.",
+      "name": "education_or_support_details",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "employment",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Currency expressly stated for the associated amount; ambiguous symbols remain unresolved.",
+      "name": "currency",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Primary amount expressly stated, retaining its stated economic basis and currency association.",
+      "name": "amount",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Date of payment, disbursement, settlement or distribution expressly recorded.",
+      "name": "payment_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Reference explicitly identifying the payment or settlement.",
+      "name": "payment_reference",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated account holders, account identifiers, currencies and balances.",
+      "name": "accounts",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "[Account]"
+    },
+    {
+      "context_targets": [],
+      "description": "Individual source rows with dates, direction, currency and counterparty retained.",
+      "name": "transactions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "[TransactionRow]"
+    },
+    {
+      "context_targets": [],
+      "description": "Reported financial statement or tax lines with period, currency and consolidation basis.",
+      "name": "financial_lines",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "[FinancialLine]"
+    },
+    {
+      "context_targets": [],
+      "description": "Revenue expressly reported for the stated period, currency and reporting scope.",
+      "name": "revenue",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Net profit or loss expressly reported for the stated period and accounting basis.",
+      "name": "net_profit",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Total assets expressly reported at the stated reporting date.",
+      "name": "total_assets",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Total liabilities expressly reported at the stated reporting date.",
+      "name": "total_liabilities",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Net assets or equity expressly reported; do not derive absent totals during extraction.",
+      "name": "net_assets",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Auditor or independent reporting accountant explicitly named.",
+      "name": "auditor_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Opinion, qualification, emphasis or limitation expressly stated by the auditor.",
+      "name": "audit_opinion",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Accounting standard, audit status and consolidated or standalone scope as stated.",
+      "name": "accounting_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated assets, owners, identifiers, locations, values and valuation dates.",
+      "name": "assets",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "[Asset]"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated dividends, gifts, inheritances, trust or other distributions with parties and amounts.",
+      "name": "distributions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "[Distribution]"
+    },
+    {
+      "context_targets": [],
+      "description": "Principal, repayment, maturity, interest, security and conditions expressly stated in the agreement.",
+      "name": "loan_terms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Conditions, restrictions and availability of an investment, grant or funding commitment.",
+      "name": "funding_conditions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "An attributed explanation; verified remains false until separate verification.",
+          "document_types": [],
+          "field_path": "claim",
+          "mode": "candidate_assertion_only",
+          "object_type": "SourceOfFunds"
+        }
+      ],
+      "description": "Source's explanation of the economic origin of funds for a specified transaction or relationship.",
+      "name": "source_of_funds_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "An attributed explanation; verified remains false until separate verification.",
+          "document_types": [],
+          "field_path": "claim",
+          "mode": "candidate_assertion_only",
+          "object_type": "SourceOfWealth"
+        }
+      ],
+      "description": "Source's explanation of how overall wealth accumulated over time, distinct from a transfer account.",
+      "name": "source_of_wealth_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated chronology of wealth creation, asset acquisition and realization events.",
+      "name": "wealth_chronology",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Sale, inheritance, gift, compensation or other event said to generate the funds.",
+      "name": "underlying_event",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "How, when and from whom the relevant asset or interest was originally acquired as stated.",
+      "name": "asset_acquisition_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Sale, redemption, settlement or other proceeds expressly stated, without inferred netting.",
+      "name": "proceeds_amount",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Currency expressly associated with the proceeds amount.",
+      "name": "proceeds_currency",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Explanation of funds originally used to acquire an investment or digital asset.",
+      "name": "original_funding_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "wealth",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Each explicitly declared tax residence, TIN and stated reason for an absent TIN.",
+      "name": "tax_residences",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "[TaxResidence]"
+    },
+    {
+      "context_targets": [],
+      "description": "Tax identifier exactly as visible, retaining type, issuer context and any masking.",
+      "name": "tax_identifier",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Form type or certificate designation expressly printed, such as W-9 or W-8BEN-E.",
+      "name": "tax_form_type",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Revision date or edition printed on the supplied form; no current-version inference.",
+      "name": "form_revision",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Tax year or assessment period expressly identified.",
+      "name": "tax_year",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Entity classification explicitly selected for the relevant tax regime.",
+      "name": "tax_entity_classification",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Chapter 3 status explicitly selected on a US withholding certificate, when applicable.",
+      "name": "chapter3_status",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Chapter 4 or FATCA status explicitly selected, including any stated qualifying category.",
+      "name": "chapter4_status",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Global Intermediary Identification Number explicitly supplied; not a verified registration status.",
+      "name": "giin",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Explicit declaration of US-person, citizenship or tax status and qualifications.",
+      "name": "us_person_declaration",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Treaty country, article, rate and eligibility conditions expressly claimed.",
+      "name": "treaty_claim",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Controlling persons expressly identified for tax reporting, with role context preserved.",
+      "name": "controlling_persons_tax",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Capacity in which an intermediary or flow-through entity signs or receives income.",
+      "name": "intermediary_capacity",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Allocation, withholding-pool and underlying-documentation statements expressly supplied.",
+      "name": "withholding_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Specific tax exemption or special status claimed and its stated basis.",
+      "name": "tax_exemption_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Certification, declaration, affirmation and change-in-circumstances undertaking as stated.",
+      "name": "certification_text",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [
+        {
+          "condition": "Retain a customer declaration until independently verified.",
+          "document_types": [],
+          "field_path": "profile.business_purpose",
+          "mode": "candidate_assertion_only",
+          "object_type": "Party"
+        }
+      ],
+      "description": "Nature of actual or planned business and operating model expressly described.",
+      "name": "business_activity",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Industry, merchant-category or activity codes explicitly supplied with their source context.",
+      "name": "industry_codes",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Products and services expressly sold, delivered or requested.",
+      "name": "products_services",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Business website, application or marketplace URLs explicitly listed.",
+      "name": "business_websites",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Countries where operations are expressly stated to occur; distinct from incorporation or ownership.",
+      "name": "countries_of_operation",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Purpose and intended nature of the requested or existing financial relationship.",
+      "name": "relationship_purpose",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Declared transaction volumes, amounts, currencies, countries and frequency with direction preserved.",
+      "name": "expected_flows",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "restricted",
+      "value_type": "[ExpectedFlow]"
+    },
+    {
+      "context_targets": [],
+      "description": "Explanation of expected cash receipts, payments and handling arrangements.",
+      "name": "cash_activity_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Whether and how the business receives or holds funds for others, as explicitly declared.",
+      "name": "third_party_funds_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Employee headcount expressly reported for the stated scope and date.",
+      "name": "employee_count",
+      "normalization": "Only an explicit nonnegative whole-number count.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "integer"
+    },
+    {
+      "context_targets": [],
+      "description": "Business model, stage, market and operating plan expressly described.",
+      "name": "business_plan",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated licences or registrations, authority, scope, status and validity dates.",
+      "name": "licences",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "business",
+      "sensitivity": "personal",
+      "value_type": "[Licence]"
+    },
+    {
+      "context_targets": [],
+      "description": "Name of the trust, estate or similar fiduciary arrangement as stated.",
+      "name": "trust_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Revocable, discretionary, testamentary or other trust type expressly stated.",
+      "name": "trust_type",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Purpose and objects expressly stated in the trust or fiduciary instrument.",
+      "name": "trust_purpose",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Settlors, trustees, protectors, appointors, enforcers and named beneficiaries with distinct roles.",
+      "name": "trust_parties",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Descriptions of beneficiary classes or objects of powers exactly as stated.",
+      "name": "beneficiary_classes",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Distribution, investment, appointment, revocation and other powers with holders and conditions.",
+      "name": "trust_powers",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "[Control]"
+    },
+    {
+      "context_targets": [],
+      "description": "Property and assets expressly settled, contributed or held by the arrangement.",
+      "name": "trust_asset_schedule",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "[Asset]"
+    },
+    {
+      "context_targets": [],
+      "description": "Entitlements, discretion, restrictions and distribution conditions expressly stated.",
+      "name": "distribution_terms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Provisions or parties changed by an amendment, appointment, retirement or restatement.",
+      "name": "amendment_scope",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trust",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Regulator or professional supervisory authority expressly named.",
+      "name": "regulator_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Activities the source explicitly states are licensed, supervised or authorized.",
+      "name": "regulated_activities",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated customer diligence, monitoring, reporting and governance controls.",
+      "name": "aml_controls_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated sanctions screening, escalation and restriction controls.",
+      "name": "sanctions_controls_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Scope, period, independence and limitations of the assurance or audit work as stated.",
+      "name": "assurance_scope",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated control deficiencies, conclusions and remediation findings.",
+      "name": "assurance_findings",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "restricted",
+      "value_type": "[Finding]"
+    },
+    {
+      "context_targets": [],
+      "description": "Question-by-question answers retaining qualifications and original question identifiers.",
+      "name": "questionnaire_answers",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "restricted",
+      "value_type": "[QuestionAnswer]"
+    },
+    {
+      "context_targets": [],
+      "description": "Agents, distributors or delivery partners explicitly listed with role and location.",
+      "name": "agent_network",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated movement of customer, merchant, settlement and safeguarded funds.",
+      "name": "payment_flow_description",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Client-money, trust, segregation, safeguarding or custody arrangements expressly described.",
+      "name": "safeguarding_arrangements",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Name of the investment fund, scheme or sub-fund explicitly described.",
+      "name": "fund_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Investment strategy, asset classes and geographic scope expressly described.",
+      "name": "fund_strategy",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Manager, adviser, administrator, custodian, trustee and other providers with roles preserved.",
+      "name": "fund_service_providers",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "restricted",
+      "value_type": "[Party]"
+    },
+    {
+      "context_targets": [],
+      "description": "Subscription, redemption, lock-up and transfer terms expressly stated.",
+      "name": "redemption_terms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Charitable or nonprofit programs, locations, purposes, delivery partners and beneficiaries as stated.",
+      "name": "programmes",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "restricted",
+      "value_type": "[Programme]"
+    },
+    {
+      "context_targets": [],
+      "description": "Sources, restrictions and delivery arrangements of donor, grant or charitable funds.",
+      "name": "donor_funding_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Merchant underwriting, refunds, chargebacks, reserves and payout controls expressly described.",
+      "name": "merchant_controls",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "sector",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Identifier of the relevant commercial, sale or services agreement.",
+      "name": "contract_reference",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Invoice identifier as issued by the named supplier.",
+      "name": "invoice_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Purchase-order identifier supplied by the ordering party.",
+      "name": "purchase_order_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Shipment, consignment, transport or customs reference as printed.",
+      "name": "shipment_reference",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Individual goods, services or asset lines with quantity, unit, price and currency associations.",
+      "name": "line_items",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "[LineItem]"
+    },
+    {
+      "context_targets": [],
+      "description": "Subtotal expressly stated before the document's identified adjustments.",
+      "name": "subtotal",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Tax amount expressly stated for the invoice or transaction.",
+      "name": "tax_amount",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Total amount expressly stated; no inferred reconciliation during extraction.",
+      "name": "total_amount",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Contractual payment or performance due date expressly stated.",
+      "name": "due_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Payment conditions, milestones, credit period and settlement method as stated.",
+      "name": "payment_terms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Delivery or trade terms expressly stated, including named place and version if printed.",
+      "name": "incoterms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Country of origin expressly stated for the identified goods.",
+      "name": "origin_country",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Destination country expressly stated for the shipment or transaction.",
+      "name": "destination_country",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Ports, places, transshipment points and routing expressly stated.",
+      "name": "transport_route",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Carrier, freight forwarder or transport operator expressly identified.",
+      "name": "carrier_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Vessel, voyage, aircraft or flight identifier expressly stated.",
+      "name": "vessel_or_flight",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Goods description, classification and stated end use without external inference.",
+      "name": "goods_description",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Declared end user, end use and restrictions stated in the certificate or authorization.",
+      "name": "end_use_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Letter-of-credit, collection, bill-of-exchange or guarantee obligations and conditions as stated.",
+      "name": "credit_or_guarantee_terms",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "trade",
+      "sensitivity": "internal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Questions, subjects, time period and limitations of the review as stated.",
+      "name": "review_scope",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Findings explicitly written in the supplied assessment, with attributed status and evidence references.",
+      "name": "findings",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "[Finding]"
+    },
+    {
+      "context_targets": [],
+      "description": "Decision or recommendation explicitly recorded; not authorization by this extraction process.",
+      "name": "decision_stated",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Conditions, exceptions, restrictions or follow-up actions expressly attached to the decision.",
+      "name": "decision_conditions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Date the source says the review or assessment was performed.",
+      "name": "review_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Next review date explicitly specified by the source; do not calculate a cadence.",
+      "name": "next_review_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Named analyst or reviewer attributed to the source assessment.",
+      "name": "reviewer_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Approvers, capacities, signing dates and represented authority expressly recorded.",
+      "name": "approval_records",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "[Signature]"
+    },
+    {
+      "context_targets": [],
+      "description": "Risk tier explicitly recorded by the source; not a newly calculated or accepted risk classification.",
+      "name": "risk_rating_stated",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Explicit PEP or related-person declaration, including role, relationship and qualifications.",
+      "name": "pep_declaration",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Public function, organization, country and tenure expressly described.",
+      "name": "public_function",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Court, regulator or investigation reference explicitly printed.",
+      "name": "legal_case_reference",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Allegation, charge, finding, judgment or disposition as attributed and dated by the source.",
+      "name": "allegation_or_outcome",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Customer's explanation of a discrepancy, transaction, activity or event, retaining attribution.",
+      "name": "customer_explanation",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Stated reason, scope, authority and expiry conditions of an exception.",
+      "name": "exception_basis",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Express instruction to close or transfer the relationship and any conditions.",
+      "name": "closure_instruction",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Identity, credential, verification or analysis provider explicitly identified in the source record.",
+      "name": "provider_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Provider-issued correlation or request identifier explicitly supplied.",
+      "name": "provider_request_id",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Timestamp with explicit offset at which the source says the check or event occurred.",
+      "name": "performed_at",
+      "normalization": "RFC3339 with explicit offset only; an unknown timezone is an unresolved value, not UTC.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "datetime"
+    },
+    {
+      "context_targets": [],
+      "description": "Type, standard or scheme of digital credential explicitly identified.",
+      "name": "credential_type",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Named issuer of the electronic credential or signed assertion.",
+      "name": "credential_issuer",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Subject name or identifier explicitly contained in the credential; issuer claims remain attributed.",
+      "name": "credential_subject",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Assurance level or trust framework explicitly asserted by the source, without equivalence inference.",
+      "name": "assurance_level_stated",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Checks, provider-reported scores, scales, results, methods and limitations as supplied.",
+      "name": "verification_checks",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "[Check]"
+    },
+    {
+      "context_targets": [],
+      "description": "Opaque references or hashes to supporting media or artifacts; no raw biometric templates or secrets.",
+      "name": "artifact_references",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Purpose, scope, basis and withdrawal terms recorded for an acknowledgment or consent event.",
+      "name": "consent_scope",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated blockchain transactions with network, asset, addresses and acquisition context.",
+      "name": "crypto_transactions",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "[CryptoTransaction]"
+    },
+    {
+      "context_targets": [],
+      "description": "Method and result stated for demonstrating wallet control; never request private keys or seed phrases.",
+      "name": "wallet_control_method",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Originator, beneficiary and provider information supplied for the relevant transfer.",
+      "name": "travel_rule_information",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "digital",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Name of the person or organization certifying, witnessing, notarizing or translating the artifact.",
+      "name": "certifier_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Professional capacity, registration, authority or qualification explicitly stated.",
+      "name": "certifier_capacity",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Date the certification, notarization, legalization or translation was made.",
+      "name": "certification_date",
+      "normalization": "Use YYYY-MM-DD, YYYY-MM or YYYY only when unambiguous; retain source quote and date precision.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "date"
+    },
+    {
+      "context_targets": [],
+      "description": "Exact document, version or other reference the certification expressly covers.",
+      "name": "certified_document_reference",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "What is certified, verified or translated, retaining limitations and qualifications.",
+      "name": "certification_scope",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Language explicitly identified for the source document.",
+      "name": "source_language",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Language explicitly identified for the translation.",
+      "name": "target_language",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Express statement about viewing an original, copy or in-person presentation.",
+      "name": "original_seen_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "certification",
+      "sensitivity": "personal",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Source-stated scale such as units, thousands or millions; do not silently multiply reported figures.",
+      "name": "amount_scale",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Policy identifier explicitly linking the insured risk or payout to its insurance contract.",
+      "name": "insurance_policy_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Claim identifier explicitly linking the payout or settlement to a particular insurance claim.",
+      "name": "insurance_claim_number",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Risk, property, insured event and coverage limitations explicitly described by the insurance source.",
+      "name": "coverage_description",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "financial",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Permanent residence or registered address explicitly supplied in the tax form's designated field.",
+      "name": "permanent_residence_address",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "Address"
+    },
+    {
+      "context_targets": [],
+      "description": "Mailing address explicitly supplied, distinct from permanent residence or registered office.",
+      "name": "mailing_address",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "Address"
+    },
+    {
+      "context_targets": [],
+      "description": "US taxpayer identifier exactly as supplied, preserving masking and printed type context.",
+      "name": "us_tax_identifier",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Foreign tax identifier exactly as supplied with the associated jurisdiction context.",
+      "name": "foreign_tax_identifier",
+      "normalization": "Preserve leading zeros, script, punctuation, masking and issuer; never reconstruct hidden characters.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "identifier"
+    },
+    {
+      "context_targets": [],
+      "description": "Disregarded entity, branch or business name explicitly supplied as distinct from the named tax owner.",
+      "name": "disregarded_entity_name",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Exempt payee, FATCA or other withholding exemption codes explicitly supplied on the form.",
+      "name": "withholding_exemption_codes",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "texts"
+    },
+    {
+      "context_targets": [],
+      "description": "Backup-withholding certification or exception explicitly affirmed or crossed out.",
+      "name": "backup_withholding_statement",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Income items expressly identified in the withholding certificate or allocation statement.",
+      "name": "income_description",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Statement that identified income is effectively connected with a US trade or business, including qualifications.",
+      "name": "effectively_connected_claim",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "tax",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    },
+    {
+      "context_targets": [],
+      "description": "Numeric risk score explicitly recorded by the source; not a newly computed or calibrated score.",
+      "name": "risk_score_stated",
+      "normalization": "Exact base-10 string; preserve sign and source scale; no float or FX conversion.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "decimal"
+    },
+    {
+      "context_targets": [],
+      "description": "Risk model, methodology or policy version explicitly identified for the source assessment.",
+      "name": "risk_model_version",
+      "normalization": "Preserve source meaning, role and original script; no external enrichment or inferred values.",
+      "section": "review",
+      "sensitivity": "restricted",
+      "value_type": "text"
+    }
+  ],
+  "sections": {
+    "address": "Addresses and physical presence",
+    "authority": "Authority and signatures",
+    "business": "Business and expected activity",
+    "certification": "Certification and translation",
+    "digital": "Digital credentials and verification results",
+    "document": "Document particulars",
+    "employment": "Occupation and income",
+    "financial": "Amounts, accounts and financial position",
+    "identity": "Identity and personal particulars",
+    "legal": "Legal existence and governance",
+    "ownership": "Ownership and control",
+    "parties": "Parties and capacities",
+    "review": "Reviews, findings and decisions",
+    "sector": "Sector and institutional controls",
+    "tax": "Tax residence and classifications",
+    "trade": "Trade, goods and logistics",
+    "trust": "Trust and fiduciary arrangements",
+    "wealth": "Funding and wealth provenance"
+  },
+  "version": "0.1.0"
+}

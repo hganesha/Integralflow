@@ -1,0 +1,135 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:network.path.find
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Enumerate bounded relationship paths with an explicit output limit.
+code_hash: 085685edf35bbe62abf64137e41f9a2be7a7a6a7a61cc338d3823d32320ff62d
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Enumerate bounded relationship paths with an explicit output limit.
+effects: read_only
+entrypoint: financial_crime.skills.network:paths
+evaluation_profile: network.path.find-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: network-path-find
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: network.path.find
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:network.path.find:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    max_hops:
+      maximum: 10
+      minimum: 1
+      type: integer
+    source:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    target:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - source
+  - target
+  - max_hops
+  type: object
+instruction_hash: ff9ac44c89cd37eb8ab73b09c9e105def3bb6cc70f180a38e852a50464a1e16e
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:network.path.find:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    paths:
+      items:
+        items:
+          $ref: '#/$defs/Id'
+        maxItems: 10000
+        type: array
+      maxItems: 10000
+      type: array
+    truncated:
+      type: boolean
+  required:
+  - paths
+  - truncated
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - source
+  - target
+  - relation
+  - verified
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Relationship
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

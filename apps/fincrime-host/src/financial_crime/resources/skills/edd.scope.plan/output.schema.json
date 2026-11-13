@@ -1,0 +1,41 @@
+{
+  "$defs": {
+    "EddTask": {
+      "additionalProperties": false,
+      "properties": {
+        "task": {
+          "$ref": "#/$defs/Id"
+        },
+        "trigger_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "trigger_id",
+        "task"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:edd.scope.plan:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/EddTask"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "tasks"
+  ],
+  "type": "object"
+}

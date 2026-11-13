@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "duration_ms": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "provider_calls": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Provider Calls",
+      "type": "integer"
+    }
+  },
+  "title": "Metrics",
+  "type": "object"
+}

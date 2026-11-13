@@ -1,0 +1,295 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "ContextGap": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/Id"
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/Id"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Count"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "object": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "object_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "optional": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "code",
+        "optional"
+      ],
+      "type": "object"
+    },
+    "ContextManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_ref": {
+          "$ref": "#/$defs/Id"
+        },
+        "as_of_time": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "authorization_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "compiler_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "content_hashes": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Hash"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "gaps": {
+          "items": {
+            "$ref": "#/$defs/ContextGap"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "knowledge_cutoff": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "model_view": {
+          "$ref": "#/$defs/Text"
+        },
+        "policy_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "policy_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "policy_ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "profile_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "purpose": {
+          "$ref": "#/$defs/Id"
+        },
+        "refs": {
+          "items": {
+            "$ref": "#/$defs/Ref"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "requirements_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "scope": {
+          "$ref": "#/$defs/ContextScope"
+        },
+        "selected_fields": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "skill_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "skill_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "structured_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "schema_version",
+        "tenant_id",
+        "actor_ref",
+        "purpose",
+        "skill_id",
+        "skill_version",
+        "profile_hash",
+        "policy_hash",
+        "policy_ref",
+        "policy_fields",
+        "requirements_hash",
+        "authorization_hash",
+        "as_of_time",
+        "knowledge_cutoff",
+        "refs",
+        "content_hashes",
+        "selected_fields",
+        "gaps",
+        "scope",
+        "model_view",
+        "structured_hash",
+        "synthetic",
+        "compiler_version"
+      ],
+      "type": "object"
+    },
+    "ContextScope": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "complete_for_declared_scope": {
+          "$ref": "#/$defs/Bool"
+        },
+        "explicit_refs": {
+          "$ref": "#/$defs/Bool"
+        },
+        "subjects": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "subjects",
+        "case_id",
+        "explicit_refs",
+        "complete_for_declared_scope"
+      ],
+      "type": "object"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:case.context.hydrate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_hash": {
+      "$ref": "#/$defs/Hash"
+    },
+    "manifest": {
+      "$ref": "#/$defs/ContextManifest"
+    }
+  },
+  "required": [
+    "manifest",
+    "context_hash"
+  ],
+  "type": "object"
+}

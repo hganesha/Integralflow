@@ -1,0 +1,35 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:edd.recommendation.generate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "final": {
+      "type": "boolean"
+    },
+    "reason_ids": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "recommendation": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "recommendation",
+    "reason_ids",
+    "final"
+  ],
+  "type": "object"
+}

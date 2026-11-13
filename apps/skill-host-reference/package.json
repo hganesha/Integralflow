@@ -1,0 +1,26 @@
+{
+  "name": "@ehf/skill-host-reference",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/app.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "4.1.1",
+    "@ehf/contracts": "workspace:*",
+    "fastify": "5.12.5",
+    "tsx": "4.23.1",
+    "@ehf/rate-limit": "workspace:*"
+  },
+  "devDependencies": {
+    "@ehf/skill-conformance": "workspace:*"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1983-06-21"
+      },
+      "entity_id": "e-mateo",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "national_id",
+          "value": "SPECIMEN-H02-DNI-0001"
+        },
+        {
+          "scheme": "curp",
+          "value": "SPECIMEN-H02-CURP-0001"
+        }
+      ],
+      "names": [
+        {
+          "full": "Mateo R\u00edos Calder\u00f3n",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h02.entity.mateo"
+      ]
+    },
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1969-12-04"
+      },
+      "entity_id": "c-1",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "list_document",
+          "value": "02601165380"
+        }
+      ],
+      "names": [
+        {
+          "full": "CALDERON RIJO, Jose",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "38296"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [],
+  "result": {
+    "dataset_versions": [
+      "corpus-synthetic-designations-2026-09-29",
+      "ofac-sdn@2026-11-09",
+      "uk-sanctions@2026-11-09",
+      "un-consolidated@2026-11-09"
+    ],
+    "kind": "screening",
+    "list_published_at": "2026-09-29T00:00:00Z",
+    "matches": [
+      {
+        "candidate_entity_id": "c-1",
+        "categories": [],
+        "disposition": "unresolved",
+        "list_ids": [
+          "ofac-sdn"
+        ],
+        "match_id": "m-1",
+        "matched_fields": [
+          "name"
+        ],
+        "programs": [
+          "ILLICIT-DRUGS-EO14059"
+        ],
+        "scores": [
+          {
+            "kind": "name",
+            "value": 0.432432
+          }
+        ]
+      }
+    ],
+    "scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "total_candidates": 1,
+    "truncated": false
+  },
+  "result_id": "corpus-screening-h02-mateo-sanctions",
+  "subject_entity_id": "e-mateo"
+}

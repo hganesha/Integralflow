@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h03.entity.adaeze",
+  "external_ref": "corpus-H03",
+  "party_id": "H03",
+  "record_count": 57,
+  "relationship_record_id": "h03.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h03.entity.adaeze",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H03-PP-0001"
+        }
+      ],
+      "name": "Adaeze Okonkwo-Bell",
+      "ref": "adaeze",
+      "role": "customer",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h03.entity.chidi",
+      "identifiers": [
+        {
+          "identifier_type": "official_id",
+          "source": "OS-SPECIMEN",
+          "value": "SPECIMEN-PEP-0001"
+        }
+      ],
+      "name": "Chidi Okonkwo-Ibe",
+      "ref": "chidi",
+      "role": null,
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

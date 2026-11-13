@@ -1,0 +1,202 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.validity.assess
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Assess issue and expiry dates at the invocation's as-of time with
+  their stated precision; an absent or partial date stays undetermined, never invented.
+code_hash: 934b1c532022563ec29237dab90abdfe1f8f5b51d095774ae018aec2a8f07b1d
+composition_type: composite
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills:
+  - document.validity.check
+deprecation_policy: new version for contract changes
+description: Assess issue and expiry dates at the invocation's as-of time with their
+  stated precision; an absent or partial date stays undetermined, never invented.
+effects: read_only
+entrypoint: financial_crime.skills.document_wrappers:validity_assess
+evaluation_profile: document.validity.assess-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: document-validity-assess
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: document.validity.assess
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:document.validity.assess:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 42b2a346d8a3b1569b4b86bf23a675794e1592191e6547fec28462511066bbf5
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. Checks stated issue and expiry dates only; formal and jurisdictional
+  validity are not assessed.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    DatePrecision:
+      enum:
+      - day
+      - month
+      - year
+    DocumentValidityAssessment:
+      additionalProperties: false
+      properties:
+        basis:
+          items:
+            $ref: '#/$defs/Ref'
+          maxItems: 10000
+          type: array
+        document_version:
+          $ref: '#/$defs/Id'
+        expires:
+          $ref: '#/$defs/JsonValue'
+        expires_precision:
+          anyOf:
+          - $ref: '#/$defs/DatePrecision'
+          - type: 'null'
+        issued:
+          $ref: '#/$defs/JsonValue'
+        issued_precision:
+          anyOf:
+          - $ref: '#/$defs/DatePrecision'
+          - type: 'null'
+        status:
+          $ref: '#/$defs/DocumentValidityStatus'
+      required:
+      - document_version
+      - status
+      - issued
+      - expires
+      - issued_precision
+      - expires_precision
+      - basis
+      type: object
+    DocumentValidityStatus:
+      enum:
+      - CURRENT
+      - EXPIRED
+      - NOT_YET_VALID
+      - UNDETERMINED_PRECISION
+      - UNREADABLE_DATE
+      - EXPIRY_NOT_EXTRACTED
+      - CONFLICTING_DATES
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+  $id: urn:financial-crime:skill:document.validity.assess:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    assessments:
+      items:
+        $ref: '#/$defs/DocumentValidityAssessment'
+      maxItems: 10000
+      type: array
+  required:
+  - assessments
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - subject
+  - field
+  - value
+  - document_version
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: ExtractedAssertion
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIZ-01 · My Workspace — R. Okafor</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .hello { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-5); }
+  .kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-3); margin-bottom: var(--space-6); }
+  .kpi { padding: var(--space-4); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); }
+  .kpi .v { font-size: 30px; line-height: 34px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .group { margin-bottom: var(--space-5); }
+  .group__head { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2); }
+  .group__head h2 { font-size: var(--text-lg); }
+  .wi { display: grid; grid-template-columns: 14px 96px minmax(130px, 1fr) minmax(180px, 1.6fr) minmax(110px, 140px) 64px 72px; gap: var(--space-3); align-items: center; padding: 0 var(--space-4); min-height: 56px; background: var(--surface-panel); border: 1px solid var(--line-1); border-bottom: 0; cursor: pointer; text-align: left; width: 100%; font-size: var(--text-sm); }
+  .wi:first-of-type { border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .wi:last-of-type { border-bottom: 1px solid var(--line-1); border-radius: 0 0 var(--radius-md) var(--radius-md); }
+  .wi:only-of-type { border-radius: var(--radius-md); }
+  .wi:hover { background: var(--surface-raised); }
+  .wi[aria-selected="true"] { background: var(--emerald-50); box-shadow: inset 3px 0 0 var(--emerald-600); }
+  .wi > * { justify-self: start; }
+  @media (max-width: 1440px) { .wi { grid-template-columns: 14px 96px minmax(120px, 1fr) minmax(170px, 1.6fr) minmax(110px, 140px) 64px; } .wi > :last-child { display: none; } }
+  .wi .next { font-weight: 500; }
+  .wi .why { color: var(--ink-2); font-size: var(--text-xs); }
+  .urg { width: 10px; height: 10px; border-radius: 2px; }
+  .urg[data-u="high"] { background: var(--coral-500); transform: rotate(45deg); }
+  .urg[data-u="med"] { background: var(--ochre-500); }
+  .urg[data-u="low"] { background: transparent; border: 1.5px solid var(--porcelain-500); border-radius: 50%; }
+  .due.late { color: var(--coral-700); font-weight: 600; }
+</style>
+</head>
+<body data-studio="workspace" data-role="CDD / KYB Analyst" data-user="R. Okafor">
+<div class="app">
+  <header data-shell="chrome"></header>
+  <nav class="orient" aria-label="Queues">
+    <div class="orient__group"><span class="t-engraved">My work</span>
+      <a class="nav-item" aria-current="page" href="#">Attention <span class="count">11</span></a>
+      <a class="nav-item" href="#">All my cases <span class="count">23</span></a>
+      <a class="nav-item" href="#">Handoffs received <span class="count">2</span></a></div>
+    <div class="orient__group"><span class="t-engraved">Team queues</span>
+      <a class="nav-item" href="#">CDD · Corporate <span class="count">48</span></a>
+      <a class="nav-item" href="#">CDD · Funds &amp; trusts <span class="count">17</span></a></div>
+    <div class="orient__group"><span class="t-engraved">Saved views</span>
+      <a class="nav-item" href="#" data-icon="filter" data-icon-class="i--sm"> Unresolved ownership</a>
+      <a class="nav-item" href="#" data-icon="filter" data-icon-class="i--sm"> Registry stale &gt; 30 d</a></div>
+  </nav>
+
+  <main class="main">
+    <div class="hello">
+      <div><div class="t-engraved">Saturday 7 November · CDD / KYB</div><div class="t-display">What needs <em>your</em> attention</div></div>
+      <div class="row"><button class="btn btn--sm btn--quiet" data-density-toggle aria-pressed="false">Dense</button><button class="btn btn--sm" data-icon="filter" data-icon-class="i--sm"> Filter</button></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="t-engraved">Needs my action</div><div class="v">4</div><div class="xs muted">2 workflow interrupts</div></div>
+      <div class="kpi"><div class="t-engraved">Approaching SLA</div><div class="v" style="color:var(--ochre-700)">3</div><div class="xs muted">next due in 6 h</div></div>
+      <div class="kpi"><div class="t-engraved">Prepared by automation</div><div class="v">3</div><div class="xs muted">ready for review</div></div>
+      <div class="kpi"><div class="t-engraved">Escalated / blocked</div><div class="v" style="color:var(--coral-700)">1</div><div class="xs muted">EDD handoff</div></div>
+    </div>
+    <p class="mockup-note" style="margin-bottom:8px">Metric freshness: computed <time>14:05 UTC</time> from Case Store · definition <a href="#">ops.attention.v1</a></p>
+
+    <button class="new-results" aria-live="polite"><svg class="i i--sm"><use href="#i-arrowd"/></svg>2 new items — show (queue won't reorder while you work)</button>
+
+    <section class="group" data-select-group data-select-attr="aria-selected">
+      <div class="group__head"><h2>Needs my action</h2><span class="count muted small">4</span></div>
+      <button class="wi" aria-selected="true" onclick="location.href='biz-03-case-cdd.html'"><span class="urg" data-u="high" aria-label="High urgency"></span><span class="id">KYB-1042</span><span class="strong">Acme Trading Ltd</span><span><span class="next">Review ownership discrepancy</span><br><span class="why">Workflow paused · 25% declared vs 15% registry · threshold 20%</span></span><span class="status" data-tone="attention">Needs review</span><span class="due num">Nov 11</span><span class="xs muted">3 d 4 h</span></button>
+      <button class="wi" aria-selected="false"><span class="urg" data-u="high"></span><span class="id">KYB-1037</span><span class="strong">Northwind Agri Holdings</span><span><span class="next">Resolve cyclic ownership</span><br><span class="why">ownership.circular.detect · 3-node cycle · interests unresolved</span></span><span class="status" data-tone="attention">Needs review</span><span class="due late num">Today</span><span class="xs" style="color:var(--coral-700)">5 h 50 m</span></button>
+      <button class="wi" aria-selected="false"><span class="urg" data-u="med"></span><span class="id">KYB-1051</span><span class="strong">Lumen Freight GmbH</span><span><span class="next">Request certified register</span><br><span class="why">Registry coverage qualified · status cannot be verified</span></span><span class="status" data-tone="attention">Needs evidence</span><span class="due num">Nov 13</span><span class="xs muted">5 d</span></button>
+      <button class="wi" aria-selected="false"><span class="urg" data-u="low"></span><span class="id">PR-0219</span><span class="strong">Harbor Holdings BV</span><span><span class="next">Confirm ownership change</span><br><span class="why">monitor.ownership.change · new 12% shareholder</span></span><span class="status" data-tone="info">Review</span><span class="due num">Nov 20</span><span class="xs muted">12 d</span></button>
+    </section>
+
+    <section class="group" data-select-group data-select-attr="aria-selected">
+      <div class="group__head"><h2>Prepared by automation</h2><span class="count muted small">3</span><span class="xs muted" style="margin-left:6px">— agent work products awaiting human review; not decisions</span></div>
+      <button class="wi" aria-selected="false"><span class="urg" data-u="med"></span><span class="id">KYB-1055</span><span class="strong">Ostrava Components s.r.o.</span><span><span class="next">Accept or challenge UBO finding</span><br><span class="why">A02 · 2 verified UBOs · 0 gaps · evidence 9</span></span><span class="status" data-tone="positive">Completed</span><span class="due num">Nov 14</span><span class="xs muted">6 d</span></button>
+      <button class="wi" aria-selected="false"><span class="urg" data-u="low"></span><span class="id">KYB-1058</span><span class="strong">Kestrel Labs Ltd</span><span><span class="next">Review document extraction</span><br><span class="why">A03 · 1 field conflict across versions</span></span><span class="status" data-tone="attention">Partial</span><span class="due num">Nov 15</span><span class="xs muted">7 d</span></button>
+      <button class="wi" aria-selected="false"><span class="urg" data-u="low"></span><span class="id">KYB-1060</span><span class="strong">Mosaic Retail plc</span><span><span class="next">Review registry verification</span><br><span class="why">A05 · status verified · coverage complete</span></span><span class="status" data-tone="positive">Completed</span><span class="due num">Nov 18</span><span class="xs muted">10 d</span></button>
+    </section>
+
+    <section class="group">
+      <div class="group__head"><h2>Waiting on others</h2><span class="count muted small">2</span></div>
+      <button class="wi"><span class="urg" data-u="low"></span><span class="id">KYB-1029</span><span class="strong">Fenwick Partners LLP</span><span><span class="next">Customer documents (RM D. Patel)</span><br><span class="why">Information request sent Nov 04</span></span><span class="status" data-tone="neutral">Waiting</span><span class="due num">Nov 12</span><span class="xs muted">4 d</span></button>
+      <button class="wi"><span class="urg" data-u="med"></span><span class="id">KYB-1033</span><span class="strong">Atlas Shipping SA</span><span><span class="next">Screening disposition (Screening)</span><br><span class="why">1 sanctions candidate · independent approval pending</span></span><span class="status" data-tone="neutral">Approval required</span><span class="due num">Nov 10</span><span class="xs muted">2 d</span></button>
+    </section>
+
+    <section class="group">
+      <div class="group__head"><h2>Escalated or blocked</h2><span class="count muted small">1</span></div>
+      <button class="wi"><span class="urg" data-u="high"></span><span class="id">KYB-1019</span><span class="strong">Sable Minerals Ltd</span><span><span class="next">EDD handoff required</span><br><span class="why">edd.trigger.evaluate · tier HIGH · workflow blocked for EDD template</span></span><span class="status" data-tone="blocking"><svg class="i"><use href="#i-block"/></svg>Blocked</span><span class="due num">Nov 09</span><span class="xs muted">1 d</span></button>
+    </section>
+  </main>
+
+  <aside class="inspector" aria-label="Preview">
+    <div class="inspector__head"><div class="t-engraved">Preview · overview projection</div><h2>Acme Trading Ltd</h2><div class="row" style="margin-top:6px"><span class="id">KYB-1042</span><span class="status" data-tone="info">REVIEW</span><span class="status" data-tone="attention">Needs review</span></div></div>
+    <div class="inspector__section"><span class="t-engraved">Why you</span><p class="small">You hold the CDD role on this case. The workflow paused at <span class="mono">decision.human.review</span> and only an analyst can record the review outcome.</p></div>
+    <div class="inspector__section"><span class="t-engraved">Handoff package · v2 from K. Haas</span>
+      <dl class="kv"><dt>Objective</dt><dd>Corporate KYB onboarding</dd><dt>Completed</dt><dd>Intake, entity, registry, documents</dd><dt>Verified facts</dt><dd class="num">11</dd><dt>Open issues</dt><dd class="num">2</dd><dt>Policy snapshot</dt><dd class="mono xs">synthetic-neutral 0.1.0</dd><dt>Due</dt><dd>Nov 11 · SLA 3 d 4 h</dd></dl></div>
+    <div class="inspector__section"><span class="t-engraved">Already established</span><div class="stack stack--tight small"><span class="epi" data-kind="fact">Legal existence verified (F-221)</span><span class="epi" data-kind="fact">Alice Example — UBO, 33.0%</span><span class="epi" data-kind="assertion">Bram Okoro — 25% or 15%</span><span class="epi" data-kind="assertion">Meridian Nominees — principal unknown</span></div></div>
+    <div class="inspector__section"><a class="btn btn--primary" href="biz-03-case-cdd.html" style="width:100%">Open case room</a></div>
+  </aside>
+  <footer class="rail"><div class="rail__bar"><span class="t-engraved">Recently changed</span><div class="rail__events"><span class="evt" data-tone="info">KYB-1055 · skill.completed · A02</span><span class="evt" data-tone="positive">KYB-1060 · registry verified</span><span class="evt" data-tone="attention">KYB-1037 · SLA &lt; 6 h</span></div></div></footer>
+</div>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

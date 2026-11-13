@@ -1,0 +1,7159 @@
+{
+  "apiVersion": "harness.factory/product-taxonomy-v1",
+  "kind": "ProductTaxonomy",
+  "version": "1.0.0",
+  "status": "CANDIDATE",
+  "domains": [
+    {
+      "code": "AMG",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "c5b573f3a586872d4c0a0899f6ca38806869bb97808162a61ad93f2cc8b87dba"
+    },
+    {
+      "code": "BRK",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "eb20a80dda1d9c14355f192ef963da7293395da7b858cc8e23f5fe07ea547dca"
+    },
+    {
+      "code": "COR",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "fb893dd8a9439882316d79e8f2132e72bc3a2cbc2ed51aba878bcf0999ba05c5"
+    },
+    {
+      "code": "CRP",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "68d9b72405d01c4284a7bd8c6745c3c3cb693f92164794524d0b3e873b9801c6"
+    },
+    {
+      "code": "CUS",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "125515a9ee82c16f8ee30a42a233f8bb9e1a11b61e339be64e1952407dbf2b79"
+    },
+    {
+      "code": "DEP",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "d44dc2c9b9ac19dbb25e04fd064ea6860073ff364f242b2916d9b0317d6c304a"
+    },
+    {
+      "code": "DIG",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "fa12156d35e8850aeada3e89e6f112de6b52dc1b638dcf796357e3a773bef573"
+    },
+    {
+      "code": "FIN",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "f9bf6f1eecbdee68883cefb01735cac11412024dc75c9cf7bc1652326aa98d95"
+    },
+    {
+      "code": "FND",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "b30edeaffc7ac422694bcb439426f550e2a475ed5290f1284dd0da4ac3bca198"
+    },
+    {
+      "code": "INS",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "b10d88a4eadafde4447baf6a3e0e21ac28b8734789757a4e77fac548eb18f66b"
+    },
+    {
+      "code": "LND",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "99fa7daf4316d0a665051b50d44de8111b52dc04dbb15b3f7b7e4439a2140152"
+    },
+    {
+      "code": "OTH",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "d939c925e24663eabc85a40ea59698ed5bd5242b611db57e71e1f27e9c61d1ab"
+    },
+    {
+      "code": "PAY",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "06b4ea76a4afe9841b877ec48e08006b1e457ccbcd8bfca3f4e55bc547236a33"
+    },
+    {
+      "code": "RET",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "69bed602bceb6a43315970fda1522454af3bd76ca6dfa8b903cc6477cf047dd2"
+    },
+    {
+      "code": "SEC",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "76503df004c1e974266162b1f2b3856e13388a212b016faa3f343957734d73d1"
+    },
+    {
+      "code": "TRD",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "8c61668d9f827e1efd74c9d4e71d13543f57ab71902c8820ac2eabeefaecf3df"
+    },
+    {
+      "code": "TSY",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "46d8e7c393c49db317a0fc3c5145627d11ccad7b3a51cd19559b27b4b2ed9765"
+    },
+    {
+      "code": "WLT",
+      "version": "1.0.0",
+      "status": "CANDIDATE",
+      "digest": "41eb88c02a21bcc58cba6fa2fb8913b48398ab1f89fbe0a43a340c6a954e9d20"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AMG",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Asset & investment management",
+      "definition": "Managing investments on behalf of clients, pooled or segregated.",
+      "aliases": [],
+      "regulatedActivities": [
+        "PORTFOLIO_MANAGEMENT",
+        "FUND_MANAGEMENT"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "AMG.MUTUAL_FUNDS",
+        "AMG.ETF_SPONSORSHIP",
+        "AMG.SEPARATE_ACCOUNTS",
+        "AMG.HEDGE_FUNDS",
+        "AMG.PRIVATE_EQUITY",
+        "AMG.REAL_ASSETS",
+        "AMG.DIGITAL_ADVICE"
+      ]
+    },
+    {
+      "id": "AMG.MUTUAL_FUNDS",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Mutual funds",
+      "definition": "Regulated open-ended collective investment schemes.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "AMG.ETF_SPONSORSHIP",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "ETF sponsorship",
+      "definition": "Issuing and managing exchange-traded funds.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "AMG.SEPARATE_ACCOUNTS",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Separately managed accounts",
+      "definition": "Segregated portfolios managed to a client's mandate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "AMG.HEDGE_FUNDS",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Hedge funds",
+      "definition": "Private funds using leverage, short selling or derivatives.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "AMG.PRIVATE_EQUITY",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Private equity & venture funds",
+      "definition": "Closed-ended funds investing in private companies.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "AMG.REAL_ASSETS",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Real estate & infrastructure funds",
+      "definition": "Funds investing in property and infrastructure.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "AMG.DIGITAL_ADVICE",
+      "level": "class",
+      "parent": "AMG",
+      "ancestors": [
+        "AMG"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Digital advice",
+      "definition": "Automated, algorithm-driven investment advice and management.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Securities brokerage & trading",
+      "definition": "Executing, financing and facilitating securities transactions for customers.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_BROKERAGE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {
+        "margin_financing": "configurable",
+        "securities_lending": "configurable",
+        "custody": "configurable",
+        "cross_border": "configurable",
+        "third_party_funding": "configurable"
+      },
+      "riskDimensions": [
+        "VELOCITY",
+        "THIRD_PARTY_FUNDING",
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.RETAIL",
+        "BRK.INSTITUTIONAL",
+        "BRK.PRIME",
+        "BRK.MARKET_ACCESS",
+        "BRK.OTC_DEALING",
+        "BRK.FINANCING",
+        "BRK.INTRODUCING",
+        "BRK.DIGITAL"
+      ]
+    },
+    {
+      "id": "BRK.RETAIL",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Retail brokerage",
+      "definition": "Brokerage accounts for individuals trading on their own account.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "TRUST"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.RETAIL.CASH",
+        "BRK.RETAIL.MARGIN",
+        "BRK.RETAIL.SELF_DIRECTED"
+      ]
+    },
+    {
+      "id": "BRK.RETAIL.CASH",
+      "level": "type",
+      "parent": "BRK.RETAIL",
+      "ancestors": [
+        "BRK",
+        "BRK.RETAIL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Cash brokerage",
+      "definition": "A brokerage account where purchases are paid in full.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {
+        "margin_financing": false
+      },
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.RETAIL.MARGIN",
+      "level": "type",
+      "parent": "BRK.RETAIL",
+      "ancestors": [
+        "BRK",
+        "BRK.RETAIL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Margin brokerage",
+      "definition": "A brokerage account with credit secured on the holdings.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_BROKERAGE",
+        "SECURITIES_FINANCING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {
+        "margin_financing": true
+      },
+      "riskDimensions": [
+        "LEVERAGE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.RETAIL.SELF_DIRECTED",
+      "level": "type",
+      "parent": "BRK.RETAIL",
+      "ancestors": [
+        "BRK",
+        "BRK.RETAIL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Self-directed trading",
+      "definition": "Execution-only trading without advice.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.INSTITUTIONAL",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Institutional brokerage",
+      "definition": "Execution services for institutional investors.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "INVESTMENT_FUND",
+        "FINANCIAL_INSTITUTION",
+        "GOVERNMENT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.INSTITUTIONAL.AGENCY_EXECUTION",
+        "BRK.INSTITUTIONAL.CASH_EQUITIES",
+        "BRK.INSTITUTIONAL.FIXED_INCOME"
+      ]
+    },
+    {
+      "id": "BRK.INSTITUTIONAL.AGENCY_EXECUTION",
+      "level": "type",
+      "parent": "BRK.INSTITUTIONAL",
+      "ancestors": [
+        "BRK",
+        "BRK.INSTITUTIONAL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Agency execution",
+      "definition": "Executing institutional orders as agent.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.INSTITUTIONAL.CASH_EQUITIES",
+      "level": "type",
+      "parent": "BRK.INSTITUTIONAL",
+      "ancestors": [
+        "BRK",
+        "BRK.INSTITUTIONAL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Institutional cash equities",
+      "definition": "Equity execution, research and trading for institutions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.INSTITUTIONAL.FIXED_INCOME",
+      "level": "type",
+      "parent": "BRK.INSTITUTIONAL",
+      "ancestors": [
+        "BRK",
+        "BRK.INSTITUTIONAL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Fixed-income brokerage",
+      "definition": "Execution of bonds and other fixed-income securities.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.PRIME",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Prime brokerage",
+      "definition": "A bundle of financing, custody, securities lending and execution for hedge funds and other active institutions.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_BROKERAGE",
+        "SECURITIES_FINANCING",
+        "SECURITIES_CUSTODY"
+      ],
+      "eligiblePartyTypes": [
+        "INVESTMENT_FUND",
+        "FINANCIAL_INSTITUTION",
+        "LEGAL_ENTITY"
+      ],
+      "capabilities": {
+        "margin_financing": true,
+        "securities_lending": true,
+        "custody": true
+      },
+      "riskDimensions": [
+        "LEVERAGE",
+        "OWNERSHIP_COMPLEXITY",
+        "GEOGRAPHIC_EXPOSURE",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.PRIME.INSTITUTIONAL",
+        "BRK.PRIME.PRIME_CUSTODY",
+        "BRK.PRIME.SYNTHETIC"
+      ]
+    },
+    {
+      "id": "BRK.PRIME.INSTITUTIONAL",
+      "level": "type",
+      "parent": "BRK.PRIME",
+      "ancestors": [
+        "BRK",
+        "BRK.PRIME"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Institutional prime brokerage",
+      "definition": "Full prime services for an institutional client.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.PRIME.PRIME_CUSTODY",
+      "level": "type",
+      "parent": "BRK.PRIME",
+      "ancestors": [
+        "BRK",
+        "BRK.PRIME"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Prime custody",
+      "definition": "Custody of a prime client's unencumbered assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "CUS.SAFEKEEPING"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.PRIME.SYNTHETIC",
+      "level": "type",
+      "parent": "BRK.PRIME",
+      "ancestors": [
+        "BRK",
+        "BRK.PRIME"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Synthetic prime",
+      "definition": "Prime exposure delivered through swaps rather than cash positions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "SEC.DERIVATIVES"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.MARKET_ACCESS",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Market access",
+      "definition": "Giving clients direct or sponsored access to trading venues through the firm's membership.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "INVESTMENT_FUND",
+        "FINANCIAL_INSTITUTION"
+      ],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK",
+        "VELOCITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.MARKET_ACCESS.DIRECT_MARKET_ACCESS",
+        "BRK.MARKET_ACCESS.SPONSORED_ACCESS",
+        "BRK.MARKET_ACCESS.ALGORITHMIC"
+      ]
+    },
+    {
+      "id": "BRK.MARKET_ACCESS.DIRECT_MARKET_ACCESS",
+      "level": "type",
+      "parent": "BRK.MARKET_ACCESS",
+      "ancestors": [
+        "BRK",
+        "BRK.MARKET_ACCESS"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Direct market access",
+      "definition": "Clients route orders to venues through the firm's systems.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.MARKET_ACCESS.SPONSORED_ACCESS",
+      "level": "type",
+      "parent": "BRK.MARKET_ACCESS",
+      "ancestors": [
+        "BRK",
+        "BRK.MARKET_ACCESS"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Sponsored access",
+      "definition": "Clients access venues directly under the firm's membership.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.MARKET_ACCESS.ALGORITHMIC",
+      "level": "type",
+      "parent": "BRK.MARKET_ACCESS",
+      "ancestors": [
+        "BRK",
+        "BRK.MARKET_ACCESS"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Algorithmic trading access",
+      "definition": "Access to the firm's execution algorithms.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.OTC_DEALING",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "OTC dealing",
+      "definition": "The firm acting as principal in instruments not traded on an exchange.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_DEALING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.OTC_DEALING.OTC_EQUITIES",
+        "BRK.OTC_DEALING.OTC_FIXED_INCOME",
+        "BRK.OTC_DEALING.STRUCTURED_NOTES",
+        "BRK.OTC_DEALING.OTC_DERIVATIVES"
+      ]
+    },
+    {
+      "id": "BRK.OTC_DEALING.OTC_EQUITIES",
+      "level": "type",
+      "parent": "BRK.OTC_DEALING",
+      "ancestors": [
+        "BRK",
+        "BRK.OTC_DEALING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "OTC equities",
+      "definition": "Principal dealing in unlisted or off-exchange equities.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.OTC_DEALING.OTC_FIXED_INCOME",
+      "level": "type",
+      "parent": "BRK.OTC_DEALING",
+      "ancestors": [
+        "BRK",
+        "BRK.OTC_DEALING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "OTC fixed income",
+      "definition": "Principal dealing in bonds and money-market instruments.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.OTC_DEALING.STRUCTURED_NOTES",
+      "level": "type",
+      "parent": "BRK.OTC_DEALING",
+      "ancestors": [
+        "BRK",
+        "BRK.OTC_DEALING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Structured notes",
+      "definition": "Issuing or dealing in notes with embedded derivatives.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "SEC.STRUCTURED"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.OTC_DEALING.OTC_DERIVATIVES",
+      "level": "type",
+      "parent": "BRK.OTC_DEALING",
+      "ancestors": [
+        "BRK",
+        "BRK.OTC_DEALING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "OTC derivatives dealing",
+      "definition": "Principal dealing in bilateral derivatives.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "SEC.DERIVATIVES"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.FINANCING",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Securities financing",
+      "definition": "Borrowing and lending of securities and cash against securities.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_FINANCING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "LEVERAGE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.FINANCING.STOCK_BORROW_LOAN",
+        "BRK.FINANCING.REPO",
+        "BRK.FINANCING.MARGIN_LENDING"
+      ]
+    },
+    {
+      "id": "BRK.FINANCING.STOCK_BORROW_LOAN",
+      "level": "type",
+      "parent": "BRK.FINANCING",
+      "ancestors": [
+        "BRK",
+        "BRK.FINANCING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Stock borrow and loan",
+      "definition": "Lending or borrowing securities against collateral.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.FINANCING.REPO",
+      "level": "type",
+      "parent": "BRK.FINANCING",
+      "ancestors": [
+        "BRK",
+        "BRK.FINANCING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Repo and reverse repo",
+      "definition": "Sale and repurchase of securities as secured financing.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.FINANCING.MARGIN_LENDING",
+      "level": "type",
+      "parent": "BRK.FINANCING",
+      "ancestors": [
+        "BRK",
+        "BRK.FINANCING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Margin lending",
+      "definition": "Credit secured on a client's securities portfolio.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.INTRODUCING",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Introducing brokerage",
+      "definition": "A broker that introduces clients to a clearing firm which carries the accounts.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK",
+        "NESTED_ACCESS"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.INTRODUCING.FULLY_DISCLOSED",
+        "BRK.INTRODUCING.OMNIBUS_CLEARING"
+      ]
+    },
+    {
+      "id": "BRK.INTRODUCING.FULLY_DISCLOSED",
+      "level": "type",
+      "parent": "BRK.INTRODUCING",
+      "ancestors": [
+        "BRK",
+        "BRK.INTRODUCING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Fully disclosed clearing",
+      "definition": "The clearing firm carries accounts in each underlying client's name.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "CUS.CLEARING"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.INTRODUCING.OMNIBUS_CLEARING",
+      "level": "type",
+      "parent": "BRK.INTRODUCING",
+      "ancestors": [
+        "BRK",
+        "BRK.INTRODUCING"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Omnibus clearing",
+      "definition": "The clearing firm carries one account for the introducing broker's clients.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.DIGITAL",
+      "level": "class",
+      "parent": "BRK",
+      "ancestors": [
+        "BRK"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Digital brokerage",
+      "definition": "App-based and automated brokerage for retail investors.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY",
+        "VELOCITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "BRK.DIGITAL.FRACTIONAL",
+        "BRK.DIGITAL.APP_BASED",
+        "BRK.DIGITAL.ROBO_EXECUTION"
+      ]
+    },
+    {
+      "id": "BRK.DIGITAL.FRACTIONAL",
+      "level": "type",
+      "parent": "BRK.DIGITAL",
+      "ancestors": [
+        "BRK",
+        "BRK.DIGITAL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Fractional securities",
+      "definition": "Trading in fractions of shares.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.DIGITAL.APP_BASED",
+      "level": "type",
+      "parent": "BRK.DIGITAL",
+      "ancestors": [
+        "BRK",
+        "BRK.DIGITAL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "App-based brokerage",
+      "definition": "Commission-free brokerage delivered through a mobile app.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "BRK.DIGITAL.ROBO_EXECUTION",
+      "level": "type",
+      "parent": "BRK.DIGITAL",
+      "ancestors": [
+        "BRK",
+        "BRK.DIGITAL"
+      ],
+      "sectors": [
+        "SECURITIES"
+      ],
+      "name": "Robo execution",
+      "definition": "Automated portfolio execution and rebalancing.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "AMG.DIGITAL_ADVICE"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Corporate & investment banking",
+      "definition": "Raising capital and advising companies and governments on strategic transactions.",
+      "aliases": [],
+      "regulatedActivities": [
+        "UNDERWRITING",
+        "CORPORATE_FINANCE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "OWNERSHIP_COMPLEXITY",
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "COR.ECM",
+        "COR.DCM",
+        "COR.MA_ADVISORY",
+        "COR.LEVERAGED_FINANCE",
+        "COR.STRUCTURED_FINANCE",
+        "COR.ISSUER_SERVICES",
+        "COR.RESTRUCTURING"
+      ]
+    },
+    {
+      "id": "COR.ECM",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Equity capital markets",
+      "definition": "Underwriting and placing share offerings.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR.DCM",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Debt capital markets",
+      "definition": "Underwriting and placing bond and note issuance.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR.MA_ADVISORY",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "M&A advisory",
+      "definition": "Advising on mergers, acquisitions and disposals.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR.LEVERAGED_FINANCE",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Leveraged finance",
+      "definition": "Arranging financing for leveraged buyouts and high-yield issuers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR.STRUCTURED_FINANCE",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Structured finance & securitisation",
+      "definition": "Structuring asset-backed and securitised financings.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR.ISSUER_SERVICES",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Issuer services",
+      "definition": "Paying agency, trusteeship and registrar services for issuers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "COR.RESTRUCTURING",
+      "level": "class",
+      "parent": "COR",
+      "ancestors": [
+        "COR"
+      ],
+      "sectors": [
+        "CAPITAL_MARKETS",
+        "BANKING"
+      ],
+      "name": "Restructuring advisory",
+      "definition": "Advising companies and creditors on distressed situations.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Correspondent & FI services",
+      "definition": "Services one financial institution provides to another, including access for the other's customers.",
+      "aliases": [],
+      "regulatedActivities": [
+        "CORRESPONDENT_SERVICES"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK",
+        "CROSS_BORDER",
+        "GEOGRAPHIC_EXPOSURE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CRP.CORRESPONDENT_ACCOUNTS",
+        "CRP.PAYABLE_THROUGH",
+        "CRP.NESTED_CLEARING",
+        "CRP.USD_CLEARING",
+        "CRP.TRADE_SERVICES_FI",
+        "CRP.BANKNOTES",
+        "CRP.AGENCY_BANKING"
+      ]
+    },
+    {
+      "id": "CRP.CORRESPONDENT_ACCOUNTS",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Correspondent accounts",
+      "definition": "Accounts held for a respondent institution to send and receive payments.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP.PAYABLE_THROUGH",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Payable-through accounts",
+      "definition": "Correspondent accounts the respondent's customers can use directly.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP.NESTED_CLEARING",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Downstream & nested clearing",
+      "definition": "Correspondent access offered on to other institutions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP.USD_CLEARING",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Currency clearing",
+      "definition": "Clearing a currency for institutions without direct system access.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP.TRADE_SERVICES_FI",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Trade services for banks",
+      "definition": "Confirming and advising letters of credit for other banks.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP.BANKNOTES",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Wholesale banknotes",
+      "definition": "Buying and selling physical currency with other institutions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CRP.AGENCY_BANKING",
+      "level": "class",
+      "parent": "CRP",
+      "ancestors": [
+        "CRP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Agency & sponsor banking",
+      "definition": "Sponsoring other institutions into payment schemes or systems.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Custody, clearing & settlement",
+      "definition": "Safekeeping assets and clearing and settling transactions for clients and intermediaries.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_CUSTODY"
+      ],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "INVESTMENT_FUND",
+        "FINANCIAL_INSTITUTION",
+        "GOVERNMENT",
+        "TRUST",
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK",
+        "NESTED_ACCESS",
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.SAFEKEEPING",
+        "CUS.SUB_CUSTODY",
+        "CUS.CLEARING",
+        "CUS.SETTLEMENT",
+        "CUS.COLLATERAL",
+        "CUS.SECURITIES_LENDING_AGENCY",
+        "CUS.DEPOSITARY",
+        "CUS.DIGITAL_CUSTODY"
+      ]
+    },
+    {
+      "id": "CUS.SAFEKEEPING",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Safekeeping & asset servicing",
+      "definition": "Holding securities and servicing them through corporate actions and income.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.SAFEKEEPING.GLOBAL_CUSTODY",
+        "CUS.SAFEKEEPING.INSTITUTIONAL_CUSTODY",
+        "CUS.SAFEKEEPING.RETAIL_CUSTODY"
+      ]
+    },
+    {
+      "id": "CUS.SAFEKEEPING.GLOBAL_CUSTODY",
+      "level": "type",
+      "parent": "CUS.SAFEKEEPING",
+      "ancestors": [
+        "CUS",
+        "CUS.SAFEKEEPING"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Global custody",
+      "definition": "Custody of a client's assets across many markets through sub-custodians.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "GEOGRAPHIC_EXPOSURE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SAFEKEEPING.INSTITUTIONAL_CUSTODY",
+      "level": "type",
+      "parent": "CUS.SAFEKEEPING",
+      "ancestors": [
+        "CUS",
+        "CUS.SAFEKEEPING"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Institutional custody",
+      "definition": "Custody and asset servicing for an institutional client.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SAFEKEEPING.RETAIL_CUSTODY",
+      "level": "type",
+      "parent": "CUS.SAFEKEEPING",
+      "ancestors": [
+        "CUS",
+        "CUS.SAFEKEEPING"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Retail custody",
+      "definition": "Safekeeping of an individual's securities.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "TRUST"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SUB_CUSTODY",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Sub-custody",
+      "definition": "Local custody provided to another custodian for its clients' assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "FINANCIAL_INSTITUTION"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.SUB_CUSTODY.OMNIBUS_SUB_CUSTODY",
+        "CUS.SUB_CUSTODY.SEGREGATED_SUB_CUSTODY"
+      ]
+    },
+    {
+      "id": "CUS.SUB_CUSTODY.OMNIBUS_SUB_CUSTODY",
+      "level": "type",
+      "parent": "CUS.SUB_CUSTODY",
+      "ancestors": [
+        "CUS",
+        "CUS.SUB_CUSTODY"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Omnibus sub-custody",
+      "definition": "One account holding a custodian's clients' assets together.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SUB_CUSTODY.SEGREGATED_SUB_CUSTODY",
+      "level": "type",
+      "parent": "CUS.SUB_CUSTODY",
+      "ancestors": [
+        "CUS",
+        "CUS.SUB_CUSTODY"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Segregated sub-custody",
+      "definition": "Separate accounts per underlying client of the custodian.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.CLEARING",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Clearing",
+      "definition": "Clearing transactions for clients on exchanges and central counterparties.",
+      "aliases": [],
+      "regulatedActivities": [
+        "CLEARING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.CLEARING.SECURITIES_CLEARING",
+        "CUS.CLEARING.FUTURES_CLEARING"
+      ]
+    },
+    {
+      "id": "CUS.CLEARING.SECURITIES_CLEARING",
+      "level": "type",
+      "parent": "CUS.CLEARING",
+      "ancestors": [
+        "CUS",
+        "CUS.CLEARING"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Securities clearing",
+      "definition": "Clearing securities trades for clients or other brokers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.CLEARING.FUTURES_CLEARING",
+      "level": "type",
+      "parent": "CUS.CLEARING",
+      "ancestors": [
+        "CUS",
+        "CUS.CLEARING"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Futures and options clearing",
+      "definition": "Clearing exchange-traded derivatives for clients.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "LEVERAGE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SETTLEMENT",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Settlement",
+      "definition": "Delivering securities and cash to complete transactions.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SETTLEMENT"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.SETTLEMENT.AGENT_SETTLEMENT",
+        "CUS.SETTLEMENT.CASH_SETTLEMENT"
+      ]
+    },
+    {
+      "id": "CUS.SETTLEMENT.AGENT_SETTLEMENT",
+      "level": "type",
+      "parent": "CUS.SETTLEMENT",
+      "ancestors": [
+        "CUS",
+        "CUS.SETTLEMENT"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Agent settlement",
+      "definition": "Settling a client's trades as its agent.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SETTLEMENT.CASH_SETTLEMENT",
+      "level": "type",
+      "parent": "CUS.SETTLEMENT",
+      "ancestors": [
+        "CUS",
+        "CUS.SETTLEMENT"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Cash settlement accounts",
+      "definition": "Cash accounts supporting securities settlement.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.COLLATERAL",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Collateral management",
+      "definition": "Holding, valuing and moving collateral between parties.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.COLLATERAL.TRIPARTY",
+        "CUS.COLLATERAL.COLLATERAL_SEGREGATION"
+      ]
+    },
+    {
+      "id": "CUS.COLLATERAL.TRIPARTY",
+      "level": "type",
+      "parent": "CUS.COLLATERAL",
+      "ancestors": [
+        "CUS",
+        "CUS.COLLATERAL"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Triparty collateral",
+      "definition": "A third agent managing collateral between two counterparties.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.COLLATERAL.COLLATERAL_SEGREGATION",
+      "level": "type",
+      "parent": "CUS.COLLATERAL",
+      "ancestors": [
+        "CUS",
+        "CUS.COLLATERAL"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Collateral segregation",
+      "definition": "Segregated accounts for posted initial margin.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.SECURITIES_LENDING_AGENCY",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Agency securities lending",
+      "definition": "Lending a custody client's securities as its agent.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_FINANCING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.SECURITIES_LENDING_AGENCY.AGENCY_LENDING"
+      ]
+    },
+    {
+      "id": "CUS.SECURITIES_LENDING_AGENCY.AGENCY_LENDING",
+      "level": "type",
+      "parent": "CUS.SECURITIES_LENDING_AGENCY",
+      "ancestors": [
+        "CUS",
+        "CUS.SECURITIES_LENDING_AGENCY"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Agency lending programme",
+      "definition": "Lending custody assets to borrowers on the client's behalf.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.DEPOSITARY",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Depositary & trustee services",
+      "definition": "Oversight and safekeeping required for regulated funds.",
+      "aliases": [],
+      "regulatedActivities": [
+        "SECURITIES_CUSTODY",
+        "TRUST_AND_FIDUCIARY"
+      ],
+      "eligiblePartyTypes": [
+        "INVESTMENT_FUND"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "CUS.DEPOSITARY.FUND_DEPOSITARY"
+      ]
+    },
+    {
+      "id": "CUS.DEPOSITARY.FUND_DEPOSITARY",
+      "level": "type",
+      "parent": "CUS.DEPOSITARY",
+      "ancestors": [
+        "CUS",
+        "CUS.DEPOSITARY"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Fund depositary",
+      "definition": "Safekeeping and oversight of a regulated fund's assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "CUS.DIGITAL_CUSTODY",
+      "level": "class",
+      "parent": "CUS",
+      "ancestors": [
+        "CUS"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Digital asset custody",
+      "definition": "Safekeeping of digital assets and their keys.",
+      "aliases": [],
+      "regulatedActivities": [
+        "VIRTUAL_ASSET_SERVICES",
+        "SECURITIES_CUSTODY"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY",
+        "ANONYMITY"
+      ],
+      "alsoClassifiedAs": [
+        "DIG.CUSTODY"
+      ],
+      "bundle": [],
+      "children": [
+        "CUS.DIGITAL_CUSTODY.QUALIFIED_DIGITAL_CUSTODY"
+      ]
+    },
+    {
+      "id": "CUS.DIGITAL_CUSTODY.QUALIFIED_DIGITAL_CUSTODY",
+      "level": "type",
+      "parent": "CUS.DIGITAL_CUSTODY",
+      "ancestors": [
+        "CUS",
+        "CUS.DIGITAL_CUSTODY"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "BANKING"
+      ],
+      "name": "Qualified digital custody",
+      "definition": "Custody of digital assets by a qualified custodian.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Deposits & accounts",
+      "definition": "Accounts in which an institution holds a customer's funds and owes them back on demand, at notice or at term.",
+      "aliases": [],
+      "regulatedActivities": [
+        "DEPOSIT_TAKING"
+      ],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY",
+        "PARTNERSHIP",
+        "TRUST",
+        "INVESTMENT_FUND",
+        "FINANCIAL_INSTITUTION",
+        "GOVERNMENT",
+        "NONPROFIT"
+      ],
+      "capabilities": {
+        "cash_deposits": "configurable",
+        "wires": "configurable",
+        "cross_border": "configurable",
+        "third_party_funding": "configurable"
+      },
+      "riskDimensions": [
+        "CASH_INTENSITY",
+        "CROSS_BORDER",
+        "THIRD_PARTY_FUNDING",
+        "VELOCITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.TRANSACTION",
+        "DEP.SAVINGS",
+        "DEP.TERM",
+        "DEP.SPECIAL_PURPOSE",
+        "DEP.INSTITUTIONAL",
+        "DEP.FOREIGN_CURRENCY",
+        "DEP.SWEEP"
+      ]
+    },
+    {
+      "id": "DEP.TRANSACTION",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Transaction deposits",
+      "definition": "Demand accounts used for day-to-day receipts and payments.",
+      "aliases": [
+        "Demand deposits",
+        "Current accounts"
+      ],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.TRANSACTION.PERSONAL_CHECKING",
+        "DEP.TRANSACTION.BUSINESS_CHECKING",
+        "DEP.TRANSACTION.CORPORATE_CURRENT",
+        "DEP.TRANSACTION.NOW_ACCOUNT"
+      ]
+    },
+    {
+      "id": "DEP.TRANSACTION.PERSONAL_CHECKING",
+      "level": "type",
+      "parent": "DEP.TRANSACTION",
+      "ancestors": [
+        "DEP",
+        "DEP.TRANSACTION"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Personal checking",
+      "definition": "A demand account for an individual's everyday payments.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TRANSACTION.BUSINESS_CHECKING",
+      "level": "type",
+      "parent": "DEP.TRANSACTION",
+      "ancestors": [
+        "DEP",
+        "DEP.TRANSACTION"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Business checking",
+      "definition": "A demand account for a small business or sole proprietor.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY",
+        "PARTNERSHIP",
+        "NONPROFIT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TRANSACTION.CORPORATE_CURRENT",
+      "level": "type",
+      "parent": "DEP.TRANSACTION",
+      "ancestors": [
+        "DEP",
+        "DEP.TRANSACTION"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Corporate current account",
+      "definition": "A demand account for a corporate client's operating flows.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "FINANCIAL_INSTITUTION",
+        "GOVERNMENT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TRANSACTION.NOW_ACCOUNT",
+      "level": "type",
+      "parent": "DEP.TRANSACTION",
+      "ancestors": [
+        "DEP",
+        "DEP.TRANSACTION"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "NOW account",
+      "definition": "An interest-bearing negotiable order of withdrawal account.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "NONPROFIT",
+        "GOVERNMENT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SAVINGS",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Savings deposits",
+      "definition": "Interest-bearing accounts held mainly to store value rather than to make payments.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.SAVINGS.STANDARD_SAVINGS",
+        "DEP.SAVINGS.HIGH_YIELD_SAVINGS",
+        "DEP.SAVINGS.MONEY_MARKET_DEPOSIT"
+      ]
+    },
+    {
+      "id": "DEP.SAVINGS.STANDARD_SAVINGS",
+      "level": "type",
+      "parent": "DEP.SAVINGS",
+      "ancestors": [
+        "DEP",
+        "DEP.SAVINGS"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Savings account",
+      "definition": "A basic interest-bearing savings account.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SAVINGS.HIGH_YIELD_SAVINGS",
+      "level": "type",
+      "parent": "DEP.SAVINGS",
+      "ancestors": [
+        "DEP",
+        "DEP.SAVINGS"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "High-yield savings",
+      "definition": "A savings account paying a premium rate, often opened digitally.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {
+        "digital_onboarding": true
+      },
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SAVINGS.MONEY_MARKET_DEPOSIT",
+      "level": "type",
+      "parent": "DEP.SAVINGS",
+      "ancestors": [
+        "DEP",
+        "DEP.SAVINGS"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Money market deposit account",
+      "definition": "A savings account with limited transfers and a market-linked rate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TERM",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Term deposits",
+      "definition": "Deposits placed for a fixed period or subject to notice before withdrawal.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.TERM.CERTIFICATE_OF_DEPOSIT",
+        "DEP.TERM.FIXED_DEPOSIT",
+        "DEP.TERM.NOTICE_DEPOSIT",
+        "DEP.TERM.NEGOTIABLE_CD"
+      ]
+    },
+    {
+      "id": "DEP.TERM.CERTIFICATE_OF_DEPOSIT",
+      "level": "type",
+      "parent": "DEP.TERM",
+      "ancestors": [
+        "DEP",
+        "DEP.TERM"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Certificate of deposit",
+      "definition": "A deposit for a fixed term at a fixed or stepped rate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TERM.FIXED_DEPOSIT",
+      "level": "type",
+      "parent": "DEP.TERM",
+      "ancestors": [
+        "DEP",
+        "DEP.TERM"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Fixed deposit",
+      "definition": "A deposit locked for a set term with early-withdrawal penalties.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TERM.NOTICE_DEPOSIT",
+      "level": "type",
+      "parent": "DEP.TERM",
+      "ancestors": [
+        "DEP",
+        "DEP.TERM"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Notice deposit",
+      "definition": "A deposit withdrawable after a stated notice period.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.TERM.NEGOTIABLE_CD",
+      "level": "type",
+      "parent": "DEP.TERM",
+      "ancestors": [
+        "DEP",
+        "DEP.TERM"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Negotiable CD",
+      "definition": "A large-denomination certificate of deposit that can be traded.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {
+        "transferable": true
+      },
+      "riskDimensions": [
+        "TRANSFERABILITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Special-purpose accounts",
+      "definition": "Accounts held for a defined purpose or on behalf of others, where the account holder is not the sole beneficial owner of the funds.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "OWNERSHIP_COMPLEXITY",
+        "THIRD_PARTY_FUNDING"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.SPECIAL_PURPOSE.ESCROW",
+        "DEP.SPECIAL_PURPOSE.TRUST_ACCOUNT",
+        "DEP.SPECIAL_PURPOSE.ESTATE",
+        "DEP.SPECIAL_PURPOSE.CLIENT_MONEY",
+        "DEP.SPECIAL_PURPOSE.IOLTA",
+        "DEP.SPECIAL_PURPOSE.CUSTODIAL_MINOR",
+        "DEP.SPECIAL_PURPOSE.FBO_ACCOUNT"
+      ]
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.ESCROW",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Escrow account",
+      "definition": "Funds held by a third party pending completion of an agreement.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.TRUST_ACCOUNT",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Trust account",
+      "definition": "An account held by a trustee for a trust's beneficiaries.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "TRUST"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.ESTATE",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Estate account",
+      "definition": "An account administering a deceased person's estate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "TRUST"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.CLIENT_MONEY",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Client money account",
+      "definition": "Pooled or designated funds a professional holds for its clients.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK",
+        "NESTED_ACCESS"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.IOLTA",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Lawyer trust account (IOLTA)",
+      "definition": "A pooled interest-bearing account a lawyer holds for client funds.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK",
+        "NESTED_ACCESS"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.CUSTODIAL_MINOR",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Custodial account for a minor",
+      "definition": "An account held by an adult custodian for a minor.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SPECIAL_PURPOSE.FBO_ACCOUNT",
+      "level": "type",
+      "parent": "DEP.SPECIAL_PURPOSE",
+      "ancestors": [
+        "DEP",
+        "DEP.SPECIAL_PURPOSE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "For-benefit-of account",
+      "definition": "An account opened by one party for the benefit of others, typical of platforms and program managers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [
+        "FIN.BAAS"
+      ],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.INSTITUTIONAL",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Institutional deposits",
+      "definition": "Deposits placed by or through institutions, brokers or public bodies.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "FINANCIAL_INSTITUTION",
+        "GOVERNMENT",
+        "INVESTMENT_FUND",
+        "LEGAL_ENTITY"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.INSTITUTIONAL.BROKERED",
+        "DEP.INSTITUTIONAL.OMNIBUS",
+        "DEP.INSTITUTIONAL.PUBLIC_FUNDS"
+      ]
+    },
+    {
+      "id": "DEP.INSTITUTIONAL.BROKERED",
+      "level": "type",
+      "parent": "DEP.INSTITUTIONAL",
+      "ancestors": [
+        "DEP",
+        "DEP.INSTITUTIONAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Brokered deposit",
+      "definition": "A deposit placed through a deposit broker.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.INSTITUTIONAL.OMNIBUS",
+      "level": "type",
+      "parent": "DEP.INSTITUTIONAL",
+      "ancestors": [
+        "DEP",
+        "DEP.INSTITUTIONAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Omnibus deposit",
+      "definition": "A pooled deposit held by an intermediary for underlying customers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.INSTITUTIONAL.PUBLIC_FUNDS",
+      "level": "type",
+      "parent": "DEP.INSTITUTIONAL",
+      "ancestors": [
+        "DEP",
+        "DEP.INSTITUTIONAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Public funds deposit",
+      "definition": "A deposit of a government body.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "GOVERNMENT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.FOREIGN_CURRENCY",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Foreign currency accounts",
+      "definition": "Accounts denominated in, or holding several, currencies other than the booking currency.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "CROSS_BORDER",
+        "GEOGRAPHIC_EXPOSURE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.FOREIGN_CURRENCY.MULTICURRENCY",
+        "DEP.FOREIGN_CURRENCY.NONRESIDENT",
+        "DEP.FOREIGN_CURRENCY.OFFSHORE"
+      ]
+    },
+    {
+      "id": "DEP.FOREIGN_CURRENCY.MULTICURRENCY",
+      "level": "type",
+      "parent": "DEP.FOREIGN_CURRENCY",
+      "ancestors": [
+        "DEP",
+        "DEP.FOREIGN_CURRENCY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Multicurrency account",
+      "definition": "One account holding balances in several currencies.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.FOREIGN_CURRENCY.NONRESIDENT",
+      "level": "type",
+      "parent": "DEP.FOREIGN_CURRENCY",
+      "ancestors": [
+        "DEP",
+        "DEP.FOREIGN_CURRENCY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Nonresident account",
+      "definition": "An account for a customer resident outside the booking jurisdiction.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.FOREIGN_CURRENCY.OFFSHORE",
+      "level": "type",
+      "parent": "DEP.FOREIGN_CURRENCY",
+      "ancestors": [
+        "DEP",
+        "DEP.FOREIGN_CURRENCY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Offshore account",
+      "definition": "An account booked in an international financial centre for a foreign customer.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SWEEP",
+      "level": "class",
+      "parent": "DEP",
+      "ancestors": [
+        "DEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Sweep structures",
+      "definition": "Arrangements that move balances automatically between accounts or institutions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DEP.SWEEP.DEPOSIT_SWEEP",
+        "DEP.SWEEP.INSURED_CASH_SWEEP",
+        "DEP.SWEEP.ZERO_BALANCE"
+      ]
+    },
+    {
+      "id": "DEP.SWEEP.DEPOSIT_SWEEP",
+      "level": "type",
+      "parent": "DEP.SWEEP",
+      "ancestors": [
+        "DEP",
+        "DEP.SWEEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Deposit sweep",
+      "definition": "Moves excess balances into an interest-bearing deposit.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SWEEP.INSURED_CASH_SWEEP",
+      "level": "type",
+      "parent": "DEP.SWEEP",
+      "ancestors": [
+        "DEP",
+        "DEP.SWEEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Insured cash sweep",
+      "definition": "Spreads balances across several institutions to extend deposit insurance.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DEP.SWEEP.ZERO_BALANCE",
+      "level": "type",
+      "parent": "DEP.SWEEP",
+      "ancestors": [
+        "DEP",
+        "DEP.SWEEP"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Zero-balance account",
+      "definition": "A subsidiary account swept to zero against a master account each day.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Digital assets & virtual-asset services",
+      "definition": "Services involving cryptoassets, stablecoins and tokenised value.",
+      "aliases": [],
+      "regulatedActivities": [
+        "VIRTUAL_ASSET_SERVICES"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY",
+        "ANONYMITY",
+        "CROSS_BORDER",
+        "VELOCITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "DIG.EXCHANGE",
+        "DIG.CUSTODY",
+        "DIG.TRANSFERS",
+        "DIG.STABLECOINS",
+        "DIG.STAKING_LENDING",
+        "DIG.TOKENIZATION",
+        "DIG.ON_OFF_RAMP",
+        "DIG.OTC_DESK"
+      ]
+    },
+    {
+      "id": "DIG.EXCHANGE",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Exchange & trading",
+      "definition": "Exchanging virtual assets for fiat or other virtual assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.CUSTODY",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Wallet & custody services",
+      "definition": "Holding virtual assets or their keys for customers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.TRANSFERS",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Virtual-asset transfers",
+      "definition": "Sending and receiving virtual assets for customers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.STABLECOINS",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Stablecoin issuance & redemption",
+      "definition": "Issuing and redeeming value-referenced tokens.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.STAKING_LENDING",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Staking & lending",
+      "definition": "Staking virtual assets or lending them for a return.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.TOKENIZATION",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "Tokenisation services",
+      "definition": "Issuing and servicing tokenised representations of assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.ON_OFF_RAMP",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "On- and off-ramps",
+      "definition": "Converting between fiat accounts and virtual assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "DIG.OTC_DESK",
+      "level": "class",
+      "parent": "DIG",
+      "ancestors": [
+        "DIG"
+      ],
+      "sectors": [
+        "DIGITAL_ASSETS",
+        "FINTECH"
+      ],
+      "name": "OTC desk",
+      "definition": "Principal or agency block trading of virtual assets.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Fintech & embedded finance",
+      "definition": "Financial services delivered by or through technology platforms.",
+      "aliases": [],
+      "regulatedActivities": [
+        "PAYMENT_SERVICES"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY",
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "FIN.BAAS",
+        "FIN.EMBEDDED_LENDING",
+        "FIN.MARKETPLACES",
+        "FIN.OPEN_BANKING",
+        "FIN.EARNED_WAGE",
+        "FIN.PEER_TO_PEER",
+        "FIN.NEOBANK"
+      ]
+    },
+    {
+      "id": "FIN.BAAS",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Banking as a service",
+      "definition": "A bank providing accounts and payments to a platform's customers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN.EMBEDDED_LENDING",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Embedded lending",
+      "definition": "Credit offered inside a non-financial platform's journey.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN.MARKETPLACES",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Marketplace payments",
+      "definition": "Collecting and splitting payments between a marketplace and its sellers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN.OPEN_BANKING",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Open banking services",
+      "definition": "Account information and payment initiation through banking APIs.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN.EARNED_WAGE",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Earned wage access",
+      "definition": "Advances on wages already earned.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN.PEER_TO_PEER",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Peer-to-peer platforms",
+      "definition": "Platforms matching individual lenders, payers or investors.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FIN.NEOBANK",
+      "level": "class",
+      "parent": "FIN",
+      "ancestors": [
+        "FIN"
+      ],
+      "sectors": [
+        "FINTECH",
+        "PAYMENTS"
+      ],
+      "name": "Digital-only banking",
+      "definition": "Accounts and cards offered only through digital channels.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FND",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Fund administration & servicing",
+      "definition": "Back- and middle-office services that funds and their managers outsource.",
+      "aliases": [],
+      "regulatedActivities": [
+        "FUND_ADMINISTRATION"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "FND.FUND_ACCOUNTING",
+        "FND.TRANSFER_AGENCY",
+        "FND.INVESTOR_SERVICES",
+        "FND.DISTRIBUTION_PLATFORMS",
+        "FND.MIDDLE_OFFICE",
+        "FND.CORPORATE_SECRETARIAL"
+      ]
+    },
+    {
+      "id": "FND.FUND_ACCOUNTING",
+      "level": "class",
+      "parent": "FND",
+      "ancestors": [
+        "FND"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Fund accounting & NAV",
+      "definition": "Valuing fund assets and calculating net asset value.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FND.TRANSFER_AGENCY",
+      "level": "class",
+      "parent": "FND",
+      "ancestors": [
+        "FND"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Transfer agency",
+      "definition": "Maintaining a fund's investor register and processing subscriptions and redemptions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FND.INVESTOR_SERVICES",
+      "level": "class",
+      "parent": "FND",
+      "ancestors": [
+        "FND"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Investor onboarding",
+      "definition": "KYC and onboarding of a fund's investors on the manager's behalf.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FND.DISTRIBUTION_PLATFORMS",
+      "level": "class",
+      "parent": "FND",
+      "ancestors": [
+        "FND"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Fund distribution platforms",
+      "definition": "Platforms and nominees through which intermediaries buy fund units.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FND.MIDDLE_OFFICE",
+      "level": "class",
+      "parent": "FND",
+      "ancestors": [
+        "FND"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Middle-office outsourcing",
+      "definition": "Trade capture, reconciliation and performance reporting for managers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "FND.CORPORATE_SECRETARIAL",
+      "level": "class",
+      "parent": "FND",
+      "ancestors": [
+        "FND"
+      ],
+      "sectors": [
+        "ASSET_MANAGEMENT",
+        "SECURITIES"
+      ],
+      "name": "Fund corporate secretarial",
+      "definition": "Directors, registered office and governance services for fund vehicles.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Insurance & reinsurance",
+      "definition": "Contracts transferring risk to an insurer for a premium, some with investment value.",
+      "aliases": [],
+      "regulatedActivities": [
+        "INSURANCE_UNDERWRITING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "THIRD_PARTY_FUNDING"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "INS.LIFE",
+        "INS.ANNUITIES",
+        "INS.INVESTMENT_LINKED",
+        "INS.PROPERTY_CASUALTY",
+        "INS.HEALTH",
+        "INS.SPECIALTY",
+        "INS.REINSURANCE",
+        "INS.DISTRIBUTION"
+      ]
+    },
+    {
+      "id": "INS.LIFE",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Life insurance",
+      "definition": "Protection paying on death, with or without a savings element.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.ANNUITIES",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Annuities",
+      "definition": "Contracts converting a premium into a stream of income.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.INVESTMENT_LINKED",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Investment-linked insurance",
+      "definition": "Policies whose value follows underlying funds, including private placement life insurance.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.PROPERTY_CASUALTY",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Property & casualty",
+      "definition": "Insurance of property, liability and other non-life risks.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.HEALTH",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Health & accident",
+      "definition": "Insurance of medical costs, disability and accident.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.SPECIALTY",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Specialty & marine",
+      "definition": "Marine, aviation, political risk, trade credit and other specialty lines.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.REINSURANCE",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Reinsurance",
+      "definition": "Insurance of insurers' portfolios.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "INS.DISTRIBUTION",
+      "level": "class",
+      "parent": "INS",
+      "ancestors": [
+        "INS"
+      ],
+      "sectors": [
+        "INSURANCE"
+      ],
+      "name": "Insurance distribution",
+      "definition": "Broking and agency arrangements that sell insurance.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Lending & credit",
+      "definition": "Credit an institution extends, secured or unsecured, to be repaid with interest or fees.",
+      "aliases": [],
+      "regulatedActivities": [
+        "LENDING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {
+        "collateral": "configurable",
+        "third_party_repayment": "configurable",
+        "cross_border": "configurable"
+      },
+      "riskDimensions": [
+        "THIRD_PARTY_FUNDING",
+        "LEVERAGE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.CONSUMER",
+        "LND.CARDS_CREDIT",
+        "LND.MORTGAGE",
+        "LND.SMALL_BUSINESS",
+        "LND.COMMERCIAL",
+        "LND.REAL_ESTATE",
+        "LND.ASSET_FINANCE",
+        "LND.SPECIALTY"
+      ]
+    },
+    {
+      "id": "LND.CONSUMER",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Consumer lending",
+      "definition": "Credit to individuals for personal purposes.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.CONSUMER.PERSONAL_LOAN",
+        "LND.CONSUMER.AUTO_LOAN",
+        "LND.CONSUMER.STUDENT_LOAN",
+        "LND.CONSUMER.BNPL"
+      ]
+    },
+    {
+      "id": "LND.CONSUMER.PERSONAL_LOAN",
+      "level": "type",
+      "parent": "LND.CONSUMER",
+      "ancestors": [
+        "LND",
+        "LND.CONSUMER"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Personal loan",
+      "definition": "An unsecured instalment loan to an individual.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.CONSUMER.AUTO_LOAN",
+      "level": "type",
+      "parent": "LND.CONSUMER",
+      "ancestors": [
+        "LND",
+        "LND.CONSUMER"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Auto loan",
+      "definition": "A loan secured on a vehicle.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.CONSUMER.STUDENT_LOAN",
+      "level": "type",
+      "parent": "LND.CONSUMER",
+      "ancestors": [
+        "LND",
+        "LND.CONSUMER"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Student loan",
+      "definition": "A loan financing education costs.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.CONSUMER.BNPL",
+      "level": "type",
+      "parent": "LND.CONSUMER",
+      "ancestors": [
+        "LND",
+        "LND.CONSUMER"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Buy now pay later",
+      "definition": "Short-term point-of-sale instalment credit.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.CARDS_CREDIT",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Credit cards",
+      "definition": "Revolving credit accessed by card.",
+      "aliases": [],
+      "regulatedActivities": [
+        "LENDING",
+        "CARD_ISSUING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [
+        "PAY.CARDS"
+      ],
+      "bundle": [],
+      "children": [
+        "LND.CARDS_CREDIT.CONSUMER_CREDIT_CARD",
+        "LND.CARDS_CREDIT.COMMERCIAL_CREDIT_CARD"
+      ]
+    },
+    {
+      "id": "LND.CARDS_CREDIT.CONSUMER_CREDIT_CARD",
+      "level": "type",
+      "parent": "LND.CARDS_CREDIT",
+      "ancestors": [
+        "LND",
+        "LND.CARDS_CREDIT"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Consumer credit card",
+      "definition": "A revolving credit card for an individual.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.CARDS_CREDIT.COMMERCIAL_CREDIT_CARD",
+      "level": "type",
+      "parent": "LND.CARDS_CREDIT",
+      "ancestors": [
+        "LND",
+        "LND.CARDS_CREDIT"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Commercial credit card",
+      "definition": "A revolving credit card under a business's liability.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.MORTGAGE",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Mortgages",
+      "definition": "Loans secured on residential property.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.MORTGAGE.RESIDENTIAL_MORTGAGE",
+        "LND.MORTGAGE.BUY_TO_LET",
+        "LND.MORTGAGE.HOME_EQUITY"
+      ]
+    },
+    {
+      "id": "LND.MORTGAGE.RESIDENTIAL_MORTGAGE",
+      "level": "type",
+      "parent": "LND.MORTGAGE",
+      "ancestors": [
+        "LND",
+        "LND.MORTGAGE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Residential mortgage",
+      "definition": "A loan secured on the borrower's home.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.MORTGAGE.BUY_TO_LET",
+      "level": "type",
+      "parent": "LND.MORTGAGE",
+      "ancestors": [
+        "LND",
+        "LND.MORTGAGE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Buy-to-let mortgage",
+      "definition": "A loan secured on property let to tenants.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "LEGAL_ENTITY"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.MORTGAGE.HOME_EQUITY",
+      "level": "type",
+      "parent": "LND.MORTGAGE",
+      "ancestors": [
+        "LND",
+        "LND.MORTGAGE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Home equity line",
+      "definition": "A revolving line secured on home equity.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.SMALL_BUSINESS",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Small business lending",
+      "definition": "Credit to small businesses and sole proprietors.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY",
+        "PARTNERSHIP"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.SMALL_BUSINESS.TERM_LOAN",
+        "LND.SMALL_BUSINESS.LINE_OF_CREDIT",
+        "LND.SMALL_BUSINESS.GOVERNMENT_GUARANTEED"
+      ]
+    },
+    {
+      "id": "LND.SMALL_BUSINESS.TERM_LOAN",
+      "level": "type",
+      "parent": "LND.SMALL_BUSINESS",
+      "ancestors": [
+        "LND",
+        "LND.SMALL_BUSINESS"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Business term loan",
+      "definition": "An amortising loan for a business purpose.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.SMALL_BUSINESS.LINE_OF_CREDIT",
+      "level": "type",
+      "parent": "LND.SMALL_BUSINESS",
+      "ancestors": [
+        "LND",
+        "LND.SMALL_BUSINESS"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Business line of credit",
+      "definition": "A revolving facility for working capital.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.SMALL_BUSINESS.GOVERNMENT_GUARANTEED",
+      "level": "type",
+      "parent": "LND.SMALL_BUSINESS",
+      "ancestors": [
+        "LND",
+        "LND.SMALL_BUSINESS"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Government-guaranteed loan",
+      "definition": "A loan partly guaranteed by a public scheme.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.COMMERCIAL",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Commercial & corporate lending",
+      "definition": "Credit facilities to mid-sized and large companies.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "PARTNERSHIP",
+        "FINANCIAL_INSTITUTION",
+        "INVESTMENT_FUND"
+      ],
+      "capabilities": {},
+      "riskDimensions": [
+        "OWNERSHIP_COMPLEXITY",
+        "LEVERAGE",
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.COMMERCIAL.REVOLVING_FACILITY",
+        "LND.COMMERCIAL.SYNDICATED_LOAN",
+        "LND.COMMERCIAL.ACQUISITION_FINANCE",
+        "LND.COMMERCIAL.FUND_FINANCE"
+      ]
+    },
+    {
+      "id": "LND.COMMERCIAL.REVOLVING_FACILITY",
+      "level": "type",
+      "parent": "LND.COMMERCIAL",
+      "ancestors": [
+        "LND",
+        "LND.COMMERCIAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Revolving credit facility",
+      "definition": "A committed revolving facility for a corporate borrower.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.COMMERCIAL.SYNDICATED_LOAN",
+      "level": "type",
+      "parent": "LND.COMMERCIAL",
+      "ancestors": [
+        "LND",
+        "LND.COMMERCIAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Syndicated loan",
+      "definition": "A loan provided by a group of lenders under one agreement.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.COMMERCIAL.ACQUISITION_FINANCE",
+      "level": "type",
+      "parent": "LND.COMMERCIAL",
+      "ancestors": [
+        "LND",
+        "LND.COMMERCIAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Acquisition finance",
+      "definition": "Financing for the purchase of a company.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.COMMERCIAL.FUND_FINANCE",
+      "level": "type",
+      "parent": "LND.COMMERCIAL",
+      "ancestors": [
+        "LND",
+        "LND.COMMERCIAL"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Fund finance",
+      "definition": "Subscription and NAV facilities lent to investment funds.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INVESTMENT_FUND"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.REAL_ESTATE",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Commercial real estate",
+      "definition": "Loans secured on, or financing, income-producing property.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.REAL_ESTATE.CRE_TERM",
+        "LND.REAL_ESTATE.CONSTRUCTION"
+      ]
+    },
+    {
+      "id": "LND.REAL_ESTATE.CRE_TERM",
+      "level": "type",
+      "parent": "LND.REAL_ESTATE",
+      "ancestors": [
+        "LND",
+        "LND.REAL_ESTATE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "CRE term loan",
+      "definition": "A loan secured on an investment property.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.REAL_ESTATE.CONSTRUCTION",
+      "level": "type",
+      "parent": "LND.REAL_ESTATE",
+      "ancestors": [
+        "LND",
+        "LND.REAL_ESTATE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Construction loan",
+      "definition": "A loan funding development in stages.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.ASSET_FINANCE",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Asset finance & leasing",
+      "definition": "Financing of equipment, vehicles and other assets through loans or leases.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.ASSET_FINANCE.EQUIPMENT_LEASE",
+        "LND.ASSET_FINANCE.HIRE_PURCHASE"
+      ]
+    },
+    {
+      "id": "LND.ASSET_FINANCE.EQUIPMENT_LEASE",
+      "level": "type",
+      "parent": "LND.ASSET_FINANCE",
+      "ancestors": [
+        "LND",
+        "LND.ASSET_FINANCE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Equipment lease",
+      "definition": "A lease of business equipment.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.ASSET_FINANCE.HIRE_PURCHASE",
+      "level": "type",
+      "parent": "LND.ASSET_FINANCE",
+      "ancestors": [
+        "LND",
+        "LND.ASSET_FINANCE"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Hire purchase",
+      "definition": "An instalment purchase with title passing at the end.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.SPECIALTY",
+      "level": "class",
+      "parent": "LND",
+      "ancestors": [
+        "LND"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Specialty & structured credit",
+      "definition": "Credit tailored to particular collateral, sectors or structures.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "OWNERSHIP_COMPLEXITY",
+        "LEVERAGE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "LND.SPECIALTY.LEVERAGED_LOAN",
+        "LND.SPECIALTY.ASSET_BACKED",
+        "LND.SPECIALTY.PROJECT_FINANCE"
+      ]
+    },
+    {
+      "id": "LND.SPECIALTY.LEVERAGED_LOAN",
+      "level": "type",
+      "parent": "LND.SPECIALTY",
+      "ancestors": [
+        "LND",
+        "LND.SPECIALTY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Leveraged loan",
+      "definition": "A loan to a highly leveraged borrower.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.SPECIALTY.ASSET_BACKED",
+      "level": "type",
+      "parent": "LND.SPECIALTY",
+      "ancestors": [
+        "LND",
+        "LND.SPECIALTY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Asset-backed lending",
+      "definition": "A facility secured on receivables, inventory or other pools.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "LND.SPECIALTY.PROJECT_FINANCE",
+      "level": "type",
+      "parent": "LND.SPECIALTY",
+      "ancestors": [
+        "LND",
+        "LND.SPECIALTY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Project finance",
+      "definition": "Non-recourse financing repaid from a project's cash flows.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "GEOGRAPHIC_EXPOSURE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Specialized financial services",
+      "definition": "Other regulated or higher-risk financial services.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "OTH.GAMING",
+        "OTH.PRECIOUS_METALS",
+        "OTH.PAWN",
+        "OTH.TRUST_COMPANY",
+        "OTH.ESCROW_AGENTS",
+        "OTH.CROWDFUNDING",
+        "OTH.CHARITY_SERVICES"
+      ]
+    },
+    {
+      "id": "OTH.GAMING",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Gaming & casino accounts",
+      "definition": "Accounts and credit for casinos and gaming operators' customers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH.PRECIOUS_METALS",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Precious metals & stones dealing",
+      "definition": "Dealing in bullion, precious stones and jewellery.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH.PAWN",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Pawnbroking",
+      "definition": "Secured lending against personal property.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH.TRUST_COMPANY",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Trust & company service providers",
+      "definition": "Forming companies and acting as nominee directors or shareholders.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH.ESCROW_AGENTS",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Escrow & settlement agents",
+      "definition": "Third parties holding funds pending real-estate or business transactions.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH.CROWDFUNDING",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Crowdfunding",
+      "definition": "Raising funds from many investors or donors through a platform.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "OTH.CHARITY_SERVICES",
+      "level": "class",
+      "parent": "OTH",
+      "ancestors": [
+        "OTH"
+      ],
+      "sectors": [
+        "OTHER"
+      ],
+      "name": "Charity & donation services",
+      "definition": "Collecting and distributing donations for charities.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Payments & money movement",
+      "definition": "Services that move value between parties, accounts, institutions or currencies.",
+      "aliases": [],
+      "regulatedActivities": [
+        "PAYMENT_SERVICES"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "VELOCITY",
+        "CROSS_BORDER",
+        "THIRD_PARTY_FUNDING"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.DOMESTIC_TRANSFERS",
+        "PAY.CROSS_BORDER",
+        "PAY.CARDS",
+        "PAY.MERCHANT_ACQUIRING",
+        "PAY.MONEY_SERVICES",
+        "PAY.WALLETS",
+        "PAY.BULK_PAYMENTS"
+      ]
+    },
+    {
+      "id": "PAY.DOMESTIC_TRANSFERS",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Domestic transfers",
+      "definition": "Credit and debit transfers within one payment system or currency area.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.DOMESTIC_TRANSFERS.ACH",
+        "PAY.DOMESTIC_TRANSFERS.DOMESTIC_WIRE",
+        "PAY.DOMESTIC_TRANSFERS.INSTANT_PAYMENT",
+        "PAY.DOMESTIC_TRANSFERS.DIRECT_DEBIT"
+      ]
+    },
+    {
+      "id": "PAY.DOMESTIC_TRANSFERS.ACH",
+      "level": "type",
+      "parent": "PAY.DOMESTIC_TRANSFERS",
+      "ancestors": [
+        "PAY",
+        "PAY.DOMESTIC_TRANSFERS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "ACH and bulk credit transfers",
+      "definition": "Batched low-value credit and debit transfers.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.DOMESTIC_TRANSFERS.DOMESTIC_WIRE",
+      "level": "type",
+      "parent": "PAY.DOMESTIC_TRANSFERS",
+      "ancestors": [
+        "PAY",
+        "PAY.DOMESTIC_TRANSFERS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Domestic wire",
+      "definition": "A high-value real-time gross settlement transfer.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.DOMESTIC_TRANSFERS.INSTANT_PAYMENT",
+      "level": "type",
+      "parent": "PAY.DOMESTIC_TRANSFERS",
+      "ancestors": [
+        "PAY",
+        "PAY.DOMESTIC_TRANSFERS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Instant payment",
+      "definition": "A real-time retail credit transfer available around the clock.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.DOMESTIC_TRANSFERS.DIRECT_DEBIT",
+      "level": "type",
+      "parent": "PAY.DOMESTIC_TRANSFERS",
+      "ancestors": [
+        "PAY",
+        "PAY.DOMESTIC_TRANSFERS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Direct debit",
+      "definition": "A pull payment authorised by the payer's mandate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CROSS_BORDER",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Cross-border payments",
+      "definition": "Transfers between jurisdictions, usually through correspondents or networks.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "CROSS_BORDER",
+        "GEOGRAPHIC_EXPOSURE",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.CROSS_BORDER.INTERNATIONAL_WIRE",
+        "PAY.CROSS_BORDER.REMITTANCE",
+        "PAY.CROSS_BORDER.FX_PAYMENT"
+      ]
+    },
+    {
+      "id": "PAY.CROSS_BORDER.INTERNATIONAL_WIRE",
+      "level": "type",
+      "parent": "PAY.CROSS_BORDER",
+      "ancestors": [
+        "PAY",
+        "PAY.CROSS_BORDER"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "International wire",
+      "definition": "A cross-border credit transfer through correspondent banks.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CROSS_BORDER.REMITTANCE",
+      "level": "type",
+      "parent": "PAY.CROSS_BORDER",
+      "ancestors": [
+        "PAY",
+        "PAY.CROSS_BORDER"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Remittance",
+      "definition": "A person-to-person cross-border transfer, often cash-funded.",
+      "aliases": [],
+      "regulatedActivities": [
+        "MONEY_TRANSMISSION"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "CASH_INTENSITY",
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CROSS_BORDER.FX_PAYMENT",
+      "level": "type",
+      "parent": "PAY.CROSS_BORDER",
+      "ancestors": [
+        "PAY",
+        "PAY.CROSS_BORDER"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "FX payment",
+      "definition": "A payment with currency conversion.",
+      "aliases": [],
+      "regulatedActivities": [
+        "FOREIGN_EXCHANGE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CARDS",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Cards",
+      "definition": "Card products used to pay at merchants and withdraw cash.",
+      "aliases": [],
+      "regulatedActivities": [
+        "CARD_ISSUING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.CARDS.DEBIT",
+        "PAY.CARDS.PREPAID",
+        "PAY.CARDS.CORPORATE_CARD",
+        "PAY.CARDS.VIRTUAL_CARD"
+      ]
+    },
+    {
+      "id": "PAY.CARDS.DEBIT",
+      "level": "type",
+      "parent": "PAY.CARDS",
+      "ancestors": [
+        "PAY",
+        "PAY.CARDS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Debit card",
+      "definition": "A card drawing on a deposit account.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CARDS.PREPAID",
+      "level": "type",
+      "parent": "PAY.CARDS",
+      "ancestors": [
+        "PAY",
+        "PAY.CARDS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Prepaid card",
+      "definition": "A card loaded with funds in advance.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "ANONYMITY",
+        "CASH_INTENSITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CARDS.CORPORATE_CARD",
+      "level": "type",
+      "parent": "PAY.CARDS",
+      "ancestors": [
+        "PAY",
+        "PAY.CARDS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Corporate card",
+      "definition": "A card issued to employees under a company's liability.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.CARDS.VIRTUAL_CARD",
+      "level": "type",
+      "parent": "PAY.CARDS",
+      "ancestors": [
+        "PAY",
+        "PAY.CARDS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Virtual card",
+      "definition": "A card number issued for online or single use.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.MERCHANT_ACQUIRING",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Merchant acquiring",
+      "definition": "Accepting card and electronic payments on behalf of merchants and settling them.",
+      "aliases": [],
+      "regulatedActivities": [
+        "MERCHANT_ACQUIRING"
+      ],
+      "eligiblePartyTypes": [
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY",
+        "PARTNERSHIP",
+        "NONPROFIT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [
+        "THIRD_PARTY_FUNDING",
+        "VELOCITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.MERCHANT_ACQUIRING.CARD_ACQUIRING",
+        "PAY.MERCHANT_ACQUIRING.PAYMENT_FACILITATION",
+        "PAY.MERCHANT_ACQUIRING.ECOMMERCE_GATEWAY"
+      ]
+    },
+    {
+      "id": "PAY.MERCHANT_ACQUIRING.CARD_ACQUIRING",
+      "level": "type",
+      "parent": "PAY.MERCHANT_ACQUIRING",
+      "ancestors": [
+        "PAY",
+        "PAY.MERCHANT_ACQUIRING"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Card acquiring",
+      "definition": "Acquiring card-present and card-not-present transactions for a merchant.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.MERCHANT_ACQUIRING.PAYMENT_FACILITATION",
+      "level": "type",
+      "parent": "PAY.MERCHANT_ACQUIRING",
+      "ancestors": [
+        "PAY",
+        "PAY.MERCHANT_ACQUIRING"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Payment facilitation",
+      "definition": "Acquiring through a payment facilitator for its sub-merchants.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS",
+        "INTERMEDIARY_RISK"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.MERCHANT_ACQUIRING.ECOMMERCE_GATEWAY",
+      "level": "type",
+      "parent": "PAY.MERCHANT_ACQUIRING",
+      "ancestors": [
+        "PAY",
+        "PAY.MERCHANT_ACQUIRING"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "E-commerce gateway",
+      "definition": "Online payment acceptance and routing for a merchant.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.MONEY_SERVICES",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Money services",
+      "definition": "Non-account payment services typically offered by money services businesses.",
+      "aliases": [],
+      "regulatedActivities": [
+        "MONEY_TRANSMISSION"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "CASH_INTENSITY",
+        "ANONYMITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.MONEY_SERVICES.MONEY_ORDER",
+        "PAY.MONEY_SERVICES.CHECK_CASHING",
+        "PAY.MONEY_SERVICES.CURRENCY_EXCHANGE"
+      ]
+    },
+    {
+      "id": "PAY.MONEY_SERVICES.MONEY_ORDER",
+      "level": "type",
+      "parent": "PAY.MONEY_SERVICES",
+      "ancestors": [
+        "PAY",
+        "PAY.MONEY_SERVICES"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Money order",
+      "definition": "A prepaid payment instrument for a stated amount.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.MONEY_SERVICES.CHECK_CASHING",
+      "level": "type",
+      "parent": "PAY.MONEY_SERVICES",
+      "ancestors": [
+        "PAY",
+        "PAY.MONEY_SERVICES"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Check cashing",
+      "definition": "Cashing checks for a fee without an account.",
+      "aliases": [],
+      "regulatedActivities": [
+        "CHECK_CASHING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.MONEY_SERVICES.CURRENCY_EXCHANGE",
+      "level": "type",
+      "parent": "PAY.MONEY_SERVICES",
+      "ancestors": [
+        "PAY",
+        "PAY.MONEY_SERVICES"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Currency exchange",
+      "definition": "Buying and selling foreign banknotes.",
+      "aliases": [],
+      "regulatedActivities": [
+        "FOREIGN_EXCHANGE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.WALLETS",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Wallets & stored value",
+      "definition": "Stored-value accounts and digital wallets that hold or pass through funds.",
+      "aliases": [],
+      "regulatedActivities": [
+        "E_MONEY_ISSUANCE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NEW_TECHNOLOGY",
+        "VELOCITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.WALLETS.E_MONEY_WALLET",
+        "PAY.WALLETS.PASS_THROUGH_WALLET"
+      ]
+    },
+    {
+      "id": "PAY.WALLETS.E_MONEY_WALLET",
+      "level": "type",
+      "parent": "PAY.WALLETS",
+      "ancestors": [
+        "PAY",
+        "PAY.WALLETS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "E-money wallet",
+      "definition": "A wallet holding electronic money issued against funds received.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.WALLETS.PASS_THROUGH_WALLET",
+      "level": "type",
+      "parent": "PAY.WALLETS",
+      "ancestors": [
+        "PAY",
+        "PAY.WALLETS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Pass-through wallet",
+      "definition": "A wallet storing payment credentials for another account.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.BULK_PAYMENTS",
+      "level": "class",
+      "parent": "PAY",
+      "ancestors": [
+        "PAY"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Bulk & payroll payments",
+      "definition": "High-volume payment files for payroll, disbursements and supplier payments.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "GOVERNMENT",
+        "NONPROFIT",
+        "FINANCIAL_INSTITUTION"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "PAY.BULK_PAYMENTS.PAYROLL",
+        "PAY.BULK_PAYMENTS.DISBURSEMENTS"
+      ]
+    },
+    {
+      "id": "PAY.BULK_PAYMENTS.PAYROLL",
+      "level": "type",
+      "parent": "PAY.BULK_PAYMENTS",
+      "ancestors": [
+        "PAY",
+        "PAY.BULK_PAYMENTS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Payroll",
+      "definition": "Salary payments from an employer to employees.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "PAY.BULK_PAYMENTS.DISBURSEMENTS",
+      "level": "type",
+      "parent": "PAY.BULK_PAYMENTS",
+      "ancestors": [
+        "PAY",
+        "PAY.BULK_PAYMENTS"
+      ],
+      "sectors": [
+        "BANKING",
+        "PAYMENTS",
+        "FINTECH"
+      ],
+      "name": "Disbursements",
+      "definition": "Mass payouts such as claims, refunds or benefits.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "RET",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Retirement, pension & benefits",
+      "definition": "Arrangements accumulating and paying retirement income and employee benefits.",
+      "aliases": [],
+      "regulatedActivities": [
+        "PENSION_ADMINISTRATION"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "THIRD_PARTY_FUNDING"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "RET.DEFINED_CONTRIBUTION",
+        "RET.DEFINED_BENEFIT",
+        "RET.INDIVIDUAL_RETIREMENT",
+        "RET.PLAN_ADMINISTRATION",
+        "RET.EMPLOYEE_BENEFITS",
+        "RET.PENSION_PAYOUTS"
+      ]
+    },
+    {
+      "id": "RET.DEFINED_CONTRIBUTION",
+      "level": "class",
+      "parent": "RET",
+      "ancestors": [
+        "RET"
+      ],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Defined contribution plans",
+      "definition": "Employer plans where benefits depend on contributions and returns.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "RET.DEFINED_BENEFIT",
+      "level": "class",
+      "parent": "RET",
+      "ancestors": [
+        "RET"
+      ],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Defined benefit plans",
+      "definition": "Employer plans promising a formula-based pension.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "RET.INDIVIDUAL_RETIREMENT",
+      "level": "class",
+      "parent": "RET",
+      "ancestors": [
+        "RET"
+      ],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Individual retirement accounts",
+      "definition": "Tax-advantaged accounts individuals open themselves.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "RET.PLAN_ADMINISTRATION",
+      "level": "class",
+      "parent": "RET",
+      "ancestors": [
+        "RET"
+      ],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Plan administration & recordkeeping",
+      "definition": "Recordkeeping and administration for retirement plans.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "RET.EMPLOYEE_BENEFITS",
+      "level": "class",
+      "parent": "RET",
+      "ancestors": [
+        "RET"
+      ],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Employee benefits & equity plans",
+      "definition": "Share plans, deferred compensation and other benefits.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "RET.PENSION_PAYOUTS",
+      "level": "class",
+      "parent": "RET",
+      "ancestors": [
+        "RET"
+      ],
+      "sectors": [
+        "WEALTH",
+        "ASSET_MANAGEMENT"
+      ],
+      "name": "Pension payouts",
+      "definition": "Paying pensions and lump sums to retirees.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Investment instruments",
+      "definition": "Financial instruments customers hold or trade; classified separately from the services that provide them.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "TRANSFERABILITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "SEC.EQUITIES",
+        "SEC.FIXED_INCOME",
+        "SEC.FUNDS",
+        "SEC.DERIVATIVES",
+        "SEC.STRUCTURED",
+        "SEC.MONEY_MARKET_INSTRUMENTS",
+        "SEC.PRIVATE_MARKETS",
+        "SEC.TOKENIZED"
+      ]
+    },
+    {
+      "id": "SEC.EQUITIES",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Equities",
+      "definition": "Listed and unlisted shares and depositary receipts.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.FIXED_INCOME",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Fixed income",
+      "definition": "Government, agency and corporate bonds and notes.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.FUNDS",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Fund units",
+      "definition": "Units or shares of collective investment schemes and exchange-traded funds.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.DERIVATIVES",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Derivatives",
+      "definition": "Futures, options, swaps and forwards, exchange-traded or OTC.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.STRUCTURED",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Structured products",
+      "definition": "Notes and certificates combining a debt instrument with embedded derivatives.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.MONEY_MARKET_INSTRUMENTS",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Money-market instruments",
+      "definition": "Treasury bills, commercial paper and certificates of deposit.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.PRIVATE_MARKETS",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Private-market interests",
+      "definition": "Interests in private equity, private credit, real estate and venture vehicles.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "SEC.TOKENIZED",
+      "level": "class",
+      "parent": "SEC",
+      "ancestors": [
+        "SEC"
+      ],
+      "sectors": [
+        "SECURITIES",
+        "CAPITAL_MARKETS"
+      ],
+      "name": "Tokenised securities",
+      "definition": "Securities issued or represented on a distributed ledger.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Trade & supply-chain finance",
+      "definition": "Financing and risk mitigation for the movement of goods and services between buyers and sellers.",
+      "aliases": [],
+      "regulatedActivities": [
+        "TRADE_FINANCE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "TRADE_BASED_RISK",
+        "CROSS_BORDER",
+        "GEOGRAPHIC_EXPOSURE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "TRD.LETTERS_OF_CREDIT",
+        "TRD.DOCUMENTARY_COLLECTIONS",
+        "TRD.GUARANTEES",
+        "TRD.RECEIVABLES",
+        "TRD.SUPPLY_CHAIN",
+        "TRD.PRE_EXPORT",
+        "TRD.FORFAITING"
+      ]
+    },
+    {
+      "id": "TRD.LETTERS_OF_CREDIT",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Documentary letters of credit",
+      "definition": "Bank undertakings to pay against compliant shipping documents.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD.DOCUMENTARY_COLLECTIONS",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Documentary collections",
+      "definition": "Banks exchanging shipping documents for payment or acceptance.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD.GUARANTEES",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Guarantees & standby letters of credit",
+      "definition": "Bank undertakings to pay if a customer fails to perform.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD.RECEIVABLES",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Receivables finance",
+      "definition": "Advances against or purchase of a seller's invoices, including factoring.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD.SUPPLY_CHAIN",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Supply-chain finance",
+      "definition": "Buyer-led programmes paying suppliers early against approved invoices.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD.PRE_EXPORT",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Pre-export & commodity finance",
+      "definition": "Credit secured on future export flows or commodity inventories.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TRD.FORFAITING",
+      "level": "class",
+      "parent": "TRD",
+      "ancestors": [
+        "TRD"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Forfaiting",
+      "definition": "Purchase without recourse of trade receivables, often guaranteed.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TSY",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Treasury & liquidity",
+      "definition": "Services that manage a client's cash positions, liquidity and financial risks.",
+      "aliases": [],
+      "regulatedActivities": [
+        "DEPOSIT_TAKING",
+        "FOREIGN_EXCHANGE"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "VELOCITY",
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "TSY.CASH_MANAGEMENT",
+        "TSY.LIQUIDITY",
+        "TSY.FX",
+        "TSY.HEDGING",
+        "TSY.MONEY_MARKETS",
+        "TSY.VIRTUAL_ACCOUNTS"
+      ]
+    },
+    {
+      "id": "TSY.CASH_MANAGEMENT",
+      "level": "class",
+      "parent": "TSY",
+      "ancestors": [
+        "TSY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Cash management",
+      "definition": "Collection, concentration and disbursement services across a client's accounts.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TSY.LIQUIDITY",
+      "level": "class",
+      "parent": "TSY",
+      "ancestors": [
+        "TSY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Liquidity management",
+      "definition": "Pooling and investment of surplus balances, notional or physical.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TSY.FX",
+      "level": "class",
+      "parent": "TSY",
+      "ancestors": [
+        "TSY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Foreign exchange",
+      "definition": "Spot, forward and swap foreign-exchange transactions for clients.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TSY.HEDGING",
+      "level": "class",
+      "parent": "TSY",
+      "ancestors": [
+        "TSY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Rate & commodity hedging",
+      "definition": "Derivatives used by clients to hedge interest-rate and commodity exposures.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TSY.MONEY_MARKETS",
+      "level": "class",
+      "parent": "TSY",
+      "ancestors": [
+        "TSY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Money-market investments",
+      "definition": "Short-term investments such as commercial paper and money-market funds.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "TSY.VIRTUAL_ACCOUNTS",
+      "level": "class",
+      "parent": "TSY",
+      "ancestors": [
+        "TSY"
+      ],
+      "sectors": [
+        "BANKING"
+      ],
+      "name": "Virtual accounts",
+      "definition": "Sub-ledger account numbers allocated under a client's physical account.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT",
+      "level": "domain",
+      "parent": null,
+      "ancestors": [],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Wealth & private banking",
+      "definition": "Relationships that bundle banking, investment, credit and fiduciary services for wealthy clients and families.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "INDIVIDUAL",
+        "TRUST",
+        "LEGAL_ENTITY",
+        "INVESTMENT_FUND",
+        "NONPROFIT"
+      ],
+      "capabilities": {},
+      "riskDimensions": [
+        "OWNERSHIP_COMPLEXITY",
+        "GEOGRAPHIC_EXPOSURE",
+        "VALUE_CONCENTRATION"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.PRIVATE_BANKING",
+        "WLT.WEALTH_MANAGEMENT",
+        "WLT.FAMILY_OFFICE",
+        "WLT.TRUST_FIDUCIARY",
+        "WLT.LOMBARD",
+        "WLT.PHILANTHROPY",
+        "WLT.CONCIERGE"
+      ]
+    },
+    {
+      "id": "WLT.PRIVATE_BANKING",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Private banking",
+      "definition": "A relationship bundling deposits, credit, investments and custody for a high-net-worth client.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [
+        "DEP.TRANSACTION",
+        "LND.CONSUMER",
+        "BRK.RETAIL",
+        "CUS.SAFEKEEPING"
+      ],
+      "children": [
+        "WLT.PRIVATE_BANKING.DOMESTIC_PRIVATE_BANKING",
+        "WLT.PRIVATE_BANKING.INTERNATIONAL_PRIVATE_BANKING"
+      ]
+    },
+    {
+      "id": "WLT.PRIVATE_BANKING.DOMESTIC_PRIVATE_BANKING",
+      "level": "type",
+      "parent": "WLT.PRIVATE_BANKING",
+      "ancestors": [
+        "WLT",
+        "WLT.PRIVATE_BANKING"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Domestic private banking",
+      "definition": "Private banking for a resident client.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.PRIVATE_BANKING.INTERNATIONAL_PRIVATE_BANKING",
+      "level": "type",
+      "parent": "WLT.PRIVATE_BANKING",
+      "ancestors": [
+        "WLT",
+        "WLT.PRIVATE_BANKING"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "International private banking",
+      "definition": "Private banking for a nonresident client.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "CROSS_BORDER"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.WEALTH_MANAGEMENT",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Wealth management",
+      "definition": "Advice and discretionary management of a client's investments.",
+      "aliases": [],
+      "regulatedActivities": [
+        "INVESTMENT_ADVICE",
+        "PORTFOLIO_MANAGEMENT"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.WEALTH_MANAGEMENT.DISCRETIONARY",
+        "WLT.WEALTH_MANAGEMENT.ADVISORY"
+      ]
+    },
+    {
+      "id": "WLT.WEALTH_MANAGEMENT.DISCRETIONARY",
+      "level": "type",
+      "parent": "WLT.WEALTH_MANAGEMENT",
+      "ancestors": [
+        "WLT",
+        "WLT.WEALTH_MANAGEMENT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Discretionary portfolio management",
+      "definition": "The manager decides trades within an agreed mandate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.WEALTH_MANAGEMENT.ADVISORY",
+      "level": "type",
+      "parent": "WLT.WEALTH_MANAGEMENT",
+      "ancestors": [
+        "WLT",
+        "WLT.WEALTH_MANAGEMENT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Advisory portfolio",
+      "definition": "The client decides trades on the adviser's recommendations.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.FAMILY_OFFICE",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Family office services",
+      "definition": "Services to family offices managing a family's wealth.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "LEGAL_ENTITY",
+        "TRUST"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.FAMILY_OFFICE.SINGLE_FAMILY_OFFICE",
+        "WLT.FAMILY_OFFICE.MULTI_FAMILY_OFFICE"
+      ]
+    },
+    {
+      "id": "WLT.FAMILY_OFFICE.SINGLE_FAMILY_OFFICE",
+      "level": "type",
+      "parent": "WLT.FAMILY_OFFICE",
+      "ancestors": [
+        "WLT",
+        "WLT.FAMILY_OFFICE"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Single family office",
+      "definition": "A family office serving one family.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.FAMILY_OFFICE.MULTI_FAMILY_OFFICE",
+      "level": "type",
+      "parent": "WLT.FAMILY_OFFICE",
+      "ancestors": [
+        "WLT",
+        "WLT.FAMILY_OFFICE"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Multi-family office",
+      "definition": "A family office serving several families.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "NESTED_ACCESS"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.TRUST_FIDUCIARY",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Trust & fiduciary services",
+      "definition": "Acting as trustee, executor or fiduciary for clients' assets.",
+      "aliases": [],
+      "regulatedActivities": [
+        "TRUST_AND_FIDUCIARY"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.TRUST_FIDUCIARY.PERSONAL_TRUST",
+        "WLT.TRUST_FIDUCIARY.ESTATE_SERVICES"
+      ]
+    },
+    {
+      "id": "WLT.TRUST_FIDUCIARY.PERSONAL_TRUST",
+      "level": "type",
+      "parent": "WLT.TRUST_FIDUCIARY",
+      "ancestors": [
+        "WLT",
+        "WLT.TRUST_FIDUCIARY"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Personal trust services",
+      "definition": "Acting as trustee of a family trust.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.TRUST_FIDUCIARY.ESTATE_SERVICES",
+      "level": "type",
+      "parent": "WLT.TRUST_FIDUCIARY",
+      "ancestors": [
+        "WLT",
+        "WLT.TRUST_FIDUCIARY"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Estate settlement",
+      "definition": "Administering a deceased client's estate.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.LOMBARD",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Lombard & wealth lending",
+      "definition": "Credit secured on a client's investment portfolio or other assets.",
+      "aliases": [],
+      "regulatedActivities": [
+        "LENDING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "LEVERAGE"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.LOMBARD.LOMBARD_LOAN",
+        "WLT.LOMBARD.ART_FINANCE"
+      ]
+    },
+    {
+      "id": "WLT.LOMBARD.LOMBARD_LOAN",
+      "level": "type",
+      "parent": "WLT.LOMBARD",
+      "ancestors": [
+        "WLT",
+        "WLT.LOMBARD"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Lombard loan",
+      "definition": "A loan secured on a portfolio of securities.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.LOMBARD.ART_FINANCE",
+      "level": "type",
+      "parent": "WLT.LOMBARD",
+      "ancestors": [
+        "WLT",
+        "WLT.LOMBARD"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Art and collectibles finance",
+      "definition": "A loan secured on artworks or collectibles.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "VALUE_CONCENTRATION"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.PHILANTHROPY",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Philanthropy services",
+      "definition": "Structuring and managing charitable giving.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [
+        "NONPROFIT",
+        "TRUST",
+        "INDIVIDUAL"
+      ],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.PHILANTHROPY.DONOR_ADVISED_FUND",
+        "WLT.PHILANTHROPY.PRIVATE_FOUNDATION"
+      ]
+    },
+    {
+      "id": "WLT.PHILANTHROPY.DONOR_ADVISED_FUND",
+      "level": "type",
+      "parent": "WLT.PHILANTHROPY",
+      "ancestors": [
+        "WLT",
+        "WLT.PHILANTHROPY"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Donor-advised fund",
+      "definition": "A giving account sponsored by a public charity.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.PHILANTHROPY.PRIVATE_FOUNDATION",
+      "level": "type",
+      "parent": "WLT.PHILANTHROPY",
+      "ancestors": [
+        "WLT",
+        "WLT.PHILANTHROPY"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Private foundation services",
+      "definition": "Administration of a private grant-making foundation.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.CONCIERGE",
+      "level": "class",
+      "parent": "WLT",
+      "ancestors": [
+        "WLT"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Concierge & lifestyle banking",
+      "definition": "Non-investment services bundled with a wealth relationship.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": [
+        "WLT.CONCIERGE.PRECIOUS_METALS",
+        "WLT.CONCIERGE.CORPORATE_SERVICES"
+      ]
+    },
+    {
+      "id": "WLT.CONCIERGE.PRECIOUS_METALS",
+      "level": "type",
+      "parent": "WLT.CONCIERGE",
+      "ancestors": [
+        "WLT",
+        "WLT.CONCIERGE"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Precious metals accounts",
+      "definition": "Allocated or unallocated holdings of bullion.",
+      "aliases": [],
+      "regulatedActivities": [
+        "PRECIOUS_METALS_DEALING"
+      ],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "VALUE_CONCENTRATION",
+        "TRANSFERABILITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    },
+    {
+      "id": "WLT.CONCIERGE.CORPORATE_SERVICES",
+      "level": "type",
+      "parent": "WLT.CONCIERGE",
+      "ancestors": [
+        "WLT",
+        "WLT.CONCIERGE"
+      ],
+      "sectors": [
+        "WEALTH",
+        "BANKING"
+      ],
+      "name": "Corporate structuring services",
+      "definition": "Setting up holding companies and vehicles for a family.",
+      "aliases": [],
+      "regulatedActivities": [],
+      "eligiblePartyTypes": [],
+      "capabilities": {},
+      "riskDimensions": [
+        "OWNERSHIP_COMPLEXITY"
+      ],
+      "alsoClassifiedAs": [],
+      "bundle": [],
+      "children": []
+    }
+  ],
+  "attributes": [
+    {
+      "id": "product_id",
+      "group": "identity",
+      "name": "Product",
+      "description": "The canonical product node.",
+      "type": "string",
+      "setAt": "product"
+    },
+    {
+      "id": "product_status",
+      "group": "identity",
+      "name": "Product status",
+      "description": "Whether the product is offered.",
+      "type": "enum",
+      "values": [
+        "ACTIVE",
+        "CLOSED_TO_NEW",
+        "RETIRED"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "legal_entity",
+      "group": "institution",
+      "name": "Legal entity",
+      "description": "The institution legal entity that provides the product.",
+      "type": "string",
+      "setAt": "offering"
+    },
+    {
+      "id": "booking_entity",
+      "group": "institution",
+      "name": "Booking entity",
+      "description": "Where the relationship is booked.",
+      "type": "string",
+      "setAt": "offering"
+    },
+    {
+      "id": "business_unit",
+      "group": "institution",
+      "name": "Business unit",
+      "description": "The business line that owns the offering.",
+      "type": "string",
+      "setAt": "offering"
+    },
+    {
+      "id": "eligible_party_types",
+      "group": "eligibility",
+      "name": "Eligible party types",
+      "description": "Party classifications the offering may serve.",
+      "type": "enum_list",
+      "values": [
+        "INDIVIDUAL",
+        "SOLE_PROPRIETOR",
+        "LEGAL_ENTITY",
+        "PARTNERSHIP",
+        "TRUST",
+        "INVESTMENT_FUND",
+        "FINANCIAL_INSTITUTION",
+        "GOVERNMENT",
+        "NONPROFIT"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "regulatory_regime",
+      "group": "regulatory",
+      "name": "Regulatory regime",
+      "description": "The regime under which the offering is provided.",
+      "type": "enum_list",
+      "values": [
+        "BANKING",
+        "BROKER_DEALER",
+        "INVESTMENT_ADVISER",
+        "INSURER",
+        "VASP",
+        "MSB",
+        "FUND_MANAGER",
+        "TRUST_COMPANY"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "booking_jurisdiction",
+      "group": "jurisdiction",
+      "name": "Booking jurisdiction",
+      "description": "ISO country where the relationship is booked.",
+      "type": "string",
+      "setAt": "offering"
+    },
+    {
+      "id": "customer_jurisdictions",
+      "group": "jurisdiction",
+      "name": "Customer jurisdictions",
+      "description": "Countries the customer is resident in or established in.",
+      "type": "string_list",
+      "setAt": "relationship"
+    },
+    {
+      "id": "transaction_jurisdictions",
+      "group": "jurisdiction",
+      "name": "Transaction jurisdictions",
+      "description": "Countries funds or assets move to or from.",
+      "type": "string_list",
+      "setAt": "relationship"
+    },
+    {
+      "id": "account_arrangement",
+      "group": "structure",
+      "name": "Account arrangement",
+      "description": "How the account is held: an arrangement, not a product.",
+      "type": "enum",
+      "values": [
+        "INDIVIDUAL",
+        "JOINT",
+        "OMNIBUS",
+        "POOLED",
+        "NOMINEE",
+        "FIDUCIARY",
+        "SEGREGATED"
+      ],
+      "setAt": "relationship"
+    },
+    {
+      "id": "ownership_roles",
+      "group": "ownership",
+      "name": "Ownership and control roles",
+      "description": "Beneficial owners, controllers, trustees, signatories and authorised traders.",
+      "type": "enum_list",
+      "values": [
+        "BENEFICIAL_OWNER",
+        "CONTROLLER",
+        "TRUSTEE",
+        "SETTLOR",
+        "BENEFICIARY",
+        "SIGNATORY",
+        "AUTHORISED_TRADER",
+        "DIRECTOR"
+      ],
+      "setAt": "relationship"
+    },
+    {
+      "id": "funding_methods",
+      "group": "funding",
+      "name": "Funding methods",
+      "description": "How the relationship is funded.",
+      "type": "enum_list",
+      "values": [
+        "CASH",
+        "WIRE",
+        "ACH",
+        "CARD",
+        "THIRD_PARTY",
+        "SECURITIES_TRANSFER",
+        "DIGITAL_ASSET"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "third_party_funding",
+      "group": "funding",
+      "name": "Third-party funding",
+      "description": "Whether a party other than the customer may fund it.",
+      "type": "boolean",
+      "setAt": "offering"
+    },
+    {
+      "id": "expected_monthly_value",
+      "group": "behaviour",
+      "name": "Expected monthly value",
+      "description": "Expected value moved per month.",
+      "type": "money",
+      "setAt": "relationship"
+    },
+    {
+      "id": "expected_monthly_count",
+      "group": "behaviour",
+      "name": "Expected monthly transactions",
+      "description": "Expected number of transactions per month.",
+      "type": "number",
+      "setAt": "relationship"
+    },
+    {
+      "id": "counterparty_types",
+      "group": "behaviour",
+      "name": "Counterparty types",
+      "description": "Kinds of counterparties expected.",
+      "type": "string_list",
+      "setAt": "relationship"
+    },
+    {
+      "id": "payment_corridors",
+      "group": "behaviour",
+      "name": "Payment corridors",
+      "description": "Expected origin–destination country pairs.",
+      "type": "string_list",
+      "setAt": "relationship"
+    },
+    {
+      "id": "channels",
+      "group": "channel",
+      "name": "Access channels",
+      "description": "How the product is accessed.",
+      "type": "enum_list",
+      "values": [
+        "BRANCH",
+        "DIGITAL",
+        "API",
+        "INTERMEDIARY",
+        "ADVISER",
+        "AGENT"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "non_face_to_face",
+      "group": "channel",
+      "name": "Non-face-to-face onboarding",
+      "description": "Whether customers may onboard without meeting in person.",
+      "type": "boolean",
+      "setAt": "offering"
+    },
+    {
+      "id": "credit_exposure",
+      "group": "exposure",
+      "name": "Credit exposure",
+      "description": "Whether the institution extends credit.",
+      "type": "boolean",
+      "setAt": "product"
+    },
+    {
+      "id": "leverage",
+      "group": "exposure",
+      "name": "Leverage",
+      "description": "Whether margin or leverage is available.",
+      "type": "boolean",
+      "setAt": "offering"
+    },
+    {
+      "id": "collateral",
+      "group": "exposure",
+      "name": "Collateral",
+      "description": "Collateral taken, if any.",
+      "type": "enum_list",
+      "values": [
+        "CASH",
+        "SECURITIES",
+        "REAL_ESTATE",
+        "RECEIVABLES",
+        "DIGITAL_ASSETS",
+        "OTHER"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "custody_of_assets",
+      "group": "exposure",
+      "name": "Custody of assets",
+      "description": "Whether the institution holds client assets.",
+      "type": "boolean",
+      "setAt": "product"
+    },
+    {
+      "id": "intermediaries",
+      "group": "intermediary",
+      "name": "Intermediaries",
+      "description": "Introducing brokers, correspondents, custodians or payment facilitators involved.",
+      "type": "enum_list",
+      "values": [
+        "INTRODUCING_BROKER",
+        "CORRESPONDENT",
+        "SUB_CUSTODIAN",
+        "PAYMENT_FACILITATOR",
+        "PROGRAM_MANAGER",
+        "INVESTMENT_ADVISER",
+        "PLACEMENT_AGENT"
+      ],
+      "setAt": "offering"
+    },
+    {
+      "id": "nested_access",
+      "group": "intermediary",
+      "name": "Nested access",
+      "description": "Whether the intermediary's own customers transact through the relationship.",
+      "type": "boolean",
+      "setAt": "relationship"
+    },
+    {
+      "id": "currencies",
+      "group": "asset",
+      "name": "Currencies",
+      "description": "Currencies the product holds or moves.",
+      "type": "string_list",
+      "setAt": "offering"
+    },
+    {
+      "id": "asset_types",
+      "group": "asset",
+      "name": "Asset types",
+      "description": "Instruments or assets involved, by canonical instrument class.",
+      "type": "string_list",
+      "setAt": "offering"
+    },
+    {
+      "id": "asset_transferability",
+      "group": "asset",
+      "name": "Asset transferability",
+      "description": "How readily held value can be transferred to others.",
+      "type": "enum",
+      "values": [
+        "NONE",
+        "RESTRICTED",
+        "FREE",
+        "BEARER"
+      ],
+      "setAt": "product"
+    },
+    {
+      "id": "cross_border",
+      "group": "risk",
+      "name": "Cross-border exposure",
+      "description": "Whether the relationship involves other jurisdictions.",
+      "type": "boolean",
+      "setAt": "relationship"
+    },
+    {
+      "id": "ownership_complexity",
+      "group": "risk",
+      "name": "Ownership complexity",
+      "description": "Whether ownership is layered, nominee or otherwise opaque.",
+      "type": "enum",
+      "values": [
+        "SIMPLE",
+        "LAYERED",
+        "OPAQUE"
+      ],
+      "setAt": "relationship"
+    },
+    {
+      "id": "cash_intensity",
+      "group": "risk",
+      "name": "Cash intensity",
+      "description": "Share of activity expected in physical cash.",
+      "type": "enum",
+      "values": [
+        "NONE",
+        "LOW",
+        "HIGH"
+      ],
+      "setAt": "relationship"
+    },
+    {
+      "id": "monitoring_profile",
+      "group": "monitoring",
+      "name": "Monitoring profile",
+      "description": "Transaction monitoring scenarios that apply.",
+      "type": "string_list",
+      "setAt": "offering"
+    },
+    {
+      "id": "periodic_review_months",
+      "group": "monitoring",
+      "name": "Periodic review interval",
+      "description": "Months between periodic reviews, set by policy.",
+      "type": "number",
+      "setAt": "offering"
+    },
+    {
+      "id": "lifecycle_stage",
+      "group": "lifecycle",
+      "name": "Lifecycle stage",
+      "description": "Where the relationship is in its lifecycle.",
+      "type": "enum",
+      "values": [
+        "ORIGINATION",
+        "ACTIVATION",
+        "SERVICING",
+        "SUSPENDED",
+        "TERMINATED"
+      ],
+      "setAt": "relationship"
+    }
+  ],
+  "legacy": {
+    "card": "PAY.CARDS",
+    "correspondent": "CRP.CORRESPONDENT_ACCOUNTS",
+    "custody": "CUS.SAFEKEEPING",
+    "deposit": "DEP",
+    "digital_assets": "DIG",
+    "fbo": "DEP.SPECIAL_PURPOSE.FBO_ACCOUNT",
+    "lending": "LND",
+    "merchant_acquiring": "PAY.MERCHANT_ACQUIRING",
+    "payments": "PAY",
+    "private_banking": "WLT.PRIVATE_BANKING",
+    "trade_finance": "TRD"
+  },
+  "digest": "cb60b72ea49f158c867eec76259ecf3f468776fd1b7d1c67d3edb6d0d24f30a1"
+}

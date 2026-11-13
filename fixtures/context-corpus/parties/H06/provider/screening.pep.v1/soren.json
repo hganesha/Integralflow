@@ -1,0 +1,61 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1979-04-25"
+      },
+      "entity_id": "e-soren",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "drivers_licence",
+          "value": "SPECIMEN-H06-DL-0001"
+        }
+      ],
+      "names": [
+        {
+          "full": "Soren Yardley",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.soren"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [],
+  "result": {
+    "dataset_versions": [
+      "corpus-synthetic-peps-2026-09-29"
+    ],
+    "kind": "screening",
+    "list_published_at": "2026-09-29T00:00:00Z",
+    "matches": [],
+    "scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "total_candidates": 0,
+    "truncated": false
+  },
+  "result_id": "corpus-screening-h06-soren-pep",
+  "subject_entity_id": "e-soren"
+}

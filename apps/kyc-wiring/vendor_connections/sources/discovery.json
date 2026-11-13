@@ -1,0 +1,4507 @@
+[
+  {
+    "provider_id": "entrust-identity-verification",
+    "provider_name": "Entrust Identity Verification",
+    "category": "identity",
+    "family_id": "entrust-identity-verification",
+    "homepage_status": 403,
+    "homepage_url": "https://www.entrust.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "jumio",
+    "provider_name": "Jumio",
+    "category": "identity",
+    "family_id": "jumio",
+    "homepage_status": 403,
+    "homepage_url": "https://www.jumio.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "veriff",
+    "provider_name": "Veriff",
+    "category": "identity",
+    "family_id": "veriff",
+    "homepage_status": 200,
+    "homepage_url": "https://www.veriff.com/",
+    "documentation_links": [
+      "https://devdocs.veriff.com/",
+      "https://www.veriff.com/for-developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trulioo",
+    "provider_name": "Trulioo",
+    "category": "identity",
+    "family_id": "trulioo",
+    "homepage_status": 403,
+    "homepage_url": "https://www.trulioo.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "persona",
+    "provider_name": "Persona",
+    "category": "identity",
+    "family_id": "persona",
+    "homepage_status": 403,
+    "homepage_url": "https://withpersona.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sumsub",
+    "provider_name": "Sumsub",
+    "category": "identity",
+    "family_id": "sumsub",
+    "homepage_status": 200,
+    "homepage_url": "https://sumsub.com/",
+    "documentation_links": [
+      "https://docs.sumsub.com/",
+      "https://docs.sumsub.com/changelog",
+      "https://docs.sumsub.com/reference/about-sumsub-api"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "socure",
+    "provider_name": "Socure",
+    "category": "identity",
+    "family_id": "socure",
+    "homepage_status": 200,
+    "homepage_url": "https://www.socure.com/",
+    "documentation_links": [
+      "https://developer.socure.com",
+      "https://developer.socure.us/",
+      "https://riskos.docs.socure.us/govcloud/reference/get-started"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "gbg",
+    "provider_name": "GBG",
+    "category": "identity",
+    "family_id": "gbg",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gbg.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "au10tix",
+    "provider_name": "AU10TIX",
+    "category": "identity",
+    "family_id": "au10tix",
+    "homepage_status": 200,
+    "homepage_url": "https://www.au10tix.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "incode",
+    "provider_name": "Incode",
+    "category": "identity",
+    "family_id": "incode",
+    "homepage_status": 200,
+    "homepage_url": "https://incode.com/",
+    "documentation_links": [
+      "https://developer.incode.com/",
+      "https://developer.incode.com/ecosystem-workforce/integrations-ecosystem-overview/",
+      "https://developer.incode.com/get-started-with-incode/",
+      "https://developer.incode.com/get-started-with-incode/welcome-to-incode/",
+      "https://developer.incode.com/reference/introduction/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mitek",
+    "provider_name": "Mitek",
+    "category": "identity",
+    "family_id": "mitek",
+    "homepage_status": 200,
+    "homepage_url": "https://www.miteksystems.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "idnow",
+    "provider_name": "IDnow",
+    "category": "identity",
+    "family_id": "idnow",
+    "homepage_status": 200,
+    "homepage_url": "https://www.idnow.io/",
+    "documentation_links": [
+      "https://idnow.io/developers/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "webid",
+    "provider_name": "WebID",
+    "category": "identity",
+    "family_id": "webid",
+    "homepage_status": 200,
+    "homepage_url": "https://webid-solutions.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "nect",
+    "provider_name": "Nect",
+    "category": "identity",
+    "family_id": "nect",
+    "homepage_status": 200,
+    "homepage_url": "https://nect.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fourthline",
+    "provider_name": "Fourthline",
+    "category": "identity",
+    "family_id": "fourthline",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fourthline.com/",
+    "documentation_links": [
+      "https://docs.fourthline.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "signicat",
+    "provider_name": "Signicat",
+    "category": "identity",
+    "family_id": "signicat",
+    "homepage_status": 200,
+    "homepage_url": "https://www.signicat.com/",
+    "documentation_links": [
+      "https://developer.signicat.com/apis/",
+      "https://developer.signicat.com/docs/",
+      "https://developer.signicat.com/docs/dashboard-setup.html",
+      "https://developer.signicat.com/docs/eid-hub/",
+      "https://developer.signicat.com/identity-methods/",
+      "https://www.signicat.com/products/dashboard"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "id-pal",
+    "provider_name": "ID-Pal",
+    "category": "identity",
+    "family_id": "id-pal",
+    "homepage_status": 403,
+    "homepage_url": "https://www.id-pal.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "complycube",
+    "provider_name": "ComplyCube",
+    "category": "identity",
+    "family_id": "complycube",
+    "homepage_status": 200,
+    "homepage_url": "https://www.complycube.com/",
+    "documentation_links": [
+      "https://docs.complycube.com/",
+      "https://docs.complycube.com/api-reference/",
+      "https://docs.complycube.com/api-reference/versioning",
+      "https://docs.complycube.com/documentation",
+      "https://docs.complycube.com/documentation/api-reference",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/perform-multi-bureau-check/",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/perform-proof-of-address-check/",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/run-a-document-check",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/run-an-aml-screening-check/",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/run-an-identity-check",
+      "https://docs.complycube.com/documentation/guides/hosted-solution-quick-guide/",
+      "https://docs.complycube.com/documentation/guides/integration-checklist"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "idenfy",
+    "provider_name": "iDenfy",
+    "category": "identity",
+    "family_id": "idenfy",
+    "homepage_status": 403,
+    "homepage_url": "https://www.idenfy.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "shufti",
+    "provider_name": "Shufti",
+    "category": "identity",
+    "family_id": "shufti",
+    "homepage_status": 200,
+    "homepage_url": "https://shuftipro.com/",
+    "documentation_links": [
+      "https://developers.shuftipro.com/",
+      "https://developers.shuftipro.com/docs/backoffice/features/idv_modes",
+      "https://developers.shuftipro.com/docs/backoffice/plug_and_play_integration/iframe_branding",
+      "https://developers.shuftipro.com/docs/get_started",
+      "https://developers.shuftipro.com/docs/mobile/intro",
+      "https://shuftipro.com/developers/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ondato",
+    "provider_name": "Ondato",
+    "category": "identity",
+    "family_id": "ondato",
+    "homepage_status": 403,
+    "homepage_url": "https://ondato.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "getid",
+    "provider_name": "GetID",
+    "category": "identity",
+    "family_id": "getid",
+    "homepage_status": 200,
+    "homepage_url": "https://getid.com/",
+    "documentation_links": [
+      "https://dev.checkin.com/docs/ocr"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "identomat",
+    "provider_name": "Identomat",
+    "category": "identity",
+    "family_id": "identomat",
+    "homepage_status": 200,
+    "homepage_url": "https://www.identomat.com/",
+    "documentation_links": [
+      "https://docs.identomat.com/",
+      "https://identomat.gitbook.io/identomat-documentation"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "authenteq",
+    "provider_name": "Authenteq",
+    "category": "identity",
+    "family_id": "authenteq",
+    "homepage_status": null,
+    "homepage_url": "https://authenteq.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "authenticid",
+    "provider_name": "AuthenticID",
+    "category": "identity",
+    "family_id": "incode",
+    "homepage_status": 200,
+    "homepage_url": "https://www.authenticid.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "intellicheck",
+    "provider_name": "Intellicheck",
+    "category": "identity",
+    "family_id": "intellicheck",
+    "homepage_status": 200,
+    "homepage_url": "https://intellicheck.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "idscan-net",
+    "provider_name": "IDScan.net",
+    "category": "identity",
+    "family_id": "idscan-net",
+    "homepage_status": 403,
+    "homepage_url": "https://idscan.net/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "acuant-idology-product-family",
+    "provider_name": "Acuant / IDology product family",
+    "category": "identity",
+    "family_id": "gbg",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gbg.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "regula",
+    "provider_name": "Regula",
+    "category": "identity",
+    "family_id": "regula",
+    "homepage_status": 200,
+    "homepage_url": "https://regulaforensics.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "innovatrics",
+    "provider_name": "Innovatrics",
+    "category": "identity",
+    "family_id": "innovatrics",
+    "homepage_status": 200,
+    "homepage_url": "https://www.innovatrics.com/",
+    "documentation_links": [
+      "https://developers.innovatrics.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "facetec",
+    "provider_name": "FaceTec",
+    "category": "identity",
+    "family_id": "facetec",
+    "homepage_status": 403,
+    "homepage_url": "https://www.facetec.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "iproov",
+    "provider_name": "iProov",
+    "category": "identity",
+    "family_id": "iproov",
+    "homepage_status": 403,
+    "homepage_url": "https://www.iproov.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "daon",
+    "provider_name": "Daon",
+    "category": "identity",
+    "family_id": "daon",
+    "homepage_status": 403,
+    "homepage_url": "https://www.daon.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "tech5",
+    "provider_name": "TECH5",
+    "category": "identity",
+    "family_id": "tech5",
+    "homepage_status": 200,
+    "homepage_url": "https://tech5.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "veridas",
+    "provider_name": "Veridas",
+    "category": "identity",
+    "family_id": "veridas",
+    "homepage_status": 403,
+    "homepage_url": "https://veridas.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "facephi",
+    "provider_name": "Facephi",
+    "category": "identity",
+    "family_id": "facephi",
+    "homepage_status": 200,
+    "homepage_url": "https://facephi.com/",
+    "documentation_links": [
+      "https://docs.facephi.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aware",
+    "provider_name": "Aware",
+    "category": "identity",
+    "family_id": "aware",
+    "homepage_status": 200,
+    "homepage_url": "https://www.aware.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trust-stamp",
+    "provider_name": "Trust Stamp",
+    "category": "identity",
+    "family_id": "trust-stamp",
+    "homepage_status": 200,
+    "homepage_url": "https://truststamp.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bureau",
+    "provider_name": "Bureau",
+    "category": "identity",
+    "family_id": "bureau",
+    "homepage_status": 200,
+    "homepage_url": "https://www.bureau.id/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "hyperverge",
+    "provider_name": "HyperVerge",
+    "category": "identity",
+    "family_id": "hyperverge",
+    "homepage_status": 200,
+    "homepage_url": "https://hyperverge.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "signzy",
+    "provider_name": "Signzy",
+    "category": "identity",
+    "family_id": "signzy",
+    "homepage_status": 200,
+    "homepage_url": "https://www.signzy.com/",
+    "documentation_links": [
+      "https://docs.signzy.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "idfy",
+    "provider_name": "IDfy",
+    "category": "identity",
+    "family_id": "idfy",
+    "homepage_status": 200,
+    "homepage_url": "https://www.idfy.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "karza",
+    "provider_name": "Karza",
+    "category": "identity",
+    "family_id": "karza",
+    "homepage_status": null,
+    "homepage_url": "https://www.karza.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "perfios",
+    "provider_name": "Perfios",
+    "category": "identity",
+    "family_id": "perfios",
+    "homepage_status": 200,
+    "homepage_url": "https://perfios.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "digitap",
+    "provider_name": "Digitap",
+    "category": "identity",
+    "family_id": "digitap",
+    "homepage_status": 200,
+    "homepage_url": "https://www.digitap.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "decentro",
+    "provider_name": "Decentro",
+    "category": "identity",
+    "family_id": "decentro",
+    "homepage_status": 200,
+    "homepage_url": "https://decentro.tech/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "authbridge",
+    "provider_name": "AuthBridge",
+    "category": "identity",
+    "family_id": "authbridge",
+    "homepage_status": 403,
+    "homepage_url": "https://authbridge.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ongrid",
+    "provider_name": "OnGrid",
+    "category": "identity",
+    "family_id": "ongrid",
+    "homepage_status": 200,
+    "homepage_url": "https://ongrid.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "surepass",
+    "provider_name": "Surepass",
+    "category": "identity",
+    "family_id": "surepass",
+    "homepage_status": 200,
+    "homepage_url": "https://surepass.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sprintverify",
+    "provider_name": "SprintVerify",
+    "category": "identity",
+    "family_id": "sprintverify",
+    "homepage_status": null,
+    "homepage_url": "https://sprintverify.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "idcentral",
+    "provider_name": "IDcentral",
+    "category": "identity",
+    "family_id": "idcentral",
+    "homepage_status": 200,
+    "homepage_url": "https://www.idcentral.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "arya-ai",
+    "provider_name": "arya.ai",
+    "category": "identity",
+    "family_id": "arya-ai",
+    "homepage_status": 200,
+    "homepage_url": "https://arya.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "advance-ai",
+    "provider_name": "Advance.AI",
+    "category": "identity",
+    "family_id": "advance-ai",
+    "homepage_status": 200,
+    "homepage_url": "https://www.advance.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vida",
+    "provider_name": "VIDA",
+    "category": "identity",
+    "family_id": "vida",
+    "homepage_status": 200,
+    "homepage_url": "https://vida.id/",
+    "documentation_links": [
+      "https://vida.id/en/developer"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "privy",
+    "provider_name": "Privy",
+    "category": "identity",
+    "family_id": "privy",
+    "homepage_status": 200,
+    "homepage_url": "https://privy.id/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vidos",
+    "provider_name": "VIDOS",
+    "category": "identity",
+    "family_id": "vidos",
+    "homepage_status": 200,
+    "homepage_url": "https://vidos.id/",
+    "documentation_links": [
+      "https://vidos.id/docs"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "innov8tif",
+    "provider_name": "Innov8tif",
+    "category": "identity",
+    "family_id": "innov8tif",
+    "homepage_status": 200,
+    "homepage_url": "https://innov8tif.com/",
+    "documentation_links": [
+      "https://ekycondemand.com",
+      "https://ekycondemand.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ctos-ekyc",
+    "provider_name": "CTOS eKYC",
+    "category": "identity",
+    "family_id": "ctos-ekyc",
+    "homepage_status": 200,
+    "homepage_url": "https://ctosdigital.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "liquid",
+    "provider_name": "Liquid",
+    "category": "identity",
+    "family_id": "liquid",
+    "homepage_status": 200,
+    "homepage_url": "https://liquidinc.asia/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trustdock",
+    "provider_name": "TRUSTDOCK",
+    "category": "identity",
+    "family_id": "trustdock",
+    "homepage_status": 200,
+    "homepage_url": "https://trustdock.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "polarify",
+    "provider_name": "Polarify",
+    "category": "identity",
+    "family_id": "polarify",
+    "homepage_status": 200,
+    "homepage_url": "https://www.polarify.co.jp/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "gmo-globalsign-identity",
+    "provider_name": "GMO GlobalSign identity",
+    "category": "identity",
+    "family_id": "gmo-globalsign-identity",
+    "homepage_status": 200,
+    "homepage_url": "https://www.globalsign.com/",
+    "documentation_links": [
+      "https://www.globalsign.com/en/resources/apis/api-documentation"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "china-financial-certification-authority",
+    "provider_name": "China Financial Certification Authority",
+    "category": "identity",
+    "family_id": "china-financial-certification-authority",
+    "homepage_status": 200,
+    "homepage_url": "https://www.cfca.com.cn/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "tencent-cloud-faceid",
+    "provider_name": "Tencent Cloud FaceID",
+    "category": "identity",
+    "family_id": "tencent-cloud-faceid",
+    "homepage_status": 200,
+    "homepage_url": "https://www.tencentcloud.com/",
+    "documentation_links": [
+      "https://intl.cloud.tencent.com/products/lighthouse"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "alibaba-cloud-id-verification",
+    "provider_name": "Alibaba Cloud ID Verification",
+    "category": "identity",
+    "family_id": "alibaba-cloud-id-verification",
+    "homepage_status": 200,
+    "homepage_url": "https://www.alibabacloud.com/",
+    "documentation_links": [
+      "https://www.alibabacloud.com/developer",
+      "https://www.alibabacloud.com/help"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "baidu-ai-identity",
+    "provider_name": "Baidu AI identity",
+    "category": "identity",
+    "family_id": "baidu-ai-identity",
+    "homepage_status": 200,
+    "homepage_url": "https://ai.baidu.com/",
+    "documentation_links": [
+      "https://developer.baidu.com/",
+      "https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "smile-id",
+    "provider_name": "Smile ID",
+    "category": "identity",
+    "family_id": "smile-id",
+    "homepage_status": 200,
+    "homepage_url": "https://www.usesmileid.com/",
+    "documentation_links": [
+      "https://docs.usesmileid.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "prembly",
+    "provider_name": "Prembly",
+    "category": "identity",
+    "family_id": "prembly",
+    "homepage_status": 200,
+    "homepage_url": "https://prembly.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "youverify",
+    "provider_name": "Youverify",
+    "category": "identity",
+    "family_id": "youverify",
+    "homepage_status": 200,
+    "homepage_url": "https://youverify.co/",
+    "documentation_links": [
+      "https://youverify.co/en/developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "dojah",
+    "provider_name": "Dojah",
+    "category": "identity",
+    "family_id": "dojah",
+    "homepage_status": 200,
+    "homepage_url": "https://dojah.io/",
+    "documentation_links": [
+      "https://docs.dojah.io/overview/quickstart"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "qoreid",
+    "provider_name": "QoreID",
+    "category": "identity",
+    "family_id": "qoreid",
+    "homepage_status": 200,
+    "homepage_url": "https://qoreid.com/",
+    "documentation_links": [
+      "https://docs.qoreid.com/docs/introduction",
+      "https://qoreid.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "seamfix",
+    "provider_name": "Seamfix",
+    "category": "identity",
+    "family_id": "seamfix",
+    "homepage_status": 403,
+    "homepage_url": "https://seamfix.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "iidentifii",
+    "provider_name": "iiDENTIFii",
+    "category": "identity",
+    "family_id": "iidentifii",
+    "homepage_status": 200,
+    "homepage_url": "https://iidentifii.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "thisisme",
+    "provider_name": "ThisIsMe",
+    "category": "identity",
+    "family_id": "thisisme",
+    "homepage_status": 200,
+    "homepage_url": "https://thisisme.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "whoyou",
+    "provider_name": "WhoYou",
+    "category": "identity",
+    "family_id": "whoyou",
+    "homepage_status": 200,
+    "homepage_url": "https://whoyou.co.za/",
+    "documentation_links": [
+      "https://docs.whoyou.co.za/",
+      "https://www.whoyou.co.za"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "metamap",
+    "provider_name": "MetaMap",
+    "category": "identity",
+    "family_id": "metamap",
+    "homepage_status": 200,
+    "homepage_url": "https://www.metamap.com/",
+    "documentation_links": [
+      "https://docs.metamap.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "inscribe",
+    "provider_name": "Inscribe",
+    "category": "identity",
+    "family_id": "inscribe",
+    "homepage_status": 200,
+    "homepage_url": "https://www.inscribe.ai/",
+    "documentation_links": [
+      "https://docs.inscribe.ai/reference/overview"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "invoid",
+    "provider_name": "Invoid",
+    "category": "identity",
+    "family_id": "bureau",
+    "homepage_status": 200,
+    "homepage_url": "https://invoid.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "unico",
+    "provider_name": "Unico",
+    "category": "identity",
+    "family_id": "unico",
+    "homepage_status": 403,
+    "homepage_url": "https://unico.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "idwall",
+    "provider_name": "idwall",
+    "category": "identity",
+    "family_id": "idwall",
+    "homepage_status": 200,
+    "homepage_url": "https://idwall.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "caf",
+    "provider_name": "CAF",
+    "category": "identity",
+    "family_id": "caf",
+    "homepage_status": 200,
+    "homepage_url": "https://www.caf.io/",
+    "documentation_links": [
+      "https://www.certta.ai/developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "neoway",
+    "provider_name": "Neoway",
+    "category": "identity",
+    "family_id": "neoway",
+    "homepage_status": 200,
+    "homepage_url": "https://www.neoway.com.br/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bigdatacorp",
+    "provider_name": "BigDataCorp",
+    "category": "identity",
+    "family_id": "bigdatacorp",
+    "homepage_status": 200,
+    "homepage_url": "https://bigdatacorp.com.br/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "serpro",
+    "provider_name": "Serpro",
+    "category": "identity",
+    "family_id": "serpro",
+    "homepage_status": 200,
+    "homepage_url": "https://www.serpro.gov.br/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "truora",
+    "provider_name": "Truora",
+    "category": "identity",
+    "family_id": "truora",
+    "homepage_status": 200,
+    "homepage_url": "https://www.truora.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "toc-biometrics",
+    "provider_name": "TOC Biometrics",
+    "category": "identity",
+    "family_id": "toc-biometrics",
+    "homepage_status": 200,
+    "homepage_url": "https://www.tocbiometrics.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mobbscan-mobbeel",
+    "provider_name": "MobbScan / Mobbeel",
+    "category": "identity",
+    "family_id": "mobbscan-mobbeel",
+    "homepage_status": 200,
+    "homepage_url": "https://www.mobbeel.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vu",
+    "provider_name": "VU",
+    "category": "identity",
+    "family_id": "vu",
+    "homepage_status": 200,
+    "homepage_url": "https://www.vusecurity.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "verifik",
+    "provider_name": "Verifik",
+    "category": "identity",
+    "family_id": "verifik",
+    "homepage_status": 200,
+    "homepage_url": "https://verifik.co/",
+    "documentation_links": [
+      "https://docs.verifik.co",
+      "https://docs.verifik.co/docs-es/acuerdo-de-niveles-de-servicio",
+      "https://docs.verifik.co/docs-es/legal/politica-privacidad",
+      "https://docs.verifik.co/docs-es/terminos-y-condiciones",
+      "https://docs.verifik.co/identity/identity-verification/",
+      "https://docs.verifik.co/intro",
+      "https://docs.verifik.co/intro/",
+      "https://docs.verifik.co/verifik-es/acuerdo-de-niveles-de-servicio/",
+      "https://docs.verifik.co/verifik-es/intro/",
+      "https://docs.verifik.co/verifik-es/legal/politica-privacidad/",
+      "https://docs.verifik.co/verifik-es/terminos-y-condiciones/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "reconoser-id",
+    "provider_name": "ReconoSer ID",
+    "category": "identity",
+    "family_id": "reconoser-id",
+    "homepage_status": null,
+    "homepage_url": "https://reconoserid.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "valify",
+    "provider_name": "Valify",
+    "category": "identity",
+    "family_id": "valify",
+    "homepage_status": null,
+    "homepage_url": "https://www.valify.me/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "digified",
+    "provider_name": "Digified",
+    "category": "identity",
+    "family_id": "digified",
+    "homepage_status": null,
+    "homepage_url": "https://digified.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "uqudo",
+    "provider_name": "Uqudo",
+    "category": "identity",
+    "family_id": "uqudo",
+    "homepage_status": 403,
+    "homepage_url": "https://uqudo.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lean-identity-services",
+    "provider_name": "Lean identity services",
+    "category": "identity",
+    "family_id": "lean-identity-services",
+    "homepage_status": 200,
+    "homepage_url": "https://www.leantech.me/",
+    "documentation_links": [
+      "https://docs.leantech.me",
+      "https://docs.leantech.me/reference"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lseg-world-check",
+    "provider_name": "LSEG World-Check",
+    "category": "screening",
+    "family_id": "lseg-world-check",
+    "homepage_status": 200,
+    "homepage_url": "https://www.lseg.com/en/risk-intelligence",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "dow-jones-risk-compliance",
+    "provider_name": "Dow Jones Risk & Compliance",
+    "category": "screening",
+    "family_id": "dow-jones-risk-compliance",
+    "homepage_status": 200,
+    "homepage_url": "https://www.dowjones.com/professional/risk/",
+    "documentation_links": [
+      "https://developer.dowjones.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lexisnexis-risk-solutions",
+    "provider_name": "LexisNexis Risk Solutions",
+    "category": "screening",
+    "family_id": "lexisnexis-risk-solutions",
+    "homepage_status": 200,
+    "homepage_url": "https://risk.lexisnexis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "moody-s-compliance",
+    "provider_name": "Moody's Compliance",
+    "category": "screening",
+    "family_id": "moody-s-compliance",
+    "homepage_status": 200,
+    "homepage_url": "https://www.moodys.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "complyadvantage",
+    "provider_name": "ComplyAdvantage",
+    "category": "screening",
+    "family_id": "complyadvantage",
+    "homepage_status": 403,
+    "homepage_url": "https://complyadvantage.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "opensanctions",
+    "provider_name": "OpenSanctions",
+    "category": "screening",
+    "family_id": "opensanctions",
+    "homepage_status": 200,
+    "homepage_url": "https://www.opensanctions.org/",
+    "documentation_links": [
+      "https://www.opensanctions.org/docs/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "castellum-ai",
+    "provider_name": "Castellum.AI",
+    "category": "screening",
+    "family_id": "castellum-ai",
+    "homepage_status": 200,
+    "homepage_url": "https://www.castellum.ai/",
+    "documentation_links": [
+      "https://app.swaggerhub.com/apis-docs/castellum.ai/Search/1.0.0",
+      "https://www.castellum.ai/developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sanction-scanner",
+    "provider_name": "Sanction Scanner",
+    "category": "screening",
+    "family_id": "sanction-scanner",
+    "homepage_status": 200,
+    "homepage_url": "https://sanctionscanner.com/",
+    "documentation_links": [
+      "https://developer.sanctionscanner.com/en/home-page",
+      "https://developer.sanctionscanner.com/en/webhooks"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sanctions-io",
+    "provider_name": "sanctions.io",
+    "category": "screening",
+    "family_id": "sanctions-io",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sanctions.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "namescan",
+    "provider_name": "NameScan",
+    "category": "screening",
+    "family_id": "namescan",
+    "homepage_status": 200,
+    "homepage_url": "https://namescan.io/",
+    "documentation_links": [
+      "https://namescan.io/industries/realestate",
+      "https://namescan.io/pepandsanctionapi"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "membercheck",
+    "provider_name": "MemberCheck",
+    "category": "screening",
+    "family_id": "membercheck",
+    "homepage_status": 200,
+    "homepage_url": "https://membercheck.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "dilisense",
+    "provider_name": "dilisense",
+    "category": "screening",
+    "family_id": "dilisense",
+    "homepage_status": 200,
+    "homepage_url": "https://dilisense.com/",
+    "documentation_links": [
+      "https://developers.dilisense.com",
+      "https://developers.dilisense.com/",
+      "https://dilisense.com/en/products/batch-screening"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aml-watcher",
+    "provider_name": "AML Watcher",
+    "category": "screening",
+    "family_id": "aml-watcher",
+    "homepage_status": 200,
+    "homepage_url": "https://amlwatcher.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "acuris-risk-intelligence",
+    "provider_name": "Acuris Risk Intelligence",
+    "category": "screening",
+    "family_id": "acuris-risk-intelligence",
+    "homepage_status": 403,
+    "homepage_url": "https://www.acurisriskintelligence.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aml-intelligence",
+    "provider_name": "AML Intelligence",
+    "category": "screening",
+    "family_id": "aml-intelligence",
+    "homepage_status": 200,
+    "homepage_url": "https://www.amlintelligence.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "finscan-innovative-systems",
+    "provider_name": "FinScan / Innovative Systems",
+    "category": "screening",
+    "family_id": "finscan-innovative-systems",
+    "homepage_status": 200,
+    "homepage_url": "https://www.finscan.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "neterium",
+    "provider_name": "Neterium",
+    "category": "screening",
+    "family_id": "neterium",
+    "homepage_status": 200,
+    "homepage_url": "https://www.neterium.io/",
+    "documentation_links": [
+      "https://portal.neterium.io/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vneuron",
+    "provider_name": "Vneuron",
+    "category": "screening",
+    "family_id": "vneuron",
+    "homepage_status": 200,
+    "homepage_url": "https://www.vneuron.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vixio",
+    "provider_name": "Vixio",
+    "category": "screening",
+    "family_id": "vixio",
+    "homepage_status": 200,
+    "homepage_url": "https://www.vixio.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kharon",
+    "provider_name": "Kharon",
+    "category": "screening",
+    "family_id": "kharon",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kharon.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sayari",
+    "provider_name": "Sayari",
+    "category": "screening",
+    "family_id": "sayari",
+    "homepage_status": 403,
+    "homepage_url": "https://sayari.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "altana",
+    "provider_name": "Altana",
+    "category": "screening",
+    "family_id": "altana",
+    "homepage_status": 200,
+    "homepage_url": "https://altana.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ripjar",
+    "provider_name": "Ripjar",
+    "category": "screening",
+    "family_id": "ripjar",
+    "homepage_status": 200,
+    "homepage_url": "https://ripjar.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "silent-eight",
+    "provider_name": "Silent Eight",
+    "category": "screening",
+    "family_id": "silent-eight",
+    "homepage_status": 200,
+    "homepage_url": "https://silenteight.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sensa-symphonyai",
+    "provider_name": "Sensa / SymphonyAI",
+    "category": "screening",
+    "family_id": "sensa-symphonyai",
+    "homepage_status": 200,
+    "homepage_url": "https://www.symphonyai.com/financial-services/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "datactics",
+    "provider_name": "Datactics",
+    "category": "screening",
+    "family_id": "datactics",
+    "homepage_status": 200,
+    "homepage_url": "https://www.datactics.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "dun-bradstreet",
+    "provider_name": "Dun & Bradstreet",
+    "category": "kyb",
+    "family_id": "dun-bradstreet",
+    "homepage_status": 200,
+    "homepage_url": "https://www.dnb.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "creditsafe",
+    "provider_name": "Creditsafe",
+    "category": "kyb",
+    "family_id": "creditsafe",
+    "homepage_status": 200,
+    "homepage_url": "https://www.creditsafe.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "opencorporates",
+    "provider_name": "OpenCorporates",
+    "category": "kyb",
+    "family_id": "opencorporates",
+    "homepage_status": 200,
+    "homepage_url": "https://opencorporates.com/",
+    "documentation_links": [
+      "https://knowledge.opencorporates.com/knowledge-base/api-documentation/",
+      "https://opencorporates.com/uses-cases/application-developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "gleif",
+    "provider_name": "GLEIF",
+    "category": "kyb",
+    "family_id": "gleif",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gleif.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "middesk",
+    "provider_name": "Middesk",
+    "category": "kyb",
+    "family_id": "middesk",
+    "homepage_status": 200,
+    "homepage_url": "https://www.middesk.com/",
+    "documentation_links": [
+      "https://docs.middesk.com/",
+      "https://docs.middesk.com/api-reference/business-verification/businesses/list-businesses"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kyckr",
+    "provider_name": "Kyckr",
+    "category": "kyb",
+    "family_id": "kyckr",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kyckr.com/",
+    "documentation_links": [
+      "https://developer.kyckr.com/Introduction"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "encompass",
+    "provider_name": "Encompass",
+    "category": "kyb",
+    "family_id": "encompass",
+    "homepage_status": 200,
+    "homepage_url": "https://www.encompasscorporation.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "know-your-customer",
+    "provider_name": "Know Your Customer",
+    "category": "kyb",
+    "family_id": "know-your-customer",
+    "homepage_status": 403,
+    "homepage_url": "https://knowyourcustomer.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fullcircl",
+    "provider_name": "FullCircl",
+    "category": "kyb",
+    "family_id": "fullcircl",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fullcircl.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "smartsearch",
+    "provider_name": "SmartSearch",
+    "category": "kyb",
+    "family_id": "smartsearch",
+    "homepage_status": 200,
+    "homepage_url": "https://www.smartsearch.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "w2",
+    "provider_name": "W2",
+    "category": "kyb",
+    "family_id": "w2",
+    "homepage_status": 200,
+    "homepage_url": "https://www.w2globaldata.com/",
+    "documentation_links": [
+      "https://docs.w2globaldata.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "detected",
+    "provider_name": "Detected",
+    "category": "kyb",
+    "family_id": "detected",
+    "homepage_status": 200,
+    "homepage_url": "https://detected.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "asiaverify",
+    "provider_name": "AsiaVerify",
+    "category": "kyb",
+    "family_id": "asiaverify",
+    "homepage_status": 200,
+    "homepage_url": "https://www.asiaverify.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "handshakes",
+    "provider_name": "Handshakes",
+    "category": "kyb",
+    "family_id": "handshakes",
+    "homepage_status": 200,
+    "homepage_url": "https://www.handshakes.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "crif",
+    "provider_name": "CRIF",
+    "category": "kyb",
+    "family_id": "crif",
+    "homepage_status": 200,
+    "homepage_url": "https://www.crif.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "coface",
+    "provider_name": "Coface",
+    "category": "kyb",
+    "family_id": "coface",
+    "homepage_status": 200,
+    "homepage_url": "https://www.coface.com/",
+    "documentation_links": [
+      "https://developers.coface.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "creditreform",
+    "provider_name": "Creditreform",
+    "category": "kyb",
+    "family_id": "creditreform",
+    "homepage_status": 200,
+    "homepage_url": "https://www.creditreform.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "northrow",
+    "provider_name": "NorthRow",
+    "category": "kyb",
+    "family_id": "id-pal",
+    "homepage_status": 403,
+    "homepage_url": "https://www.northrow.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vespia",
+    "provider_name": "Vespia",
+    "category": "kyb",
+    "family_id": "vespia",
+    "homepage_status": 200,
+    "homepage_url": "https://vespia.io/",
+    "documentation_links": [
+      "https://vespia.io/developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "the-kyb",
+    "provider_name": "The KYB",
+    "category": "kyb",
+    "family_id": "the-kyb",
+    "homepage_status": 200,
+    "homepage_url": "https://thekyb.com/",
+    "documentation_links": [
+      "https://developers.thekyb.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kompli-global",
+    "provider_name": "Kompli-Global",
+    "category": "kyb",
+    "family_id": "kompli-global",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kompli-global.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ubisecure",
+    "provider_name": "Ubisecure",
+    "category": "kyb",
+    "family_id": "ubisecure",
+    "homepage_status": 403,
+    "homepage_url": "https://www.ubisecure.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "global-database",
+    "provider_name": "Global Database",
+    "category": "kyb",
+    "family_id": "global-database",
+    "homepage_status": 200,
+    "homepage_url": "https://www.globaldatabase.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "infobelpro",
+    "provider_name": "InfobelPRO",
+    "category": "kyb",
+    "family_id": "infobelpro",
+    "homepage_status": 403,
+    "homepage_url": "https://www.infobelpro.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "companydata-com",
+    "provider_name": "CompanyData.com",
+    "category": "kyb",
+    "family_id": "companydata-com",
+    "homepage_status": 200,
+    "homepage_url": "https://companydata.com/",
+    "documentation_links": [
+      "https://companydata.com/api-docs/",
+      "https://docs.companydata.com"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bureau-van-dijk-orbis",
+    "provider_name": "Bureau van Dijk Orbis",
+    "category": "kyb",
+    "family_id": "moodys-compliance",
+    "homepage_status": 200,
+    "homepage_url": "https://www.moodys.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kompany",
+    "provider_name": "kompany",
+    "category": "kyb",
+    "family_id": "moodys-compliance",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kompany.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kontomatik",
+    "provider_name": "Kontomatik",
+    "category": "kyb",
+    "family_id": "kontomatik",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kontomatik.com/",
+    "documentation_links": [
+      "https://developer.kontomatik.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "compliancely",
+    "provider_name": "Compliancely",
+    "category": "kyb",
+    "family_id": "compliancely",
+    "homepage_status": 200,
+    "homepage_url": "https://compliancely.com/",
+    "documentation_links": [
+      "https://apideveloper.compliancely.com/docs/getting-started",
+      "https://apideveloper.compliancely.com/reference/api_v2_token_create"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "valid8me",
+    "provider_name": "Valid8Me",
+    "category": "kyb",
+    "family_id": "valid8me",
+    "homepage_status": null,
+    "homepage_url": "https://www.valid8me.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kyc-portal",
+    "provider_name": "KYC Portal",
+    "category": "kyb",
+    "family_id": "kyc-portal",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kycportal.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "experian",
+    "provider_name": "Experian",
+    "category": "bureau",
+    "family_id": "experian",
+    "homepage_status": 200,
+    "homepage_url": "https://www.experian.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "equifax",
+    "provider_name": "Equifax",
+    "category": "bureau",
+    "family_id": "equifax",
+    "homepage_status": 200,
+    "homepage_url": "https://www.equifax.com/",
+    "documentation_links": [
+      "https://developer.equifax.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "transunion",
+    "provider_name": "TransUnion",
+    "category": "bureau",
+    "family_id": "transunion",
+    "homepage_status": 403,
+    "homepage_url": "https://www.transunion.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "prove",
+    "provider_name": "Prove",
+    "category": "bureau",
+    "family_id": "prove",
+    "homepage_status": 200,
+    "homepage_url": "https://www.prove.com/",
+    "documentation_links": [
+      "https://developer.prove.com/docs/prove-pre-fill-flow",
+      "https://portal.prove.com/register",
+      "https://portal.prove.com/register?utm_source=...&utm_medium=...&utm_campaign=",
+      "https://www.prove.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ekata-mastercard",
+    "provider_name": "Ekata / Mastercard",
+    "category": "bureau",
+    "family_id": "mastercard-ekata",
+    "homepage_status": 403,
+    "homepage_url": "https://ekata.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "early-warning-services",
+    "provider_name": "Early Warning Services",
+    "category": "bureau",
+    "family_id": "early-warning-services",
+    "homepage_status": 200,
+    "homepage_url": "https://www.earlywarning.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "chexsystems-fis",
+    "provider_name": "ChexSystems / FIS",
+    "category": "bureau",
+    "family_id": "chexsystems-fis",
+    "homepage_status": 200,
+    "homepage_url": "https://www.chexsystems.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "innovis",
+    "provider_name": "Innovis",
+    "category": "bureau",
+    "family_id": "innovis",
+    "homepage_status": 200,
+    "homepage_url": "https://www.innovis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sentilink",
+    "provider_name": "SentiLink",
+    "category": "bureau",
+    "family_id": "sentilink",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sentilink.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "giact-lseg",
+    "provider_name": "Giact / LSEG",
+    "category": "bureau",
+    "family_id": "giact-lseg",
+    "homepage_status": 200,
+    "homepage_url": "https://www.giact.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trustfull",
+    "provider_name": "Trustfull",
+    "category": "bureau",
+    "family_id": "trustfull",
+    "homepage_status": 200,
+    "homepage_url": "https://trustfull.com/",
+    "documentation_links": [
+      "https://docs.trustfull.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trustcloud",
+    "provider_name": "TrustCloud",
+    "category": "bureau",
+    "family_id": "trustcloud",
+    "homepage_status": 200,
+    "homepage_url": "https://trustcloud.tech/",
+    "documentation_links": [
+      "https://developers.trustcloud.tech"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sprinque",
+    "provider_name": "Sprinque",
+    "category": "bureau",
+    "family_id": "sprinque",
+    "homepage_status": null,
+    "homepage_url": "https://www.sprinque.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "seon",
+    "provider_name": "SEON",
+    "category": "fraud",
+    "family_id": "seon",
+    "homepage_status": 403,
+    "homepage_url": "https://seon.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sift",
+    "provider_name": "Sift",
+    "category": "fraud",
+    "family_id": "sift",
+    "homepage_status": 403,
+    "homepage_url": "https://sift.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fingerprint",
+    "provider_name": "Fingerprint",
+    "category": "fraud",
+    "family_id": "fingerprint",
+    "homepage_status": 200,
+    "homepage_url": "https://fingerprint.com/",
+    "documentation_links": [
+      "https://docs.fingerprint.com",
+      "https://docs.fingerprint.com/docs/android-quickstart",
+      "https://docs.fingerprint.com/docs/angular-quickstart",
+      "https://docs.fingerprint.com/docs/flutter-quickstart",
+      "https://docs.fingerprint.com/docs/go-server-quickstart",
+      "https://docs.fingerprint.com/docs/ios-quickstart",
+      "https://docs.fingerprint.com/docs/java-server-quickstart",
+      "https://docs.fingerprint.com/docs/javascript-quickstart",
+      "https://docs.fingerprint.com/docs/mcp-server",
+      "https://docs.fingerprint.com/docs/nextjs-quickstart",
+      "https://docs.fingerprint.com/docs/node-server-quickstart",
+      "https://docs.fingerprint.com/docs/privacy-policy"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ipqs",
+    "provider_name": "IPQS",
+    "category": "fraud",
+    "family_id": "ipqs",
+    "homepage_status": 200,
+    "homepage_url": "https://www.ipqualityscore.com/",
+    "documentation_links": [
+      "https://www.ipqualityscore.com/documentation/device-fingerprint-api/overview",
+      "https://www.ipqualityscore.com/documentation/email-validation-api/overview",
+      "https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview",
+      "https://www.ipqualityscore.com/documentation/malware-file-scanner-api/overview",
+      "https://www.ipqualityscore.com/documentation/overview",
+      "https://www.ipqualityscore.com/documentation/phone-number-validation-api/overview",
+      "https://www.ipqualityscore.com/documentation/proxy-detection-api/overview",
+      "https://www.ipqualityscore.com/documentation/proxy-detection-api/transaction-scoring"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "maxmind",
+    "provider_name": "MaxMind",
+    "category": "fraud",
+    "family_id": "maxmind",
+    "homepage_status": 200,
+    "homepage_url": "https://www.maxmind.com/",
+    "documentation_links": [
+      "https://dev.maxmind.com",
+      "https://dev.maxmind.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ipinfo",
+    "provider_name": "IPinfo",
+    "category": "fraud",
+    "family_id": "ipinfo",
+    "homepage_status": 200,
+    "homepage_url": "https://ipinfo.io/",
+    "documentation_links": [
+      "https://ipinfo.io/developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "telesign",
+    "provider_name": "Telesign",
+    "category": "fraud",
+    "family_id": "telesign",
+    "homepage_status": 403,
+    "homepage_url": "https://www.telesign.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "twilio-lookup",
+    "provider_name": "Twilio Lookup",
+    "category": "fraud",
+    "family_id": "twilio-lookup",
+    "homepage_status": 200,
+    "homepage_url": "https://www.twilio.com/",
+    "documentation_links": [
+      "https://www.twilio.com/docs",
+      "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/getting-started-smtp",
+      "https://www.twilio.com/en-us/developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vonage-identity-insights",
+    "provider_name": "Vonage Identity Insights",
+    "category": "fraud",
+    "family_id": "vonage-identity-insights",
+    "homepage_status": 200,
+    "homepage_url": "https://www.vonage.com/",
+    "documentation_links": [
+      "https://developer.vonage.com/",
+      "https://developer.vonage.com/en/documentation",
+      "https://developer.vonage.com/en/home",
+      "https://developer.vonage.com/en/learning-center",
+      "https://www.vonage.com/developer-center/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "camara-gsma-open-gateway",
+    "provider_name": "CAMARA / GSMA Open Gateway",
+    "category": "fraud",
+    "family_id": "camara-gsma-open-gateway",
+    "homepage_status": 403,
+    "homepage_url": "https://www.gsma.com/solutions-and-impact/gsma-open-gateway/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "biocatch",
+    "provider_name": "BioCatch",
+    "category": "fraud",
+    "family_id": "biocatch",
+    "homepage_status": 200,
+    "homepage_url": "https://www.biocatch.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "threatmetrix-lexisnexis",
+    "provider_name": "ThreatMetrix / LexisNexis",
+    "category": "fraud",
+    "family_id": "lexisnexis-risk-solutions",
+    "homepage_status": 200,
+    "homepage_url": "https://risk.lexisnexis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trunarrative-lexisnexis",
+    "provider_name": "TruNarrative / LexisNexis",
+    "category": "fraud",
+    "family_id": "lexisnexis-risk-solutions",
+    "homepage_status": 200,
+    "homepage_url": "https://risk.lexisnexis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "transmit-security",
+    "provider_name": "Transmit Security",
+    "category": "fraud",
+    "family_id": "transmit-security",
+    "homepage_status": 403,
+    "homepage_url": "https://www.transmitsecurity.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "datavisor",
+    "provider_name": "DataVisor",
+    "category": "fraud",
+    "family_id": "datavisor",
+    "homepage_status": 200,
+    "homepage_url": "https://www.datavisor.com/",
+    "documentation_links": [
+      "https://www.datavisor.com/datavisor-api-guide"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "forter",
+    "provider_name": "Forter",
+    "category": "fraud",
+    "family_id": "forter",
+    "homepage_status": 403,
+    "homepage_url": "https://www.forter.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "incognia",
+    "provider_name": "Incognia",
+    "category": "fraud",
+    "family_id": "incognia",
+    "homepage_status": 200,
+    "homepage_url": "https://www.incognia.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "deduce",
+    "provider_name": "Deduce",
+    "category": "fraud",
+    "family_id": "deduce",
+    "homepage_status": 200,
+    "homepage_url": "https://www.deduce.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "emailage-lexisnexis",
+    "provider_name": "Emailage / LexisNexis",
+    "category": "fraud",
+    "family_id": "lexisnexis-risk-solutions",
+    "homepage_status": 200,
+    "homepage_url": "https://risk.lexisnexis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "darwinium",
+    "provider_name": "Darwinium",
+    "category": "fraud",
+    "family_id": "darwinium",
+    "homepage_status": 200,
+    "homepage_url": "https://www.darwinium.com/",
+    "documentation_links": [
+      "https://docs.darwinium.com/docs/introduction-to-darwinium",
+      "https://docs.darwinium.com/docs/quick-start"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "plaid",
+    "provider_name": "Plaid",
+    "category": "account",
+    "family_id": "plaid",
+    "homepage_status": 200,
+    "homepage_url": "https://plaid.com/",
+    "documentation_links": [
+      "https://plaid.com/docs/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "tink",
+    "provider_name": "Tink",
+    "category": "account",
+    "family_id": "tink",
+    "homepage_status": 200,
+    "homepage_url": "https://tink.com/",
+    "documentation_links": [
+      "https://docs.tink.com/",
+      "https://docs.tink.com/api",
+      "https://docs.tink.com/market-capabilities/aggregation",
+      "https://docs.tink.com/resources/landing/introduction-to-the-tink-platform",
+      "https://docs.tink.com/resources/landing/make-your-first-api-call",
+      "https://docs.tink.com/resources/landing/set-up-your-tink-account"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "truelayer",
+    "provider_name": "TrueLayer",
+    "category": "account",
+    "family_id": "truelayer",
+    "homepage_status": 200,
+    "homepage_url": "https://truelayer.com/",
+    "documentation_links": [
+      "https://docs.truelayer.com/docs/",
+      "https://docs.truelayer.com/reference/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "yapily",
+    "provider_name": "Yapily",
+    "category": "account",
+    "family_id": "yapily",
+    "homepage_status": 200,
+    "homepage_url": "https://www.yapily.com/",
+    "documentation_links": [
+      "https://docs.yapily.com/",
+      "https://docs.yapily.com/pages/resources/support/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "token-io",
+    "provider_name": "Token.io",
+    "category": "account",
+    "family_id": "token-io",
+    "homepage_status": 202,
+    "homepage_url": "https://token.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "salt-edge",
+    "provider_name": "Salt Edge",
+    "category": "account",
+    "family_id": "salt-edge",
+    "homepage_status": 200,
+    "homepage_url": "https://www.saltedge.com/",
+    "documentation_links": [
+      "https://docs.saltedge.com/v6/api_reference",
+      "https://priora.saltedge.com/docs/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "finicity-mastercard",
+    "provider_name": "Finicity / Mastercard",
+    "category": "account",
+    "family_id": "mastercard-open-banking",
+    "homepage_status": 403,
+    "homepage_url": "https://www.finicity.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mx",
+    "provider_name": "MX",
+    "category": "account",
+    "family_id": "mx",
+    "homepage_status": 200,
+    "homepage_url": "https://www.mx.com/",
+    "documentation_links": [
+      "https://docs.mx.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "akoya",
+    "provider_name": "Akoya",
+    "category": "account",
+    "family_id": "akoya",
+    "homepage_status": 200,
+    "homepage_url": "https://akoya.com/",
+    "documentation_links": [
+      "https://docs.akoya.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "yodlee",
+    "provider_name": "Yodlee",
+    "category": "account",
+    "family_id": "yodlee",
+    "homepage_status": 403,
+    "homepage_url": "https://www.yodlee.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "flinks",
+    "provider_name": "Flinks",
+    "category": "account",
+    "family_id": "flinks",
+    "homepage_status": 200,
+    "homepage_url": "https://flinks.com/",
+    "documentation_links": [
+      "https://docs.flinks.com/docs/welcome"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "belvo",
+    "provider_name": "Belvo",
+    "category": "account",
+    "family_id": "belvo",
+    "homepage_status": 403,
+    "homepage_url": "https://belvo.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "prometeo",
+    "provider_name": "Prometeo",
+    "category": "account",
+    "family_id": "prometeo",
+    "homepage_status": 200,
+    "homepage_url": "https://prometeoapi.com/",
+    "documentation_links": [
+      "https://docs.prometeoapi.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fintoc",
+    "provider_name": "Fintoc",
+    "category": "account",
+    "family_id": "fintoc",
+    "homepage_status": 200,
+    "homepage_url": "https://fintoc.com/",
+    "documentation_links": [
+      "https://chatgpt.com/?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.&hints=search",
+      "https://claude.ai/new?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.",
+      "https://docs.fintoc.com/",
+      "https://docs.fintoc.com/docs/welcome",
+      "https://www.google.com/search?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.&udm=50&aep=11"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "finverse",
+    "provider_name": "Finverse",
+    "category": "account",
+    "family_id": "finverse",
+    "homepage_status": 200,
+    "homepage_url": "https://www.finverse.com/",
+    "documentation_links": [
+      "https://dashboard.finverse.com/login",
+      "https://docs.finverse.com",
+      "https://docs.finverse.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "brankas",
+    "provider_name": "Brankas",
+    "category": "account",
+    "family_id": "brankas",
+    "homepage_status": 200,
+    "homepage_url": "https://www.brankas.com/",
+    "documentation_links": [
+      "https://api-reference.brankas.com",
+      "https://api-reference.brankas.com/",
+      "https://docs.brankas.com/docs/product-overview"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "finantier",
+    "provider_name": "Finantier",
+    "category": "account",
+    "family_id": "finantier",
+    "homepage_status": null,
+    "homepage_url": "https://finantier.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": "quarantined"
+  },
+  {
+    "provider_id": "mono",
+    "provider_name": "Mono",
+    "category": "account",
+    "family_id": "mono",
+    "homepage_status": 200,
+    "homepage_url": "https://mono.co/",
+    "documentation_links": [
+      "https://docs.mono.co/api",
+      "https://docs.mono.co/docs",
+      "https://docs.mono.co/docs/changelog",
+      "https://docs.mono.co/docs/sdks",
+      "https://mono.co/developers",
+      "https://mono.co/legal"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "okra",
+    "provider_name": "Okra",
+    "category": "account",
+    "family_id": "okra",
+    "homepage_status": null,
+    "homepage_url": "https://okra.ng/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "stitch",
+    "provider_name": "Stitch",
+    "category": "account",
+    "family_id": "stitch",
+    "homepage_status": 200,
+    "homepage_url": "https://www.stitch.money/",
+    "documentation_links": [
+      "https://docs.stitch.money/",
+      "https://docs.stitch.money/payment-products",
+      "https://docs.stitch.money/payment-products/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "moneyhub",
+    "provider_name": "Moneyhub",
+    "category": "account",
+    "family_id": "moneyhub",
+    "homepage_status": 200,
+    "homepage_url": "https://www.moneyhub.com/",
+    "documentation_links": [
+      "https://docs.moneyhubenterprise.com/",
+      "https://docs.moneyhubenterprise.com/docs/admin-portal-sign-up",
+      "https://moneyhub.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "surepay",
+    "provider_name": "SurePay",
+    "category": "account",
+    "family_id": "surepay",
+    "homepage_status": 200,
+    "homepage_url": "https://www.surepay.eu/",
+    "documentation_links": [
+      "https://developer.surepay.nl/dataprovisioning/introduction",
+      "https://developer.surepay.nl/introduction",
+      "https://developer.surepay.nl/vop-bulk-for-banks/introduction",
+      "https://developer.surepay.nl/vop-for-banks/introduction"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trustpair",
+    "provider_name": "Trustpair",
+    "category": "account",
+    "family_id": "trustpair",
+    "homepage_status": 200,
+    "homepage_url": "https://trustpair.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ipid",
+    "provider_name": "iPiD",
+    "category": "account",
+    "family_id": "ipid",
+    "homepage_status": 200,
+    "homepage_url": "https://www.ipid.tech/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "swift-payment-pre-validation",
+    "provider_name": "Swift Payment Pre-validation",
+    "category": "account",
+    "family_id": "swift-payment-pre-validation",
+    "homepage_status": 403,
+    "homepage_url": "https://www.swift.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lexisnexis-bankers-almanac",
+    "provider_name": "LexisNexis Bankers Almanac",
+    "category": "account",
+    "family_id": "lexisnexis-risk-solutions",
+    "homepage_status": 200,
+    "homepage_url": "https://risk.lexisnexis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "nice-actimize",
+    "provider_name": "NICE Actimize",
+    "category": "monitoring",
+    "family_id": "nice-actimize",
+    "homepage_status": 200,
+    "homepage_url": "https://www.niceactimize.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "nasdaq-verafin",
+    "provider_name": "Nasdaq Verafin",
+    "category": "monitoring",
+    "family_id": "nasdaq-verafin",
+    "homepage_status": 403,
+    "homepage_url": "https://verafin.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sas",
+    "provider_name": "SAS",
+    "category": "monitoring",
+    "family_id": "sas",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sas.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "oracle-financial-services",
+    "provider_name": "Oracle Financial Services",
+    "category": "monitoring",
+    "family_id": "oracle-financial-services",
+    "homepage_status": 200,
+    "homepage_url": "https://www.oracle.com/financial-services/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fico",
+    "provider_name": "FICO",
+    "category": "monitoring",
+    "family_id": "fico",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fico.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bae-systems-digital-intelligence",
+    "provider_name": "BAE Systems Digital Intelligence",
+    "category": "monitoring",
+    "family_id": "sensa-symphonyai",
+    "homepage_status": 403,
+    "homepage_url": "https://www.baesystems.com/en/cybersecurity",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fiserv",
+    "provider_name": "Fiserv",
+    "category": "monitoring",
+    "family_id": "fiserv",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fiserv.com/",
+    "documentation_links": [
+      "https://developer.fiserv.com",
+      "https://developer.fiserv.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fis",
+    "provider_name": "FIS",
+    "category": "monitoring",
+    "family_id": "fis",
+    "homepage_status": 403,
+    "homepage_url": "https://www.fisglobal.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aci-worldwide",
+    "provider_name": "ACI Worldwide",
+    "category": "monitoring",
+    "family_id": "aci-worldwide",
+    "homepage_status": 403,
+    "homepage_url": "https://www.aciworldwide.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "temenos",
+    "provider_name": "Temenos",
+    "category": "monitoring",
+    "family_id": "temenos",
+    "homepage_status": 200,
+    "homepage_url": "https://www.temenos.com/",
+    "documentation_links": [
+      "https://www.temenos.com/partners/developer-community/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "napier-ai",
+    "provider_name": "Napier AI",
+    "category": "monitoring",
+    "family_id": "napier-ai",
+    "homepage_status": 200,
+    "homepage_url": "https://www.napier.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "hawk",
+    "provider_name": "Hawk",
+    "category": "monitoring",
+    "family_id": "hawk",
+    "homepage_status": 200,
+    "homepage_url": "https://hawk.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "feedzai",
+    "provider_name": "Feedzai",
+    "category": "monitoring",
+    "family_id": "feedzai",
+    "homepage_status": 403,
+    "homepage_url": "https://www.feedzai.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "thetaray",
+    "provider_name": "ThetaRay",
+    "category": "monitoring",
+    "family_id": "thetaray",
+    "homepage_status": 403,
+    "homepage_url": "https://www.thetaray.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "tookitaki",
+    "provider_name": "Tookitaki",
+    "category": "monitoring",
+    "family_id": "tookitaki",
+    "homepage_status": 200,
+    "homepage_url": "https://www.tookitaki.com/",
+    "documentation_links": [
+      "https://identity.document360.io/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DKbSiteAngular%26scope%3Dopenid%2520email%2520profile%2520kbSiteAdmin%2520offline_access%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fdocs.tookitaki.com%252Fsignin-oidc%26state%3Dreturn_to%253D%25252F%26session%3Dtrue%26property%3Duser%26defaultStrategy%3Doidc%26code_challenge%3D-AarA2oBo8cwry0XDFMauyEv3BrBZ2KUvHb6BL5mv9A%26code_challenge_method%3DS256",
+      "https://identity.document360.io/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Ddocument360MVC%26redirect_uri%3Dhttps%253A%252F%252Fdocs.tookitaki.com%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520email%2520profile%26code_challenge%3DA2XSjdcUhcZbnzj82rXt4mTpuvp6a7-OzDQNfsdxscE%26code_challenge_method%3DS256%26nonce%3D638830089879372304.MzJiZTRiYjEtMjQ1MS00ZDE0LWJjZjEtMTUwOTg3MjNjZDM4N2ViNzk3MzctZWE1NC00MmM2LWFlNGEtMmY0MzAyNWIyYTUx%26state%3DCfDJ8FUW5NWuT-lMl4eXLIjxn16v83MVqWBIHcPGAzfu2h5gIQoSKg9trEJWOuyIRqq4DU42A0OYZSGgIwJQodzH-CU-C8d9u1ItwQryj-ZrGFyzdOYTjLSbUVHslhjFa_hiKiOMh0o5aWLTRrINtCyI0l-_8zZBwUF0KVsa9JNk-X7SHzBEOt1OQNrHsN0p9u5CK9SfP4hDGOsHsTVLGUTYAYDkD-XT82z45qgBgVFOscDq8LMJxXKy7D03GCH7-kd3H9ck7oZMN8XDxHZ6lpqdu6bbafA478ONFqFcmBTSJm3b-LZY7zv1nusk0TyEiwR0YLju2LB96LoWYaX3FPr3zeVaY8L3gjCS1i8k4figUq7Ndopd6UyCa7bumOeaAcdwBA%26x-client-SKU%3DID_NETSTANDARD2_0%26x-client-ver%3D5.5.0.0"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "unit21",
+    "provider_name": "Unit21",
+    "category": "monitoring",
+    "family_id": "unit21",
+    "homepage_status": 200,
+    "homepage_url": "https://www.unit21.ai/",
+    "documentation_links": [
+      "https://docs.unit21.ai/password?redirect=/docs/overview?_gl=1*6gi0ru*_up*MQ..*_ga*MTgwNDg0MjM1OS4xNzUyOTE0MTU5*_ga_YKWL0RRH7P*czE3NTI5MTQxNTgkbzEkZzEkdDE3NTI5MTQ1MTkkajQwJGwwJGg5MDQ3MDg0ODc.",
+      "https://docs.unit21.ai/password?redirect=/docs/overview?_gl=1*6gi0ru*_up*MQ..*_ga*MTgwNDg0MjM1OS4xNzUyOTE0MTU5*_ga_YKWL0RRH7P*czE3NTI5MTQxNTgkbzEkZzEkdDE3NTI5MTQ1MTkkajQwJGwwJGg5MDQ3MDg0ODc.&__hstc=17958374.f8f437118bd83d0c1059e1f312aa07b7.1772928552226.1772928552226.1772928552226.1&__hssc=17958374.1.1772928552226&__hsfp=4c710a6ab75f8554ab88bcc1d2e8e401"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sardine",
+    "provider_name": "Sardine",
+    "category": "monitoring",
+    "family_id": "sardine",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sardine.ai/",
+    "documentation_links": [
+      "https://docs.sardine.ai/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "flagright",
+    "provider_name": "Flagright",
+    "category": "monitoring",
+    "family_id": "flagright",
+    "homepage_status": 200,
+    "homepage_url": "https://www.flagright.com/",
+    "documentation_links": [
+      "https://docs.flagright.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "oscilar",
+    "provider_name": "Oscilar",
+    "category": "monitoring",
+    "family_id": "oscilar",
+    "homepage_status": 200,
+    "homepage_url": "https://oscilar.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lucinity",
+    "provider_name": "Lucinity",
+    "category": "monitoring",
+    "family_id": "lucinity",
+    "homepage_status": 200,
+    "homepage_url": "https://lucinity.com/",
+    "documentation_links": [
+      "https://docs.lucinity.com",
+      "https://lucinity.com/regulatory-reporting"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "hummingbird",
+    "provider_name": "Hummingbird",
+    "category": "monitoring",
+    "family_id": "hummingbird",
+    "homepage_status": 200,
+    "homepage_url": "https://www.hummingbird.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "alessa",
+    "provider_name": "Alessa",
+    "category": "monitoring",
+    "family_id": "alessa",
+    "homepage_status": 200,
+    "homepage_url": "https://alessa.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aml-partners",
+    "provider_name": "AML Partners",
+    "category": "monitoring",
+    "family_id": "aml-partners",
+    "homepage_status": 200,
+    "homepage_url": "https://www.amlpartners.com/",
+    "documentation_links": [
+      "https://amlpartners.com/insights/no-code-business-application-platform-for-developers/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "imtf",
+    "provider_name": "IMTF",
+    "category": "monitoring",
+    "family_id": "imtf",
+    "homepage_status": 200,
+    "homepage_url": "https://imtf.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "eastnets",
+    "provider_name": "Eastnets",
+    "category": "monitoring",
+    "family_id": "eastnets",
+    "homepage_status": 200,
+    "homepage_url": "https://www.eastnets.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "intix",
+    "provider_name": "Intix",
+    "category": "monitoring",
+    "family_id": "vyntra",
+    "homepage_status": 403,
+    "homepage_url": "https://www.intix.eu/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vyntra",
+    "provider_name": "Vyntra",
+    "category": "monitoring",
+    "family_id": "vyntra",
+    "homepage_status": 200,
+    "homepage_url": "https://vyntra.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "clari5",
+    "provider_name": "Clari5",
+    "category": "monitoring",
+    "family_id": "clari5",
+    "homepage_status": 200,
+    "homepage_url": "https://www.clari5.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aml-rightsource",
+    "provider_name": "AML RightSource",
+    "category": "monitoring",
+    "family_id": "aml-rightsource",
+    "homepage_status": 200,
+    "homepage_url": "https://www.amlrightsource.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "quantifind",
+    "provider_name": "Quantifind",
+    "category": "monitoring",
+    "family_id": "quantifind",
+    "homepage_status": 200,
+    "homepage_url": "https://www.quantifind.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "quantexa",
+    "provider_name": "Quantexa",
+    "category": "monitoring",
+    "family_id": "quantexa",
+    "homepage_status": 200,
+    "homepage_url": "https://www.quantexa.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fenergo",
+    "provider_name": "Fenergo",
+    "category": "monitoring",
+    "family_id": "fenergo",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fenergo.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "appway-fnz",
+    "provider_name": "Appway / FNZ",
+    "category": "monitoring",
+    "family_id": "appway-fnz",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fnz.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "alloy",
+    "provider_name": "Alloy",
+    "category": "orchestration",
+    "family_id": "alloy",
+    "homepage_status": 200,
+    "homepage_url": "https://www.alloy.com/",
+    "documentation_links": [
+      "https://developer.alloy.com",
+      "https://developer.alloy.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "taktile",
+    "provider_name": "Taktile",
+    "category": "orchestration",
+    "family_id": "taktile",
+    "homepage_status": 200,
+    "homepage_url": "https://www.taktile.com/",
+    "documentation_links": [
+      "https://docs.taktile.com/",
+      "https://docs.taktile.com/changelog",
+      "https://docs.taktile.com/integrations"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "oscilar-orchestration",
+    "provider_name": "Oscilar orchestration",
+    "category": "orchestration",
+    "family_id": "oscilar",
+    "homepage_status": 200,
+    "homepage_url": "https://oscilar.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "provenir",
+    "provider_name": "Provenir",
+    "category": "orchestration",
+    "family_id": "provenir",
+    "homepage_status": 403,
+    "homepage_url": "https://www.provenir.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "atfinity",
+    "provider_name": "Atfinity",
+    "category": "orchestration",
+    "family_id": "atfinity",
+    "homepage_status": 200,
+    "homepage_url": "https://www.atfinity.swiss/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "camunda",
+    "provider_name": "Camunda",
+    "category": "orchestration",
+    "family_id": "camunda",
+    "homepage_status": 200,
+    "homepage_url": "https://camunda.com/",
+    "documentation_links": [
+      "https://camunda.com/developer-hub/",
+      "https://docs.camunda.io/",
+      "https://docs.camunda.io/build-with-camunda/",
+      "https://docs.camunda.io/docs/components/best-practices/best-practices-overview/",
+      "https://docs.camunda.io/docs/reference/announcements-release-notes/overview/",
+      "https://docs.camunda.io/downloads/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "pega",
+    "provider_name": "Pega",
+    "category": "orchestration",
+    "family_id": "pega",
+    "homepage_status": 200,
+    "homepage_url": "https://www.pega.com/",
+    "documentation_links": [
+      "https://docs.pega.com",
+      "https://docs.pega.com/bundle/keeping-current/page/keeping-current/kc/keeping-current-with-pega.html"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "chainalysis",
+    "provider_name": "Chainalysis",
+    "category": "crypto",
+    "family_id": "chainalysis",
+    "homepage_status": 200,
+    "homepage_url": "https://www.chainalysis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trm-labs",
+    "provider_name": "TRM Labs",
+    "category": "crypto",
+    "family_id": "trm-labs",
+    "homepage_status": 200,
+    "homepage_url": "https://www.trmlabs.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "elliptic",
+    "provider_name": "Elliptic",
+    "category": "crypto",
+    "family_id": "elliptic",
+    "homepage_status": 200,
+    "homepage_url": "https://www.elliptic.co/",
+    "documentation_links": [
+      "https://developers.elliptic.co/reference/getting-started"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "merkle-science",
+    "provider_name": "Merkle Science",
+    "category": "crypto",
+    "family_id": "merkle-science",
+    "homepage_status": 200,
+    "homepage_url": "https://www.merklescience.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "crystal-intelligence",
+    "provider_name": "Crystal Intelligence",
+    "category": "crypto",
+    "family_id": "crystal-intelligence",
+    "homepage_status": 200,
+    "homepage_url": "https://crystalintelligence.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "scorechain",
+    "provider_name": "Scorechain",
+    "category": "crypto",
+    "family_id": "scorechain",
+    "homepage_status": 200,
+    "homepage_url": "https://www.scorechain.com/",
+    "documentation_links": [
+      "https://www.scorechain.com/developers/api",
+      "https://www.scorechain.com/developers/free-sanction-api",
+      "https://www.scorechain.com/developers/sdk",
+      "https://www.scorechain.com/developers/travel-rule-api"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lukka",
+    "provider_name": "Lukka",
+    "category": "crypto",
+    "family_id": "lukka",
+    "homepage_status": 200,
+    "homepage_url": "https://lukka.tech/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ciphertrace-mastercard",
+    "provider_name": "CipherTrace / Mastercard",
+    "category": "crypto",
+    "family_id": "ciphertrace-mastercard",
+    "homepage_status": null,
+    "homepage_url": "https://ciphertrace.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "coinfirm",
+    "provider_name": "Coinfirm",
+    "category": "crypto",
+    "family_id": "lukka",
+    "homepage_status": null,
+    "homepage_url": "https://www.coinfirm.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "anchain-ai",
+    "provider_name": "AnChain.AI",
+    "category": "crypto",
+    "family_id": "anchain-ai",
+    "homepage_status": 200,
+    "homepage_url": "https://www.anchain.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "uppsala-security",
+    "provider_name": "Uppsala Security",
+    "category": "crypto",
+    "family_id": "uppsala-security",
+    "homepage_status": 200,
+    "homepage_url": "https://uppsalasecurity.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "amlbot",
+    "provider_name": "AMLBot",
+    "category": "crypto",
+    "family_id": "amlbot",
+    "homepage_status": 200,
+    "homepage_url": "https://amlbot.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "global-ledger",
+    "provider_name": "Global Ledger",
+    "category": "crypto",
+    "family_id": "global-ledger",
+    "homepage_status": 200,
+    "homepage_url": "https://globalledger.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "blockaid",
+    "provider_name": "Blockaid",
+    "category": "crypto",
+    "family_id": "blockaid",
+    "homepage_status": 200,
+    "homepage_url": "https://www.blockaid.io/",
+    "documentation_links": [
+      "https://docs.blockaid.io/changelog",
+      "https://docs.blockaid.io/docs/blockaid-client",
+      "https://docs.blockaid.io/docs/introduction",
+      "https://docs.blockaid.io/reference/openapi-schema"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "solidus-labs",
+    "provider_name": "Solidus Labs",
+    "category": "crypto",
+    "family_id": "solidus-labs",
+    "homepage_status": 200,
+    "homepage_url": "https://www.soliduslabs.com/",
+    "documentation_links": [
+      "https://api-developers.soliduslabs.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "notabene",
+    "provider_name": "Notabene",
+    "category": "travel_rule",
+    "family_id": "notabene",
+    "homepage_status": 200,
+    "homepage_url": "https://notabene.id/",
+    "documentation_links": [
+      "https://devx.notabene.id/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sygna",
+    "provider_name": "Sygna",
+    "category": "travel_rule",
+    "family_id": "sygna",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sygna.io/",
+    "documentation_links": [
+      "https://developers.sygna.io/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "verifyvasp",
+    "provider_name": "VerifyVASP",
+    "category": "travel_rule",
+    "family_id": "verifyvasp",
+    "homepage_status": 200,
+    "homepage_url": "https://verifyvasp.com/",
+    "documentation_links": [
+      "https://docs.verifyvasp.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trisa",
+    "provider_name": "TRISA",
+    "category": "travel_rule",
+    "family_id": "trisa",
+    "homepage_status": null,
+    "homepage_url": "https://trisa.io/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "trust-network",
+    "provider_name": "TRUST network",
+    "category": "travel_rule",
+    "family_id": "trust-network",
+    "homepage_status": 403,
+    "homepage_url": "https://www.coinbase.com/travelrule",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "21-analytics",
+    "provider_name": "21 Analytics",
+    "category": "travel_rule",
+    "family_id": "21-analytics",
+    "homepage_status": 200,
+    "homepage_url": "https://www.21analytics.ch/",
+    "documentation_links": [
+      "https://docs.21analytics.ch/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "shyft-veriscope",
+    "provider_name": "Shyft / Veriscope",
+    "category": "travel_rule",
+    "family_id": "shyft-veriscope",
+    "homepage_status": 200,
+    "homepage_url": "https://www.shyft.network/",
+    "documentation_links": [
+      "https://www.shyft.network/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "control-risks",
+    "provider_name": "Control Risks",
+    "category": "edd",
+    "family_id": "control-risks",
+    "homepage_status": 200,
+    "homepage_url": "https://www.controlrisks.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kroll",
+    "provider_name": "Kroll",
+    "category": "edd",
+    "family_id": "kroll",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kroll.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "exiger",
+    "provider_name": "Exiger",
+    "category": "edd",
+    "family_id": "exiger",
+    "homepage_status": 200,
+    "homepage_url": "https://www.exiger.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "s-rm",
+    "provider_name": "S-RM",
+    "category": "edd",
+    "family_id": "s-rm",
+    "homepage_status": 200,
+    "homepage_url": "https://www.s-rminform.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mintz-group",
+    "provider_name": "Mintz Group",
+    "category": "edd",
+    "family_id": "mintz-group",
+    "homepage_status": 200,
+    "homepage_url": "https://www.mintzgroup.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lseg-due-diligence",
+    "provider_name": "LSEG Due Diligence",
+    "category": "edd",
+    "family_id": "lseg-world-check",
+    "homepage_status": 200,
+    "homepage_url": "https://www.lseg.com/en/risk-intelligence",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "diligent",
+    "provider_name": "Diligent",
+    "category": "edd",
+    "family_id": "diligent",
+    "homepage_status": 200,
+    "homepage_url": "https://www.diligent.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "gan-integrity",
+    "provider_name": "GAN Integrity",
+    "category": "edd",
+    "family_id": "gan-integrity",
+    "homepage_status": 200,
+    "homepage_url": "https://www.ganintegrity.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "reprisk",
+    "provider_name": "RepRisk",
+    "category": "edd",
+    "family_id": "reprisk",
+    "homepage_status": 200,
+    "homepage_url": "https://www.reprisk.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "s-p-global-market-intelligence",
+    "provider_name": "S&P Global Market Intelligence",
+    "category": "edd",
+    "family_id": "s-p-global-market-intelligence",
+    "homepage_status": 403,
+    "homepage_url": "https://www.spglobal.com/marketintelligence/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lloyd-s-list-intelligence",
+    "provider_name": "Lloyd's List Intelligence",
+    "category": "edd",
+    "family_id": "lloyd-s-list-intelligence",
+    "homepage_status": 200,
+    "homepage_url": "https://www.lloydslistintelligence.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "windward",
+    "provider_name": "Windward",
+    "category": "edd",
+    "family_id": "windward",
+    "homepage_status": 403,
+    "homepage_url": "https://windward.ai/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "pole-star-global",
+    "provider_name": "Pole Star Global",
+    "category": "edd",
+    "family_id": "pole-star-global",
+    "homepage_status": 403,
+    "homepage_url": "https://www.polestarglobal.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "vesselbot",
+    "provider_name": "VesselBot",
+    "category": "edd",
+    "family_id": "vesselbot",
+    "homepage_status": 200,
+    "homepage_url": "https://www.vesselbot.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ravenpack",
+    "provider_name": "RavenPack",
+    "category": "edd",
+    "family_id": "ravenpack",
+    "homepage_status": 200,
+    "homepage_url": "https://www.ravenpack.com/",
+    "documentation_links": [
+      "https://docs.bigdata.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "factiva-dow-jones",
+    "provider_name": "Factiva / Dow Jones",
+    "category": "edd",
+    "family_id": "dow-jones-risk-compliance",
+    "homepage_status": 200,
+    "homepage_url": "https://www.dowjones.com/professional/factiva/",
+    "documentation_links": [
+      "https://developer.dowjones.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "lexisnexis-nexis-diligence",
+    "provider_name": "LexisNexis Nexis Diligence",
+    "category": "edd",
+    "family_id": "lexisnexis-nexis-diligence",
+    "homepage_status": 200,
+    "homepage_url": "https://www.lexisnexis.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "companies-house",
+    "provider_name": "Companies House",
+    "category": "registry",
+    "family_id": "companies-house",
+    "homepage_status": 200,
+    "homepage_url": "https://developer.company-information.service.gov.uk/",
+    "documentation_links": [
+      "https://developer-specs.company-information.service.gov.uk",
+      "https://developer.company-information.service.gov.uk/",
+      "https://developer.company-information.service.gov.uk/api-testing",
+      "https://developer.company-information.service.gov.uk/authentication",
+      "https://developer.company-information.service.gov.uk/developer-guidelines",
+      "https://developer.company-information.service.gov.uk/get-started",
+      "https://developer.company-information.service.gov.uk/get-started/",
+      "https://developer.company-information.service.gov.uk/how-to-create-an-application",
+      "https://developer.company-information.service.gov.uk/overview",
+      "https://developer.company-information.service.gov.uk/{chsUrl}/help/cookies",
+      "https://forum.aws.chdev.org/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "us-state-secretaries-of-state",
+    "provider_name": "US state Secretaries of State",
+    "category": "registry",
+    "family_id": "us-state-secretaries-of-state",
+    "homepage_status": 200,
+    "homepage_url": "https://www.nass.org/business-services/corporate-registration",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sec-edgar",
+    "provider_name": "SEC EDGAR",
+    "category": "registry",
+    "family_id": "sec-edgar",
+    "homepage_status": 403,
+    "homepage_url": "https://www.sec.gov/edgar",
+    "documentation_links": [
+      "https://www.sec.gov/developer"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fincen-boi",
+    "provider_name": "FinCEN BOI",
+    "category": "registry",
+    "family_id": "fincen-boi",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fincen.gov/boi",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "irs-tin-matching",
+    "provider_name": "IRS TIN Matching",
+    "category": "registry",
+    "family_id": "irs-tin-matching",
+    "homepage_status": 200,
+    "homepage_url": "https://www.irs.gov/tax-professionals/taxpayer-identification-number-tin-matching",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ssa-ecbsv",
+    "provider_name": "SSA eCBSV",
+    "category": "registry",
+    "family_id": "ssa-ecbsv",
+    "homepage_status": 403,
+    "homepage_url": "https://www.ssa.gov/dataexchange/eCBSV/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "aamva-dldv",
+    "provider_name": "AAMVA DLDV",
+    "category": "registry",
+    "family_id": "aamva-dldv",
+    "homepage_status": 200,
+    "homepage_url": "https://www.aamva.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "corporations-canada",
+    "provider_name": "Corporations Canada",
+    "category": "registry",
+    "family_id": "corporations-canada",
+    "homepage_status": 200,
+    "homepage_url": "https://ised-isde.canada.ca/site/corporations-canada/en",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "sedar",
+    "provider_name": "SEDAR+",
+    "category": "registry",
+    "family_id": "sedar",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sedarplus.ca/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "inpi-rne",
+    "provider_name": "INPI RNE",
+    "category": "registry",
+    "family_id": "inpi-rne",
+    "homepage_status": 403,
+    "homepage_url": "https://data.inpi.fr/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "insee-sirene",
+    "provider_name": "INSEE Sirene",
+    "category": "registry",
+    "family_id": "insee-sirene",
+    "homepage_status": 200,
+    "homepage_url": "https://www.insee.fr/",
+    "documentation_links": [
+      "https://www.insee.fr/fr/information/2383410"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "german-handelsregister",
+    "provider_name": "German Handelsregister",
+    "category": "registry",
+    "family_id": "german-handelsregister",
+    "homepage_status": 200,
+    "homepage_url": "https://www.handelsregister.de/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "unternehmensregister",
+    "provider_name": "Unternehmensregister",
+    "category": "registry",
+    "family_id": "unternehmensregister",
+    "homepage_status": 403,
+    "homepage_url": "https://www.unternehmensregister.de/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "eu-bris",
+    "provider_name": "EU BRIS",
+    "category": "registry",
+    "family_id": "eu-bris",
+    "homepage_status": 403,
+    "homepage_url": "https://e-justice.europa.eu/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kvk",
+    "provider_name": "KVK",
+    "category": "registry",
+    "family_id": "kvk",
+    "homepage_status": 200,
+    "homepage_url": "https://www.kvk.nl/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "cbe-kbo",
+    "provider_name": "CBE / KBO",
+    "category": "registry",
+    "family_id": "cbe-kbo",
+    "homepage_status": 200,
+    "homepage_url": "https://economie.fgov.be/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bolagsverket",
+    "provider_name": "Bolagsverket",
+    "category": "registry",
+    "family_id": "bolagsverket",
+    "homepage_status": null,
+    "homepage_url": "https://bolagsverket.se/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "br-nn-ysund-register-centre",
+    "provider_name": "Br\u00f8nn\u00f8ysund Register Centre",
+    "category": "registry",
+    "family_id": "br-nn-ysund-register-centre",
+    "homepage_status": 200,
+    "homepage_url": "https://www.brreg.no/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "prh",
+    "provider_name": "PRH",
+    "category": "registry",
+    "family_id": "prh",
+    "homepage_status": 200,
+    "homepage_url": "https://www.prh.fi/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "danish-business-authority-cvr",
+    "provider_name": "Danish Business Authority CVR",
+    "category": "registry",
+    "family_id": "danish-business-authority-cvr",
+    "homepage_status": 403,
+    "homepage_url": "https://datacvr.virk.dk/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "registro-imprese-infocamere",
+    "provider_name": "Registro Imprese / InfoCamere",
+    "category": "registry",
+    "family_id": "registro-imprese-infocamere",
+    "homepage_status": 200,
+    "homepage_url": "https://www.registroimprese.it/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "registradores",
+    "provider_name": "Registradores",
+    "category": "registry",
+    "family_id": "registradores",
+    "homepage_status": 200,
+    "homepage_url": "https://www.registradores.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "cro",
+    "provider_name": "CRO",
+    "category": "registry",
+    "family_id": "cro",
+    "homepage_status": 403,
+    "homepage_url": "https://cro.ie/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "luxembourg-business-registers",
+    "provider_name": "Luxembourg Business Registers",
+    "category": "registry",
+    "family_id": "luxembourg-business-registers",
+    "homepage_status": 200,
+    "homepage_url": "https://www.lbr.lu/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "zefix",
+    "provider_name": "Zefix",
+    "category": "registry",
+    "family_id": "zefix",
+    "homepage_status": 200,
+    "homepage_url": "https://www.zefix.ch/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "asic",
+    "provider_name": "ASIC",
+    "category": "registry",
+    "family_id": "asic",
+    "homepage_status": 200,
+    "homepage_url": "https://asic.gov.au/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "australian-business-register",
+    "provider_name": "Australian Business Register",
+    "category": "registry",
+    "family_id": "australian-business-register",
+    "homepage_status": 200,
+    "homepage_url": "https://abr.business.gov.au/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "new-zealand-companies-office",
+    "provider_name": "New Zealand Companies Office",
+    "category": "registry",
+    "family_id": "new-zealand-companies-office",
+    "homepage_status": 200,
+    "homepage_url": "https://www.companiesoffice.govt.nz/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "acra",
+    "provider_name": "ACRA",
+    "category": "registry",
+    "family_id": "acra",
+    "homepage_status": 200,
+    "homepage_url": "https://www.acra.gov.sg/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "hong-kong-companies-registry",
+    "provider_name": "Hong Kong Companies Registry",
+    "category": "registry",
+    "family_id": "hong-kong-companies-registry",
+    "homepage_status": 200,
+    "homepage_url": "https://www.cr.gov.hk/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mca",
+    "provider_name": "MCA",
+    "category": "registry",
+    "family_id": "mca",
+    "homepage_status": 403,
+    "homepage_url": "https://www.mca.gov.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "uidai",
+    "provider_name": "UIDAI",
+    "category": "registry",
+    "family_id": "uidai",
+    "homepage_status": 200,
+    "homepage_url": "https://uidai.gov.in/",
+    "documentation_links": [
+      "https://uidai.gov.in/hi/developer-section"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "digilocker",
+    "provider_name": "DigiLocker",
+    "category": "registry",
+    "family_id": "digilocker",
+    "homepage_status": 200,
+    "homepage_url": "https://www.digilocker.gov.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "cersai-ckycr",
+    "provider_name": "CERSAI CKYCR",
+    "category": "registry",
+    "family_id": "cersai-ckycr",
+    "homepage_status": 403,
+    "homepage_url": "https://www.ckycindia.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "protean-egov",
+    "provider_name": "Protean eGov",
+    "category": "registry",
+    "family_id": "protean-egov",
+    "homepage_status": 200,
+    "homepage_url": "https://www.proteantech.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "gstn",
+    "provider_name": "GSTN",
+    "category": "registry",
+    "family_id": "gstn",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gstn.org.in/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ssm",
+    "provider_name": "SSM",
+    "category": "registry",
+    "family_id": "ssm",
+    "homepage_status": 200,
+    "homepage_url": "https://www.ssm.com.my/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "indonesia-ahu",
+    "provider_name": "Indonesia AHU",
+    "category": "registry",
+    "family_id": "indonesia-ahu",
+    "homepage_status": 200,
+    "homepage_url": "https://ahu.go.id/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "philippines-sec",
+    "provider_name": "Philippines SEC",
+    "category": "registry",
+    "family_id": "philippines-sec",
+    "homepage_status": 403,
+    "homepage_url": "https://www.sec.gov.ph/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "china-gsxt",
+    "provider_name": "China GSXT",
+    "category": "registry",
+    "family_id": "china-gsxt",
+    "homepage_status": 403,
+    "homepage_url": "https://www.gsxt.gov.cn/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "japan-corporate-number-publication-site",
+    "provider_name": "Japan Corporate Number Publication Site",
+    "category": "registry",
+    "family_id": "japan-corporate-number-publication-site",
+    "homepage_status": 200,
+    "homepage_url": "https://www.houjin-bangou.nta.go.jp/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "taiwan-moea",
+    "provider_name": "Taiwan MOEA",
+    "category": "registry",
+    "family_id": "taiwan-moea",
+    "homepage_status": 403,
+    "homepage_url": "https://www.moea.gov.tw/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "korea-dart",
+    "provider_name": "Korea DART",
+    "category": "registry",
+    "family_id": "korea-dart",
+    "homepage_status": 200,
+    "homepage_url": "https://dart.fss.or.kr/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "brazil-receita-federal",
+    "provider_name": "Brazil Receita Federal",
+    "category": "registry",
+    "family_id": "brazil-receita-federal",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gov.br/receitafederal/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mexico-sat",
+    "provider_name": "Mexico SAT",
+    "category": "registry",
+    "family_id": "mexico-sat",
+    "homepage_status": 200,
+    "homepage_url": "https://www.sat.gob.mx/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "mexico-renapo",
+    "provider_name": "Mexico RENAPO",
+    "category": "registry",
+    "family_id": "mexico-renapo",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gob.mx/segob/renapo",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "colombia-rues",
+    "provider_name": "Colombia RUES",
+    "category": "registry",
+    "family_id": "colombia-rues",
+    "homepage_status": 200,
+    "homepage_url": "https://www.rues.org.co/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "argentina-arca",
+    "provider_name": "Argentina ARCA",
+    "category": "registry",
+    "family_id": "argentina-arca",
+    "homepage_status": 200,
+    "homepage_url": "https://www.arca.gob.ar/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "chile-registro-de-empresas-y-sociedades",
+    "provider_name": "Chile Registro de Empresas y Sociedades",
+    "category": "registry",
+    "family_id": "chile-registro-de-empresas-y-sociedades",
+    "homepage_status": 200,
+    "homepage_url": "https://www.registrodeempresasysociedades.cl/",
+    "documentation_links": [
+      "https://docs.google.com/forms/d/e/1FAIpQLSfnACxhuEp03jtjycYwm-0SvVnchCWIKq9PWNSyhamQ0jh1-A/viewform"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "south-africa-cipc",
+    "provider_name": "South Africa CIPC",
+    "category": "registry",
+    "family_id": "south-africa-cipc",
+    "homepage_status": 200,
+    "homepage_url": "https://www.cipc.co.za/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "nigeria-cac",
+    "provider_name": "Nigeria CAC",
+    "category": "registry",
+    "family_id": "nigeria-cac",
+    "homepage_status": 200,
+    "homepage_url": "https://www.cac.gov.ng/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "nigeria-nimc",
+    "provider_name": "Nigeria NIMC",
+    "category": "registry",
+    "family_id": "nigeria-nimc",
+    "homepage_status": 200,
+    "homepage_url": "https://nimc.gov.ng/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "nigeria-nibss",
+    "provider_name": "Nigeria NIBSS",
+    "category": "registry",
+    "family_id": "nigeria-nibss",
+    "homepage_status": 200,
+    "homepage_url": "https://nibss-plc.com.ng/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "kenya-brs",
+    "provider_name": "Kenya BRS",
+    "category": "registry",
+    "family_id": "kenya-brs",
+    "homepage_status": 200,
+    "homepage_url": "https://brs.go.ke/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ghana-orc",
+    "provider_name": "Ghana ORC",
+    "category": "registry",
+    "family_id": "ghana-orc",
+    "homepage_status": 200,
+    "homepage_url": "https://orc.gov.gh/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "saudi-wathq-thiqah",
+    "provider_name": "Saudi Wathq / Thiqah",
+    "category": "registry",
+    "family_id": "saudi-wathq-thiqah",
+    "homepage_status": 400,
+    "homepage_url": "https://wathq.sa/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "saudi-elm",
+    "provider_name": "Saudi ELM",
+    "category": "registry",
+    "family_id": "saudi-elm",
+    "homepage_status": null,
+    "homepage_url": "https://www.elm.sa/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "uae-pass",
+    "provider_name": "UAE PASS",
+    "category": "registry",
+    "family_id": "uae-pass",
+    "homepage_status": 200,
+    "homepage_url": "https://uaepass.ae/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bahrain-benefit-ekyc",
+    "provider_name": "Bahrain BENEFIT eKYC",
+    "category": "registry",
+    "family_id": "bahrain-benefit-ekyc",
+    "homepage_status": 403,
+    "homepage_url": "https://benefit.bh/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "singapore-myinfo-singpass",
+    "provider_name": "Singapore MyInfo / Singpass",
+    "category": "registry",
+    "family_id": "singapore-myinfo-singpass",
+    "homepage_status": 403,
+    "homepage_url": "https://www.developer.tech.gov.sg/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "bankid-sweden",
+    "provider_name": "BankID Sweden",
+    "category": "registry",
+    "family_id": "bankid-sweden",
+    "homepage_status": 200,
+    "homepage_url": "https://www.bankid.com/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "itsme",
+    "provider_name": "itsme",
+    "category": "registry",
+    "family_id": "itsme",
+    "homepage_status": 200,
+    "homepage_url": "https://www.itsme-id.com/",
+    "documentation_links": [
+      "https://developers.hubspot.com/slack"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "norwegian-bankid",
+    "provider_name": "Norwegian BankID",
+    "category": "registry",
+    "family_id": "norwegian-bankid",
+    "homepage_status": 200,
+    "homepage_url": "https://bankid.no/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "swissid",
+    "provider_name": "SwissID",
+    "category": "registry",
+    "family_id": "swissid",
+    "homepage_status": 403,
+    "homepage_url": "https://www.swissid.ch/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "yoti",
+    "provider_name": "Yoti",
+    "category": "registry",
+    "family_id": "yoti",
+    "homepage_status": 200,
+    "homepage_url": "https://www.yoti.com/",
+    "documentation_links": [
+      "https://developers.yoti.com/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "connectid",
+    "provider_name": "ConnectID",
+    "category": "registry",
+    "family_id": "connectid",
+    "homepage_status": 403,
+    "homepage_url": "https://connectid.com.au/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "ofac-sanctions-list-service",
+    "provider_name": "OFAC Sanctions List Service",
+    "category": "official_lists",
+    "family_id": "ofac-sanctions-list-service",
+    "homepage_status": 200,
+    "homepage_url": "https://ofac.treasury.gov/sanctions-list-service",
+    "documentation_links": [
+      "https://ofac.treasury.gov/media/10391/download?inline"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "un-security-council-consolidated-list",
+    "provider_name": "UN Security Council Consolidated List",
+    "category": "official_lists",
+    "family_id": "un-security-council-consolidated-list",
+    "homepage_status": 202,
+    "homepage_url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "uk-sanctions-list",
+    "provider_name": "UK Sanctions List",
+    "category": "official_lists",
+    "family_id": "uk-sanctions-list",
+    "homepage_status": 200,
+    "homepage_url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "eu-financial-sanctions-files",
+    "provider_name": "EU Financial Sanctions Files",
+    "category": "official_lists",
+    "family_id": "eu-financial-sanctions-files",
+    "homepage_status": 200,
+    "homepage_url": "https://data.europa.eu/",
+    "documentation_links": [
+      "https://dataeuropa.gitlab.io/data-provider-manual/"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "canada-consolidated-autonomous-sanctions",
+    "provider_name": "Canada Consolidated Autonomous Sanctions",
+    "category": "official_lists",
+    "family_id": "canada-consolidated-autonomous-sanctions",
+    "homepage_status": 200,
+    "homepage_url": "https://www.international.gc.ca/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "australia-dfat-consolidated-list",
+    "provider_name": "Australia DFAT Consolidated List",
+    "category": "official_lists",
+    "family_id": "australia-dfat-consolidated-list",
+    "homepage_status": null,
+    "homepage_url": "https://www.dfat.gov.au/international-relations/security/sanctions/consolidated-list",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "switzerland-seco-sanctions",
+    "provider_name": "Switzerland SECO Sanctions",
+    "category": "official_lists",
+    "family_id": "switzerland-seco-sanctions",
+    "homepage_status": 200,
+    "homepage_url": "https://www.seco.admin.ch/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "japan-mof-sanctions",
+    "provider_name": "Japan MOF Sanctions",
+    "category": "official_lists",
+    "family_id": "japan-mof-sanctions",
+    "homepage_status": 200,
+    "homepage_url": "https://www.mof.go.jp/english/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "singapore-mas-targeted-financial-sanctions",
+    "provider_name": "Singapore MAS targeted financial sanctions",
+    "category": "official_lists",
+    "family_id": "singapore-mas-targeted-financial-sanctions",
+    "homepage_status": 200,
+    "homepage_url": "https://www.mas.gov.sg/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "world-bank-debarment",
+    "provider_name": "World Bank Debarment",
+    "category": "official_lists",
+    "family_id": "world-bank-debarment",
+    "homepage_status": 200,
+    "homepage_url": "https://www.worldbank.org/en/projects-operations/procurement/debarred-firms",
+    "documentation_links": [
+      "https://pubdocs.worldbank.org/en/712591554318028093/Sanctions-Committee-Procedures-August-2001.pdf",
+      "https://thedocs.worldbank.org/en/doc/387181466627871302-0290022021/original/WorldBankNotesonDebarredFirmsandIndividuals.pdf",
+      "https://thedocs.worldbank.org/en/doc/45f3a37d7c5a7c76e54ddf5dcbf058cc-0290012023/original/8fcd8932ee2247959dd4e6e6b02db57b.pdf",
+      "https://thedocs.worldbank.org/en/doc/c84273d1b230aeb2b0b8134de5dc8cd7-0290012025/original/Procurement-Regulations-7th-Edition-Sep-2025.pdf"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "us-sam-exclusions",
+    "provider_name": "US SAM Exclusions",
+    "category": "official_lists",
+    "family_id": "us-sam-exclusions",
+    "homepage_status": 200,
+    "homepage_url": "https://sam.gov/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "us-bis-consolidated-screening-list",
+    "provider_name": "US BIS Consolidated Screening List",
+    "category": "official_lists",
+    "family_id": "us-bis-consolidated-screening-list",
+    "homepage_status": 200,
+    "homepage_url": "https://www.trade.gov/consolidated-screening-list",
+    "documentation_links": [
+      "https://developer.trade.gov/",
+      "https://developer.trade.gov/api-details",
+      "https://www.trade.gov/selectusa-find-economic-developers"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fincen-section-314-a",
+    "provider_name": "FinCEN Section 314(a)",
+    "category": "official_lists",
+    "family_id": "fincen-section-314-a",
+    "homepage_status": 200,
+    "homepage_url": "https://www.fincen.gov/section-314a",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "fatf-high-risk-and-monitored-jurisdictions",
+    "provider_name": "FATF high-risk and monitored jurisdictions",
+    "category": "official_lists",
+    "family_id": "fatf-high-risk-and-monitored-jurisdictions",
+    "homepage_status": 403,
+    "homepage_url": "https://www.fatf-gafi.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "basel-aml-index",
+    "provider_name": "Basel AML Index",
+    "category": "official_lists",
+    "family_id": "basel-aml-index",
+    "homepage_status": 200,
+    "homepage_url": "https://index.baselgovernance.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "swift-kyc-registry",
+    "provider_name": "Swift KYC Registry",
+    "category": "network",
+    "family_id": "swift-kyc-registry",
+    "homepage_status": 403,
+    "homepage_url": "https://www.swift.com/our-solutions/compliance-and-shared-services/kyc-registry",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "swiftref",
+    "provider_name": "SwiftRef",
+    "category": "network",
+    "family_id": "swiftref",
+    "homepage_status": 403,
+    "homepage_url": "https://www.swift.com/our-solutions/compliance-and-shared-services/swiftref",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "wolfsberg-group",
+    "provider_name": "Wolfsberg Group",
+    "category": "network",
+    "family_id": "wolfsberg-group",
+    "homepage_status": 200,
+    "homepage_url": "https://wolfsberg-group.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "gleif-vlei-ecosystem",
+    "provider_name": "GLEIF vLEI ecosystem",
+    "category": "network",
+    "family_id": "gleif",
+    "homepage_status": 404,
+    "homepage_url": "https://www.gleif.org/en/vlei",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "open-ownership",
+    "provider_name": "Open Ownership",
+    "category": "network",
+    "family_id": "open-ownership",
+    "homepage_status": 200,
+    "homepage_url": "https://www.openownership.org/",
+    "documentation_links": [],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  },
+  {
+    "provider_id": "open-supply-hub",
+    "provider_name": "Open Supply Hub",
+    "category": "network",
+    "family_id": "open-supply-hub",
+    "homepage_status": 200,
+    "homepage_url": "https://opensupplyhub.org/",
+    "documentation_links": [
+      "https://info.opensupplyhub.org/developer-resources"
+    ],
+    "implementation_status": "not_implemented",
+    "restriction": null
+  }
+]

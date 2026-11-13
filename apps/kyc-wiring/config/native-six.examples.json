@@ -1,0 +1,173 @@
+{
+  "persona:identity.person.verify": {
+    "enabled": false,
+    "approved": false,
+    "maturity": "documented_subset_not_vendor_tested",
+    "connector": "native_subset",
+    "base_url": "https://api.withpersona.com",
+    "approved_base_urls": [
+      "https://api.withpersona.com"
+    ],
+    "product": null,
+    "api_version": "2026-09-29",
+    "mapping_version": "documented-subset-0.1",
+    "tenant_ids": [],
+    "countries": [],
+    "residency_regions": [],
+    "processing_regions": [],
+    "purposes": [],
+    "legal_bases": [],
+    "policy_refs": [],
+    "upstream_datasets": [],
+    "entitlement_ref": null,
+    "required_secret_env": [
+      "PERSONA_API_KEY"
+    ],
+    "api_key_env": "PERSONA_API_KEY",
+    "async_mode": "sync",
+    "source_manifest": "vendor/atlas/manifests/persona.json"
+  },
+  "companies-house:business.registry.lookup": {
+    "enabled": false,
+    "approved": false,
+    "maturity": "documented_subset_not_vendor_tested",
+    "connector": "native_subset",
+    "base_url": "https://api.company-information.service.gov.uk",
+    "approved_base_urls": [
+      "https://api.company-information.service.gov.uk"
+    ],
+    "product": null,
+    "api_version": null,
+    "mapping_version": "documented-subset-0.1",
+    "tenant_ids": [],
+    "countries": [],
+    "residency_regions": [],
+    "processing_regions": [],
+    "purposes": [],
+    "legal_bases": [],
+    "policy_refs": [],
+    "upstream_datasets": [],
+    "entitlement_ref": null,
+    "required_secret_env": [
+      "COMPANIES_HOUSE_API_KEY"
+    ],
+    "api_key_env": "COMPANIES_HOUSE_API_KEY",
+    "async_mode": "sync",
+    "source_manifest": "vendor/atlas/manifests/companies_house.json"
+  },
+  "opencorporates:business.registry.lookup": {
+    "enabled": false,
+    "approved": false,
+    "maturity": "documented_subset_not_vendor_tested",
+    "connector": "native_subset",
+    "base_url": "https://api.opencorporates.com",
+    "approved_base_urls": [
+      "https://api.opencorporates.com"
+    ],
+    "product": null,
+    "api_version": "0.4",
+    "mapping_version": "documented-subset-0.1",
+    "tenant_ids": [],
+    "countries": [],
+    "residency_regions": [],
+    "processing_regions": [],
+    "purposes": [],
+    "legal_bases": [],
+    "policy_refs": [],
+    "upstream_datasets": [],
+    "entitlement_ref": null,
+    "required_secret_env": [
+      "OPENCORPORATES_API_KEY"
+    ],
+    "api_key_env": "OPENCORPORATES_API_KEY",
+    "async_mode": "sync",
+    "source_manifest": "vendor/atlas/manifests/opencorporates.json"
+  },
+  "gleif:reference.identifier.lookup": {
+    "enabled": false,
+    "approved": false,
+    "maturity": "documented_subset_not_vendor_tested",
+    "connector": "native_subset",
+    "base_url": "https://api.gleif.org",
+    "approved_base_urls": [
+      "https://api.gleif.org"
+    ],
+    "product": null,
+    "api_version": "v1",
+    "mapping_version": "documented-subset-0.1",
+    "tenant_ids": [],
+    "countries": [],
+    "residency_regions": [],
+    "processing_regions": [],
+    "purposes": [],
+    "legal_bases": [],
+    "policy_refs": [],
+    "upstream_datasets": [],
+    "entitlement_ref": null,
+    "required_secret_env": [],
+    "api_key_env": null,
+    "async_mode": "sync",
+    "source_manifest": "vendor/atlas/manifests/gleif.json"
+  },
+  "opensanctions:screening.sanctions": {
+    "enabled": false,
+    "approved": false,
+    "maturity": "documented_subset_not_vendor_tested",
+    "connector": "native_subset",
+    "base_url": "https://api.opensanctions.org",
+    "approved_base_urls": [
+      "https://api.opensanctions.org"
+    ],
+    "product": null,
+    "api_version": null,
+    "mapping_version": "documented-subset-0.1",
+    "tenant_ids": [],
+    "countries": [],
+    "residency_regions": [],
+    "processing_regions": [],
+    "purposes": [],
+    "legal_bases": [],
+    "policy_refs": [],
+    "upstream_datasets": [],
+    "entitlement_ref": null,
+    "required_secret_env": [
+      "OPENSANCTIONS_API_KEY"
+    ],
+    "api_key_env": "OPENSANCTIONS_API_KEY",
+    "async_mode": "sync",
+    "source_manifest": "vendor/atlas/manifests/opensanctions.json"
+  },
+  "plaid:account.ownership.verify": {
+    "enabled": false,
+    "approved": false,
+    "maturity": "documented_subset_not_vendor_tested",
+    "connector": "native_subset",
+    "base_url": "https://sandbox.plaid.com",
+    "approved_base_urls": [
+      "https://sandbox.plaid.com"
+    ],
+    "product": null,
+    "api_version": null,
+    "mapping_version": "documented-subset-0.1",
+    "tenant_ids": [],
+    "countries": [],
+    "residency_regions": [],
+    "processing_regions": [],
+    "purposes": [],
+    "legal_bases": [],
+    "policy_refs": [],
+    "upstream_datasets": [],
+    "entitlement_ref": null,
+    "required_secret_env": [
+      "PLAID_CLIENT_ID",
+      "PLAID_CLIENT_SECRET"
+    ],
+    "api_key_env": null,
+    "async_mode": "sync",
+    "source_manifest": "vendor/atlas/manifests/plaid.json",
+    "client_id_env": "PLAID_CLIENT_ID",
+    "client_secret_env": "PLAID_CLIENT_SECRET",
+    "account_token_refs": {},
+    "requires_consent": true
+  }
+}

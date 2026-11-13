@@ -1,0 +1,169 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:evidence.normalize
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Normalize evidence metadata while retaining raw content and source
+  IDs.
+code_hash: 3870e7b49b669dfe3ed901f1c635a1417d0bdd8464ece6685188669b3e16aead
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Normalize evidence metadata while retaining raw content and source IDs.
+effects: read_only
+entrypoint: financial_crime.skills.governance:evidence_normalize
+evaluation_profile: evidence.normalize-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: evidence-normalize
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: evidence.normalize
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:evidence.normalize:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 70b6788e30934b9f95223e040c25650c638b452b20d3f948651b71fee2ecc064
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Hash:
+      pattern: ^[a-f0-9]{64}$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    NormalizedEvidence:
+      additionalProperties: false
+      properties:
+        content:
+          $ref: '#/$defs/SourceContent'
+        hash:
+          $ref: '#/$defs/Hash'
+        id:
+          $ref: '#/$defs/Id'
+        source_id:
+          $ref: '#/$defs/Id'
+      required:
+      - id
+      - source_id
+      - hash
+      - content
+      type: object
+    SourceArtifact:
+      additionalProperties: false
+      properties:
+        encoding:
+          $ref: '#/$defs/Id'
+        media_type:
+          $ref: '#/$defs/Id'
+        value:
+          $ref: '#/$defs/JsonValue'
+      required:
+      - media_type
+      - encoding
+      - value
+      type: object
+    SourceContent:
+      anyOf:
+      - $ref: '#/$defs/Text'
+      - $ref: '#/$defs/SourceArtifact'
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:evidence.normalize:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    evidence:
+      items:
+        $ref: '#/$defs/NormalizedEvidence'
+      maxItems: 10000
+      type: array
+  required:
+  - evidence
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - content
+  - source_id
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

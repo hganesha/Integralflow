@@ -1,0 +1,56 @@
+{
+  "$defs": {
+    "AlertLink": {
+      "additionalProperties": false,
+      "properties": {
+        "left": {
+          "$ref": "#/$defs/Id"
+        },
+        "right": {
+          "$ref": "#/$defs/Id"
+        },
+        "shared_events": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "shared_subject": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "left",
+        "right",
+        "shared_subject",
+        "shared_events"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:alert.correlate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "links": {
+      "items": {
+        "$ref": "#/$defs/AlertLink"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "links"
+  ],
+  "type": "object"
+}

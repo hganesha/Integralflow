@@ -1,0 +1,12 @@
+FROM node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9 AS node
+FROM python:3.14-slim-bookworm@sha256:3fe1a0b6c2d6b2ebb572906cdabeca75aeb558c0c17db5ffefbcf8094871c32b
+RUN apt-get update && apt-get install -y --no-install-recommends libseccomp2 && rm -rf /var/lib/apt/lists/*
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY apps/fincrime-host/requirements-runtime.lock /opt/requirements.txt
+RUN pip install --no-cache-dir -r /opt/requirements.txt
+COPY apps/workbench-evaluator/runner.py /opt/runner.py
+COPY apps/workbench-evaluator/runner.mjs /opt/runner.mjs
+COPY apps/workbench-evaluator/azure_job.py /opt/azure_job.py
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+# Local jobs override the UID; Azure's trusted coordinator drops UID before source execution.
+ENTRYPOINT ["python", "/opt/runner.py"]

@@ -1,0 +1,61 @@
+{
+  "provider_id": "middesk",
+  "version": "documented-public",
+  "bases": {
+    "production": "https://api.middesk.com/v1",
+    "sandbox": "https://api-sandbox.middesk.com/v1"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "API_KEY"
+    ],
+    "empty_password": true
+  },
+  "sources": [
+    "https://docs.middesk.com/build/api-keys",
+    "https://docs.middesk.com/online-presence/web-presence"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_business": {
+      "method": "POST",
+      "path": "/businesses",
+      "required_body": [
+        "name"
+      ],
+      "required_query": [],
+      "body_example": {
+        "name": "YOUR_BUSINESS_NAME",
+        "addresses": [
+          {
+            "full_address": "YOUR_ADDRESS"
+          }
+        ]
+      },
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://docs.middesk.com/online-presence/web-presence",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_business": {
+      "method": "GET",
+      "path": "/businesses/{id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": "/status",
+      "resource_pointer": "/id",
+      "source": "https://docs.middesk.com/online-presence/web-presence",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

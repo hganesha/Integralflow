@@ -1,0 +1,91 @@
+{
+  "tenantId": "your-platform-tenant",
+  "monthlyLimitUsd": 25,
+  "databaseUrls": {
+    "control": "postgresql://migration_operator@database.example.com/integralflow_control?sslmode=verify-full",
+    "case": "postgresql://migration_operator@database.example.com/integralflow_case?sslmode=verify-full",
+    "context": "postgresql://migration_operator@database.example.com/integralflow_context?sslmode=verify-full"
+  },
+  "secrets": {
+    "DATABASE_MIGRATOR_PASSWORD": "REPLACE_WITH_PRIVATE_MIGRATION_PASSWORD",
+    "MODEL_PROVIDER_TOKEN": "REPLACE_WITH_PRIVATE_MODEL_PROVIDER_TOKEN",
+    "OIDC_CLIENT_SECRET": "REPLACE_WITH_PRIVATE_HUMAN_CLIENT_SECRET",
+    "CONTROL_SURFACE_EDGE_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_CONTROL_SURFACE_EDGE_SECRET",
+    "CONTROL_API_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_CONTROL_API_SECRET",
+    "CASE_API_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_CASE_API_SECRET",
+    "CAPABILITY_GATEWAY_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_CAPABILITY_GATEWAY_SECRET",
+    "HARNESS_RUNTIME_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_HARNESS_RUNTIME_SECRET",
+    "RUNTIME_DISPATCHER_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_RUNTIME_DISPATCHER_SECRET",
+    "INTEGRATION_WORKER_CLIENT_SECRET": "REPLACE_WITH_DISTINCT_PRIVATE_INTEGRATION_WORKER_SECRET",
+    "OBJECT_STORAGE_CREDENTIAL": "{\"accessKeyId\": \"REPLACE_WITH_ACCESS_KEY_ID\", \"secretAccessKey\": \"REPLACE_WITH_PRIVATE_SECRET_ACCESS_KEY\", \"region\": \"us-east-1\"}"
+  },
+  "database": {
+    "pooler": {
+      "port": 6432
+    },
+    "servicePoolMax": 5
+  },
+  "scaling": {
+    "runtime-worker": {
+      "maxReplicas": 6
+    },
+    "runtime-host": {
+      "maxReplicas": 6
+    }
+  },
+  "modelLimits": {
+    "maxConcurrency": 2,
+    "timeoutMs": 60000,
+    "maxOutputTokens": 2048
+  },
+  "workload": {
+    "issuer": "https://identity.example.com/workloads",
+    "audience": "integralflow-services",
+    "tokenEndpoint": "https://identity.example.com/oauth/token",
+    "jwksUri": "https://identity.example.com/workloads/jwks",
+    "clients": {
+      "control-surface-edge": {
+        "clientId": "integralflow-control-surface-edge",
+        "secretRef": "env:CONTROL_SURFACE_EDGE_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_control-surface-edge",
+        "scope": "integralflow-services"
+      },
+      "control-api": {
+        "clientId": "integralflow-control-api",
+        "secretRef": "env:CONTROL_API_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_control-api",
+        "scope": "integralflow-services"
+      },
+      "case-api": {
+        "clientId": "integralflow-case-api",
+        "secretRef": "env:CASE_API_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_case-api",
+        "scope": "integralflow-services"
+      },
+      "capability-gateway": {
+        "clientId": "integralflow-capability-gateway",
+        "secretRef": "env:CAPABILITY_GATEWAY_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_capability-gateway",
+        "scope": "integralflow-services"
+      },
+      "harness-runtime": {
+        "clientId": "integralflow-harness-runtime",
+        "secretRef": "env:HARNESS_RUNTIME_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_harness-runtime",
+        "scope": "integralflow-services"
+      },
+      "runtime-dispatcher": {
+        "clientId": "integralflow-runtime-dispatcher",
+        "secretRef": "env:RUNTIME_DISPATCHER_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_runtime-dispatcher",
+        "scope": "integralflow-services"
+      },
+      "integration-worker": {
+        "clientId": "integralflow-integration-worker",
+        "secretRef": "env:INTEGRATION_WORKER_CLIENT_SECRET",
+        "subject": "REPLACE_WITH_VERIFIED_SUBJECT_FOR_integration-worker",
+        "scope": "integralflow-services"
+      }
+    }
+  }
+}

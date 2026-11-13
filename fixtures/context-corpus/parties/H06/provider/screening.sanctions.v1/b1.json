@@ -1,0 +1,110 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1961-03-09"
+      },
+      "entity_id": "e-b1",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "passport",
+          "value": "SPECIMEN-SD-0001"
+        }
+      ],
+      "names": [
+        {
+          "full": "Radomir Veselin Kostadinov",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.b1"
+      ]
+    },
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1961-03-09"
+      },
+      "entity_id": "c-1",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "list_document",
+          "value": "SPECIMEN-SD-0001"
+        }
+      ],
+      "names": [
+        {
+          "full": "Radomir Veselin Kostadinov",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "SYN-D-0001"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [],
+  "result": {
+    "dataset_versions": [
+      "corpus-synthetic-designations-2026-09-29",
+      "ofac-sdn@2026-11-09",
+      "uk-sanctions@2026-11-09",
+      "un-consolidated@2026-11-09"
+    ],
+    "kind": "screening",
+    "list_published_at": "2026-09-29T00:00:00Z",
+    "matches": [
+      {
+        "candidate_entity_id": "c-1",
+        "categories": [],
+        "disposition": "unresolved",
+        "list_ids": [
+          "synthetic-designations"
+        ],
+        "match_id": "m-1",
+        "matched_fields": [
+          "name",
+          "identifier"
+        ],
+        "programs": [
+          "SYNTHETIC-PROGRAM-A"
+        ],
+        "scores": [
+          {
+            "kind": "name",
+            "value": 1.0
+          }
+        ]
+      }
+    ],
+    "scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "total_candidates": 1,
+    "truncated": false
+  },
+  "result_id": "corpus-screening-h06-b1-sanctions",
+  "subject_entity_id": "e-b1"
+}

@@ -1,0 +1,8 @@
+{
+  "library": "financial-crime-skills",
+  "path": "apps/fincrime-host",
+  "files": {
+    "catalog/catalog.json": "sha256:b0919f70b8616d179e3c2718870642c9534cdbd7e89fd9e70fcbbae173cc7288",
+    "catalog/release-lock.json": "sha256:9efc5cbabfe07957924c0c482dab83c3fa5844e8c4e0cf35aeeae033c949a4e4"
+  }
+}

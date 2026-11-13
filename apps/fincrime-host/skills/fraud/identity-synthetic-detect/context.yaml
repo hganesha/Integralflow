@@ -1,0 +1,12 @@
+dynamic_target: null
+requirements:
+- fields:
+  - attributes
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Identity
+  optional: false
+schema_version: 2.0.0
+skill_id: fraud.identity.synthetic.detect

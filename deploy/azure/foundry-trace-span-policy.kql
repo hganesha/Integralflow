@@ -1,0 +1,23 @@
+source
+| extend Operation = tostring(Properties["gen_ai.operation.name"]),
+         ResponseId = tostring(Properties["gen_ai.response.id"]),
+         AgentName = tostring(Properties["gen_ai.agent.name"]),
+         AgentId = tostring(Properties["gen_ai.agent.id"]),
+         Model = tostring(Properties["gen_ai.response.model"]),
+         ToolName = tostring(Properties["gen_ai.tool.name"])
+| project TimeGenerated, Id, ParentId, OperationId, DurationMs, Success,
+    AppRoleName = "foundry-agent-service",
+    Name = case(
+      Operation == "invoke_agent" and Name matches regex @"^invoke_agent [a-zA-Z0-9][a-zA-Z0-9_-]{0,63}:[1-9][0-9]{0,15}$", Name,
+      Operation == "chat", "chat",
+      Operation == "execute_tool", "execute_tool",
+      "Foundry operation"),
+    Properties = pack(
+      "gen_ai.operation.name", iif(Operation in ("invoke_agent", "chat", "execute_tool"), Operation, ""),
+      "gen_ai.response.id", iif(ResponseId matches regex @"^resp_[a-zA-Z0-9_-]{1,200}$", ResponseId, ""),
+      "gen_ai.agent.name", iif(AgentName matches regex @"^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$", AgentName, ""),
+      "gen_ai.agent.id", iif(AgentId matches regex @"^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}:[1-9][0-9]{0,15}$", AgentId, ""),
+      "gen_ai.response.model", iif(Model matches regex @"^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,99}$", Model, ""),
+      "gen_ai.tool.name", iif(ToolName matches regex @"^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$", ToolName, ""),
+      "gen_ai.usage.input_tokens", tolong(Properties["gen_ai.usage.input_tokens"]),
+      "gen_ai.usage.output_tokens", tolong(Properties["gen_ai.usage.output_tokens"]))

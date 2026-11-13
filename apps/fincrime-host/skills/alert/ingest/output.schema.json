@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "AlertRow_rule_id_severity_source_id_subject": {
+      "additionalProperties": false,
+      "properties": {
+        "_ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "_synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "rule_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "source_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "subject": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "rule_id",
+        "subject",
+        "severity",
+        "_ref",
+        "_synthetic"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "UNKNOWN"
+      ]
+    }
+  },
+  "$id": "urn:financial-crime:skill:alert.ingest:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alerts": {
+      "items": {
+        "$ref": "#/$defs/AlertRow_rule_id_severity_source_id_subject"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "alerts"
+  ],
+  "type": "object"
+}

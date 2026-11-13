@@ -1,0 +1,4592 @@
+{
+  "version": 1,
+  "status": "proposed",
+  "researchDate": "2026-11-11",
+  "note": "Discovery and research priorities only. Declared family labels are unverified identity relationships; priority does not establish support, scope, entitlement or execution readiness.",
+  "providers": [
+    {
+      "providerRecordId": "entrust-identity-verification",
+      "familyId": "entrust-identity-verification",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Entrust API v3",
+          "url": "https://documentation.identity.entrust.com/api/3.0.0",
+          "observedAt": "2026-11-11",
+          "observation": "Document and identity verification; reconcile the Onfido identity already present across local layers.",
+          "limitation": "Select exact API/report/workflow and issuer scope; keep `entrust-onfido` as an explicit alias relationship."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "jumio",
+      "familyId": "jumio",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Jumio verification overview",
+          "url": "https://www.jumio.com/selfie-id-verification/",
+          "observedAt": "2026-11-11",
+          "observation": "Identity/document verification; a relevant multi-market alternative.",
+          "limitation": "Separate document, liveness, reusable identity, and source-check operations."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "veriff",
+      "familyId": "veriff",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Country/document restrictions",
+          "url": "https://help.veriff.com/s/article/How-to-manage-country-and-document-type-restrictions",
+          "observedAt": "2026-11-11",
+          "observation": "Identity/document verification; local fixture support.",
+          "limitation": "Establish the integration's accepted issuer countries and document types rather than copying the provider's global reach."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "trulioo",
+      "familyId": "trulioo",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Payments verification",
+          "url": "https://www.trulioo.com/industries/payments",
+          "observedAt": "2026-11-11",
+          "observation": "Person and business verification from selected data sources.",
+          "limitation": "Identify the purchased product, underlying source, country, and returned checks."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "persona",
+      "familyId": "persona",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Versioned inquiry documentation",
+          "url": "https://docs.withpersona.com/2026-09-29/api-reference/inquiries",
+          "observedAt": "2026-11-11",
+          "observation": "Inquiry-based identity workflow; local native subset and fixture.",
+          "limitation": "Reconcile local API pins `2023-01-05` and `2026-09-29`; pin the actual verification types and template."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "sumsub",
+      "familyId": "sumsub",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Conduct ID verification",
+          "url": "https://docs.sumsub.com/docs/conduct-id-verification",
+          "observedAt": "2026-11-11",
+          "observation": "Identity verification; local fixture and public customer-scale evidence.",
+          "limitation": "Pin verification-level configuration, required steps, issuer scope, and webhook outcomes."
+        },
+        {
+          "title": "Company page",
+          "url": "https://sumsub.com/about/",
+          "observedAt": "2026-11-11",
+          "observation": "Reports 4,000+ companies.",
+          "limitation": "Customer-scale signal across sectors; not a bank-only count. Publisher-reported figures use different units and are not tenant usage or a market-share ranking."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "socure",
+      "familyId": "socure",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Company and customer description",
+          "url": "https://www.socure.com/company",
+          "observedAt": "2026-11-11",
+          "observation": "Identity/risk platform with substantial reported adoption.",
+          "limitation": "Separate identity assurance, document checks, and risk scores by purchased product and geography."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "gbg",
+      "familyId": "gbg",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "au10tix",
+      "familyId": "au10tix",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "incode",
+      "familyId": "incode",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mitek",
+      "familyId": "mitek",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "idnow",
+      "familyId": "idnow",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "webid",
+      "familyId": "webid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "nect",
+      "familyId": "nect",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fourthline",
+      "familyId": "fourthline",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "signicat",
+      "familyId": "signicat",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "ID document and biometric verification",
+          "url": "https://developer.signicat.com/docs/id-document-and-biometric-verification/",
+          "observedAt": "2026-11-11",
+          "observation": "Document and biometric verification through named services/APIs.",
+          "limitation": "Pin the specific service; an orchestrated third-party check must preserve its underlying provider."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "id-pal",
+      "familyId": "id-pal",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "complycube",
+      "familyId": "complycube",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "idenfy",
+      "familyId": "idenfy",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "shufti",
+      "familyId": "shufti",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ondato",
+      "familyId": "ondato",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "getid",
+      "familyId": "getid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "identomat",
+      "familyId": "identomat",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "authenteq",
+      "familyId": "authenteq",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "authenticid",
+      "familyId": "incode",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "intellicheck",
+      "familyId": "intellicheck",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "idscan-net",
+      "familyId": "idscan-net",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "acuant-idology-product-family",
+      "familyId": "gbg",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "regula",
+      "familyId": "regula",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "innovatrics",
+      "familyId": "innovatrics",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "facetec",
+      "familyId": "facetec",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "iproov",
+      "familyId": "iproov",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Integration documentation",
+          "url": "https://www.iproov.com/integrations",
+          "observedAt": "2026-11-11",
+          "observation": "Biometric/liveness integration with backend token validation.",
+          "limitation": "Define enrollment versus authentication and the reference-image source; do not label all results document verification."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "daon",
+      "familyId": "daon",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "tech5",
+      "familyId": "tech5",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "veridas",
+      "familyId": "veridas",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "facephi",
+      "familyId": "facephi",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aware",
+      "familyId": "aware",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trust-stamp",
+      "familyId": "trust-stamp",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bureau",
+      "familyId": "bureau",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "hyperverge",
+      "familyId": "hyperverge",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "signzy",
+      "familyId": "signzy",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Vendor's API overview/comparison",
+          "url": "https://www.signzy.com/blogs/best-kyc-api-companies-for-global-fintech-expansion",
+          "observedAt": "2026-11-11",
+          "observation": "Publishes its own KYC/KYB/API product descriptions.",
+          "limitation": "Obtain first-party native operation documentation; disregard its comparative vendor rankings for tier assignment."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "idfy",
+      "familyId": "idfy",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "API suite",
+          "url": "https://www.idfy.com/identity-verification-solutions-by-idfy/api-solutions-overview/",
+          "observedAt": "2026-11-11",
+          "observation": "Specific India-related identifier/document APIs.",
+          "limitation": "Separate OCR and name extraction from authoritative database verification, and pin each source."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "karza",
+      "familyId": "karza",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "perfios",
+      "familyId": "perfios",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "digitap",
+      "familyId": "digitap",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "decentro",
+      "familyId": "decentro",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "authbridge",
+      "familyId": "authbridge",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ongrid",
+      "familyId": "ongrid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "surepass",
+      "familyId": "surepass",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sprintverify",
+      "familyId": "sprintverify",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "idcentral",
+      "familyId": "idcentral",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "arya-ai",
+      "familyId": "arya-ai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "advance-ai",
+      "familyId": "advance-ai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vida",
+      "familyId": "vida",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "privy",
+      "familyId": "privy",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vidos",
+      "familyId": "vidos",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "innov8tif",
+      "familyId": "innov8tif",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ctos-ekyc",
+      "familyId": "ctos-ekyc",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "liquid",
+      "familyId": "liquid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trustdock",
+      "familyId": "trustdock",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "polarify",
+      "familyId": "polarify",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "gmo-globalsign-identity",
+      "familyId": "gmo-globalsign-identity",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "china-financial-certification-authority",
+      "familyId": "china-financial-certification-authority",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "tencent-cloud-faceid",
+      "familyId": "tencent-cloud-faceid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "alibaba-cloud-id-verification",
+      "familyId": "alibaba-cloud-id-verification",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "baidu-ai-identity",
+      "familyId": "baidu-ai-identity",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "smile-id",
+      "familyId": "smile-id",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Developer documentation",
+          "url": "https://docs.usesmileid.com/",
+          "observedAt": "2026-11-11",
+          "observation": "Africa-focused digital KYC; country/ID-specific product documentation.",
+          "limitation": "Resolve each identity authority, ID type, supported fields, and sandbox outcome."
+        },
+        {
+          "title": "Kenya national-ID example",
+          "url": "https://docs.usesmileid.com/supported-id-types/for-individuals-kyc/backed-by-id-authority/supported-countries/kenya/national-id",
+          "observedAt": "2026-11-11",
+          "observation": "Africa-focused digital KYC; country/ID-specific product documentation.",
+          "limitation": "Resolve each identity authority, ID type, supported fields, and sandbox outcome."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "prembly",
+      "familyId": "prembly",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "youverify",
+      "familyId": "youverify",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "dojah",
+      "familyId": "dojah",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "qoreid",
+      "familyId": "qoreid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "seamfix",
+      "familyId": "seamfix",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "iidentifii",
+      "familyId": "iidentifii",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "thisisme",
+      "familyId": "thisisme",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "whoyou",
+      "familyId": "whoyou",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "metamap",
+      "familyId": "metamap",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "inscribe",
+      "familyId": "inscribe",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "invoid",
+      "familyId": "bureau",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "unico",
+      "familyId": "unico",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "idwall",
+      "familyId": "idwall",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "caf",
+      "familyId": "caf",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "neoway",
+      "familyId": "neoway",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bigdatacorp",
+      "familyId": "bigdatacorp",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "serpro",
+      "familyId": "serpro",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "truora",
+      "familyId": "truora",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "toc-biometrics",
+      "familyId": "toc-biometrics",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mobbscan-mobbeel",
+      "familyId": "mobbscan-mobbeel",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vu",
+      "familyId": "vu",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "verifik",
+      "familyId": "verifik",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "reconoser-id",
+      "familyId": "reconoser-id",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "valify",
+      "familyId": "valify",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "digified",
+      "familyId": "digified",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "uqudo",
+      "familyId": "uqudo",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lean-identity-services",
+      "familyId": "lean-identity-services",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lseg-world-check",
+      "familyId": "lseg-world-check",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "One API quick start",
+          "url": "https://developers.lseg.com/en/api-catalog/customer-and-third-party-screening/world-check-one-api/quick-start",
+          "observedAt": "2026-11-11",
+          "observation": "Screening data and matching workflow.",
+          "limitation": "Separate World-Check One screening from On Demand data retrieval; identify dataset entitlements and sanctions authorities."
+        },
+        {
+          "title": "On Demand",
+          "url": "https://developers.lseg.com/en/api-catalog/customer-and-third-party-screening/world-check-data-api",
+          "observedAt": "2026-11-11",
+          "observation": "Screening data and matching workflow.",
+          "limitation": "Separate World-Check One screening from On Demand data retrieval; identify dataset entitlements and sanctions authorities."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "dow-jones-risk-compliance",
+      "familyId": "dow-jones-risk-compliance",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "News Corp annual report, Dow Jones products",
+          "url": "https://www.sec.gov/Archives/edgar/data/1564708/000110465926109973/tm2624691d4_ars.pdf",
+          "observedAt": "2026-11-11",
+          "observation": "Screening and risk-data products are described in the parent's filing.",
+          "limitation": "Confirm the actual product and native contract; direct product/developer pages were inaccessible during this review."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "lexisnexis-risk-solutions",
+      "familyId": "lexisnexis-risk-solutions",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "WorldCompliance delivery options",
+          "url": "https://risk.lexisnexis.com/-/media/files/product%20pages/brochure/lnrs-worldcompliancedata_brochure-2024-nxr16703-00-1124-en-us.pdf",
+          "observedAt": "2026-11-11",
+          "observation": "Screening/data family; needs product-level treatment.",
+          "limitation": "Keep WorldCompliance data, matching applications, Bankers Almanac, and fraud products distinct."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "moody-s-compliance",
+      "familyId": "moody-s-compliance",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Compliance data and solutions",
+          "url": "https://www.moodys.com/web/en/us/solutions/compliance-third-party-risk.html",
+          "observedAt": "2026-11-11",
+          "observation": "Grid screening, Orbis entity data, and entity-verification products.",
+          "limitation": "Resolve the family-ID mismatch; separate source datasets, entity verification, ownership, and screening operations."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "complyadvantage",
+      "familyId": "complyadvantage",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "API reference",
+          "url": "https://docs.complyadvantage.com/api-docs",
+          "observedAt": "2026-11-11",
+          "observation": "Screening API with regional service roots.",
+          "limitation": "Select product/version, regional endpoint, policy jurisdiction, and dataset filters; do not equate service region with list authority."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "opensanctions",
+      "familyId": "opensanctions",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Dataset-scoped API",
+          "url": "https://api.opensanctions.org/",
+          "observedAt": "2026-11-11",
+          "observation": "Existing direct integration and explicit dataset-scoped matching.",
+          "limitation": "Preserve separate sanctions/PEP datasets, licensing, source provenance, and update expectations."
+        },
+        {
+          "title": "documentation and licensing",
+          "url": "https://www.opensanctions.org/docs/",
+          "observedAt": "2026-11-11",
+          "observation": "Existing direct integration and explicit dataset-scoped matching.",
+          "limitation": "Preserve separate sanctions/PEP datasets, licensing, source provenance, and update expectations."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "castellum-ai",
+      "familyId": "castellum-ai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sanction-scanner",
+      "familyId": "sanction-scanner",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sanctions-io",
+      "familyId": "sanctions-io",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "namescan",
+      "familyId": "namescan",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "membercheck",
+      "familyId": "membercheck",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "dilisense",
+      "familyId": "dilisense",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aml-watcher",
+      "familyId": "aml-watcher",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "acuris-risk-intelligence",
+      "familyId": "acuris-risk-intelligence",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aml-intelligence",
+      "familyId": "aml-intelligence",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "finscan-innovative-systems",
+      "familyId": "finscan-innovative-systems",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "neterium",
+      "familyId": "neterium",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vneuron",
+      "familyId": "vneuron",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vixio",
+      "familyId": "vixio",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kharon",
+      "familyId": "kharon",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sayari",
+      "familyId": "sayari",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "altana",
+      "familyId": "altana",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ripjar",
+      "familyId": "ripjar",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "silent-eight",
+      "familyId": "silent-eight",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sensa-symphonyai",
+      "familyId": "sensa-symphonyai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "datactics",
+      "familyId": "datactics",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "dun-bradstreet",
+      "familyId": "dun-bradstreet",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Beneficial ownership integration",
+          "url": "https://www.dnb.com/developers-nordics/beneficial-ownership-identification.html",
+          "observedAt": "2026-11-11",
+          "observation": "Business verification and ownership data candidate.",
+          "limitation": "Scope by the particular regional product and source entitlement; the reviewed ownership example is Norway-specific."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "creditsafe",
+      "familyId": "creditsafe",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "opencorporates",
+      "familyId": "opencorporates",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "API reference",
+          "url": "https://api.opencorporates.com/documentation/API-Reference",
+          "observedAt": "2026-11-11",
+          "observation": "Local native subset for company data.",
+          "limitation": "Bind registry jurisdiction and company number, source dates, fields, and licensed usage; avoid treating aggregated data as universal UBO verification."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "gleif",
+      "familyId": "gleif",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "API",
+          "url": "https://www.gleif.org/en/lei-data/gleif-api/",
+          "observedAt": "2026-11-11",
+          "observation": "LEI reference data and accounting-parent relationships have explicit meanings. Accounting parents must not be presented as universal natural-person beneficial ownership.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        },
+        {
+          "title": "Level 2 semantics",
+          "url": "https://www.gleif.org/en/lei-data/access-and-use-lei-data/level-2-data-who-owns-whom",
+          "observedAt": "2026-11-11",
+          "observation": "LEI reference data and accounting-parent relationships have explicit meanings. Accounting parents must not be presented as universal natural-person beneficial ownership.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "middesk",
+      "familyId": "middesk",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Verify a business",
+          "url": "https://docs.middesk.com/quickstart",
+          "observedAt": "2026-11-11",
+          "observation": "Business verification API with explicit Business lifecycle.",
+          "limitation": "Define submitted inputs, verification checks, asynchronous completion, and ownership evidence separately."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "kyckr",
+      "familyId": "kyckr",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Spain registry integration discussion",
+          "url": "https://kyckr.com/guides-and-reports/spain-business-registry-search",
+          "observedAt": "2026-11-11",
+          "observation": "Registry and document access with jurisdiction-specific differences.",
+          "limitation": "Establish actual register/product/document coverage; web-search availability is not API availability."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "encompass",
+      "familyId": "encompass",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "know-your-customer",
+      "familyId": "know-your-customer",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fullcircl",
+      "familyId": "fullcircl",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "smartsearch",
+      "familyId": "smartsearch",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "w2",
+      "familyId": "w2",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "detected",
+      "familyId": "detected",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "asiaverify",
+      "familyId": "asiaverify",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "handshakes",
+      "familyId": "handshakes",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "crif",
+      "familyId": "crif",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "coface",
+      "familyId": "coface",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "creditreform",
+      "familyId": "creditreform",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "northrow",
+      "familyId": "id-pal",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vespia",
+      "familyId": "vespia",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "the-kyb",
+      "familyId": "the-kyb",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kompli-global",
+      "familyId": "kompli-global",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ubisecure",
+      "familyId": "ubisecure",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "global-database",
+      "familyId": "global-database",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "infobelpro",
+      "familyId": "infobelpro",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "companydata-com",
+      "familyId": "companydata-com",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bureau-van-dijk-orbis",
+      "familyId": "moodys-compliance",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kompany",
+      "familyId": "moodys-compliance",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kontomatik",
+      "familyId": "kontomatik",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "compliancely",
+      "familyId": "compliancely",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "valid8me",
+      "familyId": "valid8me",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kyc-portal",
+      "familyId": "kyc-portal",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "experian",
+      "familyId": "experian",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "equifax",
+      "familyId": "equifax",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "transunion",
+      "familyId": "transunion",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "prove",
+      "familyId": "prove",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ekata-mastercard",
+      "familyId": "mastercard-ekata",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "early-warning-services",
+      "familyId": "early-warning-services",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "chexsystems-fis",
+      "familyId": "chexsystems-fis",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "innovis",
+      "familyId": "innovis",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sentilink",
+      "familyId": "sentilink",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "giact-lseg",
+      "familyId": "giact-lseg",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trustfull",
+      "familyId": "trustfull",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trustcloud",
+      "familyId": "trustcloud",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sprinque",
+      "familyId": "sprinque",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "seon",
+      "familyId": "seon",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Fraud API",
+          "url": "https://docs.seon.io/api-reference/fraud-api",
+          "observedAt": "2026-11-11",
+          "observation": "Modular fraud intelligence combining email, phone, IP, and device data.",
+          "limitation": "Map each returned signal and native score separately; only claim modules actually enabled and populated."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "sift",
+      "familyId": "sift",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fingerprint",
+      "familyId": "fingerprint",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Server API",
+          "url": "https://dev.fingerprint.com/docs/server-api",
+          "observedAt": "2026-11-11",
+          "observation": "Device/visitor identification events.",
+          "limitation": "Prioritize `risk.device`; re-review the local email/phone bindings because this source does not establish those capabilities."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "ipqs",
+      "familyId": "ipqs",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "maxmind",
+      "familyId": "maxmind",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "GeoIP web services",
+          "url": "https://dev.maxmind.com/geoip/docs/web-services/",
+          "observedAt": "2026-11-11",
+          "observation": "IP geolocation/enrichment web services.",
+          "limitation": "Review all three local device/email/phone claims. IP geolocation by itself proves none of them; assess a new upstream capability only if its contract is needed."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "ipinfo",
+      "familyId": "ipinfo",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "telesign",
+      "familyId": "telesign",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "twilio-lookup",
+      "familyId": "twilio-lookup",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Lookup quick start",
+          "url": "https://www.twilio.com/docs/lookup/quickstart",
+          "observedAt": "2026-11-11",
+          "observation": "Phone/carrier intelligence and optional packages.",
+          "limitation": "Prioritize `risk.phone`; local device/email bindings need separate evidence."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "vonage-identity-insights",
+      "familyId": "vonage-identity-insights",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "camara-gsma-open-gateway",
+      "familyId": "camara-gsma-open-gateway",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "biocatch",
+      "familyId": "biocatch",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "threatmetrix-lexisnexis",
+      "familyId": "lexisnexis-risk-solutions",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trunarrative-lexisnexis",
+      "familyId": "lexisnexis-risk-solutions",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "transmit-security",
+      "familyId": "transmit-security",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "datavisor",
+      "familyId": "datavisor",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "forter",
+      "familyId": "forter",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "incognia",
+      "familyId": "incognia",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "deduce",
+      "familyId": "deduce",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "emailage-lexisnexis",
+      "familyId": "lexisnexis-risk-solutions",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "darwinium",
+      "familyId": "darwinium",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "plaid",
+      "familyId": "plaid",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Identity API semantics",
+          "url": "https://plaid.com/docs/identity/",
+          "observedAt": "2026-11-11",
+          "observation": "Existing native subset; account identity/ownership comparison.",
+          "limitation": "Use the correct Identity/Identity Match operation. Keep holder retrieval, comparison, Auth, and document evidence distinct."
+        },
+        {
+          "title": "Network explanation",
+          "url": "https://plaid.com/why-is-plaid-involved/",
+          "observedAt": "2026-11-11",
+          "observation": "Describes 9,000+ apps/services and connections to 12,000+ institutions.",
+          "limitation": "Apps and connected institutions are different measures; institutions are not all paying customers. Publisher-reported figures use different units and are not tenant usage or a market-share ranking."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "tink",
+      "familyId": "tink",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Account Check integration",
+          "url": "https://docs.tink.com/entries/articles/tink-link-web-api-reference-account-check",
+          "observedAt": "2026-11-11",
+          "observation": "Account Check with consent-based report flow.",
+          "limitation": "Pin the report product, institution/country availability, data returned, and matching semantics."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "truelayer",
+      "familyId": "truelayer",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Verification API basics",
+          "url": "https://docs.truelayer.com/docs/verification-api-basics",
+          "observedAt": "2026-11-11",
+          "observation": "Account verification with holder-name comparison.",
+          "limitation": "Bind the selected verification API version, supported institutions, consent, and comparison outcomes."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "yapily",
+      "familyId": "yapily",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "token-io",
+      "familyId": "token-io",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "salt-edge",
+      "familyId": "salt-edge",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "finicity-mastercard",
+      "familyId": "mastercard-open-banking",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mx",
+      "familyId": "mx",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "akoya",
+      "familyId": "akoya",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "yodlee",
+      "familyId": "yodlee",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "flinks",
+      "familyId": "flinks",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "belvo",
+      "familyId": "belvo",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "prometeo",
+      "familyId": "prometeo",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fintoc",
+      "familyId": "fintoc",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "finverse",
+      "familyId": "finverse",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "brankas",
+      "familyId": "brankas",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "finantier",
+      "familyId": "finantier",
+      "priority": "quarantined",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Existing source quarantine retained; remediation has not been established.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mono",
+      "familyId": "mono",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "okra",
+      "familyId": "okra",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "stitch",
+      "familyId": "stitch",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "moneyhub",
+      "familyId": "moneyhub",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "surepay",
+      "familyId": "surepay",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "CoP API quick setup",
+          "url": "https://developer.surepay.nl/cop-uk/quick-setup",
+          "observedAt": "2026-11-11",
+          "observation": "Confirmation of Payee API.",
+          "limitation": "Scope the scheme, requester/participant role, account namespace, and response interpretation."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "trustpair",
+      "familyId": "trustpair",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ipid",
+      "familyId": "ipid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "swift-payment-pre-validation",
+      "familyId": "swift-payment-pre-validation",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lexisnexis-bankers-almanac",
+      "familyId": "lexisnexis-risk-solutions",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "nice-actimize",
+      "familyId": "nice-actimize",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Fraud platform overview",
+          "url": "https://info.niceactimize.com/LP-Fraud.html",
+          "observedAt": "2026-11-11",
+          "observation": "Fraud/AML platform with reported enterprise adoption.",
+          "limitation": "Identify installed cloud/on-premise module and integration contract; distinguish scoring, alerts, and case operations."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "nasdaq-verafin",
+      "familyId": "nasdaq-verafin",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Consortium Insights API factsheet",
+          "url": "https://verafin.com/wp-content/uploads/2025/08/consortium-insights-api-fact-sheet-nasdaq-verafin-20250828.pdf",
+          "observedAt": "2026-11-11",
+          "observation": "Monitoring platform and consortium insights.",
+          "limitation": "Distinguish a platform deployment from a separately entitled consortium API and define data-sharing boundaries."
+        },
+        {
+          "title": "Consortium infographic",
+          "url": "https://verafin.com/wp-content/uploads/2026/02/consortium-advantage-infographic-nasdaq-verafin-20260203.pdf",
+          "observedAt": "2026-11-11",
+          "observation": "February 2026 material describes 2,700+ financial institutions.",
+          "limitation": "Platform/consortium footprint, not a universal external-data API. Publisher-reported figures use different units and are not tenant usage or a market-share ranking."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "sas",
+      "familyId": "sas",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "oracle-financial-services",
+      "familyId": "oracle-financial-services",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fico",
+      "familyId": "fico",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bae-systems-digital-intelligence",
+      "familyId": "sensa-symphonyai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fiserv",
+      "familyId": "fiserv",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fis",
+      "familyId": "fis",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aci-worldwide",
+      "familyId": "aci-worldwide",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "temenos",
+      "familyId": "temenos",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "napier-ai",
+      "familyId": "napier-ai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "hawk",
+      "familyId": "hawk",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Transaction Checks API",
+          "url": "https://docs.hawk.ai/apidocs",
+          "observedAt": "2026-11-11",
+          "observation": "Configurable transaction checks for AML/screening.",
+          "limitation": "Separate transaction intake, monitoring, alert/case effects, and any screening datasets."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "feedzai",
+      "familyId": "feedzai",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "BTG Pactual case study",
+          "url": "https://www.feedzai.com/customer-stories/btg-pactual/",
+          "observedAt": "2026-11-11",
+          "observation": "Transaction fraud monitoring with named bank deployment evidence.",
+          "limitation": "Scope the deployed product, input transaction stream, native decisions, and operational ownership."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "thetaray",
+      "familyId": "thetaray",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "tookitaki",
+      "familyId": "tookitaki",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "unit21",
+      "familyId": "unit21",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Data model overview",
+          "url": "https://support.unit21.ai/hc/en-us/articles/7798484685716-Data-Overview",
+          "observedAt": "2026-11-11",
+          "observation": "Entity/event ingestion for monitoring and rules.",
+          "limitation": "Define transaction/action event handling and downstream alert/case contracts individually."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "sardine",
+      "familyId": "sardine",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "flagright",
+      "familyId": "flagright",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "oscilar",
+      "familyId": "oscilar",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lucinity",
+      "familyId": "lucinity",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "hummingbird",
+      "familyId": "hummingbird",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "alessa",
+      "familyId": "alessa",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aml-partners",
+      "familyId": "aml-partners",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "imtf",
+      "familyId": "imtf",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "eastnets",
+      "familyId": "eastnets",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "intix",
+      "familyId": "vyntra",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vyntra",
+      "familyId": "vyntra",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "clari5",
+      "familyId": "clari5",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aml-rightsource",
+      "familyId": "aml-rightsource",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "quantifind",
+      "familyId": "quantifind",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "quantexa",
+      "familyId": "quantexa",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Standard Chartered deployment",
+          "url": "https://www.quantexa.com/press/standard-chartered-and-quantexa/",
+          "observedAt": "2026-11-11",
+          "observation": "Entity resolution and contextual network analysis with bank deployment evidence.",
+          "limitation": "Keep entity linkage, network inference, and sourced ownership assertions separate."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "fenergo",
+      "familyId": "fenergo",
+      "priority": "specialist",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Specific product, regional or workflow fit supported by public material; this is a research priority.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Moody's integration",
+          "url": "https://www.fenergo.com/partners/moodys",
+          "observedAt": "2026-11-11",
+          "observation": "CLM workflow integration with Moody's data and screening.",
+          "limitation": "Distinguish workflow platform from data supplier; don't infer every local monitoring/risk binding from the integration page."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "appway-fnz",
+      "familyId": "appway-fnz",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "alloy",
+      "familyId": "alloy",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "H1 2026 company release",
+          "url": "https://www.alloy.com/about/press/alloy-h1-momentum",
+          "observedAt": "2026-11-11",
+          "observation": "Orchestration and identity-risk decisioning with reported adoption.",
+          "limitation": "Represent orchestration separately from underlying data suppliers; preserve upstream provider provenance."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "taktile",
+      "familyId": "taktile",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "oscilar-orchestration",
+      "familyId": "oscilar",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "provenir",
+      "familyId": "provenir",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "atfinity",
+      "familyId": "atfinity",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "camunda",
+      "familyId": "camunda",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "pega",
+      "familyId": "pega",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "chainalysis",
+      "familyId": "chainalysis",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "publisher_reported",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Product/customer overview",
+          "url": "https://www.chainalysis.com/why-chainalysis/",
+          "observedAt": "2026-11-11",
+          "observation": "Crypto intelligence with reported customer-scale evidence.",
+          "limitation": "Confirm the specific wallet/transaction product and chain coverage; do not assume every product shares the same data access."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "trm-labs",
+      "familyId": "trm-labs",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Wallet screening",
+          "url": "https://www.trmlabs.com/crypto-compliance/wallet-screening",
+          "observedAt": "2026-11-11",
+          "observation": "Wallet screening and transaction-monitoring products.",
+          "limitation": "Separate address screening from transaction monitoring; capture chain, asset, exposure, and policy configuration."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "elliptic",
+      "familyId": "elliptic",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "AML API introduction",
+          "url": "https://developers.elliptic.co/docs/aml-api-introduction",
+          "observedAt": "2026-11-11",
+          "observation": "API distinguishes transaction and wallet analysis.",
+          "limitation": "Scope analysis type, network/asset coverage, asynchronous lifecycle, and rescreening behavior."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "merkle-science",
+      "familyId": "merkle-science",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "crystal-intelligence",
+      "familyId": "crystal-intelligence",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "scorechain",
+      "familyId": "scorechain",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lukka",
+      "familyId": "lukka",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ciphertrace-mastercard",
+      "familyId": "ciphertrace-mastercard",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "coinfirm",
+      "familyId": "lukka",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "anchain-ai",
+      "familyId": "anchain-ai",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "uppsala-security",
+      "familyId": "uppsala-security",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "amlbot",
+      "familyId": "amlbot",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "global-ledger",
+      "familyId": "global-ledger",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "blockaid",
+      "familyId": "blockaid",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "solidus-labs",
+      "familyId": "solidus-labs",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "notabene",
+      "familyId": "notabene",
+      "priority": "core",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Initial core candidate based on product relevance, public evidence and/or existing integration work; tenant usage has not been assessed.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Developer hub",
+          "url": "https://devx.notabene.id/v2.0/",
+          "observedAt": "2026-11-11",
+          "observation": "Travel Rule messaging/integration.",
+          "limitation": "Pin platform/API version, counterparty network, message schema, and jurisdictional policy; exchange completion is not a sanctions result."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "sygna",
+      "familyId": "sygna",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "verifyvasp",
+      "familyId": "verifyvasp",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trisa",
+      "familyId": "trisa",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "trust-network",
+      "familyId": "trust-network",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "21-analytics",
+      "familyId": "21-analytics",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "shyft-veriscope",
+      "familyId": "shyft-veriscope",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "control-risks",
+      "familyId": "control-risks",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kroll",
+      "familyId": "kroll",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "exiger",
+      "familyId": "exiger",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "s-rm",
+      "familyId": "s-rm",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mintz-group",
+      "familyId": "mintz-group",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lseg-due-diligence",
+      "familyId": "lseg-world-check",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "diligent",
+      "familyId": "diligent",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "gan-integrity",
+      "familyId": "gan-integrity",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "reprisk",
+      "familyId": "reprisk",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "s-p-global-market-intelligence",
+      "familyId": "s-p-global-market-intelligence",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lloyd-s-list-intelligence",
+      "familyId": "lloyd-s-list-intelligence",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "windward",
+      "familyId": "windward",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "pole-star-global",
+      "familyId": "pole-star-global",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "vesselbot",
+      "familyId": "vesselbot",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ravenpack",
+      "familyId": "ravenpack",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "factiva-dow-jones",
+      "familyId": "dow-jones-risk-compliance",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "lexisnexis-nexis-diligence",
+      "familyId": "lexisnexis-nexis-diligence",
+      "priority": "discovery",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Local inventory reviewed; current identity, product support, documentation and demand await research.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "companies-house",
+      "familyId": "companies-house",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Developer hub",
+          "url": "https://developer.company-information.service.gov.uk/",
+          "observedAt": "2026-11-11",
+          "observation": "Exposes company information through an official API. Group as a named registry source, with namespace, source dates, and separate company/officer/PSC operation review.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "us-state-secretaries-of-state",
+      "familyId": "us-state-secretaries-of-state",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sec-edgar",
+      "familyId": "sec-edgar",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fincen-boi",
+      "familyId": "fincen-boi",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "FinCEN access fact sheet",
+          "url": "https://www.fincen.gov/news/news-releases/fact-sheet-beneficial-ownership-information-access-and-safeguards-final-rule",
+          "observedAt": "2026-11-11",
+          "observation": "BOI access has authorized-recipient and purpose restrictions. Retain the existing ownership semantic correction and require current institution-specific access evidence; do not infer a public company-search API. No opinion on current reporting obligations is made here.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "irs-tin-matching",
+      "familyId": "irs-tin-matching",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ssa-ecbsv",
+      "familyId": "ssa-ecbsv",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "aamva-dldv",
+      "familyId": "aamva-dldv",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "corporations-canada",
+      "familyId": "corporations-canada",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "sedar",
+      "familyId": "sedar",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "inpi-rne",
+      "familyId": "inpi-rne",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "insee-sirene",
+      "familyId": "insee-sirene",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "german-handelsregister",
+      "familyId": "german-handelsregister",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "unternehmensregister",
+      "familyId": "unternehmensregister",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "eu-bris",
+      "familyId": "eu-bris",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kvk",
+      "familyId": "kvk",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "cbe-kbo",
+      "familyId": "cbe-kbo",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bolagsverket",
+      "familyId": "bolagsverket",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "br-nn-ysund-register-centre",
+      "familyId": "br-nn-ysund-register-centre",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "prh",
+      "familyId": "prh",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "danish-business-authority-cvr",
+      "familyId": "danish-business-authority-cvr",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "registro-imprese-infocamere",
+      "familyId": "registro-imprese-infocamere",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "registradores",
+      "familyId": "registradores",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "cro",
+      "familyId": "cro",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "luxembourg-business-registers",
+      "familyId": "luxembourg-business-registers",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "zefix",
+      "familyId": "zefix",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "asic",
+      "familyId": "asic",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "australian-business-register",
+      "familyId": "australian-business-register",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "new-zealand-companies-office",
+      "familyId": "new-zealand-companies-office",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "acra",
+      "familyId": "acra",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "hong-kong-companies-registry",
+      "familyId": "hong-kong-companies-registry",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mca",
+      "familyId": "mca",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "uidai",
+      "familyId": "uidai",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "digilocker",
+      "familyId": "digilocker",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "cersai-ckycr",
+      "familyId": "cersai-ckycr",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "protean-egov",
+      "familyId": "protean-egov",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "gstn",
+      "familyId": "gstn",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ssm",
+      "familyId": "ssm",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "indonesia-ahu",
+      "familyId": "indonesia-ahu",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "philippines-sec",
+      "familyId": "philippines-sec",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "china-gsxt",
+      "familyId": "china-gsxt",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "japan-corporate-number-publication-site",
+      "familyId": "japan-corporate-number-publication-site",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "taiwan-moea",
+      "familyId": "taiwan-moea",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "korea-dart",
+      "familyId": "korea-dart",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "brazil-receita-federal",
+      "familyId": "brazil-receita-federal",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mexico-sat",
+      "familyId": "mexico-sat",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "mexico-renapo",
+      "familyId": "mexico-renapo",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "colombia-rues",
+      "familyId": "colombia-rues",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "argentina-arca",
+      "familyId": "argentina-arca",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "chile-registro-de-empresas-y-sociedades",
+      "familyId": "chile-registro-de-empresas-y-sociedades",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "south-africa-cipc",
+      "familyId": "south-africa-cipc",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "nigeria-cac",
+      "familyId": "nigeria-cac",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "nigeria-nimc",
+      "familyId": "nigeria-nimc",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "nigeria-nibss",
+      "familyId": "nigeria-nibss",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "kenya-brs",
+      "familyId": "kenya-brs",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ghana-orc",
+      "familyId": "ghana-orc",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "saudi-wathq-thiqah",
+      "familyId": "saudi-wathq-thiqah",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "saudi-elm",
+      "familyId": "saudi-elm",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "uae-pass",
+      "familyId": "uae-pass",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bahrain-benefit-ekyc",
+      "familyId": "bahrain-benefit-ekyc",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "singapore-myinfo-singpass",
+      "familyId": "singapore-myinfo-singpass",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "bankid-sweden",
+      "familyId": "bankid-sweden",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "itsme",
+      "familyId": "itsme",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "norwegian-bankid",
+      "familyId": "norwegian-bankid",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "swissid",
+      "familyId": "swissid",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "yoti",
+      "familyId": "yoti",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "connectid",
+      "familyId": "connectid",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "ofac-sanctions-list-service",
+      "familyId": "ofac-sanctions-list-service",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Sanctions List Service",
+          "url": "https://ofac.treasury.gov/sanctions-list-service",
+          "observedAt": "2026-11-11",
+          "observation": "Publishes SDN and non-SDN list data. Treat acquisition as `reference.list`, with a separately versioned matching capability for screening subjects.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "un-security-council-consolidated-list",
+      "familyId": "un-security-council-consolidated-list",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "UN consolidated list",
+          "url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+          "observedAt": "2026-11-11",
+          "observation": "Publishes a consolidated list in multiple formats, including XML. Record publisher authority, list version, download receipt, and refresh behavior.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "uk-sanctions-list",
+      "familyId": "uk-sanctions-list",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "UK migration guidance",
+          "url": "https://www.gov.uk/guidance/moving-to-a-single-list-for-uk-sanctions-designations-28-january-2026",
+          "observedAt": "2026-11-11",
+          "observation": "UK guidance identifies UKSL as the single designations list after the OFSI consolidated list closed on 28 January 2026. Research should detect this type of lifecycle change.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "eu-financial-sanctions-files",
+      "familyId": "eu-financial-sanctions-files",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "canada-consolidated-autonomous-sanctions",
+      "familyId": "canada-consolidated-autonomous-sanctions",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "australia-dfat-consolidated-list",
+      "familyId": "australia-dfat-consolidated-list",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "switzerland-seco-sanctions",
+      "familyId": "switzerland-seco-sanctions",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "japan-mof-sanctions",
+      "familyId": "japan-mof-sanctions",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "singapore-mas-targeted-financial-sanctions",
+      "familyId": "singapore-mas-targeted-financial-sanctions",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "world-bank-debarment",
+      "familyId": "world-bank-debarment",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "us-sam-exclusions",
+      "familyId": "us-sam-exclusions",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "us-bis-consolidated-screening-list",
+      "familyId": "us-bis-consolidated-screening-list",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fincen-section-314-a",
+      "familyId": "fincen-section-314-a",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "fatf-high-risk-and-monitored-jurisdictions",
+      "familyId": "fatf-high-risk-and-monitored-jurisdictions",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "basel-aml-index",
+      "familyId": "basel-aml-index",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "swift-kyc-registry",
+      "familyId": "swift-kyc-registry",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "public_material_reviewed",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": "2026-11-11",
+      "evidence": [
+        {
+          "title": "Service description",
+          "url": "https://www.swift.com/products/kyc-registry?tl=en",
+          "observedAt": "2026-11-11",
+          "observation": "Provides standardized KYC data/document exchange with subscription eligibility. Classify the network and exchange role separately from identity verification.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        },
+        {
+          "title": "subscription eligibility",
+          "url": "https://www.swift.com/myswift/ordering/order-products-services/kyc-registry",
+          "observedAt": "2026-11-11",
+          "observation": "Provides standardized KYC data/document exchange with subscription eligibility. Classify the network and exchange role separately from identity verification.",
+          "limitation": "Public source material does not establish tenant entitlement, approved coverage, native mappings or execution readiness."
+        }
+      ]
+    },
+    {
+      "providerRecordId": "swiftref",
+      "familyId": "swiftref",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "wolfsberg-group",
+      "familyId": "wolfsberg-group",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "gleif-vlei-ecosystem",
+      "familyId": "gleif",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "open-ownership",
+      "familyId": "open-ownership",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    },
+    {
+      "providerRecordId": "open-supply-hub",
+      "familyId": "open-supply-hub",
+      "priority": "source",
+      "priorityStatus": "proposed",
+      "researchState": "not_started",
+      "adoptionEvidenceState": "unknown",
+      "rationale": "Source, network or electronic-ID review queue; publisher type and jurisdiction-specific access need individual review.",
+      "reviewedAt": null,
+      "evidence": []
+    }
+  ]
+}

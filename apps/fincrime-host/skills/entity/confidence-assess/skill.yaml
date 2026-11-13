@@ -1,0 +1,160 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:entity.confidence.assess
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Report resolution features explicitly as uncalibrated synthetic
+  heuristics.
+code_hash: 92cb8610413e32fe83d5e4c2efa7914b6cc88caae67524389845ff2da0a7346e
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Report resolution features explicitly as uncalibrated synthetic heuristics.
+effects: read_only
+entrypoint: financial_crime.skills.identity:confidence_assess
+evaluation_profile: entity.confidence.assess-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: entity-confidence-assess
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: entity.confidence.assess
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    IdentityCandidateInput:
+      additionalProperties: false
+      properties:
+        identifiers:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        name:
+          $ref: '#/$defs/Id'
+      required: []
+      type: object
+  $id: urn:financial-crime:skill:entity.confidence.assess:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    left:
+      $ref: '#/$defs/IdentityCandidateInput'
+    right:
+      $ref: '#/$defs/IdentityCandidateInput'
+  required:
+  - left
+  - right
+  type: object
+instruction_hash: 472b61fd08e1b4436ce36cfe3d518c1b62cd5b6edb7d6c57d52c3e82b96b1b6d
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    MatchFeatures:
+      additionalProperties: false
+      properties:
+        identifier_conflict:
+          $ref: '#/$defs/Bool'
+        name_score:
+          $ref: '#/$defs/Probability'
+        score:
+          $ref: '#/$defs/Probability'
+        shared_identifiers:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        verified_match:
+          $ref: '#/$defs/Bool'
+      required:
+      - score
+      - shared_identifiers
+      - identifier_conflict
+      - name_score
+      - verified_match
+      type: object
+    Probability:
+      maximum: 1
+      minimum: 0
+      type: number
+  $id: urn:financial-crime:skill:entity.confidence.assess:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    calibrated:
+      type: boolean
+    features:
+      $ref: '#/$defs/MatchFeatures'
+    review_required:
+      type: boolean
+  required:
+  - features
+  - calibrated
+  - review_required
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

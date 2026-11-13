@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "BinaryLabel": {
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "ScoreSample": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/BinaryLabel"
+        },
+        "score": {
+          "$ref": "#/$defs/Probability"
+        }
+      },
+      "required": [
+        "score",
+        "label"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:quality.confidence.calibrate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "samples": {
+      "items": {
+        "$ref": "#/$defs/ScoreSample"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "samples"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "policy.kyb.screening-ownership.us",
+  "version": "1.0.0",
+  "status": "CANDIDATE",
+  "owner_role": "kyb-policy-owner",
+  "approved_by": null,
+  "synthetic": false,
+  "jurisdiction": "US",
+  "freshness_seconds": {
+    "WatchlistEntry": 86400,
+    "VerificationRecord": 7776000
+  },
+  "screening_threshold": 0.85,
+  "sanctions_ownership": {
+    "rule": "ofac_50_percent",
+    "threshold": "0.5"
+  },
+  "ownership_threshold": "0.25",
+  "control_bases": [
+    "voting_majority",
+    "appoint_board"
+  ],
+  "sanctions_control_bases": [
+    "voting_majority"
+  ],
+  "verification_methods": [
+    "government_id_document",
+    "registry_extract"
+  ],
+  "active_registry_statuses": [
+    "ACTIVE"
+  ],
+  "approval_roles": {
+    "REVIEW_SCREENING_AND_OWNERSHIP": "compliance"
+  },
+  "role_members": {
+    "compliance": [
+      "kyb-reviewer"
+    ]
+  },
+  "permissions": [
+    "effect:human_gated",
+    "skill:decision.human.review",
+    "skill:decision.policy.resolve",
+    "skill:entity.resolve",
+    "skill:ownership.circular.detect",
+    "skill:ownership.control.resolve",
+    "skill:ownership.graph.build",
+    "skill:ownership.interest.calculate",
+    "skill:ownership.nominee.detect",
+    "skill:ownership.ubo.resolve",
+    "skill:ownership.ubo.verify",
+    "skill:registry.company.verify",
+    "skill:screening.match.disambiguate",
+    "skill:screening.name.normalize",
+    "skill:screening.pep.execute",
+    "skill:screening.pep.relationship.resolve",
+    "skill:screening.sanctions.control.evaluate",
+    "skill:screening.sanctions.execute",
+    "skill:screening.sanctions.ownership.evaluate"
+  ],
+  "basis": {
+    "jurisdiction": "slice scope (docs/implementation/production-slice-1.md section 2)",
+    "freshness_seconds": "KYC owner inputs D01 (list freshness 1 day) and D05 (identity verification 90 days)",
+    "screening_threshold": "KYC owner input D01 possibleMatchScore",
+    "sanctions_ownership": "OFAC 50 Percent Rule guidance; aggregate blocked ownership, cascading through blocked entities",
+    "ownership_threshold": "FinCEN CDD rule 31 CFR 1010.230: 25 percent equity interest",
+    "control_bases": "candidate: voting majority and the right to appoint the board",
+    "verification_methods": "candidate: government identity document for individuals, registry extract for legal entities",
+    "active_registry_statuses": "candidate",
+    "approval_roles": "candidate: compliance reviews the slice's assessment",
+    "sanctions_control_bases": "candidate: OFAC control guidance; only majority voting control counts as sanctions control"
+  }
+}

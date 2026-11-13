@@ -1,0 +1,252 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:ownership.ubo.resolve
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Resolve individual UBO candidates using configured interest and
+  control rules.
+code_hash: 7e922bb731ec72a0a419eb7b4e517941cdaad5f63d77c1e9960ef0e83926a40c
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Resolve individual UBO candidates using configured interest and control
+  rules.
+effects: read_only
+entrypoint: financial_crime.skills.ownership:ubo_resolve
+evaluation_profile: ownership.ubo.resolve-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: ownership-ubo-resolve
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: ownership.ubo.resolve
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:ownership.ubo.resolve:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    target:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - target
+  type: object
+instruction_hash: d42cb5b165c8008532601789c4961d29db2620766a7319d54d67e2008a7a94f9
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- Limited to the supported graph/threshold/control computation. It does not retrieve
+  registries, establish graph completeness, interpret arbitrary legal arrangements
+  or verify owner identity. Current maturity remains implemented_synthetic. Independent
+  evaluation, policy/source approvals and operating qualification are required before
+  production.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - owner
+  - owned
+  - lower
+  - upper
+  - lower_inclusive
+  - upper_inclusive
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: OwnershipRange
+  optional: true
+- fields:
+  - controller
+  - controlled
+  - basis
+  - verified
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ControlRight
+  optional: true
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    OwnershipCalculation:
+      additionalProperties: false
+      properties:
+        cycles:
+          items:
+            items:
+              $ref: '#/$defs/Id'
+            maxItems: 10000
+            type: array
+          maxItems: 10000
+          type: array
+        interests:
+          additionalProperties:
+            $ref: '#/$defs/Decimal'
+          type: object
+          x-dynamic-map-reason: keyed collection
+        paths:
+          items:
+            $ref: '#/$defs/OwnershipPath'
+          maxItems: 10000
+          type: array
+        unresolved:
+          items:
+            $ref: '#/$defs/OwnershipGap'
+          maxItems: 10000
+          type: array
+      required:
+      - interests
+      - paths
+      - cycles
+      - unresolved
+      type: object
+    OwnershipGap:
+      additionalProperties: false
+      properties:
+        interest:
+          $ref: '#/$defs/Decimal'
+        node:
+          $ref: '#/$defs/Id'
+        path:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        reason:
+          $ref: '#/$defs/Id'
+      required:
+      - node
+      - reason
+      type: object
+    OwnershipPath:
+      additionalProperties: false
+      properties:
+        interest:
+          $ref: '#/$defs/Decimal'
+        owner:
+          $ref: '#/$defs/Id'
+        path:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - owner
+      - path
+      - interest
+      type: object
+    UboCandidate:
+      additionalProperties: false
+      properties:
+        control_bases:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        entity_id:
+          $ref: '#/$defs/Id'
+        interest:
+          anyOf:
+          - $ref: '#/$defs/Decimal'
+          - type: 'null'
+        verified:
+          $ref: '#/$defs/Bool'
+      required:
+      - entity_id
+      - interest
+      - verified
+      - control_bases
+      type: object
+  $id: urn:financial-crime:skill:ownership.ubo.resolve:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    calculation:
+      $ref: '#/$defs/OwnershipCalculation'
+    candidates:
+      items:
+        $ref: '#/$defs/UboCandidate'
+      maxItems: 10000
+      type: array
+  required:
+  - candidates
+  - calculation
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- control_bases
+- freshness_seconds
+- jurisdiction
+- ownership_threshold
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - owner
+  - owned
+  - interest
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: OwnershipInterest
+  optional: false
+- fields:
+  - entity_type
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Entity
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

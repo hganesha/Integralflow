@@ -1,0 +1,229 @@
+apiVersion: harness.factory/decision-table-v1
+kind: DecisionTable
+metadata:
+  id: table.kyc.decision-ready.v1
+  gate: decision-ready
+  domain: kyc
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    Does the case hold enough policy context, screening coverage, investigation work and
+    evidence for a recommendation to be worth making? This gate judges completeness, never
+    the merits. It does not look at the recommendation, which does not exist yet.
+spec:
+  transition:
+    from: [SCREENING, INVESTIGATING]
+    onAllow: READY_FOR_DECISION
+  hitPolicy: first
+  conditions:
+    - id: evaluation
+      description: Did the policy engine complete without error?
+      extractor: { kind: evaluationStatus }
+      tokens: [OK, ERROR]
+    - id: snapshot
+      description: Is the evaluated case snapshot still the current one?
+      extractor: { kind: snapshotFreshness }
+      tokens: [CURRENT, STALE, UNKNOWN]
+    - id: cohort
+      description: Which risk cohort does the case fall in?
+      extractor: { kind: riskCohort }
+      tokens: [RESOLVED, UNKNOWN]
+    - id: policyClaim
+      description: Does the resolved policy context still exist on the case?
+      extractor:
+        kind: presence
+        collection: claims
+        where: { predicate: applicable_kyc_policy }
+      tokens: [PRESENT, ABSENT]
+    - id: investigationWorkItem
+      description: Has the public-source investigation work item completed?
+      extractor:
+        kind: itemStatus
+        collection: workItems
+        where: { workType: PUBLIC_SOURCE_KYC_INVESTIGATION }
+        statusPath: status
+        map:
+          COMPLETED: COMPLETED
+        absent: ABSENT
+        otherwise: INCOMPLETE
+      tokens: [COMPLETED, INCOMPLETE, ABSENT]
+    - id: investigationEvidence
+      description: Is the investigation record linked as evidence?
+      extractor:
+        kind: presence
+        collection: evidence
+        where: { purpose: KYC_PUBLIC_SOURCE_RESEARCH }
+      tokens: [PRESENT, ABSENT]
+    - id: screeningCoverage
+      description: Did sanctions, PEP and adverse-media screening each return a usable result?
+      extractor:
+        kind: providerHealth
+        basePath: screening
+        providers: [sanctions, pep, adverseMedia]
+      tokens: [COMPLETE, DEGRADED, UNAVAILABLE, UNKNOWN]
+    - id: sanctionsListFreshness
+      description: Was the sanctions list version within the permitted staleness window?
+      extractor:
+        kind: listFreshness
+        basePath: screening
+        provider: sanctions
+        maxAgeDaysOwnerInput: D01.listFreshnessDays
+      tokens: [FRESH, STALE, UNKNOWN]
+    - id: beneficialOwnership
+      description: Is beneficial ownership satisfied where the cohort requires it?
+      extractor:
+        kind: obligationsSatisfied
+        obligations: [EVD-BENEFICIAL-OWNERSHIP, EVD-BUSINESS-REGISTRATION]
+      tokens: [SATISFIED, UNSATISFIED, EXPIRED, NOT_APPLICABLE, UNKNOWN]
+    - id: eddObligations
+      description: Are enhanced due diligence obligations satisfied where they apply?
+      extractor:
+        kind: obligationsSatisfied
+        obligations: [EVD-SOURCE-OF-FUNDS, EVD-EDD-NARRATIVE]
+      tokens: [SATISFIED, UNSATISFIED, EXPIRED, NOT_APPLICABLE, UNKNOWN]
+    - id: cohortObligations
+      description: Are every other evidence obligation required by this cohort satisfied?
+      extractor:
+        kind: obligationsSatisfied
+        scope: cohortRequired
+        exclude: [EVD-BENEFICIAL-OWNERSHIP, EVD-BUSINESS-REGISTRATION, EVD-SOURCE-OF-FUNDS, EVD-EDD-NARRATIVE, EVD-DECISION-RECOMMENDATION]
+      tokens: [SATISFIED, UNSATISFIED, EXPIRED, NOT_APPLICABLE, UNKNOWN]
+    - id: materialContradiction
+      description: Is a HIGH-materiality contradiction open on the case?
+      extractor:
+        kind: presence
+        collection: contradictions
+        where: { materiality: HIGH, status: OPEN }
+        presentToken: OPEN
+        absentToken: NONE
+      tokens: [NONE, OPEN]
+
+  rows:
+    - id: DR-001
+      rules: [KYC-OPS-004]
+      when: { evaluation: ERROR }
+      outcome: ERROR
+      reasonCode: POLICY_EVALUATION_ERROR
+    - id: DR-002
+      rules: [KYC-OPS-003]
+      when: { snapshot: STALE }
+      outcome: ERROR
+      reasonCode: CASE_SNAPSHOT_STALE
+    - id: DR-003
+      rules: [KYC-OPS-002]
+      when: { snapshot: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-004
+      rules: [KYC-CDD-001]
+      when: { cohort: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-005
+      rules: [KYC-OPS-001]
+      when: { policyClaim: ABSENT }
+      outcome: BLOCK
+      reasonCode: POLICY_CONTEXT_MISSING
+    - id: DR-006
+      rules: [KYC-INV-001]
+      when: { investigationWorkItem: [ABSENT, INCOMPLETE] }
+      outcome: BLOCK
+      reasonCode: INVESTIGATION_INCOMPLETE
+    - id: DR-007
+      rules: [KYC-INV-002]
+      when: { investigationEvidence: ABSENT }
+      outcome: BLOCK
+      reasonCode: INVESTIGATION_EVIDENCE_MISSING
+    - id: DR-008
+      rules: [KYC-SCR-002]
+      when: { screeningCoverage: [DEGRADED, UNAVAILABLE] }
+      outcome: REVIEW
+      reasonCode: SCREENING_PROVIDER_OUTAGE
+    - id: DR-009
+      rules: [KYC-OPS-002]
+      when: { screeningCoverage: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-010
+      rules: [KYC-SCR-001]
+      when: { sanctionsListFreshness: STALE }
+      outcome: REVIEW
+      reasonCode: SANCTIONS_LIST_STALE
+    - id: DR-011
+      rules: [KYC-OPS-002]
+      when: { sanctionsListFreshness: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-012
+      rules: [KYC-CDD-002]
+      when: { beneficialOwnership: UNSATISFIED }
+      outcome: BLOCK
+      reasonCode: BENEFICIAL_OWNERSHIP_INCOMPLETE
+    - id: DR-013
+      rules: [KYC-OPS-002]
+      when: { beneficialOwnership: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-014
+      rules: [KYC-EDD-001]
+      when: { eddObligations: UNSATISFIED }
+      outcome: BLOCK
+      reasonCode: EDD_OBLIGATIONS_INCOMPLETE
+    - id: DR-015
+      rules: [KYC-OPS-002]
+      when: { eddObligations: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-016
+      rules: [KYC-CIP-002, KYC-CDD-003, KYC-INV-002, KYC-SCR-001, KYC-CDD-004]
+      when: { cohortObligations: UNSATISFIED }
+      outcome: BLOCK
+      reasonCode: REQUIRED_EVIDENCE_MISSING
+    - id: DR-017
+      rules: [KYC-OPS-002, KYC-CDD-004]
+      when: { cohortObligations: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DR-018
+      rules: [KYC-INV-004]
+      when: { materialContradiction: OPEN }
+      outcome: REVIEW
+      reasonCode: MATERIAL_CONTRADICTION
+    - id: DR-020
+      rules: [KYC-CDD-002]
+      when: { beneficialOwnership: EXPIRED }
+      outcome: REVIEW
+      reasonCode: EVIDENCE_EXPIRED
+    - id: DR-021
+      rules: [KYC-EDD-001]
+      when: { eddObligations: EXPIRED }
+      outcome: REVIEW
+      reasonCode: EVIDENCE_EXPIRED
+    - id: DR-022
+      rules: [KYC-CIP-002, KYC-CDD-003, KYC-CDD-004]
+      when: { cohortObligations: EXPIRED }
+      outcome: REVIEW
+      reasonCode: EVIDENCE_EXPIRED
+    - id: DR-030
+      rules: [KYC-INV-001, KYC-CIP-002, KYC-CDD-003, KYC-CDD-004]
+      when:
+        evaluation: OK
+        snapshot: CURRENT
+        cohort: RESOLVED
+        policyClaim: PRESENT
+        investigationWorkItem: COMPLETED
+        investigationEvidence: PRESENT
+        screeningCoverage: COMPLETE
+        sanctionsListFreshness: FRESH
+        beneficialOwnership: [SATISFIED, NOT_APPLICABLE]
+        eddObligations: [SATISFIED, NOT_APPLICABLE]
+        cohortObligations: [SATISFIED, NOT_APPLICABLE]
+        materialContradiction: NONE
+      outcome: ALLOW
+      reasonCode: DECISION_PRECONDITIONS_SATISFIED
+      transitionTo: READY_FOR_DECISION
+
+  default:
+    rules: [KYC-DEC-006]
+    outcome: REVIEW
+    reasonCode: NO_AUTOMATIC_DISPOSITION_RULE

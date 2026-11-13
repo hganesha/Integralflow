@@ -1,0 +1,36 @@
+{
+  "provider_id": "twilio-lookup",
+  "version": "v2",
+  "bases": {
+    "default": "https://lookups.twilio.com"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "ACCOUNT_SID",
+      "AUTH_TOKEN"
+    ]
+  },
+  "sources": [
+    "https://support.twilio.com/hc/en-us/articles/360050891214-Getting-started-with-the-Twilio-lookup-API"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "lookup_phone": {
+      "method": "GET",
+      "path": "/v2/PhoneNumbers/{phone}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "phone_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://support.twilio.com/hc/en-us/articles/360050891214-Getting-started-with-the-Twilio-lookup-API",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

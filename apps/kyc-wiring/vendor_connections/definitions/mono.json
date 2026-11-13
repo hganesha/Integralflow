@@ -1,0 +1,52 @@
+{
+  "provider_id": "mono",
+  "version": "v2",
+  "bases": {
+    "default": "https://api.withmono.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "mono-sec-key",
+    "keys": [
+      "SECRET_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.mono.co/api/telco-data/integration-guide"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "exchange_code": {
+      "method": "POST",
+      "path": "/v2/accounts/auth",
+      "required_body": [
+        "code"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "session",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.mono.co/api/telco-data/integration-guide",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_identity": {
+      "method": "GET",
+      "path": "/v2/accounts/{id}/identity",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.mono.co/api/telco-data/integration-guide",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

@@ -1,0 +1,419 @@
+apiVersion: harness.factory/reason-codes-v1
+kind: ReasonCodeRegistry
+metadata:
+  id: catalog.kyc.reason-codes.v1
+  domain: kyc
+  jurisdiction: US
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    Canonical reason codes emitted by the deterministic KYC policy gates. Every gate
+    outcome carries exactly one primary reason code from this registry. The code, not the
+    prose, is the stable contract: analyst queues, exports, audit packages and metrics all
+    key on it. Codes are additive; a retired code keeps its number and is marked retired.
+spec:
+  # outcome is the policy result the code may accompany. ALLOW codes may only be emitted
+  # by a passing gate; no code in this registry carries an automatic DECLINE, because
+  # decline is reserved to human authority with dual control.
+  outcomes: [ALLOW, BLOCK, REVIEW, UNKNOWN, ERROR]
+  queues:
+    - id: queue.kyc.analyst
+      name: KYC analyst queue
+      description: First-line review of policy-blocked or review-routed cases.
+    - id: queue.kyc.sanctions
+      name: Sanctions escalation queue
+      description: Sanctions alert adjudication; dual control required to clear.
+    - id: queue.kyc.edd
+      name: Enhanced due diligence queue
+      description: Elevated and high-risk cases requiring EDD completion.
+    - id: queue.kyc.quality
+      name: Quality assurance queue
+      description: Post-decision sampling and QA review.
+    - id: queue.platform.operations
+      name: Platform operations queue
+      description: Provider outages, stale snapshots and evaluation errors.
+
+  codes:
+    # ---------------------------------------------------------------- authority
+    - code: POLICY_AUTHORITY_MISSING
+      outcome: BLOCK
+      summary: The case carries no authoritative policy evidence.
+      analystGuidance: >-
+        The policy context agent did not link KYC_POLICY_AUTHORITY evidence. Re-run policy
+        resolution; do not proceed on an unpinned policy.
+      routeTo: queue.platform.operations
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+    - code: POLICY_CLAIM_MISSING
+      outcome: BLOCK
+      summary: No applicable_kyc_policy claim exists on the case.
+      analystGuidance: Re-run the policy context agent; screening cannot begin unpinned.
+      routeTo: queue.platform.operations
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+    - code: POLICY_SNAPSHOT_MISMATCH
+      outcome: BLOCK
+      summary: The policy claim digest does not match the case policy authority digest.
+      analystGuidance: >-
+        Evidence was produced against a different policy snapshot than the case is pinned
+        to. Treat all downstream findings as suspect and restart the case at intake.
+      routeTo: queue.platform.operations
+      priority: URGENT
+      retryable: false
+      humanAuthorityRequired: false
+    - code: POLICY_SNAPSHOT_STALE
+      outcome: REVIEW
+      summary: The pinned policy snapshot is older than the configured freshness window.
+      analystGuidance: Re-pin the case to the current policy version and re-screen.
+      routeTo: queue.platform.operations
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+      ownerInputRefs: [D05]
+    - code: CASE_SNAPSHOT_STALE
+      outcome: ERROR
+      summary: The evaluated case snapshot was superseded before the decision was applied.
+      analystGuidance: >-
+        The case changed between snapshot read and policy application. Re-evaluate against
+        the current sequence; never apply a decision computed from a superseded snapshot.
+      routeTo: queue.platform.operations
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+
+    - code: POLICY_CONTEXT_MISSING
+      outcome: BLOCK
+      summary: The case carries no resolved policy context at decision readiness.
+      analystGuidance: >-
+        The applicable_kyc_policy claim is absent when it should already exist. Restart the
+        case at policy resolution rather than deciding without context.
+      routeTo: queue.platform.operations
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+
+    - code: PRODUCTION_POLICY_CONFIGURATION_UNRESOLVED
+      outcome: ERROR
+      summary: The pinned bundle's institution settings are unresolved or unapproved.
+      analystGuidance: >-
+        The bundle is a candidate, not an approved policy. No disposition may be reached
+        against it. Resolve the outstanding owner inputs and promote an approved bundle;
+        until then every case in flight is a human's to decide outside this gate.
+      routeTo: queue.platform.operations
+      priority: URGENT
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D04]
+
+    # ---------------------------------------------------------------- intake / CIP
+    - code: CIP_CORE_ATTRIBUTES_INCOMPLETE
+      outcome: BLOCK
+      summary: Required customer identification attributes are absent from the case.
+      analystGuidance: >-
+        Name, date of birth, residential address and taxpayer identification number are
+        required before screening. Request the missing attributes from intake.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+      authorityBasis: "31 CFR 1020.220(a)(2)(i)"
+    - code: BENEFICIAL_OWNERSHIP_INCOMPLETE
+      outcome: BLOCK
+      summary: Beneficial ownership information required for this cohort is missing.
+      analystGuidance: >-
+        Collect and verify beneficial ownership for the legal entity before the case can
+        reach decision readiness.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+      authorityBasis: "31 CFR 1010.230"
+
+    # ---------------------------------------------------------------- evidence
+    - code: REQUIRED_EVIDENCE_MISSING
+      outcome: BLOCK
+      summary: One or more policy evidence obligations are unsatisfied.
+      analystGuidance: >-
+        The unsatisfied obligation IDs are listed in the evaluation detail. Obtain the
+        evidence or route the case for an EDD exception decision.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+    - code: EVIDENCE_EXPIRED
+      outcome: REVIEW
+      summary: Evidence satisfying an obligation is outside its freshness window.
+      analystGuidance: Refresh the expired evidence before approval.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+      ownerInputRefs: [D05]
+    - code: EDD_OBLIGATIONS_INCOMPLETE
+      outcome: BLOCK
+      summary: Enhanced due diligence obligations for an elevated or high-risk cohort are unmet.
+      analystGuidance: >-
+        Complete source-of-funds, relationship-purpose and EDD narrative obligations before
+        the case may reach decision readiness.
+      routeTo: queue.kyc.edd
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+
+    # ---------------------------------------------------------------- investigation
+    - code: INVESTIGATION_INCOMPLETE
+      outcome: BLOCK
+      summary: The public-source investigation work item is not completed.
+      analystGuidance: Await or re-dispatch the investigation work item.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+    - code: INVESTIGATION_EVIDENCE_MISSING
+      outcome: BLOCK
+      summary: No public-source investigation evidence is linked to the case.
+      analystGuidance: Re-run investigation; a completed work item without evidence is not a result.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+    - code: SCREENING_PROVIDER_OUTAGE
+      outcome: REVIEW
+      summary: A required screening provider was unavailable or returned a degraded result.
+      analystGuidance: >-
+        Screening coverage is incomplete. Do not approve on partial coverage; re-screen once
+        the provider recovers, or complete a manual screen and record it as evidence.
+      routeTo: queue.platform.operations
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+      ownerInputRefs: [D01]
+    - code: SANCTIONS_LIST_STALE
+      outcome: REVIEW
+      summary: The sanctions list version used for screening is older than the permitted window.
+      analystGuidance: Re-screen against the current list version before any disposition.
+      routeTo: queue.kyc.sanctions
+      priority: HIGH
+      retryable: true
+      humanAuthorityRequired: false
+      ownerInputRefs: [D01]
+
+    # ---------------------------------------------------------------- findings
+    - code: POSSIBLE_SANCTIONS_MATCH
+      outcome: REVIEW
+      summary: Screening produced a possible sanctions match requiring adjudication.
+      analystGuidance: >-
+        Adjudicate the alert against the list record. Clearing a sanctions alert requires
+        dual control; it is never automatic.
+      routeTo: queue.kyc.sanctions
+      priority: URGENT
+      retryable: false
+      humanAuthorityRequired: true
+      dualControlRequired: true
+      authorityBasis: "31 CFR 501.604"
+    - code: CONFIRMED_SANCTIONS_MATCH
+      outcome: REVIEW
+      summary: Screening produced a confirmed sanctions match.
+      analystGuidance: >-
+        Escalate immediately under the sanctions procedure. The platform does not decline
+        automatically; a human with sanctions authority owns the disposition and any
+        blocking or reporting obligation.
+      routeTo: queue.kyc.sanctions
+      priority: URGENT
+      retryable: false
+      humanAuthorityRequired: true
+      dualControlRequired: true
+      authorityBasis: "31 CFR 501.603"
+    - code: PEP_REVIEW_REQUIRED
+      outcome: REVIEW
+      summary: A politically exposed person signal requires the policy-defined review path.
+      analystGuidance: Confirm PEP tier and complete the EDD obligations for PEP relationships.
+      routeTo: queue.kyc.edd
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D03]
+    - code: ADVERSE_MEDIA_REVIEW_REQUIRED
+      outcome: REVIEW
+      summary: Adverse media within the policy lookback window requires analyst assessment.
+      analystGuidance: Assess relevance, recency and subject attribution of the adverse media.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D02]
+    - code: IDENTITY_CONFLICT
+      outcome: REVIEW
+      summary: Investigation surfaced an unresolved identity conflict for the subject.
+      analystGuidance: Resolve the identity conflict before any approval; re-verify identity evidence.
+      routeTo: queue.kyc.analyst
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+    - code: MATERIAL_CONTRADICTION
+      outcome: REVIEW
+      summary: An open high-materiality contradiction exists on the case.
+      analystGuidance: Resolve or accept the contradiction with rationale before disposition.
+      routeTo: queue.kyc.analyst
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+    - code: HIGH_RISK_JURISDICTION_REVIEW
+      outcome: REVIEW
+      summary: The subject jurisdiction is on the institution's high-risk list.
+      analystGuidance: Complete the jurisdiction-specific EDD obligations and record the rationale.
+      routeTo: queue.kyc.edd
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D08]
+
+    # ---------------------------------------------------------------- recommendation
+    - code: RECOMMENDATION_MISSING
+      outcome: BLOCK
+      summary: No decision recommendation exists on the case.
+      analystGuidance: The decision agent produced no recommendation; re-dispatch or review manually.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: false
+    - code: HUMAN_REVIEW_REQUIRED
+      outcome: REVIEW
+      summary: The recommendation explicitly requires human review.
+      analystGuidance: Review the cited rationale, evidence and findings, then decide.
+      routeTo: queue.kyc.analyst
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+    - code: CONFIDENCE_BELOW_THRESHOLD
+      outcome: REVIEW
+      summary: Recommendation confidence is below the configured automatic-disposition threshold.
+      analystGuidance: Treat the recommendation as advisory only and decide on the evidence.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D07]
+    - code: RECOMMENDATION_CITATIONS_INCOMPLETE
+      outcome: REVIEW
+      summary: The recommendation omits required policy, finding or evidence citations.
+      analystGuidance: >-
+        An uncited recommendation is not reviewable. Decide from the case record and report
+        the agent defect.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+    - code: DECLINE_REQUIRES_HUMAN_AUTHORITY
+      outcome: REVIEW
+      summary: A decline recommendation was made; declines are never automatic.
+      analystGuidance: >-
+        Adjudicate the recommended decline. Only a human with decline authority, under dual
+        control, may finalize a DECLINED disposition.
+      routeTo: queue.kyc.analyst
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+      dualControlRequired: true
+
+    # ---------------------------------------------------------------- disposition control
+    - code: APPROVAL_REQUIREMENTS_NOT_MET
+      outcome: REVIEW
+      summary: An approval was recommended but at least one approval requirement is unmet.
+      analystGuidance: The unmet requirement IDs are in the evaluation detail; resolve or decide manually.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+    - code: COHORT_NOT_ELIGIBLE_FOR_AUTOMATIC_APPROVAL
+      outcome: REVIEW
+      summary: The case cohort is outside the attested automatic-approval scope.
+      analystGuidance: >-
+        Automatic approval is limited to attested low-risk cohorts. This case requires a
+        human approval decision.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D04]
+    - code: AUTOMATIC_APPROVAL_ATTESTATION_MISSING
+      outcome: REVIEW
+      summary: The automatic-approval cohort attestation is absent, expired or unverified.
+      analystGuidance: >-
+        Automatic approval requires a current, signed cohort attestation. Without it every
+        case in the cohort is routed to a human.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+      ownerInputRefs: [D04]
+    - code: DUAL_CONTROL_REQUIRED
+      outcome: REVIEW
+      summary: The disposition requires a second approver under dual control.
+      analystGuidance: Route to a second approver with the required role; the first approver may not self-confirm.
+      routeTo: queue.kyc.analyst
+      priority: HIGH
+      retryable: false
+      humanAuthorityRequired: true
+      dualControlRequired: true
+      ownerInputRefs: [D06]
+    - code: NO_AUTOMATIC_DISPOSITION_RULE
+      outcome: REVIEW
+      summary: No disposition rule matched; the policy defaults to human review.
+      analystGuidance: >-
+        Nothing falls through to approval. Decide manually and report the uncovered
+        combination to the policy owner so a rule can be authored.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: true
+
+    # ---------------------------------------------------------------- fail-closed
+    - code: POLICY_UNKNOWN_INPUT
+      outcome: REVIEW
+      summary: A required policy input could not be determined from the case snapshot.
+      analystGuidance: >-
+        Missing information fails closed. The undetermined condition IDs are in the
+        evaluation detail.
+      routeTo: queue.kyc.analyst
+      priority: NORMAL
+      retryable: true
+      humanAuthorityRequired: true
+    - code: POLICY_EVALUATION_ERROR
+      outcome: ERROR
+      summary: The policy engine failed to produce a decision.
+      analystGuidance: >-
+        Treat as no decision. The case stays where it is and goes to a human; an errored
+        evaluation never advances a case.
+      routeTo: queue.platform.operations
+      priority: URGENT
+      retryable: true
+      humanAuthorityRequired: true
+
+    # ---------------------------------------------------------------- pass codes
+    - code: SCREENING_PRECONDITIONS_SATISFIED
+      outcome: ALLOW
+      summary: Authoritative policy context is pinned and intake attributes are complete.
+      analystGuidance: No action; the case may proceed to screening.
+      routeTo: null
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: false
+    - code: DECISION_PRECONDITIONS_SATISFIED
+      outcome: ALLOW
+      summary: Policy, investigation and evidence obligations are sufficient for a recommendation.
+      analystGuidance: No action; the case may proceed to decision.
+      routeTo: null
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: false
+    - code: KYC_REQUIREMENTS_SATISFIED
+      outcome: ALLOW
+      summary: Every approval requirement is satisfied for an attested automatic-approval cohort.
+      analystGuidance: No action; the case is approved under the attested low-risk cohort scope.
+      routeTo: null
+      priority: NORMAL
+      retryable: false
+      humanAuthorityRequired: false

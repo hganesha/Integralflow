@@ -1,0 +1,156 @@
+{
+  "id": "kyb-screening-ownership-us",
+  "version": "1.0.0",
+  "description": "Production slice 1: corporate party screening and ownership (US), ending at independent human review. Topology only; connectors, agents, policy and approval are the platform overlay (scripts/sync-kyb-screening-package.mjs).",
+  "steps": [
+    {
+      "id": "decision_policy_resolve",
+      "skill_id": "decision.policy.resolve",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "entity_resolve",
+      "skill_id": "entity.resolve",
+      "parameters": {
+        "identifiers": []
+      },
+      "bindings": {},
+      "dependencies": [
+        "decision_policy_resolve"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "registry_company_verify",
+      "skill_id": "registry.company.verify",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "entity_resolve"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "ownership_graph_build",
+      "skill_id": "ownership.graph.build",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "registry_company_verify"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "ownership_interest_calculate",
+      "skill_id": "ownership.interest.calculate",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "ownership_graph_build"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "ownership_ubo_resolve",
+      "skill_id": "ownership.ubo.resolve",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "ownership_interest_calculate"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "ownership_ubo_verify",
+      "skill_id": "ownership.ubo.verify",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "ownership_ubo_resolve"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "screening_name_normalize",
+      "skill_id": "screening.name.normalize",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "ownership_ubo_verify"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "screening_sanctions_execute",
+      "skill_id": "screening.sanctions.execute",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "screening_name_normalize"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "screening_pep_execute",
+      "skill_id": "screening.pep.execute",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "screening_sanctions_execute"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "screening_match_disambiguate",
+      "skill_id": "screening.match.disambiguate",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "screening_pep_execute"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "screening_sanctions_ownership_evaluate",
+      "skill_id": "screening.sanctions.ownership.evaluate",
+      "parameters": {
+        "blocked_ids": []
+      },
+      "bindings": {
+        "blocked_ids": "screening_sanctions_execute.payload.hits[*].entity_id"
+      },
+      "dependencies": [
+        "screening_match_disambiguate"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "decision_human_review",
+      "skill_id": "decision.human.review",
+      "parameters": {
+        "action": "REVIEW_SCREENING_AND_OWNERSHIP"
+      },
+      "bindings": {},
+      "dependencies": [
+        "screening_sanctions_ownership_evaluate"
+      ],
+      "condition": null,
+      "success_condition": null
+    }
+  ]
+}

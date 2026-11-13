@@ -1,0 +1,84 @@
+{
+  "provider_id": "truelayer",
+  "version": "documented-public",
+  "bases": {
+    "production": "https://api.truelayer.com",
+    "sandbox": "https://api.truelayer-sandbox.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "prefix": "Bearer ",
+    "keys": [
+      "ACCESS_TOKEN"
+    ]
+  },
+  "sources": [
+    "https://docs.truelayer.com/docs/account-and-card-data",
+    "https://docs.truelayer.com/reference/getaccount"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "accounts": {
+      "method": "GET",
+      "path": "/data/v1/accounts",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.truelayer.com/docs/account-and-card-data",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "account": {
+      "method": "GET",
+      "path": "/data/v1/accounts/{account_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.truelayer.com/reference/getaccount",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "balance": {
+      "method": "GET",
+      "path": "/data/v1/accounts/{account_id}/balance",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.truelayer.com/docs/account-and-card-data",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "transactions": {
+      "method": "GET",
+      "path": "/data/v1/accounts/{account_id}/transactions",
+      "required_body": [],
+      "required_query": [
+        "from",
+        "to"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "transaction_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.truelayer.com/docs/account-and-card-data",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

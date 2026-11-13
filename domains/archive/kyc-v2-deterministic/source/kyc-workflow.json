@@ -1,0 +1,363 @@
+{
+  "id": "cdd-onboarding-individual",
+  "steps": [
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [],
+      "id": "decision_policy_resolve",
+      "parameters": {},
+      "skill_id": "decision.policy.resolve",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_policy_resolve"
+      ],
+      "id": "entity_identity_verify",
+      "parameters": {},
+      "skill_id": "entity.identity.verify",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "entity_identity_verify"
+      ],
+      "id": "document_classify",
+      "parameters": {},
+      "skill_id": "document.classify",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_classify"
+      ],
+      "id": "document_fields_extract",
+      "parameters": {
+        "fields": [
+          "full_name",
+          "date_of_birth",
+          "residential_address",
+          "taxpayer_identification_number"
+        ]
+      },
+      "skill_id": "document.fields.extract",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "assertions": "document_fields_extract.payload.assertions"
+      },
+      "condition": null,
+      "dependencies": [
+        "document_fields_extract"
+      ],
+      "id": "document_evidence_link",
+      "parameters": {
+        "assertions": []
+      },
+      "skill_id": "document.evidence.link",
+      "success_condition": null
+    },
+    {
+      "id": "document_classify_catalog",
+      "skill_id": "document.classify.catalog",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "document_evidence_link"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "document_fields_contract_extract",
+      "skill_id": "document.fields.contract_extract",
+      "parameters": {
+        "classifications": [],
+        "subject": "case-subject"
+      },
+      "bindings": {
+        "classifications": "document_classify_catalog.payload.classifications"
+      },
+      "dependencies": [
+        "document_classify_catalog"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "document_validity_assess",
+      "skill_id": "document.validity.assess",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "document_fields_contract_extract"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "document_consistency_assess",
+      "skill_id": "document.consistency.assess",
+      "parameters": {},
+      "bindings": {},
+      "dependencies": [
+        "document_validity_assess"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "document_requirements_resolve",
+      "skill_id": "document.requirements.resolve",
+      "parameters": {
+        "classifications": [],
+        "package": "individual",
+        "event": null
+      },
+      "bindings": {
+        "classifications": "document_classify_catalog.payload.classifications"
+      },
+      "dependencies": [
+        "document_consistency_assess"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "id": "document_request_compose",
+      "skill_id": "document.request.compose",
+      "parameters": {
+        "missing_types": []
+      },
+      "bindings": {
+        "missing_types": "document_requirements_resolve.payload.request_types"
+      },
+      "dependencies": [
+        "document_requirements_resolve"
+      ],
+      "condition": null,
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_request_compose"
+      ],
+      "id": "party_profile_build",
+      "parameters": {},
+      "skill_id": "party.profile.build",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "party_profile_build"
+      ],
+      "id": "party_type_classify",
+      "parameters": {},
+      "skill_id": "party.type.classify",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "party_type_classify"
+      ],
+      "id": "entity_resolve",
+      "parameters": {
+        "identifiers": []
+      },
+      "skill_id": "entity.resolve",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "entity_resolve"
+      ],
+      "id": "screening_name_normalize",
+      "parameters": {},
+      "skill_id": "screening.name.normalize",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_name_normalize"
+      ],
+      "id": "screening_sanctions_execute",
+      "parameters": {},
+      "skill_id": "screening.sanctions.execute",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_sanctions_execute"
+      ],
+      "id": "screening_pep_execute",
+      "parameters": {},
+      "skill_id": "screening.pep.execute",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_pep_execute"
+      ],
+      "id": "screening_adverse_media_execute",
+      "parameters": {},
+      "skill_id": "screening.adverse_media.execute",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_adverse_media_execute"
+      ],
+      "id": "screening_match_disambiguate",
+      "parameters": {},
+      "skill_id": "screening.match.disambiguate",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_match_disambiguate"
+      ],
+      "id": "risk_factor_evaluate",
+      "parameters": {
+        "factor": "geography"
+      },
+      "skill_id": "risk.factor.evaluate",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "risk_factor_evaluate"
+      ],
+      "id": "risk_customer_assess",
+      "parameters": {},
+      "skill_id": "risk.customer.assess",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "score": "risk_customer_assess.payload.assessment.score"
+      },
+      "condition": null,
+      "dependencies": [
+        "risk_customer_assess"
+      ],
+      "id": "risk_tier_assign",
+      "parameters": {},
+      "skill_id": "risk.tier.assign",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "facts.tier": "risk_tier_assign.payload.tier"
+      },
+      "condition": null,
+      "dependencies": [
+        "risk_tier_assign"
+      ],
+      "id": "edd_trigger_evaluate",
+      "parameters": {
+        "facts": {}
+      },
+      "skill_id": "edd.trigger.evaluate",
+      "success_condition": {
+        "field": "payload.required",
+        "op": "eq",
+        "value": false
+      }
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "edd_trigger_evaluate"
+      ],
+      "id": "evidence_sufficiency_assess",
+      "parameters": {},
+      "skill_id": "evidence.sufficiency.assess",
+      "success_condition": {
+        "field": "payload.sufficient",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "bindings": {
+        "facts.identity_verified": "entity_identity_verify.payload.verifications.0.verified",
+        "facts.tier": "risk_tier_assign.payload.tier"
+      },
+      "condition": null,
+      "dependencies": [
+        "evidence_sufficiency_assess"
+      ],
+      "id": "decision_requirements_compile",
+      "parameters": {
+        "facts": {}
+      },
+      "skill_id": "decision.requirements.compile",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_requirements_compile"
+      ],
+      "id": "decision_recommendation_generate",
+      "parameters": {},
+      "skill_id": "decision.recommendation.generate",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_recommendation_generate"
+      ],
+      "id": "decision_disposition_record",
+      "parameters": {
+        "disposition": "ACCEPT"
+      },
+      "skill_id": "decision.disposition.record",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_disposition_record"
+      ],
+      "id": "monitor_customer_schedule",
+      "parameters": {},
+      "skill_id": "monitor.customer.schedule",
+      "success_condition": null
+    }
+  ],
+  "version": "0.1.0"
+}

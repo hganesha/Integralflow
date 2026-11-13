@@ -1,0 +1,156 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:fraud.liveness.verify
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Relay an admitted request-bound specialist assessment citing every
+  record sent; INCONCLUSIVE or absent is never clean.
+code_hash: 3cb1644620980144fc43789386a968bf1f186ccb53a7d838558df98efac52f46
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities:
+  - fraud.liveness
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Relay an admitted request-bound specialist assessment citing every record
+  sent; INCONCLUSIVE or absent is never clean.
+effects: read_only
+entrypoint: financial_crime.skills.fraud:attested
+evaluation_profile: fraud.liveness.verify-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: provider
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- EXTERNAL_ACTION_UNCONFIRMED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- LOW_CONFIDENCE
+- POLICY_UNRESOLVED
+- RATE_LIMITED
+- SOURCE_CONFLICT
+- SOURCE_UNAVAILABLE
+- TIMEOUT
+harness_name: fraud-liveness-verify
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: fraud.liveness.verify
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:fraud.liveness.verify:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: b62de65f3da5f40e98668a1f7eb015859dc0210420cfb18229e8e278d31463a9
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. specialist accuracy requires independent real-data evaluation
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    DetectorAssessment:
+      additionalProperties: false
+      properties:
+        assessment:
+          $ref: '#/$defs/Id'
+        limitations:
+          items:
+            $ref: '#/$defs/Text'
+          maxItems: 10000
+          type: array
+        model_version:
+          $ref: '#/$defs/Id'
+        score:
+          $ref: '#/$defs/Fraction'
+      required:
+      - score
+      - model_version
+      - limitations
+      - assessment
+      type: object
+    Fraction:
+      pattern: ^(?:0(?:\.[0-9]+)?|1(?:\.0+)?)$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:fraud.liveness.verify:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    assessment:
+      $ref: '#/$defs/DetectorAssessment'
+    final_decision:
+      type: boolean
+    provider_id:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    synthetic:
+      type: boolean
+  required:
+  - assessment
+  - provider_id
+  - synthetic
+  - final_decision
+  type: object
+owner: financial-crime-skills
+permitted_capabilities:
+- fraud.liveness
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- permitted_providers
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - artifact_hash
+  - challenge_id
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Session
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

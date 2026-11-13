@@ -1,0 +1,27 @@
+dynamic_target: null
+requirements:
+- fields:
+  - document_id
+  - artifact_hash
+  - media_type
+  - artifact_ref
+  - page_count
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DocumentVersion
+  optional: false
+- fields:
+  - text
+  - page
+  - document_version
+  - extensions
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: DocumentPage
+  optional: true
+schema_version: 2.0.0
+skill_id: document.parse.artifact

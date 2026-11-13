@@ -1,0 +1,165 @@
+.workspace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.header h2,
+.header p,
+.card h3,
+.card p {
+  margin: 0;
+}
+.header > div {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 48rem;
+}
+.count,
+.muted {
+  color: var(--ink-2);
+  font-size: var(--text-sm);
+}
+.count {
+  white-space: nowrap;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+}
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(170px, 240px) minmax(
+      90px,
+      120px
+    );
+  gap: var(--space-3);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-4);
+}
+.grid[data-layout="list"] {
+  grid-template-columns: 1fr;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-4);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+  padding: var(--space-5);
+  min-width: 0;
+}
+.cardHeading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.cardHeading > div {
+  min-width: 0;
+}
+.card h3 {
+  font-size: var(--text-lg);
+}
+.mark {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lg);
+  color: var(--ink-1);
+}
+.mark img {
+  object-fit: contain;
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.badges li {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-1);
+  font-size: var(--text-xs);
+}
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+.scope,
+.empty {
+  padding: var(--space-4);
+  background: var(--surface-well);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+}
+.saved {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line-1);
+  overflow-wrap: anywhere;
+}
+.tableWrap {
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.table th,
+.table td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--line-1);
+  vertical-align: top;
+}
+.table td {
+  min-width: 140px;
+}
+.table th:first-child,
+.table td:first-child {
+  min-width: 160px;
+}
+.binding {
+  display: grid;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--space-3);
+}
+@media (max-width: 640px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: var(--space-4);
+  }
+}

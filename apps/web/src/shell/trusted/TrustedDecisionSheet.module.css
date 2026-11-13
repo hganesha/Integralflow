@@ -1,0 +1,28 @@
+/* P3 trusted action sheet (STYLE-GUIDE §5.5): the only surface with the graphite band, lock
+   glyph, 2 px graphite border and shadow-3. Token variables only. */
+.scrim { position: fixed; inset: 0; background: var(--surface-scrim); z-index: var(--z-sheet); display: flex; align-items: center; justify-content: center; padding: var(--space-6); }
+.sheet { width: min(780px, 100%); max-height: calc(100vh - 48px); overflow: auto; display: flex; flex-direction: column; background: var(--surface-panel); border: 2px solid var(--action-trusted-bg); border-radius: var(--radius-xl); box-shadow: var(--shadow-3); }
+.sheet:focus-visible { outline: none; box-shadow: var(--focus-ring), var(--shadow-3); }
+.band { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-6); background: var(--action-trusted-bg); color: var(--ink-inverse); font-size: var(--text-2xs); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-engraved); text-transform: uppercase; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.bandRef { margin-left: auto; font-family: var(--font-mono); text-transform: none; letter-spacing: 0; font-weight: var(--weight-regular); }
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); padding: var(--space-5) var(--space-6) var(--space-3); border-bottom: 1px solid var(--line-1); }
+.title { margin: 0; font-size: var(--text-xl); line-height: var(--lh-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
+.context { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
+.body { padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+.section { display: flex; flex-direction: column; gap: var(--space-2); }
+.sectionTitle { margin: 0; font-size: var(--text-2xs); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-engraved); text-transform: uppercase; color: var(--ink-3); }
+.attest { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-sm); padding: var(--space-3); border: 1px solid var(--line-2); border-radius: var(--radius-md); background: var(--surface-raised); }
+.attest input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--action-trusted-bg); }
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); justify-content: flex-end; padding: var(--space-4) var(--space-6); border-top: 1px solid var(--line-1); background: var(--surface-raised); border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.status { margin-right: auto; font-size: var(--text-sm); color: var(--ink-2); }
+.decisions { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.decision > :nth-child(3) { justify-self: end; }
+.decision { display: grid; grid-template-columns: auto auto 1fr; gap: var(--space-1) var(--space-3); align-items: baseline; padding: var(--space-2) var(--space-3); border: 1px solid var(--line-1); border-radius: var(--radius-sm); font-size: var(--text-sm); }
+.decisionRationale { grid-column: 1 / -1; color: var(--ink-2); }
+.meter { display: inline-flex; gap: var(--space-1); vertical-align: middle; }
+.meterSeg { width: 22px; height: 8px; border-radius: var(--radius-xs); background: var(--surface-well); border: 1px solid var(--line-2); }
+.meterSeg[data-filled="true"] { background: var(--action-trusted-bg); border-color: var(--action-trusted-bg); }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.count { font-size: var(--text-xs); color: var(--ink-3); text-align: right; }
+.consequence { font-size: var(--text-sm); color: var(--ink-2); }
+@media (max-width: 720px) { .grid2 { grid-template-columns: minmax(0, 1fr); } .scrim { padding: var(--space-2); } }

@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "Approval": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "APPROVED",
+                  "CONSUMED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "approver_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/Id"
+        },
+        "approver_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "context_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "execution_lock_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "expires_at": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "request_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "requester_ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "status": {
+          "$ref": "#/$defs/ApprovalStatus"
+        }
+      },
+      "required": [
+        "action",
+        "requester_ref",
+        "approver_ref",
+        "request_hash",
+        "context_hash",
+        "execution_lock_hash",
+        "status",
+        "expires_at"
+      ],
+      "type": "object"
+    },
+    "ApprovalStatus": {
+      "enum": [
+        "PENDING",
+        "APPROVED",
+        "REJECTED",
+        "CONSUMED",
+        "REVOKED",
+        "EXPIRED"
+      ]
+    },
+    "Extension": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "schema_version",
+        "value"
+      ],
+      "type": "object"
+    },
+    "Extensions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Extension"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "explicit versioned source/institution extensions"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:context:Approval:2.0.0",
+  "$ref": "#/$defs/Approval",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

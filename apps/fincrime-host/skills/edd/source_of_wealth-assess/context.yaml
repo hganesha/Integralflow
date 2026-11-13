@@ -1,0 +1,22 @@
+dynamic_target: null
+requirements:
+- fields:
+  - claim
+  - evidence_ids
+  - verified
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: SourceOfWealth
+  optional: false
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: true
+schema_version: 2.0.0
+skill_id: edd.source_of_wealth.assess

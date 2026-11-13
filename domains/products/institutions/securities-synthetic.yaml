@@ -1,0 +1,64 @@
+# A synthetic securities firm's institution catalog seed (Product Policy Studio plan, phase B).
+# Not a real institution: it exercises brokerage, prime services and custody in the studio.
+apiVersion: harness.factory/institution-catalog-v1
+kind: InstitutionCatalog
+institution:
+  id: securities.synthetic
+  name: Synthetic Securities
+  description: A synthetic US broker-dealer with a trust company affiliate for custody. Synthetic.
+  synthetic: true
+  jurisdictions: [US]
+  legalEntities:
+    - { id: synthetic-securities-llc, name: Synthetic Securities LLC, jurisdiction: US, regulatoryRegimes: [BROKER_DEALER, INVESTMENT_ADVISER] }
+    - { id: synthetic-trust-co, name: Synthetic Trust Company, jurisdiction: US, regulatoryRegimes: [BANKING, TRUST_COMPANY] }
+  businessLines:
+    - { id: brokerage, name: Securities & brokerage, productScope: [BRK.RETAIL, BRK.DIGITAL, BRK.INSTITUTIONAL] }
+    - { id: prime-services, name: Prime services, productScope: [BRK.PRIME, BRK.FINANCING] }
+    - { id: custody, name: Custody & asset servicing, productScope: [CUS.SAFEKEEPING, CUS.SETTLEMENT, CUS.SECURITIES_LENDING_AGENCY] }
+    - { id: wealth, name: Wealth management, productScope: [WLT.WEALTH_MANAGEMENT] }
+offerings:
+  - offeringId: cash-brokerage
+    name: Cash Brokerage
+    canonicalProductId: BRK.RETAIL.CASH
+    businessLine: brokerage
+    legalEntity: synthetic-securities-llc
+    jurisdictions: [US]
+    variantAttributes: { leverage: false, channels: [DIGITAL] }
+  - offeringId: margin-brokerage
+    name: Margin Brokerage
+    canonicalProductId: BRK.RETAIL.MARGIN
+    businessLine: brokerage
+    legalEntity: synthetic-securities-llc
+    jurisdictions: [US]
+    variantAttributes: { leverage: true, collateral: [SECURITIES] }
+  - offeringId: prime-brokerage
+    name: Prime Brokerage
+    description: Institutional trading, securities financing, custody and margin services.
+    canonicalProductId: BRK.PRIME.INSTITUTIONAL
+    businessLine: prime-services
+    legalEntity: synthetic-securities-llc
+    jurisdictions: [US]
+    eligiblePartyTypes: [INVESTMENT_FUND, FINANCIAL_INSTITUTION, LEGAL_ENTITY]
+    variantAttributes: { leverage: true, third_party_funding: false, collateral: [CASH, SECURITIES], intermediaries: [SUB_CUSTODIAN] }
+    bundle: [institutional-custody]
+  - offeringId: securities-financing
+    name: Securities Financing
+    canonicalProductId: BRK.FINANCING.STOCK_BORROW_LOAN
+    businessLine: prime-services
+    legalEntity: synthetic-securities-llc
+    jurisdictions: [US]
+    eligiblePartyTypes: [INVESTMENT_FUND, FINANCIAL_INSTITUTION]
+  - offeringId: institutional-custody
+    name: Institutional Custody
+    canonicalProductId: CUS.SAFEKEEPING.INSTITUTIONAL_CUSTODY
+    businessLine: custody
+    legalEntity: synthetic-trust-co
+    jurisdictions: [US]
+    legacyProductTypes: [custody]
+  - offeringId: managed-portfolios
+    name: Managed Portfolios
+    canonicalProductId: WLT.WEALTH_MANAGEMENT.DISCRETIONARY
+    businessLine: wealth
+    legalEntity: synthetic-securities-llc
+    jurisdictions: [US]
+    eligiblePartyTypes: [INDIVIDUAL, TRUST]

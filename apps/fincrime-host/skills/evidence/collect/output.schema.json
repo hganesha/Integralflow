@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "jurisdictions": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "pages_complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "provider": {
+          "$ref": "#/$defs/Id"
+        },
+        "query": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "complete"
+      ],
+      "type": "object"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "SourceArtifactResult": {
+      "additionalProperties": false,
+      "properties": {
+        "content_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        },
+        "ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "source": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "ref",
+        "content_hash",
+        "source",
+        "coverage"
+      ],
+      "type": "object"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:evidence.collect:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/SourceArtifactResult"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifacts"
+  ],
+  "type": "object"
+}

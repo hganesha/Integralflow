@@ -1,0 +1,152 @@
+{
+  "info": {
+    "name": "KYC API Wiring \u2014 Demo / Host API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Synthetic demo requests only; no vendor credentials. Start the local service first. Results are asynchronous; retry GET lifecycle until terminal."
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "host_token",
+      "value": "demo-token-local-only"
+    },
+    {
+      "key": "check_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/healthz"
+      }
+    },
+    {
+      "name": "Connection readiness",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/v1/connections?limit=1000"
+      }
+    },
+    {
+      "name": "Submit synthetic Sumsub check (DEMO ONLY)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/v1/demo/run",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"operation_id\": \"sumsub:identity.person.verify\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const body = pm.response.json();",
+              "if (body.check) pm.collectionVariables.set(\"check_id\", body.check.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get lifecycle (repeat until terminal)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/v1/checks/{{check_id}}"
+      }
+    },
+    {
+      "name": "Get canonical results",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/v1/checks/{{check_id}}/results"
+      }
+    },
+    {
+      "name": "Pull tenant events",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/v1/events"
+      }
+    },
+    {
+      "name": "Inspect restricted artifact (admin)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/v1/checks/{{check_id}}/artifact"
+      }
+    },
+    {
+      "name": "Get host schema",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{host_token}}"
+          }
+        ],
+        "url": "{{base_url}}/v1/schemas/host"
+      }
+    }
+  ]
+}

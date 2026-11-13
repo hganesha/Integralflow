@@ -1,0 +1,67 @@
+# Custody, clearing & settlement. Candidate canonical content, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata: { code: CUS, version: 1.0.0, status: CANDIDATE, owner: platform.product-taxonomy }
+spec:
+  sectors: [SECURITIES, BANKING]
+  name: Custody, clearing & settlement
+  definition: Safekeeping assets and clearing and settling transactions for clients and intermediaries.
+  regulatedActivities: [SECURITIES_CUSTODY]
+  eligiblePartyTypes: [LEGAL_ENTITY, INVESTMENT_FUND, FINANCIAL_INSTITUTION, GOVERNMENT, TRUST, INDIVIDUAL]
+  riskDimensions: [INTERMEDIARY_RISK, NESTED_ACCESS, CROSS_BORDER]
+  classes:
+    - code: SAFEKEEPING
+      name: Safekeeping & asset servicing
+      definition: Holding securities and servicing them through corporate actions and income.
+      types:
+        - { code: GLOBAL_CUSTODY, name: Global custody, definition: "Custody of a client's assets across many markets through sub-custodians.", riskDimensions: [GEOGRAPHIC_EXPOSURE] }
+        - { code: INSTITUTIONAL_CUSTODY, name: Institutional custody, definition: "Custody and asset servicing for an institutional client." }
+        - { code: RETAIL_CUSTODY, name: Retail custody, definition: "Safekeeping of an individual's securities.", eligiblePartyTypes: [INDIVIDUAL, TRUST] }
+    - code: SUB_CUSTODY
+      name: Sub-custody
+      definition: Local custody provided to another custodian for its clients' assets.
+      eligiblePartyTypes: [FINANCIAL_INSTITUTION]
+      types:
+        - { code: OMNIBUS_SUB_CUSTODY, name: Omnibus sub-custody, definition: "One account holding a custodian's clients' assets together." }
+        - { code: SEGREGATED_SUB_CUSTODY, name: Segregated sub-custody, definition: "Separate accounts per underlying client of the custodian." }
+    - code: CLEARING
+      name: Clearing
+      definition: Clearing transactions for clients on exchanges and central counterparties.
+      regulatedActivities: [CLEARING]
+      types:
+        - { code: SECURITIES_CLEARING, name: Securities clearing, definition: "Clearing securities trades for clients or other brokers." }
+        - { code: FUTURES_CLEARING, name: Futures and options clearing, definition: "Clearing exchange-traded derivatives for clients.", riskDimensions: [LEVERAGE] }
+    - code: SETTLEMENT
+      name: Settlement
+      definition: Delivering securities and cash to complete transactions.
+      regulatedActivities: [SETTLEMENT]
+      types:
+        - { code: AGENT_SETTLEMENT, name: Agent settlement, definition: "Settling a client's trades as its agent." }
+        - { code: CASH_SETTLEMENT, name: Cash settlement accounts, definition: "Cash accounts supporting securities settlement." }
+    - code: COLLATERAL
+      name: Collateral management
+      definition: Holding, valuing and moving collateral between parties.
+      types:
+        - { code: TRIPARTY, name: Triparty collateral, definition: "A third agent managing collateral between two counterparties." }
+        - { code: COLLATERAL_SEGREGATION, name: Collateral segregation, definition: "Segregated accounts for posted initial margin." }
+    - code: SECURITIES_LENDING_AGENCY
+      name: Agency securities lending
+      definition: Lending a custody client's securities as its agent.
+      regulatedActivities: [SECURITIES_FINANCING]
+      types:
+        - { code: AGENCY_LENDING, name: Agency lending programme, definition: "Lending custody assets to borrowers on the client's behalf." }
+    - code: DEPOSITARY
+      name: Depositary & trustee services
+      definition: Oversight and safekeeping required for regulated funds.
+      eligiblePartyTypes: [INVESTMENT_FUND]
+      regulatedActivities: [SECURITIES_CUSTODY, TRUST_AND_FIDUCIARY]
+      types:
+        - { code: FUND_DEPOSITARY, name: Fund depositary, definition: "Safekeeping and oversight of a regulated fund's assets." }
+    - code: DIGITAL_CUSTODY
+      name: Digital asset custody
+      definition: Safekeeping of digital assets and their keys.
+      regulatedActivities: [VIRTUAL_ASSET_SERVICES, SECURITIES_CUSTODY]
+      riskDimensions: [NEW_TECHNOLOGY, ANONYMITY]
+      alsoClassifiedAs: [DIG.CUSTODY]
+      types:
+        - { code: QUALIFIED_DIGITAL_CUSTODY, name: Qualified digital custody, definition: "Custody of digital assets by a qualified custodian." }

@@ -1,0 +1,60 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ValidityCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "status": {
+          "$ref": "#/$defs/ValidityWindow"
+        },
+        "valid": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "id",
+        "valid",
+        "document_type",
+        "status"
+      ],
+      "type": "object"
+    },
+    "ValidityWindow": {
+      "enum": [
+        "CURRENT",
+        "EXPIRED",
+        "NOT_YET_VALID",
+        "DATES_INCONSISTENT"
+      ]
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.validity.check:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/ValidityCheck"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "checks"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,139 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:ownership.ubo.verify
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Corroborate owner identity through admitted evidence and allowed
+  verification methods.
+code_hash: 412968639c42fc3ca138dbc5b1729dde36b993c8ff20da56835c924c239a5190
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Corroborate owner identity through admitted evidence and allowed verification
+  methods.
+effects: read_only
+entrypoint: financial_crime.skills.ownership:ubo_verify
+evaluation_profile: ownership.ubo.verify-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: ownership-ubo-verify
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: ownership.ubo.verify
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:ownership.ubo.verify:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: bb1e9eeaafb51670fbffbb5bc128ac5d35d22e94e25a5f87e3849930d39c112c
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    OwnerVerification:
+      additionalProperties: false
+      properties:
+        entity_id:
+          $ref: '#/$defs/Id'
+        verified:
+          $ref: '#/$defs/Bool'
+      required:
+      - entity_id
+      - verified
+      type: object
+  $id: urn:financial-crime:skill:ownership.ubo.verify:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    owners:
+      items:
+        $ref: '#/$defs/OwnerVerification'
+      maxItems: 10000
+      type: array
+  required:
+  - owners
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- verification_methods
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - entity_id
+  - evidence_ids
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: BeneficialOwner
+  optional: false
+- fields:
+  - subject
+  - status
+  - method
+  - evidence_ids
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: VerificationRecord
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

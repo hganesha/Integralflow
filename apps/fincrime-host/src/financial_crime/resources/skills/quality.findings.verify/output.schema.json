@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "CitationCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "citations_valid": {
+          "$ref": "#/$defs/Bool"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "citations_valid"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:quality.findings.verify:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/CitationCheck"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "semantic_review_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "checks",
+    "semantic_review_required"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,265 @@
+apiVersion: harness.factory/cohorts-v1
+kind: CohortCatalog
+metadata:
+  id: catalog.kyc.cohorts.v1
+  domain: kyc
+  jurisdiction: US
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    The risk and failure cohorts the golden corpus must cover and the policy gates reason
+    about. A risk cohort is assigned from stable case attributes and decides which evidence
+    obligations apply and whether automatic approval is even in scope. A failure cohort
+    describes a way the case or the platform can go wrong; each one has a required outcome
+    that evaluation must reproduce.
+spec:
+  # A gate never trusts a cohort label written onto the case. It recomputes the cohort from
+  # stable case attributes using this precedence, first match wins, most restrictive first.
+  # If any attribute the matched selector needs is absent, the cohort is UNDETERMINED and
+  # every gate that depends on it fails closed to REVIEW.
+  assignmentPrecedence:
+    - RC-PEP-ADJACENT
+    - RC-HIGH-RISK-JURISDICTION
+    - RC-SOLE-PROPRIETOR-ELEVATED
+    - RC-SOLE-PROPRIETOR-STANDARD
+    - RC-HIGH-INDIVIDUAL
+    - RC-ELEVATED-INDIVIDUAL
+    - RC-LOW-STANDARD-INDIVIDUAL
+    - RC-STANDARD-INDIVIDUAL
+  requiredAttributes: [customerType, riskTier, jurisdictionRisk, productRisk, pepExposure]
+
+  # Where each attribute lives on the case aggregate. Declared rather than assumed, so the
+  # gate machinery needs no knowledge of how this domain lays out a case.
+  attributePaths:
+    customerType: subject.customerType
+    riskTier: risk.riskTier
+    jurisdictionRisk: risk.jurisdictionRisk
+    productRisk: risk.productRisk
+    pepExposure: risk.pepExposure
+
+  # The evaluation programme starts at no fewer than this many adjudicated cases. The
+  # per-cohort minimums below are what that total has to be made of; a corpus that hits the
+  # total by piling cases into one easy cohort has not covered anything.
+  minimumTotalCases: 300
+
+  riskCohorts:
+    - id: RC-LOW-STANDARD-INDIVIDUAL
+      name: Low-risk standard individual
+      selector:
+        customerType: individual
+        riskTier: standard
+        jurisdictionRisk: LOW
+        productRisk: LOW
+      automaticApprovalEligible: true
+      requiresAttestation: true
+      minimumCorpusCases: 55
+      description: >-
+        The only cohort in which a deterministic gate may approve without a human, and then
+        only while a current signed attestation covers it.
+      ownerInputRefs: [D04]
+    - id: RC-STANDARD-INDIVIDUAL
+      name: Standard individual
+      selector:
+        customerType: individual
+        riskTier: standard
+        jurisdictionRisk: [LOW, MEDIUM]
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 45
+    - id: RC-ELEVATED-INDIVIDUAL
+      name: Elevated-risk individual
+      selector:
+        customerType: individual
+        riskTier: elevated
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 40
+    - id: RC-HIGH-INDIVIDUAL
+      name: High-risk individual
+      selector:
+        customerType: individual
+        riskTier: high
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 35
+    - id: RC-SOLE-PROPRIETOR-STANDARD
+      name: Standard sole proprietor
+      selector:
+        customerType: sole_proprietor
+        riskTier: standard
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 35
+    - id: RC-SOLE-PROPRIETOR-ELEVATED
+      name: Elevated-risk sole proprietor
+      selector:
+        customerType: sole_proprietor
+        riskTier: [elevated, high]
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 30
+    - id: RC-HIGH-RISK-JURISDICTION
+      name: High-risk jurisdiction exposure
+      selector:
+        jurisdictionRisk: HIGH
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 30
+      ownerInputRefs: [D08]
+    - id: RC-PEP-ADJACENT
+      name: PEP-adjacent relationship
+      selector:
+        pepExposure: true
+      automaticApprovalEligible: false
+      requiresAttestation: false
+      minimumCorpusCases: 30
+      ownerInputRefs: [D03]
+
+  failureCohorts:
+    - id: FC-PROVIDER-OUTAGE
+      name: Screening provider outage
+      description: A required screening provider was unavailable or degraded.
+      requiredOutcome: REVIEW
+      requiredReasonCode: SCREENING_PROVIDER_OUTAGE
+      minimumCorpusCases: 12
+    - id: FC-SANCTIONS-LIST-STALE
+      name: Stale sanctions list version
+      description: Screening ran against a list version outside the permitted window.
+      requiredOutcome: REVIEW
+      requiredReasonCode: SANCTIONS_LIST_STALE
+      minimumCorpusCases: 8
+    - id: FC-POLICY-DIGEST-MISMATCH
+      name: Policy snapshot mismatch
+      description: Evidence was produced against a different policy snapshot than the case pins.
+      requiredOutcome: BLOCK
+      requiredReasonCode: POLICY_SNAPSHOT_MISMATCH
+      minimumCorpusCases: 8
+    - id: FC-MISSING-POLICY-AUTHORITY
+      name: Missing policy authority
+      description: No authoritative policy evidence is linked to the case.
+      requiredOutcome: BLOCK
+      requiredReasonCode: POLICY_AUTHORITY_MISSING
+      minimumCorpusCases: 8
+    - id: FC-MISSING-EVIDENCE
+      name: Unsatisfied evidence obligation
+      description: A required evidence obligation for the cohort is unmet.
+      requiredOutcome: BLOCK
+      requiredReasonCode: REQUIRED_EVIDENCE_MISSING
+      minimumCorpusCases: 12
+    - id: FC-EVIDENCE-EXPIRED
+      name: Evidence outside its freshness window
+      description: Evidence for an obligation exists but has aged past the permitted window.
+      requiredOutcome: REVIEW
+      requiredReasonCode: EVIDENCE_EXPIRED
+      minimumCorpusCases: 10
+    - id: FC-INVESTIGATION-INCOMPLETE
+      name: Investigation not completed
+      description: The public-source investigation work item never completed.
+      requiredOutcome: BLOCK
+      requiredReasonCode: INVESTIGATION_INCOMPLETE
+      minimumCorpusCases: 8
+    - id: FC-CONTRADICTION
+      name: Open material contradiction
+      description: A HIGH-materiality contradiction remains open on the case.
+      requiredOutcome: REVIEW
+      requiredReasonCode: MATERIAL_CONTRADICTION
+      minimumCorpusCases: 10
+    - id: FC-IDENTITY-CONFLICT
+      name: Identity conflict
+      description: Investigation surfaced an unresolved identity conflict.
+      requiredOutcome: REVIEW
+      requiredReasonCode: IDENTITY_CONFLICT
+      minimumCorpusCases: 10
+    - id: FC-SANCTIONS-POSSIBLE
+      name: Possible sanctions match
+      description: Screening produced an unadjudicated possible sanctions match.
+      requiredOutcome: REVIEW
+      requiredReasonCode: POSSIBLE_SANCTIONS_MATCH
+      minimumCorpusCases: 12
+    - id: FC-SANCTIONS-CONFIRMED
+      name: Confirmed sanctions match
+      description: Screening produced a confirmed sanctions match; escalated, never auto-declined.
+      requiredOutcome: REVIEW
+      requiredReasonCode: CONFIRMED_SANCTIONS_MATCH
+      minimumCorpusCases: 8
+    - id: FC-PEP-SIGNAL
+      name: PEP signal
+      description: Screening produced a politically exposed person signal.
+      requiredOutcome: REVIEW
+      requiredReasonCode: PEP_REVIEW_REQUIRED
+      minimumCorpusCases: 10
+    - id: FC-ADVERSE-MEDIA
+      name: Adverse media in lookback window
+      description: Adverse media findings require analyst assessment.
+      requiredOutcome: REVIEW
+      requiredReasonCode: ADVERSE_MEDIA_REVIEW_REQUIRED
+      minimumCorpusCases: 10
+    - id: FC-AGENT-DECLINE-RECOMMENDATION
+      name: Agent recommends decline
+      description: The agent recommended DECLINE; the platform must route to human authority.
+      requiredOutcome: REVIEW
+      requiredReasonCode: DECLINE_REQUIRES_HUMAN_AUTHORITY
+      minimumCorpusCases: 12
+    - id: FC-MALFORMED-RECOMMENDATION
+      name: Uncited recommendation
+      description: The recommendation omits required policy or evidence citations.
+      requiredOutcome: REVIEW
+      requiredReasonCode: RECOMMENDATION_CITATIONS_INCOMPLETE
+      minimumCorpusCases: 10
+    - id: FC-MISSING-RECOMMENDATION
+      name: No recommendation present
+      description: The decision agent produced no recommendation at all.
+      requiredOutcome: BLOCK
+      requiredReasonCode: RECOMMENDATION_MISSING
+      minimumCorpusCases: 8
+    - id: FC-LOW-CONFIDENCE
+      name: Low-confidence recommendation
+      description: Recommendation confidence is below the automatic-disposition threshold.
+      requiredOutcome: REVIEW
+      requiredReasonCode: CONFIDENCE_BELOW_THRESHOLD
+      minimumCorpusCases: 10
+    - id: FC-APPROVAL-REQUIREMENTS-UNMET
+      name: Approval requirement unmet at disposition
+      description: >-
+        The case passed decision readiness but an obligation the approval bar checks is
+        still unmet. The recommendation evidence is the usual one: decision readiness
+        cannot require it, because the recommendation does not exist yet.
+      requiredOutcome: REVIEW
+      requiredReasonCode: APPROVAL_REQUIREMENTS_NOT_MET
+      minimumCorpusCases: 8
+    - id: FC-UNATTESTED-COHORT
+      name: Automatic-approval attestation absent
+      description: An otherwise approvable low-risk case lacks a current cohort attestation.
+      requiredOutcome: REVIEW
+      requiredReasonCode: AUTOMATIC_APPROVAL_ATTESTATION_MISSING
+      minimumCorpusCases: 8
+    - id: FC-INELIGIBLE-COHORT
+      name: Cohort outside automatic-approval scope
+      description: An approvable case sits in a cohort that may not be approved automatically.
+      requiredOutcome: REVIEW
+      requiredReasonCode: COHORT_NOT_ELIGIBLE_FOR_AUTOMATIC_APPROVAL
+      minimumCorpusCases: 12
+    - id: FC-UNKNOWN-INPUT
+      name: Undeterminable policy input
+      description: A required condition could not be determined from the case snapshot.
+      requiredOutcome: REVIEW
+      requiredReasonCode: POLICY_UNKNOWN_INPUT
+      minimumCorpusCases: 10
+    - id: FC-STALE-SNAPSHOT
+      name: Superseded case snapshot
+      description: The evaluated snapshot is older than the case's current sequence.
+      requiredOutcome: ERROR
+      requiredReasonCode: CASE_SNAPSHOT_STALE
+      minimumCorpusCases: 8
+    - id: FC-UNRESOLVED-CONFIGURATION
+      name: Candidate bundle with unresolved institution settings
+      description: The pinned bundle's owner inputs are not resolved, so no disposition may be reached.
+      requiredOutcome: ERROR
+      requiredReasonCode: PRODUCTION_POLICY_CONFIGURATION_UNRESOLVED
+      minimumCorpusCases: 8
+    - id: FC-EVALUATION-ERROR
+      name: Policy evaluation error
+      description: The policy engine could not produce a decision.
+      requiredOutcome: ERROR
+      requiredReasonCode: POLICY_EVALUATION_ERROR
+      minimumCorpusCases: 6

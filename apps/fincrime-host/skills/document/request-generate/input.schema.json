@@ -1,0 +1,21 @@
+{
+  "$id": "urn:financial-crime:skill:document.request.generate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "missing_types": {
+      "items": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "missing_types"
+  ],
+  "type": "object"
+}

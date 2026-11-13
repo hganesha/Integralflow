@@ -1,0 +1,275 @@
+{
+  "apiVersion": "harness.factory/policy-pack-v1",
+  "kind": "EffectivePolicyPack",
+  "id": "policy.pack.gb.bank-synthetic.personal-banking",
+  "version": "1.0.0+1.0.0+1.0.0+1.0.0+1.1.0+1.0.0+1.0.0",
+  "status": "CANDIDATE",
+  "scope": {
+    "jurisdiction": "GB",
+    "institution": "bank.synthetic",
+    "productSet": "personal-banking",
+    "products": [
+      "card",
+      "deposit",
+      "payments"
+    ],
+    "customerTypes": [
+      "individual"
+    ]
+  },
+  "layers": [
+    {
+      "id": "pack.baseline",
+      "version": "1.0.0",
+      "layer": "baseline",
+      "digest": "60b111d1c4758de9139dea0b7e3abe2fe2dfd51f277717cc6fb025662fa7c43d"
+    },
+    {
+      "id": "pack.jurisdiction.uk",
+      "version": "1.0.0",
+      "layer": "jurisdiction",
+      "digest": "59b1536f02d072d189da7a3766387eccb8fe4c5f3b27ac7c48fcd8953036a53a"
+    },
+    {
+      "id": "pack.institution.bank-synthetic",
+      "version": "1.0.0",
+      "layer": "institution",
+      "digest": "0834e06d6f88a4e215b0e40ffc8a959bd3cc548b34ecc4004360ec79af62d6ea"
+    },
+    {
+      "id": "pack.product.family.pay",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "511378f2501561e6f546bee2824fef253e8eb6c632004a67f0c70e6898aaff00"
+    },
+    {
+      "id": "pack.product.payments",
+      "version": "1.1.0",
+      "layer": "product",
+      "digest": "261f6f543603b793ee0414035563d6b86a008af1fcab6bcaf36692b4b50923ed"
+    },
+    {
+      "id": "pack.product.card",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "8d3230de0a6d86140d95e8d9be8324efc17cb6d11ff9376cf7258a966a796188"
+    },
+    {
+      "id": "pack.product.deposit",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "deae1379e19623a1f359ffc11bd9e04f4260454b76a1a5cdabd8b61e69302a89"
+    }
+  ],
+  "values": {
+    "jurisdiction": "GB",
+    "screening_threshold": 0.85,
+    "ownership_threshold": "0.25",
+    "sanctions_ownership": {
+      "rule": "ofac_50_percent",
+      "threshold": "0.5"
+    },
+    "control_bases": [
+      "appoint_board",
+      "significant_influence",
+      "voting_majority"
+    ],
+    "sanctions_control_bases": [
+      "voting_majority"
+    ],
+    "verification_methods": [
+      "government_id_document",
+      "registry_extract"
+    ],
+    "active_registry_statuses": [
+      "ACTIVE"
+    ],
+    "freshness_seconds": {
+      "VerificationRecord": 7776000,
+      "WatchlistEntry": 86400
+    },
+    "required_screening_types": [
+      "pep",
+      "sanctions"
+    ],
+    "required_screening_lists": [
+      "uk-sanctions"
+    ],
+    "screening_roles": [
+      "attorney",
+      "beneficial_owner",
+      "beneficiary",
+      "control_person",
+      "customer",
+      "director",
+      "protector",
+      "settlor",
+      "signatory",
+      "trustee"
+    ],
+    "pep_scope": "all",
+    "required_party_roles": {
+      "corporate": [
+        "beneficial_owner",
+        "customer"
+      ],
+      "individual": [
+        "customer"
+      ],
+      "trust": [
+        "customer",
+        "trustee"
+      ]
+    },
+    "dual_control_required": true,
+    "automatic_approval_enabled": false,
+    "automatic_approval_low_risk": true,
+    "low_risk_max_factor_score": "0.20",
+    "automatic_decline_enabled": false,
+    "diligence_floors": {},
+    "mandatory_overlays": [
+      "overlay.high-risk-geography",
+      "overlay.pep"
+    ],
+    "simplified_due_diligence_permitted": false
+  },
+  "basis": {
+    "jurisdiction": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "UK policy jurisdiction (ISO 3166 GB), not the booking jurisdiction.",
+      "sources": []
+    },
+    "screening_threshold": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Owner input D01 (possible-match score) as used by the KYC reference policy.",
+      "sources": []
+    },
+    "ownership_threshold": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "MLR 2017 reg 5: an individual who ultimately owns or controls more than 25 percent of the shares or voting rights of a body corporate.",
+      "sources": [
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/5"
+      ]
+    },
+    "sanctions_ownership": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "UK ownership and control test: an entity owned more than 50 percent, or controlled, by a designated person is subject to the asset freeze (OFSI general guidance).",
+      "sources": [
+        "https://www.gov.uk/government/publications/financial-sanctions-general-guidance"
+      ]
+    },
+    "control_bases": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "MLR 2017 reg 5: control through voting rights, the right to appoint or remove a majority of the board, or otherwise exercising control over management.",
+      "sources": [
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/5"
+      ]
+    },
+    "sanctions_control_bases": {
+      "layer": "pack.baseline",
+      "text": "Majority voting control by a designated person always counts as sanctions control.",
+      "sources": []
+    },
+    "verification_methods": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution appetite: a government identity document for individuals and a registry extract for legal entities.",
+      "sources": []
+    },
+    "active_registry_statuses": {
+      "layer": "pack.baseline",
+      "text": "Only an active registration verifies legal existence (canonical status vocabulary, upper case).",
+      "sources": []
+    },
+    "freshness_seconds": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Owner inputs D01 (list freshness 1 day) and D05 (identity verification 90 days).",
+      "sources": []
+    },
+    "required_screening_types": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution appetite: PEP screening for every customer, in every jurisdiction.",
+      "sources": []
+    },
+    "required_screening_lists": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "The UK Sanctions List.",
+      "sources": [
+        "https://www.gov.uk/government/publications/the-uk-sanctions-list"
+      ]
+    },
+    "screening_roles": {
+      "layer": "pack.product.family.pay",
+      "text": "Anyone holding a power of attorney over a payment account or card can move funds and is screened.",
+      "sources": []
+    },
+    "pep_scope": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "MLR 2017 reg 35 applies to domestic as well as foreign politically exposed persons.",
+      "sources": [
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/35"
+      ]
+    },
+    "required_party_roles": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Every jurisdiction's parties, and, as institution appetite, a trust is onboarded only with at least one named trustee, who holds its legal title and acts for it.",
+      "sources": []
+    },
+    "dual_control_required": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution appetite: two independent people approve every onboarding decision a person makes; only the low-risk carve-out (automatic_approval_low_risk) decides without one.",
+      "sources": []
+    },
+    "automatic_approval_enabled": {
+      "layer": "pack.baseline",
+      "text": "No pack approves a customer without a person.",
+      "sources": []
+    },
+    "automatic_approval_low_risk": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "SYNTHETIC placeholder, not a real institution's appetite: the disposition checkpoint may approve a low-risk case without a person. Every other decision needs dual control.",
+      "sources": []
+    },
+    "low_risk_max_factor_score": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "SYNTHETIC placeholder: a case is low risk only when every risk factor scores at or below 0.20 (the corpus's clean individual, H01, scores at most 0.05).",
+      "sources": []
+    },
+    "automatic_decline_enabled": {
+      "layer": "pack.baseline",
+      "text": "No pack declines a customer without a person.",
+      "sources": []
+    },
+    "diligence_floors": {
+      "layer": "pack.baseline",
+      "text": "No floor: a cell's level comes from the institution's diligence matrix. Layers may only raise floors (keys are customer type or *, then product or *).",
+      "sources": []
+    },
+    "mandatory_overlays": {
+      "layer": "pack.jurisdiction.uk",
+      "text": "MLR 2017 reg 35 requires enhanced due diligence for a PEP, a PEP's family member or known close associate; reg 33(1)(b) requires it for a relationship with a person established in a high-risk third country.",
+      "sources": [
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/33"
+      ]
+    },
+    "simplified_due_diligence_permitted": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution decision pending: simplified due diligence is not adopted until the policy owner approves where it applies, so an SDD cell is applied as CDD.",
+      "sources": []
+    }
+  },
+  "gateBundles": {},
+  "knownDifferences": [
+    {
+      "layer": "pack.jurisdiction.uk",
+      "field": "ownership_threshold",
+      "text": "UK law says more than 25 percent; the library's UBO skill counts 25 percent or more. An owner of exactly 25 percent is therefore treated as a beneficial owner: stricter than the regulation, never looser."
+    },
+    {
+      "layer": "pack.jurisdiction.uk",
+      "field": "sanctions_ownership",
+      "text": "OFSI does not aggregate the holdings of different designated persons; the library's ofac_50_percent rule does. Aggregation flags more entities than the UK test: stricter, never looser. A UK-specific rule needs a library change."
+    }
+  ],
+  "digest": "a1e6bc34e1c3ec1ecadc12358ff8e9dd89c6f8c640741205cf74bc0bcc55890d"
+}

@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h02.entity.mateo",
+  "external_ref": "corpus-H02",
+  "party_id": "H02",
+  "record_count": 48,
+  "relationship_record_id": "h02.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h02.entity.mateo",
+      "identifiers": [
+        {
+          "identifier_type": "national_id",
+          "source": "ES-SPECIMEN",
+          "value": "SPECIMEN-H02-DNI-0001"
+        },
+        {
+          "identifier_type": "curp",
+          "source": "MX-SPECIMEN",
+          "value": "SPECIMEN-H02-CURP-0001"
+        }
+      ],
+      "name": "Mateo Ríos Calderón",
+      "ref": "mateo",
+      "role": "customer",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

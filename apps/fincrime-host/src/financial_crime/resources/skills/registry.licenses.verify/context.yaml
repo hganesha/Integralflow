@@ -1,0 +1,15 @@
+dynamic_target: null
+requirements:
+- fields:
+  - issuer
+  - status
+  - expires_at
+  - scope
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: License
+  optional: false
+schema_version: 2.0.0
+skill_id: registry.licenses.verify

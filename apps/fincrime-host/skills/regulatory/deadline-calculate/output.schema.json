@@ -1,0 +1,32 @@
+{
+  "$defs": {
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:regulatory.deadline.calculate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_basis": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "deadline": {
+      "$ref": "#/$defs/Timestamp"
+    },
+    "time_zone": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "deadline",
+    "calendar_basis",
+    "time_zone"
+  ],
+  "type": "object"
+}

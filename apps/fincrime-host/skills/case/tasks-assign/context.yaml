@@ -1,0 +1,13 @@
+dynamic_target: null
+requirements:
+- fields:
+  - role
+  - status
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Task
+  optional: false
+schema_version: 2.0.0
+skill_id: case.tasks.assign

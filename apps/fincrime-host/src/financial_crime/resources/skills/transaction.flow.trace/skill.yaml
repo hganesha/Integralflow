@@ -1,0 +1,154 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:transaction.flow.trace
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Trace bounded account paths; graph connectivity does not assert
+  exact fund allocation.
+code_hash: 47fe2ede8e3887ae23373483f3dfc746bf2e69adad98c5d0f99fe5aeaa5e061e
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Trace bounded account paths; graph connectivity does not assert exact
+  fund allocation.
+effects: read_only
+entrypoint: financial_crime.skills.transactions:flow
+evaluation_profile: transaction.flow.trace-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: transaction-flow-trace
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: transaction.flow.trace
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:transaction.flow.trace:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    max_hops:
+      maximum: 10
+      minimum: 1
+      type: integer
+    source:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    target:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - source
+  - target
+  - max_hops
+  type: object
+instruction_hash: afedda9185fd2bd157322b27644ffb83dfeb3749c3a5e8b29684b022b0f0bb30
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:transaction.flow.trace:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    allocation_assumed:
+      type: boolean
+    paths:
+      items:
+        items:
+          $ref: '#/$defs/Id'
+        maxItems: 10000
+        type: array
+      maxItems: 10000
+      type: array
+  required:
+  - paths
+  - allocation_assumed
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - source
+  - target
+  - amount
+  - currency
+  - timestamp
+  - event_id
+  - status
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Transaction
+  optional: false
+- fields:
+  - start
+  - end
+  - complete
+  - expected_count
+  - watermark
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DatasetScope
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

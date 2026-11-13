@@ -1,0 +1,142 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:edd.source_of_funds.verify
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Evaluate captured funds verification evidence; unsupported claims
+  remain unverified.
+code_hash: 77b74eda0a73811bebb173ccd7d2152083cf112a49c7784ee47b5b4961ca53a6
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Evaluate captured funds verification evidence; unsupported claims remain
+  unverified.
+effects: read_only
+entrypoint: financial_crime.skills.risk_edd:funds_verify
+evaluation_profile: edd.source_of_funds.verify-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: edd-source-of-funds-verify
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: edd.source_of_funds.verify
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:edd.source_of_funds.verify:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 5d08a2ea79385cdcfecea3fd0374953d49b5acda056bbd428a8fe62d95f6cd20
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: true
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    FundsVerification:
+      additionalProperties: false
+      properties:
+        claim:
+          $ref: '#/$defs/Text'
+        id:
+          $ref: '#/$defs/Id'
+        verified:
+          $ref: '#/$defs/Bool'
+      required:
+      - id
+      - claim
+      - verified
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:edd.source_of_funds.verify:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    claims:
+      items:
+        $ref: '#/$defs/FundsVerification'
+      maxItems: 10000
+      type: array
+  required:
+  - claims
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - claim
+  - evidence_ids
+  - verified
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: SourceOfFunds
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

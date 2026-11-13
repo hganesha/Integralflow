@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "AlertRow_event_ids_rule_id_subject": {
+      "additionalProperties": false,
+      "properties": {
+        "_ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "_synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "event_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "rule_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "subject": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "subject",
+        "event_ids",
+        "rule_id",
+        "_ref",
+        "_synthetic"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:alert.context.assemble:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alerts": {
+      "items": {
+        "$ref": "#/$defs/AlertRow_event_ids_rule_id_subject"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "manifest_hash": {
+      "$ref": "#/$defs/Hash"
+    }
+  },
+  "required": [
+    "alerts",
+    "manifest_hash"
+  ],
+  "type": "object"
+}

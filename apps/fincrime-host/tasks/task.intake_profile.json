@@ -1,0 +1,228 @@
+{
+  "agent_profile": "agent.intake_profile",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "requirements"
+      ],
+      "requires_human_decision": false,
+      "step_id": "decision_requirements_compile"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "profiles"
+      ],
+      "requires_human_decision": false,
+      "step_id": "party_profile_build"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "classifications"
+      ],
+      "requires_human_decision": false,
+      "step_id": "party_type_classify"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "activities"
+      ],
+      "requires_human_decision": false,
+      "step_id": "party_activity_profile"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "profiles"
+      ],
+      "requires_human_decision": false,
+      "step_id": "party_profile_completeness"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "missing",
+        "satisfied"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_requirements_evaluate"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "requests",
+        "sent"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_request_generate"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.intake_profile",
+  "input_fields": [
+    "facts",
+    "missing_types"
+  ],
+  "input_schema": {
+    "$defs": {
+      "JsonObject": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object",
+        "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+      },
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "maxLength": 200000,
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "items": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "raw JSON source value"
+          }
+        ]
+      }
+    },
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "facts": {
+        "$ref": "#/$defs/JsonObject"
+      },
+      "missing_types": {
+        "items": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10000,
+        "minItems": 0,
+        "type": "array"
+      }
+    },
+    "required": [
+      "facts",
+      "missing_types"
+    ],
+    "type": "object"
+  },
+  "objective": "Establish legal customer, party roles, capacity, banking products, expected activity and lifecycle-specific information gaps.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "decision_requirements_compile",
+      "input_bindings": {
+        "facts": "facts"
+      },
+      "parameters": {},
+      "skill_id": "decision.requirements.compile",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "decision_requirements_compile"
+      ],
+      "id": "party_profile_build",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "party.profile.build",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "party_profile_build"
+      ],
+      "id": "party_type_classify",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "party.type.classify",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "party_type_classify"
+      ],
+      "id": "party_activity_profile",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "party.activity.profile",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "party_activity_profile"
+      ],
+      "id": "party_profile_completeness",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "party.profile.completeness",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "party_profile_completeness"
+      ],
+      "id": "document_requirements_evaluate",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "document.requirements.evaluate",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "document_requirements_evaluate"
+      ],
+      "id": "document_request_generate",
+      "input_bindings": {
+        "missing_types": "missing_types"
+      },
+      "parameters": {},
+      "skill_id": "document.request.generate",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

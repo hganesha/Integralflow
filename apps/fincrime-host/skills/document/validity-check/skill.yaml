@@ -1,0 +1,139 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.validity.check
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Check sourced issue/expiry timestamps using the invocation's as-of
+  time.
+code_hash: 13330e70f30afa9f9470eeb438ed9aa9dc30bf710ab47866e08a90ab9d924bb4
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Check sourced issue/expiry timestamps using the invocation's as-of time.
+effects: read_only
+entrypoint: financial_crime.skills.documents:validity
+evaluation_profile: document.validity.check-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: document-validity-check
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: document.validity.check
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:document.validity.check:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 715d1408906a63bbd918f8a80b56bfc6e362b9b02d2c0c4e474ca24f68faf9e6
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    ValidityCheck:
+      additionalProperties: false
+      properties:
+        document_type:
+          $ref: '#/$defs/Id'
+        id:
+          $ref: '#/$defs/Id'
+        status:
+          $ref: '#/$defs/ValidityWindow'
+        valid:
+          $ref: '#/$defs/Bool'
+      required:
+      - id
+      - valid
+      - document_type
+      - status
+      type: object
+    ValidityWindow:
+      enum:
+      - CURRENT
+      - EXPIRED
+      - NOT_YET_VALID
+      - DATES_INCONSISTENT
+  $id: urn:financial-crime:skill:document.validity.check:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    checks:
+      items:
+        $ref: '#/$defs/ValidityCheck'
+      maxItems: 10000
+      type: array
+  required:
+  - checks
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - issued_at
+  - expires_at
+  - document_type
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Document
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

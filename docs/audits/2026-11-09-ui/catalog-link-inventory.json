@@ -1,0 +1,1608 @@
+{
+  "routePatterns": [
+    "/",
+    "/agents",
+    "/agents/$agentId",
+    "/agents/$agentId/publish",
+    "/agents/$agentId/rehearsal/$runId",
+    "/agents/$agentId/tasks/$taskId",
+    "/agents/skills/$skillId",
+    "/assurance",
+    "/assurance/lab",
+    "/assurance/lineage/$caseId",
+    "/assurance/packages",
+    "/assurance/recorder/$caseId",
+    "/catalogs",
+    "/catalogs/$kind",
+    "/catalogs/$kind/$entryId",
+    "/context",
+    "/context/connections",
+    "/context/documents",
+    "/context/mappings/$mappingId",
+    "/context/preview",
+    "/context/sources/$sourceId",
+    "/platform",
+    "/platform/admin",
+    "/platform/cases",
+    "/platform/cases/$caseId",
+    "/platform/drafts",
+    "/platform/drafts/$draftId",
+    "/platform/drafts/$draftId/policies",
+    "/platform/human-work",
+    "/platform/integrations",
+    "/platform/intelligence",
+    "/platform/plans",
+    "/platform/plans/$planDigest",
+    "/platform/policies",
+    "/platform/releases",
+    "/platform/runs",
+    "/platform/runs/$runId",
+    "/platform/system",
+    "/platform/traces/$traceId",
+    "/work",
+    "/work/cases/$caseId",
+    "/work/cases/$caseId/$section",
+    "/work/cases/$caseId/lens/aml",
+    "/work/cases/$caseId/lens/documents",
+    "/work/cases/$caseId/lens/edd",
+    "/work/cases/$caseId/lens/ownership",
+    "/work/cases/$caseId/lens/qa",
+    "/work/cases/$caseId/lens/risk",
+    "/work/cases/$caseId/lens/screening",
+    "/work/decisions/$caseId",
+    "/work/ops"
+  ],
+  "workspaceLinks": 258,
+  "unmatchedWorkspaceRoutes": [],
+  "danglingRelationships": [],
+  "workspaces": [
+    {
+      "kind": "agents",
+      "id": "agent.decision_support",
+      "workspace": "/agents/agent.decision_support",
+      "registeredPattern": true
+    },
+    {
+      "kind": "agents",
+      "id": "agent.document_intelligence",
+      "workspace": "/agents/agent.document_intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "agents",
+      "id": "agent.identity_ownership",
+      "workspace": "/agents/agent.identity_ownership",
+      "registeredPattern": true
+    },
+    {
+      "kind": "agents",
+      "id": "agent.intake_profile",
+      "workspace": "/agents/agent.intake_profile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "agents",
+      "id": "agent.qa_assurance",
+      "workspace": "/agents/agent.qa_assurance",
+      "registeredPattern": true
+    },
+    {
+      "kind": "agents",
+      "id": "agent.risk_edd",
+      "workspace": "/agents/agent.risk_edd",
+      "registeredPattern": true
+    },
+    {
+      "kind": "agents",
+      "id": "agent.screening",
+      "workspace": "/agents/agent.screening",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "case.intelligence",
+      "workspace": "/context?product=case.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "document.intelligence",
+      "workspace": "/context?product=document.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "evidence.intelligence",
+      "workspace": "/context?product=evidence.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "identity.intelligence",
+      "workspace": "/context?product=identity.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "network.intelligence",
+      "workspace": "/context?product=network.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "ownership.intelligence",
+      "workspace": "/context?product=ownership.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "party360",
+      "workspace": "/context?product=party360",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "policy.intelligence",
+      "workspace": "/context?product=policy.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "registry.intelligence",
+      "workspace": "/context?product=registry.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "risk.intelligence",
+      "workspace": "/context?product=risk.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "screening.intelligence",
+      "workspace": "/context?product=screening.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "context",
+      "id": "transaction.intelligence",
+      "workspace": "/context?product=transaction.intelligence",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "catalog.kyc.cohorts.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "catalog.kyc.evidence-obligations.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "catalog.kyc.owner-inputs.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "catalog.kyc.reason-codes.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "catalog.kyc.rules.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "document-requirements",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "policy.kyc.customer-acceptance.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "table.kyc.decision-ready.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "table.kyc.disposition.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "policies",
+      "id": "table.kyc.screening-ready.v1",
+      "workspace": "/platform/policies",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.classify",
+      "workspace": "/agents/skills/alert.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.context.assemble",
+      "workspace": "/agents/skills/alert.context.assemble",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.correlate",
+      "workspace": "/agents/skills/alert.correlate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.deduplicate",
+      "workspace": "/agents/skills/alert.deduplicate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.disposition.recommend",
+      "workspace": "/agents/skills/alert.disposition.recommend",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.escalation.evaluate",
+      "workspace": "/agents/skills/alert.escalation.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.false_positive.assess",
+      "workspace": "/agents/skills/alert.false_positive.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.feedback.capture",
+      "workspace": "/agents/skills/alert.feedback.capture",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.ingest",
+      "workspace": "/agents/skills/alert.ingest",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "alert.prioritize",
+      "workspace": "/agents/skills/alert.prioritize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.funnel.detect",
+      "workspace": "/agents/skills/aml.funnel.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.layering.detect",
+      "workspace": "/agents/skills/aml.layering.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.mule.detect",
+      "workspace": "/agents/skills/aml.mule.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.pass_through.detect",
+      "workspace": "/agents/skills/aml.pass_through.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.roundtrip.detect",
+      "workspace": "/agents/skills/aml.roundtrip.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.shell_company.detect",
+      "workspace": "/agents/skills/aml.shell_company.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.smurfing.detect",
+      "workspace": "/agents/skills/aml.smurfing.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.structuring.detect",
+      "workspace": "/agents/skills/aml.structuring.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.suspicion.assess",
+      "workspace": "/agents/skills/aml.suspicion.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.trade_based.detect",
+      "workspace": "/agents/skills/aml.trade_based.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.typology.match",
+      "workspace": "/agents/skills/aml.typology.match",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "aml.velocity.detect",
+      "workspace": "/agents/skills/aml.velocity.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.close",
+      "workspace": "/agents/skills/case.close",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.context.hydrate",
+      "workspace": "/agents/skills/case.context.hydrate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.create",
+      "workspace": "/agents/skills/case.create",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.dependencies.evaluate",
+      "workspace": "/agents/skills/case.dependencies.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.escalate",
+      "workspace": "/agents/skills/case.escalate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.sla.monitor",
+      "workspace": "/agents/skills/case.sla.monitor",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.state.transition",
+      "workspace": "/agents/skills/case.state.transition",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.summary.generate",
+      "workspace": "/agents/skills/case.summary.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.tasks.assign",
+      "workspace": "/agents/skills/case.tasks.assign",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "case.tasks.plan",
+      "workspace": "/agents/skills/case.tasks.plan",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.approval.route",
+      "workspace": "/agents/skills/decision.approval.route",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.audit.verify",
+      "workspace": "/agents/skills/decision.audit.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.disposition.record",
+      "workspace": "/agents/skills/decision.disposition.record",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.exceptions.evaluate",
+      "workspace": "/agents/skills/decision.exceptions.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.explain",
+      "workspace": "/agents/skills/decision.explain",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.gaps.evaluate",
+      "workspace": "/agents/skills/decision.gaps.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.human.review",
+      "workspace": "/agents/skills/decision.human.review",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.policy.resolve",
+      "workspace": "/agents/skills/decision.policy.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.recommendation.generate",
+      "workspace": "/agents/skills/decision.recommendation.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.requirements.compile",
+      "workspace": "/agents/skills/decision.requirements.compile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.risk.acceptance.evaluate",
+      "workspace": "/agents/skills/decision.risk.acceptance.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "decision.rules.evaluate",
+      "workspace": "/agents/skills/decision.rules.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.authenticity.assess",
+      "workspace": "/agents/skills/document.authenticity.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.classify",
+      "workspace": "/agents/skills/document.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.classify.catalog",
+      "workspace": "/agents/skills/document.classify.catalog",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.consistency.assess",
+      "workspace": "/agents/skills/document.consistency.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.consistency.check",
+      "workspace": "/agents/skills/document.consistency.check",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.entities.extract",
+      "workspace": "/agents/skills/document.entities.extract",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.evidence.link",
+      "workspace": "/agents/skills/document.evidence.link",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.fields.contract_extract",
+      "workspace": "/agents/skills/document.fields.contract_extract",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.fields.extract",
+      "workspace": "/agents/skills/document.fields.extract",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.parse",
+      "workspace": "/agents/skills/document.parse",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.parse.artifact",
+      "workspace": "/agents/skills/document.parse.artifact",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.request.compose",
+      "workspace": "/agents/skills/document.request.compose",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.request.generate",
+      "workspace": "/agents/skills/document.request.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.requirements.evaluate",
+      "workspace": "/agents/skills/document.requirements.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.requirements.resolve",
+      "workspace": "/agents/skills/document.requirements.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.translation.normalize",
+      "workspace": "/agents/skills/document.translation.normalize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.validity.assess",
+      "workspace": "/agents/skills/document.validity.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.validity.check",
+      "workspace": "/agents/skills/document.validity.check",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "document.version.compare",
+      "workspace": "/agents/skills/document.version.compare",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.business.purpose.validate",
+      "workspace": "/agents/skills/edd.business.purpose.validate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.counterparty.analyze",
+      "workspace": "/agents/skills/edd.counterparty.analyze",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.findings.synthesize",
+      "workspace": "/agents/skills/edd.findings.synthesize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.geographic.exposure",
+      "workspace": "/agents/skills/edd.geographic.exposure",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.pep.exposure",
+      "workspace": "/agents/skills/edd.pep.exposure",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.recommendation.generate",
+      "workspace": "/agents/skills/edd.recommendation.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.scope.plan",
+      "workspace": "/agents/skills/edd.scope.plan",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.source_of_funds.verify",
+      "workspace": "/agents/skills/edd.source_of_funds.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.source_of_wealth.assess",
+      "workspace": "/agents/skills/edd.source_of_wealth.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "edd.trigger.evaluate",
+      "workspace": "/agents/skills/edd.trigger.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.address.normalize",
+      "workspace": "/agents/skills/entity.address.normalize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.alias.resolve",
+      "workspace": "/agents/skills/entity.alias.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.classify",
+      "workspace": "/agents/skills/entity.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.confidence.assess",
+      "workspace": "/agents/skills/entity.confidence.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.deduplicate",
+      "workspace": "/agents/skills/entity.deduplicate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.disambiguate",
+      "workspace": "/agents/skills/entity.disambiguate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.history.reconstruct",
+      "workspace": "/agents/skills/entity.history.reconstruct",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.identifiers.validate",
+      "workspace": "/agents/skills/entity.identifiers.validate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.identity.verify",
+      "workspace": "/agents/skills/entity.identity.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.match",
+      "workspace": "/agents/skills/entity.match",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.relationship.resolve",
+      "workspace": "/agents/skills/entity.relationship.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "entity.resolve",
+      "workspace": "/agents/skills/entity.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.bundle.compile",
+      "workspace": "/agents/skills/evidence.bundle.compile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.collect",
+      "workspace": "/agents/skills/evidence.collect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.conflicts.resolve",
+      "workspace": "/agents/skills/evidence.conflicts.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.facts.extract",
+      "workspace": "/agents/skills/evidence.facts.extract",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.integrity.verify",
+      "workspace": "/agents/skills/evidence.integrity.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.lineage.trace",
+      "workspace": "/agents/skills/evidence.lineage.trace",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.normalize",
+      "workspace": "/agents/skills/evidence.normalize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.provenance.attach",
+      "workspace": "/agents/skills/evidence.provenance.attach",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.retention.enforce",
+      "workspace": "/agents/skills/evidence.retention.enforce",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "evidence.sufficiency.assess",
+      "workspace": "/agents/skills/evidence.sufficiency.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.account_takeover.detect",
+      "workspace": "/agents/skills/fraud.account_takeover.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.behavior.anomaly",
+      "workspace": "/agents/skills/fraud.behavior.anomaly",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.beneficiary.risk",
+      "workspace": "/agents/skills/fraud.beneficiary.risk",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.case.assess",
+      "workspace": "/agents/skills/fraud.case.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.deepfake.detect",
+      "workspace": "/agents/skills/fraud.deepfake.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.device.fingerprint",
+      "workspace": "/agents/skills/fraud.device.fingerprint",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.document.tamper.detect",
+      "workspace": "/agents/skills/fraud.document.tamper.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.identity.synthetic.detect",
+      "workspace": "/agents/skills/fraud.identity.synthetic.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.identity.theft.assess",
+      "workspace": "/agents/skills/fraud.identity.theft.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.liveness.verify",
+      "workspace": "/agents/skills/fraud.liveness.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.network.detect",
+      "workspace": "/agents/skills/fraud.network.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "fraud.payment.anomaly",
+      "workspace": "/agents/skills/fraud.payment.anomaly",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.contradiction.detect",
+      "workspace": "/agents/skills/investigation.contradiction.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.evidence.collect",
+      "workspace": "/agents/skills/investigation.evidence.collect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.findings.synthesize",
+      "workspace": "/agents/skills/investigation.findings.synthesize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.fundflow.reconstruct",
+      "workspace": "/agents/skills/investigation.fundflow.reconstruct",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.gaps.identify",
+      "workspace": "/agents/skills/investigation.gaps.identify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.hypothesis.generate",
+      "workspace": "/agents/skills/investigation.hypothesis.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.hypothesis.test",
+      "workspace": "/agents/skills/investigation.hypothesis.test",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.narrative.generate",
+      "workspace": "/agents/skills/investigation.narrative.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.plan",
+      "workspace": "/agents/skills/investigation.plan",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.recommendation.generate",
+      "workspace": "/agents/skills/investigation.recommendation.generate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.relationship.analyze",
+      "workspace": "/agents/skills/investigation.relationship.analyze",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "investigation.timeline.build",
+      "workspace": "/agents/skills/investigation.timeline.build",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.customer.schedule",
+      "workspace": "/agents/skills/monitor.customer.schedule",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.ownership.change",
+      "workspace": "/agents/skills/monitor.ownership.change",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.profile.change",
+      "workspace": "/agents/skills/monitor.profile.change",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.review.close",
+      "workspace": "/agents/skills/monitor.review.close",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.review.execute",
+      "workspace": "/agents/skills/monitor.review.execute",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.review.scope",
+      "workspace": "/agents/skills/monitor.review.scope",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.risk.recalculate",
+      "workspace": "/agents/skills/monitor.risk.recalculate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.screening.refresh",
+      "workspace": "/agents/skills/monitor.screening.refresh",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.transaction.deviation",
+      "workspace": "/agents/skills/monitor.transaction.deviation",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "monitor.trigger.evaluate",
+      "workspace": "/agents/skills/monitor.trigger.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.beneficiary.trace",
+      "workspace": "/agents/skills/network.beneficiary.trace",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.centrality.calculate",
+      "workspace": "/agents/skills/network.centrality.calculate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.community.detect",
+      "workspace": "/agents/skills/network.community.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.cycle.detect",
+      "workspace": "/agents/skills/network.cycle.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.graph.build",
+      "workspace": "/agents/skills/network.graph.build",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.path.find",
+      "workspace": "/agents/skills/network.path.find",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.relationship.infer",
+      "workspace": "/agents/skills/network.relationship.infer",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.risk.propagate",
+      "workspace": "/agents/skills/network.risk.propagate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.shared_attributes.detect",
+      "workspace": "/agents/skills/network.shared_attributes.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "network.temporal.analyze",
+      "workspace": "/agents/skills/network.temporal.analyze",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.circular.detect",
+      "workspace": "/agents/skills/ownership.circular.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.control.resolve",
+      "workspace": "/agents/skills/ownership.control.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.discrepancy.detect",
+      "workspace": "/agents/skills/ownership.discrepancy.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.graph.build",
+      "workspace": "/agents/skills/ownership.graph.build",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.graph.expand",
+      "workspace": "/agents/skills/ownership.graph.expand",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.history.compare",
+      "workspace": "/agents/skills/ownership.history.compare",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.interest.calculate",
+      "workspace": "/agents/skills/ownership.interest.calculate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.nominee.detect",
+      "workspace": "/agents/skills/ownership.nominee.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.structure.complexity",
+      "workspace": "/agents/skills/ownership.structure.complexity",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.threshold.evaluate",
+      "workspace": "/agents/skills/ownership.threshold.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.ubo.resolve",
+      "workspace": "/agents/skills/ownership.ubo.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "ownership.ubo.verify",
+      "workspace": "/agents/skills/ownership.ubo.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.activity.profile",
+      "workspace": "/agents/skills/party.activity.profile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.expected_behavior.model",
+      "workspace": "/agents/skills/party.expected_behavior.model",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.geography.profile",
+      "workspace": "/agents/skills/party.geography.profile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.industry.classify",
+      "workspace": "/agents/skills/party.industry.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.product.profile",
+      "workspace": "/agents/skills/party.product.profile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.profile.build",
+      "workspace": "/agents/skills/party.profile.build",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.profile.completeness",
+      "workspace": "/agents/skills/party.profile.completeness",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.profile.refresh",
+      "workspace": "/agents/skills/party.profile.refresh",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.role.resolve",
+      "workspace": "/agents/skills/party.role.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "party.type.classify",
+      "workspace": "/agents/skills/party.type.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.agent.trace.evaluate",
+      "workspace": "/agents/skills/quality.agent.trace.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.confidence.calibrate",
+      "workspace": "/agents/skills/quality.confidence.calibrate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.coverage.assess",
+      "workspace": "/agents/skills/quality.coverage.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.data.validate",
+      "workspace": "/agents/skills/quality.data.validate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.findings.verify",
+      "workspace": "/agents/skills/quality.findings.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.hallucination.detect",
+      "workspace": "/agents/skills/quality.hallucination.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.outcome.reconcile",
+      "workspace": "/agents/skills/quality.outcome.reconcile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.policy.compliance",
+      "workspace": "/agents/skills/quality.policy.compliance",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.remediation.plan",
+      "workspace": "/agents/skills/quality.remediation.plan",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "quality.schema.validate",
+      "workspace": "/agents/skills/quality.schema.validate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.address.verify",
+      "workspace": "/agents/skills/registry.address.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.company.lookup",
+      "workspace": "/agents/skills/registry.company.lookup",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.company.verify",
+      "workspace": "/agents/skills/registry.company.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.directors.resolve",
+      "workspace": "/agents/skills/registry.directors.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.discrepancy.detect",
+      "workspace": "/agents/skills/registry.discrepancy.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.filings.retrieve",
+      "workspace": "/agents/skills/registry.filings.retrieve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.jurisdiction.resolve",
+      "workspace": "/agents/skills/registry.jurisdiction.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.licenses.verify",
+      "workspace": "/agents/skills/registry.licenses.verify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.status.monitor",
+      "workspace": "/agents/skills/registry.status.monitor",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "registry.taxid.validate",
+      "workspace": "/agents/skills/registry.taxid.validate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.ctr.evaluate",
+      "workspace": "/agents/skills/regulatory.ctr.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.ctr.prepare",
+      "workspace": "/agents/skills/regulatory.ctr.prepare",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.deadline.calculate",
+      "workspace": "/agents/skills/regulatory.deadline.calculate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.filing.prepare",
+      "workspace": "/agents/skills/regulatory.filing.prepare",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.filing.submit",
+      "workspace": "/agents/skills/regulatory.filing.submit",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.filing.track",
+      "workspace": "/agents/skills/regulatory.filing.track",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.obligations.resolve",
+      "workspace": "/agents/skills/regulatory.obligations.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.sar.draft",
+      "workspace": "/agents/skills/regulatory.sar.draft",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.sar.evaluate",
+      "workspace": "/agents/skills/regulatory.sar.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "regulatory.sar.validate",
+      "workspace": "/agents/skills/regulatory.sar.validate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.behavior.assess",
+      "workspace": "/agents/skills/risk.behavior.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.change.detect",
+      "workspace": "/agents/skills/risk.change.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.customer.assess",
+      "workspace": "/agents/skills/risk.customer.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.factor.evaluate",
+      "workspace": "/agents/skills/risk.factor.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.geography.assess",
+      "workspace": "/agents/skills/risk.geography.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.industry.assess",
+      "workspace": "/agents/skills/risk.industry.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.inherent.calculate",
+      "workspace": "/agents/skills/risk.inherent.calculate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.product.assess",
+      "workspace": "/agents/skills/risk.product.assess",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.residual.calculate",
+      "workspace": "/agents/skills/risk.residual.calculate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.score.calibrate",
+      "workspace": "/agents/skills/risk.score.calibrate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.score.explain",
+      "workspace": "/agents/skills/risk.score.explain",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "risk.tier.assign",
+      "workspace": "/agents/skills/risk.tier.assign",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.adverse_media.classify",
+      "workspace": "/agents/skills/screening.adverse_media.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.adverse_media.correlate",
+      "workspace": "/agents/skills/screening.adverse_media.correlate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.adverse_media.execute",
+      "workspace": "/agents/skills/screening.adverse_media.execute",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.alert.disposition",
+      "workspace": "/agents/skills/screening.alert.disposition",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.match.disambiguate",
+      "workspace": "/agents/skills/screening.match.disambiguate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.match.score",
+      "workspace": "/agents/skills/screening.match.score",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.name.normalize",
+      "workspace": "/agents/skills/screening.name.normalize",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.pep.execute",
+      "workspace": "/agents/skills/screening.pep.execute",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.pep.relationship.resolve",
+      "workspace": "/agents/skills/screening.pep.relationship.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.rescreen.schedule",
+      "workspace": "/agents/skills/screening.rescreen.schedule",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.sanctions.control.evaluate",
+      "workspace": "/agents/skills/screening.sanctions.control.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.sanctions.execute",
+      "workspace": "/agents/skills/screening.sanctions.execute",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.sanctions.ownership.evaluate",
+      "workspace": "/agents/skills/screening.sanctions.ownership.evaluate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "screening.watchlist.execute",
+      "workspace": "/agents/skills/screening.watchlist.execute",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.anomaly.detect",
+      "workspace": "/agents/skills/transaction.anomaly.detect",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.baseline.compare",
+      "workspace": "/agents/skills/transaction.baseline.compare",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.behavior.profile",
+      "workspace": "/agents/skills/transaction.behavior.profile",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.cashflow.analyze",
+      "workspace": "/agents/skills/transaction.cashflow.analyze",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.classify",
+      "workspace": "/agents/skills/transaction.classify",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.counterparty.resolve",
+      "workspace": "/agents/skills/transaction.counterparty.resolve",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.enrich",
+      "workspace": "/agents/skills/transaction.enrich",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.exposure.aggregate",
+      "workspace": "/agents/skills/transaction.exposure.aggregate",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.flow.trace",
+      "workspace": "/agents/skills/transaction.flow.trace",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.geography.analyze",
+      "workspace": "/agents/skills/transaction.geography.analyze",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.ingest",
+      "workspace": "/agents/skills/transaction.ingest",
+      "registeredPattern": true
+    },
+    {
+      "kind": "skills",
+      "id": "transaction.velocity.analyze",
+      "workspace": "/agents/skills/transaction.velocity.analyze",
+      "registeredPattern": true
+    }
+  ]
+}

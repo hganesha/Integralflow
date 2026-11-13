@@ -1,0 +1,660 @@
+# KYC evidence preparation pipeline
+
+A runnable **Python + LangGraph proof of concept** for preparing auditable KYC/KYB evidence from documents. It combines structure-aware parent/child chunks, document-wide extraction, exact source pointers, a coverage ledger, basic reconciliation, and a checkpointed human-review gate. It is **not a KYC decision engine** and does not establish that a document or case is complete.
+
+> **Sensitive-data warning:** This project stores document text, extracted facts, review decisions, model outputs, and graph checkpoints in SQLite files or a Postgres database. They are encrypted only when you set a data key (see [Storage, audit and data protection](#storage-audit-and-data-protection)). The original source file is not copied into the evidence store: retain it separately in an approved, immutable evidence repository. Use only synthetic data until appropriate security, retention, access-control, and model-provider controls have been established.
+
+## What is implemented
+
+```text
+                                 ┌─ Query path: BM25 / optional embeddings
+                                 │               → child hits + parent context
+Document → parse + classify → structure/chunk → index
+                                                  ↓
+                 Whole-document extraction → source-pointer checks
+                                                  ↓
+                      reconcile against current case → human interrupt if needed
+                                                  ↓
+                         coverage ledger → transactional canonical evidence store
+```
+
+- **Two distinct paths:** retrieval searches the source chunks; extraction independently processes every parsed chunk against the applicable document-family contract. Retrieval results are not treated as proof of completeness.
+- **Ten declarative document-family profiles** and a separate illustrative policy/coverage contract. Each profile's settings change how it is chunked (where long text may be split, whether field records stay whole) and what surrounding text the model sees. Starter examples cover a financial report, registry extracts, a licence register entry and an enforcement notice, beneficial-ownership declarations and registers, adverse-media articles, a bank statement, source-of-funds declaration and completion statement, a passport, identity card and utility bill, a sanctions/PEP screening report and PEP declaration, and a prior KYC review record. Each is a narrow set of rules for fictional fixtures, not a tuned specialist extractor.
+- **Typed extraction schemas:** each category lists the predicates it accepts and the fields each one needs (object, value type and unit, date, claim type). Off-schema predicates are rejected, and claims that don't fit are flagged. Single-valued attributes, such as legal name, jurisdiction and identifiers, are checked for conflicts across the case (see below).
+- **Structure and provenance:** sections, paragraphs, table rows and headers, linked Markdown footnotes, page numbers and PDF block/table coordinates where available. Quotes carry a document SHA-256, normalized segment SHA-256, exact Unicode-code-point offsets, source locator, and representation type. Table reconstruction is identified as such.
+- **Atomic facts, evidence and findings** are separate. Every extracted claim remains `PENDING_HUMAN`; exact quote matching and optional model source-support checks do not establish external truth or legal identity.
+- **Coverage and gaps:** section inventory, processed/failed chunks, category status and explicit unresolved issues. Available statuses are `FOUND`, `NOT_FOUND_AFTER_REVIEW`, `NOT_APPLICABLE`, `NOT_REVIEWED`, `EXTRACTION_FAILED`, and `CONFLICTED`. A negative automated review is not proof of absence. Parsing gaps (un-OCR'd images, inferred tables, thin pages) do not void what was extracted elsewhere: each category records `source_fully_parsed` and `parse_gap_pages`, cannot be `NOT_FOUND_AFTER_REVIEW` while gaps remain, and a material category with gaps stays an unresolved requirement. `EXTRACTION_FAILED` is reserved for failed chunks, an unparseable document, or open claim-level issues in that category.
+- **Registry and licence records:** registry extracts and licence register entries yield legal name, identifiers, status, legal form, incorporation date, registered address, former names, directors and secretary, and a licence's type, status, number, issuer, dates and restrictions. LEI check digits are verified, and adverse company or licence statuses and passed expiry dates are raised for review. Opt-in GLEIF and Companies House lookups compare each LEI's and UK company number's public record with the documents, including officers and people with significant control (see below).
+- **Source of funds:** bank statements yield the account holder, bank, opening and closing balances, and each row's credit, debit and running balance; the printed balances are checked against the arithmetic. Declarations and sale completion statements yield the declared source and amount, the asset sold and the net proceeds, which are looked for among the credits on the same person's statements (see below).
+- **Identity documents:** passports, identity cards and proofs of address yield name, date of birth, nationality, document number and dates, and residential address. The machine-readable zone's ICAO check digits are recomputed and compared with the printed fields; expired documents and stale proofs of address are raised (see below).
+- **Sanctions and PEP:** screening reports and PEP declarations yield each result, position and declaration; a positive result, a PEP, a declaration other evidence contradicts, and a stale screening are raised. Opt-in screening of the case's people and organizations against a local list file (a simple CSV or OFAC's SDN CSV) records each list's hash and every candidate match (see below).
+- **Prior KYC files:** the bank's own review records yield the decision, risk rating, next review date and owners on file; an overdue review, an adverse earlier decision, and changes in address, name or beneficial owners since the review are raised (see below).
+- **Adverse media and enforcement:** articles yield their publisher and date and each outcome stage (accused, investigated, charged, settled, fined, convicted, cleared, denied); enforcement notices yield the penalty and actions. Stages are grouped into one event per subject and topic across documents, with its status and sources (see below).
+- **Entity layer:** links each fact's subject (and owned or controlled party) to an entity using the document's own definitions, SEC cover-page and registry identity, and identifier-first matching across the case (see below).
+- **Ownership graph:** builds who-holds-what across the case from the linked facts, with stakes as low–high ranges, look-through interests through chains, control from voting rights or majority stakes, checks for holdings above 100% and cycles, and a beneficial-owner report per company that sets the owners derived from holdings beside declared owners and register PSCs (see below).
+- **Conservative reconciliation:** matching on resolved entities (text only where unresolved), same/overlapping-date ownership conflicts, conflicting single-valued attributes such as two legal names for one entity, duplicate-like source claims, and older ownership snapshots followed by disposals. Different dated stakes are not automatically contradictions. No current percentage is inferred from a partial disposal.
+- **Human intervention:** a LangGraph interrupt includes the issues, related facts and source quotes. Review decisions are persisted with self-reported reviewer attribution. Deferring an issue does not resolve it; resolving a possible conflict preserves all source claims and does not automatically verify either claim.
+- **Checkpoints and retry:** graph stages are checkpointed in SQLite or Postgres; extraction results are cached per chunk. A retry of identical source bytes and the same configuration reuses successful units and retries failed ones. An optimistic case-revision check prevents persisting conclusions based on a case that changed during processing or review.
+- **Delta tables and Databricks:** each case's evidence package can be written to 14 Delta tables (cases, documents, runs, facts, evidence, entities, issues, findings, coverage, ownership edges, beneficial owners, screening checks, review decisions, audit events), locally or in Unity Catalog. An asset bundle deploys a serverless job that processes case folders dropped into a volume (see below).
+- **Audit, retention and data protection:** each case's audit events form a hash chain that `verify-audit` checks, together with every persisted run's records. Cases can be erased on request or by retention period, with the audit trail kept. Payloads and checkpoints can be encrypted with AES-256-GCM, and secrets can be read from files. The store runs on SQLite or Postgres (see below).
+- **Offline by default:** BM25 retrieval and intentionally narrow rule extraction require no API key and make no network calls. Optional local neural embeddings run on your machine after downloading model weights; optional model extraction, material-fact source-support checks and embeddings (any OpenAI-compatible server, with strict structured output and retries) require explicit data-sharing opt-in. A model-request budget and optional PDF page scope mark remaining chunks as not reviewed.
+
+## Requirements and quick start
+
+Python 3.11 or newer. Tested with Python 3.13. The example files and reviewer identities are entirely fictional.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate                    # Windows: .venv\Scripts\activate
+python -m pip install -e '.[test]'
+pytest
+./scripts/run_demo.sh
+python scripts/evaluate.py
+# Re-runs the offline pipeline on two genuine annual-report PDFs (~1–2 minutes):
+python scripts/evaluate_public_pdfs.py
+# Optional local embedding/hybrid-retrieval evaluation (downloads model weights on first run):
+pip install -e '.[local-embeddings]'
+python scripts/evaluate_public_pdfs.py --embeddings local --output-dir real_evaluation/local_embeddings_run
+```
+
+The demo creates a unique synthetic case under `results/`, deliberately **defers** a stale-ownership issue, exports `results/evidence-package.json`, and writes a retrieval result to `results/query.json`. The output remains `REVIEW_REQUIRED`.
+
+`evaluate.py` checks two tiny, exhaustively labeled synthetic documents: one with facts on separate pages and a table/footnote, and another with contradictory ownership figures. It reports fact-level recall, an unsupported-claim rate against that narrow gold set, review-trigger detection, and table/footnote linkage. These results are a plumbing check, **not a performance estimate for real documents**. The tests additionally generate a 180-page synthetic document with evidence on pages 12, 47, 103 and 161.
+
+See [REAL_PDF_EVALUATION.md](REAL_PDF_EVALUATION.md) for the measured results and the important failed model run.
+
+`evaluate_public_pdfs.py` processes the **actual 150-page Berkshire Hathaway and 132-page Disney 2024 annual reports** in `examples/public_reports/`. The publisher URLs and SHA-256 hashes are recorded in `sources.json`. It reports retrieval and extraction against eight selected, source-checked examples and exports both evidence packages plus a blank `fact_review_template.csv`. This is a tiny, non-exhaustive, non-independently-adjudicated sample; it does not measure whole-document fact recall or claim-level unsupported rate. Complete the CSV with an independent reviewer and run `python scripts/score_reviews.py path/to/fact_review_template.csv` to score labeled claims. Automated benchmark deferrals are explicitly identified as non-human and resolve nothing.
+
+## Manual workflow
+
+Unless overridden, the evidence database is `kyc_data/evidence.sqlite` and the LangGraph checkpoint database is `kyc_data/checkpoints.sqlite`. The files are created with owner-only permissions where supported, but **they are not encrypted**. Keep both databases together: the evidence DB alone cannot resume a paused graph.
+
+### 1. Inspect the available profiles
+
+```bash
+kyc-pipeline profiles
+```
+
+Auto-classification looks for simple profile signals and fails closed on an ambiguous/no-signal document. Prefer an explicitly selected profile:
+
+```bash
+kyc-pipeline ingest examples/synthetic_annual_report.txt \
+  --case-id acme-demo --profile financial_annual_report > pause.json
+```
+
+The synthetic annual report pauses on `STALE_OWNERSHIP_AFTER_DISPOSAL`: the reported 65% stake is older than the disposal and no later stake is provided. `pause.json` includes a `run_id`, the issue IDs, related facts and their source quotes. A run without a material issue goes directly to `PERSISTED`, but can still be `REVIEW_REQUIRED` because required categories have not been adequately reviewed.
+
+### 2. Review and resume
+
+In a real workflow an authorized analyst would inspect the original documents, the citations and policy before recording a decision. For the **fictional demo only**, this command writes a deferral for each issue:
+
+```bash
+python - <<'PY'
+import json
+p = json.load(open('pause.json'))
+assert p['status'] == 'PAUSED_FOR_REVIEW'
+decision = {
+    'reviewer_id': 'SYNTHETIC_DEMO_ONLY',
+    'decisions': [
+        {'issue_id': i['issue_id'], 'action': 'defer',
+         'reason': 'Synthetic example: obtain a current ownership record.'}
+        for i in p['review_request']['issues']
+    ]
+}
+with open('decision.json', 'w') as f:
+    json.dump(decision, f, indent=2)
+PY
+RUN_ID=$(python -c "import json; print(json.load(open('pause.json'))['run_id'])")
+kyc-pipeline resume --run-id "$RUN_ID" --decision decision.json
+```
+
+Each pending high-severity issue needs exactly one decision. `defer` leaves it open. For a `POSSIBLE_OWNERSHIP_CONFLICT` or `POSSIBLE_ATTRIBUTE_CONFLICT`, the request also permits `resolve` with a nonempty reason and exactly one `selected_fact_ids` value copied from that issue. All conflicting claims remain stored; reviewer identity is **not authenticated** in this POC. Parse failures, unsupported source claims and stale ownership can only be deferred here; obtain better evidence or reprocess an improved source rather than declaring them resolved without support.
+
+Check a paused run without consuming it:
+
+```bash
+kyc-pipeline status --run-id "$RUN_ID"
+```
+
+### 3. Export, search, and inspect citations
+
+```bash
+kyc-pipeline report --case-id acme-demo --output evidence-package.json
+kyc-pipeline ownership --case-id acme-demo --format mermaid --output ownership.mmd
+kyc-pipeline query --case-id acme-demo --query 'Who controls Birch Ltd?' --top-k 5
+# Copy a segment_id from an evidence record:
+kyc-pipeline segment --case-id acme-demo --segment-id 'seg_...'
+```
+
+The package contains documents, run/configuration hashes, evidence, facts, entities, the ownership graph, findings, coverage, section inventory, issue/review records and an audit-event list. Retrieval also returns individually anchored `parent_context_units`; the combined parent text alone is not a citation. A `segment` provides the exact normalized text against which an evidence record's `[start:end]` offsets can be checked. For a PDF, inspect the original page and coordinates as well; extracted text and reconstructed tables can differ from the visual source.
+
+Add more documents to the same case by calling `ingest` again with the same case ID. Reconciliation compares current extracted claims across documents by **case entity** where the entity layer linked them, and by normalized text otherwise. A match on name alone is not proof that two documents mean the same legal entity; facts persisted before the entity layer existed only match by text.
+
+### 4. Retry failed units
+
+```bash
+kyc-pipeline retry --run-id "$RUN_ID"
+```
+
+A retry starts a new run, reuses cached successful extraction chunks when their source, policy, profile, model, endpoint and extraction-cache version match, and retries failed chunks. It re-runs source checking and reconciliation; embeddings are rebuilt if enabled. The source file must still be available and have identical bytes (or supply `--file` pointing to the identical file). For OCR or changed source bytes, use a **new** `ingest` instead. Reprocessing the original document after adding a newer ownership record can reassess a previously deferred stale-ownership finding; review remains necessary.
+
+If another document is committed to a case while a graph is running or paused, the optimistic revision check refuses to persist the stale result. Retry the affected run so it reconciles against the new case state.
+
+## Optional local semantic retrieval
+
+No model API or document-upload consent is needed for local embeddings:
+
+```bash
+pip install -e '.[local-embeddings]'
+kyc-pipeline ingest examples/public_reports/berkshire_2024_annual_report.pdf \
+  --case-id brk-local --profile financial_annual_report --embeddings local
+# Resume a paused run with a human decision, or defer it as in the section above.
+kyc-pipeline query --case-id brk-local --embeddings local \
+  --query 'What ownership interest did Berkshire report in Kraft Heinz at the end of 2024?'
+```
+
+First use downloads the approximately 67 MB MIT-licensed `BAAI/bge-small-en-v1.5` ONNX model via FastEmbed/Hugging Face. Document and query text are embedded locally, not transmitted to an embedding API. Pre-cache model weights before operating on an air-gapped or sensitive environment; the package manager and model downloader access the network during setup. Index vectors and checkpoints contain sensitive information too. Local neural retrieval is available for the tested English documents; it is not a semantic fact verifier. Vectors are stored separately from LangGraph state to avoid repeatedly checkpointing large vector arrays; an incomplete run's vectors are not exposed by canonical retrieval. The local model uses small inference batches to limit memory use.
+
+## Optional model extraction and embeddings
+
+Only use a model endpoint after confirming that sending the specific documents and personal data to it is permitted by your organization's policies and the provider's contractual/security terms. The opt-in applies to local OpenAI-compatible endpoints too.
+
+```bash
+export OPENAI_API_KEY='...'
+export OPENAI_MODEL='your-model-supporting-structured-outputs'
+# Optional; default is https://api.openai.com/v1
+export OPENAI_BASE_URL='https://your-approved-openai-compatible-endpoint/v1'
+# Optional, only for dense search:
+export OPENAI_EMBEDDING_MODEL='your-embedding-model'
+
+kyc-pipeline ingest examples/synthetic_annual_report.txt \
+  --case-id model-demo --profile financial_annual_report \
+  --extractor openai --embeddings openai --verify-material \
+  --model-batch-size 12 --max-model-requests 20 \
+  --allow-remote-sensitive-data
+```
+
+Model extraction groups chunks into bounded requests. The default `--max-model-requests 20` is a cost/safety cap; chunks beyond that limit are `NOT_REVIEWED`. To attempt a full large report, explicitly set an appropriate higher budget after estimating cost and capacity. `--extract-pages 45` (or `13,38,45-47`) intentionally limits extraction to selected physical pages; all other parsed chunks remain unreviewed, even when a category has a `FOUND` claim. Use `--model-batch-size`, `--model-batch-max-chars`, and `--model-request-interval` for provider limits. `--model-max-tokens` and `--model-reasoning-effort` are optional, provider-specific parameters. The extraction-request budget does not include optional embeddings or per-fact verification calls.
+
+### How model calls behave
+
+- **Strict output.** Requests use JSON-schema structured output (`response_format` type `json_schema`, `strict: true`), built from the same pydantic models that validate the reply. Each batch's schema also limits `chunk_id` to the chunks sent and `category` to the applicable categories. Length and pattern limits are not sent (strict mode does not accept all of them) but are still enforced when the reply is validated. For a compatible server without `json_schema` support, pass `--model-output json-object`; the schema then goes in the prompt instead.
+- **Retries.** Rate limits (429), timeouts, connection errors and 408/409/5xx responses are retried up to `--model-max-retries` times (default 4) with exponential backoff and jitter, honouring `retry-after-ms` and `Retry-After` up to 60 seconds. A 429 for exhausted quota and other 4xx errors fail at once. `--model-timeout` (default 120 seconds) bounds each response.
+- **Failures say why.** Errors name the HTTP status and the provider's error code and parameter, for example `Provider returned HTTP 400 (unsupported_parameter: temperature)`, plus the provider's request ID in the extraction log (`provider_request_id`). Response bodies and document text are never included. Truncated output, a content-filter block, a model refusal and schema-invalid output each fail closed with their own `error_code`.
+- **Truncated or filtered batches are split.** If a batch is truncated or blocked by a content filter, it is halved and each half retried, down to single chunks, so one long or filtered chunk fails alone. Split requests count against `--max-model-requests`.
+- **Usage.** Each extraction unit records its request's ID, attempts and token counts (`model_call`); the run summary totals them in `model_usage`.
+- **Reasoning models.** With `--model-reasoning-effort`, `temperature` is not sent. `--model-max-tokens` is sent as `max_completion_tokens` to the default OpenAI endpoint and as `max_tokens` to other servers.
+
+### Any OpenAI-compatible server
+
+The client is a plain OpenAI-compatible Chat Completions/embeddings client: it POSTs to `{OPENAI_BASE_URL}/chat/completions` and `{OPENAI_BASE_URL}/embeddings` with `Authorization: Bearer $OPENAI_API_KEY`. Point `OPENAI_BASE_URL` at any compatible server (a hosted provider, an LLM gateway such as LiteLLM, or a self-hosted vLLM/Ollama endpoint). `OPENAI_API_KEY` is required only for the default `https://api.openai.com/v1`; without a key no `Authorization` header is sent. `--model` and `--embedding-model` override `OPENAI_MODEL` and `OPENAI_EMBEDDING_MODEL`. The `openai` choices of `--extractor` and `--embeddings` mean "the configured OpenAI-compatible endpoint". A server's content filter may block passages in adverse-media, litigation or sanctions documents; those chunks are reported as `EXTRACTION_FAILED` with `error_code` `content_filter`, never silently dropped.
+
+`--verify-material` makes an additional model call for each material candidate claim to check whether its **cited text** supports it. It does not check external truth, sanctions status or identity. A `SUPPORTED` verdict is still provisional; `UNSUPPORTED`, `UNCERTAIN`, errors, or missing literal fields create review issues. Model output must match a strict JSON schema and cite exact source text. Truncated or schema-invalid output marks the chunk as failed. A claim whose citation is not in the source is discarded and raises `CANDIDATE_CITATION_REJECTED` for that claim's category only; `retry` re-extracts those chunks rather than reusing them. Document content is treated as untrusted data, but prompt-injection resistance is not guaranteed.
+
+For hybrid query-time retrieval, the question is also sent to the configured embedding endpoint:
+
+```bash
+kyc-pipeline query --case-id model-demo --query 'Who controls Birch Ltd?' \
+  --embeddings openai --allow-remote-sensitive-data
+```
+
+Use the same embedding model as indexing. Missing, failed, incompatible or mismatched embeddings fall back to lexical search with a warning. The endpoint must implement OpenAI-style `/chat/completions` with JSON-schema (or, with `--model-output json-object`, JSON-object) output and/or `/embeddings`; no live provider is needed for the test suite. A retry that uses a model requires `--allow-remote-sensitive-data` again and the same provider and endpoint; it reuses the original run's output mode, timeout and retry settings. Model providers can change behavior under a stable model name; cached responses are not an independent validation.
+
+## Entity layer
+
+`entities.py` decides which entity each fact is about, using only cited source text. Each document is resolved first:
+
+- **Identity facts.** Registry fields (`Legal name:`, `Registration number:`, `Jurisdiction:`) and the SEC cover page (legal name, Commission file number, state of incorporation, I.R.S. employer identification number) are extracted as ordinary `legal_identity` facts and become the entity's names, identifiers and jurisdiction. When the cover-page name is not in the text (for example, printed as an image), the facts use the subject `UNRESOLVED_REGISTRANT`.
+- **The document's own definitions.** `Berkshire Hathaway Inc. ("Berkshire")`, `... and subsidiaries (the "Company")` and `the terms "we," "us," or "our" refer to ...` link a short name or pronoun to its full name, and each link cites the defining sentence. A definition naming "X and its subsidiaries" points to a **group**, which is a separate entity from X. "X or a subsidiary" also resolves to X's group. A named definition beats a generic one ("the parent company and the subsidiaries"). When a generic and a named definition define the same term, an unnamed registrant takes the named parent's name; this is how Disney's cover page, whose name is an image, is resolved.
+- **What is not linked.** A term defined for two different entities raises `DEFINED_TERM_AMBIGUOUS` (medium), and facts using it are left as plain mentions. Former names (`formerly known as`) are not treated as aliases. Names are bounded heuristically: a definition must follow a name ending in a legal form (Inc., Corp., LLC, Ltd, plc …), unless it defines a pronoun.
+
+Each fact gets:
+
+- `entity_links`: the subject's and object's entity, the basis (`DEFINED_TERM`, `GROUP`, `REGISTRANT_COVER`, `LEGAL_NAME`, `MENTION`) and the evidence for the link;
+- `entity_resolution`:
+  - `RESOLVED`: the subject is a named entity with an identifier, legal name or definition;
+  - `RESOLVED_TO_GROUP`: the subject is a group;
+  - `TEXT_MATCH_ONLY`: the subject is a plain mention;
+  - `UNRESOLVED`: the subject is a pronoun or placeholder with no definition.
+
+A group subject raises `ENTITY_RESOLVED_TO_GROUP`, which is high severity for material categories, because the direct legal holder or actor is still not stated. It replaces `ENTITY_IDENTITY_UNRESOLVED` for subjects the document itself resolves.
+
+Across the case, document entities are merged:
+
+- **On a shared identifier.** SEC file number, EIN and LEI each identify an entity on their own. A registration number must also match on jurisdiction.
+- **On the same legal name,** with legal forms normalized (Inc./Incorporated, Ltd/Limited, a leading "The" dropped), but only when no identifier of the same scheme or a known jurisdiction contradicts it. Otherwise the entities are kept apart and `ENTITY_NAME_COLLISION` (medium) is raised.
+- **Conflicts inside one entity.** One entity with two values for the same identifier raises `ENTITY_IDENTIFIER_CONFLICT` (high).
+
+The report's `entities` list shows each case entity with its names, identifiers, documents and `match_basis` (`IDENTIFIER`, `LEGAL_NAME`, `SINGLE_DOCUMENT` or `GROUP_OF_PARENT`). `document_entities` shows the per-document records, and every fact carries `case_entity_ids`. Ownership conflicts compare case entities. Figures that agree after rounding (28% vs 28.2%, or "approximately 27%" vs 27.2%) are recorded as `OWNERSHIP_FIGURES_DIFFER_BY_ROUNDING` findings, not conflicts.
+
+Not yet covered:
+
+- people beyond their names: a person is a director, a declared beneficial owner or a holder the source calls an individual, matched across documents by name without titles; no dates of birth or nationality, so two people with the same name are merged;
+- definitions scoped to one section (Berkshire's Item 1 uses "Company" for the parent, but its auditor's report uses it for the group);
+- former names and successor entities;
+- entities resolved from register records: GLEIF and Companies House records are compared with the documents, not merged into the entity; no SEC EDGAR lookup;
+- the model extractor producing cover-page facts (only the local rules do).
+
+## Profiles and policy
+
+Three files configure the pipeline, kept apart because document processing, bank policy and fact definitions are different concerns:
+
+- `configs/document_profiles.yaml`: family, classification signals, chunk sizes and chunking settings per profile;
+- `configs/kyc_policy.yaml`: illustrative category guidance and materiality per family, plus ownership graph settings;
+- `configs/extraction_schemas.yaml`: the typed predicates each category accepts, reusable across policies.
+
+Replace them with approved configurations, for example:
+
+```bash
+kyc-pipeline ingest my-report.pdf --case-id case-42 \
+  --profile financial_annual_report \
+  --profiles-file approved-profiles.yaml --policy-file approved-policy.yaml \
+  --schemas-file approved-schemas.yaml
+```
+
+`kyc-pipeline profiles` lists each profile with its settings, requirements and predicates. Each run records the SHA-256 of all three files, and a change to any of them invalidates the extraction cache.
+
+For a specific family, an explicit policy requirement may be written as `{category: ownership, applicable: false, reason: 'documented rationale'}`. `NOT_APPLICABLE` requires that reason; it is not inferred from missing evidence. The included policy is **illustrative only**, not a regulatory rule or a bank-approved policy.
+
+### Chunking settings
+
+A profile's `strategy` is a label. Three settings change behaviour:
+
+| Setting | Values | Effect |
+|---|---|---|
+| `boundary` | `whitespace`, `sentence`, `clause` | Where a segment longer than `max_chars` may be split. `sentence` splits at sentence ends and starts each overlap at a sentence. `clause` splits first before numbered clauses (`1.`, `(a)`, `2.1`, `Section 3`). `whitespace` is the old behaviour. |
+| `keep_records_whole` | `true`, `false` | Keeps a field record (two or more `Label: value` lines making up at least half its lines) in one chunk, up to four times `max_chars`. A registry's registration number then stays with its legal name instead of falling back to `UNRESOLVED_REGISTRY_SUBJECT`. A larger record is split and flagged `OVERSIZED_FIELD_RECORD_SPLIT`. |
+| `context_unit` | `parent_section`, `document_header`, `none` | Text attached to each chunk as `section_context`. `parent_section` gives the section's opening paragraph and the paragraph before the chunk. `document_header` gives the document's first three paragraphs (title, caption, publisher, date). |
+
+The model sees `section_context` beside each chunk so it can resolve "we", "the Company", units and titles. It must still quote claims from the chunk itself. If it replaces a pronoun with a name from the context, it must cite that text in `supporting_refs`, which are checked against the exact source like any other quote. Local rules ignore the context.
+
+These settings only choose split points and context; they are not separate clause-, transaction- or chronology-aware parsers, and they work within the segments the parser produced. Most PDF text blocks are shorter than `max_chars`, so on the two annual reports only a few blocks split differently.
+
+### Typed extraction schemas
+
+`extraction_schemas.yaml` declares predicates per category. Each one sets whether an object is required, the value type (`percent`, `amount`, `count`, `text` or none), whether a value or date is required, and optionally the allowed `date_roles` and `claim_types`, an `evidence_terms` pattern the cited text must match, `single_valued`, and `magnitude` (the value is an unsigned size and the predicate gives the direction, so a debit printed as `-250.00` is a `made_payment` of 250 and still passes the literal check).
+
+- **Typed and open categories.** A category with declared predicates is typed: a candidate using any other predicate is discarded and raises `CANDIDATE_SCHEMA_REJECTED`, which marks that category `EXTRACTION_FAILED`. Categories with none (now only discrepancies) are open: their facts are kept with `schema_check.status: UNTYPED`.
+- **Field checks.** Each fact records `schema_check` (`CONFORMS`, `VIOLATIONS` or `UNTYPED`). A violation, such as a stake given in dollars, revenue without a period, or an accusation recorded as a finding, raises `FACT_SCHEMA_VIOLATION`. A numeric string such as `"27.5"` is converted to a number where the schema expects one. `evidence_terms` replaces the earlier hard-coded wording checks (`PREDICATE_NOT_LITERAL_IN_EVIDENCE`).
+- **The model sees the schema.** Each category is sent with its predicates and field rules, replacing the four predicate names that were hard-coded in the prompt.
+- **Single-valued attributes.** Legal name, registration number, jurisdiction, legal status, legal form, registered address, LEI, SEC file number and EIN are `single_valued`. A licence's status is `single_valued: per_object`: one status per licence, so a firm can hold one licence that is suspended and another that is authorised. Two facts for the same entity with different values, in overlapping or undated periods, raise `POSSIBLE_ATTRIBUTE_CONFLICT` (high), which a reviewer can resolve by selecting one fact. Values are compared after normalizing case, punctuation and legal forms, so `BERKSHIRE HATHAWAY INC.` and `Berkshire Hathaway Incorporated` agree, and so do `12-3456789` and `123456789`. Facts whose subject is unresolved are not compared. A conflict may be a real rename or re-domiciling, or a sign that two entities were wrongly merged.
+
+The schemas are illustrative. They cover the categories of the four priority families (financial statements, ownership and control, regulatory and legal, adverse media) plus registry identity, licensing, transactions, wealth and funds, identity fields, address, sanctions and PEP, and prior decisions. A predicate with `subject_name_parts: true` (the identity and address predicates) accepts a subject whose name parts are printed on separate lines, as a passport's surname and given names are.
+
+The local rules intentionally recognize only a small set of literal patterns: registry and licence `Label: value` records (see below), bank-statement headers and transaction tables, source-of-funds declarations and sale completion statements, shareholder-register and beneficial-owner tables (see below), some ownership percentages and repurchases, contractual voting rights, selected legal-proceeding phrases, simple consolidated revenue rows, and a basic allegation phrase. They do not cover ordinary variations comprehensively. They do **not** perform an exhaustive semantic review. A category with no matched rule is `NOT_REVIEWED`, not `NOT_FOUND_AFTER_REVIEW`. A `FOUND` record only means a candidate was found; it does not imply the category is exhaustive or the fact is verified.
+
+## Registry and licence records
+
+The rules read `Label: value` lines in registry extracts and licence register entries; [synthetic_registry_extract.txt](examples/synthetic_registry_extract.txt) and [synthetic_licence_register.txt](examples/synthetic_licence_register.txt) show the recognized labels.
+
+- **Subject.** The record's `Company name`, `Legal name`, `Firm name` or `Licensee` line names the subject, and each fact cites that line as support. Without one, the subject is `UNRESOLVED_REGISTRY_SUBJECT` and directors are not extracted.
+- **Dates.** A `Date of extract`, `As at` or `Register date` line dates status, address, legal form, officers and licence facts (`date_role: as_of`) and is cited as support. Two dated extracts with different statuses are then a change over time, not a conflict. Incorporation, grant and expiry dates are events.
+- **People.** `Directors: Jane Smith (appointed 2019-01-01); Omar Haddad` gives one `is_director_of` fact per person, with the note dropped; `Company secretary: Lena Park` gives `is_officer_of` with the role as its value. People are linked by name only.
+- **Licences.** In a record with a licence line, `Status:` is the licence's status and becomes the value of `holds_license`; grant and expiry dates name the licence they belong to. `Restrictions:` or `Conditions:` give one fact per item (separated by `;`).
+- **Checks on the facts.** These run on every document, offline:
+  - `LEI_CHECK_DIGITS_INVALID` (high): the LEI fails its ISO 17442 check digits. It is then not used to identify or merge entities.
+  - `REGISTRY_STATUS_ADVERSE` (medium): a company status such as dissolved, struck off, in liquidation or administration.
+  - `LICENSE_STATUS_ADVERSE` (medium): a licence status such as suspended, revoked, cancelled, lapsed or restricted.
+  - `LICENSE_EXPIRY_PASSED` (medium): the stated expiry date is before the date of the run.
+
+Only single-line values are read: an address spread over several lines, or a registry exported as a two-column table, is not captured by the rules (the model extractor can still read it).
+
+### GLEIF LEI check
+
+```bash
+kyc-pipeline ingest examples/synthetic_registry_extract.txt --case-id registry-demo --registry-check gleif
+```
+
+`--registry-check gleif` looks up each LEI that the document names in the public [GLEIF API](https://api.gleif.org) and compares the record with what the case's documents say about that entity. Only the LEI is sent and no key is needed, but a lookup still tells GLEIF which entity is of interest, so it is off by default. Records are stored in the evidence database and reused for 24 hours, so a retry sees the same record. Each check is kept in the run summary and in the case report's `registry_checks`, with the record, when it was fetched and a link to its GLEIF page.
+
+The example's LEI is synthetic (its check digits are valid but GLEIF has no record), so this command pauses with `REGISTRY_RECORD_NOT_FOUND`; a document naming a real LEI shows the comparisons.
+
+| Field | Compared with | Issue if different |
+|---|---|---|
+| Legal name | GLEIF legal name, then its previous and other names | `REGISTRY_NAME_MISMATCH` (high); `REGISTRY_NAME_IS_OTHER_NAME` (medium) when the documents use a previous name |
+| Former names | GLEIF other names | reported as `NOT_IN_REGISTRY`, no issue |
+| Jurisdiction | GLEIF jurisdiction code (`Delaware` → `US-DE`, `England and Wales` → `GB`) | `REGISTRY_JURISDICTION_MISMATCH` (high); wording not in the built-in list is `NOT_COMPARED` |
+| Registration number | GLEIF `registeredAs`, ignoring punctuation and leading zeros | `REGISTRY_NUMBER_MISMATCH` (medium); `MATCH_IGNORING_PREFIX` when only a letter prefix differs (`C0806592` and `806592`) |
+| Incorporation date | GLEIF entity creation date | `REGISTRY_INCORPORATION_DATE_MISMATCH` (medium) |
+| Entity and LEI status | `ACTIVE`; `ISSUED` | `REGISTRY_ENTITY_INACTIVE`, `LEI_NOT_CURRENT` (medium) |
+
+An LEI that GLEIF does not know raises `REGISTRY_RECORD_NOT_FOUND` (high); a failed lookup raises `REGISTRY_LOOKUP_FAILED` (medium), so a check never passes silently. GLEIF data is reported by the entity itself and validated by its LEI issuer to varying degrees (the record's `corroboration_level`), so a match is not proof of identity and a mismatch may be a stale record. Other national company registers (US state registers among them) and regulators' licence registers are not looked up.
+
+## Source of funds
+
+```bash
+kyc-pipeline ingest examples/synthetic_source_of_funds_declaration.txt --case-id sof
+kyc-pipeline ingest examples/synthetic_completion_statement.txt --case-id sof
+kyc-pipeline ingest examples/synthetic_bank_statement.txt --case-id sof
+```
+
+- **Bank statements.** The header's `Account holder:`, `Bank:`, `Account number:`, `Currency:`, `Statement period:` and `Opening/Closing balance:` lines give `holds_account_at` and two `reported_account_balance` facts, dated with the period's start and end. Each row of the transaction table gives a `received_payment` or `made_payment` (the description is the object) and a running `reported_account_balance`. Separate money-in and money-out columns and a single signed amount column (`-1,000.00` or `(1,850.00)`) are both read. Each row cites its own line, the table header, and the statement's holder, currency and account lines, so every field is literally supported.
+- **Balance arithmetic.** Within one statement, each printed balance must equal the previous balance plus the row's credits minus its debits, and the last must equal the closing balance (to half a cent). Rows are taken in document order and reversed when the statement is newest first. A break raises `STATEMENT_BALANCE_BREAK` (high when transactions are material to the profile) with the expected and printed figures; a wrong closing figure raises `STATEMENT_CLOSING_BALANCE_MISMATCH`. A break may be a misread or missing row, or an altered statement, so it goes to review rather than being judged. A statement that adds up gives a `STATEMENT_BALANCES_RECONCILE` finding. That checks the arithmetic, not that the statement is genuine.
+- **Declarations and completion statements.** A declaration gives `declared_source_of_funds` and `declared_source_of_wealth` (with the expected amount, as of the declaration date). A completion statement gives `sold_asset` (sale price) and `received_sale_proceeds` (net proceeds, dated on completion).
+- **Expected inflows.** Each declared amount and net-proceeds figure is looked for among the credits on the same person's statements in the case, in the same currency. An exact match, or one within 1% (fees, rounding), gives an `EXPECTED_FUNDS_RECEIVED` finding listing the credits. If the person has statements in the case but none matches, `EXPECTED_FUNDS_NOT_FOUND` (medium) is raised. The check runs whenever a document adds to either side, so the documents can arrive in any order.
+
+Limits:
+
+- Amounts are read only with comma thousands separators and a dot decimal (`1,250.00`); `1.250,00` is not read. Dates must be unambiguous: written months (`2 March 2026`) or ISO dates; `02/03/2026` is not read. A row whose date is not read is skipped, so the next printed balance breaks and the statement goes to review rather than passing with a missing row.
+- Statement rows are extracted only when the statement names its account holder; without one the transactions category stays `NOT_REVIEWED`.
+- People are matched by name, ignoring titles and case (`Ms Jane Smith` is `JANE SMITH`) but not initials (`J Smith` is a different person). A joint account or a company account in a person's name is not handled.
+- A matching credit shows that a payment of that size arrived, not that it came from the declared source; payments split across several credits, or arriving in another account, are not matched. Unusual credits (size, round amounts, unexplained third parties) are not flagged.
+
+### Companies House check
+
+```bash
+export COMPANIES_HOUSE_API_KEY=...   # free, from the Companies House developer hub
+kyc-pipeline ingest examples/synthetic_uk_registry_extract.txt --case-id uk-demo --registry-check companies-house
+```
+
+`--registry-check companies-house` looks up each company number that the document gives for a UK company in the [Companies House public data API](https://developer.company-information.service.gov.uk/): the company profile, its officers (including resigned ones) and its people with significant control (PSCs). Only the company number is sent. A company is looked up only when the documents give it a UK jurisdiction (`England and Wales`, `Scotland`, `Northern Ireland`, `United Kingdom`); a number with no stated jurisdiction is listed as `NOT_LOOKED_UP` and never sent, since it may belong to another country's register. Numbers are normalized to Companies House format (`9876543` → `09876543`, `SC 123456` → `SC123456`). `--registry-check` can be repeated to run GLEIF and Companies House together. Records are cached for 24 hours as for GLEIF, and each check is kept in `registry_checks` with a link to the company's public page.
+
+The example's company number is synthetic, so with a real key this command pauses with `REGISTRY_RECORD_NOT_FOUND`; the tests run every comparison against a mocked API.
+
+| Compared | Against | Raised when they differ |
+|---|---|---|
+| Legal name | Company name, then previous names | `REGISTRY_NAME_MISMATCH` (high); `REGISTRY_NAME_IS_OTHER_NAME` (medium) for a previous name |
+| Former names | Previous company names | reported as `NOT_IN_REGISTRY`, no issue |
+| Jurisdiction | `england-wales`, `scotland`, `northern-ireland` | `REGISTRY_JURISDICTION_MISMATCH` (high); `United Kingdom` alone is `NOT_COMPARED` |
+| Status | Company status | `REGISTRY_ENTITY_INACTIVE` whatever the documents say: high when dissolved, removed or closed, medium otherwise (liquidation, administration, ...) |
+| Legal form | Company type (`ltd`, `plc`, `llp`, ...) with common wording for each | `REGISTRY_LEGAL_FORM_MISMATCH` (medium); an unlisted type is `NOT_COMPARED` |
+| Incorporation date | Date of creation | `REGISTRY_INCORPORATION_DATE_MISMATCH` (medium) |
+| Registered office | Postcode only | `REGISTRY_ADDRESS_MISMATCH` (medium); the office may have moved since the document's date |
+| Directors and secretary | Appointments, by name, as of the document's date | `REGISTRY_OFFICER_NOT_FOUND`; `REGISTRY_OFFICER_RESIGNED` when they resigned before that date (both medium). Resigned since is reported as `RESIGNED_SINCE`, no issue |
+| Reported stakes (`owns_equity_in` this company) | Current PSCs' shareholding bands (more than 25% up to 50%, and so on) | `REGISTRY_PSC_BAND_MISMATCH` when outside the band; `REGISTRY_PSC_MISSING` for a stake above 25% whose holder is not a current PSC (both medium) |
+
+Register flags (insolvency history, registered office in dispute or undeliverable, overdue accounts or confirmation statement) raise `REGISTRY_RECORD_FLAGGED` (medium). Current officers the documents don't name are listed under `registry_only`, not raised: a document may name only some of them. The record's current PSCs are also added to the ownership graph and its beneficial-owner report (see below).
+
+Officer names are matched on first name and surname, with every name part in the document also in the register's name: `Jane Smith` matches `SMITH, Jane Elizabeth`, but `J Smith` and `Jane Smyth` do not. A missing match may be a spelling difference. A PSC holder is matched by legal name or, for a person, the same rule; a stake whose holder the documents name only as "we" or "the Company" will not match. Companies House records what companies file and verifies little of it, so a match is not proof of identity or ownership. Missing API key, rate limits and failed requests raise `REGISTRY_LOOKUP_FAILED` (medium); no check passes silently.
+
+## Ownership graph
+
+`ownership.py` builds the case's ownership and control graph from verified facts and case entities. It is rebuilt from the stored case on every `report` and `ownership` export, so it reflects every document and review decision. During ingestion it runs only to raise issues for review.
+
+- **Edges.** One `EQUITY` edge per holder and held entity, one `VOTING_RIGHTS` edge per reported voting-rights claim, a `GROUP_PARENT` edge from a parent to its "and subsidiaries" group, and a `REGISTER_PSC` edge for each current person with significant control from a Companies House check. Each edge lists its facts, the documents they come from, and any open issues on them.
+- **Stakes are ranges.** The latest reported period is current; earlier dated figures are listed as `superseded_fact_ids`, and undated figures stay in the range. Differing current figures give a range (`low`–`high`), not a choice. An open `POSSIBLE_OWNERSHIP_CONFLICT` marks the edge `CONFLICTED`. When a reviewer resolves the conflict, only the selected figure is used. A disposal after the latest stake (`STALE_AFTER_DISPOSAL`), or one that cannot be ordered (`CHRONOLOGY_UNRESOLVED`), lowers the bottom of the range to 0.
+- **Groups.** A group's holding counts as its parent's consolidated interest (`ATTRIBUTED_FROM_GROUP`). It is combined with the parent's own figure, never added to it, because the group's stake includes the parent's. If the parent alone holds more than the whole group, the check raises `GROUP_STAKE_BELOW_PARENT_STAKE` (medium).
+- **Look-through interests.** Stakes are multiplied along every chain of up to `max_chain_depth` holdings and added across chains. If A holds 60% of B, B holds 50% of C, and A holds 10% of C directly, A's interest in C is 40%. Each interest lists its paths and whether it meets the reporting threshold (`YES`, `POSSIBLE` when only the top of the range does, or `NO`). Flags carry through: `APPROXIMATE`, `UNDATED`, `MIXED_DATES`, `OPEN_ISSUES`, `UNRESOLVED_PARTY` (a party matched by text only) and the edge statuses.
+- **Control.** Voting rights reported without a figure, or a stake or voting percentage whose whole range is above `control_threshold_percent`, gives `REPORTED` control; 40% of the votes is not control. If only the top of the range is above the threshold, control is `POSSIBLE`. A register PSC with the right to appoint the board, significant influence or control, or more than 50% of the votes gives `REGISTER_PSC` control. Reported control links chain (`CONTROL_CHAIN`, `DERIVED`).
+- **Register bands.** A PSC's shareholding band (more than 25% up to 50%, and so on) is used as a stake only where the documents report none for that holder and company, flagged `REGISTER_BAND`; where both exist the documents' figure is used and the Companies House check compares the two.
+- **Checks.** Distinct holders reported to own more than 100% of one entity in the same or an unknown period raise `OWNERSHIP_TOTAL_EXCEEDS_100` (high). Holders that hold one another are not added, because one figure may include the other. A cycle of holdings raises `OWNERSHIP_CYCLE` (medium); look-through figures skip the circular part.
+
+The thresholds (25% reporting, 50% control) and the chain depth are illustrative settings under `ownership_graph` in `kyc_policy.yaml`. `identified_entities_without_reported_owners` lists identified entities, such as registrants, for which no owner was found. That is a gap in the documents, not evidence that the entity has no owners. `kyc-pipeline ownership --format mermaid` draws the edges as a Mermaid flowchart for reading, with people as rounded nodes and register PSCs as dotted edges; use the JSON for analysis.
+
+### Beneficial owners
+
+```bash
+kyc-pipeline ingest examples/synthetic_beneficial_ownership_declaration.txt --case-id ubo-demo
+kyc-pipeline ingest examples/synthetic_shareholder_register.txt --case-id ubo-demo
+kyc-pipeline ownership --case-id ubo-demo
+```
+
+The rules read two kinds of table, in the same section as the company's `Company name:` record (cited with each row, with the record's `Date of declaration:` or `Register date:` as the as-of date):
+
+- a **shareholder register** (`Shareholder`, `Shares held (%)`, optional `Type` and `Voting rights (%)` columns) gives `owns_equity_in` and `has_voting_rights_over`; a `Type` of `Individual` marks the holder as a person;
+- a **beneficial-owner table** (a `Beneficial owner` column or a `Nature of control` column) gives `is_beneficial_owner_of`: a *declared* ultimate owner and interest, which is never treated as a direct stake.
+
+People are entities of type `person`: directors, declared beneficial owners and holders typed `Individual`, unless the name is an organization's. They are matched across documents by name without titles (`Ms Jane Smith` is `Jane Smith`, `match_basis: PERSON_NAME`) and to register PSCs by first name and surname.
+
+`beneficial_owners` lists, for each organization with reported owners, the people who own or control it, with three sources side by side rather than merged into one figure:
+
+- `HOLDINGS`: a look-through interest at or above the reporting threshold (`interest`, `meets_threshold`);
+- `CONTROL`: reported, derived or possible control, with its basis and path;
+- `DECLARED` and `REGISTER_PSC`: what a beneficial-ownership declaration and the Companies House register say.
+
+The company's `status` is `IDENTIFIED` when the holdings, control or register identify someone, `DECLARED_ONLY` when only a declaration names owners, `POSSIBLE` when only the top of a range reaches the threshold, and `NOT_IDENTIFIED` otherwise. A declared owner nothing else supports is flagged `NOT_CORROBORATED`. `chain_ends_at` lists organizations holding at least the threshold whose own owners the case doesn't show: the beneficial owners may be behind them. `direct_holdings_percent` is how much of the company the reported direct stakes account for. Where no owner is identified, `senior_managing_officials` lists the directors the documents name and the register's current directors, the usual fallback.
+
+Where a declaration exists for the company, two issues compare it with the rest:
+
+- `UBO_NOT_DECLARED` (high): the holdings (at or above the threshold), reported or derived control, or a register PSC identifies a person the declaration doesn't name.
+- `UBO_DECLARED_PERCENT_DIFFERS` (medium): a declared percentage is outside the look-through interest (allowing 0.5 points) or the register band.
+
+In the demo, Omar Haddad holds 60% of Aster Holdings, which holds 60% of Birchwood Trading: a 36% interest, and control through Aster's majority. Both match the declaration, so nothing is raised. Remove him from the declaration and ingesting Aster's register raises `UBO_NOT_DECLARED`.
+
+Limits: only tables in the company's own section are read, and only plain percentages (a band such as `25-50%` is skipped). People with the same name are one person unless their dates of birth differ (see Identity documents). A trust, nominee or a holder the source does not call an individual is an organization, so its beneficiaries are not reached. A listed company's owners are not expected to be reported, so annual-report investees show `NOT_IDENTIFIED` with the registrant at the top of the chain. A beneficial owner here is a lead built from the documents and register, not a verified identification.
+
+## Identity documents
+
+```bash
+kyc-pipeline ingest examples/synthetic_passport.txt --case-id id-demo
+kyc-pipeline ingest examples/synthetic_utility_bill.txt --case-id id-demo
+```
+
+- **Fields.** `Surname:` and `Given names:` (or `Name:`) name the holder; the facts are `has_date_of_birth`, `has_nationality`, `has_place_of_birth`, `holds_identity_document` (the document kind as object, its number as value, the issuing country as qualifier), `identity_document_issued_on`, `identity_document_expires_on` and `has_residential_address`. On a bill or statement the address is qualified `proof of address` and dated with the bill date.
+- **Machine-readable zone.** Two-line passport zones (TD3) and three-line identity-card zones (TD1) are read from the text. Every field's ICAO 9303 check digit and the composite digit are recomputed: a failure raises `MRZ_CHECK_DIGIT_INVALID`. The zone's number, date of birth, expiry and name are compared with the printed fields (the zone may truncate given names): a difference raises `MRZ_VISUAL_MISMATCH`. Both are high when identity fields are material. A consistent zone gives an `MRZ_CONSISTENT` finding listing the fields compared. Valid check digits show the zone is internally consistent, not that the document is genuine.
+- **Dates.** A document whose expiry is before the run date raises `IDENTITY_DOCUMENT_EXPIRED`. A proof of address older than `identity_checks.proof_of_address_max_age_days` (90 by default) raises `PROOF_OF_ADDRESS_OUT_OF_DATE` (medium).
+- **People across documents.** A person's dates of birth travel with their entity. Two people with the same name but different dates of birth are kept apart (`ENTITY_NAME_COLLISION`). `Jane Smith` on a bill and `JANE ELIZABETH SMITH` on a passport are joined because one name contains all parts of the other with the same first name and surname, and dates of birth don't disagree; that raises `PERSON_MATCHED_ON_NAME_PARTS` (medium) for confirmation.
+
+Limits: no image analysis, so photographs, holograms and fonts are not examined, and an OCR'd zone is only as good as the OCR. No document is checked with its issuer.
+
+## Sanctions and PEP
+
+```bash
+kyc-pipeline ingest examples/synthetic_screening_report.txt --case-id screen-demo
+kyc-pipeline ingest examples/synthetic_pep_declaration.txt --case-id screen-demo
+kyc-pipeline ingest examples/synthetic_identity_card.txt --case-id screen-demo --screening-list examples/synthetic_screening_list.csv
+```
+
+The screening report pauses on its sanctions hit and the identity card on its list match. A paused run joins the case only when it is resumed, so record a decision (or a deferral, as in [Review and resume](#2-review-and-resume)) for each paused document before ingesting the next.
+
+- **Screening reports.** Each subject's record (`Screened name:`, `Screening date:`, `Lists screened:`, `Sanctions result:`, `Matched entry:`, `PEP result:`, `PEP position:`, `PEP relationship:`) gives `sanctions_screening_result`, `pep_screening_result` and `holds_public_function`. A positive sanctions result (`Potential match`, `Yes`; not `No match` or `Clear`) raises `SANCTIONS_SCREENING_HIT` (high). A negative one gives a `SANCTIONS_SCREENING_NO_MATCH` finding, which is not a clearance. A screening older than `screening.max_age_days` (90) raises `SCREENING_OUT_OF_DATE` (medium).
+- **PEPs.** A positive PEP result or a public function raises `PEP_IDENTIFIED` (medium). A customer's `Politically exposed person: No` declaration (`declared_pep_status`) raises `PEP_DECLARATION_CONTRADICTED` (high) when other evidence in the case says that person is a PEP, whichever arrives first. People are compared by case entity, so the declaration's `Jane Smith` and the report's `Jane Elizabeth Smith` agree.
+- **List screening** (`--screening-list PATH`, repeatable) compares each person and organization the current document names with a local list file; nothing is downloaded or sent. Two formats are read: a CSV with a `name` column and optional `type`, `list`, `id`, `aliases` (separated by `;`), `date_of_birth` and `program` columns, and OFAC's SDN CSV (`sdn.csv`, with `alt.csv` beside it for aliases and dates of birth from the remarks). Names are compared token by token, ignoring case, punctuation, titles and legal forms: an exact token set scores 1, a person whose name lacks only a listed middle name scores 0.95, and otherwise the similarity of the sorted tokens must reach `screening.name_match_threshold` (0.88). A person's surname must appear in the listed name, and people are not compared with organization entries or the reverse. A match raises `SANCTIONS_LIST_POSSIBLE_MATCH` (high), or `SANCTIONS_LIST_MATCH_DIFFERENT_BIRTH_DATE` (medium) when both sides have a date of birth and they differ. Each run records `screening_checks`: the names screened, the list file's name, format, SHA-256 and entry count, and every candidate with its score.
+
+Limits: this is name matching against whatever file you supply, on its date. It does not transliterate, handle reordered or fused names beyond the rules above, or know a list's delisting history, so a `NO_MATCH` clears no one and a match is a lead for an analyst. Screening reports are read as the provider printed them.
+
+## Prior KYC files
+
+```bash
+kyc-pipeline ingest examples/synthetic_prior_kyc_review.txt --case-id birchwood
+kyc-pipeline ingest examples/synthetic_uk_registry_extract.txt --case-id birchwood
+kyc-pipeline ingest examples/synthetic_beneficial_ownership_declaration.txt --case-id birchwood
+```
+
+- **Fields.** A review record's `KYC decision:` (with `Decision reason:`), `Customer risk rating:` and `Next review due:` give `kyc_decision`, `assigned_risk_rating` and `next_review_due`; `Beneficial owners on file: Jane Smith (40%)` gives one `is_beneficial_owner_of` per owner. The `Review date:` dates them all and the company record beside them. A `PRIOR_KYC_REVIEW` finding summarises the file; it is the bank's earlier judgment, not evidence about the customer.
+- **Checks.** A next-review date before the run with no later decision on file raises `REVIEW_OVERDUE` (medium). A decision such as declined, exited or escalated raises `PRIOR_DECISION_ADVERSE` (high); a high rating raises `PRIOR_HIGH_RISK_RATING` (medium). A document dated after the review that gives the same entity a different registered or residential address or legal name, or a different set of beneficial owners, raises `MATERIAL_CHANGE_SINCE_LAST_REVIEW` (medium) with the value on file and the new one. In the demo, the registry extract moves the registered office and the declaration adds Omar Haddad as an owner.
+
+Limits: only `Label: value` records are read, not free-text file notes or correspondence. Undated documents are never treated as later than the review.
+
+## Adverse media and enforcement
+
+```bash
+kyc-pipeline ingest examples/synthetic_media_article_charged.txt --case-id media-demo
+kyc-pipeline ingest examples/synthetic_media_article_followup.txt --case-id media-demo
+kyc-pipeline ingest examples/synthetic_enforcement_notice.txt --case-id media-demo
+```
+
+Each document pauses on its adverse-media issues. A paused run joins the case only when it is resumed, so record a decision (or a deferral, as in [Review and resume](#2-review-and-resume)) for each paused document before ingesting the next.
+
+- **Article metadata.** `Headline:`, `Publisher:` and `Published:` give `published_by` and `published_on`. The headline is the subject; it is not linked as an entity.
+- **Outcome stages.** One sentence, one fact, each keeping its claim type: `accused_of` (allegation), `under_investigation_for` (with the authority as qualifier), `charged_with`, `settled` (with the amount), `received_regulatory_penalty` (the regulator as object, the conduct as qualifier; `£2.4 million` is 2.4 `GBP_millions`), `convicted_of` (also "pleaded guilty to"), `cleared_of` (acquitted, cleared, charges dropped) and `denied`. Trailing clauses ("on 2 June 2026", "prosecutors said", "through his lawyer") are cut from the conduct, and a day-month-year date in the sentence becomes the event date.
+- **Enforcement notices.** A record with `Financial penalty:` or `Action taken:` lines (and `Firm name:`, `Regulator:`, `Date of notice:`, `Reason:`) gives `received_regulatory_penalty` and one `subject_to_enforcement_action` per action, as orders. Its `Regulator:` line is not read as a licence issuer.
+- **Events.** Each subject's outcome facts across the case are grouped by topic, read from the conduct (money laundering, sanctions, terrorist financing, bribery and corruption, fraud, tax, market abuse, environmental, labour and human rights, consumer protection, or other); an action without stated conduct takes the topic of the same notice's penalty. The status is the furthest stage reached: `ALLEGED`, `UNDER_INVESTIGATION`, `CHARGED`, `SETTLED`, `PENALIZED` or `CONVICTED`, or `CLEARED` when a clearance is dated after the last charge. An `ADVERSE_MEDIA_EVENT` finding lists the stages with dates and sources, the subject's denials, and the distinct sources (publishers, or the regulator for its own notice). A penalty, enforcement action or conviction raises `ADVERSE_MEDIA_ESTABLISHED` (high). An unresolved allegation, investigation, charge or settlement raises `ADVERSE_MEDIA_OPEN_MATTER` (medium; high for a charge of a financial crime). A cleared matter raises nothing.
+
+Limits: the sentence rules expect a named subject at the start of a plain sentence, so most real reporting needs model extraction. Several publishers are not proof of independent reporting, since outlets repeat one another. A subject is matched by name, so a common name can join unrelated people. A report is not a finding.
+
+## Delta tables and Databricks
+
+**Tables.** A case's evidence package (the `report` output) becomes one row per record in 14 Delta tables, all named `kyc_*`:
+
+| Table | Key | Holds |
+|---|---|---|
+| `kyc_cases` | case | Status, counts, export time and schema version of the case's latest package |
+| `kyc_documents`, `kyc_runs` | document; run | Documents and their current run; runs still paused for review or failed (`is_current = false`) |
+| `kyc_facts`, `kyc_evidence` | run + fact; run + evidence | Facts with their case entity IDs and a numeric `value_number`; quotes with locations |
+| `kyc_entities` | entity | Case entities with names, birth dates, identifiers and documents |
+| `kyc_issues`, `kyc_findings`, `kyc_coverage` | issue; finding; run + category | Review items, findings and the coverage ledger |
+| `kyc_ownership_edges`, `kyc_beneficial_owners` | edge; company + owner | The ownership graph's edges (stake ranges) and the beneficial-owner report |
+| `kyc_screening_checks` | check | Sanctions-list checks (identical checks from several runs kept once) |
+| `kyc_review_decisions`, `kyc_audit_events` | run + issue; event | Review decisions (self-reported reviewer) and the store's audit events |
+
+Every table has `case_id`, typed columns for querying, a `payload` column with the record's full JSON, and the package's `export_id` (a digest of the package). Writing a case is one `MERGE` per table: rows are updated or inserted, and the case's rows that are no longer in the package are deleted. Other cases are untouched. The tables are not written in one transaction, so `kyc_cases` is written last: a reader that keeps only rows whose `export_id` matches the case's row in `kyc_cases` sees one complete package. A case whose package has not changed is not rewritten. Change data feed is on.
+
+**Locally** (needs the `delta` extra):
+
+```bash
+pip install -e '.[delta]'
+kyc-pipeline lakehouse --case-id CASE --delta-dir kyc_data/delta    # --force rewrites an unchanged case
+kyc-pipeline lakehouse-ddl --catalog main --schema kyc_evidence     # CREATE TABLE statements for Unity Catalog
+```
+
+**The batch job** (`kyc-databricks-job`) works on two folders:
+
+```text
+<inbox>/cases/<case_id>/<documents>      documents to ingest, in file-name order
+<inbox>/decisions/<run_id>.json          review decisions, in the resume command's format
+<state>/evidence.sqlite, checkpoints.sqlite, reports/<time>.json
+```
+
+For each case folder, it first resumes paused runs that have a decision file. While a run in the case is still paused, it ingests nothing new, so the next document is checked against the reviewed one; otherwise it ingests new documents (matched by SHA-256) one at a time, stopping at the first that pauses or fails. Then it writes the case's package to the tables if it changed. The job report lists, per case, what was resumed, ingested, skipped (unsupported file types) or failed, and each paused run's issues and the decision file to write. The job exits non-zero if anything failed.
+
+SQLite needs file locks and random writes, which Unity Catalog volumes do not provide, so the job copies both databases to local disk and copies consistent snapshots back at the end, even if a table write failed. It refuses to copy back if the stored databases changed while it ran. Run it locally with `--local-delta DIR` instead of `--catalog`/`--schema`:
+
+```bash
+kyc-databricks-job --inbox inbox --state state --local-delta delta --screening-list examples/synthetic_screening_list.csv
+```
+
+**On Databricks.** `databricks.yml` is an asset bundle that builds the wheel and creates:
+
+- a schema (`kyc_evidence` by default, in the `workspace` catalog; the `dev` target prefixes it with your user name);
+- the volumes `kyc_inbox` (documents and decisions) and `kyc_state` (databases and job reports; give it job-only access);
+- a serverless job, one run at a time (later runs queue), with a file-arrival trigger on the inbox that is deployed paused.
+
+```bash
+databricks bundle validate
+databricks bundle deploy                      # --var catalog=NAME for another catalog
+databricks fs cp examples/synthetic_registry_extract.txt dbfs:/Volumes/workspace/dev_<you>_kyc_evidence/kyc_inbox/cases/birch/01_registry.txt
+databricks bundle run kyc_evidence
+```
+
+Only the wheel and the bundle configuration are uploaded; examples, tests, scripts and evaluation outputs stay local.
+
+The job creates the tables on its first run (it needs `CREATE TABLE` on the schema) and checks that existing tables have the expected columns; a change of table layout needs a migration. It uses the local rules extractor and native parser only. Model extraction would need its key from a secret scope, which is not wired up yet, and screening lists must be passed as task parameters.
+
+Tested on a workspace (1 November 2026, serverless environment version 3, `dev` target): four runs on a synthetic case. The first ingested a registry extract and an ownership declaration and created and filled the tables. The second picked up the stored databases, ingested only a newly added screening report and paused on its sanctions hit. The third read a defer decision from the inbox, resumed and rewrote the case. The fourth found nothing new and wrote nothing. SQL queries confirmed that every row matched its case's `export_id`, the table properties, and that the deferred issue stayed `OPEN`. The local Delta writer and the job are also covered by tests; the Spark writer's tests use a stub session. The tables hold document text and personal data: grant access accordingly. Copying the SQLite store in and out of a volume suits a proof of concept with one job at a time, not concurrent processing.
+
+## Storage, audit and data protection
+
+### SQLite or Postgres
+
+By default the evidence store and graph checkpoints are SQLite files (`--db`, `--checkpoint-db`). For a shared server, install the `postgres` extra and pass a connection URL instead, or set it as the secret `KYC_DATABASE_URL`:
+
+```bash
+pip install -e '.[postgres]'
+export KYC_DATABASE_URL='postgresql://kyc@db.internal:5432/kyc?sslmode=verify-full'
+kyc-pipeline ingest examples/synthetic_registry.txt --case-id case-reg --profile corporate_registry
+```
+
+The tables are created on first use. Checkpoints go to the same database unless `KYC_CHECKPOINT_DATABASE_URL` or `--checkpoint-db` names another. A server other than this machine must be reached with `sslmode=verify-full` (or `verify-ca`); anything weaker is refused. Concurrent runs on one case are serialized with a per-case advisory lock, and multi-table reads use one consistent snapshot. Run the test suite against a server with `KYC_TEST_POSTGRES_URL=postgresql://... pytest`: each test gets its own schema, which is dropped afterwards.
+
+### Tamper-evident audit log
+
+Every audit event records its position in the case's chain, the hash of the event before it, and its own SHA-256 hash over its content. The event that records a run's persistence also holds a digest of everything the run stored (segments, chunks, evidence, facts, entities, findings, issues, coverage, sections, reviews and its summary). Database triggers reject updates and deletions of audit events on both backends.
+
+```bash
+kyc-pipeline verify-audit --case-id case-reg --output anchors/case-reg.json
+kyc-pipeline verify-audit --case-id case-reg --anchor anchors/case-reg.json
+```
+
+`verify-audit` exits with status 1 and lists the problems when an event was edited, removed or inserted, when a run's stored records differ from those recorded when it was persisted, when records exist with no persistence event, or when a run's status differs from the one its audit events set. The triggers stop mistakes, not the database owner: someone who can drop them and recompute the whole chain is caught only by comparing it against a head kept elsewhere. Keep each verification's output (its `head`) outside the database, for example in WORM storage, and pass it back with `--anchor`. Stores created before the chain keep their earlier events, which are counted as `unchained_events_before_chaining` and not checked.
+
+### Erasure and retention
+
+```bash
+kyc-pipeline erase-case --case-id case-reg --confirm case-reg --reason "Erasure request 2026-114" --requested-by analyst.a
+kyc-pipeline retention                         # lists what is due; deletes nothing
+kyc-pipeline retention --apply
+```
+
+`erase-case` deletes the case's graph checkpoints, documents, run records, extraction units and vectors, and layout results that no other case uses. Runs are marked `ERASED`. The audit events remain, together with a `CASE_ERASED` event that records the reason, who asked (self-reported) and the number of rows deleted. Audit events hold identifiers, statuses and digests, not document text. `--delta-dir` also deletes the case's rows from local Delta tables; earlier table versions keep them until the tables are vacuumed. On SQLite, deleted content is overwritten (`secure_delete`) and the write-ahead log is truncated. On Postgres, deleted rows stay in the table files until `VACUUM`, and backups and replicas keep their copies.
+
+The policy's `retention` block sets three periods:
+- `case_days_after_last_activity` (default 1825): a case with no audit event for this long is erased;
+- `unfinished_run_days` (default 90): a run that never finished (paused, failed, processing or superseded) is expired, which deletes its working records and checkpoint;
+- `cache_days` (default 30): cached layout results and registry responses older than this are deleted.
+
+`retention` only lists what is due; `--apply` carries it out and records each erasure and expiry in the audit log. `--as-of 2027-01-01` evaluates the periods as of another date. Unity Catalog tables are not covered: delete there with SQL.
+
+### Encryption and secrets
+
+Set the secret `KYC_DATA_KEY` to 32 random bytes, base64-encoded, before creating a store:
+
+```bash
+python -c "import os,base64;print(base64.b64encode(os.urandom(32)).decode())" > secrets/KYC_DATA_KEY
+chmod 600 secrets/KYC_DATA_KEY
+export KYC_SECRETS_DIR=$PWD/secrets
+```
+
+Every payload (documents, segments, chunks, facts, evidence, run summaries, caches and the rest) and every graph checkpoint is then encrypted with AES-256-GCM. The table name is authenticated with each value, so a value cannot be moved to another table; swaps within a table are caught by `verify-audit`. Identifiers, statuses, timestamps and audit events stay readable, so the store can be queried and verified without the key. The store records the key's ID: opening it without the key, or with another key, is refused, and a key cannot be added to a store that already holds unencrypted data. Key rotation is not supported yet. Exports (`report`, Delta tables, review files) are not encrypted.
+
+Each secret (`KYC_DATA_KEY`, `KYC_DATABASE_URL`, `OPENAI_API_KEY`, `COMPANIES_HOUSE_API_KEY` and `KYC_CHECKPOINT_DATABASE_URL`) is read from the first of these:
+1. the file named by `NAME_FILE`, the Docker and Kubernetes convention;
+2. a file called `NAME` in the folder `KYC_SECRETS_DIR`;
+3. the environment variable `NAME`.
+
+Secret files readable by group or others are refused.
+
+## Stateless preparation and supplied layouts
+
+`POST /v1/cases/{case_id}/documents/prepare` takes `{filename, content_base64, document_id, document_version, layout?}` and
+decodes one original into full page text in the evidence package's shape (`documents`, `pages`, `evidence`). It stores
+nothing, extracts nothing and decides nothing, and `document_version` must be the sha256 of the bytes.
+
+Without `layout`, the native parsers read text documents. An image is refused (`LAYOUT_REQUIRED`), and a PDF with
+image-only or text-poor pages is prepared with `layout_recommended: true`.
+
+With `layout`, a canonical `document.layout.v1` made by a platform adapter (`packages/adapters`, Azure Document
+Intelligence prebuilt-layout first), the text comes from the layout. The layout is refused (`LAYOUT_INVALID`) when it
+names other bytes, breaks the shape, or exceeds the limits. Its blocks become segments with regions:
+
+- inch-based pages are converted to points and pixel pages kept as pixels;
+- pages carry geometry, and a page whose text is angled is marked so no boxes are drawn;
+- low-confidence words, handwriting, figures and merged table cells are raised as parse issues.
+
+The pipeline never contacts a layout provider and holds no provider credential.
+
+## Input formats and known gaps
+
+- UTF-8 `.txt`/`.md`, static `.html`, `.csv`, and text-based `.pdf` up to 50 MiB. TXT form feeds create supplied page anchors; HTML/CSV do not have invented page numbers. No URL fetching or JavaScript execution. The pipeline has no OCR parser. Scans, images and Office files are prepared only from a supplied canonical layout (below).
+- PDF text blocks, coordinates and detected tables use PyMuPDF. PDF headings are inferred from font size and weight relative to the document's body text (plus `PART`/`ITEM` numbering); text repeated in the top or bottom margin of three or more pages is recorded as `page_furniture`, not a heading. PDFs with no size or weight variation fall back to capitalised-line headings. Heading inference is heuristic: some headings will be missed and some bold labels outside detected tables may still open sections. Empty pages with no detected text, images, drawings or annotations are recorded as structurally blank; pages containing images are flagged because the local parser does not OCR. Borderless tables are inferred from text geometry only when heuristic alignment is detected, and always flagged for visual review. Not every embedded image, complex/merged table, cross-page table, multi-column order, footnote or cross-reference will be detected. HTML scripts, images, embedded sources, merged cells and orphan text are flagged when recognized. Treat parsing issues as coverage failures and visually review original sources.
+- Inline Markdown footnote markers are linked to matching footnotes in the **same parsed section**. General footnote resolution, complex table semantics, document amendments, and semantic cross-reference navigation are not complete.
+- Entity links come from the document's own definitions and printed identifiers, not from an authoritative register; a merge on legal name alone can join two different entities that share a name and lack identifiers.
+- Apart from the opt-in GLEIF and Companies House lookups, the pipeline does not perform authoritative registry or licence-register checks, live sanctions/PEP screening (list screening reads only a local file you supply), identity verification (identity documents are checked for internal consistency only), verified beneficial-owner identification (people are matched by name only, and the report is built from what the documents and register state), source-of-funds verification (statement arithmetic and amount matching are not proof of origin), complete contradiction resolution, or policy-driven customer acceptance decisions. Allegations are not findings of guilt.
+- Literal quote and number checks are not semantic validation. Model source-support checks can also be wrong or manipulated. Automated `NOT_FOUND_AFTER_REVIEW` means only that the parsed chunks received a successful model pass; it is not proof of absence.
+- SQLite suits a single host; use Postgres for anything shared. The evidence store and graph checkpoints commit separately even in one Postgres database, so their commits are not one transaction. Writes are designed to be idempotent and use a case revision check. There is no authentication or authorization: reviewer IDs and erasure requesters are self-reported, and anyone with database access can read identifiers and audit events. The audit chain is tamper-evident, not tamper-proof (keep anchors outside the database). There is no key rotation, no encryption of exports or Delta tables, no redaction of document text, no scalable job queue and no production observability. The Databricks job uses SQLite state on a volume and does not read `KYC_DATA_KEY` from a secret scope yet. Add these before handling real KYC information.
+- All document content in the evidence database, extraction cache, checkpoint database, exports, Delta tables, Databricks volumes, and review files is sensitive. Control access to all copies, including SQLite WAL/SHM files and backups. External API calls send source text when opted in; configure provider logging and retention appropriately.
+
+## Project layout
+
+```text
+src/kyc_pipeline/
+  configs/              # processing profiles, illustrative policy, typed extraction schemas
+  schemas.py            # typed predicate schema validation and per-fact checks
+  parsing.py            # format adapters and parse-gap tracking
+  entities.py           # defined terms, cover-page/registry identity, document and case entity resolution
+  chunking.py           # sections, boundary-aware windows, field records, tables, footnote and section context
+  extraction.py         # local rules and opt-in batched OpenAI-compatible client (strict output, retries)
+  evidence.py           # exact spans, atomic claims, material source checks
+  reconciliation.py     # conservative claims, date and conflict checks
+  registry.py           # LEI check digits, status and expiry checks, opt-in GLEIF and Companies House lookups
+  funds.py              # statement balance arithmetic and declared-amount matching
+  identity.py           # MRZ parsing and check digits, document expiry, proof-of-address age
+  screening.py          # screening-report and PEP checks, local sanctions-list loading and name matching
+  prior.py              # prior KYC file checks: overdue review, adverse decisions, changes since review
+  media.py              # adverse-media and enforcement events across documents
+  lakehouse.py          # Delta table definitions, case-package rows, local (deltalake) and Spark MERGE writers
+  databricks_job.py     # batch job: inbox case folders, review decisions, state copy, table writes
+  ownership.py          # ownership/control graph, look-through interests, register PSCs, beneficial owners, graph checks
+  coverage.py           # coverage ledger and section manifest
+  graph.py              # LangGraph orchestration and human interrupt
+  store.py              # SQLite or Postgres records, cache, hash-chained audit, erasure and retention
+  crypto.py             # AES-256-GCM payload and checkpoint encryption
+  credentials.py        # secrets from files, a secrets folder or the environment
+  retrieval.py          # BM25 + optional embedding search, parent context
+  cli.py                # ingest, status, resume, retry, report, ownership, query, segment, lakehouse, verify-audit, erase-case, retention
+databricks.yml          # asset bundle: schema, volumes and the serverless job
+examples/               # fictional fixtures and two pinned public-report PDFs
+real_evaluation/         # source-checked sample targets and recorded test outputs
+scripts/                # demo, public-PDF evaluation and reviewer scoring
+tests/                  # unit, graph, provider-mock, real-PDF and CLI tests
+```

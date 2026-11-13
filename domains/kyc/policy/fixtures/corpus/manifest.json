@@ -1,0 +1,68 @@
+{
+  "apiVersion": "harness.factory/corpus-v1",
+  "kind": "GoldenCorpusManifest",
+  "metadata": {
+    "id": "corpus.kyc.golden.v1",
+    "domain": "kyc",
+    "jurisdiction": "US",
+    "version": "1.0.0",
+    "owner": "kyc-policy-operations",
+    "description": "Adjudicated KYC cases spanning every risk and failure cohort. Each case is judged by a policy-owner rubric written independently of the decision tables; the reference evaluator and the compiled Rego bundle must both reproduce every verdict.",
+    "generatedBy": "@ehf/kyc-policy corpus:generate",
+    "seed": 20260302
+  },
+  "spec": {
+    "caseCount": 346,
+    "casesFile": "cases.jsonl",
+    "casesDigest": "269a7bcf8c3e92cd589d088bdd4d5a4c86cca6834baf9ed08a4a645c64e82fad",
+    "riskCohortCounts": {
+      "RC-LOW-STANDARD-INDIVIDUAL": 80,
+      "RC-STANDARD-INDIVIDUAL": 47,
+      "RC-ELEVATED-INDIVIDUAL": 41,
+      "RC-HIGH-INDIVIDUAL": 40,
+      "RC-SOLE-PROPRIETOR-STANDARD": 36,
+      "RC-SOLE-PROPRIETOR-ELEVATED": 36,
+      "RC-HIGH-RISK-JURISDICTION": 33,
+      "RC-PEP-ADJACENT": 33
+    },
+    "failureCohortCounts": {
+      "FC-PROVIDER-OUTAGE": 12,
+      "FC-SANCTIONS-LIST-STALE": 8,
+      "FC-POLICY-DIGEST-MISMATCH": 8,
+      "FC-MISSING-POLICY-AUTHORITY": 8,
+      "FC-MISSING-EVIDENCE": 12,
+      "FC-EVIDENCE-EXPIRED": 10,
+      "FC-INVESTIGATION-INCOMPLETE": 8,
+      "FC-CONTRADICTION": 10,
+      "FC-IDENTITY-CONFLICT": 10,
+      "FC-SANCTIONS-POSSIBLE": 12,
+      "FC-SANCTIONS-CONFIRMED": 8,
+      "FC-PEP-SIGNAL": 10,
+      "FC-ADVERSE-MEDIA": 10,
+      "FC-AGENT-DECLINE-RECOMMENDATION": 12,
+      "FC-MALFORMED-RECOMMENDATION": 10,
+      "FC-MISSING-RECOMMENDATION": 8,
+      "FC-LOW-CONFIDENCE": 10,
+      "FC-APPROVAL-REQUIREMENTS-UNMET": 8,
+      "FC-UNATTESTED-COHORT": 8,
+      "FC-INELIGIBLE-COHORT": 12,
+      "FC-UNKNOWN-INPUT": 10,
+      "FC-STALE-SNAPSHOT": 8,
+      "FC-UNRESOLVED-CONFIGURATION": 8,
+      "FC-EVALUATION-ERROR": 6
+    },
+    "outcomeCounts": {
+      "screening-ready:ALLOW": 316,
+      "decision-ready:ALLOW": 232,
+      "disposition:ALLOW": 8,
+      "disposition:REVIEW": 192,
+      "decision-ready:REVIEW": 40,
+      "screening-ready:BLOCK": 16,
+      "decision-ready:BLOCK": 20,
+      "disposition:BLOCK": 8,
+      "screening-ready:ERROR": 14,
+      "decision-ready:ERROR": 14,
+      "disposition:ERROR": 22
+    }
+  }
+}

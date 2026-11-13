@@ -1,0 +1,58 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "StructureMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "$ref": "#/$defs/Count"
+        },
+        "cyclic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "edges": {
+          "$ref": "#/$defs/Count"
+        },
+        "max_depth": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Count"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nodes": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "nodes",
+        "edges",
+        "cyclic",
+        "components",
+        "max_depth"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:ownership.structure.complexity:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "metrics": {
+      "$ref": "#/$defs/StructureMetrics"
+    }
+  },
+  "required": [
+    "metrics"
+  ],
+  "type": "object"
+}

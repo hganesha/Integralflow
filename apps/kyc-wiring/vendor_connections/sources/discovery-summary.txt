@@ -1,0 +1,112 @@
+Homepages attempted: 367 records with doc links: 111
+Veriff | https://devdocs.veriff.com/ | https://www.veriff.com/for-developers
+Sumsub | https://docs.sumsub.com/ | https://docs.sumsub.com/changelog | https://docs.sumsub.com/reference/about-sumsub-api
+Socure | https://developer.socure.com | https://developer.socure.us/ | https://riskos.docs.socure.us/govcloud/reference/get-started
+Incode | https://developer.incode.com/ | https://developer.incode.com/ecosystem-workforce/integrations-ecosystem-overview/ | https://developer.incode.com/get-started-with-incode/
+IDnow | https://idnow.io/developers/
+Fourthline | https://docs.fourthline.com/
+Signicat | https://developer.signicat.com/apis/ | https://developer.signicat.com/docs/ | https://developer.signicat.com/docs/dashboard-setup.html
+ComplyCube | https://docs.complycube.com/ | https://docs.complycube.com/api-reference/ | https://docs.complycube.com/api-reference/versioning
+Shufti | https://developers.shuftipro.com/ | https://developers.shuftipro.com/docs/backoffice/features/idv_modes | https://developers.shuftipro.com/docs/backoffice/plug_and_play_integration/iframe_branding
+GetID | https://dev.checkin.com/docs/ocr
+Identomat | https://docs.identomat.com/ | https://identomat.gitbook.io/identomat-documentation
+Innovatrics | https://developers.innovatrics.com/
+Facephi | https://docs.facephi.com/
+Signzy | https://docs.signzy.com/
+VIDA | https://vida.id/en/developer
+VIDOS | https://vidos.id/docs
+Innov8tif | https://ekycondemand.com | https://ekycondemand.com/
+GMO GlobalSign identity | https://www.globalsign.com/en/resources/apis/api-documentation
+Tencent Cloud FaceID | https://intl.cloud.tencent.com/products/lighthouse
+Alibaba Cloud ID Verification | https://www.alibabacloud.com/developer | https://www.alibabacloud.com/help
+Baidu AI identity | https://developer.baidu.com/ | https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html
+Smile ID | https://docs.usesmileid.com/
+Youverify | https://youverify.co/en/developers
+Dojah | https://docs.dojah.io/overview/quickstart
+QoreID | https://docs.qoreid.com/docs/introduction | https://qoreid.com/
+WhoYou | https://docs.whoyou.co.za/ | https://www.whoyou.co.za
+MetaMap | https://docs.metamap.com/
+Inscribe | https://docs.inscribe.ai/reference/overview
+CAF | https://www.certta.ai/developers
+Verifik | https://docs.verifik.co | https://docs.verifik.co/docs-es/acuerdo-de-niveles-de-servicio | https://docs.verifik.co/docs-es/legal/politica-privacidad
+Lean identity services | https://docs.leantech.me | https://docs.leantech.me/reference
+Dow Jones Risk & Compliance | https://developer.dowjones.com/
+OpenSanctions | https://www.opensanctions.org/docs/
+Castellum.AI | https://app.swaggerhub.com/apis-docs/castellum.ai/Search/1.0.0 | https://www.castellum.ai/developers
+Sanction Scanner | https://developer.sanctionscanner.com/en/home-page | https://developer.sanctionscanner.com/en/webhooks
+NameScan | https://namescan.io/industries/realestate | https://namescan.io/pepandsanctionapi
+dilisense | https://developers.dilisense.com | https://developers.dilisense.com/ | https://dilisense.com/en/products/batch-screening
+Neterium | https://portal.neterium.io/
+OpenCorporates | https://knowledge.opencorporates.com/knowledge-base/api-documentation/ | https://opencorporates.com/uses-cases/application-developers
+Middesk | https://docs.middesk.com/ | https://docs.middesk.com/api-reference/business-verification/businesses/list-businesses
+Kyckr | https://developer.kyckr.com/Introduction
+W2 | https://docs.w2globaldata.com/
+Coface | https://developers.coface.com/
+Vespia | https://vespia.io/developers
+The KYB | https://developers.thekyb.com/
+CompanyData.com | https://companydata.com/api-docs/ | https://docs.companydata.com
+Kontomatik | https://developer.kontomatik.com/
+Compliancely | https://apideveloper.compliancely.com/docs/getting-started | https://apideveloper.compliancely.com/reference/api_v2_token_create
+Equifax | https://developer.equifax.com/
+Prove | https://developer.prove.com/docs/prove-pre-fill-flow | https://portal.prove.com/register | https://portal.prove.com/register?utm_source=...&utm_medium=...&utm_campaign=
+Trustfull | https://docs.trustfull.com/
+TrustCloud | https://developers.trustcloud.tech
+Fingerprint | https://docs.fingerprint.com | https://docs.fingerprint.com/docs/android-quickstart | https://docs.fingerprint.com/docs/angular-quickstart
+IPQS | https://www.ipqualityscore.com/documentation/device-fingerprint-api/overview | https://www.ipqualityscore.com/documentation/email-validation-api/overview | https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview
+MaxMind | https://dev.maxmind.com | https://dev.maxmind.com/
+IPinfo | https://ipinfo.io/developers
+Twilio Lookup | https://www.twilio.com/docs | https://www.twilio.com/docs/sendgrid/for-developers/sending-email/getting-started-smtp | https://www.twilio.com/en-us/developers
+Vonage Identity Insights | https://developer.vonage.com/ | https://developer.vonage.com/en/documentation | https://developer.vonage.com/en/home
+DataVisor | https://www.datavisor.com/datavisor-api-guide
+Darwinium | https://docs.darwinium.com/docs/introduction-to-darwinium | https://docs.darwinium.com/docs/quick-start
+Plaid | https://plaid.com/docs/
+Tink | https://docs.tink.com/ | https://docs.tink.com/api | https://docs.tink.com/market-capabilities/aggregation
+TrueLayer | https://docs.truelayer.com/docs/ | https://docs.truelayer.com/reference/
+Yapily | https://docs.yapily.com/ | https://docs.yapily.com/pages/resources/support/
+Salt Edge | https://docs.saltedge.com/v6/api_reference | https://priora.saltedge.com/docs/
+MX | https://docs.mx.com/
+Akoya | https://docs.akoya.com/
+Flinks | https://docs.flinks.com/docs/welcome
+Prometeo | https://docs.prometeoapi.com/
+Fintoc | https://chatgpt.com/?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.&hints=search | https://claude.ai/new?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes. | https://docs.fintoc.com/
+Finverse | https://dashboard.finverse.com/login | https://docs.finverse.com | https://docs.finverse.com/
+Brankas | https://api-reference.brankas.com | https://api-reference.brankas.com/ | https://docs.brankas.com/docs/product-overview
+Mono | https://docs.mono.co/api | https://docs.mono.co/docs | https://docs.mono.co/docs/changelog
+Stitch | https://docs.stitch.money/ | https://docs.stitch.money/payment-products | https://docs.stitch.money/payment-products/
+Moneyhub | https://docs.moneyhubenterprise.com/ | https://docs.moneyhubenterprise.com/docs/admin-portal-sign-up | https://moneyhub.com/
+SurePay | https://developer.surepay.nl/dataprovisioning/introduction | https://developer.surepay.nl/introduction | https://developer.surepay.nl/vop-bulk-for-banks/introduction
+Fiserv | https://developer.fiserv.com | https://developer.fiserv.com/
+Temenos | https://www.temenos.com/partners/developer-community/
+Tookitaki | https://identity.document360.io/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DKbSiteAngular%26scope%3Dopenid%2520email%2520profile%2520kbSiteAdmin%2520offline_access%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fdocs.tookitaki.com%252Fsignin-oidc%26state%3Dreturn_to%253D%25252F%26session%3Dtrue%26property%3Duser%26defaultStrategy%3Doidc%26code_challenge%3D-AarA2oBo8cwry0XDFMauyEv3BrBZ2KUvHb6BL5mv9A%26code_challenge_method%3DS256 | https://identity.document360.io/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Ddocument360MVC%26redirect_uri%3Dhttps%253A%252F%252Fdocs.tookitaki.com%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520email%2520profile%26code_challenge%3DA2XSjdcUhcZbnzj82rXt4mTpuvp6a7-OzDQNfsdxscE%26code_challenge_method%3DS256%26nonce%3D638830089879372304.MzJiZTRiYjEtMjQ1MS00ZDE0LWJjZjEtMTUwOTg3MjNjZDM4N2ViNzk3MzctZWE1NC00MmM2LWFlNGEtMmY0MzAyNWIyYTUx%26state%3DCfDJ8FUW5NWuT-lMl4eXLIjxn16v83MVqWBIHcPGAzfu2h5gIQoSKg9trEJWOuyIRqq4DU42A0OYZSGgIwJQodzH-CU-C8d9u1ItwQryj-ZrGFyzdOYTjLSbUVHslhjFa_hiKiOMh0o5aWLTRrINtCyI0l-_8zZBwUF0KVsa9JNk-X7SHzBEOt1OQNrHsN0p9u5CK9SfP4hDGOsHsTVLGUTYAYDkD-XT82z45qgBgVFOscDq8LMJxXKy7D03GCH7-kd3H9ck7oZMN8XDxHZ6lpqdu6bbafA478ONFqFcmBTSJm3b-LZY7zv1nusk0TyEiwR0YLju2LB96LoWYaX3FPr3zeVaY8L3gjCS1i8k4figUq7Ndopd6UyCa7bumOeaAcdwBA%26x-client-SKU%3DID_NETSTANDARD2_0%26x-client-ver%3D5.5.0.0
+Unit21 | https://docs.unit21.ai/password?redirect=/docs/overview?_gl=1*6gi0ru*_up*MQ..*_ga*MTgwNDg0MjM1OS4xNzUyOTE0MTU5*_ga_YKWL0RRH7P*czE3NTI5MTQxNTgkbzEkZzEkdDE3NTI5MTQ1MTkkajQwJGwwJGg5MDQ3MDg0ODc. | https://docs.unit21.ai/password?redirect=/docs/overview?_gl=1*6gi0ru*_up*MQ..*_ga*MTgwNDg0MjM1OS4xNzUyOTE0MTU5*_ga_YKWL0RRH7P*czE3NTI5MTQxNTgkbzEkZzEkdDE3NTI5MTQ1MTkkajQwJGwwJGg5MDQ3MDg0ODc.&__hstc=17958374.f8f437118bd83d0c1059e1f312aa07b7.1772928552226.1772928552226.1772928552226.1&__hssc=17958374.1.1772928552226&__hsfp=4c710a6ab75f8554ab88bcc1d2e8e401
+Sardine | https://docs.sardine.ai/
+Flagright | https://docs.flagright.com/
+Lucinity | https://docs.lucinity.com | https://lucinity.com/regulatory-reporting
+AML Partners | https://amlpartners.com/insights/no-code-business-application-platform-for-developers/
+Alloy | https://developer.alloy.com | https://developer.alloy.com/
+Taktile | https://docs.taktile.com/ | https://docs.taktile.com/changelog | https://docs.taktile.com/integrations
+Camunda | https://camunda.com/developer-hub/ | https://docs.camunda.io/ | https://docs.camunda.io/build-with-camunda/
+Pega | https://docs.pega.com | https://docs.pega.com/bundle/keeping-current/page/keeping-current/kc/keeping-current-with-pega.html
+Elliptic | https://developers.elliptic.co/reference/getting-started
+Scorechain | https://www.scorechain.com/developers/api | https://www.scorechain.com/developers/free-sanction-api | https://www.scorechain.com/developers/sdk
+Blockaid | https://docs.blockaid.io/changelog | https://docs.blockaid.io/docs/blockaid-client | https://docs.blockaid.io/docs/introduction
+Solidus Labs | https://api-developers.soliduslabs.com/
+Notabene | https://devx.notabene.id/
+Sygna | https://developers.sygna.io/
+VerifyVASP | https://docs.verifyvasp.com/
+21 Analytics | https://docs.21analytics.ch/
+Shyft / Veriscope | https://www.shyft.network/
+RavenPack | https://docs.bigdata.com/
+Factiva / Dow Jones | https://developer.dowjones.com/
+Companies House | https://developer-specs.company-information.service.gov.uk | https://developer.company-information.service.gov.uk/ | https://developer.company-information.service.gov.uk/api-testing
+SEC EDGAR | https://www.sec.gov/developer
+INSEE Sirene | https://www.insee.fr/fr/information/2383410
+UIDAI | https://uidai.gov.in/hi/developer-section
+Chile Registro de Empresas y Sociedades | https://docs.google.com/forms/d/e/1FAIpQLSfnACxhuEp03jtjycYwm-0SvVnchCWIKq9PWNSyhamQ0jh1-A/viewform
+itsme | https://developers.hubspot.com/slack
+Yoti | https://developers.yoti.com/
+OFAC Sanctions List Service | https://ofac.treasury.gov/media/10391/download?inline
+EU Financial Sanctions Files | https://dataeuropa.gitlab.io/data-provider-manual/
+World Bank Debarment | https://pubdocs.worldbank.org/en/712591554318028093/Sanctions-Committee-Procedures-August-2001.pdf | https://thedocs.worldbank.org/en/doc/387181466627871302-0290022021/original/WorldBankNotesonDebarredFirmsandIndividuals.pdf | https://thedocs.worldbank.org/en/doc/45f3a37d7c5a7c76e54ddf5dcbf058cc-0290012023/original/8fcd8932ee2247959dd4e6e6b02db57b.pdf
+US BIS Consolidated Screening List | https://developer.trade.gov/ | https://developer.trade.gov/api-details | https://www.trade.gov/selectusa-find-economic-developers
+Open Supply Hub | https://info.opensupplyhub.org/developer-resources

@@ -1,0 +1,78 @@
+{
+  "urls_attempted": 320,
+  "found": [
+    {
+      "provider_id": "incode",
+      "url": "https://developer.incode.com/openapi.json",
+      "schema_file": "discovered-incode-c55df227dd.json",
+      "sha256": "59bca2114b83fb52dc8c40466a3130683b3dd8fac7e6a9a7feff2ad3002b4814",
+      "title": "Incode Omni API",
+      "servers": [
+        {
+          "url": "https://demo-api.incodesmile.com",
+          "description": "Incode demo environment"
+        }
+      ],
+      "host": null,
+      "security": [
+        {
+          "ApiKeyAuth": [],
+          "IncodeHardwareIdAuth": []
+        }
+      ],
+      "security_schemes": {
+        "ApiKeyAuth": {
+          "type": "apiKey",
+          "description": "Your api key. Request it from Incode support team",
+          "name": "x-api-key",
+          "in": "header"
+        },
+        "IncodeHardwareIdAuth": {
+          "type": "apiKey",
+          "description": "Session token. Created either via /omni/start or /executive/log-in",
+          "name": "X-Incode-Hardware-Id",
+          "in": "header"
+        },
+        "BearerAuth": {
+          "type": "http",
+          "description": "Bearer token.\n\nCreated via /oauth2/token on auth server, using [client_credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) grant.\n\nThe client_id and client_secret params can be found in Default client credentials integration.\n",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      },
+      "paths": 206,
+      "review_status": "discovered_not_implemented"
+    },
+    {
+      "provider_id": "flinks",
+      "url": "https://docs.flinks.com/openapi.yaml",
+      "schema_file": "discovered-flinks-9f4cae8dd7.json",
+      "sha256": "5c69c878f323ef2b4ae8952662e712a52b441db9006f55ceda93461152f6d6d6",
+      "title": "Flinks API",
+      "servers": [
+        {
+          "url": "https://{instance}-api.private.fin.ag",
+          "description": "Flinks API Environment",
+          "variables": {
+            "instance": {
+              "default": "toolbox",
+              "description": "The environment instance (e.g., toolbox, sandbox, production)"
+            }
+          }
+        }
+      ],
+      "host": null,
+      "security": null,
+      "security_schemes": {
+        "XApiKey": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "x-api-key",
+          "description": "Optional security feature (must be enabled by Flinks). Contact your Flinks representative to activate."
+        }
+      },
+      "paths": 34,
+      "review_status": "discovered_not_implemented"
+    }
+  ]
+}

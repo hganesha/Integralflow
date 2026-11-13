@@ -1,0 +1,37 @@
+# Retirement, pension & benefits. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: RET
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - WEALTH
+  - ASSET_MANAGEMENT
+  name: Retirement, pension & benefits
+  definition: Arrangements accumulating and paying retirement income and employee benefits.
+  regulatedActivities:
+  - PENSION_ADMINISTRATION
+  riskDimensions:
+  - THIRD_PARTY_FUNDING
+  classes:
+  - code: DEFINED_CONTRIBUTION
+    name: Defined contribution plans
+    definition: Employer plans where benefits depend on contributions and returns.
+  - code: DEFINED_BENEFIT
+    name: Defined benefit plans
+    definition: Employer plans promising a formula-based pension.
+  - code: INDIVIDUAL_RETIREMENT
+    name: Individual retirement accounts
+    definition: Tax-advantaged accounts individuals open themselves.
+  - code: PLAN_ADMINISTRATION
+    name: Plan administration & recordkeeping
+    definition: Recordkeeping and administration for retirement plans.
+  - code: EMPLOYEE_BENEFITS
+    name: Employee benefits & equity plans
+    definition: Share plans, deferred compensation and other benefits.
+  - code: PENSION_PAYOUTS
+    name: Pension payouts
+    definition: Paying pensions and lump sums to retirees.

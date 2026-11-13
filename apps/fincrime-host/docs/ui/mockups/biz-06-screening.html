@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIZ-06 · Screening Workbench — hit-9</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .feat { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; font-size: var(--text-sm); padding: 6px 0; border-bottom: 1px dashed var(--line-1); }
+  .feat:last-child { border-bottom: 0; }
+  .hitlist .nav-item { flex-wrap: wrap; }
+</style>
+</head>
+<body data-studio="workspace" data-role="Sanctions & Screening Analyst" data-user="L. Nakamura">
+<div class="app">
+  <header data-shell="chrome"></header>
+  <nav class="orient hitlist" aria-label="Hits">
+    <div class="orient__group"><a class="nav-item" href="biz-03-case-cdd.html" data-icon="arrowl" data-icon-class="i--sm"> KYB-1042 case room</a></div>
+    <div class="orient__group"><span class="t-engraved">Screening run sr-204 · 5 subjects</span>
+      <a class="nav-item" href="#">Acme Trading Ltd <span class="count">0 hits</span></a>
+      <a class="nav-item" href="#">Harbor Holdings BV <span class="count">0</span></a>
+      <a class="nav-item" href="#">Alice Example <span class="count">0</span></a>
+      <a class="nav-item" href="#">Bram Okoro <span class="count">0</span></a>
+      <a class="nav-item" aria-current="page" href="#">Chen Wei <span class="count">1 PEP</span></a></div>
+    <div class="orient__group"><span class="t-engraved">Lists &amp; coverage</span>
+      <div class="card card--white xs stack stack--tight"><span>sanctions · v2026.11.04 · complete</span><span>pep · v2026.10 · complete</span><span>adverse media · captured sources only</span><span style="color:var(--ochre-700)">internal watchlist · stale 371 d</span></div></div>
+  </nav>
+  <main class="main">
+    <section class="object-header">
+      <div class="object-header__tile" data-icon="shieldcheck"></div>
+      <div><div class="row"><span class="t-engraved">Screening hit · PEP list</span><span class="id">hit-9</span></div><h1>Chen Wei ↔ PEP entry pep-88231</h1>
+        <div class="object-header__meta"><span><span class="t-engraved">exposure</span> 27.0% effective owner via Meridian Nominees</span><span><span class="t-engraved">scorer</span> screening.match.score 0.2.0 · <b>uncalibrated</b></span></div></div>
+      <div class="stack" style="align-items:flex-end"><span class="dim"><span class="t-engraved">Execution</span><span class="status" data-tone="attention">Needs review</span></span><span class="dim"><span class="t-engraved">Disposition</span><span class="status" data-tone="draft">None recorded</span></span></div>
+    </section>
+
+    <div class="row" style="margin:var(--space-5) 0 var(--space-3)"><h2>Side-by-side comparison</h2><div class="legend ml-auto"><span><span class="cmp" data-r="agree">=</span>Agree</span><span><span class="cmp" data-r="partial">≈</span>Partial</span><span><span class="cmp" data-r="contradict">≠</span>Contradict</span><span><span class="cmp" data-r="missing">?</span>Missing</span></div></div>
+    <div class="compare" role="table" aria-label="Customer party versus screening entry">
+      <div class="c-head" role="columnheader">Field</div><div class="c-head" role="columnheader">Related party (case)</div><div class="c-head c-verdict" role="columnheader"><span class="sr-only">Result</span></div><div class="c-head" role="columnheader">PEP entry pep-88231</div>
+      <div class="c-field">Name (original)</div><div>陈伟 · Chen Wei</div><div class="c-verdict"><span class="cmp" data-r="agree" aria-label="agree">=</span></div><div>陈伟 · CHEN Wei</div>
+      <div class="c-field">Aliases</div><div>Wei Chen</div><div class="c-verdict"><span class="cmp" data-r="partial" aria-label="partial">≈</span></div><div>Chen W.; Chen Weiguo</div>
+      <div class="c-field">Date of birth</div><div class="num">1981-04-12</div><div class="c-verdict"><span class="cmp" data-r="contradict" aria-label="contradict">≠</span></div><div class="num">1958-09-30</div>
+      <div class="c-field">Nationality</div><div>SG</div><div class="c-verdict"><span class="cmp" data-r="contradict" aria-label="contradict">≠</span></div><div>CN</div>
+      <div class="c-field">Identifiers</div><div class="mono">PASSPORT ••••4471</div><div class="c-verdict"><span class="cmp" data-r="missing" aria-label="missing">?</span></div><div class="subtle">none listed</div>
+      <div class="c-field">Position</div><div class="subtle">—</div><div class="c-verdict"><span class="cmp" data-r="missing" aria-label="missing">?</span></div><div>Provincial official (former)</div>
+      <div class="c-field">Source / list version</div><div class="mono xs">VR-044 · passport scan dv-61</div><div class="c-verdict"></div><div class="mono xs">pep · v2026.10 · captured Oct 28</div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:var(--space-4); gap:var(--space-4); align-items:start">
+      <section class="surface-agent"><span class="surface-agent__tag"><svg class="i i--sm"><use href="#i-bot"/></svg>A06 · screening.match.disambiguate · surface s-102</span>
+        <div class="row row--between" style="margin-bottom:8px"><h3>Match features</h3><span class="epi" data-kind="recommendation">Recommends: false match</span></div>
+        <div class="feat"><span>Name similarity (original script)</span><span class="mono">exact</span></div>
+        <div class="feat"><span>Date of birth</span><span class="mono" style="color:var(--coral-700)">contradicts · 22 y</span></div>
+        <div class="feat"><span>Nationality</span><span class="mono" style="color:var(--coral-700)">contradicts</span></div>
+        <div class="feat"><span>Identifier corroboration</span><span class="mono subtle">unavailable</span></div>
+        <p class="xs muted" style="margin-top:8px">Feature score is reproducible but <b>uncalibrated</b> — it is not a probability and no percentage is shown.</p></section>
+      <section class="panel"><h3 style="margin-bottom:8px">Disposition</h3>
+        <div class="segmented segmented--wide" data-select-group style="flex-wrap:wrap;border-radius:18px"><button aria-pressed="true">False match</button><button aria-pressed="false">Potential true match</button><button aria-pressed="false">Escalate</button></div>
+        <div class="field" style="margin-top:12px"><label for="r">Documented basis</label><textarea class="input" id="r">Two independent contradictions (DOB +22 y, nationality) against verified identity VR-044.</textarea></div>
+        <div class="disclosure" data-tone="info" style="margin-top:12px"><svg class="i"><use href="#i-lock"/></svg><div><span class="mono">screening.alert.disposition</span> is <b>human_gated</b>: your proposal records only after an <b>independent</b> reviewer approves it. A potential true match cannot be cleared contrary to policy.</div></div>
+        <div class="row row--wrap" style="margin-top:12px"><button class="btn btn--primary">Propose disposition → route approval</button><button class="btn btn--quiet">Request more evidence</button></div></section>
+    </div>
+  </main>
+  <aside class="inspector">
+    <div class="inspector__head"><div class="t-engraved">Ownership exposure</div><h2>Why Chen Wei is screened</h2></div>
+    <div class="inspector__section"><p class="small">Identified as principal behind Meridian Nominees Ltd after evidence request (share register v3). Effective interest <b class="num">27.0%</b> ≥ threshold <span class="mono">0.20</span>.</p></div>
+    <div class="inspector__section"><span class="t-engraved">Negative search disclosure</span><p class="small muted">Adverse media searched 4 captured sources; 0 events. Coverage is limited to captured sources — absence is not proof of absence.</p></div>
+    <div class="inspector__section"><span class="t-engraved">Policy</span><dl class="kv"><dt>screening_threshold</dt><dd class="num">0.5</dd><dt>freshness WatchlistEntry</dt><dd class="num">365 d</dd><dt>approval</dt><dd>independent reviewer</dd></dl></div>
+  </aside>
+  <footer class="rail"><div class="rail__bar"><span class="t-engraved">Events</span><div class="rail__events"><span class="evt" data-tone="positive">screening.pep.execute · 1 hit</span><span class="evt" data-tone="positive">match.score · features</span><span class="evt" data-tone="info">match.disambiguate · review</span></div></div></footer>
+</div>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

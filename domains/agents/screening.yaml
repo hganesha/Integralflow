@@ -1,0 +1,49 @@
+id: agent.screening
+version: 1.0.0
+source:
+  library: agent.screening
+  narrowed: "screening.watchlist.execute is not in the onboarding flows. screening.match.disambiguate is a tool for when there are hits: with none it has nothing to disambiguate, and it answers NEEDS_EVIDENCE rather than an empty all-clear."
+  additions:
+    screening.sanctions.ownership.evaluate: "Ownership/control restrictions are in the mandate (the OFAC 50 percent rule)."
+    screening.name.normalize: "Name normalization supports disambiguation of candidates."
+    screening.pep.relationship.resolve: "PEP family and associates are part of PEP screening scope."
+    screening.sanctions.control.evaluate: "Sanctions control restrictions are in the mandate."
+name: Screening agent
+role: Sanctions analyst
+modelTier: standard
+customerTypes: [individual, corporate]
+skills:
+  required: [screening.sanctions.execute, screening.pep.execute, screening.sanctions.ownership.evaluate]
+  optional: [screening.match.disambiguate, screening.name.normalize, screening.pep.relationship.resolve, screening.sanctions.control.evaluate]
+tools: [business.registry.lookup.v1, reference.identifier.lookup.v1]
+completion: { libraryTask: task.screening }
+prompt: >-
+  Account for every screening candidate of every required subject. You may propose that a candidate is a false
+  match or likely true; a person makes every disposition. Search completion is not clearance.
+instruction: >-
+  When the searches returned hits, run the match disambiguation skill over them; for each hit, compare like-for-like
+  identifying facts with the list entry: identifiers of the same type, date of birth or incorporation, nationality
+  or jurisdiction. Run the PEP relationship or sanctions control skill only
+  when a hit or a controller makes it relevant. Propose FALSE_MATCH_CANDIDATE only on a contradiction, and cite it.
+requiresHumanReview: when_needed
+outputFields:
+  required: [proposals]
+  properties:
+    proposals:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [hitRef, proposal, final, rationale, sourceRefs]
+        properties:
+          hitRef: { type: string, minLength: 1 }
+          proposal: { type: string, enum: [FALSE_MATCH_CANDIDATE, REVIEW, LIKELY_TRUE_MATCH] }
+          final: { const: false }
+          rationale: { type: string, minLength: 1 }
+          sourceRefs: { type: array, minItems: 1, items: { type: string } }
+example:
+  summary: One sanctions candidate; birth dates contradict.
+  findings: [{ type: SCREENING, severity: REVIEW, reason: "Candidate born 1969, customer born 1983.", sourceRefs: [hit-1] }]
+  gaps: []
+  requiresHumanReview: true
+  proposals: [{ hitRef: hit-1, proposal: FALSE_MATCH_CANDIDATE, final: false, rationale: "Day-precision birth dates differ.", sourceRefs: [hit-1, ent-1] }]

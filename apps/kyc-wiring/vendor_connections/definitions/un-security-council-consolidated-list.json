@@ -1,0 +1,33 @@
+{
+  "provider_id": "un-security-council-consolidated-list",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://scsanctions.un.org"
+  },
+  "auth": {
+    "type": "none",
+    "keys": []
+  },
+  "sources": [
+    "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "download_consolidated": {
+      "method": "GET",
+      "path": "/resources/xml/en/consolidated.xml",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "dataset",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+      "allowed_input_headers": [],
+      "response": "xml"
+    }
+  }
+}

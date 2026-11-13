@@ -1,0 +1,192 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.fields.extract
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Extract explicit label:value text fields with exact source character
+  spans.
+code_hash: f4081889f2cc877e701835b12f5906be8913d8bc64f83a0cbe9c955d5437aca3
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Extract explicit label:value text fields with exact source character
+  spans.
+effects: read_only
+entrypoint: financial_crime.skills.documents:fields_extract
+evaluation_profile: document.fields.extract-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: document-fields-extract
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: document.fields.extract
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:document.fields.extract:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    fields:
+      items:
+        maxLength: 4000
+        minLength: 1
+        type: string
+      maxItems: 10000
+      minItems: 1
+      type: array
+  required:
+  - fields
+  type: object
+instruction_hash: 177340a1450cc8412adf4425ccf610839f76b3ee750b3731d7d83a3e6bb74e69
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    AssertionStatus:
+      const: EXTRACTED_ASSERTION
+    Count:
+      minimum: 0
+      type: integer
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    PositiveCount:
+      minimum: 1
+      type: integer
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    SpanAssertion:
+      additionalProperties: false
+      properties:
+        document_version:
+          $ref: '#/$defs/Id'
+        end:
+          $ref: '#/$defs/PositiveCount'
+        epistemic_status:
+          $ref: '#/$defs/AssertionStatus'
+        field:
+          $ref: '#/$defs/Id'
+        page_id:
+          $ref: '#/$defs/Id'
+        source_ref:
+          $ref: '#/$defs/Ref'
+        start:
+          $ref: '#/$defs/Count'
+        value:
+          $ref: '#/$defs/Text'
+      required:
+      - field
+      - value
+      - page_id
+      - document_version
+      - start
+      - end
+      - epistemic_status
+      type: object
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.fields.extract:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    assertions:
+      items:
+        $ref: '#/$defs/SpanAssertion'
+      maxItems: 10000
+      type: array
+    missing:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+  required:
+  - assertions
+  - missing
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - text
+  - page
+  - document_version
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DocumentPage
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

@@ -1,0 +1,4915 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Server API",
+    "description": "Fingerprint Server API allows you to get, search, and update Events in a server environment. It can be used for data exports, decision-making, and data analysis scenarios.\nServer API is intended for server-side usage, it's not intended to be used from the client side, whether it's a browser or a mobile device.\nThe API also supports collection of Automation Intelligence for requests to your server in edge, pre-origin, or middleware contexts.\n",
+    "version": "4",
+    "contact": {
+      "name": "Fingerprint Support",
+      "email": "support@fingerprint.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/fingerprintjs/openapi/blob/main/LICENSE"
+    }
+  },
+  "tags": [
+    {
+      "name": "Events",
+      "description": "Get, update, or search for information about events.\n"
+    },
+    {
+      "name": "Visitors",
+      "description": "Delete visitor data.\n"
+    },
+    {
+      "name": "Edge",
+      "description": "Create events with the Automation Intelligence API.\n"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.fpjs.io/v4",
+      "description": "Global"
+    },
+    {
+      "url": "https://eu.api.fpjs.io/v4",
+      "description": "EU"
+    },
+    {
+      "url": "https://ap.api.fpjs.io/v4",
+      "description": "Asia (Mumbai)"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/edge": {
+      "$ref": "#/$defs/doc_8ba1f962c529a886"
+    },
+    "/events/{event_id}": {
+      "$ref": "#/$defs/doc_9b79b9e4bcb18c88"
+    },
+    "/events/{event_id}/feedback": {
+      "$ref": "#/$defs/doc_5c0369cdeb2266bc"
+    },
+    "/events": {
+      "$ref": "#/$defs/doc_72bd06ecb29a76e0"
+    },
+    "/visitors/{visitor_id}": {
+      "$ref": "#/$defs/doc_6ff70bb7015220d3"
+    }
+  },
+  "webhooks": {
+    "event": {
+      "post": {
+        "operationId": "postEventWebhook",
+        "summary": "Webhook",
+        "requestBody": {
+          "required": true,
+          "description": "If configured, a Webhook event will be posted to the provided endpoint. The webhook has the same data as our `/v4/events` endpoint.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_412e941f9ecc562e"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "string",
+        "description": "Add your Secret API Key to the Authorization header using the standard Bearer format: `Authorization: Bearer <secret_api_key>`"
+      }
+    }
+  },
+  "$defs": {
+    "doc_efe9cccc2747b907": {
+      "openapi": "3.1.1",
+      "info": {
+        "title": "Server API",
+        "description": "Fingerprint Server API allows you to get, search, and update Events in a server environment. It can be used for data exports, decision-making, and data analysis scenarios.\nServer API is intended for server-side usage, it's not intended to be used from the client side, whether it's a browser or a mobile device.\nThe API also supports collection of Automation Intelligence for requests to your server in edge, pre-origin, or middleware contexts.\n",
+        "version": "4",
+        "contact": {
+          "name": "Fingerprint Support",
+          "email": "support@fingerprint.com"
+        },
+        "license": {
+          "name": "MIT",
+          "url": "https://github.com/fingerprintjs/openapi/blob/main/LICENSE"
+        }
+      },
+      "tags": [
+        {
+          "name": "Events",
+          "description": "Get, update, or search for information about events.\n"
+        },
+        {
+          "name": "Visitors",
+          "description": "Delete visitor data.\n"
+        },
+        {
+          "name": "Edge",
+          "description": "Create events with the Automation Intelligence API.\n"
+        }
+      ],
+      "servers": [
+        {
+          "url": "https://api.fpjs.io/v4",
+          "description": "Global"
+        },
+        {
+          "url": "https://eu.api.fpjs.io/v4",
+          "description": "EU"
+        },
+        {
+          "url": "https://ap.api.fpjs.io/v4",
+          "description": "Asia (Mumbai)"
+        }
+      ],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "paths": {
+        "/edge": {
+          "$ref": "#/$defs/doc_8ba1f962c529a886"
+        },
+        "/events/{event_id}": {
+          "$ref": "#/$defs/doc_9b79b9e4bcb18c88"
+        },
+        "/events/{event_id}/feedback": {
+          "$ref": "#/$defs/doc_5c0369cdeb2266bc"
+        },
+        "/events": {
+          "$ref": "#/$defs/doc_72bd06ecb29a76e0"
+        },
+        "/visitors/{visitor_id}": {
+          "$ref": "#/$defs/doc_6ff70bb7015220d3"
+        }
+      },
+      "webhooks": {
+        "event": {
+          "post": {
+            "operationId": "postEventWebhook",
+            "summary": "Webhook",
+            "requestBody": {
+              "required": true,
+              "description": "If configured, a Webhook event will be posted to the provided endpoint. The webhook has the same data as our `/v4/events` endpoint.\n",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/$defs/doc_412e941f9ecc562e"
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Return a 200 status to indicate that the data was received successfully"
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "securitySchemes": {
+          "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "string",
+            "description": "Add your Secret API Key to the Authorization header using the standard Bearer format: `Authorization: Bearer <secret_api_key>`"
+          }
+        }
+      }
+    },
+    "doc_9b79b9e4bcb18c88": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEvent",
+        "summary": "Get an event by event ID",
+        "description": "Get a detailed analysis of an individual identification event, including Smart Signals.\n\nUse `event_id` as the URL path parameter. This API method is scoped to a request, i.e. all returned information is by `event_id`.\n",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "1708102555327.NLOjmg"
+              ]
+            },
+            "description": "The unique [identifier](https://docs.fingerprint.com/reference/js-agent-get-function#event_id) of each identification request (`requestId` can be used in its place)."
+          },
+          {
+            "name": "ruleset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "D6N9Kbk9HRWrIWGz"
+              ]
+            },
+            "description": "The ID of the ruleset to evaluate against the event, producing the action to take for this event.\nThe resulting action is returned in the `rule_action` attribute of the response.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_412e941f9ecc562e"
+                },
+                "examples": {
+                  "200-ok": {
+                    "summary": "Example response",
+                    "externalValue": "examples/events/get_event_200.json"
+                  },
+                  "200-ok-with-ruleset": {
+                    "summary": "Example response with rule_action (when ruleset_id is provided)",
+                    "externalValue": "examples/events/get_event_ruleset_200.json"
+                  },
+                  "200-ok-with-bot-info": {
+                    "summary": "Example response with bot_info",
+                    "externalValue": "examples/events/get_event_with_bot_info_200.json"
+                  },
+                  "200-ok-with-edge": {
+                    "summary": "Example event from the Automation Intelligence API with Bot and IP intelligence",
+                    "externalValue": "examples/events/get_event_with_edge_200.json"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. The event ID provided is not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "400-bad-request": {
+                    "summary": "Error response when the provided event ID is invalid.",
+                    "externalValue": "examples/errors/400_event_id_invalid.json"
+                  },
+                  "400-ruleset-not-found": {
+                    "summary": "Error response when the ruleset with the provided ID is not found.",
+                    "externalValue": "examples/errors/400_ruleset_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access to this API is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "403-secret-api-key-required": {
+                    "summary": "Error response when the secret API key was not provided.",
+                    "externalValue": "examples/errors/403_secret_api_key_required.json"
+                  },
+                  "403-secret-api-key-not-found": {
+                    "summary": "Error response when the provided secret API key does not exist.",
+                    "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The event ID cannot be found in this workspace's data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "404-request-not-found": {
+                    "summary": "Error response when the provided event ID does not exist.",
+                    "externalValue": "examples/errors/404_event_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests. The request is throttled.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "429-too-many-requests-error": {
+                    "summary": "Too many requests error",
+                    "externalValue": "examples/errors/429_too_many_requests.json"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Workspace error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "500-error": {
+                    "summary": "Request failed",
+                    "externalValue": "examples/errors/500_internal_server_error.json"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Temporarily Unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "503-service-temporarily-unavailable": {
+                    "summary": "Error response when the service is temporarily unavailable.",
+                    "externalValue": "examples/errors/503_service_unavailable.json"
+                  }
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "x-deprecated-response": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "updateEvent",
+        "summary": "Update an event",
+        "description": "Change information in existing events specified by `event_id` or *flag suspicious events*.\n\nWhen an event is created, it can be assigned `linked_id` and `tags` submitted through the JS agent parameters. \nThis information might not have been available on the client initially, so the Server API permits updating these attributes after the fact.\n\n**Warning** It's not possible to update events older than one month. \n\n**Warning** Trying to update an event immediately after creation may temporarily result in an \nerror (HTTP 409 Conflict. The event is not mutable yet.) as the event is fully propagated across our systems. In such a case, simply retry the request.\n",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "1708102555327.NLOjmg"
+              ]
+            },
+            "description": "The unique event [identifier](https://docs.fingerprint.com/reference/js-agent-get-function#event_id)."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_c020a554ee661106"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK."
+          },
+          "400": {
+            "description": "Bad request. The request payload is not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "example": {
+                    "summary": "Error response when the specified request payload is not valid and cannot be parsed.",
+                    "externalValue": "examples/errors/400_request_body_invalid.json"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access to this API is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "403-secret-api-key-required": {
+                    "summary": "Error response when the secret API key was not provided.",
+                    "externalValue": "examples/errors/403_secret_api_key_required.json"
+                  },
+                  "403-secret-api-key-not-found": {
+                    "summary": "Error response when the provided secret API key does not exist.",
+                    "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                  },
+                  "403-wrong-region": {
+                    "summary": "Error response when the API region is different from the region, the calling workspace is configured with.",
+                    "externalValue": "examples/errors/403_wrong_region.json"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The event ID cannot be found in this workspace's data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "404-request-not-found": {
+                    "summary": "Error response when the provided event ID does not exist.",
+                    "externalValue": "examples/errors/404_event_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. The event is not mutable yet.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "example": {
+                    "summary": "Error response when the event is not mutable yet.",
+                    "externalValue": "examples/errors/409_state_not_ready.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "doc_412e941f9ecc562e": {
+      "type": "object",
+      "description": "Contains results from Fingerprint Identification and all active Smart Signals. Some Smart Signals are only supported for certain device types, these fields will be omitted for events not generated from the supported devices. Consult the [Smart Signals reference](https://docs.fingerprint.com/docs/smart-signals-reference) for more details.",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "timestamp"
+      ],
+      "properties": {
+        "event_id": {
+          "$ref": "#/$defs/doc_ea16d32d9a93f48f",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "timestamp": {
+          "$ref": "#/$defs/doc_439c82998c7a320b",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/doc_a8762e525ac6edb8",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "incremental_identification_status": {
+          "$ref": "#/$defs/doc_6af3127701d2e36f",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "linked_id": {
+          "$ref": "#/$defs/doc_5ba5fd2ba04fa939",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "environment_id": {
+          "$ref": "#/$defs/doc_4fdb942832cfc3d6",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "suspect": {
+          "$ref": "#/$defs/doc_971761f539ff3539",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "sdk": {
+          "$ref": "#/$defs/doc_2871397f003b8511",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "replayed": {
+          "$ref": "#/$defs/doc_0d350ae77f5a3442",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "triggered_by": {
+          "$ref": "#/$defs/doc_9473d3dbe129d603"
+        },
+        "identification": {
+          "$ref": "#/$defs/doc_63c8f60372c68207",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "supplementary_id_high_recall": {
+          "$ref": "#/$defs/doc_e5e0a74b1bd39a93",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "tags": {
+          "$ref": "#/$defs/doc_23fc49b74354efa0",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/doc_5ec410bb7a461722",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "bundle_id": {
+          "$ref": "#/$defs/doc_cd766da15ee9c98f",
+          "x-platforms": [
+            "ios"
+          ]
+        },
+        "package_name": {
+          "$ref": "#/$defs/doc_36f278fc72d18483",
+          "x-platforms": [
+            "android"
+          ]
+        },
+        "ip_address": {
+          "$ref": "#/$defs/doc_53acb911abcb8ef7",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "user_agent": {
+          "$ref": "#/$defs/doc_dd80eb96c284e63b",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "device": {
+          "$ref": "#/$defs/doc_76f0bf74378041c3",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "os": {
+          "$ref": "#/$defs/doc_0bdff660d69745d8",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "os_version": {
+          "$ref": "#/$defs/doc_8b08583c3f96dfce",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "client_referrer": {
+          "$ref": "#/$defs/doc_77514ec176956d39",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "browser_details": {
+          "$ref": "#/$defs/doc_d02ecda02639ec8a",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "proximity": {
+          "$ref": "#/$defs/doc_f016b46a382899e1",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "active_call": {
+          "$ref": "#/$defs/doc_7e66ce5ef38f01b1",
+          "x-platforms": [
+            "android",
+            "ios"
+          ]
+        },
+        "bot": {
+          "$ref": "#/$defs/doc_3ce29452736fffcd",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "bot_type": {
+          "$ref": "#/$defs/doc_49d797a8ec52ecfd",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "bot_info": {
+          "$ref": "#/$defs/doc_3746a06709fc3548",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "cloned_app": {
+          "$ref": "#/$defs/doc_d88991a0770f994e",
+          "x-platforms": [
+            "android"
+          ]
+        },
+        "developer_tools": {
+          "$ref": "#/$defs/doc_abb074bb30dae60e",
+          "x-platforms": [
+            "browser",
+            "android",
+            "ios"
+          ]
+        },
+        "device_details": {
+          "$ref": "#/$defs/doc_de873caf605d70af",
+          "x-platforms": [
+            "android",
+            "ios"
+          ]
+        },
+        "emulator": {
+          "$ref": "#/$defs/doc_d1497a681bc01aed",
+          "x-platforms": [
+            "android"
+          ]
+        },
+        "factory_reset_timestamp": {
+          "$ref": "#/$defs/doc_918a475e2d7e42a3",
+          "x-platforms": [
+            "android",
+            "ios"
+          ]
+        },
+        "frida": {
+          "$ref": "#/$defs/doc_5a92bcc69cba78d2",
+          "x-platforms": [
+            "android",
+            "ios"
+          ]
+        },
+        "ip_blocklist": {
+          "$ref": "#/$defs/doc_7433d111907f2ba1",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "ip_info": {
+          "$ref": "#/$defs/doc_c38dba870846599f",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "proxy": {
+          "$ref": "#/$defs/doc_a16ce66ebd621054",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "proxy_confidence": {
+          "$ref": "#/$defs/doc_1e56ab0199c42c94",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "proxy_details": {
+          "$ref": "#/$defs/doc_fa6e7686b68ada1b",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "proxy_ml_score": {
+          "$ref": "#/$defs/doc_bae5287592218a1d",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "incognito": {
+          "$ref": "#/$defs/doc_738222ab7e7e30e2",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "jailbroken": {
+          "$ref": "#/$defs/doc_21dd55b04f783509",
+          "x-platforms": [
+            "ios"
+          ]
+        },
+        "location_spoofing": {
+          "$ref": "#/$defs/doc_31d0c14cff4db98e",
+          "x-platforms": [
+            "android",
+            "ios"
+          ]
+        },
+        "mitm_attack": {
+          "$ref": "#/$defs/doc_1bf383083732c55a",
+          "x-platforms": [
+            "android",
+            "ios"
+          ]
+        },
+        "privacy_settings": {
+          "$ref": "#/$defs/doc_15363d7a29e38bc0",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "root_apps": {
+          "$ref": "#/$defs/doc_2913338d9df34535",
+          "x-platforms": [
+            "android"
+          ]
+        },
+        "rule_action": {
+          "$ref": "#/$defs/doc_5f75b28f0aba8664"
+        },
+        "simulator": {
+          "$ref": "#/$defs/doc_f60a883da78fb969",
+          "x-platforms": [
+            "ios"
+          ]
+        },
+        "suspect_score": {
+          "$ref": "#/$defs/doc_261b8ee99d868911",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "tampering": {
+          "$ref": "#/$defs/doc_e663e5e28758fd54",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "tampering_confidence": {
+          "$ref": "#/$defs/doc_9b1bb64c4aae6af5",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "tampering_ml_score": {
+          "$ref": "#/$defs/doc_072fe3aabfa8111e",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "tampering_details": {
+          "$ref": "#/$defs/doc_f4bb0c0e3acba6db",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "velocity": {
+          "$ref": "#/$defs/doc_23c52c9e8a5f40e8",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "virtual_machine": {
+          "$ref": "#/$defs/doc_3891b62ab8fff9ea",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "virtual_machine_ml_score": {
+          "$ref": "#/$defs/doc_86e8b3bd3e9548db",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "vpn": {
+          "$ref": "#/$defs/doc_6770eb5da247a886",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "vpn_confidence": {
+          "$ref": "#/$defs/doc_df0e46159fdd84d8",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "vpn_ml_score": {
+          "$ref": "#/$defs/doc_a9649c1f488e46b6",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "vpn_origin_timezone": {
+          "$ref": "#/$defs/doc_3949a89305651d27",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "vpn_origin_country": {
+          "$ref": "#/$defs/doc_80b6e8073b44c6e5",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "vpn_methods": {
+          "$ref": "#/$defs/doc_a14b4b98f3aca8e6",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "high_activity_device": {
+          "$ref": "#/$defs/doc_9a4e83c512f5c7f0",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ]
+        },
+        "rare_device": {
+          "$ref": "#/$defs/doc_3a6ba8154b705fdf",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "rare_device_percentile_bucket": {
+          "$ref": "#/$defs/doc_7e6ff6c7f5060c2e",
+          "x-platforms": [
+            "browser"
+          ]
+        },
+        "raw_device_attributes": {
+          "$ref": "#/$defs/doc_be6dfaf4968e4fa9",
+          "x-platforms": [
+            "browser",
+            "ios",
+            "android"
+          ]
+        },
+        "labels": {
+          "$ref": "#/$defs/doc_af1ca963a09f1ca2",
+          "x-platforms": [
+            "browser",
+            "ios",
+            "android"
+          ]
+        }
+      }
+    },
+    "doc_8ba1f962c529a886": {
+      "post": {
+        "tags": [
+          "Edge"
+        ],
+        "operationId": "analyzeRequestForAutomationIntelligence",
+        "summary": "Collect Automation Intelligence.",
+        "description": "The Automation Intelligence API gives you the tools to determine whether traffic is legitimate and should be accepted by your application.\n\nThis feature is currently in a Public Preview testing phase. All feedback is welcome! If you encounter any issues, please [contact our support team](https://fingerprint.com/support/).\n\nThe API detects automation tools like AI Agents, AI Assistants, AI Browsers, and other bots. Additionally, it provides IP intelligence like geolocation, residential proxy, VPN and data center detection.\n\nAutomation Intelligence is derived from HTTP request metadata that reaches your server. It does not require the use of a JavaScript client-side agent or mobile SDKs to collect device context.\n\nThe API is fast, with average response times of less than 30ms, making it a great fit for edge, pre-origin or middleware contexts. The API is platform-agnostic and can be used with different CDN providers, cloud platforms, or any server backend.\n\nBecause this API doesn\u2019t require the use of a client-side device collection agent, it doesn\u2019t support device identification via `visitor_id` and a few Smart Signals derived from deep device telemetry.\n\n### Event Retrieval\n\nEvents created by the Automation Intelligence API can be fetched via the [`/v4/events/{event_id}`](https://docs.fingerprint.com/reference/server-api-get-event) API using the `event_id` present in the API response.\n\nFetch all Automation Intelligence API events via the [`/v4/events?source=edge`](https://docs.fingerprint.com/reference/server-api-search-events#parameter-source) API.\n",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_de507b6fa2820d7d"
+              },
+              "examples": {
+                "valid": {
+                  "summary": "Example request",
+                  "externalValue": "examples/edge/analyze.json"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_641cfd9ee0bf4e95"
+                },
+                "examples": {
+                  "200-ok-bot-detected": {
+                    "summary": "Example response when a bot was detected.",
+                    "externalValue": "examples/edge/analyze_200.json"
+                  },
+                  "200-ok-bot-not-detected": {
+                    "summary": "Example response when a bot was not detected.",
+                    "externalValue": "examples/edge/analyze_200_non_bot.json"
+                  },
+                  "200-ok-proxy-detected": {
+                    "summary": "Example response when a proxy was detected.",
+                    "externalValue": "examples/edge/analyze_200_proxy.json"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. The request payload is not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "400-unknown-field": {
+                    "summary": "Error response when an unknown field is provided.",
+                    "externalValue": "examples/errors/400_edge_unknown_field.json"
+                  },
+                  "400-ip-required": {
+                    "summary": "Error response when an IP address was not provided.",
+                    "externalValue": "examples/errors/400_edge_ip_required.json"
+                  },
+                  "400-read-timeout": {
+                    "summary": "Error response if the request is not sent within 5 seconds.",
+                    "externalValue": "examples/errors/400_request_read_timeout.json"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access to this API is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "403-secret-api-key-required": {
+                    "summary": "Error response when the secret API key was not provided.",
+                    "externalValue": "examples/errors/403_secret_api_key_required.json"
+                  },
+                  "403-secret-api-key-not-found": {
+                    "summary": "Error response when the provided secret API key does not exist.",
+                    "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                  },
+                  "403-wrong-region": {
+                    "summary": "Error response when the API region is different from the region, the calling workspace is configured with.",
+                    "externalValue": "examples/errors/403_wrong_region.json"
+                  }
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Bad request. The request payload is too large.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "413": {
+                    "summary": "Payload too large error",
+                    "externalValue": "examples/errors/413_payload_too_large.json"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests. The request is throttled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "429-too-many-requests-error": {
+                    "summary": "Too many requests error",
+                    "externalValue": "examples/errors/429_too_many_requests.json"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Workspace error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "doc_5c0369cdeb2266bc": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "submitEventFeedback",
+        "summary": "Submit feedback for an event",
+        "description": "Use this API to submit feedback for a specific, existing event, identified by `event_id`.\n\nFeedback is queued and processed asynchronously. Subsequent Server API responses may not reflect the feedback immediately.\n\nDuplicate feedback requests for the same event are allowed; however, the most recent feedback overrides all previous submissions for that event.\n\n### Availability\nThis API is currently in beta and available only for Enterprise plans. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n\n### Rate limits and daily quota\nThe rate limits and daily quota for this API **differ** from those for our other APIs.\n\nFeedback can be submitted at a maximum of 30 requests per hour (RPH) and cannot exceed 500 requests per day (RPD).\n\nYou can request an increase to these limits by contacting [our support team](https://fingerprint.com/support/). \n",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "1708102555327.NLOjmg"
+              ]
+            },
+            "description": "The [event ID](https://docs.fingerprint.com/reference/js-agent-v4-get-function#event_id) of the identification event you want to submit feedback for.\n"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_295a90094a0e5fe1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted. The feedback has been accepted and will be processed asynchronously."
+          },
+          "400": {
+            "description": "Bad request. The request payload is not valid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "400-bad-request": {
+                    "summary": "Error response when the request body is invalid.",
+                    "externalValue": "examples/errors/400_request_body_invalid.json"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access to this API is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "403-secret-api-key-required": {
+                    "summary": "Error response when the secret API key was not provided.",
+                    "externalValue": "examples/errors/403_secret_api_key_required.json"
+                  },
+                  "403-secret-api-key-not-found": {
+                    "summary": "Error response when the provided secret API key does not exist.",
+                    "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The event ID cannot be found in this workspace's data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "404-event-not-found": {
+                    "summary": "Error response when the provided event ID does not exist.",
+                    "externalValue": "examples/errors/404_event_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests. The request is throttled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "429-too-many-requests-error": {
+                    "summary": "Too many requests error",
+                    "externalValue": "examples/errors/429_too_many_requests.json"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "500-error": {
+                    "summary": "Request failed",
+                    "externalValue": "examples/errors/500_internal_server_error.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "doc_72bd06ecb29a76e0": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "searchEvents",
+        "x-dotnet-use-request-object": true,
+        "summary": "Search events",
+        "description": "## Search\n\nThe `/v4/events` endpoint provides a convenient way to search for past events based on specific parameters. Typical use cases and queries include:\n\n- Searching for events associated with a single `visitor_id` within a time range to get historical behavior of a visitor.\n- Searching for events associated with a single `linked_id` within a time range to get all events associated with your internal account identifier.\n- Excluding all bot traffic from the query (`good` and `bad` bots)\n\nBy default, the API searches events from the last 7 days, sorts them by newest first and returns the last 10 events.\n\n- Use `start` and `end` to specify the time range of the search.\n- Use `reverse=true` to sort the results oldest first.\n- Use `limit` to specify the number of events to return.\n- Use `pagination_key` to get the next page of results if there are more than `limit` events.\n\n### Filtering events with the `suspect` flag\n\nThe `/v4/events` endpoint unlocks a powerful method for fraud protection analytics. The `suspect` flag is exposed in all events where it was previously set by the update API.\n\nYou can also apply the `suspect` query parameter as a filter to find all potentially fraudulent activity that you previously marked as `suspect`. This helps identify patterns of fraudulent behavior.\n\n### Environment scoping\n\nIf you use a secret key that is scoped to an environment, you will only get events associated with the same environment. With a workspace-scoped environment, you will get events from all environments.\n\nSmart Signals not activated for your workspace or are not included in the response.\n",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "examples": [
+                10
+              ]
+            },
+            "description": "Maximum number of events to return. Defaults to 10 when omitted. Results are selected from the time range (`start`, `end`), ordered by `reverse`, then truncated to provided `limit` size. So `reverse=true` returns the oldest N=`limit` events, otherwise the newest N=`limit` events.\n"
+          },
+          {
+            "name": "pagination_key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "S9rgMMUb4z3X5t5pr_tSgoSZlmyF0O8X7kCV2m981-iY1LmRTjraa1rTk3L-hQExnDWCi0RA-zAIjaVSTNO2AN2eqQWgzT0RjbieMxRfSdkM-HmOhdOgdQvYfPG3vqU1DJKh4Q"
+              ]
+            },
+            "description": "Use `pagination_key` to get the next page of results.\n\nWhen more results are available (e.g., you requested up to 100 results for your query using `limit`, but there are more than 100 events total matching your request), the `pagination_key` field is added to the response. The pagination key is an arbitrary string that should not be interpreted in any way and should be passed as-is. In the following request, use that value in the `pagination_key` parameter to get the next page of results:\n\n1. First request, returning most recent 100 events: `GET api-base-url/events?limit=100`\n2. Use `response.pagination_key` to get the next page of results: `GET api-base-url/events?limit=100&pagination_key=S9rgMMUb4z3X5t5pr_tSgoSZlmyF0O8X7kCV2m981-iY1LmRTjraa1rTk3L-hQExnDWCi0RA-zAIjaVSTNO2AN2eqQWgzT0RjbieMxRfSdkM-HmOhdOgdQvYfPG3vqU1DJKh4Q`\n"
+          },
+          {
+            "name": "visitor_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Ibk1527CUFmcnjLwIs4A9"
+              ]
+            },
+            "description": "Unique [visitor identifier](https://docs.fingerprint.com/reference/js-agent-get-function#visitor_id) issued by Fingerprint Identification and all active Smart Signals.\n\nFilter events by matching Visitor ID (`identification.visitor_id` property).\n"
+          },
+          {
+            "name": "high_recall_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Ibk1527CUFmcnjLwIs4A9"
+              ]
+            },
+            "description": "The High Recall ID is a supplementary browser identifier designed for use cases that require wider coverage over precision. Compared to the standard visitor ID, the High Recall ID strives to match incoming browsers more generously (rather than precisely) with existing browsers and thus identifies fewer browsers as new. The High Recall ID is best suited for use cases that are sensitive to browsers being identified as new and where mismatched browsers are not detrimental.\n\nFilter events by matching High Recall ID (`supplementary_id_high_recall.visitor_id` property).\n"
+          },
+          {
+            "name": "bot",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all",
+                "good",
+                "bad",
+                "none"
+              ]
+            },
+            "description": "Filter events by the Bot Detection result, specifically:\n  `all` - events where any kind of bot was detected.\n  `good` - events where a good bot was detected.\n  `bad` - events where a bad bot was detected.\n  `none` - events where no bot was detected.\n> Note: When using this parameter, only events with the `bot` property set to a valid value are returned. Events without a `bot` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "bot_info",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "all",
+                "none"
+              ]
+            },
+            "description": "Filter events by their Bot Info result, specifically:\n  - `all` - events where any kind of bot was detected.\n  - `none` - events where no bot was detected, and no `bot_info` was present.\n"
+          },
+          {
+            "name": "bot_info_category",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/doc_2b25fd1004c9311f"
+              }
+            },
+            "description": "Filter events by their Bot Info Category.\n\nMultiple categories can be provided using the repeated keys syntax. For example, `bot_info_category=ai_agent&bot_info_category=ai_assistant`, will match events with a Bot Info Category of `ai_agent` or `ai_assistant`. Other notations like comma-separated or bracket notation are not supported.\n"
+          },
+          {
+            "name": "bot_info_identity",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/doc_ec86a5bb3ff0e372"
+              }
+            },
+            "description": "Filter events by their Bot Info Identity type.\n\nMultiple identity types can be provided using the repeated keys syntax. For example, `bot_info_identity=verified&bot_info_identity=signed`, will match events with a Bot Info Identity of `verified` or `signed`. Other notations like comma-separated or bracket notation are not supported.\n"
+          },
+          {
+            "name": "bot_info_confidence",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/doc_9f3be137db14d3d8"
+              }
+            },
+            "description": "Filter events by their Bot Info Confidence.\n\nMultiple confidences can be provided using the repeated keys syntax. For example, `bot_info_confidence=high&bot_info_confidence=medium`, will match events with a Bot Info Confidence of `high` or `medium`. Other notations like comma-separated or bracket notation are not supported.\n"
+          },
+          {
+            "name": "bot_info_provider",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "examples": [
+                  "OpenAI"
+                ]
+              }
+            },
+            "description": "Filter events by their Bot Info Provider. The provider must match exactly, partial or wildcard matching is not supported.\n\nMultiple Providers can be provided using the repeated keys syntax. For example, `bot_info_provider=OpenAI&bot_info_provider=AWS`, will match events with a Bot Info Provider of `OpenAI` or `AWS`. Other notations like comma-separated or bracket notation are not supported.\n"
+          },
+          {
+            "name": "bot_info_name",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "examples": [
+                  "ChatGPT-User"
+                ]
+              }
+            },
+            "description": "Filter events by their Bot Info Name. The name must match exactly, partial or wildcard matching is not supported.\n\nMultiple Names can be provided using the repeated keys syntax. For example, `bot_info_name=ChatGPT%20Agent&bot_info_name=Bedrock%20AgentCore`, will match events with a Bot Info Name of `ChatGPT Agent` or `Bedrock AgentCore`. Other notations like comma-separated or bracket notation are not supported.\n"
+          },
+          {
+            "name": "ip_address",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "61.127.217.15"
+              ]
+            },
+            "description": "Filter events by IP address or IP range (if CIDR notation is used). If CIDR notation is not used, a /32 for IPv4 or /128 for IPv6 is assumed.\nExamples of range based queries: 10.0.0.0/24, 192.168.0.1/32\n"
+          },
+          {
+            "name": "asn",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "12876"
+              ]
+            },
+            "description": "Filter events by the ASN associated with the event's IP address.\nThis corresponds to the `ip_info.(v4|v6).asn` property in the response.\n"
+          },
+          {
+            "name": "linked_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "somelinkedId"
+              ]
+            },
+            "description": "Filter events by your custom identifier.\n\nYou can use [linked IDs](https://docs.fingerprint.com/reference/js-agent-get-function#linkedid) to associate identification requests with your own identifier, for example, session ID, purchase ID, or transaction ID. You can then use this `linked_id` parameter to retrieve all events associated with your custom identifier.\n"
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "https://example.com/login"
+              ]
+            },
+            "description": "Filter events by the URL (`url` property) associated with the event.\n"
+          },
+          {
+            "name": "bundle_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "com.example.app"
+              ]
+            },
+            "description": "Filter events by the Bundle ID (iOS) associated with the event.\n"
+          },
+          {
+            "name": "package_name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "com.example.app"
+              ]
+            },
+            "description": "Filter events by the Package Name (Android) associated with the event.\n"
+          },
+          {
+            "name": "origin",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "https://example.com"
+              ]
+            },
+            "description": "Filter events by the origin field of the event. This is applicable to web events only (e.g., https://example.com)\n"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "examples": [
+                    "2026-01-01T00:00:00Z"
+                  ]
+                },
+                {
+                  "type": "integer",
+                  "format": "int64",
+                  "examples": [
+                    1767225600000
+                  ]
+                }
+              ],
+              "examples": [
+                "2026-01-01T00:00:00Z"
+              ]
+            },
+            "description": "Include events that happened after the provided `start` date formatted as an RFC3339 timestamp. For backward compatibility, a Unix milliseconds timestamp is also accepted. Defaults to 7 days ago. Setting `start` does not change the default `end` date of `now` \u2014 adjust it separately if needed.\n"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "examples": [
+                    "2026-01-31T23:59:59Z"
+                  ]
+                },
+                {
+                  "type": "integer",
+                  "format": "int64",
+                  "examples": [
+                    1769903999000
+                  ]
+                }
+              ],
+              "examples": [
+                "2026-01-31T23:59:59Z"
+              ]
+            },
+            "description": "Include events that happened before the provided `end` date formatted as an RFC3339 timestamp. For backward compatibility, a Unix milliseconds timestamp is also accepted. Defaults to now. Setting `end` does not change the default `start` date of `7 days ago` \u2014 adjust it separately if needed.\n"
+          },
+          {
+            "name": "reverse",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "When `true`, sort events oldest first (ascending timestamp order). Defaults to `false` (newest first, descending timestamp order).\n"
+          },
+          {
+            "name": "suspect",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events previously tagged as suspicious via the [Update API](https://docs.fingerprint.com/reference/server-api-v4-update-event).\n> Note: When using this parameter, only events with the `suspect` property explicitly set to `true` or `false` are returned. Events with undefined `suspect` property are left out of the response.\n"
+          },
+          {
+            "name": "vpn",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by VPN Detection result.\n> Note: When using this parameter, only events with the `vpn` property set to `true` or `false` are returned. Events without a `vpn` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "virtual_machine",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Virtual Machine Detection result.\n> Note: When using this parameter, only events with the `virtual_machine` property set to `true` or `false` are returned. Events without a `virtual_machine` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "tampering",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Browser Tampering Detection result.\n> Note: When using this parameter, only events with the `tampering` property set to `true` or `false` are returned. Events without a `tampering` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "anti_detect_browser",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Anti-detect Browser Detection result.\n> Note: When using this parameter, only events with the `tampering_details.anti_detect_browser` property set to `true` or `false` are returned. Events without a `tampering` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "incognito",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Browser Incognito Detection result.\n> Note: When using this parameter, only events with the `incognito` property set to `true` or `false` are returned. Events without an `incognito` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "privacy_settings",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Privacy Settings Detection result.\n> Note: When using this parameter, only events with the `privacy_settings` property set to `true` or `false` are returned. Events without a `privacy_settings` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "jailbroken",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Jailbroken Device Detection result.\n> Note: When using this parameter, only events with the `jailbroken` property set to `true` or `false` are returned. Events without a `jailbroken` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "frida",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Frida Detection result.\n> Note: When using this parameter, only events with the `frida` property set to `true` or `false` are returned. Events without a `frida` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "factory_reset",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Factory Reset Detection result.\n> Note: When using this parameter, only events with a `factory_reset_timestamp` property populated are included. Events without a `factory_reset_timestamp` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "cloned_app",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Cloned App Detection result.\n> Note: When using this parameter, only events with the `cloned_app` property set to `true` or `false` are returned. Events without a `cloned_app` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "emulator",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Android Emulator Detection result.\n> Note: When using this parameter, only events with the `emulator` property set to `true` or `false` are returned. Events without an `emulator` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "root_apps",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Rooted Device Detection result.\n> Note: When using this parameter, only events with the `root_apps` property set to `true` or `false` are returned. Events without a `root_apps` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "vpn_confidence",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "description": "Filter events by VPN Detection result confidence level.\n`high` - events with high VPN Detection confidence.\n`medium` - events with medium VPN Detection confidence.\n`low` - events with low VPN Detection confidence.\n> Note: When using this parameter, only events with the `vpn.confidence` property set to a valid value are returned. Events without a `vpn` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "min_suspect_score",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                7.5
+              ]
+            },
+            "description": "Filter events with Suspect Score result above a provided minimum threshold.\n> Note: When using this parameter, only events where the `suspect_score` property set to a value exceeding your threshold are returned. Events without a `suspect_score` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "developer_tools",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Developer Tools detection result.\n> Note: When using this parameter, only events with the `developer_tools` property set to `true` or `false` are returned. Events without a `developer_tools` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "location_spoofing",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Location Spoofing detection result.\n> Note: When using this parameter, only events with the `location_spoofing` property set to `true` or `false` are returned. Events without a `location_spoofing` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "mitm_attack",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by MITM (Man-in-the-Middle) Attack detection result.\n> Note: When using this parameter, only events with the `mitm_attack` property set to `true` or `false` are returned. Events without a `mitm_attack` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "rare_device",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Device Rarity detection result.\n> Note: When using this parameter, only events with the `rare_device` property set to `true` or `false` are returned. Events without a Device Rarity Smart Signal result are left out of the response.\n\n> This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+          },
+          {
+            "name": "rare_device_percentile_bucket",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "<p95",
+                "p95-p99",
+                "p99-p99.5",
+                "p99.5-p99.9",
+                "p99.9+",
+                "not_seen"
+              ]
+            },
+            "description": "Filter events by Device Rarity percentile bucket.\n`<p95` - device configuration is in the bottom 95% (most common).\n`p95-p99` - device is in the 95th to 99th percentile.\n`p99-p99.5` - device is in the 99th to 99.5th percentile.\n`p99.5-p99.9` - device is in the 99.5th to 99.9th percentile.\n`p99.9+` - device is in the top 0.1% (rarest).\n`not_seen` - device configuration has never been observed before.\n\n> This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+          },
+          {
+            "name": "proxy",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Proxy detection result.\n> Note: When using this parameter, only events with the `proxy` property set to `true` or `false` are returned. Events without a `proxy` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "sdk_version",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "3.11.14"
+              ]
+            },
+            "description": "Filter events by a specific SDK version associated with the identification event (`sdk.version` property). Example: `3.11.14`\n"
+          },
+          {
+            "name": "sdk_platform",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "js",
+                "android",
+                "ios"
+              ]
+            },
+            "description": "Filter events by the SDK Platform associated with the identification event (`sdk.platform` property) .\n`js` - Javascript agent (Web).\n`ios` - Apple iOS based devices.\n`android` - Android based devices.\n"
+          },
+          {
+            "name": "environment",
+            "in": "query",
+            "description": "Filter for events by providing one or more environment IDs (`environment_id` property).\n\n### Array syntax\nTo provide multiple environment IDs, use the repeated keys syntax (`environment=env1&environment=env2`).\nOther notations like comma-separated (`environment=env1,env2`) or bracket notation (`environment[]=env1&environment[]=env2`) are not supported.\n",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "examples": [
+                  "ae_47abaca3db2c7c43"
+                ]
+              }
+            },
+            "style": "form"
+          },
+          {
+            "name": "proximity_id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "C9rJYBlOFsAfBwQ"
+              ]
+            },
+            "description": "Filter events by the most precise Proximity ID provided by default.\n> Note: When using this parameter, only events with the `proximity.id` property matching the provided ID are returned. Events without a `proximity` result are left out of the response.\n"
+          },
+          {
+            "name": "total_hits",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1,
+              "maximum": 1000,
+              "examples": [
+                100
+              ]
+            },
+            "description": "When set, the response will include a `total_hits` property with a count of total query matches across all pages, up to the specified limit.\n"
+          },
+          {
+            "name": "tor_node",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Tor Node detection result.\n> Note: When using this parameter, only events with the `tor_node` property set to `true` or `false` are returned. Events without a `tor_node` detection result are left out of the response.\n"
+          },
+          {
+            "name": "incremental_identification_status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "partially_completed",
+                "completed"
+              ]
+            },
+            "description": "Filter events by their incremental identification status (`incremental_identification_status` property). Non incremental identification events are left out of the response.\n"
+          },
+          {
+            "name": "simulator",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by iOS Simulator Detection result.\n\n> Note: When using this parameter, only events with the `simulator` property set to `true` or `false` are returned. Events without a `simulator` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "active_call",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Filter events by Active Call Detection result on mobile devices.\n\n> Note: When using this parameter, only events with the `active_call` property set to `true` or `false` are returned. Events without an `active_call` Smart Signal result are left out of the response.\n"
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "edge"
+                ]
+              }
+            },
+            "description": "Selects the source of events to search. When omitted, only traditional identification events generated from devices are returned (the default behavior). When set to `edge`, only Automation Intelligence (Edge) events are returned.\n\nTo retrieve all events regardless of source, you must make two requests. One with the `source` parameter set to `edge`, and another with the `source` parameter omitted.\n\n> Note: The Automation Intelligence API is in public preview testing phase.  If you encounter any issues, please [contact](https://fingerprint.com/support/) our support team.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Events matching the filter(s).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_40e6372f074fc9e6"
+                },
+                "examples": {
+                  "200-ok": {
+                    "summary": "Example results",
+                    "externalValue": "examples/events/search/get_event_search_200.json"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. One or more supplied search parameters are invalid, or a required parameter is missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "400-limit-invalid": {
+                    "summary": "Error response when no limit is supplied, or is invalid.",
+                    "externalValue": "examples/errors/400_limit_invalid.json"
+                  },
+                  "400-ip-address-invalid": {
+                    "summary": "Error response when an invalid IP address is supplied, or is not using CIDR notation.",
+                    "externalValue": "examples/errors/400_ip_address_invalid.json"
+                  },
+                  "400-bot-type-invalid": {
+                    "summary": "Error response when an invalid bot type is specified, must be one of `good`, `bad`, `all`, or `none`.",
+                    "externalValue": "examples/errors/400_bot_type_invalid.json"
+                  },
+                  "400-reverse-invalid": {
+                    "summary": "Error response when the reverse parameter is invalid.",
+                    "externalValue": "examples/errors/400_reverse_invalid.json"
+                  },
+                  "400-start-time-invalid": {
+                    "summary": "Error response when an invalid start time is supplied.",
+                    "externalValue": "examples/errors/400_start_time_invalid.json"
+                  },
+                  "400-end-time-invalid": {
+                    "summary": "Error response when an invalid end time is supplied.",
+                    "externalValue": "examples/errors/400_end_time_invalid.json"
+                  },
+                  "400-visitor-id-invalid": {
+                    "summary": "Error response when an invalid visitor ID is supplied.",
+                    "externalValue": "examples/errors/400_visitor_id_invalid.json"
+                  },
+                  "400-linked-id-invalid": {
+                    "summary": "Error response when an invalid (too large) linked ID is supplied.",
+                    "externalValue": "examples/errors/400_linked_id_invalid.json"
+                  },
+                  "400-pagination-key-invalid": {
+                    "summary": "Error response when an invalid pagination key is supplied.",
+                    "externalValue": "examples/errors/400_pagination_key_invalid.json"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access to this API is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "403-secret-api-key-required": {
+                    "summary": "Error response when the secret API key was not provided.",
+                    "externalValue": "examples/errors/403_secret_api_key_required.json"
+                  },
+                  "403-secret-api-key-not-found": {
+                    "summary": "Error response when the provided secret API key does not exist.",
+                    "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                  },
+                  "403-wrong-region": {
+                    "summary": "Error response when the API region does not match the region of your Fingerprint workspace.",
+                    "externalValue": "examples/errors/403_wrong_region.json"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The requested visitor does not exist in this workspace's data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "404-visitor-not-found": {
+                    "summary": "Error response when the visitor provided in the `visitor_id` filter does not exist.",
+                    "externalValue": "examples/errors/404_visitor_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests. The request is throttled.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "429-too-many-requests-error": {
+                    "summary": "Too many requests error",
+                    "externalValue": "examples/errors/429_too_many_requests.json"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Workspace error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "500-error": {
+                    "summary": "Request failed",
+                    "externalValue": "examples/errors/500_internal_server_error.json"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Temporarily Unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "503-service-temporarily-unavailable": {
+                    "summary": "Error response when the service is temporarily unavailable.",
+                    "externalValue": "examples/errors/503_service_unavailable.json"
+                  }
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "x-deprecated-response": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "doc_6ff70bb7015220d3": {
+      "delete": {
+        "tags": [
+          "Visitors"
+        ],
+        "operationId": "deleteVisitorData",
+        "summary": "Delete a visitor ID",
+        "description": "Use this API to request the deletion of all data associated with a specific visitor ID.\n\nUpon a request to delete data for a visitor ID,\n- The data collected from the corresponding browser (or device) will be deleted asynchronously, typically within a few minutes. This data will no longer be available to identify this browser (or device). When the same browser (or device) revisits, it will receive a new visitor ID.\n- The identification events made from this browser (or device) in the past 10 days are typically deleted within 24 hrs. \n- The identification events made from this browser (or device) outside of the 10 days will be purged as per your [data retention period](https://docs.fingerprint.com/docs/regions#data-retention).\n\nThe following timeline illustrates which events are deleted and which remain after a DELETE API request:\n```\nDay 1:  First visit from browser A. (Assigned visitor ID: VID1000)\nDay 2:  Browser A revisits. (Assigned the same visitor ID: VID1000)\nDay 13: Browser A revisits. (Assigned the same visitor ID: VID1000)\nDay 14: Delete VID1000\nDay 15: Browser A re-visits. (Assigned a different visitor ID: VID9999)\nDay 15: GET /events/day-13 (Returns 404. The event is within the 10 days of deleting VID1000 and will have been deleted)\nDay 16: GET /events/day-2 (Returns 200. The event is outside of the 10 days of deleting VID1000 and is still available)\n```\n\n### Availability\nThis API is available only for Enterprise plans **upon request**. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n\n### Rate limits and daily quota\nThe rate limits and daily quota for this API **differ** from those for our other API.\n\nThe maximum number of DELETE requests that can be made in an hour cannot exceed 30 RPH, and the maximum number that can be made in a day cannot exceed 500 RPD.\n\nYou can request an increase to these limits by contacting [our support team](https://fingerprint.com/support/).    \n",
+        "parameters": [
+          {
+            "name": "visitor_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Ibk1527CUFmcnjLwIs4A9"
+              ]
+            },
+            "description": "The [visitor ID](https://docs.fingerprint.com/reference/js-agent-get-function#visitor_id) you want to delete."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The visitor ID is scheduled for deletion."
+          },
+          "400": {
+            "description": "Bad request. The visitor ID parameter is missing or in the wrong format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "400-visitor-id-required": {
+                    "summary": "Error response when the request does not include a visitor ID.",
+                    "externalValue": "examples/errors/400_visitor_id_required.json"
+                  },
+                  "400-visitor-id-invalid": {
+                    "summary": "Error response when the visitor ID is incorrectly formatted.",
+                    "externalValue": "examples/errors/400_visitor_id_invalid.json"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden. Access to this API is denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "403-secret-api-key-required": {
+                    "summary": "Error response when the secret API key was not provided.",
+                    "externalValue": "examples/errors/403_secret_api_key_required.json"
+                  },
+                  "403-secret-api-key-not-found": {
+                    "summary": "Error response when the provided secret API key does not exist.",
+                    "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                  },
+                  "403-wrong-region": {
+                    "summary": "Error response when the API region is different from the region, the calling workspace is configured with.",
+                    "externalValue": "examples/errors/403_wrong_region.json"
+                  },
+                  "403-subscription-not-active": {
+                    "summary": "Error response when the subscription is not active.",
+                    "externalValue": "examples/errors/403_subscription_not_active.json"
+                  },
+                  "403-feature-not-enabled": {
+                    "summary": "Error response when this feature is not enabled for a subscription.",
+                    "externalValue": "examples/errors/403_feature_not_enabled.json"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The visitor ID cannot be found in this workspace's data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "404-visitor-not-found": {
+                    "summary": "Error response when the visitor ID cannot be found in this workspace's data.",
+                    "externalValue": "examples/errors/404_visitor_not_found.json"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests. The request is throttled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/$defs/doc_8d49adcafcc6494a"
+                },
+                "examples": {
+                  "429-too-many-requests": {
+                    "summary": "Error response when the limit on the provided secret API key requests per second has been exceeded.",
+                    "externalValue": "examples/errors/429_too_many_requests.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "doc_9b1bb64c4aae6af5": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "The confidence level indicates how certain Fingerprint is that the current request involves browser tampering. This confidence level is determined by evaluating multiple factors, such as heuristic rules, probabilistic anomaly detection, an anti detect browser ml model, and other relevant methods. It is conveyed as a string with possible values such as high, medium, or low\nIn case of tampering: `true`\n* **High confidence**: heuristic anti detect browser signals and the ml model are triggered, or all of the methods are triggered.\n* **Medium confidence**: either the ml model triggers alone, the anomaly score triggers alone with or without the heuristic anti detect browser methods trigger.\n* **Low confidence**: only the heuristic anti detect methods are triggered.\n\nIn case of tampering: `false`\n* **High confidence:** Strong signals suggest the user is not tampering with their request.\n",
+      "x-ruleset-metadata": {
+        "label": "Tampering confidence",
+        "category": "browser",
+        "enum-labels": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        }
+      }
+    },
+    "doc_f016b46a382899e1": {
+      "type": "object",
+      "description": "Proximity ID represents a fixed geographical zone in a discrete global grid within which the device is observed.\n",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "precision_radius",
+        "confidence"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "examples": [
+            "w1aTfd4MCvl"
+          ],
+          "description": "A stable privacy-preserving identifier for a given proximity zone.\n",
+          "x-ruleset-metadata": {
+            "label": "Proximity zone ID",
+            "category": "location"
+          }
+        },
+        "precision_radius": {
+          "type": "integer",
+          "format": "int32",
+          "enum": [
+            10,
+            25,
+            65,
+            175,
+            450,
+            1200,
+            3300,
+            8500,
+            22500
+          ],
+          "description": "The radius of the proximity zone\u2019s precision level, in meters.\n"
+        },
+        "confidence": {
+          "type": "number",
+          "format": "float",
+          "examples": [
+            0.95
+          ],
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A value between `0` and `1` representing the likelihood that the true device location lies within the mapped proximity zone.\n  * Scores closer to `1` indicate high confidence that the location is inside the mapped proximity zone.\n  * Scores closer to `0` indicate lower confidence, suggesting the true location may fall in an adjacent zone.\n"
+        }
+      }
+    },
+    "doc_40e6372f074fc9e6": {
+      "type": "object",
+      "description": "Contains a list of all identification events matching the specified search criteria.",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/doc_412e941f9ecc562e"
+          }
+        },
+        "pagination_key": {
+          "type": "string",
+          "examples": [
+            "S9rgMMUb4z3X5t5pr_tSgoSZlmyF0O8X7kCV2m981-iY1LmRTjraa1rTk3L-hQExnDWCi0RA-zAIjaVSTNO2AN2eqQWgzT0RjbieMxRfSdkM-HmOhdOgdQvYfPG3vqU1DJKh4Q"
+          ],
+          "description": "Use this value in the `pagination_key` parameter to request the next page of search results."
+        },
+        "total_hits": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            100
+          ],
+          "description": "This value represents the total number of events matching the search query, up to the limit provided in the `total_hits` query parameter. Only present if the `total_hits` query parameter was provided."
+        }
+      }
+    },
+    "doc_c38dba870846599f": {
+      "type": "object",
+      "description": "Details about the request IP address. Has separate fields for v4 and v6 IP address versions.",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "v4": {
+          "$ref": "#/$defs/doc_fd524dfdb1e3379a"
+        },
+        "v6": {
+          "$ref": "#/$defs/doc_da87ddb4eccd77df"
+        }
+      }
+    },
+    "doc_072fe3aabfa8111e": {
+      "type": "number",
+      "format": "double",
+      "examples": [
+        0.5
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "The output of this model is captured as tampering_ml_score, a number indicating how likely an event is coming from an anti detect browser. Values close to 1 signify higher confidence and we consider anything above the threshold of 0.8 to be actionable (the result and anti_detect_browser fields conveniently captures that fact)\n",
+      "x-ruleset-metadata": {
+        "label": "Tampering ml score",
+        "category": "browser"
+      }
+    },
+    "doc_be6dfaf4968e4fa9": {
+      "type": "object",
+      "description": "A curated subset of raw browser/device attributes that the API surface exposes. Each property contains a value or object with the data for the collected signal.\n",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "font_preferences": {
+          "$ref": "#/$defs/doc_05e785d93b090d88"
+        },
+        "emoji": {
+          "$ref": "#/$defs/doc_36a7fff875684255"
+        },
+        "fonts": {
+          "$ref": "#/$defs/doc_c2ac9c3924634a26"
+        },
+        "device_memory": {
+          "$ref": "#/$defs/doc_868e78dd86d76b70"
+        },
+        "timezone": {
+          "$ref": "#/$defs/doc_7f43571d7765a81a"
+        },
+        "canvas": {
+          "$ref": "#/$defs/doc_f06af56ba98be122"
+        },
+        "languages": {
+          "$ref": "#/$defs/doc_4a4fd79689005270"
+        },
+        "webgl_extensions": {
+          "$ref": "#/$defs/doc_b822a0931d583cf5"
+        },
+        "webgl_basics": {
+          "$ref": "#/$defs/doc_d937d0b28d9b8657"
+        },
+        "screen_resolution": {
+          "$ref": "#/$defs/doc_4219510ae5475a15"
+        },
+        "touch_support": {
+          "$ref": "#/$defs/doc_cd21df360bcd66e6"
+        },
+        "oscpu": {
+          "$ref": "#/$defs/doc_b17520b1f99eda76"
+        },
+        "architecture": {
+          "$ref": "#/$defs/doc_9d2a8114e4496d63"
+        },
+        "cookies_enabled": {
+          "$ref": "#/$defs/doc_9ab6deee1bfb74fa"
+        },
+        "hardware_concurrency": {
+          "$ref": "#/$defs/doc_76202f00f1f9332b"
+        },
+        "date_time_locale": {
+          "$ref": "#/$defs/doc_188ac550ea194244"
+        },
+        "vendor": {
+          "$ref": "#/$defs/doc_1a07f81ba23a84f7"
+        },
+        "color_depth": {
+          "$ref": "#/$defs/doc_450a2edb6df534cd"
+        },
+        "platform": {
+          "$ref": "#/$defs/doc_ee45cea6077854a4"
+        },
+        "session_storage": {
+          "$ref": "#/$defs/doc_4e4026bd8572546d"
+        },
+        "local_storage": {
+          "$ref": "#/$defs/doc_b8fbb6fc44689981"
+        },
+        "audio": {
+          "$ref": "#/$defs/doc_384172243940b7c5"
+        },
+        "plugins": {
+          "$ref": "#/$defs/doc_225dfdf0694e97d6"
+        },
+        "indexed_db": {
+          "$ref": "#/$defs/doc_78427f39ff05cf71"
+        },
+        "math": {
+          "$ref": "#/$defs/doc_c83e8a80d915c559"
+        },
+        "device_model": {
+          "$ref": "#/$defs/doc_d961e023d4e18099"
+        },
+        "device_manufacturer": {
+          "$ref": "#/$defs/doc_456fffad2dce5b9d"
+        },
+        "font_hash": {
+          "$ref": "#/$defs/doc_5b08dd9f78c8a104"
+        },
+        "timezone_offset": {
+          "$ref": "#/$defs/doc_1040b5042d95a99e"
+        },
+        "battery_level": {
+          "$ref": "#/$defs/doc_9b1bf8e69541a612"
+        },
+        "battery_charging": {
+          "$ref": "#/$defs/doc_9e855b96e7e42e87"
+        },
+        "battery_low_power_mode": {
+          "$ref": "#/$defs/doc_d139ce4654ec4af6"
+        },
+        "keyboard_layout_hash": {
+          "$ref": "#/$defs/doc_4469babd07cc2e02"
+        },
+        "keyboard_layout_name": {
+          "$ref": "#/$defs/doc_c54a94d2e6704ec0"
+        }
+      }
+    },
+    "doc_5ba5fd2ba04fa939": {
+      "type": "string",
+      "examples": [
+        "somelinkedId"
+      ],
+      "description": "A customer-provided ID that was sent with the request.",
+      "x-ruleset-metadata": {
+        "label": "Linked ID",
+        "category": "platform"
+      }
+    },
+    "doc_261b8ee99d868911": {
+      "type": "integer",
+      "examples": [
+        8
+      ],
+      "description": "Suspect Score is an easy way to integrate Smart Signals into your fraud protection work flow.  It is a weighted representation of all Smart Signals present in the payload that helps identify suspicious activity. The value range is [0; S] where S is sum of all Smart Signals weights.  See more details here: https://docs.fingerprint.com/docs/suspect-score\n",
+      "x-ruleset-metadata": {
+        "label": "Suspect Score",
+        "category": "risk"
+      }
+    },
+    "doc_0d350ae77f5a3442": {
+      "type": "boolean",
+      "description": "`true` if we determined that this payload was replayed, `false` otherwise.\n",
+      "x-ruleset-metadata": {
+        "label": "Replayed",
+        "category": "platform"
+      }
+    },
+    "doc_abb074bb30dae60e": {
+      "type": "boolean",
+      "description": "`true` if the browser has DevTools open (Chrome, Firefox) or the Android/iOS device has Developer Tools enabled, `false` otherwise.\n",
+      "x-ruleset-metadata": {
+        "label": "Developer tools",
+        "category": "browser"
+      }
+    },
+    "doc_4fdb942832cfc3d6": {
+      "type": "string",
+      "examples": [
+        "ae_47abaca3db2c7c43"
+      ],
+      "description": "Environment ID of the event.",
+      "x-ruleset-metadata": {
+        "label": "Environment ID",
+        "category": "platform"
+      }
+    },
+    "doc_7433d111907f2ba1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "email_spam": {
+          "type": "boolean",
+          "description": "IP address was part of a known email spam attack (SMTP).",
+          "x-ruleset-metadata": {
+            "label": "Known email spam attack IP",
+            "category": "ip_address"
+          }
+        },
+        "attack_source": {
+          "type": "boolean",
+          "description": "IP address was part of a known network attack (SSH/HTTPS).",
+          "x-ruleset-metadata": {
+            "label": "Known network attack IP",
+            "category": "ip_address"
+          }
+        },
+        "tor_node": {
+          "type": "boolean",
+          "description": "IP address was part of known TOR network activity.",
+          "x-ruleset-metadata": {
+            "label": "Known TOR network activity IP",
+            "category": "ip_address"
+          }
+        }
+      }
+    },
+    "doc_31d0c14cff4db98e": {
+      "type": "boolean",
+      "description": "Flag indicating whether the request came from a mobile device with location spoofing enabled.",
+      "x-ruleset-metadata": {
+        "label": "Location spoofing",
+        "category": "mobile"
+      }
+    },
+    "doc_3746a06709fc3548": {
+      "type": "object",
+      "description": "Extended bot information.",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "provider",
+        "name",
+        "identity",
+        "confidence"
+      ],
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/doc_2b25fd1004c9311f"
+        },
+        "provider": {
+          "type": "string",
+          "description": "The organization or company operating the bot.",
+          "examples": [
+            "Anthropic",
+            "Browserbase",
+            "Google",
+            "OpenAI"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Bot Provider",
+            "category": "bots"
+          }
+        },
+        "provider_url": {
+          "type": "string",
+          "examples": [
+            "https://chatgpt.com"
+          ],
+          "description": "The URL of the bot provider's website."
+        },
+        "name": {
+          "type": "string",
+          "description": "The specific name or identifier of the bot.",
+          "examples": [
+            "ClaudeBot",
+            "Browserbase Agent",
+            "Googlebot",
+            "GPTBot",
+            "ChatGPT-User"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Bot Name",
+            "category": "bots"
+          }
+        },
+        "identity": {
+          "$ref": "#/$defs/doc_ec86a5bb3ff0e372"
+        },
+        "confidence": {
+          "$ref": "#/$defs/doc_9f3be137db14d3d8"
+        }
+      }
+    },
+    "doc_dd80eb96c284e63b": {
+      "type": "string",
+      "examples": [
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64) ...."
+      ],
+      "description": "User Agent of the client.",
+      "x-ruleset-metadata": {
+        "label": "Client user agent",
+        "category": "platform"
+      }
+    },
+    "doc_a14b4b98f3aca8e6": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "timezone_mismatch": {
+          "type": "boolean",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ],
+          "description": "The browser timezone doesn't match the timezone inferred from the request IP address.",
+          "x-ruleset-metadata": {
+            "label": "VPN method - timezone mismatch",
+            "category": "ip_address"
+          }
+        },
+        "public_vpn": {
+          "type": "boolean",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ],
+          "description": "Request IP address is owned and used by a public VPN service provider.",
+          "x-ruleset-metadata": {
+            "label": "VPN method - public VPN",
+            "category": "ip_address"
+          }
+        },
+        "auxiliary_mobile": {
+          "type": "boolean",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ],
+          "description": "This method applies to mobile devices only. Indicates the result of additional methods used to detect a VPN in mobile devices.",
+          "x-ruleset-metadata": {
+            "label": "VPN method - auxiliary mobile",
+            "category": "ip_address"
+          }
+        },
+        "os_mismatch": {
+          "type": "boolean",
+          "x-platforms": [
+            "browser"
+          ],
+          "description": "The browser runs on a different operating system than the operating system inferred from the request network signature.",
+          "x-ruleset-metadata": {
+            "label": "VPN method - OS mismatch",
+            "category": "ip_address"
+          }
+        },
+        "relay": {
+          "type": "boolean",
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ],
+          "description": "Request IP address belongs to a relay service provider, indicating the use of relay services like [Apple Private relay](https://support.apple.com/en-us/102602) or [Cloudflare Warp](https://developers.cloudflare.com/warp-client/).\n\n* Like VPNs, relay services anonymize the visitor's true IP address.\n* Unlike traditional VPNs, relay services don't let visitors spoof their location by choosing an exit node in a different country.\n\nThis field allows you to differentiate VPN users and relay service users in your fraud prevention logic.\n",
+          "x-ruleset-metadata": {
+            "label": "VPN method - relay",
+            "category": "ip_address"
+          }
+        },
+        "ml_prediction": {
+          "type": "boolean",
+          "x-platforms": [
+            "browser"
+          ],
+          "description": "`true` if the request came from a device running a VPN, `false` otherwise.  \n",
+          "x-ruleset-metadata": {
+            "label": "VPN method - ml prediction",
+            "category": "ip_address"
+          }
+        }
+      }
+    },
+    "doc_295a90094a0e5fe1": {
+      "type": "object",
+      "description": "The request must contain at least one feedback type. When the request contains more than one feedback type, each will be processed independently.\nCurrently, only one feedback type is supported: `reset_identification_confidence_score`.\nAdditional feedback types may be introduced in the future.\n",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "required": [],
+      "properties": {
+        "reset_identification_confidence_score": {
+          "type": "boolean",
+          "description": "Set to `true` to reset the identification confidence score for this event to `1.0`.\n\nUse this feedback type when the browser has been verified through a trusted external mechanism of your choice, such as biometrics or MFA. The feedback must be submitted within 24 hours of the identification event. Requests submitted after this window will be rejected.\n\nOnce the reset is applied, subsequent identification events from the same browser will reflect an updated confidence score. \n* When the browser is deterministically matched with the reset event, the confidence score will be `1.0`.\n* When the browser is probabilistically matched with the reset event, the confidence score will no longer be `1.0`. \n  Instead, it will decrease **gradually** depending on how much the browser's properties have changed since the reset.\n\n#### Availability\n* Currently in *beta* and is available only for Enterprise plans **upon request**. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n* Supported only for events that originated from the [JavaScript agent](/reference/js-agent) and/or the [frontend libraries](/docs/frontend-libraries).\n* Not supported for events that originated from any of our [mobile SDKs](/docs/mobile-identification).\n"
+        }
+      }
+    },
+    "doc_15363d7a29e38bc0": {
+      "type": "boolean",
+      "description": "`true` if the request is from a privacy aware browser (e.g. Tor) or from a browser in which fingerprinting is blocked. Otherwise `false`.\n",
+      "x-ruleset-metadata": {
+        "label": "Privacy-focused settings",
+        "category": "browser"
+      }
+    },
+    "doc_f4bb0c0e3acba6db": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "anomaly_score": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            0.5
+          ],
+          "minimum": 0,
+          "maximum": 1,
+          "x-platforms": [
+            "android",
+            "ios",
+            "browser"
+          ],
+          "description": "The output of this model is captured as anomaly_score, a statistical score indicating how rare the visitor's browser signature is compared to the overall population. Values close to 1 signify highly anomalous browsers and we consider anything above the threshold of 0.5 to be actionable (the result field conveniently captures that fact).\n",
+          "x-ruleset-metadata": {
+            "label": "Tampering anomaly score",
+            "category": "browser"
+          }
+        },
+        "anti_detect_browser": {
+          "type": "boolean",
+          "x-platforms": [
+            "browser"
+          ],
+          "description": "Detects whether the request shows evidence of anti-detect browser usage.\nThis field may be triggered by:\n* heuristic detection of known anti-detect browser behavior\n* machine learning detection of anti-detect browser patterns\n\nExamples of anti-detect browsers include tools such as AdsPower, DolphinAnty, OctoBrowser, and GoLogin.\n",
+          "x-ruleset-metadata": {
+            "label": "Anti-detect browser",
+            "category": "browser"
+          }
+        }
+      }
+    },
+    "doc_de507b6fa2820d7d": {
+      "type": "object",
+      "description": "HTTP request metadata (including the HTTP method, headers and IP address) sent by you (your server) to the Fingerprint API for IP and bot analysis. To improve accuracy, retain as much of the original semantics of the HTTP request as possible. For example, preserve the order of the request headers and their capitalization.\nAt least one of `ipv4_address` or `ipv6_address` must be provided; a request with neither is rejected with a `400` error. If both IPv4 and IPv6 are provided, IP intelligence will be provided for each address. If an IPv4-mapped IPv6 address is provided in the `ipv6_address` request property, the IP intelligence will be provided in the `ipv4_address` property of the response.",
+      "additionalProperties": false,
+      "required": [
+        "headers",
+        "method",
+        "url"
+      ],
+      "properties": {
+        "headers": {
+          "type": "array",
+          "description": "Ordered header entries from the request made to your server. Each entry represents one header line. If one header name appears as multiple lines, send each as a separate item in the array.\n\nHeaders that contain authentication or session data must still be included, but with their value set to an empty string. This includes headers like `Authorization` and `Cookie`, but may contain more depending on your specific project, for instance `Proxy-Authenticate` or `X-Api-Key`. Omitting the headers entirely changes the shape of the request and can affect detection. Never forward the real secret values.\n\nWhenever possible, we recommend preserving header order and capitalization to provide the best accuracy, however it\u2019s not a strict requirement if your runtime does not maintain http header order or canonicalizes header names.\n",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "examples": [
+                  "User-Agent"
+                ],
+                "description": "Header name as forwarded by your server. Headers must be valid according to RFC 7230 and will be canonicalized according to RFC 9112."
+              },
+              "value": {
+                "type": "string",
+                "examples": [
+                  "Mozilla/5.0"
+                ],
+                "description": "Value of a single forwarded header entry. Be careful to preserve the original encoding and escaping. For example, do not double escape quotes."
+              }
+            }
+          },
+          "examples": [
+            [
+              {
+                "name": "Host",
+                "value": "example.com"
+              },
+              {
+                "name": "User-Agent",
+                "value": "Mozilla/5.0"
+              },
+              {
+                "name": "Accept-Language",
+                "value": "en-US,en;q=0.9"
+              }
+            ],
+            [
+              {
+                "name": "Host",
+                "value": "example.com"
+              },
+              {
+                "name": "User-Agent",
+                "value": "Mozilla/5.0"
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "gzip"
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": "deflate"
+              }
+            ]
+          ]
+        },
+        "method": {
+          "type": "string",
+          "description": "The original HTTP method of the request. If supported in your runtime, preserve the original casing.",
+          "examples": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "Absolute URL of the request, without a \\#fragment suffix. Only HTTP and HTTPS schemes are supported.",
+          "format": "uri",
+          "examples": [
+            "http://example.com",
+            "https://example.com/checkout?method=card"
+          ]
+        },
+        "ipv4_address": {
+          "type": "string",
+          "description": "Client IPv4 address observed by your server.",
+          "format": "ipv4",
+          "examples": [
+            "34.162.244.71",
+            "3.208.0.3",
+            "173.56.0.4"
+          ]
+        },
+        "ipv6_address": {
+          "type": "string",
+          "description": "Client IPv6 address observed by your server.",
+          "format": "ipv6",
+          "examples": [
+            "2001:4860:4801:10::1",
+            "2600:1f42:abcd:5678:9876:fedc:1357:2468",
+            "2001:4868:85f:1a2b:3c4d:5e6f:7890:abcd",
+            "::ffff:22a2:f447",
+            "::ffff:34.162.244.71"
+          ]
+        },
+        "linked_id": {
+          "$ref": "#/$defs/doc_5ba5fd2ba04fa939"
+        },
+        "tags": {
+          "$ref": "#/$defs/doc_23fc49b74354efa0"
+        }
+      }
+    },
+    "doc_ea16d32d9a93f48f": {
+      "type": "string",
+      "examples": [
+        "1708102555327.NLOjmg"
+      ],
+      "description": "Unique identifier of the user's request. The first portion of the event_id is a unix epoch milliseconds timestamp.\n"
+    },
+    "doc_77514ec176956d39": {
+      "type": "string",
+      "examples": [
+        "https://example.com/blog/my-article"
+      ],
+      "description": "Client Referrer field corresponds to the `document.referrer` field gathered during an identification request. The value is an empty string if the user navigated to the page directly (not through a link, but, for example, by using a bookmark).\n",
+      "x-ruleset-metadata": {
+        "label": "Client referrer",
+        "category": "browser"
+      }
+    },
+    "doc_2871397f003b8511": {
+      "type": "object",
+      "description": "Contains information about the SDK used to perform the request.",
+      "additionalProperties": false,
+      "required": [
+        "platform",
+        "version"
+      ],
+      "properties": {
+        "platform": {
+          "type": "string",
+          "enum": [
+            "js",
+            "android",
+            "ios",
+            "unknown"
+          ],
+          "description": "Platform of the SDK used for the identification request.",
+          "x-ruleset-metadata": {
+            "label": "SDK platform",
+            "category": "platform",
+            "enum-labels": {
+              "js": "JS",
+              "android": "Android",
+              "ios": "iOS",
+              "unknown": "Unknown"
+            }
+          }
+        },
+        "version": {
+          "type": "string",
+          "examples": [
+            "3.11.10"
+          ],
+          "description": "Version string of the SDK used for the identification request.",
+          "x-ruleset-metadata": {
+            "label": "SDK version",
+            "category": "platform"
+          }
+        },
+        "integrations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/doc_6ba89c8a1d7c4e7d"
+          }
+        }
+      }
+    },
+    "doc_5ec410bb7a461722": {
+      "type": "string",
+      "examples": [
+        "https://www.example.com/login"
+      ],
+      "description": "Page URL from which the request was sent.",
+      "x-ruleset-metadata": {
+        "label": "URL",
+        "category": "browser"
+      }
+    },
+    "doc_bae5287592218a1d": {
+      "type": "number",
+      "format": "double",
+      "examples": [
+        0.2
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Machine learning\u2013based proxy score, represented as a floating-point value between 0 and 1 (inclusive), with up to three decimal places of precision. A higher score means a higher confidence in the positive `proxy` detection result. This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+    },
+    "doc_a8762e525ac6edb8": {
+      "type": "string",
+      "description": "Identifies how the event was generated.\n- `device` - the event was generated by the JS agent or a mobile SDK running on an end-user device.\n- `edge` - the event was generated by the Automation Intelligence API (`/edge` endpoint), analyzing a request intercepted at the edge.\n",
+      "enum": [
+        "device",
+        "edge"
+      ]
+    },
+    "doc_971761f539ff3539": {
+      "type": "boolean",
+      "description": "Field is `true` if you have previously set the `suspect` flag for this event using the [Server API Update event endpoint](https://docs.fingerprint.com/reference/server-api-update-event)."
+    },
+    "doc_86e8b3bd3e9548db": {
+      "type": "number",
+      "format": "double",
+      "examples": [
+        0.5
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Machine learning\u2013based virtual machine score, represented as a floating-point value between 0 and 1 (inclusive), with up to three decimal places of precision. A higher score means a higher confidence in the positive `virtual_machine` detection result. This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+    },
+    "doc_c020a554ee661106": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "linked_id": {
+          "type": "string",
+          "examples": [
+            "somelinkedId"
+          ],
+          "description": "Linked ID value to assign to the existing event"
+        },
+        "tags": {
+          "type": "object",
+          "description": "A customer-provided value or an object that was sent with the identification request or updated later.",
+          "additionalProperties": true,
+          "required": []
+        },
+        "suspect": {
+          "type": "boolean",
+          "description": "Suspect flag indicating observed suspicious or fraudulent event",
+          "x-go-force-pointer": true
+        }
+      }
+    },
+    "doc_8d49adcafcc6494a": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/$defs/doc_b29b9054d34f463c"
+        }
+      }
+    },
+    "doc_49d797a8ec52ecfd": {
+      "type": "string",
+      "examples": [
+        "chatgpt_agent"
+      ],
+      "description": "Additional classification of the bot type if detected.\n"
+    },
+    "doc_a16ce66ebd621054": {
+      "type": "boolean",
+      "description": "IP address was used by a public proxy provider or belonged to a known recent residential proxy\n",
+      "x-ruleset-metadata": {
+        "label": "Proxy",
+        "category": "ip_address"
+      }
+    },
+    "doc_3891b62ab8fff9ea": {
+      "type": "boolean",
+      "description": "`true` if the request came from a browser running inside a virtual machine (e.g. VMWare), `false` otherwise.\n",
+      "x-ruleset-metadata": {
+        "label": "Virtual machine",
+        "category": "browser"
+      }
+    },
+    "doc_9a4e83c512f5c7f0": {
+      "type": "boolean",
+      "description": "Flag indicating if the request came from a high-activity visitor.",
+      "x-ruleset-metadata": {
+        "label": "High activity",
+        "category": "identity"
+      }
+    },
+    "doc_23fc49b74354efa0": {
+      "type": "object",
+      "description": "A customer-provided value or an object that was sent with the identification request or updated later.",
+      "additionalProperties": true,
+      "required": []
+    },
+    "doc_8b08583c3f96dfce": {
+      "type": "string",
+      "examples": [
+        "17.4",
+        "14",
+        "10"
+      ],
+      "description": "Operating system version string extracted from the user agent string. On web, this field is also present inside `browser_details`.\n",
+      "x-ruleset-metadata": {
+        "label": "OS version",
+        "category": "platform"
+      }
+    },
+    "doc_439c82998c7a320b": {
+      "description": "Timestamp of the event with millisecond precision in Unix time.",
+      "type": "integer",
+      "format": "int64",
+      "examples": [
+        1708102555327
+      ]
+    },
+    "doc_e5e0a74b1bd39a93": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The High Recall ID is a supplementary browser identifier designed for use cases that require wider coverage over precision. Compared to the standard visitor ID, the High Recall ID strives to match incoming browsers more generously (rather than precisely) with existing browsers and thus identifies fewer browsers as new. The High Recall ID is best suited for use cases that are sensitive to browsers being identified as new and where mismatched browsers are not detrimental.",
+      "required": [
+        "visitor_id",
+        "visitor_found"
+      ],
+      "properties": {
+        "visitor_id": {
+          "type": "string",
+          "examples": [
+            "0jnGMkPYXX37DqVa4ZIO3f_hr"
+          ],
+          "description": "The High Recall identifier for the visitor's browser. It is an alphanumeric string with a maximum length of 25 characters."
+        },
+        "visitor_found": {
+          "type": "boolean",
+          "description": "True if this is a returning browser and has been previously identified. Otherwise, false."
+        },
+        "confidence": {
+          "$ref": "#/$defs/doc_1299944621682700",
+          "x-ruleset-ignore-ref": true
+        },
+        "first_seen_at": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            1778086556130
+          ],
+          "description": "Unix epoch timestamp (in milliseconds) indicating when the browser was first identified. example: `1758069706642` - Corresponding to Wed Sep 17 2025 00:41:46 GMT+0000\n"
+        },
+        "last_seen_at": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            1778604975494
+          ],
+          "description": "Unix epoch timestamp (in milliseconds) corresponding to the most recent visit by this browser. example: `1758069706642` - Corresponding to Wed Sep 17 2025 00:41:46 GMT+0000\n"
+        }
+      }
+    },
+    "doc_7e66ce5ef38f01b1": {
+      "type": "boolean",
+      "description": "Indicates whether the mobile device had an active call (cellular or VoIP) at the time of the request. Available from SDK 2.16.0+ on iOS and Android.\n",
+      "x-ruleset-metadata": {
+        "label": "Active call",
+        "category": "mobile"
+      }
+    },
+    "doc_1e56ab0199c42c94": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Confidence level of the proxy detection. If a proxy is not detected, confidence is \"high\". If it's detected, can be \"low\", \"medium\", or \"high\".\n",
+      "x-ruleset-metadata": {
+        "label": "Proxy confidence level",
+        "category": "ip_address",
+        "enum-labels": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        }
+      }
+    },
+    "doc_80b6e8073b44c6e5": {
+      "type": "string",
+      "examples": [
+        "DE"
+      ],
+      "description": "Country of the request (Android SDK version >= 2.4.0, iOS SDK version >= 2.9.0, JS agent >= 3.12.9 / 4.0.2), ISO 3166 format or unknown.\n",
+      "x-ruleset-metadata": {
+        "label": "VPN origin country",
+        "category": "ip_address"
+      }
+    },
+    "doc_5f75b28f0aba8664": {
+      "type": "object",
+      "description": "Describes the action the client should take, according to the rule in the ruleset that matched the event. When getting an event by event ID, the rule_action will only be included when the ruleset_id query parameter is specified.",
+      "required": [
+        "ruleset_id"
+      ],
+      "properties": {
+        "ruleset_id": {
+          "$ref": "#/$defs/doc_ee4aa13c96c1962d"
+        },
+        "rule_id": {
+          "$ref": "#/$defs/doc_b916692633ad4194"
+        },
+        "rule_expression": {
+          "$ref": "#/$defs/doc_8d5d652eb280cbab"
+        }
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/doc_03a3a2ebcdf45c7f"
+        },
+        {
+          "$ref": "#/$defs/doc_db62871afb273db4"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "allow": "EventRuleActionAllow.yaml",
+          "block": "EventRuleActionBlock.yaml"
+        }
+      },
+      "unevaluatedProperties": true
+    },
+    "doc_3a6ba8154b705fdf": {
+      "type": "boolean",
+      "description": "`true` if the device is considered rare based on its combination of hardware and software attributes.  A device is classified as rare if it falls within the top 99.9 percentile (lowest-frequency segment) of observed traffic,  or if its configuration has not been previously seen (`not_seen`).\n> This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+    },
+    "doc_3949a89305651d27": {
+      "type": "string",
+      "examples": [
+        "Europe/Berlin"
+      ],
+      "description": "Local timezone which is used in timezone_mismatch method.\n",
+      "x-ruleset-metadata": {
+        "label": "VPN origin timezone",
+        "category": "ip_address"
+      }
+    },
+    "doc_6770eb5da247a886": {
+      "type": "boolean",
+      "description": "VPN or other anonymizing service has been used when sending the request.\n",
+      "x-ruleset-metadata": {
+        "label": "VPN",
+        "category": "ip_address"
+      }
+    },
+    "doc_ec86a5bb3ff0e372": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "signed",
+        "spoofed",
+        "unknown"
+      ],
+      "description": "The verification status of the bot's identity:\n * `verified` - well-known bot with publicly verifiable identity, directed by the bot provider.\n * `signed` - bot that signs its platform via Web Bot Auth, directed by the bot provider's customers.\n * `spoofed` - bot that claims a public identity but fails verification.\n * `unknown` - bot that does not publish a verifiable identity.\n",
+      "x-ruleset-metadata": {
+        "label": "Bot Identity",
+        "category": "bots",
+        "string-set": true,
+        "enum-labels": {
+          "verified": "Verified",
+          "signed": "Signed",
+          "spoofed": "Spoofed",
+          "unknown": "Unknown"
+        }
+      }
+    },
+    "doc_6af3127701d2e36f": {
+      "type": "string",
+      "description": "Only included for requests using incremental identification.\n- `partially_completed` - Indicates this event corresponds to a 'minimal' request. Smart Signals, even if included in your plan, are not computed; hence, their values must be ignored.\n- `completed` - Indicates this event corresponds to a 'complete' request. Smart Signals, if included in your plan, are computed; hence, their values are valid and relevant. \n",
+      "enum": [
+        "partially_completed",
+        "completed"
+      ]
+    },
+    "doc_de873caf605d70af": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Native, SDK-collected mobile device identification signals (manufacturer, model, and OS version). Structurally separate from the top-level `device`, `os`, and `os_version` fields and from `browser_details`, all of which are derived from user-agent parsing rather than native SDK signals.",
+      "required": [],
+      "properties": {
+        "device_manufacturer": {
+          "type": "string",
+          "examples": [
+            "samsung",
+            "Apple"
+          ],
+          "description": "Raw device manufacturer string as reported by the device OS. Not normalized: casing is vendor-defined (samsung, Xiaomi, OPPO, HUAWEI). Always `Apple` on iOS."
+        },
+        "device_model": {
+          "type": "string",
+          "examples": [
+            "SM-G991U",
+            "D84AP"
+          ],
+          "description": "Raw device model identifier, as reported by the mobile OS. On Android, this is the vendor-defined model string (e.g., `SM-G991U`). On iOS, this is an Apple board code (e.g., `D84AP`)."
+        },
+        "os_version": {
+          "type": "string",
+          "examples": [
+            "9",
+            "16.1",
+            "8.1.0",
+            "17.4.1"
+          ],
+          "description": "Mobile operating system version. Component count is not fixed and must not be assumed by consumers: iOS always reports `major.minor.patch` (e.g. `17.4.1`), while Android's precision varies by OS era and which raw signal resolved it \u2014 `major` only (`9`, `13`) since Android 10 dropped point releases, `major.minor` (`16.1`) from Android 16 (API 36+) reintroducing a minor component, or a genuine `major.minor.patch` (`8.1.0`) on pre-Android 10 devices that shipped real point releases. Never a fabricated/zero-padded component."
+        }
+      }
+    },
+    "doc_fa6e7686b68ada1b": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Proxy detection details (present if `proxy` is `true`)",
+      "required": [
+        "proxy_type"
+      ],
+      "properties": {
+        "proxy_type": {
+          "type": "string",
+          "enum": [
+            "residential",
+            "data_center",
+            "unknown"
+          ],
+          "description": "Proxy type:\n * `residential` - proxies that route through residential and telecom IP addresses to appear as legitimate traffic\n * `data_center` - proxies which route through data centers\n * `unknown` - reported when a proxy is detected solely by the ML model and the IP sources did not determine a specific type\n",
+          "x-ruleset-metadata": {
+            "label": "Proxy type",
+            "category": "ip_address",
+            "enum-labels": {
+              "residential": "Residential",
+              "data_center": "Data Center",
+              "unknown": "Unknown"
+            }
+          }
+        },
+        "last_seen_at": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            1708102555327
+          ],
+          "description": "Unix millisecond timestamp with hourly resolution of when this IP was last seen as a proxy\n"
+        },
+        "provider": {
+          "type": "string",
+          "examples": [
+            "Massive"
+          ],
+          "description": "String representing the last proxy service provider detected when this\nIP was synced. An IP can be shared by multiple service providers.\n",
+          "x-ruleset-metadata": {
+            "label": "Proxy service provider",
+            "category": "ip_address"
+          }
+        }
+      }
+    },
+    "doc_23c52c9e8a5f40e8": {
+      "type": "object",
+      "description": "Sums key data points for a specific `visitor_id`, `ip_address` and `linked_id` at three distinct time\nintervals: 5 minutes, 1 hour, and 24 hours as follows: \n\n- Number of distinct IP addresses associated to the visitor ID.\n- Number of distinct linked IDs associated with the visitor ID.\n- Number of distinct countries associated with the visitor ID.\n- Number of identification events associated with the visitor ID.\n- Number of identification events associated with the detected IP address.\n- Number of distinct IP addresses associated with the provided linked ID.\n- Number of distinct visitor IDs associated with the provided linked ID.\n\nThe `24_hours` interval of `distinct_ip`, `distinct_linked_id`, `distinct_country`,\n`distinct_ip_by_linked_id` and `distinct_visitor_id_by_linked_id` will be omitted \nif the number of `events` for the visitor ID in the last 24\nhours (`events.['24_hours']`) is higher than 20.000.\n\nAll will not necessarily be returned in a response, some may be omitted if the \nassociated event does not have the required data, such as a linked_id.\n",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "distinct_ip": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "IP addresses linked to the visitor ID - "
+        },
+        "distinct_linked_id": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "Linked IDs linked with the visitor ID - "
+        },
+        "distinct_country": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "Countries linked with the visitor ID - "
+        },
+        "events": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "Events linked to the visitor ID - "
+        },
+        "ip_events": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "Events linked to the IP address - "
+        },
+        "distinct_ip_by_linked_id": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "IP addresses linked to the linked ID - "
+        },
+        "distinct_visitor_id_by_linked_id": {
+          "$ref": "#/$defs/doc_e169a72d89656d92",
+          "x-ruleset-label-prefix": "Visitor IDs linked to the linked ID - "
+        }
+      }
+    },
+    "doc_d02ecda02639ec8a": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "browser_name",
+        "browser_full_version",
+        "browser_major_version",
+        "os",
+        "os_version",
+        "device"
+      ],
+      "properties": {
+        "browser_name": {
+          "type": "string",
+          "examples": [
+            "Chrome"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Browser name",
+            "category": "browser"
+          }
+        },
+        "browser_major_version": {
+          "type": "string",
+          "examples": [
+            "74"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Browser major version",
+            "category": "browser"
+          }
+        },
+        "browser_full_version": {
+          "type": "string",
+          "examples": [
+            "74.0.3729"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Browser version",
+            "category": "browser"
+          }
+        },
+        "os": {
+          "type": "string",
+          "examples": [
+            "Windows"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Browser OS",
+            "category": "browser"
+          }
+        },
+        "os_version": {
+          "type": "string",
+          "examples": [
+            "7"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Browser OS version",
+            "category": "browser"
+          }
+        },
+        "device": {
+          "type": "string",
+          "examples": [
+            "Other"
+          ],
+          "x-ruleset-metadata": {
+            "label": "Browser device type",
+            "category": "browser"
+          }
+        }
+      }
+    },
+    "doc_cd766da15ee9c98f": {
+      "type": "string",
+      "examples": [
+        "com.foo.app"
+      ],
+      "description": "Bundle ID of the iOS application integrated with the Fingerprint SDK for the event.\n",
+      "x-ruleset-metadata": {
+        "label": "iOS app bundle ID",
+        "category": "mobile"
+      }
+    },
+    "doc_a9649c1f488e46b6": {
+      "type": "number",
+      "format": "double",
+      "examples": [
+        0.2
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Machine learning\u2013based VPN score, represented as a floating-point value between 0 and 1 (inclusive), with up to three decimal places of precision. A higher score means a higher confidence in the positive `vpn` detection result. This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n",
+      "x-ruleset-metadata": {
+        "label": "VPN ML Score",
+        "category": "ip_address"
+      }
+    },
+    "doc_5a92bcc69cba78d2": {
+      "type": "boolean",
+      "description": "[Frida](https://frida.re/docs/) detection for Android and iOS devices. There are 2 values:\n* `true` - Frida detected\n* `false` - No signs of Frida or the client is not a mobile device.\n",
+      "x-ruleset-metadata": {
+        "label": "Frida detected",
+        "category": "mobile"
+      }
+    },
+    "doc_21dd55b04f783509": {
+      "type": "boolean",
+      "description": "iOS specific jailbreak detection. There are 2 values: \n* `true` - Jailbreak detected.\n* `false` - No signs of jailbreak or the client is not iOS.\n",
+      "x-ruleset-metadata": {
+        "label": "iOS jailbreak detected",
+        "category": "mobile"
+      }
+    },
+    "doc_af1ca963a09f1ca2": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "examples": [
+              "automation_tool"
+            ],
+            "description": "Customer-facing label name defined by the customer."
+          },
+          "prediction": {
+            "type": "boolean"
+          },
+          "ml_score": {
+            "type": "number",
+            "format": "double",
+            "examples": [
+              0.95
+            ],
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Raw model score between 0 and 1."
+          }
+        }
+      },
+      "description": "Each label returns a prediction (true or false) for a specific use case (label field) based on a machine learning score. The machine learning score is determined by a model trained on customer data for that use case. This field is in the beta phase and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+    },
+    "doc_2913338d9df34535": {
+      "type": "boolean",
+      "description": "Android specific root management apps detection. There are 2 values: \n* `true` - Root Management Apps detected (e.g. Magisk).\n* `false` - No Root Management Apps detected or the client isn't Android.\n",
+      "x-ruleset-metadata": {
+        "label": "Android root apps",
+        "category": "mobile"
+      }
+    },
+    "doc_2b25fd1004c9311f": {
+      "type": "string",
+      "enum": [
+        "advertising_and_marketing",
+        "aggregator",
+        "ai_agent",
+        "ai_assistant",
+        "ai_browser",
+        "ai_crawler",
+        "ai_search",
+        "browser_automation",
+        "ecommerce",
+        "monitoring_and_analytics",
+        "other",
+        "scraping",
+        "security",
+        "search_engine_crawler",
+        "search_engine_optimization",
+        "unknown"
+      ],
+      "description": "The type and purpose of the bot.\n",
+      "x-ruleset-metadata": {
+        "label": "Bot Category",
+        "category": "bots",
+        "string-set": true,
+        "enum-labels": {
+          "advertising_and_marketing": "Advertising & Marketing",
+          "aggregator": "Aggregator",
+          "ai_agent": "AI Agent",
+          "ai_assistant": "AI Assistant",
+          "ai_browser": "AI Browser",
+          "ai_crawler": "AI Crawler",
+          "ai_search": "AI Search",
+          "browser_automation": "Browser Automation",
+          "ecommerce": "E-commerce",
+          "monitoring_and_analytics": "Monitoring & Analytics",
+          "other": "Other",
+          "scraping": "Scraping",
+          "security": "Security",
+          "search_engine_crawler": "Search Engine Crawler",
+          "search_engine_optimization": "Search Engine Optimization",
+          "unknown": "Unknown"
+        }
+      }
+    },
+    "doc_36f278fc72d18483": {
+      "type": "string",
+      "examples": [
+        "com.foo.app"
+      ],
+      "description": "Package name of the Android application integrated with the Fingerprint SDK for the event.\n",
+      "x-ruleset-metadata": {
+        "label": "Android package name",
+        "category": "mobile"
+      }
+    },
+    "doc_9f3be137db14d3d8": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Confidence level of the bot identification.",
+      "x-ruleset-metadata": {
+        "label": "Bot Confidence",
+        "category": "bots",
+        "string-set": true,
+        "enum-labels": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        }
+      }
+    },
+    "doc_0bdff660d69745d8": {
+      "type": "string",
+      "examples": [
+        "Windows",
+        "iOS",
+        "Android"
+      ],
+      "description": "Operating system family extracted from the user agent string. On web, this field is also present inside `browser_details`.\n",
+      "x-ruleset-metadata": {
+        "label": "OS",
+        "category": "platform"
+      }
+    },
+    "doc_918a475e2d7e42a3": {
+      "type": "integer",
+      "format": "int64",
+      "examples": [
+        1708102555327
+      ],
+      "description": "The time of the most recent factory reset that happened on the **mobile device** is expressed as Unix epoch time. When a factory reset cannot be detected on the mobile device or when the request is initiated from a browser,  this field will correspond to the *epoch* time (i.e 1 Jan 1970 UTC) as a value of 0. See [Factory Reset Detection](https://docs.fingerprint.com/docs/smart-signals-reference#factory-reset-detection) to learn more about this Smart Signal.\n"
+    },
+    "doc_e663e5e28758fd54": {
+      "type": "boolean",
+      "description": "The field can be used as a standalone flag for tampering detection. Alternatively, the more granular fields documented below can be used for workflows that require more context.\n* `true` if tampering is detected through an anomalous browser signature, anti-detect browser detection, or other tampering-related methods\n* `false` if none of the tampering checks return a positive result\n",
+      "x-ruleset-metadata": {
+        "label": "Tampering",
+        "category": "browser"
+      }
+    },
+    "doc_df0e46159fdd84d8": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "A confidence rating for the VPN detection result \u2014 \"low\", \"medium\", or \"high\". Depends on the combination of results returned from all VPN detection methods.",
+      "x-ruleset-metadata": {
+        "label": "VPN confidence",
+        "category": "ip_address",
+        "enum-labels": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        }
+      }
+    },
+    "doc_76f0bf74378041c3": {
+      "type": "string",
+      "examples": [
+        "Generic Smartphone",
+        "Desktop",
+        "iPhone"
+      ],
+      "description": "Device model or family extracted from the user agent string. On web, this field is also present inside `browser_details`.\n",
+      "x-ruleset-metadata": {
+        "label": "Device",
+        "category": "platform"
+      }
+    },
+    "doc_d1497a681bc01aed": {
+      "type": "boolean",
+      "description": "Android specific emulator detection. There are 2 values: \n* `true` - Emulated environment detected (e.g. launch inside of AVD). \n* `false` - No signs of emulated environment detected or the client is not Android.\n",
+      "x-ruleset-metadata": {
+        "label": "Android emulator",
+        "category": "mobile"
+      }
+    },
+    "doc_738222ab7e7e30e2": {
+      "type": "boolean",
+      "description": "`true` if we detected incognito mode used in the browser, `false` otherwise.\n",
+      "x-ruleset-metadata": {
+        "label": "Incognito",
+        "category": "browser"
+      }
+    },
+    "doc_7e6ff6c7f5060c2e": {
+      "type": "string",
+      "description": "The rarity percentile bucket of the device, indicating how uncommon the device configuration is compared to all observed devices. \n> This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n",
+      "enum": [
+        "<p95",
+        "p95-p99",
+        "p99-p99.5",
+        "p99.5-p99.9",
+        "p99.9+",
+        "not_seen"
+      ]
+    },
+    "doc_d88991a0770f994e": {
+      "type": "boolean",
+      "description": "Android specific cloned application detection. There are 2 values: \n* `true` - Presence of app cloners work detected (e.g. fully cloned application found or launch of it inside of a not main working profile detected).\n* `false` - No signs of cloned application detected or the client is not Android.\n",
+      "x-ruleset-metadata": {
+        "label": "Cloned Android app",
+        "category": "mobile"
+      }
+    },
+    "doc_53acb911abcb8ef7": {
+      "type": "string",
+      "examples": [
+        "61.127.217.15"
+      ],
+      "description": "IP address of the requesting browser or bot.",
+      "x-ruleset-metadata": {
+        "label": "IP address",
+        "category": "ip_address"
+      }
+    },
+    "doc_3ce29452736fffcd": {
+      "type": "string",
+      "enum": [
+        "bad",
+        "good",
+        "not_detected"
+      ],
+      "description": "Bot detection result:\n * `bad` - bad bot detected, such as Selenium, Puppeteer, Playwright, headless browsers, and so on\n * `good` - good bot detected, such as Google bot, Baidu Spider, AlexaBot and so on\n * `not_detected` - the visitor is not a bot\n",
+      "x-ruleset-metadata": {
+        "label": "Browser Bot",
+        "category": "bots",
+        "string-set": true,
+        "enum-labels": {
+          "not_detected": "Not detected",
+          "good": "Good",
+          "bad": "Bad"
+        }
+      }
+    },
+    "doc_641cfd9ee0bf4e95": {
+      "type": "object",
+      "description": "IP and bot analysis for a request submitted through the Automation Intelligence API.",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "timestamp",
+        "ip_info"
+      ],
+      "properties": {
+        "event_id": {
+          "$ref": "#/$defs/doc_ea16d32d9a93f48f"
+        },
+        "timestamp": {
+          "$ref": "#/$defs/doc_439c82998c7a320b"
+        },
+        "source": {
+          "$ref": "#/$defs/doc_a8762e525ac6edb8"
+        },
+        "linked_id": {
+          "$ref": "#/$defs/doc_5ba5fd2ba04fa939"
+        },
+        "tags": {
+          "$ref": "#/$defs/doc_23fc49b74354efa0"
+        },
+        "url": {
+          "$ref": "#/$defs/doc_5ec410bb7a461722"
+        },
+        "bot_info": {
+          "$ref": "#/$defs/doc_3746a06709fc3548"
+        },
+        "ip_info": {
+          "$ref": "#/$defs/doc_c38dba870846599f"
+        },
+        "proxy": {
+          "$ref": "#/$defs/doc_a16ce66ebd621054"
+        },
+        "proxy_confidence": {
+          "$ref": "#/$defs/doc_1e56ab0199c42c94"
+        },
+        "proxy_details": {
+          "$ref": "#/$defs/doc_fa6e7686b68ada1b"
+        },
+        "vpn": {
+          "$ref": "#/$defs/doc_6770eb5da247a886"
+        },
+        "vpn_confidence": {
+          "$ref": "#/$defs/doc_df0e46159fdd84d8"
+        },
+        "vpn_methods": {
+          "$ref": "#/$defs/doc_a14b4b98f3aca8e6"
+        }
+      }
+    },
+    "doc_f60a883da78fb969": {
+      "type": "boolean",
+      "description": "iOS specific simulator detection. There are 2 values:\n* `true` - Simulator environment detected.\n* `false` - No signs of simulator or the client is not iOS.\n"
+    },
+    "doc_63c8f60372c68207": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visitor_id",
+        "visitor_found"
+      ],
+      "properties": {
+        "visitor_id": {
+          "type": "string",
+          "examples": [
+            "Ibk1527CUFmcnjLwIs4A9"
+          ],
+          "description": "String of 20 characters that uniquely identifies the visitor's browser or mobile device.",
+          "x-ruleset-metadata": {
+            "label": "Visitor ID",
+            "category": "identity"
+          }
+        },
+        "confidence": {
+          "$ref": "#/$defs/doc_1299944621682700",
+          "x-ruleset-label-prefix": "Identification "
+        },
+        "visitor_found": {
+          "type": "boolean",
+          "description": "Attribute represents if a visitor had been identified before.",
+          "x-ruleset-metadata": {
+            "label": "Returning visitor",
+            "category": "identity"
+          }
+        },
+        "first_seen_at": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            1708102555327
+          ],
+          "description": "Unix epoch time milliseconds timestamp indicating the time at which this visitor ID was first seen. example: `1758069706642` - Corresponding to Wed Sep 17 2025 00:41:46 GMT+0000\n"
+        },
+        "last_seen_at": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            1708102555327
+          ],
+          "description": "Unix epoch time milliseconds timestamp indicating the time at which this visitor ID was last seen. example: `1758069706642` - Corresponding to Wed Sep 17 2025 00:41:46 GMT+0000\n"
+        }
+      }
+    },
+    "doc_9473d3dbe129d603": {
+      "type": "array",
+      "description": "The rule(s) associated with triggering the webhook via rule engine.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "examples": [
+              "r_uE0af8497PFAOD"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "examples": [
+              "Block bots"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "examples": [
+              "Blocks requests detected as bots"
+            ]
+          }
+        }
+      }
+    },
+    "doc_1bf383083732c55a": {
+      "type": "boolean",
+      "description": "* `true` - When requests made from your users' mobile devices to Fingerprint servers have been intercepted and potentially modified. \n* `false` - Otherwise or when the request originated from a browser.\nSee [MitM Attack Detection](https://docs.fingerprint.com/docs/smart-signals-reference#mitm-attack-detection) to learn more about this Smart Signal.\n",
+      "x-ruleset-metadata": {
+        "label": "MitM attack detected",
+        "category": "mobile"
+      }
+    },
+    "doc_fd524dfdb1e3379a": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "address"
+      ],
+      "properties": {
+        "address": {
+          "type": "string",
+          "format": "ipv4",
+          "examples": [
+            "94.142.239.124"
+          ],
+          "x-ruleset-metadata": {
+            "label": "IPv4 address",
+            "category": "ip_address"
+          }
+        },
+        "geolocation": {
+          "$ref": "#/$defs/doc_c67e7cb04dfa0af4",
+          "x-ruleset-label-prefix": "IPv4 "
+        },
+        "asn": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv4 ASN",
+            "category": "ip_address"
+          },
+          "examples": [
+            "396982",
+            "16509",
+            "701"
+          ]
+        },
+        "asn_name": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv4 ASN name",
+            "category": "ip_address"
+          },
+          "examples": [
+            "Google LLC",
+            "Amazon.com, Inc.",
+            "Verizon Business"
+          ]
+        },
+        "asn_network": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv4 ASN network",
+            "category": "ip_address"
+          },
+          "examples": [
+            "34.160.0.0/12",
+            "3.208.0.0/12",
+            "173.56.0.0/16"
+          ]
+        },
+        "asn_type": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv4 ASN type",
+            "category": "ip_address"
+          },
+          "examples": [
+            "hosting",
+            "isp",
+            "business",
+            "education"
+          ]
+        },
+        "datacenter_result": {
+          "type": "boolean",
+          "description": "When true, the request originated from a datacenter.",
+          "x-ruleset-metadata": {
+            "label": "IPv4 data center IP",
+            "category": "ip_address"
+          }
+        },
+        "datacenter_name": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv4 data center name",
+            "category": "ip_address"
+          },
+          "examples": [
+            "Google Cloud",
+            "Amazon AWS"
+          ]
+        }
+      }
+    },
+    "doc_36a7fff875684255": {
+      "type": "object",
+      "description": "Bounding box metrics describing how the emoji glyph renders.",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "font": {
+          "type": "string",
+          "examples": [
+            "Times"
+          ],
+          "description": "Font family reported by the browser when drawing the emoji."
+        },
+        "width": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            1600
+          ]
+        },
+        "height": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            18
+          ]
+        },
+        "top": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            14
+          ]
+        },
+        "bottom": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            32
+          ]
+        },
+        "left": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            8
+          ]
+        },
+        "right": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            1608
+          ]
+        },
+        "x": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            8
+          ]
+        },
+        "y": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            14
+          ]
+        }
+      }
+    },
+    "doc_c2ac9c3924634a26": {
+      "type": "array",
+      "description": "List of fonts detected on the device.",
+      "items": {
+        "type": "string",
+        "examples": [
+          "Arial Unicode MS"
+        ]
+      },
+      "examples": [
+        [
+          "Arial Unicode MS",
+          "Gill Sans",
+          "Helvetica Neue",
+          "Menlo"
+        ]
+      ]
+    },
+    "doc_868e78dd86d76b70": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 0,
+      "examples": [
+        8
+      ],
+      "description": "Rounded amount of RAM in gigabytes. Available for browsers, Android, and iOS devices."
+    },
+    "doc_78427f39ff05cf71": {
+      "type": "boolean",
+      "description": "Whether IndexedDB is available."
+    },
+    "doc_9b1bf8e69541a612": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 0,
+      "maximum": 100,
+      "examples": [
+        75
+      ],
+      "description": "Battery charge level as a percentage (0-100). Available for Android, iOS, and web devices. On web, only available in Chromium-based browsers."
+    },
+    "doc_b17520b1f99eda76": {
+      "type": "string",
+      "examples": [
+        "Windows NT 6.1; Win64; x64"
+      ],
+      "description": "Navigator `oscpu` string."
+    },
+    "doc_d937d0b28d9b8657": {
+      "type": "object",
+      "description": "Render and vendor strings reported by the WebGL context.",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "version": {
+          "type": "string",
+          "examples": [
+            "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+          ]
+        },
+        "vendor": {
+          "type": "string",
+          "examples": [
+            "WebKit"
+          ]
+        },
+        "vendor_unmasked": {
+          "type": "string",
+          "examples": [
+            "Google Inc. (Apple)"
+          ]
+        },
+        "renderer": {
+          "type": "string",
+          "examples": [
+            "WebKit WebGL"
+          ]
+        },
+        "renderer_unmasked": {
+          "type": "string",
+          "examples": [
+            "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)"
+          ]
+        },
+        "shading_language_version": {
+          "type": "string",
+          "examples": [
+            "WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)"
+          ]
+        }
+      }
+    },
+    "doc_4a4fd79689005270": {
+      "type": "array",
+      "description": "Navigator languages reported by the agent including fallbacks. Each inner array represents ordered language preferences reported by different APIs. Available for browsers, iOS, and Android devices.\n",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "examples": [
+            "en-US"
+          ]
+        }
+      }
+    },
+    "doc_4e4026bd8572546d": {
+      "type": "boolean",
+      "description": "Whether sessionStorage is available."
+    },
+    "doc_d139ce4654ec4af6": {
+      "type": "boolean",
+      "description": "Whether the device's low power mode is enabled. Available only for Android and iOS devices."
+    },
+    "doc_b822a0931d583cf5": {
+      "type": "object",
+      "description": "Hashes of WebGL context attributes and extension support.",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "context_attributes": {
+          "type": "string",
+          "examples": [
+            "6b1ed336830d2bc96442a9d76373252a"
+          ]
+        },
+        "parameters": {
+          "type": "string",
+          "examples": [
+            "ea118c48e308bc4b0677118bbb3019ec"
+          ]
+        },
+        "shader_precisions": {
+          "type": "string",
+          "examples": [
+            "f223dfbcd580cf142da156d93790eb83"
+          ]
+        },
+        "extensions": {
+          "type": "string",
+          "examples": [
+            "57233d7b10f89fcd1ff95e3837ccd72d"
+          ]
+        },
+        "extension_parameters": {
+          "type": "string",
+          "examples": [
+            "86a8abb36f0cb30b5946dec0c761d042"
+          ]
+        },
+        "unsupported_extensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "WEBGL_compressed_texture_s3tc_srgb"
+            ]
+          }
+        }
+      }
+    },
+    "doc_1a07f81ba23a84f7": {
+      "type": "string",
+      "examples": [
+        "Google Inc."
+      ],
+      "description": "Navigator vendor string."
+    },
+    "doc_384172243940b7c5": {
+      "type": "number",
+      "format": "double",
+      "examples": [
+        124.04347745512496
+      ],
+      "description": "AudioContext fingerprint or negative status when unavailable. The negative statuses can be:\n- -1: A permanent status for those browsers which are known to always suspend audio context\n- -2: A permanent status for browsers that don't support the signal\n- -3: A temporary status that means that an unexpected timeout has happened\n"
+    },
+    "doc_5b08dd9f78c8a104": {
+      "type": "string",
+      "examples": [
+        "e9f96f6c0e2c0b3a7a8b1d2c3e4f5a6b"
+      ],
+      "description": "Unique identifier for the user\u2019s installed fonts."
+    },
+    "doc_ee4aa13c96c1962d": {
+      "type": "string",
+      "examples": [
+        "rs_b1k1blhqpOX3kU"
+      ],
+      "description": "The ID of the evaluated ruleset."
+    },
+    "doc_05e785d93b090d88": {
+      "type": "object",
+      "description": "Baseline measurement of canonical fonts rendered on the device. Numeric width metrics, in CSS pixels, for the canonical fonts collected by the agent.\n",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "default": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            147.5625
+          ]
+        },
+        "serif": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            147.5625
+          ]
+        },
+        "sans": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            144.015625
+          ]
+        },
+        "mono": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            133.0625
+          ]
+        },
+        "apple": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            147.5625
+          ]
+        },
+        "min": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            9.234375
+          ]
+        },
+        "system": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            146.09375
+          ]
+        }
+      }
+    },
+    "doc_e169a72d89656d92": {
+      "type": "object",
+      "description": "Is absent if the velocity data could not be generated for the visitor ID.\n",
+      "additionalProperties": false,
+      "required": [
+        "5_minutes",
+        "1_hour"
+      ],
+      "properties": {
+        "5_minutes": {
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "description": "Count for the last 5 minutes of velocity data, from the time of the event.\n",
+          "x-ruleset-metadata": {
+            "label": "Last 5 minutes",
+            "category": "velocity"
+          }
+        },
+        "1_hour": {
+          "type": "integer",
+          "examples": [
+            5
+          ],
+          "description": "Count for the last 1 hour of velocity data, from the time of the event.\n",
+          "x-ruleset-metadata": {
+            "label": "Last hour",
+            "category": "velocity"
+          }
+        },
+        "24_hours": {
+          "type": "integer",
+          "examples": [
+            5
+          ],
+          "description": "Count for the last 24 hours of velocity data, from the time of the event.\n",
+          "x-ruleset-metadata": {
+            "label": "Last 24 hours",
+            "category": "velocity"
+          }
+        }
+      }
+    },
+    "doc_1299944621682700": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The confidence score represents the probability of a false-positive identification. To learn more, visit [Confidence Score](https://docs.fingerprint.com/docs/identification-accuracy-and-confidence#confidence-score). Please note that the confidence score is not yet supported for [High Recall ID](https://docs.fingerprint.com/docs/supplementary-identifiers-highrecall). ",
+      "required": [
+        "score"
+      ],
+      "properties": {
+        "score": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            0.97
+          ],
+          "minimum": 0,
+          "maximum": 1,
+          "description": "A floating-point number between 0 and 1 that represents the probability of a false-positive identification. For High Recall ID, this value is 0. ",
+          "x-ruleset-metadata": {
+            "label": "confidence score",
+            "category": "identity"
+          }
+        },
+        "version": {
+          "type": "string",
+          "examples": [
+            "1.1"
+          ],
+          "description": "The version name of the method used to calculate the confidence score. For High Recall ID, this value is \"Not Supported\". "
+        },
+        "comment": {
+          "type": "string",
+          "examples": [
+            "Low confidence due to bot signals"
+          ]
+        }
+      }
+    },
+    "doc_9d2a8114e4496d63": {
+      "type": "integer",
+      "format": "int32",
+      "examples": [
+        127
+      ],
+      "description": "Integer representing the CPU architecture exposed by the browser."
+    },
+    "doc_76202f00f1f9332b": {
+      "type": "integer",
+      "format": "int32",
+      "examples": [
+        10
+      ],
+      "description": "Number of logical CPU cores reported by the browser."
+    },
+    "doc_225dfdf0694e97d6": {
+      "type": "array",
+      "description": "Browser plugins reported by `navigator.plugins`.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "examples": [
+              "PDF Viewer"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "examples": [
+              "Portable Document Format"
+            ]
+          },
+          "mimeTypes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "examples": [
+                    "application/pdf"
+                  ]
+                },
+                "suffixes": {
+                  "type": "string",
+                  "examples": [
+                    "pdf"
+                  ]
+                },
+                "description": {
+                  "type": "string",
+                  "examples": [
+                    "Portable Document Format"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "doc_456fffad2dce5b9d": {
+      "type": "string",
+      "examples": [
+        "Apple"
+      ],
+      "description": "Device manufacturer string. Available only for Android and iOS devices."
+    },
+    "doc_6ba89c8a1d7c4e7d": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": [
+            "fingerprint-pro-react"
+          ],
+          "description": "The name of the specific integration."
+        },
+        "version": {
+          "type": "string",
+          "examples": [
+            "3.11.10"
+          ],
+          "description": "The version of the specific integration."
+        },
+        "subintegration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "name": {
+              "type": "string",
+              "examples": [
+                "preact"
+              ],
+              "description": "The name of the specific subintegration."
+            },
+            "version": {
+              "type": "string",
+              "examples": [
+                "10.21.0"
+              ],
+              "description": "The version of the specific subintegration."
+            }
+          }
+        }
+      }
+    },
+    "doc_d961e023d4e18099": {
+      "type": "string",
+      "examples": [
+        "iPhone 15 Pro"
+      ],
+      "description": "Device model string. Available only for Android and iOS devices."
+    },
+    "doc_da87ddb4eccd77df": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "address"
+      ],
+      "properties": {
+        "address": {
+          "type": "string",
+          "format": "ipv6",
+          "examples": [
+            "2001:db8:3333:4444:5555:6666:7777:8888"
+          ],
+          "x-ruleset-metadata": {
+            "label": "IPv6 address",
+            "category": "ip_address"
+          }
+        },
+        "geolocation": {
+          "$ref": "#/$defs/doc_c67e7cb04dfa0af4",
+          "x-ruleset-label-prefix": "IPv6 "
+        },
+        "asn": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv6 ASN",
+            "category": "ip_address"
+          },
+          "examples": [
+            "396982",
+            "16509",
+            "701"
+          ]
+        },
+        "asn_name": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv6 ASN name",
+            "category": "ip_address"
+          },
+          "examples": [
+            "Google LLC",
+            "Amazon.com, Inc.",
+            "Verizon Business"
+          ]
+        },
+        "asn_network": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv6 ASN network",
+            "category": "ip_address"
+          },
+          "examples": [
+            "2001:4860:4801:10::/64",
+            "2600:1f00::/24",
+            "2001:4868:800::/40"
+          ]
+        },
+        "asn_type": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv6 ASN type",
+            "category": "ip_address"
+          },
+          "examples": [
+            "hosting",
+            "isp",
+            "business",
+            "education"
+          ]
+        },
+        "datacenter_result": {
+          "type": "boolean",
+          "description": "When true, the request originated from a datacenter.",
+          "x-ruleset-metadata": {
+            "label": "IPv6 data center IP",
+            "category": "ip_address"
+          }
+        },
+        "datacenter_name": {
+          "type": "string",
+          "x-ruleset-metadata": {
+            "label": "IPv6 data center name",
+            "category": "ip_address"
+          },
+          "examples": [
+            "Google Cloud",
+            "Amazon AWS"
+          ]
+        }
+      }
+    },
+    "doc_db62871afb273db4": {
+      "type": "object",
+      "description": "Informs the client the request should be blocked using the response described by this rule action.",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/doc_759a58a1069e9764",
+          "const": "block"
+        },
+        "status_code": {
+          "$ref": "#/$defs/doc_60ed7fdfe2e036e3"
+        },
+        "headers": {
+          "type": "array",
+          "description": "A list of headers to send.",
+          "items": {
+            "$ref": "#/$defs/doc_5c12efe15e1af881"
+          }
+        },
+        "body": {
+          "$ref": "#/$defs/doc_38b34804413bd2d7"
+        }
+      },
+      "unevaluatedProperties": true
+    },
+    "doc_b29b9054d34f463c": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/doc_572eeafabe103b38"
+        },
+        "message": {
+          "type": "string",
+          "examples": [
+            "Forbidden"
+          ]
+        }
+      }
+    },
+    "doc_b916692633ad4194": {
+      "type": "string",
+      "examples": [
+        "r_uE0af8497PFAOD"
+      ],
+      "description": "The ID of the rule that matched the identification event."
+    },
+    "doc_b8fbb6fc44689981": {
+      "type": "boolean",
+      "description": "Whether localStorage is available."
+    },
+    "doc_4219510ae5475a15": {
+      "type": "array",
+      "description": "Current screen resolution. Available for both browsers and iOS devices",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer",
+        "format": "int32",
+        "examples": [
+          1920
+        ]
+      }
+    },
+    "doc_7f43571d7765a81a": {
+      "type": "string",
+      "examples": [
+        "America/Sao_Paulo"
+      ],
+      "description": "Timezone identifier detected on the client."
+    },
+    "doc_c54a94d2e6704ec0": {
+      "type": "string",
+      "examples": [
+        "en-US",
+        "de-DE",
+        "ja-JP"
+      ],
+      "description": "Name of the user's configured keyboard layout as a BCP 47-style identifier. Only available in Chromium-based browsers, omitted otherwise."
+    },
+    "doc_9e855b96e7e42e87": {
+      "type": "boolean",
+      "description": "When `true`, the device is currently charging. Available only for web devices on Chromium-based browsers."
+    },
+    "doc_188ac550ea194244": {
+      "type": "string",
+      "examples": [
+        "en-US"
+      ],
+      "description": "Locale derived from the Intl.DateTimeFormat API. Negative values indicate known error states. The negative statuses can be:\n- \"-1\": A permanent status for browsers that don't support Intl API.\n- \"-2\": A permanent status for browsers that don't supportDateTimeFormat constructor.\n- \"-3\": A permanent status for browsers in which DateTimeFormat locale is undefined or null.\n"
+    },
+    "doc_450a2edb6df534cd": {
+      "type": "integer",
+      "format": "int32",
+      "examples": [
+        24
+      ],
+      "description": "Screen color depth in bits."
+    },
+    "doc_cd21df360bcd66e6": {
+      "type": "object",
+      "description": "Browser-reported touch capabilities.",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "touch_event": {
+          "type": "boolean"
+        },
+        "touch_start": {
+          "type": "boolean"
+        },
+        "max_touch_points": {
+          "type": "integer",
+          "format": "int64",
+          "examples": [
+            0
+          ]
+        }
+      }
+    },
+    "doc_9ab6deee1bfb74fa": {
+      "type": "boolean",
+      "description": "Whether the cookies are enabled in the browser."
+    },
+    "doc_c83e8a80d915c559": {
+      "type": "string",
+      "examples": [
+        "5f030fa7d2e5f9f757bfaf81642eb1a6"
+      ],
+      "description": "Hash of Math APIs used for entropy collection."
+    },
+    "doc_4469babd07cc2e02": {
+      "type": "string",
+      "examples": [
+        "3f33b68235d36b8821147349f1161379"
+      ],
+      "description": "Unique identifier for the user's keyboard layout."
+    },
+    "doc_f06af56ba98be122": {
+      "type": "object",
+      "description": "Canvas fingerprint containing winding flag plus geometry/text hashes.",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "winding": {
+          "type": "boolean"
+        },
+        "geometry": {
+          "type": "string",
+          "examples": [
+            "db3c1462576a399a03ae93d0ab9eb5c4"
+          ],
+          "description": "Hash of geometry rendering output or `unsupported` markers."
+        },
+        "text": {
+          "type": "string",
+          "examples": [
+            "70c3d3f7eb4408dc37a6bf8af1c51029"
+          ],
+          "description": "Hash of text rendering output or `unsupported` markers."
+        }
+      }
+    },
+    "doc_ee45cea6077854a4": {
+      "type": "string",
+      "examples": [
+        "MacIntel"
+      ],
+      "description": "Navigator platform string."
+    },
+    "doc_8d5d652eb280cbab": {
+      "type": "string",
+      "examples": [
+        "bot in [\"bad\"] || incognito"
+      ],
+      "description": "The expression of the rule that matched the identification event."
+    },
+    "doc_1040b5042d95a99e": {
+      "type": "string",
+      "examples": [
+        "+02:00"
+      ],
+      "description": "UTC offset in \"\u00b1HH:MM\" format derived from the detected IANA timezone."
+    },
+    "doc_03a3a2ebcdf45c7f": {
+      "type": "object",
+      "description": "Informs the client that the request should be forwarded to the origin with optional request header modifications.",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/doc_759a58a1069e9764",
+          "const": "allow"
+        },
+        "request_header_modifications": {
+          "$ref": "#/$defs/doc_eb983736c1dbdb4e"
+        }
+      },
+      "unevaluatedProperties": true
+    },
+    "doc_38b34804413bd2d7": {
+      "type": "string",
+      "examples": [
+        "{\"title\":\"Forbidden\"}"
+      ],
+      "description": "The response body to send to the client."
+    },
+    "doc_c67e7cb04dfa0af4": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "accuracy_radius": {
+          "type": "integer",
+          "examples": [
+            20
+          ],
+          "minimum": 0,
+          "description": "The IP address is likely to be within this radius (in km) of the specified location.",
+          "x-ruleset-metadata": {
+            "label": "accuracy radius",
+            "category": "ip_address"
+          }
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            50.05
+          ],
+          "minimum": -90,
+          "maximum": 90,
+          "x-ruleset-metadata": {
+            "label": "latitude",
+            "category": "location"
+          }
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "examples": [
+            14.4
+          ],
+          "minimum": -180,
+          "maximum": 180,
+          "x-ruleset-metadata": {
+            "label": "longitude",
+            "category": "location"
+          }
+        },
+        "postal_code": {
+          "type": "string",
+          "examples": [
+            "150 00"
+          ]
+        },
+        "timezone": {
+          "type": "string",
+          "format": "timezone",
+          "examples": [
+            "Europe/Prague"
+          ],
+          "x-ruleset-metadata": {
+            "label": "time zone",
+            "category": "location"
+          }
+        },
+        "city_name": {
+          "type": "string",
+          "examples": [
+            "Prague"
+          ],
+          "x-ruleset-metadata": {
+            "label": "city name",
+            "category": "ip_address"
+          }
+        },
+        "country_code": {
+          "type": "string",
+          "examples": [
+            "CZ"
+          ],
+          "minLength": 2,
+          "maxLength": 2,
+          "x-ruleset-metadata": {
+            "label": "country code",
+            "category": "location"
+          }
+        },
+        "country_name": {
+          "type": "string",
+          "examples": [
+            "Czechia"
+          ],
+          "x-ruleset-metadata": {
+            "label": "country name",
+            "category": "ip_address"
+          }
+        },
+        "continent_code": {
+          "type": "string",
+          "examples": [
+            "EU"
+          ],
+          "minLength": 2,
+          "maxLength": 2,
+          "x-ruleset-metadata": {
+            "label": "continent code",
+            "category": "ip_address"
+          }
+        },
+        "continent_name": {
+          "type": "string",
+          "examples": [
+            "Europe"
+          ],
+          "x-ruleset-metadata": {
+            "label": "continent name",
+            "category": "ip_address"
+          }
+        },
+        "subdivisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "iso_code",
+              "name"
+            ],
+            "properties": {
+              "iso_code": {
+                "type": "string",
+                "examples": [
+                  "10"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "examples": [
+                  "Hlavni mesto Praha"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "doc_eb983736c1dbdb4e": {
+      "type": "object",
+      "description": "The set of header modifications to apply, in the following order: remove, set, append.",
+      "required": [],
+      "properties": {
+        "remove": {
+          "type": "array",
+          "description": "The list of headers to remove.",
+          "items": {
+            "type": "string",
+            "examples": [
+              "X-Forwarded-For"
+            ]
+          }
+        },
+        "set": {
+          "type": "array",
+          "description": "The list of headers to set, overwriting any existing headers with the same name.",
+          "items": {
+            "$ref": "#/$defs/doc_5c12efe15e1af881"
+          }
+        },
+        "append": {
+          "type": "array",
+          "description": "The list of headers to append.",
+          "items": {
+            "$ref": "#/$defs/doc_5c12efe15e1af881"
+          }
+        }
+      }
+    },
+    "doc_60ed7fdfe2e036e3": {
+      "type": "integer",
+      "examples": [
+        200
+      ],
+      "description": "A valid HTTP status code."
+    },
+    "doc_572eeafabe103b38": {
+      "type": "string",
+      "enum": [
+        "request_cannot_be_parsed",
+        "request_read_timeout",
+        "secret_api_key_required",
+        "secret_api_key_not_found",
+        "public_api_key_required",
+        "public_api_key_not_found",
+        "subscription_not_active",
+        "wrong_region",
+        "feature_not_enabled",
+        "visitor_not_found",
+        "too_many_requests",
+        "state_not_ready",
+        "failed",
+        "event_not_found",
+        "missing_module",
+        "payload_too_large",
+        "service_unavailable",
+        "ruleset_not_found"
+      ],
+      "description": "Error code:\n* `request_cannot_be_parsed` - The query parameters or JSON payload contains some errors\n  that prevented us from parsing it (wrong type/surpassed limits).\n* `request_read_timeout` - The request body could not be read before the connection timed out.\n* `secret_api_key_required` - secret API key in header is missing or empty.\n* `secret_api_key_not_found` - No Fingerprint workspace found for specified secret API key.\n* `public_api_key_required` - public API key in header is missing or empty.\n* `public_api_key_not_found` - No Fingerprint workspace found for specified public API key.\n* `subscription_not_active` - Fingerprint workspace is not active.\n* `wrong_region` - Server and workspace region differ.\n* `feature_not_enabled` - This feature (for example, Delete API) is not enabled for your workspace.\n* `visitor_not_found` - The specified visitor ID was not found. It never existed or it may have already been deleted.\n* `too_many_requests` - The limit on secret API key requests per second has been exceeded.\n* `state_not_ready` - The event specified with event ID is\n  not ready for updates yet. Try again.\n  This error happens in rare cases when update API is called immediately\n  after receiving the event ID on the client. In case you need to send\n  information right away, we recommend using the JS agent API instead.\n* `failed` - Internal server error.\n* `event_not_found` - The specified event ID was not found. It never existed, expired, or it has been deleted.\n* `missing_module` - The request is invalid because it is missing a required module.\n* `payload_too_large` - The request payload is too large and cannot be processed.\n* `service_unavailable` - The service was unable to process the request.\n* `ruleset_not_found` - The specified ruleset was not found. It never existed or it has been deleted.\n"
+    },
+    "doc_759a58a1069e9764": {
+      "type": "string",
+      "description": "Describes the action to take with the request.",
+      "enum": [
+        "allow",
+        "block"
+      ]
+    },
+    "doc_5c12efe15e1af881": {
+      "type": "object",
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": [
+            "Content-Type"
+          ],
+          "description": "The header field name."
+        },
+        "value": {
+          "type": "string",
+          "examples": [
+            "application/json"
+          ],
+          "description": "The value of the header field."
+        }
+      }
+    }
+  }
+}

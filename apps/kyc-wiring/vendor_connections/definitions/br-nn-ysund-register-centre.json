@@ -1,0 +1,47 @@
+{
+  "provider_id": "br-nn-ysund-register-centre",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://data.brreg.no"
+  },
+  "auth": {
+    "type": "none",
+    "keys": []
+  },
+  "sources": [
+    "https://data.brreg.no/enhetsregisteret/api/docs/index.html"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "search_entities": {
+      "method": "GET",
+      "path": "/enhetsregisteret/api/enheter",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://data.brreg.no/enhetsregisteret/api/docs/index.html",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_entity": {
+      "method": "GET",
+      "path": "/enhetsregisteret/api/enheter/{organisasjonsnummer}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://data.brreg.no/enhetsregisteret/api/docs/index.html",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

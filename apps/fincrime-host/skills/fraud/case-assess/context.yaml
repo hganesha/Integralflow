@@ -1,0 +1,23 @@
+dynamic_target: null
+requirements:
+- fields:
+  - score
+  - kind
+  - model_version
+  - evidence_ids
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: FraudSignal
+  optional: false
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: true
+schema_version: 2.0.0
+skill_id: fraud.case.assess

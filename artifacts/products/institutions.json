@@ -1,0 +1,458 @@
+{
+  "apiVersion": "harness.factory/institution-catalog-seeds-v1",
+  "taxonomyDigest": "cb60b72ea49f158c867eec76259ecf3f468776fd1b7d1c67d3edb6d0d24f30a1",
+  "catalogs": [
+    {
+      "apiVersion": "harness.factory/institution-catalog-v1",
+      "kind": "InstitutionCatalog",
+      "institution": {
+        "id": "bank.synthetic",
+        "name": "Synthetic Bank",
+        "description": "The corpus bank behind the agentic KYC and KYB flows. Synthetic.",
+        "synthetic": true,
+        "jurisdictions": [
+          "US",
+          "GB"
+        ],
+        "legalEntities": [
+          {
+            "id": "synthetic-bank-na",
+            "name": "Synthetic Bank N.A.",
+            "jurisdiction": "US",
+            "regulatoryRegimes": [
+              "BANKING"
+            ],
+            "bookingEntity": true
+          },
+          {
+            "id": "synthetic-bank-uk",
+            "name": "Synthetic Bank UK plc",
+            "jurisdiction": "GB",
+            "regulatoryRegimes": [
+              "BANKING"
+            ],
+            "bookingEntity": true
+          }
+        ],
+        "businessLines": [
+          {
+            "id": "personal-banking",
+            "name": "Personal banking",
+            "productScope": [
+              "DEP.TRANSACTION",
+              "DEP.SAVINGS",
+              "PAY.CARDS",
+              "PAY.DOMESTIC_TRANSFERS",
+              "LND.CONSUMER"
+            ]
+          },
+          {
+            "id": "business-banking",
+            "name": "Business banking",
+            "productScope": [
+              "DEP.TRANSACTION",
+              "DEP.SAVINGS",
+              "PAY",
+              "LND.SMALL_BUSINESS",
+              "LND.COMMERCIAL"
+            ]
+          }
+        ]
+      },
+      "offerings": [
+        {
+          "offeringId": "everyday-checking",
+          "name": "Everyday Checking",
+          "description": "",
+          "canonicalProductId": "DEP.TRANSACTION.PERSONAL_CHECKING",
+          "businessLine": "personal-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "channels": [
+              "BRANCH",
+              "DIGITAL"
+            ],
+            "funding_methods": [
+              "CASH",
+              "ACH",
+              "WIRE"
+            ]
+          },
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "current-account-uk",
+          "name": "Current Account",
+          "description": "",
+          "canonicalProductId": "DEP.TRANSACTION.PERSONAL_CHECKING",
+          "businessLine": "personal-banking",
+          "legalEntity": "synthetic-bank-uk",
+          "jurisdictions": [
+            "GB"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "channels": [
+              "DIGITAL"
+            ],
+            "non_face_to_face": true
+          },
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "saver-plus",
+          "name": "Saver Plus",
+          "description": "",
+          "canonicalProductId": "DEP.SAVINGS.HIGH_YIELD_SAVINGS",
+          "businessLine": "personal-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "channels": [
+              "DIGITAL"
+            ],
+            "non_face_to_face": true
+          },
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "debit-card",
+          "name": "Debit Card",
+          "description": "",
+          "canonicalProductId": "PAY.CARDS.DEBIT",
+          "businessLine": "personal-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US",
+            "GB"
+          ],
+          "eligiblePartyTypes": [
+            "INDIVIDUAL"
+          ],
+          "variantAttributes": {},
+          "bundle": [],
+          "legacyProductTypes": [
+            "card"
+          ],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "business-checking",
+          "name": "Business Checking",
+          "description": "",
+          "canonicalProductId": "DEP.TRANSACTION.BUSINESS_CHECKING",
+          "businessLine": "business-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US",
+            "GB"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "funding_methods": [
+              "CASH",
+              "ACH",
+              "WIRE",
+              "THIRD_PARTY"
+            ],
+            "third_party_funding": true
+          },
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "business-term-loan",
+          "name": "Business Term Loan",
+          "description": "",
+          "canonicalProductId": "LND.SMALL_BUSINESS.TERM_LOAN",
+          "businessLine": "business-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US",
+            "GB"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "collateral": [
+              "RECEIVABLES",
+              "REAL_ESTATE"
+            ]
+          },
+          "bundle": [],
+          "legacyProductTypes": [
+            "lending"
+          ],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "merchant-services",
+          "name": "Merchant Services",
+          "description": "",
+          "canonicalProductId": "PAY.MERCHANT_ACQUIRING.CARD_ACQUIRING",
+          "businessLine": "business-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US",
+            "GB"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {},
+          "bundle": [],
+          "legacyProductTypes": [
+            "merchant_acquiring"
+          ],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "global-payments",
+          "name": "Global Payments",
+          "description": "",
+          "canonicalProductId": "PAY.CROSS_BORDER.INTERNATIONAL_WIRE",
+          "businessLine": "business-banking",
+          "legalEntity": "synthetic-bank-na",
+          "jurisdictions": [
+            "US",
+            "GB"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "currencies": [
+              "USD",
+              "GBP",
+              "EUR"
+            ]
+          },
+          "bundle": [],
+          "legacyProductTypes": [
+            "payments"
+          ],
+          "status": "ACTIVE"
+        }
+      ],
+      "taxonomy": {
+        "version": "1.0.0",
+        "digest": "cb60b72ea49f158c867eec76259ecf3f468776fd1b7d1c67d3edb6d0d24f30a1"
+      }
+    },
+    {
+      "apiVersion": "harness.factory/institution-catalog-v1",
+      "kind": "InstitutionCatalog",
+      "institution": {
+        "id": "securities.synthetic",
+        "name": "Synthetic Securities",
+        "description": "A synthetic US broker-dealer with a trust company affiliate for custody. Synthetic.",
+        "synthetic": true,
+        "jurisdictions": [
+          "US"
+        ],
+        "legalEntities": [
+          {
+            "id": "synthetic-securities-llc",
+            "name": "Synthetic Securities LLC",
+            "jurisdiction": "US",
+            "regulatoryRegimes": [
+              "BROKER_DEALER",
+              "INVESTMENT_ADVISER"
+            ],
+            "bookingEntity": true
+          },
+          {
+            "id": "synthetic-trust-co",
+            "name": "Synthetic Trust Company",
+            "jurisdiction": "US",
+            "regulatoryRegimes": [
+              "BANKING",
+              "TRUST_COMPANY"
+            ],
+            "bookingEntity": true
+          }
+        ],
+        "businessLines": [
+          {
+            "id": "brokerage",
+            "name": "Securities & brokerage",
+            "productScope": [
+              "BRK.RETAIL",
+              "BRK.DIGITAL",
+              "BRK.INSTITUTIONAL"
+            ]
+          },
+          {
+            "id": "prime-services",
+            "name": "Prime services",
+            "productScope": [
+              "BRK.PRIME",
+              "BRK.FINANCING"
+            ]
+          },
+          {
+            "id": "custody",
+            "name": "Custody & asset servicing",
+            "productScope": [
+              "CUS.SAFEKEEPING",
+              "CUS.SETTLEMENT",
+              "CUS.SECURITIES_LENDING_AGENCY"
+            ]
+          },
+          {
+            "id": "wealth",
+            "name": "Wealth management",
+            "productScope": [
+              "WLT.WEALTH_MANAGEMENT"
+            ]
+          }
+        ]
+      },
+      "offerings": [
+        {
+          "offeringId": "cash-brokerage",
+          "name": "Cash Brokerage",
+          "description": "",
+          "canonicalProductId": "BRK.RETAIL.CASH",
+          "businessLine": "brokerage",
+          "legalEntity": "synthetic-securities-llc",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "leverage": false,
+            "channels": [
+              "DIGITAL"
+            ]
+          },
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "margin-brokerage",
+          "name": "Margin Brokerage",
+          "description": "",
+          "canonicalProductId": "BRK.RETAIL.MARGIN",
+          "businessLine": "brokerage",
+          "legalEntity": "synthetic-securities-llc",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {
+            "leverage": true,
+            "collateral": [
+              "SECURITIES"
+            ]
+          },
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "prime-brokerage",
+          "name": "Prime Brokerage",
+          "description": "Institutional trading, securities financing, custody and margin services.",
+          "canonicalProductId": "BRK.PRIME.INSTITUTIONAL",
+          "businessLine": "prime-services",
+          "legalEntity": "synthetic-securities-llc",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [
+            "INVESTMENT_FUND",
+            "FINANCIAL_INSTITUTION",
+            "LEGAL_ENTITY"
+          ],
+          "variantAttributes": {
+            "leverage": true,
+            "third_party_funding": false,
+            "collateral": [
+              "CASH",
+              "SECURITIES"
+            ],
+            "intermediaries": [
+              "SUB_CUSTODIAN"
+            ]
+          },
+          "bundle": [
+            "institutional-custody"
+          ],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "securities-financing",
+          "name": "Securities Financing",
+          "description": "",
+          "canonicalProductId": "BRK.FINANCING.STOCK_BORROW_LOAN",
+          "businessLine": "prime-services",
+          "legalEntity": "synthetic-securities-llc",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [
+            "INVESTMENT_FUND",
+            "FINANCIAL_INSTITUTION"
+          ],
+          "variantAttributes": {},
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "institutional-custody",
+          "name": "Institutional Custody",
+          "description": "",
+          "canonicalProductId": "CUS.SAFEKEEPING.INSTITUTIONAL_CUSTODY",
+          "businessLine": "custody",
+          "legalEntity": "synthetic-trust-co",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [],
+          "variantAttributes": {},
+          "bundle": [],
+          "legacyProductTypes": [
+            "custody"
+          ],
+          "status": "ACTIVE"
+        },
+        {
+          "offeringId": "managed-portfolios",
+          "name": "Managed Portfolios",
+          "description": "",
+          "canonicalProductId": "WLT.WEALTH_MANAGEMENT.DISCRETIONARY",
+          "businessLine": "wealth",
+          "legalEntity": "synthetic-securities-llc",
+          "jurisdictions": [
+            "US"
+          ],
+          "eligiblePartyTypes": [
+            "INDIVIDUAL",
+            "TRUST"
+          ],
+          "variantAttributes": {},
+          "bundle": [],
+          "legacyProductTypes": [],
+          "status": "ACTIVE"
+        }
+      ],
+      "taxonomy": {
+        "version": "1.0.0",
+        "digest": "cb60b72ea49f158c867eec76259ecf3f468776fd1b7d1c67d3edb6d0d24f30a1"
+      }
+    }
+  ]
+}

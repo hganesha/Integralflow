@@ -1,0 +1,17 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.product.lending
+  version: 1.0.0
+  layer: product
+  appliesTo: { products: [lending] }
+  status: CANDIDATE
+  ownerRole: kyb-policy-owner
+  description: Lending; guarantors are screened, and verification must be recent.
+values:
+  screening_roles:
+    value: [customer, beneficial_owner, control_person, director, signatory, trustee, settlor, protector, beneficiary, guarantor]
+    basis: { text: "A guarantor stands behind the credit and is screened." }
+  freshness_seconds:
+    value: { WatchlistEntry: 86400, VerificationRecord: 5184000 }
+    basis: { text: "Credit decisions rely on identity verification no older than 60 days." }

@@ -1,0 +1,12 @@
+dynamic_target: null
+requirements:
+- fields:
+  - product_type
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Product
+  optional: false
+schema_version: 2.0.0
+skill_id: risk.product.assess

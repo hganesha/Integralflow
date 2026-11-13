@@ -1,0 +1,174 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.parse
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Parse already-decoded UTF-8 text pages with exact version/page lineage;
+  no OCR claim.
+code_hash: 59c752a8ddd6bcb54e7aa43559173a073d680b06966ee08f79bce53f43494970
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Parse already-decoded UTF-8 text pages with exact version/page lineage;
+  no OCR claim.
+effects: read_only
+entrypoint: financial_crime.skills.documents:parse
+evaluation_profile: document.parse-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: document-parse
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: document.parse
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:document.parse:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 6bcae274d9cfe76bc752d7148b3d1f5c34a22383257e77e420e9f31b765a8840
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples. Without a page count, missing
+  pages after the last admitted page cannot be detected; document.parse.artifact checks
+  the count.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Hash:
+      pattern: ^[a-f0-9]{64}$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    ParsedPage:
+      additionalProperties: false
+      properties:
+        document_version:
+          $ref: '#/$defs/Id'
+        hash:
+          $ref: '#/$defs/Hash'
+        page:
+          $ref: '#/$defs/PositiveCount'
+        source_ref:
+          $ref: '#/$defs/Ref'
+        text:
+          $ref: '#/$defs/Text'
+      required:
+      - page
+      - document_version
+      - text
+      - hash
+      - source_ref
+      type: object
+    PositiveCount:
+      minimum: 1
+      type: integer
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.parse:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    format:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    pages:
+      items:
+        $ref: '#/$defs/ParsedPage'
+      maxItems: 10000
+      type: array
+  required:
+  - pages
+  - format
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - text
+  - page
+  - document_version
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DocumentPage
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

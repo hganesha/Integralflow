@@ -1,0 +1,334 @@
+apiVersion: harness.factory/decision-table-v1
+kind: DecisionTable
+metadata:
+  id: table.kyc.disposition.v1
+  gate: disposition
+  domain: kyc
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    What disposition, if any, may the platform reach without a human? The agent
+    recommendation is one input among many and is never authority. The only automatic
+    disposition this table can produce is APPROVED, and only for an attested low-risk
+    cohort with every approval requirement satisfied. No row produces DECLINED.
+  precedence: >-
+    Rows are evaluated in order and the first match wins. The order is deliberate and is
+    itself the reviewable artifact: engine health, then snapshot currency, then sanctions,
+    then identity and contradiction integrity, then the recommendation's own demands, then
+    the risk signals that force review, then undetermined inputs, and only last the
+    approval path. A case matching several rows reports the earliest, so the most serious
+    reason is the one the analyst sees.
+spec:
+  transition:
+    from: [READY_FOR_DECISION]
+    onAllow: APPROVED
+    onReview: HUMAN_REVIEW
+  hitPolicy: first
+  invariants:
+    - id: INV-NO-AUTOMATIC-DECLINE
+      statement: No row in this table may carry disposition DECLINED or outcome BLOCK with a decline effect.
+      rule: KYC-DEC-003
+    - id: INV-APPROVAL-ATTESTED-ONLY
+      statement: Any row producing ALLOW must require cohortEligibility ELIGIBLE and attestation VALID.
+      rule: KYC-DEC-002
+    - id: INV-DEFAULT-IS-REVIEW
+      statement: The table default is REVIEW; no combination falls through to ALLOW.
+      rule: KYC-DEC-006
+  conditions:
+    - id: evaluation
+      description: Did the policy engine complete without error?
+      extractor: { kind: evaluationStatus }
+      tokens: [OK, ERROR]
+    - id: policyConfiguration
+      description: Are the pinned bundle's institution settings resolved and approved?
+      extractor:
+        kind: booleanValue
+        path: policyConfiguration.productionReady
+      tokens: ["TRUE", "FALSE", UNKNOWN]
+    - id: snapshot
+      description: Is the evaluated case snapshot still the current one?
+      extractor: { kind: snapshotFreshness }
+      tokens: [CURRENT, STALE, UNKNOWN]
+    - id: sanctionsFinding
+      description: What is the strongest open sanctions finding?
+      extractor:
+        kind: strongestFinding
+        collection: findings
+        openOnly: true
+        ranking:
+          - { findingType: CONFIRMED_SANCTIONS_MATCH, token: CONFIRMED }
+          - { findingType: POSSIBLE_SANCTIONS_MATCH, token: POSSIBLE }
+        absentToken: NONE
+      tokens: [NONE, POSSIBLE, CONFIRMED, UNKNOWN]
+    - id: identityConflict
+      description: Is an identity conflict finding open?
+      extractor:
+        kind: presence
+        collection: findings
+        where: { findingType: IDENTITY_CONFLICT, status: OPEN }
+        presentToken: PRESENT
+        absentToken: NONE
+      tokens: [NONE, PRESENT]
+    - id: materialContradiction
+      description: Is a HIGH-materiality contradiction open?
+      extractor:
+        kind: presence
+        collection: contradictions
+        where: { materiality: HIGH, status: OPEN }
+        presentToken: OPEN
+        absentToken: NONE
+      tokens: [NONE, OPEN]
+    - id: recommendation
+      description: What did the decision agent recommend?
+      extractor:
+        kind: value
+        path: recommendation.outcome
+        domain: [APPROVE, REVIEW, DECLINE]
+        absentToken: ABSENT
+      tokens: [APPROVE, REVIEW, DECLINE, ABSENT, UNKNOWN]
+    - id: requiresHumanReview
+      description: Did the recommendation itself ask for a human?
+      extractor:
+        kind: booleanValue
+        path: recommendation.requiresHumanReview
+      tokens: ["TRUE", "FALSE", UNKNOWN]
+    - id: pepFinding
+      description: Is a PEP signal open on the case?
+      extractor:
+        kind: presence
+        collection: findings
+        where: { findingType: PEP_SIGNAL, status: OPEN }
+        presentToken: PRESENT
+        absentToken: NONE
+      tokens: [NONE, PRESENT]
+    - id: adverseMediaFinding
+      description: Is an adverse-media finding open on the case?
+      extractor:
+        kind: presence
+        collection: findings
+        where: { findingType: ADVERSE_MEDIA, status: OPEN }
+        presentToken: PRESENT
+        absentToken: NONE
+      tokens: [NONE, PRESENT]
+    - id: jurisdictionRisk
+      description: What is the jurisdiction risk rating?
+      extractor:
+        kind: value
+        path: risk.jurisdictionRisk
+        domain: [LOW, MEDIUM, HIGH]
+        absentToken: UNKNOWN
+      tokens: [LOW, MEDIUM, HIGH, UNKNOWN]
+    - id: cohortEligibility
+      description: Is this cohort within the automatic-approval scope?
+      extractor: { kind: cohortEligibility }
+      tokens: [ELIGIBLE, NOT_ELIGIBLE, UNKNOWN]
+    - id: attestation
+      description: Is a current signed attestation covering this cohort present?
+      extractor: { kind: attestationStatus }
+      tokens: [VALID, MISSING, EXPIRED, UNKNOWN]
+    - id: citations
+      description: Does the recommendation cite policy, findings and evidence as required?
+      extractor: { kind: recommendationCitations }
+      tokens: [COMPLETE, INCOMPLETE, UNKNOWN]
+    - id: confidence
+      description: Is recommendation confidence at or above the automatic-disposition threshold?
+      extractor:
+        kind: numericThreshold
+        path: recommendation.confidence
+        minimumOwnerInput: D07.minimumConfidence
+      tokens: [AT_OR_ABOVE, BELOW, UNKNOWN]
+    - id: cohortObligations
+      description: Are every evidence obligation required by this cohort satisfied?
+      extractor:
+        kind: obligationsSatisfied
+        scope: cohortRequired
+        exclude: [EVD-QA-REVIEW]
+      tokens: [SATISFIED, UNSATISFIED, EXPIRED, NOT_APPLICABLE, UNKNOWN]
+
+  rows:
+    # ---- engine and snapshot integrity
+    - id: DP-001
+      rules: [KYC-OPS-004]
+      when: { evaluation: ERROR }
+      outcome: ERROR
+      reasonCode: POLICY_EVALUATION_ERROR
+    - id: DP-000
+      rules: [KYC-CONFIG-001]
+      when: { policyConfiguration: ["FALSE", UNKNOWN] }
+      outcome: ERROR
+      reasonCode: PRODUCTION_POLICY_CONFIGURATION_UNRESOLVED
+    - id: DP-002
+      rules: [KYC-OPS-003]
+      when: { snapshot: STALE }
+      outcome: ERROR
+      reasonCode: CASE_SNAPSHOT_STALE
+    - id: DP-003
+      rules: [KYC-OPS-002]
+      when: { snapshot: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+
+    # ---- sanctions outrank everything else on the case
+    - id: DP-010
+      rules: [KYC-SCR-004]
+      when: { sanctionsFinding: CONFIRMED }
+      outcome: REVIEW
+      reasonCode: CONFIRMED_SANCTIONS_MATCH
+      escalation: { queue: queue.kyc.sanctions, dualControl: true }
+    - id: DP-011
+      rules: [KYC-SCR-003]
+      when: { sanctionsFinding: POSSIBLE }
+      outcome: REVIEW
+      reasonCode: POSSIBLE_SANCTIONS_MATCH
+      escalation: { queue: queue.kyc.sanctions, dualControl: true }
+    - id: DP-012
+      rules: [KYC-OPS-002]
+      when: { sanctionsFinding: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+
+    # ---- record integrity
+    - id: DP-020
+      rules: [KYC-CIP-003]
+      when: { identityConflict: PRESENT }
+      outcome: REVIEW
+      reasonCode: IDENTITY_CONFLICT
+    - id: DP-021
+      rules: [KYC-INV-004]
+      when: { materialContradiction: OPEN }
+      outcome: REVIEW
+      reasonCode: MATERIAL_CONTRADICTION
+
+    # ---- the recommendation itself
+    - id: DP-030
+      rules: [KYC-DEC-004, KYC-DEC-001]
+      when: { recommendation: ABSENT }
+      outcome: BLOCK
+      reasonCode: RECOMMENDATION_MISSING
+    - id: DP-031
+      rules: [KYC-OPS-002]
+      when: { recommendation: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DP-032
+      rules: [KYC-DEC-003]
+      when: { recommendation: DECLINE }
+      outcome: REVIEW
+      reasonCode: DECLINE_REQUIRES_HUMAN_AUTHORITY
+      escalation: { queue: queue.kyc.analyst, dualControl: true }
+    - id: DP-033
+      rules: [KYC-DEC-001]
+      when: { requiresHumanReview: "TRUE" }
+      outcome: REVIEW
+      reasonCode: HUMAN_REVIEW_REQUIRED
+    - id: DP-034
+      rules: [KYC-OPS-002]
+      when: { requiresHumanReview: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DP-035
+      rules: [KYC-DEC-001]
+      when: { recommendation: REVIEW }
+      outcome: REVIEW
+      reasonCode: HUMAN_REVIEW_REQUIRED
+
+    # ---- risk signals that force a human even on a clean recommendation
+    - id: DP-040
+      rules: [KYC-EDD-002]
+      when: { pepFinding: PRESENT }
+      outcome: REVIEW
+      reasonCode: PEP_REVIEW_REQUIRED
+    - id: DP-041
+      rules: [KYC-SCR-005]
+      when: { adverseMediaFinding: PRESENT }
+      outcome: REVIEW
+      reasonCode: ADVERSE_MEDIA_REVIEW_REQUIRED
+    - id: DP-042
+      rules: [KYC-EDD-003]
+      when: { jurisdictionRisk: HIGH }
+      outcome: REVIEW
+      reasonCode: HIGH_RISK_JURISDICTION_REVIEW
+    - id: DP-043
+      rules: [KYC-OPS-002]
+      when: { jurisdictionRisk: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+
+    # ---- the approval path: every requirement is checked before ALLOW is reachable
+    - id: DP-050
+      rules: [KYC-DEC-002]
+      when: { recommendation: APPROVE, cohortEligibility: NOT_ELIGIBLE }
+      outcome: REVIEW
+      reasonCode: COHORT_NOT_ELIGIBLE_FOR_AUTOMATIC_APPROVAL
+    - id: DP-051
+      rules: [KYC-CDD-001]
+      when: { recommendation: APPROVE, cohortEligibility: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DP-052
+      rules: [KYC-DEC-002]
+      when: { recommendation: APPROVE, attestation: [MISSING, EXPIRED, UNKNOWN] }
+      outcome: REVIEW
+      reasonCode: AUTOMATIC_APPROVAL_ATTESTATION_MISSING
+    - id: DP-053
+      rules: [KYC-DEC-004]
+      when: { recommendation: APPROVE, citations: INCOMPLETE }
+      outcome: REVIEW
+      reasonCode: RECOMMENDATION_CITATIONS_INCOMPLETE
+    - id: DP-054
+      rules: [KYC-OPS-002]
+      when: { recommendation: APPROVE, citations: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DP-055
+      rules: [KYC-DEC-005]
+      when: { recommendation: APPROVE, confidence: BELOW }
+      outcome: REVIEW
+      reasonCode: CONFIDENCE_BELOW_THRESHOLD
+    - id: DP-056
+      rules: [KYC-OPS-002]
+      when: { recommendation: APPROVE, confidence: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DP-057
+      rules: [KYC-CIP-002, KYC-CDD-003]
+      when: { recommendation: APPROVE, cohortObligations: [UNSATISFIED, NOT_APPLICABLE] }
+      outcome: REVIEW
+      reasonCode: APPROVAL_REQUIREMENTS_NOT_MET
+    - id: DP-060
+      rules: [KYC-OPS-002]
+      when: { recommendation: APPROVE, cohortObligations: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: DP-058
+      rules: [KYC-CIP-002]
+      when: { recommendation: APPROVE, cohortObligations: EXPIRED }
+      outcome: REVIEW
+      reasonCode: EVIDENCE_EXPIRED
+    - id: DP-070
+      rules: [KYC-DEC-002]
+      when:
+        evaluation: OK
+        policyConfiguration: "TRUE"
+        snapshot: CURRENT
+        sanctionsFinding: NONE
+        identityConflict: NONE
+        materialContradiction: NONE
+        recommendation: APPROVE
+        requiresHumanReview: "FALSE"
+        pepFinding: NONE
+        adverseMediaFinding: NONE
+        jurisdictionRisk: [LOW, MEDIUM]
+        cohortEligibility: ELIGIBLE
+        attestation: VALID
+        citations: COMPLETE
+        confidence: AT_OR_ABOVE
+        cohortObligations: SATISFIED
+      outcome: ALLOW
+      reasonCode: KYC_REQUIREMENTS_SATISFIED
+      disposition: APPROVED
+
+  default:
+    rules: [KYC-DEC-006]
+    outcome: REVIEW
+    reasonCode: NO_AUTOMATIC_DISPOSITION_RULE

@@ -1,0 +1,68 @@
+{
+  "provider_id": "flagright",
+  "version": "documented-public",
+  "bases": {
+    "sandbox": "https://sandbox.api.flagright.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "x-api-key",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.flagright.com/guides/use-cases/swift-payments",
+    "https://docs.flagright.com/framl-api/api-reference/api-reference/transaction-events/get",
+    "https://docs.flagright.com/framl-api/api-reference/api-reference/business-user-events/get"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_business_user": {
+      "method": "POST",
+      "path": "/business/users",
+      "required_body": [
+        "userId"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.flagright.com/guides/use-cases/swift-payments",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_transaction_event": {
+      "method": "GET",
+      "path": "/events/transaction/{eventId}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "resource",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.flagright.com/framl-api/api-reference/api-reference/transaction-events/get",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_business_user_event": {
+      "method": "GET",
+      "path": "/events/business/user/{eventId}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "resource",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.flagright.com/framl-api/api-reference/api-reference/business-user-events/get",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

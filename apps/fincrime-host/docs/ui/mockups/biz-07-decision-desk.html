@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIZ-07 · Decision Desk — KYB-1042</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .tri { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--space-3); }
+  .tri .card { display: flex; flex-direction: column; gap: 8px; min-height: 168px; }
+  .tri .card.yours { background: var(--surface-panel); border: 1.5px dashed var(--graphite-600); }
+  .big { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.02em; }
+  .attr { display: grid; grid-template-columns: 100px 1fr 52px 52px; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line-1); font-size: var(--text-sm); }
+  .attr .bar { height: 10px; }
+  .ctl { display: grid; grid-template-columns: 26px 1fr auto auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line-1); font-size: var(--text-sm); }
+  .ctl:last-child { border-bottom: 0; }
+  .oc { font-family: var(--font-mono); font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 5px; }
+  .oc[data-o="PASS"] { background: var(--tone-positive-bg); color: var(--tone-positive-fg); }
+  .oc[data-o="FAIL"] { background: var(--tone-blocking-bg); color: var(--tone-blocking-fg); }
+  .oc[data-o="UNKNOWN"] { background: var(--tone-attention-bg); color: var(--tone-attention-fg); }
+  .oc[data-o="NOT_APPLICABLE"] { background: var(--surface-well); color: var(--ink-2); }
+  .sig-hashes { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 11.5px; }
+  .sig-hashes dt { color: var(--ink-2); } .sig-hashes dd { margin: 0; font-family: var(--font-mono); }
+  .countdown { font-variant-numeric: tabular-nums; font-weight: 600; }
+</style>
+</head>
+<body data-studio="workspace" data-role="Compliance Officer / MLRO" data-user="S. Varga">
+<div class="app">
+  <header data-shell="chrome"></header>
+  <nav class="orient" aria-label="Decision desk">
+    <div class="orient__group"><a class="nav-item" href="biz-01-my-workspace.html" data-icon="arrowl" data-icon-class="i--sm"> My Workspace</a></div>
+    <div class="orient__group">
+      <span class="t-engraved">Awaiting my decision</span>
+      <a class="nav-item" aria-current="page" href="#">KYB-1042 · Acme Trading <span class="count">ACCEPT?</span></a>
+      <a class="nav-item" href="#">KYB-1037 · Northwind Ag <span class="count">ESCALATE?</span></a>
+      <a class="nav-item" href="#">PR-0219 · Lumen Freight <span class="count">review</span></a>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Decision package</span>
+      <a class="nav-item" href="#">Memorandum</a>
+      <a class="nav-item" href="#">Policy obligations <span class="count">8</span></a>
+      <a class="nav-item" href="#">Independent QA <span class="count">pass</span></a>
+      <a class="nav-item" href="#">Risk attribution</a>
+      <a class="nav-item" href="asr-03-decision-lineage.html">Lineage</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <section class="object-header">
+      <div class="object-header__tile" data-icon="scale"></div>
+      <div>
+        <div class="row"><span class="t-engraved">Decision desk · case revision 11</span><span class="id">KYB-1042</span></div>
+        <h1>Acme Trading Ltd — onboarding decision</h1>
+        <div class="object-header__meta"><span><span class="t-engraved">requested by</span> R. Okafor (analyst)</span><span><span class="t-engraved">policy</span> <span class="mono">synthetic-neutral 0.1.0</span> · hash <span class="hash">a17c…3e</span></span><span><span class="t-engraved">context</span> <span class="hash">ctx 2d90…71</span></span></div>
+      </div>
+      <div class="stack" style="align-items:flex-end"><span class="dim"><span class="t-engraved">Approval</span><span class="status" data-tone="attention"><svg class="i"><use href="#i-clock"/></svg>PENDING · expires 15:42</span></span><span class="dim"><span class="t-engraved">Authorization</span><span class="status" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>You may approve</span></span></div>
+    </section>
+
+    <h2 style="margin:var(--space-6) 0 var(--space-3)">Three separate objects</h2>
+    <div class="tri">
+      <div class="card">
+        <span class="epi" data-kind="recommendation">Recommendation · system</span>
+        <span class="big">ACCEPT</span>
+        <span class="small muted"><span class="mono">decision.recommendation.generate</span> mapped control outcomes to a policy-defined recommendation.</span>
+        <span class="xs subtle mt-auto">Not an approval.</span>
+      </div>
+      <div class="card">
+        <span class="epi" data-kind="finding">Control evaluation · deterministic</span>
+        <span class="big num">7 PASS · 1 N/A</span>
+        <span class="small muted"><span class="mono">decision.rules.evaluate</span> on pinned rules — unknown inputs never produce PASS. 0 FAIL · 0 UNKNOWN.</span>
+        <span class="xs subtle">Reproducible from ctx 2d90…71.</span>
+      </div>
+      <div class="card yours">
+        <span class="epi" data-kind="decision">Authorized decision · yours</span>
+        <span class="big" style="color:var(--ink-3)">Not recorded</span>
+        <span class="small muted">Requires compliance role, independent of the requester, and an unexpired approval bound to this exact context.</span>
+        <div class="row row--wrap" style="margin-top:auto"><button class="btn btn--primary" data-open-sheet="sign">Review &amp; sign…</button><button class="btn btn--sm">Escalate</button><button class="btn btn--sm btn--quiet">Return to analyst</button></div>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:var(--space-5); align-items:start; gap:var(--space-4)">
+      <section class="panel">
+        <div class="row row--between" style="margin-bottom:var(--space-3)"><h3>Policy obligations</h3><span class="xs muted">decision.rules.evaluate · 0.2.0</span></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>Legal existence verified (registry, complete coverage)</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="#">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>All UBOs ≥ 0.20 identified &amp; verified</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="#">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>Ownership conflicts resolved (cf-12)</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="#">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>Sanctions screening — no true match</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="biz-06-screening.html">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>PEP screening — hit dispositioned (approved)</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="#">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>Required documents present &amp; valid</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="#">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="PASS">✓</span><span>Risk tier within acceptable tiers (LOW, MEDIUM)</span><span class="oc" data-o="PASS">PASS</span><a class="xs" href="#">evidence</a></div>
+        <div class="ctl"><span class="oc" data-o="NOT_APPLICABLE">–</span><span>EDD source of funds <span class="xs muted">(trigger: tier = HIGH — not met)</span></span><span class="oc" data-o="NOT_APPLICABLE">N/A</span><span></span></div>
+      </section>
+      <section class="panel">
+        <div class="row row--between" style="margin-bottom:var(--space-3)"><h3>Risk attribution</h3><span class="status" data-tone="attention">MEDIUM · 0.46</span></div>
+        <div class="attr t-engraved"><span>Factor</span><span>Share of score</span><span class="r">Weight</span><span class="r">Factor</span></div>
+        <div class="attr"><span>Geography</span><div class="bar"><span style="width:35%"></span></div><span class="num" style="text-align:right">0.4</span><span class="num" style="text-align:right">0.40</span></div>
+        <div class="attr"><span>Product</span><div class="bar"><span style="width:65%"></span></div><span class="num" style="text-align:right">0.6</span><span class="num" style="text-align:right">0.50</span></div>
+        <dl class="kv" style="margin-top:var(--space-3)"><dt>Model</dt><dd class="mono">risk-synthetic 0.1.0</dd><dt>Tier bands</dt><dd class="mono xs">HIGH ≥ 0.7 · MEDIUM ≥ 0.3 · LOW ≥ 0</dd><dt>Prior assessment</dt><dd>— (new customer)</dd><dt>Overrides</dt><dd>none</dd><dt>Reproducible</dt><dd><span class="status" data-tone="positive">Yes · risk.score.explain</span></dd></dl>
+        <hr class="divider">
+        <h4 style="margin-bottom:6px">Independent QA</h4>
+        <div class="row small"><span class="status" data-tone="positive">quality.findings.verify · PASS</span><span class="status" data-tone="positive">policy.compliance · PASS</span></div>
+        <p class="xs muted" style="margin-top:6px">QA reviewer T. Brandt · independent of analyst and approver.</p>
+      </section>
+    </div>
+
+    <section class="panel" style="margin-top:var(--space-4)">
+      <h3 style="margin-bottom:var(--space-3)">Material unresolved risks &amp; limitations</h3>
+      <div class="disclosure" data-tone="attention"><svg class="i"><use href="#i-beaker"/></svg><div><strong>Synthetic reference data.</strong> Every record in this case carries <span class="mono">synthetic: true</span>. A recorded decision here demonstrates the control path only and is not a real-world verification.</div></div>
+      <div class="disclosure" style="margin-top:8px"><svg class="i"><use href="#i-info"/></svg><div><strong>Negative search coverage:</strong> adverse media coverage is limited to captured sources listed in the screening evidence; absence of results is not proof of absence.</div></div>
+    </section>
+  </main>
+
+  <aside class="inspector" aria-label="Approval requirements">
+    <div class="inspector__head"><div class="t-engraved">Approval requirements</div><h2>Who may decide</h2></div>
+    <div class="inspector__section">
+      <dl class="kv kv--left">
+        <dt>Action</dt><dd class="mono xs">decision.disposition.record</dd>
+        <dt>Effect</dt><dd><span class="status" data-tone="blocking">human_gated · L3</span></dd>
+        <dt>Role</dt><dd>compliance <span class="status" data-tone="positive" style="margin-left:4px">you</span></dd>
+        <dt>Permission</dt><dd class="mono xs">approve:decision.disposition.record</dd>
+        <dt>Separation</dt><dd>Approver ≠ requester <span class="status" data-tone="positive">✓</span></dd>
+        <dt>Expected revision</dt><dd class="num">11</dd>
+      </dl>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">Alternatives</span>
+      <div class="stack stack--tight small"><span><b>REJECT</b> — no failing control supports rejection.</span><span><b>ESCALATE</b> — available; routes to MLRO committee.</span></div>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">What happens on commit</span>
+      <ol class="small" style="margin:0;padding-left:18px"><li>Server re-checks your authority, case revision, context &amp; execution-lock hashes, expiry.</li><li>Approval is consumed exactly once.</li><li><span class="mono">decision.recorded</span> appended to the audit hash chain.</li><li>Workflow resumes → <span class="mono">monitor.customer.schedule</span>.</li></ol>
+      <p class="xs muted" style="margin-top:8px">The UI shows “Committing…” until the server confirms. It never shows success optimistically.</p>
+    </div>
+  </aside>
+
+  <footer class="rail" data-expanded="false"><div class="rail__bar"><span class="t-engraved"><span data-icon="activity" data-icon-class="i--sm"></span> Case events</span><div class="rail__events"><span class="evt" data-tone="positive">human.reviewed · R. Okafor</span><span class="evt" data-tone="positive">policy.evaluated · 7 PASS</span><span class="evt" data-tone="positive">qa.completed · T. Brandt</span><span class="evt" data-tone="info">approval.requested · apr-5c19</span></div></div></footer>
+</div>
+
+<!-- P3 TRUSTED APPROVAL SHEET — application-owned. Agents may supply the proposal, never this control. -->
+<div class="sheet-scrim" id="sign" role="dialog" aria-modal="true" aria-labelledby="sign-t">
+  <div class="sheet sheet--trusted">
+    <div class="sheet__band"><svg class="i i--sm"><use href="#i-lock"/></svg> PLATFORM-VERIFIED ACTION · not agent-composed <span class="hash">action ref apr-5c19 · v1</span></div>
+    <div class="sheet__body">
+      <div><div class="t-engraved">Record authorized disposition</div><h2 id="sign-t" style="margin-top:4px">ACCEPT onboarding for Acme Trading Ltd (KYB-1042)</h2></div>
+      <div class="card card--well">
+        <div class="diff-row t-engraved" style="padding-top:0"><span>Field</span><span>Before</span><span>After</span></div>
+        <div class="diff-row"><span class="muted">Disposition</span><span class="muted">—</span><span class="diff-new">ACCEPT</span></div>
+        <div class="diff-row"><span class="muted">Decision record</span><span class="muted">—</span><span class="diff-new">Decision · actor S. Varga · 8 findings · policy a17c…3e</span></div>
+        <div class="diff-row" style="border:0"><span class="muted">Next</span><span class="muted">workflow paused</span><span>Resume → monitoring schedule (review interval per policy)</span></div>
+      </div>
+      <div class="grid grid-2">
+        <div><div class="t-engraved" style="margin-bottom:6px">Bound to</div>
+          <dl class="sig-hashes"><dt>request_hash</dt><dd>5c19e0…d4a2</dd><dt>context_hash</dt><dd>2d90b7…0e71</dd><dt>execution_lock</dt><dd>c33a51…98fe</dd><dt>policy</dt><dd>a17c02…773e</dd><dt>case revision</dt><dd>11</dd></dl></div>
+        <div><div class="t-engraved" style="margin-bottom:6px">Expires</div><div class="countdown" style="font-size:22px" id="cd">27:41</div><div class="xs muted">at <time>15:42 UTC</time>. After expiry a new approval request is required.</div></div>
+      </div>
+      <label class="check"><input type="checkbox" id="att"> <span>I attest that I reviewed the evidence, policy obligations and independent QA for this case, that I am independent of its preparation, and that this decision is mine.</span></label>
+    </div>
+    <div class="sheet__foot">
+      <button class="btn" data-close-sheet>Cancel</button>
+      <span class="xs muted ml-auto row"><svg class="i i--sm"><use href="#i-fingerprint"/></svg> Re-authentication required</span>
+      <button class="btn btn--trusted" id="commit" disabled>Sign &amp; commit decision</button>
+    </div>
+  </div>
+</div>
+<script src="../assets/shell.js"></script>
+<script>
+  const att = document.getElementById("att"), commit = document.getElementById("commit");
+  att.addEventListener("change", () => commit.disabled = !att.checked);
+  commit.addEventListener("click", () => { commit.textContent = "Committing…"; commit.disabled = true; });
+  let t = 27*60+41; setInterval(() => { t = Math.max(0, t-1); document.getElementById("cd").textContent = String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0"); }, 1000);
+  if (location.hash === "#sign") openSheet("sign");
+</script>
+</body>
+</html>

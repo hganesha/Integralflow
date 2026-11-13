@@ -1,0 +1,42 @@
+{
+  "apiVersion": "harness.factory/release-manifest-v1",
+  "kind": "ReleaseManifest",
+  "releaseId": "document-extraction-1183871e15b0-df62e63a",
+  "manifestDigest": "dc1051a650749c003d7ee0312e929fb7589ee23d141e7a303123cabc8f4ae9a9",
+  "planDigest": "1183871e15b06f06222e5551972ebd9d8518b9c2430b819e43b32d835ccf809d",
+  "packageDigest": "c6aa279565f9f0bffa72e4706c8f8295a0944b6f5a786670bfc5c940281a104a",
+  "policyBundleDigests": [],
+  "schemaSetDigest": "2640e3799f19467429cfede9e743cf18169900b0eac8d765f30c2422c91904e3",
+  "agentDigests": [],
+  "skillDigests": [
+    "cf5fa8617e366b840222b7fc549692affaafc8bd9ca7dc603e60dee7290e120c",
+    "34a7eb6216f2b2986c0103efd3632b643e7021477ce0e9a439a7ca14bc382674"
+  ],
+  "capabilityDigests": [
+    "397293aef2ba2654a1c91c9af24e9f1de2f053065773c2a016d555772dc1ed40",
+    "0d54df7425fd29463d6e337c9089252424cf6e01a2f8cbe245f498b6f981722f",
+    "5e96832a70bd52b0523366e77ccd2d83061595a7ff5aa48120ce8754d3a0909a",
+    "da44c57ee1ec1fec2f12e1dbba8c303b935024fcd9056a669d744c36c40effb3",
+    "8e91855288d9a40436698d174fd3c8d3511da2b704b738ecbfc2876a92f648ca"
+  ],
+  "modelProfileDigests": [
+    "449882c7edc6ecf64a4afce5bddaa36e4e042bbdd53513635887789646b94f93"
+  ],
+  "executionProfileDigest": "ffaf1ba7ab5d3bf4f87f7998888b78f5ebff80e141073d7de1516c246e7e0f41",
+  "compilerDigest": "92eafe9b5c2489a4b75c107d949aa3a1ecf17345ee2b8aad720f9991ab551a1d",
+  "runtimeDigest": "1ee18c917c513b7661251cbcabd78848c56a84dd7a589de3556dfc44471feb1c",
+  "dependencyManifestDigest": "c6aa279565f9f0bffa72e4706c8f8295a0944b6f5a786670bfc5c940281a104a",
+  "evaluationAttestationDigest": "df62e63a720c8345039678b7c8c6305d4016c758aecdd529845d6a79cc6f6e3c",
+  "provenanceDigest": "22c8deb7f2606c591d366e3a8436cc4897518d646d6c10f0d44f749bc5dc41ec",
+  "scope": {
+    "environment": "development",
+    "tenants": [
+      "tenant_demo"
+    ],
+    "regions": [
+      "US"
+    ],
+    "cohort": "document-extraction-local"
+  },
+  "createdAt": "2026-11-13T03:43:51.790415Z"
+}

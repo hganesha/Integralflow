@@ -1,0 +1,538 @@
+alert_rules:
+- LAYER-01
+- ROUNDTRIP-01
+alerts:
+- LAYER-01
+- ROUNDTRIP-01
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners:
+- orson
+- yara
+effective_ownership:
+  orson: '0.7'
+  yara: '0.3'
+ledger:
+  hero_accounts:
+  - h05.account.payments
+  - h05.account.trade-finance
+  ring_entities: []
+  trades:
+    1:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-001
+    2:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-002
+    3:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-003
+    4:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-004
+    5:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-005
+    6:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-006
+    7:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-007
+    8:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-008
+    9:
+      flagged: true
+      mismatch: false
+      overpriced: true
+      trade: h05.traderecord.trade-009
+    10:
+      flagged: true
+      mismatch: false
+      overpriced: true
+      trade: h05.traderecord.trade-010
+    11:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-011
+    12:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-012
+    13:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-013
+    14:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-014
+    15:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-015
+    16:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-016
+    17:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-017
+    18:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-018
+    19:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-019
+    20:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-020
+    21:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-021
+    22:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-022
+    23:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-023
+    24:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-024
+    25:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-025
+    26:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-026
+    27:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-027
+    28:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-028
+    29:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-029
+    30:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-030
+    31:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-031
+    32:
+      flagged: true
+      mismatch: false
+      overpriced: true
+      trade: h05.traderecord.trade-032
+    33:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-033
+    34:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-034
+    35:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-035
+    36:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-036
+    37:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-037
+    38:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-038
+    39:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-039
+    40:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-040
+    41:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-041
+    42:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-042
+    43:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-043
+    44:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-044
+    45:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-045
+    46:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-046
+    47:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-047
+    48:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-048
+    49:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-049
+    50:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-050
+    51:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-051
+    52:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-052
+    53:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-053
+    54:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-054
+    55:
+      flagged: true
+      mismatch: false
+      overpriced: true
+      trade: h05.traderecord.trade-055
+    56:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-056
+    57:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-057
+    58:
+      flagged: true
+      mismatch: false
+      overpriced: true
+      trade: h05.traderecord.trade-058
+    59:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-059
+    60:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-060
+    61:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-061
+    62:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-062
+    63:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-063
+    64:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-064
+    65:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-065
+    66:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-066
+    67:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-067
+    68:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-068
+    69:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-069
+    70:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-070
+    71:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-071
+    72:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-072
+    73:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-073
+    74:
+      flagged: true
+      mismatch: false
+      overpriced: true
+      trade: h05.traderecord.trade-074
+    75:
+      flagged: true
+      mismatch: true
+      overpriced: false
+      trade: h05.traderecord.trade-075
+    76:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-076
+    77:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-077
+    78:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-078
+    79:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-079
+    80:
+      flagged: false
+      mismatch: false
+      overpriced: false
+      trade: h05.traderecord.trade-080
+  tx_count: 292
+  window:
+  - '2024-09-30T00:00:00Z'
+  - '2026-09-30T00:00:00Z'
+non_findings:
+- screening.sanctions.execute
+- aml.structuring.detect
+- aml.funnel.detect
+notes: 'Of 80 trades, 10 have shipment quantity below invoiced quantity and 6 are
+  over-invoiced by 45% against benchmark; every flagged trade routes through a transshipment
+  country. Unflagged trades are ordinary and must stay clean.
+
+  '
+party_id: H05
+screening_result:
+  hits: []
+seed: 1005
+signals:
+- expect:
+    detected_by:
+    - aml.trade_based.detect
+    outcome: INDICATOR
+  id: SIG-H05-TBML
+  params:
+    account: trade_finance
+    buyers:
+    - buyers-tr
+    - buyers-sg
+    goods:
+    - benchmark_unit_price: '42.00'
+      name: electronic components
+    - benchmark_unit_price: '8.50'
+      name: copper wire (kg)
+    - benchmark_unit_price: '6.80'
+      name: cotton fabric (m)
+    mismatch: 10
+    origin: HK
+    overpriced: 6
+    quantity:
+    - 2000
+    - 9000
+    suppliers:
+    - suppliers-hk
+    - suppliers-cn
+    trades: 80
+    transship:
+    - PA
+    - CY
+  transaction_ids:
+  - h05.transaction.000017
+  - h05.transaction.000018
+  - h05.transaction.000051
+  - h05.transaction.000052
+  - h05.transaction.000054
+  - h05.transaction.000055
+  - h05.transaction.000070
+  - h05.transaction.000072
+  - h05.transaction.000114
+  - h05.transaction.000116
+  - h05.transaction.000120
+  - h05.transaction.000122
+  - h05.transaction.000161
+  - h05.transaction.000162
+  - h05.transaction.000170
+  - h05.transaction.000171
+  - h05.transaction.000229
+  - h05.transaction.000230
+  - h05.transaction.000231
+  - h05.transaction.000232
+  - h05.transaction.000239
+  - h05.transaction.000240
+  - h05.transaction.000241
+  - h05.transaction.000242
+  - h05.transaction.000255
+  - h05.transaction.000256
+  - h05.transaction.000271
+  - h05.transaction.000272
+  - h05.transaction.000275
+  - h05.transaction.000276
+  - h05.transaction.000277
+  - h05.transaction.000278
+  type: trade_based
+  window:
+  - '2024-11-04'
+  - '2026-08-28'
+- expect:
+    detected_by:
+    - aml.layering.detect
+    - aml.roundtrip.detect
+    outcome: INDICATOR
+  id: SIG-H05-LAYER
+  params:
+    account: trade_finance
+    amount: '180000'
+    country: CY
+    hop_hours: 20
+    hops: 3
+    starts:
+    - '2026-02-10'
+    - '2026-05-12'
+    - '2026-08-11'
+  transaction_ids:
+  - h05.transaction.000233
+  - h05.transaction.000234
+  - h05.transaction.000235
+  - h05.transaction.000236
+  - h05.transaction.000259
+  - h05.transaction.000260
+  - h05.transaction.000261
+  - h05.transaction.000262
+  - h05.transaction.000285
+  - h05.transaction.000287
+  - h05.transaction.000288
+  - h05.transaction.000289
+  type: layering
+spec_digest: 672e63ad92df0d4c9bc3e0d777576519d16643d3cf26b9045a50fab39e688855
+workflow:
+  kyb: ALERT_THEN_INVESTIGATE
+  monitoring: SAR_CANDIDATE

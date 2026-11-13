@@ -1,0 +1,28 @@
+{
+  "name": "@ehf/launcher",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@azure/identity": "4.14.1",
+    "@ehf/blob-store": "workspace:*",
+    "@ehf/contracts": "workspace:*",
+    "@ehf/identity": "workspace:*",
+    "@ehf/persistence": "workspace:*",
+    "fastify": "5.12.5",
+    "jose": "6.2.12",
+    "pg": "8.23.0",
+    "zod": "4.6.6",
+    "@ehf/web-static": "workspace:*",
+    "@ehf/rate-limit": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/pg": "8.16.0"
+  }
+}

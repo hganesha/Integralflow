@@ -1,0 +1,868 @@
+{
+  "$defs": {
+    "AmlDetectorConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "amount_threshold": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "currency": {
+          "$ref": "#/$defs/Id"
+        },
+        "max_hops": {
+          "$ref": "#/$defs/Hops"
+        },
+        "minimum_count": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "throughput_ratio": {
+          "$ref": "#/$defs/Fraction"
+        },
+        "window_seconds": {
+          "$ref": "#/$defs/PositiveCount"
+        }
+      },
+      "required": [
+        "amount_threshold",
+        "currency",
+        "minimum_count",
+        "window_seconds"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Checksum": {
+      "enum": [
+        "luhn"
+      ]
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "CtrBusinessDay": {
+      "additionalProperties": false,
+      "properties": {
+        "cutoff": {
+          "$ref": "#/$defs/LocalTime"
+        },
+        "roll_non_working_days": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "cutoff",
+        "roll_non_working_days"
+      ],
+      "type": "object"
+    },
+    "DeadlineDays": {
+      "maximum": 366,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "EddTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Predicate"
+        },
+        "tasks": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "predicate",
+        "tasks"
+      ],
+      "type": "object"
+    },
+    "Extension": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "schema_version",
+        "value"
+      ],
+      "type": "object"
+    },
+    "Extensions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Extension"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "explicit versioned source/institution extensions"
+    },
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    },
+    "Hops": {
+      "maximum": 30,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IdentifierRule": {
+      "additionalProperties": false,
+      "properties": {
+        "checksum": {
+          "$ref": "#/$defs/Checksum"
+        },
+        "pattern": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "pattern"
+      ],
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "LocalTime": {
+      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+      "type": "string"
+    },
+    "MonitorTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "event_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "id",
+        "event_type",
+        "predicate"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptable_tiers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "acceptance_role": {
+          "$ref": "#/$defs/Id"
+        },
+        "active_registry_statuses": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "alert_priority": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Count"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "alert_types": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "aml_detectors": {
+          "additionalProperties": {
+            "$ref": "#/$defs/AmlDetectorConfig"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "approval_roles": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "business_substance_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "case_transitions": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "control_bases": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "ctr_business_day": {
+          "$ref": "#/$defs/CtrBusinessDay"
+        },
+        "ctr_thresholds": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Decimal"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "ctr_time_zone": {
+          "$ref": "#/$defs/Id"
+        },
+        "ctr_transaction_types": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "customer_types": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "device_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "document_types": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "edd_geographies": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "edd_triggers": {
+          "items": {
+            "$ref": "#/$defs/EddTrigger"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "entity_types": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "escalation_severities": {
+          "items": {
+            "$ref": "#/$defs/Severity"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "exception_issuers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "filing_fields": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "fraud_thresholds": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Fraction"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "freshness_seconds": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Count"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "hypothesis_templates": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Text"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "identifier_rules": {
+          "additionalProperties": {
+            "$ref": "#/$defs/IdentifierRule"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "industries": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "investigation_indicator_minimum": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "jurisdiction": {
+          "$ref": "#/$defs/Id"
+        },
+        "license_issuers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "link_attributes": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "media_categories": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "monitor_triggers": {
+          "items": {
+            "$ref": "#/$defs/MonitorTrigger"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "network_decay": {
+          "$ref": "#/$defs/Fraction"
+        },
+        "ownership_threshold": {
+          "$ref": "#/$defs/Fraction"
+        },
+        "permissions": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "permitted_providers": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "profile_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "recommendations": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "remediation_role": {
+          "$ref": "#/$defs/Id"
+        },
+        "reporting_obligations": {
+          "items": {
+            "$ref": "#/$defs/ReportingObligation"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "required_document_types": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "requirements": {
+          "items": {
+            "$ref": "#/$defs/PolicyRequirement"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "rescreen_interval_seconds": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "review_interval_seconds": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "risk_factor_maps": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Decimal"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "keyed collection"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "risk_model_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "risk_tiers": {
+          "items": {
+            "$ref": "#/$defs/RiskTier"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "risk_weights": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Decimal"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "role_members": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "rules": {
+          "items": {
+            "$ref": "#/$defs/PolicyRule"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "sanctions_control_bases": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "sanctions_ownership": {
+          "$ref": "#/$defs/SanctionsAggregation"
+        },
+        "screening_threshold": {
+          "$ref": "#/$defs/Probability"
+        },
+        "synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "synthetic_fingerprint_key": {
+          "$ref": "#/$defs/Id"
+        },
+        "transaction_types": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "verification_methods": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "version": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "version",
+        "jurisdiction",
+        "permissions"
+      ],
+      "type": "object"
+    },
+    "PolicyRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "control": {
+          "$ref": "#/$defs/RequirementControl"
+        },
+        "description": {
+          "$ref": "#/$defs/Text"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "when": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "PolicyRule": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "id",
+        "predicate"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Predicate": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/RuleLeaf"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "all": {
+              "items": {
+                "$ref": "#/$defs/Predicate"
+              },
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "any": {
+              "items": {
+                "$ref": "#/$defs/Predicate"
+              },
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "ReportType": {
+      "enum": [
+        "SAR",
+        "CTR"
+      ]
+    },
+    "ReportingObligation": {
+      "additionalProperties": false,
+      "properties": {
+        "business_days": {
+          "$ref": "#/$defs/Bool"
+        },
+        "deadline_days": {
+          "$ref": "#/$defs/DeadlineDays"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "time_zone": {
+          "$ref": "#/$defs/Id"
+        },
+        "type": {
+          "$ref": "#/$defs/ReportType"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "deadline_days",
+        "business_days",
+        "time_zone"
+      ],
+      "type": "object"
+    },
+    "RequirementControl": {
+      "additionalProperties": false,
+      "properties": {
+        "fail": {
+          "$ref": "#/$defs/Predicate"
+        },
+        "pass": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "pass"
+      ],
+      "type": "object"
+    },
+    "RiskTier": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "tier": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "minimum",
+        "tier"
+      ],
+      "type": "object"
+    },
+    "RuleLeaf": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/Id"
+        },
+        "op": {
+          "$ref": "#/$defs/RuleOperator"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "field",
+        "op"
+      ],
+      "type": "object"
+    },
+    "RuleOperator": {
+      "enum": [
+        "eq",
+        "ne",
+        "in",
+        "contains",
+        "excludes",
+        "gte",
+        "gt",
+        "lte",
+        "lt",
+        "present"
+      ]
+    },
+    "SanctionsAggregation": {
+      "additionalProperties": false,
+      "properties": {
+        "rule": {
+          "$ref": "#/$defs/SyntheticAggregation"
+        },
+        "threshold": {
+          "$ref": "#/$defs/Fraction"
+        }
+      },
+      "required": [
+        "rule",
+        "threshold"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "UNKNOWN"
+      ]
+    },
+    "SyntheticAggregation": {
+      "enum": [
+        "synthetic_aggregate",
+        "ofac_50_percent"
+      ]
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:context:Policy:2.0.0",
+  "$ref": "#/$defs/Policy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

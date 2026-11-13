@@ -1,0 +1,7 @@
+.env
+.provider-secrets.env
+.local
+__pycache__
+.pytest_cache
+.git
+*.zip

@@ -1,0 +1,160 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:aml.mule.detect
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Detect a configured temporal transaction pattern using a complete
+  scoped dataset.
+code_hash: 3e75d5ef146f769fa0cda0e4de7bdb18b94e22ddab30f2c54290db39410a408d
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Detect a configured temporal transaction pattern using a complete scoped
+  dataset.
+effects: read_only
+entrypoint: financial_crime.skills.aml:detect
+evaluation_profile: aml.mule.detect-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: aml-mule-detect
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: aml.mule.detect
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:aml.mule.detect:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 490bba14ded116b76044577d7c7b397b580948bebe68e39caefb77bf6615c60d
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    ThroughputIndicator:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/$defs/Id'
+        allocation:
+          $ref: '#/$defs/Id'
+        currency:
+          $ref: '#/$defs/Id'
+        kind:
+          $ref: '#/$defs/Id'
+        transaction_ids:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - account
+      - currency
+      - transaction_ids
+      - kind
+      - allocation
+      type: object
+  $id: urn:financial-crime:skill:aml.mule.detect:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    indicators:
+      items:
+        $ref: '#/$defs/ThroughputIndicator'
+      maxItems: 10000
+      type: array
+    not_proof:
+      type: boolean
+  required:
+  - indicators
+  - not_proof
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- aml_detectors
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - source
+  - target
+  - amount
+  - currency
+  - timestamp
+  - event_id
+  - status
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Transaction
+  optional: false
+- fields:
+  - start
+  - end
+  - complete
+  - expected_count
+  - watermark
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DatasetScope
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

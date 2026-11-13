@@ -1,0 +1,18 @@
+{
+  "$id": "urn:financial-crime:skill:decision.disposition.record:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disposition": {
+      "enum": [
+        "ACCEPT",
+        "REJECT",
+        "ESCALATE"
+      ]
+    }
+  },
+  "required": [
+    "disposition"
+  ],
+  "type": "object"
+}

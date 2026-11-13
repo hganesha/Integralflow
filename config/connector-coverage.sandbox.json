@@ -1,0 +1,56 @@
+{
+  "opensanctions:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": { "mode": "provider_hosted", "attestedBy": "sandbox: OpenSanctions hosted API, queried live per call" },
+    "notes": "Local sandbox attestation only. Not a licence or regulatory coverage claim."
+  },
+  "wiring:opensanctions:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": { "mode": "provider_hosted", "attestedBy": "sandbox: kyc-wiring OpenSanctions connector" },
+    "notes": "Local sandbox attestation only."
+  },
+  "wiring:complyadvantage:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": { "mode": "provider_hosted", "attestedBy": "sandbox: kyc-wiring mock provider" },
+    "notes": "Mock provider in the local sandbox; it screens nothing real."
+  },
+  "wiring:companies-house:*": {
+    "entitled": true,
+    "jurisdictions": ["GB"],
+    "lists": { "mode": "provider_hosted", "attestedBy": "sandbox: register queried live per call" },
+    "notes": "GB companies register only."
+  },
+  "wiring:opencorporates:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": { "mode": "provider_hosted", "attestedBy": "sandbox: kyc-wiring connector" },
+    "notes": "Local sandbox attestation only."
+  },
+  "wiring:gleif:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": { "mode": "provider_hosted", "attestedBy": "sandbox: GLEIF public API" },
+    "notes": "LEI reference data."
+  },
+  "wiring:dow-jones-risk-compliance:*": {
+    "entitled": false,
+    "jurisdictions": ["*"],
+    "lists": null,
+    "notes": "Pinned as a candidate in examples; not licensed in the sandbox, so selection skips it."
+  },
+  "evidence:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": null,
+    "notes": "Platform evidence pipeline over documents the case supplies."
+  },
+  "skills:*": {
+    "entitled": true,
+    "jurisdictions": ["*"],
+    "lists": null,
+    "notes": "Skill host bundles registered and approved in the artifact registry; synthetic skills make no jurisdiction claim beyond the sandbox."
+  }
+}

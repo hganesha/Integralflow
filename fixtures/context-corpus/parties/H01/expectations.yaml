@@ -1,0 +1,30 @@
+alert_rules: []
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners: []
+effective_ownership: {}
+hard_negative: true
+ledger:
+  hero_accounts:
+  - h01.account.card
+  - h01.account.deposit
+  ring_entities: []
+  trades: {}
+  tx_count: 732
+  window:
+  - '2024-09-30T00:00:00Z'
+  - '2026-09-30T00:00:00Z'
+non_findings:
+- screening.sanctions.execute
+- screening.pep.execute
+- aml.structuring.detect
+notes: Clean control. Activity matches declared payroll, rent and card spend (Phase
+  2 adds the ledger).
+party_id: H01
+screening_result:
+  hits: []
+seed: 1001
+signals: []
+spec_digest: fbd118cb6648583cf352acc06d7fbafa94b1904d974017bb16bde6576f34b295
+workflow:
+  kyc_v2: APPROVE

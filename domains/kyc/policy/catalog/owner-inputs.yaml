@@ -1,0 +1,143 @@
+apiVersion: harness.factory/owner-inputs-v1
+kind: OwnerInputRegister
+metadata:
+  id: catalog.kyc.owner-inputs.v1
+  domain: kyc
+  jurisdiction: US
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    Institution-specific values this catalog deliberately does not invent. Each entry names
+    what is missing, who owns it, what the platform does until it arrives, and whether it
+    blocks production release. The placeholder values below exist so the corpus and the
+    compiled bundle are runnable in preproduction; none of them is an institutional
+    decision, and every blocking entry must be resolved before Phase 4 release.
+spec:
+  releaseRule: >-
+    An unresolved input with blocksRelease true blocks production release. A gate that
+    depends on an unresolved input evaluates with the placeholder in preproduction and must
+    fail closed to REVIEW in production until the value is supplied.
+  inputs:
+    - id: D01
+      title: Sanctions provider selection, match threshold and list freshness window
+      question: >-
+        Which sanctions data provider and lists are authoritative, at what fuzzy-match score
+        does an alert become a possible match, and how old may a list version be?
+      owner: Financial crime compliance
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: SANCTIONS_CONFIGURATION_UNRESOLVED
+      placeholder:
+        provider: PROVIDER_NEUTRAL_FIXTURE
+        possibleMatchScore: 0.85
+        confirmedMatchScore: 0.97
+        listFreshnessDays: 1
+      affects: [KYC-SCR-001, KYC-SCR-002, KYC-SCR-003, EVD-SANCTIONS-SCREENING]
+    - id: D02
+      title: Adverse media lookback window and relevance standard
+      question: How far back does adverse media screening look, and what counts as relevant?
+      owner: Financial crime compliance
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: ADVERSE_MEDIA_CONFIGURATION_UNRESOLVED
+      placeholder:
+        lookbackYears: 5
+        relevanceCategories: [FINANCIAL_CRIME, FRAUD, CORRUPTION, SANCTIONS_EVASION]
+      affects: [KYC-SCR-005, EVD-ADVERSE-MEDIA]
+    - id: D03
+      title: PEP tiers in scope and decay period
+      question: Which PEP tiers and associate degrees are in scope, and for how long after leaving office?
+      owner: Financial crime compliance
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: PEP_CONFIGURATION_UNRESOLVED
+      placeholder:
+        tiersInScope: [TIER_1, TIER_2]
+        associateDegrees: 1
+        decayMonths: 12
+      affects: [KYC-EDD-002, EVD-PEP-SCREENING]
+    - id: D04
+      title: Automatic-approval cohort definition and attestation authority
+      question: >-
+        Which cohorts may a deterministic gate approve without a human, who signs the
+        attestation, how long is it valid, and what QA sampling rate applies?
+      owner: Chief compliance officer and model risk
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: AUTOMATIC_APPROVAL_POLICY_UNRESOLVED
+      placeholder:
+        eligibleCohorts: [RC-LOW-STANDARD-INDIVIDUAL]
+        attestationValidityDays: 90
+        qaSamplingRate: 0.1
+      affects: [KYC-DEC-002, KYC-QA-001]
+    - id: D05
+      title: Evidence freshness windows and retention schedule
+      question: How long does each evidence class remain current, and how long is it retained?
+      owner: Records management and compliance
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: EVIDENCE_RETENTION_UNRESOLVED
+      placeholder:
+        identityVerificationDays: 90
+        addressEvidenceDays: 365
+        retentionYears: 5
+      affects: [EVD-CIP-ADDRESS, EVD-IDENTITY-VERIFICATION, EVD-CIP-IDENTITY-DOCUMENT]
+    - id: D06
+      title: Dual-control roles and separation of duties
+      question: >-
+        Which roles may approve, which may decline, which may clear a sanctions alert, and
+        who may act as the second approver?
+      owner: Chief compliance officer
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: DUAL_CONTROL_CONFIGURATION_UNRESOLVED
+      placeholder:
+        approverRole: kyc_approver
+        declineAuthorityRole: kyc_senior_approver
+        sanctionsClearanceRole: sanctions_officer
+        secondApproverMustDiffer: true
+      affects: [KYC-DEC-003, KYC-SCR-003, KYC-SCR-004, KYC-AUD-002]
+    - id: D07
+      title: Recommendation confidence threshold for automatic disposition
+      question: Below what confidence is a recommendation advisory only?
+      owner: Model risk
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: CONFIDENCE_THRESHOLD_UNRESOLVED
+      placeholder:
+        minimumConfidence: 0.85
+      affects: [KYC-DEC-005]
+    - id: D08
+      title: High-risk jurisdiction list and its source
+      question: Which jurisdictions are high risk, from which source, refreshed how often?
+      owner: Financial crime compliance
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: JURISDICTION_LIST_UNRESOLVED
+      placeholder:
+        source: PLACEHOLDER_INTERNAL_LIST
+        refreshDays: 30
+      affects: [KYC-EDD-001, KYC-EDD-003, RC-HIGH-RISK-JURISDICTION]
+    - id: D09
+      title: Periodic review cadence and material-change triggers
+      question: How often is an approved relationship rescreened, and what change forces an early review?
+      owner: Financial crime compliance
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: PERIODIC_REVIEW_CADENCE_UNRESOLVED
+      placeholder:
+        standardReviewMonths: 36
+        elevatedReviewMonths: 12
+        highReviewMonths: 6
+      affects: [KYC-QA-002]
+    - id: D10
+      title: Data residency, model deployment region and quota
+      question: Where may case data and evidence reside, and which model deployments are approved?
+      owner: Technology risk and privacy
+      status: UNRESOLVED
+      blocksRelease: true
+      reasonCode: RESIDENCY_CONFIGURATION_UNRESOLVED
+      placeholder:
+        residency: US
+        approvedDeployments: [PLACEHOLDER]
+      affects: []

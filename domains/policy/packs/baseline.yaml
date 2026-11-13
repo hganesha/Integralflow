@@ -1,0 +1,66 @@
+# Jurisdiction-neutral control semantics every effective pack starts from. Every layer above may
+# only tighten these values (packages/policy-engine/src/policy-packs.ts, field rules).
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.baseline
+  version: 1.0.0
+  layer: baseline
+  status: CANDIDATE
+  ownerRole: fc-policy-architecture
+  description: Common ground for CDD onboarding across jurisdictions; the loosest values any pack may hold.
+values:
+  screening_threshold:
+    value: 0.95
+    basis: { text: "Platform ceiling for the local identity-match score; layers lower it to surface more candidates." }
+  ownership_threshold:
+    value: "0.25"
+    basis: { text: "Common beneficial-ownership threshold of the supported jurisdictions; a layer may only lower it." }
+  control_bases:
+    value: [voting_majority]
+    basis: { text: "Majority voting control always establishes control; layers add further bases." }
+  sanctions_control_bases:
+    value: [voting_majority]
+    basis: { text: "Majority voting control by a designated person always counts as sanctions control." }
+  verification_methods:
+    value: [government_id_document, registry_extract, trust_deed, electronic_identity_verification]
+    basis: { text: "Every method the platform can evidence; layers may only narrow the accepted set." }
+  active_registry_statuses:
+    value: [ACTIVE]
+    basis: { text: "Only an active registration verifies legal existence (canonical status vocabulary, upper case)." }
+  freshness_seconds:
+    value: { WatchlistEntry: 604800, VerificationRecord: 31536000 }
+    basis: { text: "Outer limits: list data no older than 7 days, identity verification no older than a year." }
+  required_screening_types:
+    value: [sanctions]
+    basis: { text: "Sanctions screening is required everywhere; layers add PEP and others." }
+  required_screening_lists:
+    value: []
+    basis: { text: "Lists are jurisdiction-specific; the jurisdiction layer names them." }
+  screening_roles:
+    value: [customer, beneficial_owner, control_person]
+    basis: { text: "The customer and the persons who own or control it are always screened." }
+  pep_scope:
+    value: foreign
+    basis: { text: "Foreign political exposure at minimum; jurisdictions widen it." }
+  required_party_roles:
+    value: { individual: [customer], corporate: [customer] }
+    basis: { text: "Every relationship names its customer." }
+  dual_control_required:
+    value: false
+    basis: { text: "Single approval at minimum; layers may require dual control." }
+  automatic_approval_enabled:
+    value: false
+    basis: { text: "No pack approves a customer without a person." }
+  automatic_decline_enabled:
+    value: false
+    basis: { text: "No pack declines a customer without a person." }
+  diligence_floors:
+    value: {}
+    basis: { text: "No floor: a cell's level comes from the institution's diligence matrix. Layers may only raise floors (keys are customer type or *, then product or *)." }
+  mandatory_overlays:
+    value: []
+    basis: { text: "No overlay is mandatory everywhere; layers add the escalations their regulator requires." }
+  simplified_due_diligence_permitted:
+    value: true
+    basis: { text: "The loosest value: simplified due diligence may be used where every layer above allows it. Any layer may withdraw it." }

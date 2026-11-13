@@ -1,0 +1,364 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "CandidateAssertion": {
+      "additionalProperties": false,
+      "properties": {
+        "context_targets": {
+          "items": {
+            "$ref": "#/$defs/ContextTargetDecl"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "contract_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "epistemic_status": {
+          "$ref": "#/$defs/Id"
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        },
+        "source_digest": {
+          "$ref": "#/$defs/Hash"
+        },
+        "source_spans": {
+          "items": {
+            "$ref": "#/$defs/ExtractionSpan"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "verification": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "path",
+        "value",
+        "document_version",
+        "source_digest",
+        "contract_hash",
+        "source_spans",
+        "epistemic_status",
+        "verification",
+        "context_targets"
+      ],
+      "type": "object"
+    },
+    "ContextTargetDecl": {
+      "additionalProperties": false,
+      "properties": {
+        "condition": {
+          "$ref": "#/$defs/Text"
+        },
+        "field_path": {
+          "$ref": "#/$defs/Id"
+        },
+        "mode": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "object_type",
+        "field_path",
+        "condition",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "DocumentExtraction": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_assertions": {
+          "items": {
+            "$ref": "#/$defs/CandidateAssertion"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "contract_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "extraction_status": {
+          "$ref": "#/$defs/Id"
+        },
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/ExtractionIssue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "mapping_candidates": {
+          "items": {
+            "$ref": "#/$defs/MappingCandidate"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "profile_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_digest": {
+          "$ref": "#/$defs/Hash"
+        }
+      },
+      "required": [
+        "document_type",
+        "profile_version",
+        "contract_hash",
+        "document_version",
+        "source_digest",
+        "extraction_status",
+        "candidate_assertions",
+        "mapping_candidates",
+        "issues"
+      ],
+      "type": "object"
+    },
+    "ExtractionIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/Id"
+        },
+        "message": {
+          "$ref": "#/$defs/Text"
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "code",
+        "path",
+        "message"
+      ],
+      "type": "object"
+    },
+    "ExtractionSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "quote": {
+          "$ref": "#/$defs/Text"
+        },
+        "start": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "page_id",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "MappingCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "requires_subject_resolution_and_transform": {
+          "$ref": "#/$defs/Bool"
+        },
+        "source_path": {
+          "$ref": "#/$defs/Text"
+        },
+        "source_value": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/ContextTargetDecl"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "source_path",
+        "source_value",
+        "targets",
+        "requires_subject_resolution_and_transform"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ProposedRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/JsonObject"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "local_ref": {
+          "$ref": "#/$defs/Id"
+        },
+        "record_type": {
+          "$ref": "#/$defs/ProposedRecordType"
+        }
+      },
+      "required": [
+        "record_type",
+        "local_ref",
+        "body",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "ProposedRecordType": {
+      "enum": [
+        "CanonicalRecord",
+        "UnresolvedQuestion"
+      ]
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.fields.contract_extract:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "$ref": "#/$defs/Hash"
+    },
+    "extractions": {
+      "items": {
+        "$ref": "#/$defs/DocumentExtraction"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "promotion_allowed": {
+      "type": "boolean"
+    },
+    "proposed_records": {
+      "items": {
+        "$ref": "#/$defs/ProposedRecord"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "semantic_verification": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "unclassified": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "subject",
+    "catalog_hash",
+    "review_required",
+    "promotion_allowed",
+    "semantic_verification",
+    "extractions",
+    "unclassified",
+    "proposed_records"
+  ],
+  "type": "object"
+}

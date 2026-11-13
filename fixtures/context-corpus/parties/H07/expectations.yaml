@@ -1,0 +1,207 @@
+alert_rules:
+- CTR-01
+- FUNNEL-01
+- MULE-01
+- PASSTHRU-01
+- SMURF-01
+- STRUCT-01
+alerts:
+- STRUCT-01
+- FUNNEL-01
+- PASSTHRU-01
+- CTR-01
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners:
+- owner
+effective_ownership:
+  owner: '1'
+ledger:
+  hero_accounts:
+  - h07.account.deposit
+  - h07.account.payments
+  ring_entities: []
+  trades: {}
+  tx_count: 1382
+  window:
+  - '2024-09-30T00:00:00Z'
+  - '2026-09-30T00:00:00Z'
+non_findings:
+- screening.sanctions.execute
+- screening.pep.execute
+- aml.layering.detect
+- aml.roundtrip.detect
+notes: 'Structuring is deliberately sub-threshold per day, so it raises no CTR; the
+  separate legitimate high-cash days (SIG-H07-CTR) do. Funnel feeders are mule-profile
+  individuals.
+
+  '
+party_id: H07
+screening_result:
+  hits: []
+seed: 1007
+signals:
+- expect:
+    detected_by:
+    - aml.structuring.detect
+    - regulatory.ctr.evaluate
+    outcome: INDICATOR
+  id: SIG-H07-STRUCT
+  params:
+    band:
+    - '8200'
+    - '9900'
+    branches: 5
+    days_per_week: 1
+    splits: 5
+    threshold: '10000'
+  transaction_ids:
+  - h07.transaction.000913
+  - h07.transaction.000914
+  - h07.transaction.000915
+  - h07.transaction.000918
+  - h07.transaction.000920
+  - h07.transaction.000941
+  - h07.transaction.000942
+  - h07.transaction.000943
+  - h07.transaction.000944
+  - h07.transaction.000945
+  - h07.transaction.000955
+  - h07.transaction.000956
+  - h07.transaction.000957
+  - h07.transaction.000959
+  - h07.transaction.000960
+  - h07.transaction.000970
+  - h07.transaction.000971
+  - h07.transaction.000972
+  - h07.transaction.000974
+  - h07.transaction.000975
+  - h07.transaction.000984
+  - h07.transaction.000985
+  - h07.transaction.000986
+  - h07.transaction.000987
+  - h07.transaction.000989
+  - h07.transaction.001005
+  - h07.transaction.001006
+  - h07.transaction.001008
+  - h07.transaction.001009
+  - h07.transaction.001010
+  - h07.transaction.001022
+  - h07.transaction.001023
+  - h07.transaction.001025
+  - h07.transaction.001026
+  - h07.transaction.001027
+  - h07.transaction.001033
+  - h07.transaction.001034
+  - h07.transaction.001035
+  - h07.transaction.001036
+  - h07.transaction.001037
+  type: structuring
+  window:
+  - '2026-03-02'
+  - '2026-04-24'
+- expect:
+    detected_by:
+    - aml.funnel.detect
+    outcome: INDICATOR
+  id: SIG-H07-FUNNEL
+  params:
+    amount:
+    - '900'
+    - '1800'
+    days:
+    - '2026-06-09'
+    - '2026-06-16'
+    - '2026-06-23'
+    - '2026-06-30'
+    feeders: 8
+    out:
+      beneficiaries: 3
+      country: MX
+      ratio: '0.97'
+      wires: 6
+    out_signal: SIG-H07-PASSTHROUGH
+  transaction_ids:
+  - h07.transaction.001128
+  - h07.transaction.001129
+  - h07.transaction.001130
+  - h07.transaction.001131
+  - h07.transaction.001132
+  - h07.transaction.001133
+  - h07.transaction.001134
+  - h07.transaction.001135
+  - h07.transaction.001154
+  - h07.transaction.001155
+  - h07.transaction.001156
+  - h07.transaction.001157
+  - h07.transaction.001158
+  - h07.transaction.001159
+  - h07.transaction.001160
+  - h07.transaction.001161
+  - h07.transaction.001176
+  - h07.transaction.001178
+  - h07.transaction.001179
+  - h07.transaction.001180
+  - h07.transaction.001181
+  - h07.transaction.001182
+  - h07.transaction.001183
+  - h07.transaction.001184
+  - h07.transaction.001205
+  - h07.transaction.001206
+  - h07.transaction.001207
+  - h07.transaction.001208
+  - h07.transaction.001209
+  - h07.transaction.001210
+  - h07.transaction.001211
+  - h07.transaction.001212
+  type: funnel
+- expect:
+    detected_by:
+    - aml.pass_through.detect
+    - aml.mule.detect
+    outcome: INDICATOR
+  id: SIG-H07-PASSTHROUGH
+  transaction_ids:
+  - h07.transaction.001136
+  - h07.transaction.001137
+  - h07.transaction.001138
+  - h07.transaction.001139
+  - h07.transaction.001140
+  - h07.transaction.001141
+  - h07.transaction.001163
+  - h07.transaction.001164
+  - h07.transaction.001165
+  - h07.transaction.001166
+  - h07.transaction.001167
+  - h07.transaction.001168
+  - h07.transaction.001185
+  - h07.transaction.001186
+  - h07.transaction.001187
+  - h07.transaction.001188
+  - h07.transaction.001189
+  - h07.transaction.001190
+  - h07.transaction.001214
+  - h07.transaction.001215
+  - h07.transaction.001216
+  - h07.transaction.001217
+  - h07.transaction.001218
+  - h07.transaction.001219
+  type: derived
+- expect:
+    detected_by:
+    - regulatory.ctr.evaluate
+    outcome: CTR_REQUIRED
+  id: SIG-H07-CTR
+  params:
+    days:
+    - '2025-12-19'
+    - '2026-01-16'
+    deposits: 1
+    total: '10900'
+  transaction_ids:
+  - h07.transaction.000794
+  - h07.transaction.000833
+  type: cash_day
+spec_digest: 7e89d6b050e196ec180cff4923fa728fba6008b482782c77e1e8a33e96829d58
+workflow:
+  kyb: APPROVE_AT_ONBOARDING
+  monitoring: SAR_CANDIDATE

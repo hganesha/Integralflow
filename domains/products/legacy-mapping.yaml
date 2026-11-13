@@ -1,0 +1,42 @@
+# Today's BankingRelationship.products[].productType values on the canonical taxonomy (decision 2: additive).
+apiVersion: harness.factory/legacy-product-mapping-v1
+kind: LegacyProductMapping
+metadata:
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  mappings:
+  - productType: deposit
+    productId: DEP
+    basis: Generic deposit relationship; the institution's catalog maps its SKUs to a class or type.
+  - productType: card
+    productId: PAY.CARDS
+    basis: Card products; credit cards are also classified under LND.CARDS_CREDIT.
+  - productType: payments
+    productId: PAY
+    basis: Generic payment services.
+  - productType: lending
+    productId: LND
+    basis: Generic lending.
+  - productType: trade_finance
+    productId: TRD
+    basis: Trade finance.
+  - productType: merchant_acquiring
+    productId: PAY.MERCHANT_ACQUIRING
+    basis: Merchant acquiring.
+  - productType: private_banking
+    productId: WLT.PRIVATE_BANKING
+    basis: Private banking is a bundle, not one instrument.
+  - productType: correspondent
+    productId: CRP.CORRESPONDENT_ACCOUNTS
+    basis: Correspondent accounts for respondent institutions.
+  - productType: fbo
+    productId: DEP.SPECIAL_PURPOSE.FBO_ACCOUNT
+    basis: For-benefit-of accounts, also classified under FIN.BAAS.
+  - productType: digital_assets
+    productId: DIG
+    basis: Generic virtual-asset services.
+  - productType: custody
+    productId: CUS.SAFEKEEPING
+    basis: Safekeeping and asset servicing.

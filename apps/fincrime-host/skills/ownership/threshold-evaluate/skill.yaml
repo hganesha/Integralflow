@@ -1,0 +1,123 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:ownership.threshold.evaluate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Evaluate the pinned synthetic threshold, preserving exact decimal
+  comparisons.
+code_hash: 36bbdb7783de053d2161265ab71585ce350bde3c2f0d51f2bede81fe91ad5276
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Evaluate the pinned synthetic threshold, preserving exact decimal comparisons.
+effects: read_only
+entrypoint: financial_crime.skills.ownership:threshold_evaluate
+evaluation_profile: ownership.threshold.evaluate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: ownership-threshold-evaluate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: ownership.threshold.evaluate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Fraction:
+      pattern: ^(?:0(?:\.[0-9]+)?|1(?:\.0+)?)$
+      type: string
+  $id: urn:financial-crime:skill:ownership.threshold.evaluate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    interests:
+      additionalProperties:
+        $ref: '#/$defs/Fraction'
+      type: object
+      x-dynamic-map-reason: keyed collection
+  required:
+  - interests
+  type: object
+instruction_hash: 4afb51ee07ee6a9065bb8ea23d320705eafe9c057c584b7d5e335daa30d256a3
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Fraction:
+      pattern: ^(?:0(?:\.[0-9]+)?|1(?:\.0+)?)$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:ownership.threshold.evaluate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    qualifying:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+    threshold:
+      $ref: '#/$defs/Fraction'
+  required:
+  - qualifying
+  - threshold
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- ownership_threshold
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

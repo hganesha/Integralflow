@@ -1,0 +1,38 @@
+# Treasury & liquidity. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: TSY
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - BANKING
+  name: Treasury & liquidity
+  definition: Services that manage a client's cash positions, liquidity and financial risks.
+  regulatedActivities:
+  - DEPOSIT_TAKING
+  - FOREIGN_EXCHANGE
+  riskDimensions:
+  - VELOCITY
+  - CROSS_BORDER
+  classes:
+  - code: CASH_MANAGEMENT
+    name: Cash management
+    definition: Collection, concentration and disbursement services across a client's accounts.
+  - code: LIQUIDITY
+    name: Liquidity management
+    definition: Pooling and investment of surplus balances, notional or physical.
+  - code: FX
+    name: Foreign exchange
+    definition: Spot, forward and swap foreign-exchange transactions for clients.
+  - code: HEDGING
+    name: Rate & commodity hedging
+    definition: Derivatives used by clients to hedge interest-rate and commodity exposures.
+  - code: MONEY_MARKETS
+    name: Money-market investments
+    definition: Short-term investments such as commercial paper and money-market funds.
+  - code: VIRTUAL_ACCOUNTS
+    name: Virtual accounts
+    definition: Sub-ledger account numbers allocated under a client's physical account.

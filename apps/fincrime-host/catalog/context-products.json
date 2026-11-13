@@ -1,0 +1,768 @@
+[
+  {
+    "description": "Governed canonical projection for identity.intelligence",
+    "id": "identity.intelligence",
+    "objects": {
+      "Address": [
+        "country",
+        "extensions",
+        "lines",
+        "locality",
+        "normalized",
+        "postal_code",
+        "region"
+      ],
+      "Alias": [
+        "entity_id",
+        "extensions",
+        "language",
+        "name",
+        "script"
+      ],
+      "Entity": [
+        "attributes",
+        "entity_type",
+        "extensions",
+        "identifiers",
+        "name"
+      ],
+      "EntityCandidate": [
+        "extensions",
+        "identifiers",
+        "name"
+      ],
+      "Identity": [
+        "attributes",
+        "extensions"
+      ],
+      "IdentityIdentifier": [
+        "entity_id",
+        "extensions",
+        "identifier_type",
+        "issuer",
+        "value",
+        "verified"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for ownership.intelligence",
+    "id": "ownership.intelligence",
+    "objects": {
+      "BeneficialOwner": [
+        "entity_id",
+        "evidence_ids",
+        "extensions",
+        "interest",
+        "verification_ref"
+      ],
+      "ControlRight": [
+        "basis",
+        "controlled",
+        "controller",
+        "extensions",
+        "verified"
+      ],
+      "OfficerRole": [
+        "entity_id",
+        "extensions",
+        "organization_id",
+        "role"
+      ],
+      "OwnershipGraph": [
+        "complete",
+        "edge_refs",
+        "extensions",
+        "nodes",
+        "root_entity_id",
+        "unresolved"
+      ],
+      "OwnershipInterest": [
+        "extensions",
+        "interest",
+        "owned",
+        "owner",
+        "share_class",
+        "voting_interest"
+      ],
+      "OwnershipRange": [
+        "extensions",
+        "lower",
+        "lower_inclusive",
+        "owned",
+        "owner",
+        "upper",
+        "upper_inclusive"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for document.intelligence",
+    "id": "document.intelligence",
+    "objects": {
+      "Document": [
+        "document_type",
+        "expires_at",
+        "extensions",
+        "issued_at"
+      ],
+      "DocumentPage": [
+        "document_version",
+        "extensions",
+        "page",
+        "text"
+      ],
+      "DocumentVersion": [
+        "artifact_hash",
+        "artifact_ref",
+        "document_id",
+        "extensions",
+        "media_type",
+        "page_count"
+      ],
+      "ExtractedAssertion": [
+        "document_version",
+        "extensions",
+        "field",
+        "subject",
+        "value"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for registry.intelligence",
+    "id": "registry.intelligence",
+    "objects": {
+      "Filing": [
+        "artifact_ref",
+        "authority",
+        "content_hash",
+        "extensions",
+        "filing_kind"
+      ],
+      "License": [
+        "expires_at",
+        "extensions",
+        "issuer",
+        "scope",
+        "status"
+      ],
+      "Registration": [
+        "authority",
+        "extensions",
+        "jurisdiction",
+        "registration_id"
+      ],
+      "RegistryRecord": [
+        "address",
+        "attributes",
+        "coverage",
+        "extensions",
+        "name",
+        "registration_id",
+        "status"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for party360",
+    "id": "party360",
+    "objects": {
+      "Account": [
+        "account_type",
+        "currency",
+        "entity_id",
+        "extensions",
+        "status"
+      ],
+      "Counterparty": [
+        "entity_id",
+        "evidence_ids",
+        "extensions",
+        "risk_indicators"
+      ],
+      "CustomerRelationship": [
+        "ended_at",
+        "extensions",
+        "institution_id",
+        "party_id",
+        "relationship_type",
+        "started_at",
+        "status"
+      ],
+      "ExpectedActivity": [
+        "behavior_category",
+        "declared",
+        "evidence_ids",
+        "extensions",
+        "observed",
+        "window"
+      ],
+      "GeographyExposure": [
+        "basis",
+        "country",
+        "extensions",
+        "value"
+      ],
+      "Party": [
+        "customer_type",
+        "entity_id",
+        "extensions",
+        "industry",
+        "profile",
+        "role"
+      ],
+      "Product": [
+        "active",
+        "channel",
+        "extensions",
+        "product_type"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for transaction.intelligence",
+    "id": "transaction.intelligence",
+    "objects": {
+      "DatasetScope": [
+        "complete",
+        "end",
+        "expected_count",
+        "extensions",
+        "start",
+        "watermark"
+      ],
+      "DetectionRule": [
+        "extensions",
+        "model_version",
+        "name",
+        "predicate",
+        "typology_ref"
+      ],
+      "Invoice": [
+        "currency",
+        "extensions",
+        "quantity",
+        "unit_price"
+      ],
+      "Payment": [
+        "amount",
+        "baseline_maximum",
+        "currency",
+        "extensions"
+      ],
+      "PaymentRail": [
+        "extensions",
+        "name",
+        "rail_id",
+        "settlement_currency_codes",
+        "supports_reversal"
+      ],
+      "Shipment": [
+        "extensions",
+        "quantity"
+      ],
+      "TradeRecord": [
+        "extensions",
+        "invoice_id",
+        "shipment_id"
+      ],
+      "Transaction": [
+        "amount",
+        "country",
+        "currency",
+        "event_id",
+        "extensions",
+        "source",
+        "status",
+        "target",
+        "timestamp",
+        "transaction_type"
+      ],
+      "Typology": [
+        "description",
+        "extensions",
+        "name",
+        "required_features",
+        "rule_refs"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for screening.intelligence",
+    "id": "screening.intelligence",
+    "objects": {
+      "AdverseMediaEvent": [
+        "coverage",
+        "event_key",
+        "extensions",
+        "source",
+        "status",
+        "subjects",
+        "title"
+      ],
+      "PEPRelationship": [
+        "extensions",
+        "relation",
+        "source",
+        "target",
+        "verified"
+      ],
+      "SanctionsRegime": [
+        "extensions",
+        "jurisdiction",
+        "list_snapshot_refs",
+        "policy_ref",
+        "regime_id"
+      ],
+      "ScreeningExecution": [
+        "candidate_count",
+        "dataset_versions",
+        "extensions",
+        "limitations",
+        "list_published_at",
+        "provider",
+        "query",
+        "query_time",
+        "scope",
+        "screening_type",
+        "status",
+        "subject",
+        "truncated"
+      ],
+      "ScreeningHit": [
+        "entity_id",
+        "entry_id",
+        "extensions",
+        "features"
+      ],
+      "WatchlistEntry": [
+        "coverage",
+        "extensions",
+        "identifiers",
+        "list_type",
+        "list_version",
+        "name"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for network.intelligence",
+    "id": "network.intelligence",
+    "objects": {
+      "NetworkGraph": [
+        "complete",
+        "edge_refs",
+        "extensions",
+        "nodes",
+        "scope"
+      ],
+      "Relationship": [
+        "extensions",
+        "relation",
+        "source",
+        "target",
+        "verified"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for risk.intelligence",
+    "id": "risk.intelligence",
+    "objects": {
+      "RiskAssessment": [
+        "contributions",
+        "extensions",
+        "model_version",
+        "score",
+        "tier"
+      ],
+      "RiskFactor": [
+        "extensions",
+        "name",
+        "score"
+      ],
+      "RiskModel": [
+        "extensions",
+        "factor_weights",
+        "missing_factor_behavior",
+        "model_version",
+        "tiers"
+      ],
+      "SourceOfFunds": [
+        "claim",
+        "evidence_ids",
+        "extensions",
+        "verified"
+      ],
+      "SourceOfWealth": [
+        "claim",
+        "evidence_ids",
+        "extensions",
+        "verified"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for case.intelligence",
+    "id": "case.intelligence",
+    "objects": {
+      "Alert": [
+        "event_ids",
+        "extensions",
+        "rule_id",
+        "severity",
+        "source_id",
+        "subject"
+      ],
+      "Case": [
+        "case_type",
+        "disposition",
+        "extensions",
+        "revision",
+        "state",
+        "subject_refs"
+      ],
+      "Checkpoint": [
+        "completed_step_ids",
+        "execution_id",
+        "extensions",
+        "pending_step_ids",
+        "state_ref",
+        "workflow_ref"
+      ],
+      "Decision": [
+        "actor_ref",
+        "approval_refs",
+        "context_hash",
+        "disposition",
+        "extensions",
+        "finding_refs",
+        "policy_ref"
+      ],
+      "Event": [
+        "event_key",
+        "event_type",
+        "extensions",
+        "facts"
+      ],
+      "Investigation": [
+        "extensions",
+        "questions"
+      ],
+      "MonitoringPlan": [
+        "extensions",
+        "next_review_at",
+        "party_ref",
+        "schedule_ref",
+        "trigger_refs"
+      ],
+      "ReviewTrigger": [
+        "extensions",
+        "reason",
+        "requirement_ids"
+      ],
+      "SLA": [
+        "deadline",
+        "extensions",
+        "task_id"
+      ],
+      "SkillExecution": [
+        "extensions",
+        "lock",
+        "payload",
+        "skill_id",
+        "status"
+      ],
+      "Task": [
+        "dependencies",
+        "extensions",
+        "parameters",
+        "role",
+        "skill_id",
+        "status"
+      ],
+      "WorkflowDefinition": [
+        "extensions",
+        "steps"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for policy.intelligence",
+    "id": "policy.intelligence",
+    "objects": {
+      "Actor": [
+        "active",
+        "actor_id",
+        "extensions",
+        "permissions",
+        "roles"
+      ],
+      "Approval": [
+        "action",
+        "approver_ref",
+        "context_hash",
+        "execution_lock_hash",
+        "expires_at",
+        "extensions",
+        "request_hash",
+        "requester_ref",
+        "status"
+      ],
+      "BusinessCalendar": [
+        "extensions",
+        "holidays",
+        "working_weekdays"
+      ],
+      "Control": [
+        "extensions",
+        "outcome",
+        "requirement_id"
+      ],
+      "Exception": [
+        "approved",
+        "expires_at",
+        "extensions",
+        "issuer",
+        "scope"
+      ],
+      "Jurisdiction": [
+        "calendar_ref",
+        "code",
+        "extensions",
+        "name",
+        "policy_pack_refs"
+      ],
+      "Obligation": [
+        "due_at",
+        "extensions",
+        "jurisdiction",
+        "obligation_type",
+        "requirement_refs"
+      ],
+      "Policy": [
+        "acceptable_tiers",
+        "acceptance_role",
+        "active_registry_statuses",
+        "alert_priority",
+        "alert_types",
+        "aml_detectors",
+        "approval_roles",
+        "business_substance_fields",
+        "case_transitions",
+        "control_bases",
+        "ctr_business_day",
+        "ctr_thresholds",
+        "ctr_time_zone",
+        "ctr_transaction_types",
+        "customer_types",
+        "device_fields",
+        "document_types",
+        "edd_geographies",
+        "edd_triggers",
+        "entity_types",
+        "escalation_severities",
+        "exception_issuers",
+        "extensions",
+        "filing_fields",
+        "fraud_thresholds",
+        "freshness_seconds",
+        "hypothesis_templates",
+        "identifier_rules",
+        "industries",
+        "investigation_indicator_minimum",
+        "jurisdiction",
+        "license_issuers",
+        "link_attributes",
+        "media_categories",
+        "monitor_triggers",
+        "network_decay",
+        "ownership_threshold",
+        "permissions",
+        "permitted_providers",
+        "profile_fields",
+        "recommendations",
+        "remediation_role",
+        "reporting_obligations",
+        "required_document_types",
+        "requirements",
+        "rescreen_interval_seconds",
+        "review_interval_seconds",
+        "risk_factor_maps",
+        "risk_model_version",
+        "risk_tiers",
+        "risk_weights",
+        "role_members",
+        "rules",
+        "sanctions_control_bases",
+        "sanctions_ownership",
+        "screening_threshold",
+        "synthetic",
+        "synthetic_fingerprint_key",
+        "transaction_types",
+        "verification_methods",
+        "version"
+      ],
+      "Requirement": [
+        "applicability",
+        "description",
+        "evidence_types",
+        "extensions",
+        "mandatory"
+      ],
+      "RetentionRule": [
+        "extensions",
+        "legal_hold",
+        "object_id",
+        "object_type",
+        "retain_until"
+      ]
+    },
+    "version": "1.0.0"
+  },
+  {
+    "description": "Governed canonical projection for evidence.intelligence",
+    "id": "evidence.intelligence",
+    "objects": {
+      "Assertion": [
+        "claim",
+        "evidence_ids",
+        "extensions",
+        "field",
+        "subject",
+        "value",
+        "verification"
+      ],
+      "AuditEvent": [
+        "actor_ref",
+        "event",
+        "event_hash",
+        "execution_id",
+        "extensions",
+        "occurred_at",
+        "previous_hash"
+      ],
+      "AuthenticationEvent": [
+        "extensions",
+        "session_id",
+        "signals"
+      ],
+      "Conflict": [
+        "assertion_refs",
+        "extensions",
+        "field",
+        "resolution_ref",
+        "status",
+        "subject_ref"
+      ],
+      "Device": [
+        "attributes",
+        "extensions",
+        "permitted"
+      ],
+      "EvaluationCase": [
+        "dataset_split",
+        "expected_outcome_ref",
+        "extensions",
+        "input_ref",
+        "skill_id",
+        "synthetic"
+      ],
+      "Evidence": [
+        "content",
+        "content_hash",
+        "extensions",
+        "requirement_ids",
+        "source_id",
+        "verified"
+      ],
+      "ExpectedOutcome": [
+        "extensions",
+        "payload",
+        "status",
+        "tolerances"
+      ],
+      "Fact": [
+        "assertion_refs",
+        "evidence_refs",
+        "extensions",
+        "field",
+        "subject",
+        "value",
+        "verification_ref"
+      ],
+      "Finding": [
+        "claim",
+        "evidence_ids",
+        "extensions",
+        "question",
+        "status"
+      ],
+      "FraudSignal": [
+        "evidence_ids",
+        "extensions",
+        "kind",
+        "model_version",
+        "score"
+      ],
+      "Hypothesis": [
+        "extensions",
+        "facts",
+        "predicate"
+      ],
+      "ModelVersion": [
+        "artifact_hash",
+        "configuration_ref",
+        "evaluation_refs",
+        "extensions",
+        "model_id",
+        "version"
+      ],
+      "Provenance": [
+        "extensions",
+        "method",
+        "sources",
+        "target"
+      ],
+      "Session": [
+        "artifact_hash",
+        "baseline",
+        "challenge_id",
+        "extensions",
+        "features",
+        "modality"
+      ],
+      "SourceRecord": [
+        "content",
+        "coverage",
+        "extensions",
+        "source"
+      ],
+      "TimelineEvent": [
+        "change",
+        "extensions",
+        "subject",
+        "timestamp"
+      ],
+      "VerificationRecord": [
+        "evidence_ids",
+        "extensions",
+        "method",
+        "status",
+        "subject"
+      ]
+    },
+    "version": "1.0.0"
+  }
+]

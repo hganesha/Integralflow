@@ -1,0 +1,316 @@
+.page,
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.spread {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.muted {
+  color: var(--ink-2);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+.card {
+  background: var(--surface-panel);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+.card h2,
+.card h3 {
+  margin: 0;
+  font-size: var(--text-md);
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-3);
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.workspaceButton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: left;
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-sm);
+  background: var(--surface-panel);
+  color: var(--ink-1);
+  cursor: pointer;
+  text-decoration: none;
+}
+.libraryToggle { display: none; }
+.workspaceButton[aria-current="true"],
+.workspaceButton[data-selected="true"] {
+  background: var(--selection-bg);
+  border-color: var(--action-primary-bg);
+}
+.workspaceButton:focus-visible,
+.file:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.repository {
+  display: grid;
+  grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-width: 0;
+  background: var(--surface-panel);
+}
+.sidebar {
+  padding: var(--space-3);
+  border-right: 1px solid var(--line-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+  background: var(--surface-well);
+}
+.tree {
+  max-height: 480px;
+  overflow: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+.treeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.treeList .treeList {
+  padding-left: var(--space-3);
+}
+.treeList summary {
+  padding: var(--space-1) 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.treeList summary svg {
+  vertical-align: middle;
+  margin-right: var(--space-1);
+}
+.file {
+  border: 0;
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  background: transparent;
+  color: var(--ink-2);
+  padding: var(--space-1) var(--space-2);
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font: inherit;
+  min-height: 30px;
+}
+.file span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.file[aria-current="true"] {
+  background: var(--selection-bg);
+  color: var(--ink-1);
+}
+.fileActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--line-1);
+  padding-top: var(--space-3);
+}
+.filePanel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+.editorBar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+.code {
+  min-height: 460px;
+  resize: vertical;
+  tab-size: 2;
+  line-height: 1.65;
+  white-space: pre;
+  overflow: auto;
+}
+.markdown {
+  min-height: 460px;
+  max-height: 650px;
+  overflow: auto;
+  padding: var(--space-4);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.markdown h1 {
+  font-size: var(--text-xl);
+}
+.markdown pre {
+  overflow: auto;
+  background: var(--surface-well);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+}
+.markdown img {
+  max-width: 100%;
+}
+.markdown table {
+  border-collapse: collapse;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--line-1);
+  padding: var(--space-2);
+}
+.diff {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+.dirty {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--tone-attention-bg);
+  color: var(--tone-attention-fg);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.result {
+  border: 1px solid var(--line-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+}
+.result summary {
+  cursor: pointer;
+}
+.result pre {
+  max-height: 300px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: var(--text-xs);
+}
+@media (max-width: 1000px) {
+  .libraryToggle { display: block; }
+  .navigator { display: none; }
+  .navigator[data-open="true"] { display: flex; }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .repository,
+  .diff {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-1);
+  }
+  .tree {
+    max-height: 220px;
+  }
+  .code {
+    min-height: 360px;
+  }
+  .markdown {
+    padding: var(--space-2);
+  }
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.card code {
+  overflow-wrap: anywhere;
+}
+
+.sourceLink {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--action-primary-bg);
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.sourceLink:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.workspaceList {
+  max-height: min(60vh, 640px);
+  overflow: auto;
+}
+@media (max-width: 700px) {
+  .workspaceList {
+    max-height: 220px;
+  }
+}
+
+.libraryList {
+  max-height: 60vh;
+  overflow: auto;
+  padding: var(--space-1);
+}

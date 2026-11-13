@@ -1,0 +1,131 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:fraud.payment.anomaly
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Detect payment amounts exceeding explicitly sourced same-currency
+  baselines.
+code_hash: 6be47f0260e89c4debb3aecbc3d05226b3226a8362f37b0b7ff0e6cb8ee6bf0d
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Detect payment amounts exceeding explicitly sourced same-currency baselines.
+effects: read_only
+entrypoint: financial_crime.skills.fraud:payment
+evaluation_profile: fraud.payment.anomaly-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: fraud-payment-anomaly
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: fraud.payment.anomaly
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:fraud.payment.anomaly:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: e6d494f50c285202d00f6f013821991d12fe842b9713b2d8a5f7693f0b4e9fd4
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    PaymentAnomaly:
+      additionalProperties: false
+      properties:
+        amount:
+          $ref: '#/$defs/Decimal'
+        currency:
+          $ref: '#/$defs/Id'
+        payment_id:
+          $ref: '#/$defs/Id'
+      required:
+      - payment_id
+      - amount
+      - currency
+      type: object
+  $id: urn:financial-crime:skill:fraud.payment.anomaly:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    anomalies:
+      items:
+        $ref: '#/$defs/PaymentAnomaly'
+      maxItems: 10000
+      type: array
+  required:
+  - anomalies
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - amount
+  - currency
+  - baseline_maximum
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Payment
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

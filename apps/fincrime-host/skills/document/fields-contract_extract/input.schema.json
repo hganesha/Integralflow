@@ -1,0 +1,127 @@
+{
+  "$defs": {
+    "CatalogCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "display_name": {
+          "$ref": "#/$defs/Text"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/$defs/CatalogMatch"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_type",
+        "display_name",
+        "matches"
+      ],
+      "type": "object"
+    },
+    "CatalogClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "$ref": "#/$defs/ClassificationBasis"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/CatalogCandidate"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "document_version",
+        "document_type",
+        "basis",
+        "candidates"
+      ],
+      "type": "object"
+    },
+    "CatalogMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "page": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "quote": {
+          "$ref": "#/$defs/Text"
+        },
+        "start": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "page",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "ClassificationBasis": {
+      "enum": [
+        "title",
+        "unique_mention",
+        "ambiguous_or_unmatched"
+      ]
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.fields.contract_extract:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classifications": {
+      "items": {
+        "$ref": "#/$defs/CatalogClassification"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "subject": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "classifications",
+    "subject"
+  ],
+  "type": "object"
+}

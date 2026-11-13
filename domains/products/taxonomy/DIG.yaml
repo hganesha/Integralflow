@@ -1,0 +1,46 @@
+# Digital assets & virtual-asset services. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: DIG
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - DIGITAL_ASSETS
+  - FINTECH
+  name: Digital assets & virtual-asset services
+  definition: Services involving cryptoassets, stablecoins and tokenised value.
+  regulatedActivities:
+  - VIRTUAL_ASSET_SERVICES
+  riskDimensions:
+  - NEW_TECHNOLOGY
+  - ANONYMITY
+  - CROSS_BORDER
+  - VELOCITY
+  classes:
+  - code: EXCHANGE
+    name: Exchange & trading
+    definition: Exchanging virtual assets for fiat or other virtual assets.
+  - code: CUSTODY
+    name: Wallet & custody services
+    definition: Holding virtual assets or their keys for customers.
+  - code: TRANSFERS
+    name: Virtual-asset transfers
+    definition: Sending and receiving virtual assets for customers.
+  - code: STABLECOINS
+    name: Stablecoin issuance & redemption
+    definition: Issuing and redeeming value-referenced tokens.
+  - code: STAKING_LENDING
+    name: Staking & lending
+    definition: Staking virtual assets or lending them for a return.
+  - code: TOKENIZATION
+    name: Tokenisation services
+    definition: Issuing and servicing tokenised representations of assets.
+  - code: ON_OFF_RAMP
+    name: On- and off-ramps
+    definition: Converting between fiat accounts and virtual assets.
+  - code: OTC_DESK
+    name: OTC desk
+    definition: Principal or agency block trading of virtual assets.

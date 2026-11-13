@@ -1,0 +1,20 @@
+{
+  "$id": "urn:financial-crime:skill:decision.risk.acceptance.evaluate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "eligible": {
+      "type": "boolean"
+    },
+    "required_role": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "eligible",
+    "required_role"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,42 @@
+# Corporate & investment banking. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: COR
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - CAPITAL_MARKETS
+  - BANKING
+  name: Corporate & investment banking
+  definition: Raising capital and advising companies and governments on strategic transactions.
+  regulatedActivities:
+  - UNDERWRITING
+  - CORPORATE_FINANCE
+  riskDimensions:
+  - OWNERSHIP_COMPLEXITY
+  - CROSS_BORDER
+  classes:
+  - code: ECM
+    name: Equity capital markets
+    definition: Underwriting and placing share offerings.
+  - code: DCM
+    name: Debt capital markets
+    definition: Underwriting and placing bond and note issuance.
+  - code: MA_ADVISORY
+    name: M&A advisory
+    definition: Advising on mergers, acquisitions and disposals.
+  - code: LEVERAGED_FINANCE
+    name: Leveraged finance
+    definition: Arranging financing for leveraged buyouts and high-yield issuers.
+  - code: STRUCTURED_FINANCE
+    name: Structured finance & securitisation
+    definition: Structuring asset-backed and securitised financings.
+  - code: ISSUER_SERVICES
+    name: Issuer services
+    definition: Paying agency, trusteeship and registrar services for issuers.
+  - code: RESTRUCTURING
+    name: Restructuring advisory
+    definition: Advising companies and creditors on distressed situations.

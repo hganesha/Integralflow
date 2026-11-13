@@ -1,0 +1,74 @@
+# Lending & credit. Candidate canonical content, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata: { code: LND, version: 1.0.0, status: CANDIDATE, owner: platform.product-taxonomy }
+spec:
+  sectors: [BANKING]
+  name: Lending & credit
+  definition: Credit an institution extends, secured or unsecured, to be repaid with interest or fees.
+  regulatedActivities: [LENDING]
+  capabilities: { collateral: configurable, third_party_repayment: configurable, cross_border: configurable }
+  riskDimensions: [THIRD_PARTY_FUNDING, LEVERAGE]
+  classes:
+    - code: CONSUMER
+      name: Consumer lending
+      definition: Credit to individuals for personal purposes.
+      eligiblePartyTypes: [INDIVIDUAL]
+      types:
+        - { code: PERSONAL_LOAN, name: Personal loan, definition: "An unsecured instalment loan to an individual." }
+        - { code: AUTO_LOAN, name: Auto loan, definition: "A loan secured on a vehicle." }
+        - { code: STUDENT_LOAN, name: Student loan, definition: "A loan financing education costs." }
+        - { code: BNPL, name: Buy now pay later, definition: "Short-term point-of-sale instalment credit.", riskDimensions: [NEW_TECHNOLOGY] }
+    - code: CARDS_CREDIT
+      name: Credit cards
+      definition: Revolving credit accessed by card.
+      regulatedActivities: [LENDING, CARD_ISSUING]
+      alsoClassifiedAs: [PAY.CARDS]
+      types:
+        - { code: CONSUMER_CREDIT_CARD, name: Consumer credit card, definition: "A revolving credit card for an individual.", eligiblePartyTypes: [INDIVIDUAL] }
+        - { code: COMMERCIAL_CREDIT_CARD, name: Commercial credit card, definition: "A revolving credit card under a business's liability.", eligiblePartyTypes: [SOLE_PROPRIETOR, LEGAL_ENTITY] }
+    - code: MORTGAGE
+      name: Mortgages
+      definition: Loans secured on residential property.
+      types:
+        - { code: RESIDENTIAL_MORTGAGE, name: Residential mortgage, definition: "A loan secured on the borrower's home.", eligiblePartyTypes: [INDIVIDUAL] }
+        - { code: BUY_TO_LET, name: Buy-to-let mortgage, definition: "A loan secured on property let to tenants.", eligiblePartyTypes: [INDIVIDUAL, LEGAL_ENTITY] }
+        - { code: HOME_EQUITY, name: Home equity line, definition: "A revolving line secured on home equity.", eligiblePartyTypes: [INDIVIDUAL] }
+    - code: SMALL_BUSINESS
+      name: Small business lending
+      definition: Credit to small businesses and sole proprietors.
+      eligiblePartyTypes: [SOLE_PROPRIETOR, LEGAL_ENTITY, PARTNERSHIP]
+      types:
+        - { code: TERM_LOAN, name: Business term loan, definition: "An amortising loan for a business purpose." }
+        - { code: LINE_OF_CREDIT, name: Business line of credit, definition: "A revolving facility for working capital." }
+        - { code: GOVERNMENT_GUARANTEED, name: Government-guaranteed loan, definition: "A loan partly guaranteed by a public scheme." }
+    - code: COMMERCIAL
+      name: Commercial & corporate lending
+      definition: Credit facilities to mid-sized and large companies.
+      eligiblePartyTypes: [LEGAL_ENTITY, PARTNERSHIP, FINANCIAL_INSTITUTION, INVESTMENT_FUND]
+      riskDimensions: [OWNERSHIP_COMPLEXITY, LEVERAGE, CROSS_BORDER]
+      types:
+        - { code: REVOLVING_FACILITY, name: Revolving credit facility, definition: "A committed revolving facility for a corporate borrower." }
+        - { code: SYNDICATED_LOAN, name: Syndicated loan, definition: "A loan provided by a group of lenders under one agreement.", riskDimensions: [INTERMEDIARY_RISK] }
+        - { code: ACQUISITION_FINANCE, name: Acquisition finance, definition: "Financing for the purchase of a company." }
+        - { code: FUND_FINANCE, name: Fund finance, definition: "Subscription and NAV facilities lent to investment funds.", eligiblePartyTypes: [INVESTMENT_FUND] }
+    - code: REAL_ESTATE
+      name: Commercial real estate
+      definition: Loans secured on, or financing, income-producing property.
+      types:
+        - { code: CRE_TERM, name: CRE term loan, definition: "A loan secured on an investment property." }
+        - { code: CONSTRUCTION, name: Construction loan, definition: "A loan funding development in stages." }
+    - code: ASSET_FINANCE
+      name: Asset finance & leasing
+      definition: Financing of equipment, vehicles and other assets through loans or leases.
+      types:
+        - { code: EQUIPMENT_LEASE, name: Equipment lease, definition: "A lease of business equipment." }
+        - { code: HIRE_PURCHASE, name: Hire purchase, definition: "An instalment purchase with title passing at the end." }
+    - code: SPECIALTY
+      name: Specialty & structured credit
+      definition: Credit tailored to particular collateral, sectors or structures.
+      riskDimensions: [OWNERSHIP_COMPLEXITY, LEVERAGE]
+      types:
+        - { code: LEVERAGED_LOAN, name: Leveraged loan, definition: "A loan to a highly leveraged borrower." }
+        - { code: ASSET_BACKED, name: Asset-backed lending, definition: "A facility secured on receivables, inventory or other pools." }
+        - { code: PROJECT_FINANCE, name: Project finance, definition: "Non-recourse financing repaid from a project's cash flows.", riskDimensions: [GEOGRAPHIC_EXPOSURE] }

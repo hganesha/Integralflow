@@ -1,0 +1,1313 @@
+{
+  "description": "Canonical UI screens and major tabs. Redirect aliases share their destination capture. Planned routes are shown honestly as unavailable. Mock fixtures only.",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "aliases": {
+    "/platform/workbench": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/context-sources": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/drafts": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/drafts/$draftId": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/drafts/$draftId/policies": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/policies": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/releases": "Existing route redirects to its canonical studio/data-source screen.",
+    "/platform/data-connectors": "Existing route redirects to its canonical studio/data-source screen.",
+    "/studio": "Existing route redirects to its canonical studio/data-source screen.",
+    "/agents": "Existing route redirects to its canonical studio/data-source screen.",
+    "/agents/skills/$skillId": "Existing route redirects to its canonical studio/data-source screen.",
+    "/agents/$agentId": "Existing route redirects to its canonical studio/data-source screen.",
+    "/agents/$agentId/tasks/$taskId": "Existing route redirects to its canonical studio/data-source screen.",
+    "/agents/$agentId/rehearsal/$runId": "Existing route redirects to its canonical studio/data-source screen.",
+    "/agents/$agentId/publish": "Existing route redirects to its canonical studio/data-source screen.",
+    "/context/connections": "Existing route redirects to its canonical studio/data-source screen.",
+    "/context/sources/$sourceId": "Existing route redirects to its canonical studio/data-source screen.",
+    "/context/mappings/$mappingId": "Existing route redirects to its canonical studio/data-source screen."
+  },
+  "surfaces": [
+    {
+      "id": "001",
+      "path": "/platform",
+      "title": "Overview",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Overview with synthetic demonstration data.",
+      "routePattern": "/platform",
+      "surfaceId": "PLT-01",
+      "status": "demo"
+    },
+    {
+      "id": "002",
+      "path": "/platform/plans",
+      "title": "Plans",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Plans with synthetic demonstration data.",
+      "routePattern": "/platform/plans",
+      "surfaceId": "PLT-05",
+      "status": "demo"
+    },
+    {
+      "id": "003",
+      "path": "/platform/plans/bcd282f4fea36064672d780fc58478330b105effb706a2727e20794bf82162f8",
+      "title": "Plan",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Plan with synthetic demonstration data.",
+      "routePattern": "/platform/plans/$planDigest",
+      "surfaceId": "PLT-05",
+      "status": "demo"
+    },
+    {
+      "id": "004",
+      "path": "/platform/runs",
+      "title": "Runs",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Runs with synthetic demonstration data.",
+      "routePattern": "/platform/runs",
+      "surfaceId": "PLT-06",
+      "status": "demo"
+    },
+    {
+      "id": "005",
+      "path": "/platform/runs/run_kyb_1042",
+      "title": "Run detail",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Run detail with synthetic demonstration data.",
+      "routePattern": "/platform/runs/$runId",
+      "surfaceId": "PLT-07",
+      "status": "demo"
+    },
+    {
+      "id": "006",
+      "path": "/platform/traces/2bc3e2d0bf178f646b13c35b25ee0ddb",
+      "title": "Trace",
+      "group": "Platform",
+      "persona": "auditor",
+      "scenario": "ownership_review",
+      "description": "Trace with synthetic demonstration data.",
+      "routePattern": "/platform/traces/$traceId",
+      "surfaceId": "PLT-08",
+      "status": "demo"
+    },
+    {
+      "id": "007",
+      "path": "/platform/cases",
+      "title": "Cases",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Cases with synthetic demonstration data.",
+      "routePattern": "/platform/cases",
+      "surfaceId": "PLT-09",
+      "status": "demo"
+    },
+    {
+      "id": "008",
+      "path": "/platform/cases/KYB-1042",
+      "title": "Case",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Case with synthetic demonstration data.",
+      "routePattern": "/platform/cases/$caseId",
+      "surfaceId": "PLT-09",
+      "status": "demo"
+    },
+    {
+      "id": "009",
+      "path": "/platform/human-work",
+      "title": "Human work",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Human work with synthetic demonstration data.",
+      "routePattern": "/platform/human-work",
+      "surfaceId": "PLT-10",
+      "status": "demo"
+    },
+    {
+      "id": "010",
+      "path": "/platform/system",
+      "title": "Health",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Health with synthetic demonstration data.",
+      "routePattern": "/platform/system",
+      "surfaceId": "PLT-12",
+      "status": "demo"
+    },
+    {
+      "id": "011",
+      "path": "/platform/users",
+      "title": "Users & roles",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Users & roles with synthetic demonstration data.",
+      "routePattern": "/platform/users",
+      "surfaceId": "PLT-19",
+      "status": "demo"
+    },
+    {
+      "id": "012",
+      "path": "/platform/admin",
+      "title": "Administration",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Administration with synthetic demonstration data.",
+      "routePattern": "/platform/admin",
+      "surfaceId": "PLT-14",
+      "status": "demo"
+    },
+    {
+      "id": "013",
+      "path": "/platform/integrations",
+      "title": "Integrations",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Integrations with synthetic demonstration data.",
+      "routePattern": "/platform/integrations",
+      "surfaceId": "PLT-15",
+      "status": "demo"
+    },
+    {
+      "id": "014",
+      "path": "/platform/intelligence",
+      "title": "Intelligence",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Intelligence with synthetic demonstration data.",
+      "routePattern": "/platform/intelligence",
+      "surfaceId": "PLT-16",
+      "status": "demo"
+    },
+    {
+      "id": "015",
+      "path": "/platform/document-studio",
+      "title": "Document Studio",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Document Studio with synthetic demonstration data.",
+      "routePattern": "/platform/document-studio",
+      "surfaceId": "PLT-22",
+      "status": "demo"
+    },
+    {
+      "id": "016",
+      "path": "/context/cases?case=KYB-1042&plan=bcd282f4fea36064672d780fc58478330b105effb706a2727e20794bf82162f8&node=identity_ownership.review",
+      "title": "Case relationships",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Case relationships with synthetic demonstration data.",
+      "routePattern": "/context/cases",
+      "surfaceId": "CXT-07",
+      "status": "demo"
+    },
+    {
+      "id": "017",
+      "path": "/work",
+      "title": "My Workspace",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "My Workspace with synthetic demonstration data.",
+      "routePattern": "/work",
+      "surfaceId": "BIZ-01",
+      "status": "demo"
+    },
+    {
+      "id": "018",
+      "path": "/work/cases/KYB-1042",
+      "title": "Case room",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId",
+      "surfaceId": "BIZ-02",
+      "status": "demo"
+    },
+    {
+      "id": "019",
+      "path": "/work/cases/KYB-1042/lens/ownership",
+      "title": "Ownership workbench",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Ownership workbench with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/ownership",
+      "surfaceId": "BIZ-03",
+      "status": "demo"
+    },
+    {
+      "id": "020",
+      "path": "/work/cases/KYB-1042/lens/documents",
+      "title": "Documents",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Documents with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/documents",
+      "surfaceId": "BIZ-02",
+      "status": "demo"
+    },
+    {
+      "id": "021",
+      "path": "/work/cases/KYB-1042/lens/edd",
+      "title": "EDD",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "EDD with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/edd",
+      "surfaceId": "BIZ-04",
+      "status": "planned"
+    },
+    {
+      "id": "022",
+      "path": "/work/cases/KYB-1042/lens/aml",
+      "title": "AML",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "AML with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/aml",
+      "surfaceId": "BIZ-05",
+      "status": "planned"
+    },
+    {
+      "id": "023",
+      "path": "/work/cases/KYB-1042/lens/screening",
+      "title": "Screening",
+      "group": "Workspace",
+      "persona": "screening_analyst",
+      "scenario": "screening_review",
+      "description": "Screening with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/screening",
+      "surfaceId": "BIZ-06",
+      "status": "demo"
+    },
+    {
+      "id": "024",
+      "path": "/work/cases/KYB-1042/lens/risk",
+      "title": "Risk",
+      "group": "Workspace",
+      "persona": "compliance_officer",
+      "scenario": "decision_pending",
+      "description": "Risk with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/risk",
+      "surfaceId": "BIZ-07",
+      "status": "demo"
+    },
+    {
+      "id": "025",
+      "path": "/work/cases/KYB-1042/lens/qa",
+      "title": "QA lens",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "QA lens with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/qa",
+      "surfaceId": "BIZ-08",
+      "status": "planned"
+    },
+    {
+      "id": "026",
+      "path": "/work/decisions/KYB-1042",
+      "title": "Decision desk",
+      "group": "Workspace",
+      "persona": "compliance_officer",
+      "scenario": "decision_pending",
+      "description": "Decision desk with synthetic demonstration data.",
+      "routePattern": "/work/decisions/$caseId",
+      "surfaceId": "BIZ-07",
+      "status": "demo"
+    },
+    {
+      "id": "027",
+      "path": "/work/ops",
+      "title": "Operations",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Operations with synthetic demonstration data.",
+      "routePattern": "/work/ops",
+      "surfaceId": "BIZ-09",
+      "status": "planned"
+    },
+    {
+      "id": "028",
+      "path": "/studio/drafts",
+      "title": "Draft processes",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft processes with synthetic demonstration data.",
+      "routePattern": "/studio/drafts",
+      "surfaceId": "PLT-02",
+      "status": "demo"
+    },
+    {
+      "id": "029",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002",
+      "title": "Draft process",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process with synthetic demonstration data.",
+      "routePattern": "/studio/drafts/$draftId",
+      "surfaceId": "PLT-03",
+      "status": "demo"
+    },
+    {
+      "id": "030",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002/policies",
+      "title": "Policy Studio",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Policy Studio with synthetic demonstration data.",
+      "routePattern": "/studio/drafts/$draftId/policies",
+      "surfaceId": "PLT-04",
+      "status": "demo"
+    },
+    {
+      "id": "031",
+      "path": "/studio/published",
+      "title": "Published processes",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Published processes with synthetic demonstration data.",
+      "routePattern": "/studio/published",
+      "surfaceId": "PLT-11",
+      "status": "demo"
+    },
+    {
+      "id": "032",
+      "path": "/studio/agents",
+      "title": "Agents",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Agents with synthetic demonstration data.",
+      "routePattern": "/studio/agents",
+      "surfaceId": "STU-02",
+      "status": "demo"
+    },
+    {
+      "id": "033",
+      "path": "/studio/skills",
+      "title": "Skills",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Skills with synthetic demonstration data.",
+      "routePattern": "/studio/skills",
+      "surfaceId": "STU-03",
+      "status": "demo"
+    },
+    {
+      "id": "034",
+      "path": "/studio/policies",
+      "title": "Policy Studio",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Policy Studio with synthetic demonstration data.",
+      "routePattern": "/studio/policies",
+      "surfaceId": "PLT-04",
+      "status": "demo"
+    },
+    {
+      "id": "035",
+      "path": "/platform/data-sources",
+      "title": "Data sources",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Data sources with synthetic demonstration data.",
+      "routePattern": "/platform/data-sources",
+      "surfaceId": "DAT-01",
+      "status": "demo"
+    },
+    {
+      "id": "036",
+      "path": "/studio/agents/mandates",
+      "title": "Workforce Atlas",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Workforce Atlas with synthetic demonstration data.",
+      "routePattern": "/studio/agents/mandates",
+      "surfaceId": "AGT-01",
+      "status": "demo"
+    },
+    {
+      "id": "037",
+      "path": "/studio/skills/definitions/ownership.ubo.resolve",
+      "title": "Skill",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Skill with synthetic demonstration data.",
+      "routePattern": "/studio/skills/definitions/$skillId",
+      "surfaceId": "AGT-04",
+      "status": "demo"
+    },
+    {
+      "id": "038",
+      "path": "/studio/agents/mandates/agent.identity_ownership",
+      "title": "Agent profile",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Agent profile with synthetic demonstration data.",
+      "routePattern": "/studio/agents/mandates/$agentId",
+      "surfaceId": "AGT-02",
+      "status": "demo"
+    },
+    {
+      "id": "039",
+      "path": "/studio/agents/mandates/agent.identity_ownership/tasks/task.identity_ownership",
+      "title": "Taskboard and Skillboard",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Taskboard and Skillboard with synthetic demonstration data.",
+      "routePattern": "/studio/agents/mandates/$agentId/tasks/$taskId",
+      "surfaceId": "AGT-03",
+      "status": "demo"
+    },
+    {
+      "id": "040",
+      "path": "/studio/agents/mandates/agent.identity_ownership/rehearsal/run_kyb_1042",
+      "title": "Rehearsal",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Rehearsal with synthetic demonstration data.",
+      "routePattern": "/studio/agents/mandates/$agentId/rehearsal/$runId",
+      "surfaceId": "AGT-06",
+      "status": "planned"
+    },
+    {
+      "id": "041",
+      "path": "/studio/agents/mandates/agent.identity_ownership/publish",
+      "title": "Publish and diff",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Publish and diff with synthetic demonstration data.",
+      "routePattern": "/studio/agents/mandates/$agentId/publish",
+      "surfaceId": "AGT-07",
+      "status": "planned"
+    },
+    {
+      "id": "042",
+      "path": "/context",
+      "title": "Contextboard",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Contextboard with synthetic demonstration data.",
+      "routePattern": "/context",
+      "surfaceId": "CXT-01",
+      "status": "demo"
+    },
+    {
+      "id": "043",
+      "path": "/context/documents",
+      "title": "Document search",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Document search with synthetic demonstration data.",
+      "routePattern": "/context/documents",
+      "surfaceId": "CXT-06",
+      "status": "demo"
+    },
+    {
+      "id": "044",
+      "path": "/context/preview?agent=agent.identity_ownership&task=task.identity_ownership&case=KYB-1042&plan=bcd282f4fea36064672d780fc58478330b105effb706a2727e20794bf82162f8&node=identity_ownership.review",
+      "title": "Context preview",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Context preview with synthetic demonstration data.",
+      "routePattern": "/context/preview",
+      "surfaceId": "CXT-04",
+      "status": "demo"
+    },
+    {
+      "id": "045",
+      "path": "/assurance",
+      "title": "Mission Control",
+      "group": "Assurance",
+      "persona": "auditor",
+      "scenario": "ownership_review",
+      "description": "Mission Control with synthetic demonstration data.",
+      "routePattern": "/assurance",
+      "surfaceId": "ASR-01",
+      "status": "demo"
+    },
+    {
+      "id": "046",
+      "path": "/assurance/recorder/KYB-1042",
+      "title": "Flight Recorder",
+      "group": "Assurance",
+      "persona": "auditor",
+      "scenario": "ownership_review",
+      "description": "Flight Recorder with synthetic demonstration data.",
+      "routePattern": "/assurance/recorder/$caseId",
+      "surfaceId": "ASR-02",
+      "status": "demo"
+    },
+    {
+      "id": "047",
+      "path": "/assurance/lineage/KYB-1042",
+      "title": "Decision lineage",
+      "group": "Assurance",
+      "persona": "auditor",
+      "scenario": "decided",
+      "description": "Decision lineage with synthetic demonstration data.",
+      "routePattern": "/assurance/lineage/$caseId",
+      "surfaceId": "ASR-03",
+      "status": "demo"
+    },
+    {
+      "id": "048",
+      "path": "/assurance/lab",
+      "title": "Assurance Lab",
+      "group": "Assurance",
+      "persona": "auditor",
+      "scenario": "ownership_review",
+      "description": "Assurance Lab with synthetic demonstration data.",
+      "routePattern": "/assurance/lab",
+      "surfaceId": "ASR-04",
+      "status": "planned"
+    },
+    {
+      "id": "049",
+      "path": "/assurance/packages?case=KYB-1042",
+      "title": "Assurance packages",
+      "group": "Assurance",
+      "persona": "auditor",
+      "scenario": "decided",
+      "description": "Assurance packages with synthetic demonstration data.",
+      "routePattern": "/assurance/packages",
+      "surfaceId": "ASR-05",
+      "status": "demo",
+      "actions": [
+        {
+          "kind": "fill",
+          "label": "Purpose",
+          "value": "Synthetic demonstration of KYB onboarding assurance"
+        },
+        {
+          "kind": "click",
+          "label": "Generate export"
+        }
+      ],
+      "waitForText": "Download JSON"
+    },
+    {
+      "id": "050",
+      "path": "/work/cases/KYB-1042/findings",
+      "title": "Case room \u00b7 findings",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 findings with synthetic demonstration data."
+    },
+    {
+      "id": "051",
+      "path": "/work/cases/KYB-1042/claims",
+      "title": "Case room \u00b7 claims",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 claims with synthetic demonstration data."
+    },
+    {
+      "id": "052",
+      "path": "/work/cases/KYB-1042/evidence",
+      "title": "Case room \u00b7 evidence",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 evidence with synthetic demonstration data."
+    },
+    {
+      "id": "053",
+      "path": "/work/cases/KYB-1042/work",
+      "title": "Case room \u00b7 work",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 work with synthetic demonstration data."
+    },
+    {
+      "id": "054",
+      "path": "/work/cases/KYB-1042/decisions",
+      "title": "Case room \u00b7 decisions",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 decisions with synthetic demonstration data."
+    },
+    {
+      "id": "055",
+      "path": "/work/cases/KYB-1042/history",
+      "title": "Case room \u00b7 history",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 history with synthetic demonstration data."
+    },
+    {
+      "id": "056",
+      "path": "/work/cases/KYB-1042/activity",
+      "title": "Case room \u00b7 activity",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Case room \u00b7 activity with synthetic demonstration data."
+    },
+    {
+      "id": "057",
+      "path": "/work/decisions/KYB-1042",
+      "title": "Decision desk \u00b7 second approval",
+      "group": "Workspace",
+      "persona": "second_approver",
+      "scenario": "second_approval",
+      "description": "Decision desk \u00b7 second approval with synthetic demonstration data."
+    },
+    {
+      "id": "058",
+      "path": "/work/cases/KYB-1042",
+      "title": "Case room \u00b7 completed decision",
+      "group": "Workspace",
+      "persona": "compliance_officer",
+      "scenario": "decided",
+      "description": "Case room \u00b7 completed decision with synthetic demonstration data."
+    },
+    {
+      "id": "059",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002?tab=agents",
+      "title": "Draft process \u00b7 agents",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process \u00b7 agents with synthetic demonstration data."
+    },
+    {
+      "id": "060",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002?tab=sources",
+      "title": "Draft process \u00b7 sources",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process \u00b7 sources with synthetic demonstration data."
+    },
+    {
+      "id": "061",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002?tab=capabilities",
+      "title": "Draft process \u00b7 capabilities",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process \u00b7 capabilities with synthetic demonstration data."
+    },
+    {
+      "id": "062",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002?tab=models",
+      "title": "Draft process \u00b7 models",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process \u00b7 models with synthetic demonstration data."
+    },
+    {
+      "id": "063",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002?tab=integrations",
+      "title": "Draft process \u00b7 integrations",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process \u00b7 integrations with synthetic demonstration data."
+    },
+    {
+      "id": "064",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002?tab=release",
+      "title": "Draft process \u00b7 release",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process \u00b7 release with synthetic demonstration data."
+    },
+    {
+      "id": "065",
+      "path": "/studio/policies?tab=business",
+      "title": "Policies \u00b7 business",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 business with synthetic demonstration data."
+    },
+    {
+      "id": "066",
+      "path": "/studio/policies?tab=products",
+      "title": "Policies \u00b7 products",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 products with synthetic demonstration data."
+    },
+    {
+      "id": "067",
+      "path": "/studio/policies?tab=explorer",
+      "title": "Policies \u00b7 explorer",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 explorer with synthetic demonstration data."
+    },
+    {
+      "id": "068",
+      "path": "/studio/policies?tab=packs",
+      "title": "Policies \u00b7 packs",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 packs with synthetic demonstration data."
+    },
+    {
+      "id": "069",
+      "path": "/studio/policies?tab=requirements",
+      "title": "Policies \u00b7 requirements",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 requirements with synthetic demonstration data."
+    },
+    {
+      "id": "070",
+      "path": "/studio/policies?tab=approvals",
+      "title": "Policies \u00b7 approvals",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 approvals with synthetic demonstration data."
+    },
+    {
+      "id": "071",
+      "path": "/studio/policies?tab=monitoring",
+      "title": "Policies \u00b7 monitoring",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 monitoring with synthetic demonstration data."
+    },
+    {
+      "id": "072",
+      "path": "/studio/policies?tab=versions",
+      "title": "Policies \u00b7 versions",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 versions with synthetic demonstration data."
+    },
+    {
+      "id": "073",
+      "path": "/studio/policies?tab=advanced",
+      "title": "Policies \u00b7 advanced",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies \u00b7 advanced with synthetic demonstration data."
+    },
+    {
+      "id": "074",
+      "path": "/platform/admin?tab=providers",
+      "title": "Admin \u00b7 providers",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "admin \u00b7 providers with synthetic demonstration data."
+    },
+    {
+      "id": "075",
+      "path": "/platform/admin?tab=capabilities",
+      "title": "Admin \u00b7 capabilities",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "admin \u00b7 capabilities with synthetic demonstration data."
+    },
+    {
+      "id": "076",
+      "path": "/platform/admin?tab=settings",
+      "title": "Admin \u00b7 settings",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "admin \u00b7 settings with synthetic demonstration data."
+    },
+    {
+      "id": "077",
+      "path": "/platform/admin?tab=changes",
+      "title": "Admin \u00b7 changes",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "admin \u00b7 changes with synthetic demonstration data."
+    },
+    {
+      "id": "078",
+      "path": "/platform/intelligence?tab=connections",
+      "title": "Intelligence \u00b7 connections",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "intelligence \u00b7 connections with synthetic demonstration data."
+    },
+    {
+      "id": "079",
+      "path": "/platform/intelligence?tab=adapters",
+      "title": "Intelligence \u00b7 adapters",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "intelligence \u00b7 adapters with synthetic demonstration data."
+    },
+    {
+      "id": "080",
+      "path": "/platform/intelligence?tab=trust",
+      "title": "Intelligence \u00b7 trust",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "intelligence \u00b7 trust with synthetic demonstration data."
+    },
+    {
+      "id": "081",
+      "path": "/platform/intelligence?tab=activation",
+      "title": "Intelligence \u00b7 activation",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "intelligence \u00b7 activation with synthetic demonstration data."
+    },
+    {
+      "id": "082",
+      "path": "/platform/intelligence?tab=operations",
+      "title": "Intelligence \u00b7 operations",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "intelligence \u00b7 operations with synthetic demonstration data."
+    },
+    {
+      "id": "083",
+      "path": "/platform/intelligence?tab=activity",
+      "title": "Intelligence \u00b7 activity",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "intelligence \u00b7 activity with synthetic demonstration data."
+    },
+    {
+      "id": "084",
+      "path": "/platform/system?tab=services",
+      "title": "System \u00b7 services",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "system \u00b7 services with synthetic demonstration data."
+    },
+    {
+      "id": "085",
+      "path": "/platform/system?tab=gateway",
+      "title": "System \u00b7 gateway",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "system \u00b7 gateway with synthetic demonstration data."
+    },
+    {
+      "id": "086",
+      "path": "/platform/system?tab=runtime",
+      "title": "System \u00b7 runtime",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "system \u00b7 runtime with synthetic demonstration data."
+    },
+    {
+      "id": "087",
+      "path": "/platform/integrations?tab=bindings",
+      "title": "Integrations \u00b7 bindings",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "integrations \u00b7 bindings with synthetic demonstration data."
+    },
+    {
+      "id": "088",
+      "path": "/platform/integrations?tab=deliveries",
+      "title": "Integrations \u00b7 deliveries",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "integrations \u00b7 deliveries with synthetic demonstration data."
+    },
+    {
+      "id": "089",
+      "path": "/platform/integrations?tab=actions",
+      "title": "Integrations \u00b7 actions",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "integrations \u00b7 actions with synthetic demonstration data."
+    },
+    {
+      "id": "090",
+      "path": "/platform/data-sources?tab=mappings",
+      "title": "Data-sources \u00b7 mappings",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "data-sources \u00b7 mappings with synthetic demonstration data."
+    },
+    {
+      "id": "091",
+      "path": "/platform/data-sources?tab=bindings",
+      "title": "Data-sources \u00b7 bindings",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "data-sources \u00b7 bindings with synthetic demonstration data."
+    },
+    {
+      "id": "092",
+      "path": "/platform/data-sources?tab=status",
+      "title": "Data-sources \u00b7 status",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "data-sources \u00b7 status with synthetic demonstration data."
+    },
+    {
+      "id": "093",
+      "path": "/platform/data-sources?tab=calls",
+      "title": "Data-sources \u00b7 calls",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "data-sources \u00b7 calls with synthetic demonstration data."
+    },
+    {
+      "id": "094",
+      "path": "/platform/data-sources?tab=refresh",
+      "title": "Data-sources \u00b7 refresh",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "data-sources \u00b7 refresh with synthetic demonstration data."
+    },
+    {
+      "id": "095",
+      "path": "/context?mode=tune",
+      "title": "Contextboard \u00b7 tune",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Contextboard \u00b7 tune with synthetic demonstration data."
+    },
+    {
+      "id": "096",
+      "path": "/context?mode=engineer",
+      "title": "Contextboard \u00b7 engineer",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Contextboard \u00b7 engineer with synthetic demonstration data."
+    },
+    {
+      "id": "097",
+      "path": "/catalogs",
+      "title": "Catalog library",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Catalog library with synthetic demonstration data."
+    },
+    {
+      "id": "098",
+      "path": "/catalogs/context",
+      "title": "Context catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "context catalog with synthetic demonstration data."
+    },
+    {
+      "id": "099",
+      "path": "/catalogs/context/case.intelligence",
+      "title": "Case \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Case \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "100",
+      "path": "/catalogs/skills",
+      "title": "Skills catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "skills catalog with synthetic demonstration data."
+    },
+    {
+      "id": "101",
+      "path": "/catalogs/skills/alert.classify",
+      "title": "Classify alert \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Classify alert \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "102",
+      "path": "/catalogs/agents",
+      "title": "Agents catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "agents catalog with synthetic demonstration data."
+    },
+    {
+      "id": "103",
+      "path": "/catalogs/agents/agent.decision_support",
+      "title": "Decision support \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Decision support \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "104",
+      "path": "/catalogs/external-capabilities",
+      "title": "External-capabilities catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "external-capabilities catalog with synthetic demonstration data."
+    },
+    {
+      "id": "105",
+      "path": "/catalogs/external-capabilities/account.control",
+      "title": "Account control \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Account control \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "106",
+      "path": "/catalogs/policies",
+      "title": "Policies catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "policies catalog with synthetic demonstration data."
+    },
+    {
+      "id": "107",
+      "path": "/catalogs/policies/catalog.kyc.cohorts.v1",
+      "title": "Customer cohorts \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Customer cohorts \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "108",
+      "path": "/catalogs/documents",
+      "title": "Documents catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "documents catalog with synthetic demonstration data."
+    },
+    {
+      "id": "109",
+      "path": "/catalogs/documents/account_closure_instruction",
+      "title": "Account closure or transfer instruction \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Account closure or transfer instruction \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "110",
+      "path": "/catalogs/products",
+      "title": "Products catalog",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "products catalog with synthetic demonstration data."
+    },
+    {
+      "id": "111",
+      "path": "/catalogs/products/AMG",
+      "title": "Asset & investment management \u00b7 catalog definition",
+      "group": "Catalogs",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Asset & investment management \u00b7 catalog definition with synthetic demonstration data."
+    },
+    {
+      "id": "112",
+      "path": "/about",
+      "title": "About IntegralFlow",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "About IntegralFlow with synthetic demonstration data."
+    },
+    {
+      "id": "113",
+      "path": "/work/cases/KYB-1042/lens/ownership",
+      "title": "Ownership review \u00b7 human decision sheet",
+      "group": "Workspace",
+      "persona": "cdd_analyst",
+      "scenario": "ownership_review",
+      "description": "Ownership workbench with synthetic demonstration data.",
+      "routePattern": "/work/cases/$caseId/lens/ownership",
+      "surfaceId": "BIZ-03",
+      "status": "demo",
+      "actions": [
+        {
+          "kind": "click",
+          "label": "Decide"
+        }
+      ],
+      "waitForRole": "dialog"
+    },
+    {
+      "id": "114",
+      "path": "/work/decisions/KYB-1042",
+      "title": "Final onboarding decision \u00b7 approval sheet",
+      "group": "Workspace",
+      "persona": "compliance_officer",
+      "scenario": "decision_pending",
+      "description": "Decision desk with synthetic demonstration data.",
+      "routePattern": "/work/decisions/$caseId",
+      "surfaceId": "BIZ-07",
+      "status": "demo",
+      "actions": [
+        {
+          "kind": "click",
+          "label": "Decide"
+        }
+      ],
+      "waitForRole": "dialog"
+    },
+    {
+      "id": "115",
+      "path": "/platform/users",
+      "title": "Users & roles \u00b7 add a colleague",
+      "group": "Platform",
+      "persona": "platform_admin",
+      "scenario": "ownership_review",
+      "description": "Users & roles with synthetic demonstration data.",
+      "routePattern": "/platform/users",
+      "surfaceId": "PLT-19",
+      "status": "demo",
+      "actions": [
+        {
+          "kind": "click",
+          "label": "Add user"
+        },
+        {
+          "kind": "fill",
+          "label": "Search Microsoft Entra ID",
+          "value": "Jamie"
+        }
+      ],
+      "waitForText": "Jamie Chen",
+      "waitForRole": "dialog"
+    },
+    {
+      "id": "116",
+      "path": "/context?view=banks",
+      "title": "Contextboard \u00b7 access banks",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Contextboard with synthetic demonstration data.",
+      "routePattern": "/context",
+      "surfaceId": "CXT-01",
+      "status": "demo"
+    },
+    {
+      "id": "117",
+      "path": "/context?view=list",
+      "title": "Contextboard \u00b7 readable list",
+      "group": "Context",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Contextboard with synthetic demonstration data.",
+      "routePattern": "/context",
+      "surfaceId": "CXT-01",
+      "status": "demo"
+    },
+    {
+      "id": "118",
+      "path": "/studio/agents/mandates/agent.identity_ownership/tasks/task.identity_ownership?step=ownership_ubo_resolve&tab=context",
+      "title": "Taskboard \u00b7 context requirements",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Taskboard and Skillboard with synthetic demonstration data.",
+      "routePattern": "/studio/agents/mandates/$agentId/tasks/$taskId",
+      "surfaceId": "AGT-03",
+      "status": "demo"
+    },
+    {
+      "id": "119",
+      "path": "/studio/drafts/draft_6f1c2c3e-0000-4000-8000-000000000002",
+      "title": "Draft process \u00b7 all workflow steps",
+      "group": "Studios",
+      "persona": "agent_architect",
+      "scenario": "ownership_review",
+      "description": "Draft process with synthetic demonstration data.",
+      "routePattern": "/studio/drafts/$draftId",
+      "surfaceId": "PLT-03",
+      "status": "demo",
+      "actions": [
+        {
+          "kind": "click",
+          "label": "All steps"
+        }
+      ]
+    }
+  ]
+}

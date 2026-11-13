@@ -1,0 +1,61 @@
+party_id: H04
+as_of: '2026-09-30T00:00:00Z'
+documents:
+- document_id: doc_fbaf90b285ca7a51c7438d56
+  document_version: fbaf90b285ca7a51c7438d562c8ac1c192dbf7b70b375f1d7f91e20ab1e7a0db
+  file: thistlewood-certificate-of-incorporation.txt
+  subject: h04.entity.thistlewood-fab
+  document_type: certificate_of_incorporation
+  fields:
+    entity_name: Thistlewood Fabrication Ltd
+    registration_number: SYN-GB-00041042
+    formation_date: '2011-04-05'
+    formation_jurisdiction: GB
+  defects:
+  - finding: REGISTERED_ADDRESS_CONFLICT
+    field: registered_address
+    stated: Unit 9, Calder Works, Foundry Lane, Sheffield, S9 9ZZ, GB
+    record: Unit 7, Calder Works, Foundry Lane, Sheffield, S9 9ZZ, GB
+    against: RegistryRecord
+- document_id: doc_d68ed29ce268e30239182681
+  document_version: d68ed29ce268e30239182681f4d2a343ceeaf3403dcfd753c2222fbf94948323
+  file: thistlewood-register-of-directors.txt
+  subject: h04.entity.thistlewood-fab
+  document_type: director_officer_register
+  fields:
+    entity_name: Thistlewood Fabrication Ltd
+    parties:
+    - Gareth Thistlewood
+    - Helen Marsh
+  defects: []
+- document_id: doc_8ad01833a5ce4c3390525785
+  document_version: 8ad01833a5ce4c33905257856fdbe84afc9cb31b4afdac61068d49fa30c8b993
+  file: thistlewood-holdings-register-of-members.txt
+  subject: h04.entity.thistlewood-holdings
+  document_type: shareholder_register
+  fields:
+    entity_name: Thistlewood Holdings Ltd
+    ownership_interests:
+    - owner: Gareth Thistlewood
+      interest: 60%
+    - owner: Priya Nair-Calloway
+      interest: 40%
+  defects: []
+- document_id: doc_1fb7b81160f028b2558ea2a3
+  document_version: 1fb7b81160f028b2558ea2a39e455e22fd6a9afaa901e30e6e168e683ecf8738
+  file: marsh-passport.txt
+  subject: h04.entity.helen
+  document_type: passport
+  fields:
+    person_name: Helen Marsh
+    identity_number: SPECIMEN-H04-PP-0003
+    date_of_birth: '1983-07-30'
+    expiry_date: '2032-02-01'
+  defects: []
+missing:
+- type: passport
+  subject: h04.entity.gareth
+  reason: No identity document for director Gareth Thistlewood.
+- type: utility_bill
+  subject: h04.entity.helen
+  reason: No proof of address for director Helen Marsh.

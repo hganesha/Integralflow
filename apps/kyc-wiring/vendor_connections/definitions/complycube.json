@@ -1,0 +1,114 @@
+{
+  "provider_id": "complycube",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.complycube.com/v1"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+    "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-an-aml-screening-check"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_client": {
+      "method": "POST",
+      "path": "/clients",
+      "required_body": [
+        "type"
+      ],
+      "required_query": [],
+      "body_example": {
+        "type": "person",
+        "personDetails": {
+          "firstName": "YOUR_FIRST_NAME",
+          "lastName": "YOUR_LAST_NAME"
+        }
+      },
+      "content": "json",
+      "semantics": "resource",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "create_document": {
+      "method": "POST",
+      "path": "/documents",
+      "required_body": [
+        "clientId",
+        "type"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "resource",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "upload_front": {
+      "method": "POST",
+      "path": "/documents/{id}/upload/front",
+      "required_body": [
+        "fileName",
+        "data"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "create_check": {
+      "method": "POST",
+      "path": "/checks",
+      "required_body": [
+        "clientId",
+        "type"
+      ],
+      "required_query": [],
+      "body_example": {
+        "clientId": "YOUR_CLIENT_ID",
+        "type": "document_check",
+        "documentId": "YOUR_DOCUMENT_ID"
+      },
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_check": {
+      "method": "GET",
+      "path": "/checks/{id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "check_result",
+      "status_pointer": "/status",
+      "resource_pointer": "/id",
+      "source": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

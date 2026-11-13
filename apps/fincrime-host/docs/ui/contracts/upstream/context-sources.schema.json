@@ -1,0 +1,1387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "caseBinding": {
+      "type": "object",
+      "properties": {
+        "binding": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "case-binding"
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "caseId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "mappingId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "mappingDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "enablementRevision": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "planDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "nodeId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "sourceContextDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "subjects": {
+              "minItems": 1,
+              "maxItems": 20,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "subjectId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  },
+                  "sourceKey": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
+                  }
+                },
+                "required": [
+                  "subjectId",
+                  "sourceKey"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "caseId",
+            "mappingId",
+            "mappingDigest",
+            "enablementRevision",
+            "planDigest",
+            "nodeId",
+            "sourceContextDigest",
+            "subjects",
+            "enabled"
+          ],
+          "additionalProperties": false
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "binding",
+        "expectedRevision",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "pull": {
+      "type": "object",
+      "properties": {
+        "bindingId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+        },
+        "expectedBindingDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "subjects": {
+          "minItems": 1,
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "bindingId",
+        "expectedBindingDigest",
+        "subjects",
+        "idempotencyKey"
+      ],
+      "additionalProperties": false
+    },
+    "save": {
+      "type": "object",
+      "properties": {
+        "definition": {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "connection"
+                    },
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "connectorId": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "credentialRef": {
+                      "type": "string",
+                      "pattern": "^CONTEXT_SOURCE_[A-Z0-9_]{1,70}$"
+                    },
+                    "credentialGeneration": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "identityMode": {
+                      "type": "string",
+                      "const": "service"
+                    },
+                    "resources": {
+                      "minItems": 1,
+                      "maxItems": 32,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "schema": {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                          },
+                          "table": {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                          },
+                          "columns": {
+                            "minItems": 1,
+                            "maxItems": 100,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                            }
+                          }
+                        },
+                        "required": [
+                          "schema",
+                          "table",
+                          "columns"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "name",
+                    "connectorId",
+                    "credentialRef",
+                    "credentialGeneration",
+                    "identityMode",
+                    "resources"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "connection"
+                    },
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "connectorId": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "credentialRef": {
+                      "type": "string",
+                      "pattern": "^CONTEXT_SOURCE_[A-Z0-9_]{1,70}$"
+                    },
+                    "credentialGeneration": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "identityMode": {
+                      "type": "string",
+                      "const": "service"
+                    },
+                    "api": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "salesforce",
+                            "fenergo"
+                          ]
+                        },
+                        "baseUrl": {
+                          "type": "string",
+                          "maxLength": 500,
+                          "format": "uri"
+                        },
+                        "tokenUrl": {
+                          "type": "string",
+                          "maxLength": 500,
+                          "format": "uri"
+                        },
+                        "instanceId": {
+                          "type": "string",
+                          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                        },
+                        "scope": {
+                          "type": "string",
+                          "maxLength": 300
+                        },
+                        "apiVersion": {
+                          "type": "string",
+                          "pattern": "^v[0-9]{2,3}\\.0$"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "baseUrl",
+                        "tokenUrl",
+                        "instanceId"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "resources": {
+                      "minItems": 1,
+                      "maxItems": 32,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "datasetId": {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                          },
+                          "fields": {
+                            "minItems": 1,
+                            "maxItems": 100,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256,
+                              "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+                            }
+                          }
+                        },
+                        "required": [
+                          "datasetId",
+                          "fields"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "name",
+                    "connectorId",
+                    "credentialRef",
+                    "credentialGeneration",
+                    "identityMode",
+                    "api",
+                    "resources"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "resource"
+                    },
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "connectionId": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "connectionDigest": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "schema": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                    },
+                    "table": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                    },
+                    "columns": {
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                      }
+                    },
+                    "subjectColumn": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                    },
+                    "observedAtColumn": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                    },
+                    "schemaFingerprint": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "maxRows": {
+                      "default": 100,
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "connectionId",
+                    "connectionDigest",
+                    "schema",
+                    "table",
+                    "columns",
+                    "subjectColumn",
+                    "observedAtColumn",
+                    "schemaFingerprint"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "resource"
+                    },
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "connectionId": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "connectionDigest": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "datasetId": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                    },
+                    "columns": {
+                      "minItems": 1,
+                      "maxItems": 100,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                      }
+                    },
+                    "subjectColumn": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                    },
+                    "observedAtColumn": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                    },
+                    "schemaFingerprint": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "maxRows": {
+                      "default": 100,
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 100
+                    },
+                    "api": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "salesforce"
+                            },
+                            "object": {
+                              "type": "string",
+                              "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                            },
+                            "subjectField": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256,
+                              "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+                            },
+                            "fields": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string",
+                                "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                              },
+                              "additionalProperties": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "object",
+                            "subjectField",
+                            "fields"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "fenergo"
+                            },
+                            "path": {
+                              "type": "string",
+                              "maxLength": 500,
+                              "pattern": "^\\/(entitydataquery|associationquery|journeyquery|documentmanagementquery|screeningquery)\\/api\\/[A-Za-z0-9_./-]*\\{subject\\}[A-Za-z0-9_./-]*$"
+                            },
+                            "schemaPath": {
+                              "type": "string",
+                              "pattern": "^\\/(entitydataquery|associationquery|journeyquery|documentmanagementquery|screeningquery)\\/swagger\\/[A-Za-z0-9._/-]+\\.json$"
+                            },
+                            "recordsPath": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256,
+                              "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+                            },
+                            "nextPath": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256,
+                              "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+                            },
+                            "fields": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string",
+                                "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                              },
+                              "additionalProperties": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "path",
+                            "schemaPath",
+                            "fields"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id",
+                    "connectionId",
+                    "connectionDigest",
+                    "datasetId",
+                    "columns",
+                    "subjectColumn",
+                    "observedAtColumn",
+                    "schemaFingerprint",
+                    "api"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "mapping"
+                },
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "productId": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "resourceId": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "resourceDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "schemaVersion": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+                "catalogDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "subject": {
+                  "$ref": "#/$defs/__schema0"
+                },
+                "outputs": {
+                  "maxItems": 12,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "objectType": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                      },
+                      "collection": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
+                      },
+                      "identity": {
+                        "$ref": "#/$defs/__schema0"
+                      },
+                      "fields": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string",
+                          "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+                        },
+                        "additionalProperties": {
+                          "$ref": "#/$defs/__schema0"
+                        }
+                      }
+                    },
+                    "required": [
+                      "objectType",
+                      "identity",
+                      "fields"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "name",
+                "productId",
+                "resourceId",
+                "resourceDigest",
+                "schemaVersion",
+                "catalogDigest",
+                "subject",
+                "outputs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "case-binding"
+                },
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "caseId": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "mappingId": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "mappingDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "enablementRevision": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "planDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "nodeId": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+                },
+                "sourceContextDigest": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "subjects": {
+                  "minItems": 1,
+                  "maxItems": 20,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "subjectId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
+                      },
+                      "sourceKey": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "subjectId",
+                      "sourceKey"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "caseId",
+                "mappingId",
+                "mappingDigest",
+                "enablementRevision",
+                "planDigest",
+                "nodeId",
+                "sourceContextDigest",
+                "subjects",
+                "enabled"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "definition",
+        "expectedRevision",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "sample": {
+      "type": "object",
+      "properties": {
+        "mappingId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+        },
+        "expectedDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "uploaded",
+            "fixture",
+            "live"
+          ]
+        },
+        "rows": {
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          }
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+        },
+        "subjects": {
+          "minItems": 1,
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "authority": {
+          "type": "object",
+          "properties": {
+            "planDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "contextDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "capabilityId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "connectorId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            }
+          },
+          "required": [
+            "planDigest",
+            "contextDigest",
+            "capabilityId",
+            "connectorId"
+          ],
+          "additionalProperties": false
+        },
+        "consumer": {
+          "type": "object",
+          "properties": {
+            "agentId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "taskId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            }
+          },
+          "required": [
+            "agentId",
+            "taskId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "mappingId",
+        "expectedDigest",
+        "origin"
+      ],
+      "additionalProperties": false
+    },
+    "refresh": {
+      "type": "object",
+      "properties": {
+        "schedule": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "mappingId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "mappingDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "enablementRevision": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "caseId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "nodeId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "planDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "sourceContextDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "subjects": {
+              "minItems": 1,
+              "maxItems": 20,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              }
+            },
+            "intervalMinutes": {
+              "type": "integer",
+              "minimum": 5,
+              "maximum": 43200
+            },
+            "startsAt": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+            },
+            "maxAttempts": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 3
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "mappingId",
+            "mappingDigest",
+            "enablementRevision",
+            "caseId",
+            "nodeId",
+            "planDigest",
+            "sourceContextDigest",
+            "subjects",
+            "intervalMinutes",
+            "startsAt",
+            "maxAttempts",
+            "enabled"
+          ],
+          "additionalProperties": false
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "schedule",
+        "expectedRevision",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "documentScope": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "subjects": {
+          "minItems": 1,
+          "maxItems": 32,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        }
+      },
+      "required": [
+        "purpose"
+      ],
+      "additionalProperties": false
+    },
+    "documentSearch": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "subjects": {
+          "minItems": 1,
+          "maxItems": 32,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "mode": {
+          "default": "lexical",
+          "type": "string",
+          "const": "lexical"
+        },
+        "maxResults": {
+          "default": 5,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "snippetChars": {
+          "default": 500,
+          "type": "integer",
+          "minimum": 80,
+          "maximum": 1600
+        },
+        "contextBudget": {
+          "default": 4000,
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 16000
+        }
+      },
+      "required": [
+        "purpose",
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "documentCitation": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "subjects": {
+          "minItems": 1,
+          "maxItems": 32,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "citationId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "purpose",
+        "citationId"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "caseBinding",
+    "pull",
+    "save",
+    "sample",
+    "refresh",
+    "documentScope",
+    "documentSearch",
+    "documentCitation"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "field"
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            }
+          },
+          "required": [
+            "op",
+            "path"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "coalesce"
+            },
+            "values": {
+              "minItems": 1,
+              "maxItems": 16,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema0"
+              }
+            }
+          },
+          "required": [
+            "op",
+            "values"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "concat"
+            },
+            "values": {
+              "minItems": 1,
+              "maxItems": 16,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema0"
+              }
+            },
+            "separator": {
+              "type": "string",
+              "maxLength": 32
+            }
+          },
+          "required": [
+            "op",
+            "values",
+            "separator"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "split"
+            },
+            "value": {
+              "$ref": "#/$defs/__schema0"
+            },
+            "separator": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
+          },
+          "required": [
+            "op",
+            "value",
+            "separator"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "crosswalk"
+            },
+            "value": {
+              "$ref": "#/$defs/__schema0"
+            },
+            "revision": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "reviewedBy": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,127}$"
+            },
+            "values": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "additionalProperties": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              }
+            }
+          },
+          "required": [
+            "op",
+            "value",
+            "revision",
+            "reviewedBy",
+            "values"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "literal"
+            },
+            "value": {}
+          },
+          "required": [
+            "op",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "enum": [
+                "trim",
+                "lower",
+                "upper",
+                "decimal",
+                "instant",
+                "integer",
+                "boolean",
+                "date",
+                "json",
+                "percent_fraction"
+              ]
+            },
+            "value": {
+              "$ref": "#/$defs/__schema0"
+            }
+          },
+          "required": [
+            "op",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "lookup"
+            },
+            "value": {
+              "$ref": "#/$defs/__schema0"
+            },
+            "values": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "additionalProperties": {
+                "type": "string",
+                "maxLength": 512
+              }
+            }
+          },
+          "required": [
+            "op",
+            "value",
+            "values"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "id"
+            },
+            "namespace": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,199}$"
+            },
+            "value": {
+              "$ref": "#/$defs/__schema0"
+            }
+          },
+          "required": [
+            "op",
+            "namespace",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "object"
+            },
+            "fields": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{0,62}$"
+              },
+              "additionalProperties": {
+                "$ref": "#/$defs/__schema0"
+              }
+            }
+          },
+          "required": [
+            "op",
+            "fields"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "type": "string",
+              "const": "array"
+            },
+            "items": {
+              "maxItems": 64,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema0"
+              }
+            }
+          },
+          "required": [
+            "op",
+            "items"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

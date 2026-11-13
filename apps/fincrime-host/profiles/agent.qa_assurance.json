@@ -1,0 +1,68 @@
+{
+  "context_products": [
+    "policy.intelligence",
+    "evidence.intelligence"
+  ],
+  "execution": {
+    "allowed_skills": {
+      "quality.coverage.assess": "0.3.0",
+      "quality.findings.verify": "0.3.0",
+      "quality.hallucination.detect": "0.3.0",
+      "quality.policy.compliance": "0.3.0"
+    },
+    "capabilities": [],
+    "context_fields": {
+      "Control": [
+        "outcome",
+        "requirement_id"
+      ],
+      "Evidence": [
+        "content"
+      ],
+      "Finding": [
+        "claim",
+        "evidence_ids"
+      ]
+    },
+    "id": "agent.qa_assurance",
+    "instructions": "Independently challenge legal applicability, omitted parties, evidence sufficiency, stale sources, unsupported findings, overrides and monitoring handoff. Use admitted evidence. Keep proposed actions and authorized decisions separate.",
+    "max_agent_steps": 16,
+    "max_objects": 1000,
+    "model_char_budget": 64000,
+    "model_config_ref": null,
+    "permissions": [
+      "skill:quality.coverage.assess",
+      "skill:quality.findings.verify",
+      "skill:quality.hallucination.detect",
+      "skill:quality.policy.compliance"
+    ],
+    "policy_fields": [
+      "freshness_seconds",
+      "jurisdiction",
+      "permissions",
+      "requirements",
+      "version"
+    ],
+    "purposes": [
+      "investigation",
+      "onboarding",
+      "review"
+    ],
+    "timeout_seconds": 30,
+    "version": "0.5.0"
+  },
+  "human_gates": [
+    "ambiguous evidence",
+    "policy exception",
+    "consequential decision"
+  ],
+  "id": "agent.qa_assurance",
+  "mandate": "Independently challenge legal applicability, omitted parties, evidence sufficiency, stale sources, unsupported findings, overrides and monitoring handoff.",
+  "personas": [
+    "qa_reviewer"
+  ],
+  "task_ids": [
+    "task.qa_assurance"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,33 @@
+{
+  "provider_id": "uk-sanctions-list",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://sanctionslist.fcdo.gov.uk"
+  },
+  "auth": {
+    "type": "none",
+    "keys": []
+  },
+  "sources": [
+    "https://www.gov.uk/government/publications/the-uk-sanctions-list"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "download_consolidated": {
+      "method": "GET",
+      "path": "/docs/UK-Sanctions-List.xml",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "dataset",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+      "allowed_input_headers": [],
+      "response": "xml"
+    }
+  }
+}

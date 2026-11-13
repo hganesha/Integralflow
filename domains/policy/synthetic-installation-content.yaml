@@ -1,0 +1,349 @@
+# SYNTHETIC INSTALLATION CONTENT -- PLACEHOLDER VALUES, NOT POLICY.
+#
+# These values are invented so that every skill in the agentic KYC (personal-banking) and KYB
+# (business-banking) flows can run end to end against the synthetic context corpus
+# (fixtures/context-corpus/parties/H01..H12). They are NOT any real institution's policy, were not
+# reviewed by a policy owner, carry no regulatory basis, and must never be adopted, approved or
+# shipped as installation policy. Use them for local and end-to-end testing only.
+#
+# Shape: customerTypes.<type>.fields.<field> = { value, basis }. Every value must validate against
+# the library's closed Policy contract (packages/library-contracts/src/vendor/ontology.schema.json,
+# $defs.Policy) through validateInstallationContent; every basis starts with "SYNTHETIC".
+# jurisdictionOverrides.<JURISDICTION>.<type>.fields.<field> replaces that whole field for that
+# customer type in that jurisdiction; fields it does not name are inherited from customerTypes.
+# The base customerTypes values are written for US; GB and AU override only what US CIP makes differ.
+#
+# Handler facts this content is written against (apps/fincrime-host/src/financial_crime/skills):
+# - risk.customer.assess treats every weighted factor absent from the case as missing (score null,
+#   tier UNKNOWN), so risk_weights name only factors every corpus case carries.
+# - edd.trigger.evaluate receives the facts the flows bind: tier, sanctions_hits, pep_hits and
+#   adverse_media_events; decision.rules.evaluate and decision.requirements.compile receive tier and
+#   identity_verified. A predicate on any other fact evaluates UNKNOWN, which edd.trigger.evaluate
+#   counts as "EDD required", so predicates use only bound facts.
+# - monitor.customer.schedule reads one review_interval_seconds number (no per-tier cadence).
+# - permitted_providers is deliberately absent: provider permission is an installation owner's
+#   decision, never filled by placeholder content (it stays UNRESOLVED).
+apiVersion: harness.factory/synthetic-installation-content-v1
+kind: SyntheticInstallationContent
+label: SYNTHETIC
+owner: synthetic.policy.placeholder
+
+customerTypes:
+  individual:
+    fields:
+      risk_model_version:
+        value: synthetic-risk-individual-v1
+        basis: "SYNTHETIC: names the placeholder individual weighting below so risk assessments pin a model version."
+      risk_weights:
+        value:
+          geography: "0.5"
+          product: "0.5"
+        basis: "SYNTHETIC: equal weights on the only factors every individual corpus case carries; a weighted factor a case lacks leaves the score null."
+      risk_tiers:
+        value:
+          - { minimum: "0.40", tier: HIGH }
+          - { minimum: "0.20", tier: MEDIUM }
+          - { minimum: "0", tier: LOW }
+        basis: "SYNTHETIC: boundaries chosen so the clean control (H01, 0.075) is LOW and the PEP-connected private-banking client (H03, 0.45) is HIGH."
+      risk_factor_maps:
+        value: &riskFactorMaps
+          geography: { US: "0.05", GB: "0.05", IE: "0.05", DE: "0.05", NL: "0.05", SE: "0.05", ES: "0.10", SG: "0.20", LU: "0.25", BG: "0.30", HK: "0.30", MX: "0.35", CY: "0.40", JE: "0.40", AE: "0.50", TR: "0.50", VG: "0.70", OS: "0.80" }
+          product: { deposit: "0.05", card: "0.10", lending: "0.15", payments: "0.30", merchant_acquiring: "0.30", custody: "0.40", trade_finance: "0.50", private_banking: "0.50", correspondent: "0.60" }
+          industry: { metal_fabrication: "0.20", courier_services: "0.40", general_trading: "0.55", holding_company: "0.60" }
+          behavior: { baseline: "0.10" }
+          customer_type: { individual: "0.05", private_company: "0.15", llc: "0.15", corporate: "0.20", trust: "0.40", free_zone_company: "0.50" }
+          pep_proximity: { none: "0", unverified_associate: "0.40", verified_close_associate: "0.70", verified_family_member: "0.80", self: "1" }
+        basis: "SYNTHETIC: per-value scores covering every country, product, industry and customer type in the corpus, roughly in line with the corpus RiskFactor scores."
+      edd_triggers:
+        value:
+          - id: edd-high-risk-tier
+            predicate: { field: tier, op: eq, value: HIGH }
+            tasks: [pep_relationship_review, source_of_funds, source_of_wealth, senior_management_approval, enhanced_ongoing_monitoring]
+          - id: edd-pep-candidate
+            predicate: { field: pep_hits, op: ne, value: [] }
+            tasks: [pep_relationship_review, source_of_wealth, senior_management_approval]
+          - id: edd-sanctions-candidate
+            predicate: { field: sanctions_hits, op: ne, value: [] }
+            tasks: [sanctions_match_review, senior_management_approval]
+          - id: edd-adverse-media
+            predicate: { field: adverse_media_events, op: ne, value: [] }
+            tasks: [adverse_media_review]
+        basis: "SYNTHETIC: the flows bind the tier and the sanctions, PEP and adverse-media screening outcomes; any HIGH tier or any screening candidate or adverse-media event requires EDD."
+      review_interval_seconds:
+        value: 31536000
+        basis: "SYNTHETIC: one-year periodic review; the schedule skill takes a single interval, so it cannot vary by tier."
+      requirements:
+        value:
+          - { id: EVD-CIP-IDENTITY-DOCUMENT, description: "Synthetic: a government identity document", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-IDENTITY-DOCUMENT }, { field: documents_missing, op: excludes, value: EVD-CIP-IDENTITY-DOCUMENT }] } } }
+          - { id: EVD-CIP-ADDRESS, description: "Synthetic: evidence of residential address", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-ADDRESS }, { field: documents_missing, op: excludes, value: EVD-CIP-ADDRESS }] } } }
+          - { id: EVD-CIP-TIN, description: "Synthetic: evidence of the taxpayer identification number", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-TIN }, { field: documents_missing, op: excludes, value: EVD-CIP-TIN }] } } }
+          - { id: EVD-IDENTITY-VERIFICATION, description: "Synthetic: verified identity", control: { pass: { all: [{ field: identity_verified, op: contains, value: true }, { field: identity_verified, op: excludes, value: false }] }, fail: { field: identity_verified, op: contains, value: false } } }
+          - { id: EVD-SANCTIONS-SCREENING, description: "Synthetic: sanctions screening disposed", control: { pass: { field: sanctions_hits, op: eq, value: [] } } }
+          - { id: EVD-PEP-SCREENING, description: "Synthetic: PEP screening disposed", control: { pass: { field: pep_hits, op: eq, value: [] } } }
+          - { id: EVD-ADVERSE-MEDIA, description: "Synthetic: adverse media screening disposed", control: { pass: { field: adverse_media_events, op: eq, value: [] } } }
+          - { id: EVD-SOURCE-OF-FUNDS, description: "Synthetic: corroborated source of funds for high risk", when: { field: tier, op: eq, value: HIGH }, control: { pass: { all: [{ field: funds_verified, op: contains, value: true }, { field: funds_verified, op: excludes, value: false }] } } }
+          - { id: EVD-EDD-NARRATIVE, description: "Synthetic: EDD narrative for high risk", when: { field: tier, op: eq, value: HIGH } }
+        basis: "SYNTHETIC: obligation ids reuse domains/kyc/policy/catalog/evidence-obligations.yaml; EDD obligations apply only on a HIGH tier. Each control (decision.controls.assess) passes only on bound evidence: a document requirement listed and not missing, every identity verification passed, no screening candidate; a failed identity verification fails it, anything else stays UNKNOWN."
+      rules:
+        value: &rules
+          - id: identity-verified
+            predicate: { field: identity_verified, op: eq, value: true }
+          - id: risk-within-standard-appetite
+            predicate: { field: tier, op: in, value: [LOW, MEDIUM] }
+        basis: "SYNTHETIC: rules use only the facts the flows bind (identity_verified, tier); a HIGH tier fails the standard-appetite rule and escalates."
+      recommendations:
+        value: &recommendations
+          PASS: REVIEW_FOR_ACCEPTANCE
+          FAIL: ESCALATE
+          UNKNOWN: COLLECT_EVIDENCE
+        basis: "SYNTHETIC: maps control outcomes to review recommendations; no outcome recommends automatic acceptance."
+      required_document_types:
+        value: []
+        basis: "SYNTHETIC: every handler treats this list as all-of, so identity and address alternatives live as any-of groups in the ehf.document extension (the kyc-v2 convention)."
+      extensions:
+        value:
+          ehf.document:
+            schema_version: 1.0.0
+            value:
+              document_requirements:
+                - { id: EVD-CIP-IDENTITY-DOCUMENT, description: "Synthetic: government identity document", any_of: [passport, national_identity_card, driving_licence, residence_permit] }
+                - { id: EVD-CIP-ADDRESS, description: "Synthetic: residential address evidence", any_of: [utility_bill, bank_statement, official_residence_certificate, government_address_letter, telecom_bill, municipal_tax_bill] }
+                - { id: EVD-CIP-TIN, description: "Synthetic: taxpayer identification number evidence", any_of: [tax_registration_certificate, individual_tax_self_certification, tax_assessment, personal_tax_return, w9] }
+        basis: "SYNTHETIC: any-of document groups in document field catalog vocabulary (passport, driving_licence, utility_bill, ...), as document.requirements.resolve reads them."
+      identifier_rules:
+        value: &identifierRules
+          US-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          GB-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          BG-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          CY-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          DE-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          ES-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          LU-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          MX-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          NL-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          OS-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          SE-SPECIMEN: { pattern: "SPECIMEN-(?:H[0-9]{2}-(?:PP|DL|DNI|CURP|ID)|SD|PEP)-[0-9]{4}" }
+          US-NY-SPECIMEN: { pattern: "SPECIMEN-H[0-9]{2}-DL-[0-9]{4}" }
+          US-NJ-SPECIMEN: { pattern: "SPECIMEN-H[0-9]{2}-DL-[0-9]{4}" }
+          US-DE-SPECIMEN: { pattern: "SPECIMEN-H[0-9]{2}-DL-[0-9]{4}" }
+          synthetic-registry: { pattern: "SYN-[A-Z]{2}-[A-Z0-9]{5,10}" }
+          synthetic-free-zone-registry: { pattern: "SYN-[A-Z]{2}-FZ-[0-9]{6}" }
+          synthetic-luhn: { pattern: "[0-9]{8,19}", checksum: luhn }
+        basis: "SYNTHETIC: keyed by the issuer the agents pass (the IdentityIdentifier issuer or Registration authority); patterns match corpus specimen values only, never a real document format."
+      customer_types:
+        value: &customerTypes
+          individual: individual
+          sole_proprietor: corporate
+          private_company: corporate
+          corporate: corporate
+          llc: corporate
+          free_zone_company: corporate
+          listed_company: corporate
+          partnership: corporate
+          trust: corporate
+        basis: "SYNTHETIC: maps corpus customer_type codes onto the flows' two customer types (individual -> KYC, everything else -> KYB)."
+      profile_fields:
+        value: [legal_name]
+        basis: "SYNTHETIC: legal name is the only profile field every individual corpus party carries."
+      industries:
+        value: &industries
+          metal_fabrication: manufacturing
+          general_trading: wholesale_trade
+          holding_company: holding_and_investment
+          courier_services: transport_and_logistics
+        basis: "SYNTHETIC: classifies every industry code in the corpus; individuals carry none, so the same map is harmless here."
+
+  corporate:
+    fields:
+      risk_model_version:
+        value: synthetic-risk-corporate-v1
+        basis: "SYNTHETIC: names the placeholder corporate weighting below so risk assessments pin a model version."
+      risk_weights:
+        value:
+          geography: "0.6"
+          product: "0.4"
+        basis: "SYNTHETIC: only geography and product are on every corporate case (the trust H12 lacks ownership_structure), so ownership risk is not weighted."
+      risk_tiers:
+        value:
+          - { minimum: "0.40", tier: HIGH }
+          - { minimum: "0.20", tier: MEDIUM }
+          - { minimum: "0", tier: LOW }
+        basis: "SYNTHETIC: with the corporate weights, clean corporates H04 (0.16) and H07 (0.11) are LOW, trust H12 (0.28) MEDIUM, H05 and H06 (0.47, 0.48) HIGH."
+      risk_factor_maps:
+        value: *riskFactorMaps
+        basis: "SYNTHETIC: the same per-value score tables as individuals; industry and customer type scores matter only here."
+      edd_triggers:
+        value:
+          - id: edd-high-risk-tier
+            predicate: { field: tier, op: eq, value: HIGH }
+            tasks: [ownership_structure_verification, ubo_sanctions_and_pep_review, source_of_funds, business_purpose_validation, senior_management_approval, enhanced_ongoing_monitoring]
+          - id: edd-pep-candidate
+            predicate: { field: pep_hits, op: ne, value: [] }
+            tasks: [ubo_sanctions_and_pep_review, senior_management_approval]
+          - id: edd-sanctions-candidate
+            predicate: { field: sanctions_hits, op: ne, value: [] }
+            tasks: [sanctions_match_review, ownership_structure_verification, senior_management_approval]
+          - id: edd-adverse-media
+            predicate: { field: adverse_media_events, op: ne, value: [] }
+            tasks: [adverse_media_review]
+        basis: "SYNTHETIC: the flows bind the tier and the sanctions, PEP and adverse-media screening outcomes; any HIGH tier or any screening candidate or adverse-media event requires EDD, with tasks scoping the ownership review."
+      review_interval_seconds:
+        value: 31536000
+        basis: "SYNTHETIC: one-year periodic review; the schedule skill takes a single interval, so it cannot vary by tier."
+      requirements:
+        value:
+          - { id: EVD-BUSINESS-REGISTRATION, description: "Synthetic: evidence of legal existence and registration", control: { pass: { any: [{ all: [{ field: documents_required, op: contains, value: EVD-BUSINESS-REGISTRATION }, { field: documents_missing, op: excludes, value: EVD-BUSINESS-REGISTRATION }] }, { all: [{ field: registry_verified, op: contains, value: true }, { field: registry_verified, op: excludes, value: false }] }] } } }
+          - { id: EVD-BENEFICIAL-OWNERSHIP, description: "Synthetic: beneficial owners identified and verified", when: { field: due_diligence, op: ne, value: simplified }, control: { pass: { all: [{ field: owners_verified, op: contains, value: true }, { field: owners_verified, op: excludes, value: false }] } } }
+          - { id: EVD-RELATIONSHIP-PURPOSE, description: "Synthetic: declared business purpose and expected activity", control: { pass: { all: [{ field: profile_complete, op: contains, value: true }, { field: profile_complete, op: excludes, value: false }] } } }
+          - { id: EVD-CIP-ADDRESS, description: "Synthetic: principal business address evidence", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-ADDRESS }, { field: documents_missing, op: excludes, value: EVD-CIP-ADDRESS }] } } }
+          - { id: EVD-CIP-TIN, description: "Synthetic: employer or taxpayer identification number evidence", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-TIN }, { field: documents_missing, op: excludes, value: EVD-CIP-TIN }] } } }
+          - { id: EVD-IDENTITY-VERIFICATION, description: "Synthetic: controllers' identity verified", control: { pass: { all: [{ field: identity_verified, op: contains, value: true }, { field: identity_verified, op: excludes, value: false }] }, fail: { field: identity_verified, op: contains, value: false } } }
+          - { id: EVD-SANCTIONS-SCREENING, description: "Synthetic: entity, owner and controller sanctions screening disposed", control: { pass: { field: sanctions_hits, op: eq, value: [] } } }
+          - { id: EVD-PEP-SCREENING, description: "Synthetic: owner and controller PEP screening disposed", control: { pass: { field: pep_hits, op: eq, value: [] } } }
+          - { id: EVD-ADVERSE-MEDIA, description: "Synthetic: adverse media screening disposed", control: { pass: { field: adverse_media_events, op: eq, value: [] } } }
+          - { id: EVD-SOURCE-OF-FUNDS, description: "Synthetic: corroborated source of funds for high risk", when: { field: tier, op: eq, value: HIGH }, control: { pass: { all: [{ field: funds_verified, op: contains, value: true }, { field: funds_verified, op: excludes, value: false }] } } }
+          - { id: EVD-EDD-NARRATIVE, description: "Synthetic: EDD narrative for high risk", when: { field: tier, op: eq, value: HIGH } }
+        basis: "SYNTHETIC: obligation ids reuse domains/kyc/policy/catalog/evidence-obligations.yaml plus the KYB ownership and registration obligations; EDD obligations apply only on a HIGH tier and ownership not under simplified due diligence. Each control (decision.controls.assess) passes only on bound evidence (documents, registry or owner verifications, profile completeness, screening without candidates); a failed identity verification fails it, anything else stays UNKNOWN."
+      rules:
+        value: *rules
+        basis: "SYNTHETIC: rules use only the facts the flows bind (identity_verified, tier); a HIGH tier fails the standard-appetite rule and escalates."
+      recommendations:
+        value: *recommendations
+        basis: "SYNTHETIC: maps control outcomes to review recommendations; no outcome recommends automatic acceptance."
+      required_document_types:
+        value: []
+        basis: "SYNTHETIC: every handler treats this list as all-of and trusts have no certificate of incorporation, so alternatives live as any-of groups in the ehf.document extension."
+      extensions:
+        value:
+          ehf.document:
+            schema_version: 1.0.0
+            value:
+              document_requirements:
+                - { id: EVD-BUSINESS-REGISTRATION, description: "Synthetic: evidence of legal existence", any_of: [certificate_of_incorporation, company_registry_extract, business_registration_certificate, certificate_of_good_standing, trust_deed, trust_registration, partnership_agreement, llc_operating_agreement] }
+                - { id: EVD-BENEFICIAL-OWNERSHIP, description: "Synthetic: evidence of ownership", any_of: [shareholder_register, beneficial_ownership_declaration, beneficial_ownership_registry_extract, ownership_structure_chart, trust_deed] }
+                - { id: SYN-CONTROL-AND-OFFICERS, description: "Synthetic: evidence of directors, officers or trustees", any_of: [director_officer_register, certificate_of_incumbency, officeholder_list, trustee_appointment_deed] }
+                - { id: EVD-CIP-TIN, description: "Synthetic: entity taxpayer identification number evidence", any_of: [tax_registration_certificate, entity_tax_self_certification, w9, w8bene] }
+        basis: "SYNTHETIC: any-of document groups in document field catalog vocabulary (certificate_of_incorporation, company_registry_extract, ...), as document.requirements.resolve reads them."
+      identifier_rules:
+        value: *identifierRules
+        basis: "SYNTHETIC: the same issuer-keyed specimen patterns as individuals, covering owners' and officers' documents and the synthetic registries."
+      customer_types:
+        value: *customerTypes
+        basis: "SYNTHETIC: maps corpus customer_type codes onto the flows' two customer types (individual -> KYC, everything else -> KYB)."
+      profile_fields:
+        value: [legal_name, business_purpose]
+        basis: "SYNTHETIC: legal name and declared business purpose; the trust H12 carries no business_purpose and reports it as a gap."
+      industries:
+        value: *industries
+        basis: "SYNTHETIC: classifies every industry code on a corporate corpus party."
+
+jurisdictionOverrides:
+  GB:
+    individual:
+      fields:
+        requirements:
+          value:
+            - { id: EVD-CIP-IDENTITY-DOCUMENT, description: "Synthetic: a government identity document", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-IDENTITY-DOCUMENT }, { field: documents_missing, op: excludes, value: EVD-CIP-IDENTITY-DOCUMENT }] } } }
+            - { id: EVD-CIP-ADDRESS, description: "Synthetic: evidence of residential address", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-ADDRESS }, { field: documents_missing, op: excludes, value: EVD-CIP-ADDRESS }] } } }
+            - { id: EVD-IDENTITY-VERIFICATION, description: "Synthetic: verified identity", control: { pass: { all: [{ field: identity_verified, op: contains, value: true }, { field: identity_verified, op: excludes, value: false }] }, fail: { field: identity_verified, op: contains, value: false } } }
+            - { id: EVD-SANCTIONS-SCREENING, description: "Synthetic: sanctions screening disposed", control: { pass: { field: sanctions_hits, op: eq, value: [] } } }
+            - { id: EVD-PEP-SCREENING, description: "Synthetic: PEP screening disposed", control: { pass: { field: pep_hits, op: eq, value: [] } } }
+            - { id: EVD-ADVERSE-MEDIA, description: "Synthetic: adverse media screening disposed", control: { pass: { field: adverse_media_events, op: eq, value: [] } } }
+            - { id: EVD-SOURCE-OF-FUNDS, description: "Synthetic: corroborated source of funds for high risk", when: { field: tier, op: eq, value: HIGH }, control: { pass: { all: [{ field: funds_verified, op: contains, value: true }, { field: funds_verified, op: excludes, value: false }] } } }
+            - { id: EVD-EDD-NARRATIVE, description: "Synthetic: EDD narrative for high risk", when: { field: tier, op: eq, value: HIGH } }
+          basis: "SYNTHETIC: as US without the taxpayer-identification obligation, which is a US CIP element."
+        extensions:
+          value:
+            ehf.document:
+              schema_version: 1.0.0
+              value:
+                document_requirements:
+                  - { id: EVD-CIP-IDENTITY-DOCUMENT, description: "Synthetic: government identity document", any_of: [passport, national_identity_card, driving_licence, residence_permit] }
+                  - { id: EVD-CIP-ADDRESS, description: "Synthetic: residential address evidence", any_of: [utility_bill, bank_statement, official_residence_certificate, government_address_letter, telecom_bill, municipal_tax_bill] }
+          basis: "SYNTHETIC: as US without the taxpayer-identification document group, which is a US CIP element."
+    corporate:
+      fields:
+        requirements:
+          value:
+            - { id: EVD-BUSINESS-REGISTRATION, description: "Synthetic: evidence of legal existence and registration", control: { pass: { any: [{ all: [{ field: documents_required, op: contains, value: EVD-BUSINESS-REGISTRATION }, { field: documents_missing, op: excludes, value: EVD-BUSINESS-REGISTRATION }] }, { all: [{ field: registry_verified, op: contains, value: true }, { field: registry_verified, op: excludes, value: false }] }] } } }
+            - { id: EVD-BENEFICIAL-OWNERSHIP, description: "Synthetic: beneficial owners identified and verified", when: { field: due_diligence, op: ne, value: simplified }, control: { pass: { all: [{ field: owners_verified, op: contains, value: true }, { field: owners_verified, op: excludes, value: false }] } } }
+            - { id: EVD-RELATIONSHIP-PURPOSE, description: "Synthetic: declared business purpose and expected activity", control: { pass: { all: [{ field: profile_complete, op: contains, value: true }, { field: profile_complete, op: excludes, value: false }] } } }
+            - { id: EVD-CIP-ADDRESS, description: "Synthetic: principal business address evidence", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-ADDRESS }, { field: documents_missing, op: excludes, value: EVD-CIP-ADDRESS }] } } }
+            - { id: EVD-IDENTITY-VERIFICATION, description: "Synthetic: controllers' identity verified", control: { pass: { all: [{ field: identity_verified, op: contains, value: true }, { field: identity_verified, op: excludes, value: false }] }, fail: { field: identity_verified, op: contains, value: false } } }
+            - { id: EVD-SANCTIONS-SCREENING, description: "Synthetic: entity, owner and controller sanctions screening disposed", control: { pass: { field: sanctions_hits, op: eq, value: [] } } }
+            - { id: EVD-PEP-SCREENING, description: "Synthetic: owner and controller PEP screening disposed", control: { pass: { field: pep_hits, op: eq, value: [] } } }
+            - { id: EVD-ADVERSE-MEDIA, description: "Synthetic: adverse media screening disposed", control: { pass: { field: adverse_media_events, op: eq, value: [] } } }
+            - { id: EVD-SOURCE-OF-FUNDS, description: "Synthetic: corroborated source of funds for high risk", when: { field: tier, op: eq, value: HIGH }, control: { pass: { all: [{ field: funds_verified, op: contains, value: true }, { field: funds_verified, op: excludes, value: false }] } } }
+            - { id: EVD-EDD-NARRATIVE, description: "Synthetic: EDD narrative for high risk", when: { field: tier, op: eq, value: HIGH } }
+          basis: "SYNTHETIC: as US without the entity taxpayer-identification obligation, which is a US CIP element."
+        extensions:
+          value:
+            ehf.document:
+              schema_version: 1.0.0
+              value:
+                document_requirements:
+                  - { id: EVD-BUSINESS-REGISTRATION, description: "Synthetic: evidence of legal existence", any_of: [certificate_of_incorporation, company_registry_extract, business_registration_certificate, certificate_of_good_standing, trust_deed, trust_registration, partnership_agreement, llc_operating_agreement] }
+                  - { id: EVD-BENEFICIAL-OWNERSHIP, description: "Synthetic: evidence of ownership", any_of: [shareholder_register, beneficial_ownership_declaration, beneficial_ownership_registry_extract, ownership_structure_chart, trust_deed] }
+                  - { id: SYN-CONTROL-AND-OFFICERS, description: "Synthetic: evidence of directors, officers or trustees", any_of: [director_officer_register, certificate_of_incumbency, officeholder_list, trustee_appointment_deed] }
+          basis: "SYNTHETIC: as US without the entity taxpayer-identification document group, which is a US CIP element."
+  AU:
+    individual:
+      fields:
+        requirements:
+          value:
+            - { id: EVD-CIP-IDENTITY-DOCUMENT, description: "Synthetic: a government identity document", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-IDENTITY-DOCUMENT }, { field: documents_missing, op: excludes, value: EVD-CIP-IDENTITY-DOCUMENT }] } } }
+            - { id: EVD-CIP-ADDRESS, description: "Synthetic: evidence of residential address", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-ADDRESS }, { field: documents_missing, op: excludes, value: EVD-CIP-ADDRESS }] } } }
+            - { id: EVD-IDENTITY-VERIFICATION, description: "Synthetic: verified identity", control: { pass: { all: [{ field: identity_verified, op: contains, value: true }, { field: identity_verified, op: excludes, value: false }] }, fail: { field: identity_verified, op: contains, value: false } } }
+            - { id: EVD-SANCTIONS-SCREENING, description: "Synthetic: sanctions screening disposed", control: { pass: { field: sanctions_hits, op: eq, value: [] } } }
+            - { id: EVD-PEP-SCREENING, description: "Synthetic: PEP screening disposed", control: { pass: { field: pep_hits, op: eq, value: [] } } }
+            - { id: EVD-ADVERSE-MEDIA, description: "Synthetic: adverse media screening disposed", control: { pass: { field: adverse_media_events, op: eq, value: [] } } }
+            - { id: EVD-SOURCE-OF-FUNDS, description: "Synthetic: corroborated source of funds for high risk", when: { field: tier, op: eq, value: HIGH }, control: { pass: { all: [{ field: funds_verified, op: contains, value: true }, { field: funds_verified, op: excludes, value: false }] } } }
+            - { id: EVD-EDD-NARRATIVE, description: "Synthetic: EDD narrative for high risk", when: { field: tier, op: eq, value: HIGH } }
+          basis: "SYNTHETIC: as US without the taxpayer-identification obligation, which is a US CIP element; Australian customer due diligence has no taxpayer-number requirement."
+        extensions:
+          value:
+            ehf.document:
+              schema_version: 1.0.0
+              value:
+                document_requirements:
+                  - { id: EVD-CIP-IDENTITY-DOCUMENT, description: "Synthetic: government identity document", any_of: [passport, national_identity_card, driving_licence, residence_permit] }
+                  - { id: EVD-CIP-ADDRESS, description: "Synthetic: residential address evidence", any_of: [utility_bill, bank_statement, official_residence_certificate, government_address_letter, telecom_bill, municipal_tax_bill] }
+          basis: "SYNTHETIC: as US without the taxpayer-identification document group, which is a US CIP element; Australian customer due diligence has no taxpayer-number requirement."
+    corporate:
+      fields:
+        requirements:
+          value:
+            - { id: EVD-BUSINESS-REGISTRATION, description: "Synthetic: evidence of legal existence and registration", control: { pass: { any: [{ all: [{ field: documents_required, op: contains, value: EVD-BUSINESS-REGISTRATION }, { field: documents_missing, op: excludes, value: EVD-BUSINESS-REGISTRATION }] }, { all: [{ field: registry_verified, op: contains, value: true }, { field: registry_verified, op: excludes, value: false }] }] } } }
+            - { id: EVD-BENEFICIAL-OWNERSHIP, description: "Synthetic: beneficial owners identified and verified", when: { field: due_diligence, op: ne, value: simplified }, control: { pass: { all: [{ field: owners_verified, op: contains, value: true }, { field: owners_verified, op: excludes, value: false }] } } }
+            - { id: EVD-RELATIONSHIP-PURPOSE, description: "Synthetic: declared business purpose and expected activity", control: { pass: { all: [{ field: profile_complete, op: contains, value: true }, { field: profile_complete, op: excludes, value: false }] } } }
+            - { id: EVD-CIP-ADDRESS, description: "Synthetic: principal business address evidence", control: { pass: { all: [{ field: documents_required, op: contains, value: EVD-CIP-ADDRESS }, { field: documents_missing, op: excludes, value: EVD-CIP-ADDRESS }] } } }
+            - { id: EVD-IDENTITY-VERIFICATION, description: "Synthetic: controllers' identity verified", control: { pass: { all: [{ field: identity_verified, op: contains, value: true }, { field: identity_verified, op: excludes, value: false }] }, fail: { field: identity_verified, op: contains, value: false } } }
+            - { id: EVD-SANCTIONS-SCREENING, description: "Synthetic: entity, owner and controller sanctions screening disposed", control: { pass: { field: sanctions_hits, op: eq, value: [] } } }
+            - { id: EVD-PEP-SCREENING, description: "Synthetic: owner and controller PEP screening disposed", control: { pass: { field: pep_hits, op: eq, value: [] } } }
+            - { id: EVD-ADVERSE-MEDIA, description: "Synthetic: adverse media screening disposed", control: { pass: { field: adverse_media_events, op: eq, value: [] } } }
+            - { id: EVD-SOURCE-OF-FUNDS, description: "Synthetic: corroborated source of funds for high risk", when: { field: tier, op: eq, value: HIGH }, control: { pass: { all: [{ field: funds_verified, op: contains, value: true }, { field: funds_verified, op: excludes, value: false }] } } }
+            - { id: EVD-EDD-NARRATIVE, description: "Synthetic: EDD narrative for high risk", when: { field: tier, op: eq, value: HIGH } }
+          basis: "SYNTHETIC: as US without the entity taxpayer-identification obligation, which is a US CIP element; Australian customer due diligence has no taxpayer-number requirement."
+        extensions:
+          value:
+            ehf.document:
+              schema_version: 1.0.0
+              value:
+                document_requirements:
+                  - { id: EVD-BUSINESS-REGISTRATION, description: "Synthetic: evidence of legal existence", any_of: [certificate_of_incorporation, company_registry_extract, business_registration_certificate, certificate_of_good_standing, trust_deed, trust_registration, partnership_agreement, llc_operating_agreement] }
+                  - { id: EVD-BENEFICIAL-OWNERSHIP, description: "Synthetic: evidence of ownership", any_of: [shareholder_register, beneficial_ownership_declaration, beneficial_ownership_registry_extract, ownership_structure_chart, trust_deed] }
+                  - { id: SYN-CONTROL-AND-OFFICERS, description: "Synthetic: evidence of directors, officers or trustees", any_of: [director_officer_register, certificate_of_incumbency, officeholder_list, trustee_appointment_deed] }
+          basis: "SYNTHETIC: as US without the entity taxpayer-identification document group, which is a US CIP element; Australian customer due diligence has no taxpayer-number requirement."
+
+# Per due-diligence level (SDD / EDD); standard due diligence uses the values above.
+dueDiligenceOverrides:
+  simplified:
+    fields:
+      review_interval_seconds:
+        value: 94608000
+        basis: "SYNTHETIC: simplified due diligence is reviewed every three years (an eligible low-risk listed company, government body or regulated institution)."
+  enhanced:
+    fields:
+      review_interval_seconds:
+        value: 15552000
+        basis: "SYNTHETIC: enhanced due diligence is reviewed every six months, alongside continuous event-driven monitoring."

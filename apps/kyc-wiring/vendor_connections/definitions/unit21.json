@@ -1,0 +1,45 @@
+{
+  "provider_id": "unit21",
+  "version": "documented-public",
+  "bases": {},
+  "auth": {
+    "type": "header",
+    "name": "u21-key",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.unit21.ai/reference/encryption",
+    "https://docs.unit21.ai/reference/placeholder-objects"
+  ],
+  "notes": "Use customer-specific API_ENDPOINT. Optional Fernet transport mode is not enabled; only ordinary documented TLS JSON mode is implemented.",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_entity": {
+      "method": "POST",
+      "path": "/v1/entities/create",
+      "required_body": [
+        "general_data"
+      ],
+      "required_query": [],
+      "body_example": {
+        "general_data": {
+          "entity_id": "YOUR_ENTITY_ID",
+          "entity_type": "user",
+          "status": "ACTIVE",
+          "registered_at": 0
+        },
+        "user_data": {}
+      },
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.unit21.ai/reference/placeholder-objects",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

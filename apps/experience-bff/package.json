@@ -1,0 +1,28 @@
+{
+  "name": "@ehf/experience-bff",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Experience BFF (BUILD-SPEC v2 \u00a75): sessions, CSRF, delegated identity, relay, compositions, FinCrime module.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@azure/identity": "4.14.1",
+    "@ehf/fincrime-views": "workspace:*",
+    "@ehf/contracts": "workspace:*",
+    "@ehf/identity": "workspace:*",
+    "@ehf/ui-contracts": "workspace:*",
+    "fastify": "5.12.5",
+    "@ehf/web-static": "workspace:*",
+    "@ehf/rate-limit": "workspace:*"
+  },
+  "devDependencies": {
+    "jose": "6.2.12",
+    "@ehf/fincrime-integration": "workspace:*"
+  }
+}

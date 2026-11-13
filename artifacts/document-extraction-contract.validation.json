@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-11-13T03:43:51.790415Z",
+  "planDigest": "1183871e15b06f06222e5551972ebd9d8518b9c2430b819e43b32d835ccf809d",
+  "variant": "contract",
+  "productionQualified": false,
+  "liveModelVerified": false,
+  "scope": "Local implementation and integration verification; synthetic pilot documents, real local PostgreSQL and native APIs.",
+  "checks": [
+    {
+      "name": "Native compiler determinism, digest and runtime admission of both variants",
+      "status": "passed",
+      "command": "node --import tsx scripts/document-extraction-plan.ts --check"
+    },
+    {
+      "name": "Plan guard: adjudicated and contract variants, model route admitted only in the adjudicated variant",
+      "status": "passed",
+      "tests": "packages/case-store/src/document-extraction.test.ts"
+    },
+    {
+      "name": "Route policy and adjudicated wrapper (selective, shadow, llm_only), Python library suite",
+      "status": "passed",
+      "tests": 3620
+    },
+    {
+      "name": "document-model connector: run's own original only, release in effect else prebuilt",
+      "status": "passed",
+      "tests": "apps/capability-gateway/src/document-model-adapter.test.ts"
+    },
+    {
+      "name": "Release lookup in PostgreSQL (releasedDocumentModel)",
+      "status": "passed",
+      "tests": "packages/persistence/src/document-factory.integration.test.ts"
+    },
+    {
+      "name": "Conflict resolution and feedback store through BFF, case API and PostgreSQL",
+      "status": "passed",
+      "tests": "e2e/live/document-workspace.test.ts (conflict case)"
+    },
+    {
+      "name": "Document workspace route conflict journey with WCAG and phone checks",
+      "status": "passed",
+      "specs": [
+        "facet-documents.spec.ts"
+      ]
+    },
+    {
+      "name": "Affected package suites (contracts, adapters, gateway, case-store, case-api, runtime-core, runtime-langgraph, flow-composer, experience-bff, ui-mock, web)",
+      "status": "passed",
+      "note": "Excluding failures that need an OPA binary this environment lacks (case-api business decisions, gateway source policy, control-api policy authoring)."
+    }
+  ],
+  "executionPrerequisites": [
+    "Independent approval and activation of the registered development release",
+    "Independent approval of the exact registered skill bundle lock",
+    "Configured model provider, document model provider, evidence service, skill host and runtime service credentials"
+  ],
+  "limitations": [
+    "Synthetic pilot documents only; not production qualified.",
+    "In agentic case plans the model route is not admitted and is recorded as not run; only this document pipeline reads its own original."
+  ],
+  "sourceDigests": {
+    "apps/capability-gateway/src/adapters/document-model.ts": "7d12a7364f4d96f9b092c81eb538edd9dd9de1f04270964cd15c3cfcff70bc16",
+    "apps/capability-gateway/src/adapters/evidence.ts": "36a0ebd8d7d826633fa44fd932cdac1e80238344e46934fc59d19937b0ad831a",
+    "apps/capability-gateway/src/app.ts": "a4103f6e22d2a5b9328fc240050efb7b80e5a051caa2260977dc4746849b281a",
+    "apps/case-api/src/app.ts": "6f8c6ea2e2448d08083fbbe56129951beb00723e64fff80dc73fc87c6af7c103",
+    "apps/control-api/src/app.ts": "dbfb7fc619b81bebeffa84106f3512307514c332032702ab8ec838051697d42a",
+    "apps/evidence-pipeline/src/kyc_pipeline/server.py": "28ea62a88309d8a18f2b35b41c7d90c0852e2a2c4d14f768e6e103913d11af1f",
+    "apps/experience-bff/src/case-experience.ts": "ca5c1dc00eee02bededde2bf606c01862cf8dbd02ef5bc031d7c799e7b1b0aa6",
+    "apps/experience-bff/src/document-execution.ts": "c01d573293d1db9680703d54ff126221c29442b470a7677b610413247afbf65a",
+    "apps/fincrime-host/src/financial_crime/skills/document_wrappers.py": "51a896a89b7ecdd8d986bb71cca11bcb86a9871d14a7358069c371d394b9241d",
+    "apps/fincrime-host/src/kyc_documents/adjudication.py": "30e4d60a4f8a1d09c810e4f3d506863ab79104eeddd7b883470c6a7088fc57c2",
+    "apps/fincrime-host/src/kyc_documents/route_answers.py": "a9ba9b4c337ebd6bcd91fd565d970f2edf23deb2e3b78f033739b8c6eef5c495",
+    "apps/fincrime-host/src/kyc_documents/route_policy.py": "0c2938274b92e15a90013c0ada00b05c96db14e1d97b1833bb35d731c6942326",
+    "apps/web/src/documents/DocumentWorkspace.tsx": "b1de0e82bfb873f239ecf2362deae2f3f3bcd9e28d20e11c1eb569da1b0570d2",
+    "apps/web/src/documents/ExtractionPanel.tsx": "9990705fcf3e75abffec603b45d6930e71725360c6a2e3e32645602b38236639",
+    "compose.yaml": "d367a262dc46dd371f46c453f95653b21bb90ea698b3b7e1c3afe9a9eec35ee0",
+    "packages/adapters/src/document-model-azure.ts": "9bbea38d40dd5ee8a56c197f8a72bbac9ab3902465ed9610e1bcf0ff71c3b4f5",
+    "packages/adapters/src/document-prepare.ts": "b61bf1f0faf3e23dea76e861c2c883770c21ee8add0141a75df639cb7dfcacad",
+    "packages/adapters/src/evidence-pipeline.ts": "186f647d8cd31f276f412a00470b55b65b7091464e4da6f149efe348d00ec480",
+    "packages/case-store/migrations/021_document_feedback.sql": "5d36df79c843aebd7306e7ed119fa74320328f3451f6d31aa07bc5425970cb6d",
+    "packages/case-store/src/document-extraction.ts": "08bcadd94520496cc56e8d8af5b4f390d89976ef2439d190dc48be14743bbc99",
+    "packages/case-store/src/document-review.ts": "e46e18e82733f1aa56bbc8a173003a5041df50bf00b163de2de864e8e04f303a",
+    "packages/case-store/src/index.ts": "48a27fd7b30f285402003d97b335db2bd523f8bb20e6a9add395468427116839",
+    "packages/case-store/src/skill-commits.ts": "5a41b599d84eb1ad96f247773b8604ed9614f9f27a87e60e72f3bd6362514fc6",
+    "packages/contracts/src/document-extraction.ts": "bcf130b5bbcfc757ec5e5e183797232d31685d87cff7930d8bd655eb987e2ddd",
+    "packages/fincrime-views/src/documents.ts": "d3321c9521f95b414dc296020331d0cab9d0aabd41a3c0b543b8b5835571ef17",
+    "packages/persistence/migrations/042_document_extraction_authority.sql": "dcb45d5b542f16fb38ff8ed86e5e06cbe8ecffa425e361c22684bd77a6727c50",
+    "packages/persistence/src/document-factory.ts": "3a400ae1ab563025cfb3a237d921449f95b84dfba034cf85059ec11851224cb7",
+    "packages/runtime-core/src/skill-commit.ts": "a4d4b113fc8c9996afa94bb2a048c69b4c3f5fd40ec8e5ce4b4aa924c218e8ba",
+    "scripts/document-extraction-plan.ts": "eb3ffe8af7e93273e771dad08b84e72a1063fe04373d77fdb19e92a1d3b993e6"
+  }
+}

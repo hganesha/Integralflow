@@ -1,0 +1,3667 @@
+{
+  "source": {
+    "library": "financial-crime-skills",
+    "catalogVersion": "0.5.0",
+    "catalogSourceHash": "ca1b81c58aae535d695dd589fbf471502ff55c9ad780c36f1c9490a02dc1d7d4",
+    "bundleCodeHash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+    "contextSchemaVersion": "2.0.0",
+    "path": "apps/fincrime-host",
+    "synthetic": true,
+    "files": [
+      "catalog/catalog.json"
+    ]
+  },
+  "skills": [
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:decision.human.review",
+        "effect:human_gated"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Suspend for an authenticated independent human review.",
+      "code_hash": "e5c4c0993a0c3745a6ac58c1fdee655d130f9a36427707427459418a4e1913c6",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Suspend for an authenticated independent human review.",
+      "effects": "human_gated",
+      "entrypoint": "financial_crime.skills.governance:human_review",
+      "evaluation_profile": "decision.human.review-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "decision-human-review",
+      "human_interrupt_conditions": [
+        "always: an independent, authenticated reviewer approves before any effect commits; an expired or revised approval is void"
+      ],
+      "id": "decision.human.review",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:decision.human.review:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "cab9152fd4f02dcec22bef0a913c420888a74a01adee92c5514c5396b7d915a7",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$id": "urn:financial-crime:skill:decision.human.review:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "review_required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "action",
+          "review_required"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:decision.policy.resolve"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Resolve the admitted effective tenant policy snapshot.",
+      "code_hash": "984753e3ffdd054a26ee6ca4043b01986bc960af3db26ab1bfb7603a3a3a78dd",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Resolve the admitted effective tenant policy snapshot.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.governance:policy_resolve",
+      "evaluation_profile": "decision.policy.resolve-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "decision-policy-resolve",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "decision.policy.resolve",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:decision.policy.resolve:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "25cd4f772da6452d4866cebccc757f4fc12f2de4e752c2f5b93ca7d082911471",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:decision.policy.resolve:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "policy_hash": {
+            "$ref": "#/$defs/Hash"
+          },
+          "policy_id": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "synthetic": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "policy_id",
+          "policy_hash",
+          "synthetic"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:entity.resolve"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Resolve by corroborated identifiers; name similarity alone leaves candidates unresolved.",
+      "code_hash": "e253a9f7347cc7f3fad5b94870a9abfb433b703d5db3ca1e47c358e32062e6a3",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Resolve by corroborated identifiers; name similarity alone leaves candidates unresolved.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.identity:entity_resolve",
+      "evaluation_profile": "entity.resolve-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "entity-resolve",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "entity.resolve",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:entity.resolve:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "identifiers": {
+            "items": {
+              "maxLength": 4000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "name": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "identifiers"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "7548a4555ef931625335a884631776889ef9151b817869be447dbcf3ede370e5",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Candidate": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "identifier_conflict": {
+                "$ref": "#/$defs/Bool"
+              },
+              "name_score": {
+                "$ref": "#/$defs/Probability"
+              },
+              "score": {
+                "$ref": "#/$defs/Probability"
+              },
+              "shared_identifiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "verified_match": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "entity_id",
+              "score",
+              "shared_identifiers",
+              "identifier_conflict",
+              "name_score",
+              "verified_match"
+            ],
+            "type": "object"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Probability": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          }
+        },
+        "$id": "urn:financial-crime:skill:entity.resolve:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "candidates": {
+            "items": {
+              "$ref": "#/$defs/Candidate"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "entity_id": {
+            "maxLength": 512,
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "entity_id",
+          "candidates"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "name",
+            "identifiers"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "Entity",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.circular.detect"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Detect cyclic ownership without assuming a finite acyclic interest calculation.",
+      "code_hash": "427dafa9e3eaa0e194c6e6cf1a3f3983bf3e501e6fc02b14e191ac6e3552314a",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Detect cyclic ownership without assuming a finite acyclic interest calculation.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:circular_detect",
+      "evaluation_profile": "ownership.circular.detect-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-circular-detect",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.circular.detect",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.circular.detect:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "5af68ab7b204f15cb84c89c022cc83371bc867384c8292b48a0745e81a0c8f9b",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.circular.detect:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "cycles": {
+            "items": {
+              "items": {
+                "$ref": "#/$defs/Id"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "cycles"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "interest"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipInterest",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.control.resolve"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Apply explicit control bases to verified rights; uncertain rights remain unresolved.",
+      "code_hash": "92ba746ea34bef3469740e74c7bb02569984b3191941cf08f00c13109601031d",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Apply explicit control bases to verified rights; uncertain rights remain unresolved.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:control_resolve",
+      "evaluation_profile": "ownership.control.resolve-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-control-resolve",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.control.resolve",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.control.resolve:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "d2a11a58dea939be969f66cb63835f2c7f865aac05b379361de9d796e70f9523",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "ControlRightRow_basis_controlled_controller_verified": {
+            "additionalProperties": false,
+            "properties": {
+              "_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "_synthetic": {
+                "$ref": "#/$defs/Bool"
+              },
+              "basis": {
+                "$ref": "#/$defs/Id"
+              },
+              "controlled": {
+                "$ref": "#/$defs/Id"
+              },
+              "controller": {
+                "$ref": "#/$defs/Id"
+              },
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "id",
+              "controller",
+              "controlled",
+              "basis",
+              "verified",
+              "_ref",
+              "_synthetic"
+            ],
+            "type": "object"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Ref": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "object_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "schema_version": {
+                "$ref": "#/$defs/Semver",
+                "default": "2.0.0"
+              },
+              "tenant_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "version_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "tenant_id",
+              "object_type",
+              "object_id",
+              "version_id"
+            ],
+            "type": "object"
+          },
+          "Semver": {
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.control.resolve:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "controls": {
+            "items": {
+              "$ref": "#/$defs/ControlRightRow_basis_controlled_controller_verified"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "unresolved": {
+            "items": {
+              "$ref": "#/$defs/ControlRightRow_basis_controlled_controller_verified"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "controls",
+          "unresolved"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "control_bases",
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "controller",
+            "controlled",
+            "basis",
+            "verified"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "ControlRight",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.graph.build"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Build a sourced directed multigraph with explicit cycle reporting.",
+      "code_hash": "fdea555ddf6ed295973f1f914a13a5697aa17d21dbef45ba9467ead93899543c",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Build a sourced directed multigraph with explicit cycle reporting.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:graph_build",
+      "evaluation_profile": "ownership.graph.build-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-graph-build",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.graph.build",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.graph.build:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "7b67431e2dafd8f422c61cbd99fa8da5fda6cd3aa12daa4c811e534eee506964",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Fraction": {
+            "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+            "type": "string"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "OwnershipInterestRow_interest_owned_owner": {
+            "additionalProperties": false,
+            "properties": {
+              "_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "_synthetic": {
+                "$ref": "#/$defs/Bool"
+              },
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "interest": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "owned": {
+                "$ref": "#/$defs/Id"
+              },
+              "owner": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "id",
+              "owner",
+              "owned",
+              "interest",
+              "_ref",
+              "_synthetic"
+            ],
+            "type": "object"
+          },
+          "Ref": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "object_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "schema_version": {
+                "$ref": "#/$defs/Semver",
+                "default": "2.0.0"
+              },
+              "tenant_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "version_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "tenant_id",
+              "object_type",
+              "object_id",
+              "version_id"
+            ],
+            "type": "object"
+          },
+          "Semver": {
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.graph.build:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "cycles": {
+            "items": {
+              "items": {
+                "$ref": "#/$defs/Id"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "edges": {
+            "items": {
+              "$ref": "#/$defs/OwnershipInterestRow_interest_owned_owner"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "nodes": {
+            "items": {
+              "$ref": "#/$defs/Id"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "nodes",
+          "edges",
+          "cycles"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "interest"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipInterest",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.interest.calculate"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Calculate exact path products; cyclic/unaccounted interests remain unresolved.",
+      "code_hash": "31eb504851f85460b6283b8e99b13e2b50f7b19a17237d576fac2d212c6e25fc",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Calculate exact path products; cyclic/unaccounted interests remain unresolved.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:interest_calculate",
+      "evaluation_profile": "ownership.interest.calculate-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-interest-calculate",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.interest.calculate",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.interest.calculate:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "target": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "target"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "ff2d8718d76f199bcdd7e4a7b6a5cb018f79f03416103e994edc3789fa42ef61",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "lower",
+            "upper",
+            "lower_inclusive",
+            "upper_inclusive"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipRange",
+          "optional": true
+        }
+      ],
+      "output_schema": {
+        "$defs": {
+          "Decimal": {
+            "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+            "type": "string"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "OwnershipGap": {
+            "additionalProperties": false,
+            "properties": {
+              "interest": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "node": {
+                "$ref": "#/$defs/Id"
+              },
+              "path": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "reason": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "node",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "OwnershipPath": {
+            "additionalProperties": false,
+            "properties": {
+              "interest": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "owner": {
+                "$ref": "#/$defs/Id"
+              },
+              "path": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [
+              "owner",
+              "path",
+              "interest"
+            ],
+            "type": "object"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.interest.calculate:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "cycles": {
+            "items": {
+              "items": {
+                "$ref": "#/$defs/Id"
+              },
+              "maxItems": 10000,
+              "type": "array"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "interests": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Decimal"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "keyed collection"
+          },
+          "paths": {
+            "items": {
+              "$ref": "#/$defs/OwnershipPath"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "unresolved": {
+            "items": {
+              "$ref": "#/$defs/OwnershipGap"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "interests",
+          "paths",
+          "cycles",
+          "unresolved"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "interest"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipInterest",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.nominee.detect"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Identify sourced nominee/proxy relationships and retain their verification status.",
+      "code_hash": "b03cb2340ca21288b71c6f8307338cffa422f22e7c2d42eac825bc4ea51b1fcd",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Identify sourced nominee/proxy relationships and retain their verification status.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:nominee_detect",
+      "evaluation_profile": "ownership.nominee.detect-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-nominee-detect",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.nominee.detect",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.nominee.detect:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "320ba3fbe568653f34ca698940f0d405223a0ece16bfc7a9ae735ade8135e8a5",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Ref": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "object_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "schema_version": {
+                "$ref": "#/$defs/Semver",
+                "default": "2.0.0"
+              },
+              "tenant_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "version_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "tenant_id",
+              "object_type",
+              "object_id",
+              "version_id"
+            ],
+            "type": "object"
+          },
+          "RelationshipRow_relation_source_target_verified": {
+            "additionalProperties": false,
+            "properties": {
+              "_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "_synthetic": {
+                "$ref": "#/$defs/Bool"
+              },
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "relation": {
+                "$ref": "#/$defs/Id"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              },
+              "target": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "id",
+              "source",
+              "target",
+              "relation",
+              "verified",
+              "_ref",
+              "_synthetic"
+            ],
+            "type": "object"
+          },
+          "Semver": {
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.nominee.detect:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "indicators": {
+            "items": {
+              "$ref": "#/$defs/RelationshipRow_relation_source_target_verified"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "indicators"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "source",
+            "target",
+            "relation",
+            "verified"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "Relationship",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.ubo.resolve"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Resolve individual UBO candidates using configured interest and control rules.",
+      "code_hash": "7e922bb731ec72a0a419eb7b4e517941cdaad5f63d77c1e9960ef0e83926a40c",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Resolve individual UBO candidates using configured interest and control rules.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:ubo_resolve",
+      "evaluation_profile": "ownership.ubo.resolve-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-ubo-resolve",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.ubo.resolve",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.ubo.resolve:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "target": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "target"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "d42cb5b165c8008532601789c4961d29db2620766a7319d54d67e2008a7a94f9",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "Limited to the supported graph/threshold/control computation. It does not retrieve registries, establish graph completeness, interpret arbitrary legal arrangements or verify owner identity. Current maturity remains implemented_synthetic. Independent evaluation, policy/source approvals and operating qualification are required before production."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "lower",
+            "upper",
+            "lower_inclusive",
+            "upper_inclusive"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipRange",
+          "optional": true
+        },
+        {
+          "fields": [
+            "controller",
+            "controlled",
+            "basis",
+            "verified"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "ControlRight",
+          "optional": true
+        }
+      ],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Decimal": {
+            "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+            "type": "string"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "OwnershipCalculation": {
+            "additionalProperties": false,
+            "properties": {
+              "cycles": {
+                "items": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "interests": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Decimal"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "paths": {
+                "items": {
+                  "$ref": "#/$defs/OwnershipPath"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "unresolved": {
+                "items": {
+                  "$ref": "#/$defs/OwnershipGap"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [
+              "interests",
+              "paths",
+              "cycles",
+              "unresolved"
+            ],
+            "type": "object"
+          },
+          "OwnershipGap": {
+            "additionalProperties": false,
+            "properties": {
+              "interest": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "node": {
+                "$ref": "#/$defs/Id"
+              },
+              "path": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "reason": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "node",
+              "reason"
+            ],
+            "type": "object"
+          },
+          "OwnershipPath": {
+            "additionalProperties": false,
+            "properties": {
+              "interest": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "owner": {
+                "$ref": "#/$defs/Id"
+              },
+              "path": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [
+              "owner",
+              "path",
+              "interest"
+            ],
+            "type": "object"
+          },
+          "UboCandidate": {
+            "additionalProperties": false,
+            "properties": {
+              "control_bases": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "interest": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Decimal"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "entity_id",
+              "interest",
+              "verified",
+              "control_bases"
+            ],
+            "type": "object"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.ubo.resolve:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "calculation": {
+            "$ref": "#/$defs/OwnershipCalculation"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/$defs/UboCandidate"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "candidates",
+          "calculation"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "control_bases",
+        "freshness_seconds",
+        "jurisdiction",
+        "ownership_threshold",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "interest"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipInterest",
+          "optional": false
+        },
+        {
+          "fields": [
+            "entity_type"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "Entity",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:ownership.ubo.verify"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Corroborate owner identity through admitted evidence and allowed verification methods.",
+      "code_hash": "412968639c42fc3ca138dbc5b1729dde36b993c8ff20da56835c924c239a5190",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Corroborate owner identity through admitted evidence and allowed verification methods.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.ownership:ubo_verify",
+      "evaluation_profile": "ownership.ubo.verify-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "ownership-ubo-verify",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "ownership.ubo.verify",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:ownership.ubo.verify:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "bb1e9eeaafb51670fbffbb5bc128ac5d35d22e94e25a5f87e3849930d39c112c",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "OwnerVerification": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "entity_id",
+              "verified"
+            ],
+            "type": "object"
+          }
+        },
+        "$id": "urn:financial-crime:skill:ownership.ubo.verify:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "owners": {
+            "items": {
+              "$ref": "#/$defs/OwnerVerification"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "owners"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "verification_methods",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "entity_id",
+            "evidence_ids"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "BeneficialOwner",
+          "optional": false
+        },
+        {
+          "fields": [
+            "subject",
+            "status",
+            "method",
+            "evidence_ids"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "VerificationRecord",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:registry.company.verify"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Verify captured legal status only when registry coverage is complete.",
+      "code_hash": "10d6901985a59b6df1739460901c2aa3807bd911d94d8e6800258e7c06aa0f8f",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Verify captured legal status only when registry coverage is complete.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.registry_sources:company_verify",
+      "evaluation_profile": "registry.company.verify-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "registry-company-verify",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "registry.company.verify",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:registry.company.verify:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "b55ff047bd4cbcd6581b772c668b4c982f3d8ffdd08fc2caf9431fb6ed1749ee",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "RegistryVerification": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "status": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "id",
+              "verified",
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "$id": "urn:financial-crime:skill:registry.company.verify:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "verifications": {
+            "items": {
+              "$ref": "#/$defs/RegistryVerification"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "verifications"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "active_registry_statuses",
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "registration_id",
+            "status",
+            "coverage"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "RegistryRecord",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.match.disambiguate"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Recommend review/false-match based on explicit contradictory identifiers.",
+      "code_hash": "923ef05491e293aad11fb12c3c004124d0146fb9f03c2ac8471bfe2f57fd848a",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Recommend review/false-match based on explicit contradictory identifiers.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:match_disambiguate",
+      "evaluation_profile": "screening.match.disambiguate-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-match-disambiguate",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.match.disambiguate",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.match.disambiguate:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "8f9a280ed2fc505ff83e2b55048c206f36ee91f4d3a848f2a4624bd05721395d",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "DispositionCandidate": {
+            "additionalProperties": false,
+            "properties": {
+              "final": {
+                "$ref": "#/$defs/Bool"
+              },
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "recommendation": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "id",
+              "recommendation",
+              "final"
+            ],
+            "type": "object"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:screening.match.disambiguate:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "dispositions": {
+            "items": {
+              "$ref": "#/$defs/DispositionCandidate"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "dispositions"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "features",
+            "entity_id",
+            "entry_id"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "ScreeningHit",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.name.normalize"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Apply deterministic Unicode normalization while retaining the original script.",
+      "code_hash": "18fc5aa8fa02e1ec6f9f54fabe77421fa7b0bb771ae18dd509e6cc96f115e879",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Apply deterministic Unicode normalization while retaining the original script.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:name_normalize",
+      "evaluation_profile": "screening.name.normalize-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-name-normalize",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.name.normalize",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.name.normalize:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "c005f11e720b4fb94ca79c709eea607ee046131706950603d6c420e8360955d5",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$id": "urn:financial-crime:skill:screening.name.normalize:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "normalized": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "original": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "original",
+          "normalized"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.pep.execute"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Evaluate admitted pep search records, retain candidates and identify incomplete subject coverage.",
+      "code_hash": "90a57fb4c01bb3441948890f28264c3d158199cd5b0ac96dde13769b28624104",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Evaluate admitted pep search records, retain candidates and identify incomplete subject coverage.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:list_screen",
+      "evaluation_profile": "screening.pep.execute-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-pep-execute",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.pep.execute",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.pep.execute:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "652e443aabefdca3b7cb7ad2bceca00efa6b2d1ff7efc65db5e92dc5b45e538d",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "Consumes admitted records only; no live PEP acquisition, relationship inference, independent match calibration or final risk/acceptance decision. Current maturity remains implemented_synthetic. Independent evaluation, policy/source approvals and operating qualification are required before production."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [
+        {
+          "fields": [
+            "name",
+            "identifiers",
+            "list_type",
+            "list_version",
+            "coverage"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "WatchlistEntry",
+          "optional": true
+        },
+        {
+          "fields": [
+            "subject",
+            "screening_type",
+            "provider",
+            "query",
+            "query_time",
+            "status",
+            "dataset_versions",
+            "scope",
+            "candidate_count",
+            "truncated",
+            "limitations"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "ScreeningExecution",
+          "optional": true
+        }
+      ],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "ListCoverage": {
+            "additionalProperties": false,
+            "properties": {
+              "as_of": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "jurisdictions": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "limitations": {
+                "items": {
+                  "$ref": "#/$defs/Text"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "list_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "pages_complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "provider": {
+                "$ref": "#/$defs/Id"
+              },
+              "query": {
+                "$ref": "#/$defs/Text"
+              }
+            },
+            "required": [
+              "list_version",
+              "complete"
+            ],
+            "type": "object"
+          },
+          "MatchFeatures": {
+            "additionalProperties": false,
+            "properties": {
+              "identifier_conflict": {
+                "$ref": "#/$defs/Bool"
+              },
+              "name_score": {
+                "$ref": "#/$defs/Probability"
+              },
+              "score": {
+                "$ref": "#/$defs/Probability"
+              },
+              "shared_identifiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "verified_match": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "score",
+              "shared_identifiers",
+              "identifier_conflict",
+              "name_score",
+              "verified_match"
+            ],
+            "type": "object"
+          },
+          "Probability": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "ScreeningMatch": {
+            "additionalProperties": false,
+            "properties": {
+              "disposition": {
+                "$ref": "#/$defs/Id"
+              },
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "entry_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "features": {
+                "$ref": "#/$defs/MatchFeatures"
+              },
+              "list_version": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "entity_id",
+              "entry_id",
+              "list_version",
+              "features",
+              "disposition"
+            ],
+            "type": "object"
+          },
+          "Text": {
+            "maxLength": 200000,
+            "type": "string"
+          },
+          "Timestamp": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:screening.pep.execute:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "coverage": {
+            "items": {
+              "$ref": "#/$defs/ListCoverage"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "hits": {
+            "items": {
+              "$ref": "#/$defs/ScreeningMatch"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "universal_clearance": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "hits",
+          "coverage",
+          "universal_clearance"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "screening_threshold",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "name",
+            "identifiers"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "Entity",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.pep.relationship.resolve"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Resolve sourced PEP family/associate relationships and verification status.",
+      "code_hash": "fdeacb6cd88d5da74cc1d687e5ea93b76e8e8fb34dfa2ebfd3c83f5afa1ece14",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Resolve sourced PEP family/associate relationships and verification status.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:pep_relationship",
+      "evaluation_profile": "screening.pep.relationship.resolve-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-pep-relationship-resolve",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.pep.relationship.resolve",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.pep.relationship.resolve:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "40d356ffef4563eed74131d2d1fd0106ce28473819de921c5091aabc2fb04c1b",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "PEPRelationshipRow_relation_source_target_verified": {
+            "additionalProperties": false,
+            "properties": {
+              "_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "_synthetic": {
+                "$ref": "#/$defs/Bool"
+              },
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "relation": {
+                "$ref": "#/$defs/Id"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              },
+              "target": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "id",
+              "source",
+              "target",
+              "relation",
+              "verified",
+              "_ref",
+              "_synthetic"
+            ],
+            "type": "object"
+          },
+          "Ref": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "object_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "schema_version": {
+                "$ref": "#/$defs/Semver",
+                "default": "2.0.0"
+              },
+              "tenant_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "version_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "tenant_id",
+              "object_type",
+              "object_id",
+              "version_id"
+            ],
+            "type": "object"
+          },
+          "Semver": {
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:screening.pep.relationship.resolve:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "relationships": {
+            "items": {
+              "$ref": "#/$defs/PEPRelationshipRow_relation_source_target_verified"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "relationships"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "source",
+            "target",
+            "relation",
+            "verified"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "PEPRelationship",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.sanctions.control.evaluate"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Evaluate sourced control rights under an explicit pinned set of control bases.",
+      "code_hash": "812379d679896f03f7b7ebd22a6c8cfa74a03f9a58893c4166014657b7c82b20",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Evaluate sourced control rights under an explicit pinned set of control bases.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:sanctions_control",
+      "evaluation_profile": "screening.sanctions.control.evaluate-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-sanctions-control-evaluate",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.sanctions.control.evaluate",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.sanctions.control.evaluate:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "blocked_ids": {
+            "items": {
+              "maxLength": 4000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "blocked_ids"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "90d8d180934e6f2058ad1f66e5d64037891a30132c860385c0c32186115e44b7",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "This package is an implemented synthetic reference, not a qualified production service. Its scope is the behavior stated above and the typed input/output contracts. Independent representative evaluation, approved institution policy and supported source mappings remain required. No independent real-source accuracy or institution-specific acceptance authority is established by the bundled examples."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "ControlRightRow_basis_controlled_controller_verified": {
+            "additionalProperties": false,
+            "properties": {
+              "_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "_synthetic": {
+                "$ref": "#/$defs/Bool"
+              },
+              "basis": {
+                "$ref": "#/$defs/Id"
+              },
+              "controlled": {
+                "$ref": "#/$defs/Id"
+              },
+              "controller": {
+                "$ref": "#/$defs/Id"
+              },
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "id",
+              "controller",
+              "controlled",
+              "basis",
+              "verified",
+              "_ref",
+              "_synthetic"
+            ],
+            "type": "object"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "Ref": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "object_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "schema_version": {
+                "$ref": "#/$defs/Semver",
+                "default": "2.0.0"
+              },
+              "tenant_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "version_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "tenant_id",
+              "object_type",
+              "object_id",
+              "version_id"
+            ],
+            "type": "object"
+          },
+          "Semver": {
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:screening.sanctions.control.evaluate:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "restrictions": {
+            "items": {
+              "$ref": "#/$defs/ControlRightRow_basis_controlled_controller_verified"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "restrictions"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "sanctions_control_bases",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "controller",
+            "controlled",
+            "basis",
+            "verified"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "ControlRight",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.sanctions.execute"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Evaluate admitted sanctions search records, retain candidates and identify incomplete subject coverage.",
+      "code_hash": "90a57fb4c01bb3441948890f28264c3d158199cd5b0ac96dde13769b28624104",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Evaluate admitted sanctions search records, retain candidates and identify incomplete subject coverage.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:list_screen",
+      "evaluation_profile": "screening.sanctions.execute-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-sanctions-execute",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.sanctions.execute",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.sanctions.execute:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "instruction_hash": "3bbb165823fc1469dbcf6fd1046a215a444713e7b4bdc491ae52bb0c32bb05f9",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "No provider acquisition, ownership/control evaluation or final disposition in this handler. Synthetic local matching is uncalibrated. Additional source/publication and full subject/list-scope controls require enclosing workflow qualification. Current maturity remains implemented_synthetic. Independent evaluation, policy/source approvals and operating qualification are required before production."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [
+        {
+          "fields": [
+            "name",
+            "identifiers",
+            "list_type",
+            "list_version",
+            "coverage"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "WatchlistEntry",
+          "optional": true
+        },
+        {
+          "fields": [
+            "subject",
+            "screening_type",
+            "provider",
+            "query",
+            "query_time",
+            "status",
+            "dataset_versions",
+            "scope",
+            "candidate_count",
+            "truncated",
+            "limitations"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "ScreeningExecution",
+          "optional": true
+        }
+      ],
+      "output_schema": {
+        "$defs": {
+          "Bool": {
+            "type": "boolean"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "ListCoverage": {
+            "additionalProperties": false,
+            "properties": {
+              "as_of": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "jurisdictions": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "limitations": {
+                "items": {
+                  "$ref": "#/$defs/Text"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "list_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "pages_complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "provider": {
+                "$ref": "#/$defs/Id"
+              },
+              "query": {
+                "$ref": "#/$defs/Text"
+              }
+            },
+            "required": [
+              "list_version",
+              "complete"
+            ],
+            "type": "object"
+          },
+          "MatchFeatures": {
+            "additionalProperties": false,
+            "properties": {
+              "identifier_conflict": {
+                "$ref": "#/$defs/Bool"
+              },
+              "name_score": {
+                "$ref": "#/$defs/Probability"
+              },
+              "score": {
+                "$ref": "#/$defs/Probability"
+              },
+              "shared_identifiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "verified_match": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [
+              "score",
+              "shared_identifiers",
+              "identifier_conflict",
+              "name_score",
+              "verified_match"
+            ],
+            "type": "object"
+          },
+          "Probability": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "ScreeningMatch": {
+            "additionalProperties": false,
+            "properties": {
+              "disposition": {
+                "$ref": "#/$defs/Id"
+              },
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "entry_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "features": {
+                "$ref": "#/$defs/MatchFeatures"
+              },
+              "list_version": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "entity_id",
+              "entry_id",
+              "list_version",
+              "features",
+              "disposition"
+            ],
+            "type": "object"
+          },
+          "Text": {
+            "maxLength": 200000,
+            "type": "string"
+          },
+          "Timestamp": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:skill:screening.sanctions.execute:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "coverage": {
+            "items": {
+              "$ref": "#/$defs/ListCoverage"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "hits": {
+            "items": {
+              "$ref": "#/$defs/ScreeningMatch"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "universal_clearance": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "hits",
+          "coverage",
+          "universal_clearance"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "screening_threshold",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "name",
+            "identifiers"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "Entity",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    },
+    {
+      "audit_fields": [
+        "actor",
+        "policy_hash",
+        "context_hash",
+        "code_hash",
+        "profile_hash",
+        "trace_id"
+      ],
+      "authorization": [
+        "skill:screening.sanctions.ownership.evaluate"
+      ],
+      "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "business_outcome": "Evaluate the pinned ownership regime; OFAC blocking cascades separately from path-product ownership.",
+      "code_hash": "8d25c86acf9366ecf61fff712f768514a3c3b3cd2289050a24b56e2159a2e2cd",
+      "composition_type": "atomic",
+      "context_freshness": "per requirement and pinned policy; no implicit freshness guarantee",
+      "cost_latency_budget": {
+        "timeout_seconds": 30
+      },
+      "data_classification": "internal",
+      "dependencies": {
+        "capabilities": [],
+        "libraries": [
+          "financial-crime-skills==0.5.0"
+        ],
+        "skills": []
+      },
+      "deprecation_policy": "new version for contract changes",
+      "description": "Evaluate the pinned ownership regime; OFAC blocking cascades separately from path-product ownership.",
+      "effects": "read_only",
+      "entrypoint": "financial_crime.skills.screening:sanctions_ownership",
+      "evaluation_profile": "screening.sanctions.ownership.evaluate-synthetic-v1",
+      "evidence_requirements": "immutable selected source refs and per-finding citations; synthetic sources labeled",
+      "execution_mode": "code",
+      "failure_codes": [
+        "ACCESS_DENIED",
+        "CONTEXT_MISSING",
+        "CONTEXT_STALE",
+        "CONTROL_FAILED",
+        "INPUT_INVALID",
+        "INTEGRITY_FAILURE",
+        "POLICY_UNRESOLVED",
+        "SOURCE_CONFLICT",
+        "TIMEOUT"
+      ],
+      "harness_name": "screening-sanctions-ownership-evaluate",
+      "human_interrupt_conditions": [
+        "none for the skill itself: its output is an observation; the parent workflow's checkpoints decide whether a person acts"
+      ],
+      "id": "screening.sanctions.ownership.evaluate",
+      "idempotency": "tenant+actor+key with request hash conflict detection",
+      "input_schema": {
+        "$id": "urn:financial-crime:skill:screening.sanctions.ownership.evaluate:input:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "blocked_ids": {
+            "items": {
+              "maxLength": 4000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10000,
+            "minItems": 0,
+            "type": "array"
+          },
+          "target": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "target",
+          "blocked_ids"
+        ],
+        "type": "object"
+      },
+      "instruction_hash": "7a7a39e8b4076e21ed21e215266353d29e14b11cedd5d6bd3c7b390529c90e83",
+      "instructions": "SKILL.md",
+      "jurisdiction_scope": [
+        "synthetic-neutral"
+      ],
+      "limitations": [
+        "Computes a bounded policy-selected ownership result. It does not establish the blocked list, legal applicability, full graph completeness, control restrictions or execution authority. Current maturity remains implemented_synthetic. Independent evaluation, policy/source approvals and operating qualification are required before production."
+      ],
+      "maturity": "implemented_synthetic",
+      "optional_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "lower",
+            "upper",
+            "lower_inclusive",
+            "upper_inclusive"
+          ],
+          "max_age_seconds": null,
+          "min_count": 0,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipRange",
+          "optional": true
+        }
+      ],
+      "output_schema": {
+        "$defs": {
+          "Decimal": {
+            "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+            "type": "string"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "OwnershipGap": {
+            "additionalProperties": false,
+            "properties": {
+              "interest": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "node": {
+                "$ref": "#/$defs/Id"
+              },
+              "path": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "reason": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [
+              "node",
+              "reason"
+            ],
+            "type": "object"
+          }
+        },
+        "$id": "urn:financial-crime:skill:screening.sanctions.ownership.evaluate:output:0.3.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "aggregate_interest": {
+            "$ref": "#/$defs/Decimal"
+          },
+          "threshold_met": {
+            "type": "boolean"
+          },
+          "unresolved": {
+            "items": {
+              "$ref": "#/$defs/OwnershipGap"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "aggregate_interest",
+          "threshold_met",
+          "unresolved"
+        ],
+        "type": "object"
+      },
+      "owner": "financial-crime-skills",
+      "permitted_capabilities": [],
+      "policy_context_fields": [
+        "freshness_seconds",
+        "jurisdiction",
+        "permissions",
+        "sanctions_ownership",
+        "version"
+      ],
+      "policy_gates": [
+        "unknown != pass",
+        "no automatic consequential decision"
+      ],
+      "preconditions": [
+        "authorized purpose",
+        "pinned policy",
+        "satisfied required context"
+      ],
+      "provider_policy": "explicit allowlist; synthetic local sources by default",
+      "required_context": [
+        {
+          "fields": [
+            "owner",
+            "owned",
+            "interest"
+          ],
+          "max_age_seconds": null,
+          "min_count": 1,
+          "model_visible": true,
+          "nullable_fields": [],
+          "object_type": "OwnershipInterest",
+          "optional": false
+        }
+      ],
+      "retry_policy": {
+        "external_uncertain": "reconcile",
+        "max_attempts": 1
+      },
+      "semver": "0.3.0",
+      "timeout": 30
+    }
+  ]
+}

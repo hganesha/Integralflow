@@ -1,0 +1,24 @@
+# syntax=docker/dockerfile:1.7
+# Separate operator image: Azure CLI and source recipes never enter the public app.
+FROM node:24-bookworm-slim@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+WORKDIR /opt/integralflow
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl gnupg libicu72 python3 \
+    && mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg \
+    && echo 'deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ bookworm main' > /etc/apt/sources.list.d/azure-cli.list \
+    && apt-get update && apt-get install -y --no-install-recommends azure-cli \
+    && rm -rf /var/lib/apt/lists/* \
+    && corepack enable && corepack prepare pnpm@11.9.0 --activate \
+    && useradd --uid 1001 --create-home executor && mkdir /worker-state && chown 1001:1001 /worker-state
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json ./
+COPY packages ./packages
+COPY apps/launcher ./apps/launcher
+COPY config ./config
+COPY scripts ./scripts
+COPY deploy/azure ./deploy/azure
+RUN pnpm install --frozen-lockfile --config.minimum-release-age=0
+ENV HOME=/home/executor AZURE_CONFIG_DIR=/home/executor/.azure
+USER 1001:1001
+RUN az bicep install && az bicep version
+ENV EXECUTOR_STATE_DIR=/worker-state AZURE_CORE_COLLECT_TELEMETRY=0
+CMD ["node", "--import", "tsx", "scripts/deploy-azure-cloud-worker.mjs"]

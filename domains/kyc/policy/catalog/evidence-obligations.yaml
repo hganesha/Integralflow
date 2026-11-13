@@ -1,0 +1,189 @@
+apiVersion: harness.factory/evidence-obligations-v1
+kind: EvidenceObligationCatalog
+metadata:
+  id: catalog.kyc.evidence-obligations.v1
+  domain: kyc
+  jurisdiction: US
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    What a piece of evidence must be for it to satisfy a KYC obligation. The purpose field
+    is the join key against the case aggregate: evidence is linked to a case with a purpose,
+    and an obligation is satisfied only by linked evidence whose purpose matches, whose
+    source type is acceptable, whose trust tier is sufficient and which is inside its
+    freshness window. Nothing else counts as satisfaction.
+spec:
+  freshnessUnit: days
+  # A freshnessDays of null means the obligation has no expiry until the owner supplies one.
+  obligations:
+    - id: EVD-POLICY-AUTHORITY
+      name: Pinned policy authority snapshot
+      purpose: KYC_POLICY_AUTHORITY
+      description: The authoritative policy snapshot the case is pinned to.
+      acceptableSourceTypes: [INTERNAL_SYSTEM]
+      minimumTrustTier: AUTHORITATIVE_POLICY
+      instructionTrust: TRUSTED
+      freshnessDays: 1
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-OPS-001]
+    - id: EVD-CIP-IDENTITY-DOCUMENT
+      name: Government identity document
+      purpose: KYC_CIP_IDENTITY_DOCUMENT
+      description: A government-issued identity document evidencing legal name and date of birth.
+      acceptableSourceTypes: [UPLOAD, HUMAN, INTERNAL_SYSTEM]
+      minimumTrustTier: VERIFIED_DOCUMENT
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: null
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-CIP-001]
+      ownerInputRefs: [D05]
+    - id: EVD-CIP-ADDRESS
+      name: Address evidence
+      purpose: KYC_CIP_ADDRESS
+      description: Evidence of the customer's residential or principal business street address.
+      acceptableSourceTypes: [UPLOAD, HUMAN, INTERNAL_SYSTEM, TOOL]
+      minimumTrustTier: VERIFIED_DOCUMENT
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: 365
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-CIP-001]
+      ownerInputRefs: [D05]
+    - id: EVD-CIP-TIN
+      name: Taxpayer identification evidence
+      purpose: KYC_CIP_TIN
+      description: Evidence of the taxpayer identification number asserted at intake.
+      acceptableSourceTypes: [UPLOAD, HUMAN, INTERNAL_SYSTEM]
+      minimumTrustTier: VERIFIED_DOCUMENT
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: null
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-CIP-001]
+    - id: EVD-IDENTITY-VERIFICATION
+      name: Identity verification result
+      purpose: KYC_IDENTITY_VERIFICATION
+      description: The documentary or non-documentary verification result for the subject.
+      acceptableSourceTypes: [TOOL, INTERNAL_SYSTEM, HUMAN]
+      minimumTrustTier: VERIFIED_PROVIDER
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: 90
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-CIP-002]
+      ownerInputRefs: [D05]
+    - id: EVD-BENEFICIAL-OWNERSHIP
+      name: Beneficial ownership certification
+      purpose: KYC_BENEFICIAL_OWNERSHIP
+      description: Certification of beneficial owners at 25% or more plus one control person.
+      acceptableSourceTypes: [UPLOAD, HUMAN, INTERNAL_SYSTEM]
+      minimumTrustTier: VERIFIED_DOCUMENT
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: 365
+      requiredFor: []
+      satisfiedBy: [KYC-CDD-002]
+    - id: EVD-BUSINESS-REGISTRATION
+      name: Business registration evidence
+      purpose: KYC_BUSINESS_REGISTRATION
+      description: Registration or formation evidence for the sole proprietorship or entity.
+      acceptableSourceTypes: [UPLOAD, TOOL, INTERNAL_SYSTEM]
+      minimumTrustTier: VERIFIED_DOCUMENT
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: 365
+      requiredFor: [RC-SOLE-PROPRIETOR-STANDARD, RC-SOLE-PROPRIETOR-ELEVATED]
+      satisfiedBy: [KYC-CDD-004]
+    - id: EVD-RELATIONSHIP-PURPOSE
+      name: Purpose and expected activity
+      purpose: KYC_RELATIONSHIP_PURPOSE
+      description: Recorded purpose of the relationship and expected activity profile.
+      acceptableSourceTypes: [HUMAN, INTERNAL_SYSTEM, DERIVED]
+      minimumTrustTier: AGENT_DERIVED
+      instructionTrust: TRUSTED
+      freshnessDays: 365
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-CDD-003]
+    - id: EVD-SANCTIONS-SCREENING
+      name: Sanctions screening result
+      purpose: KYC_SANCTIONS_SCREENING
+      description: >-
+        A sanctions screening result recording provider, list version, list publication date
+        and every alert produced.
+      acceptableSourceTypes: [TOOL]
+      minimumTrustTier: VERIFIED_PROVIDER
+      instructionTrust: UNTRUSTED_EXTERNAL
+      freshnessDays: 30
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-SCR-001, KYC-SCR-002, KYC-SCR-003, KYC-SCR-004]
+      ownerInputRefs: [D01]
+    - id: EVD-PEP-SCREENING
+      name: PEP screening result
+      purpose: KYC_PEP_SCREENING
+      description: A politically exposed person screening result with tier and relationship basis.
+      acceptableSourceTypes: [TOOL]
+      minimumTrustTier: VERIFIED_PROVIDER
+      instructionTrust: UNTRUSTED_EXTERNAL
+      freshnessDays: 90
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-SCR-002, KYC-EDD-002]
+      ownerInputRefs: [D03]
+    - id: EVD-ADVERSE-MEDIA
+      name: Adverse media screening result
+      purpose: KYC_ADVERSE_MEDIA
+      description: Adverse media screening across the institution's lookback window.
+      acceptableSourceTypes: [TOOL]
+      minimumTrustTier: VERIFIED_PROVIDER
+      instructionTrust: UNTRUSTED_EXTERNAL
+      freshnessDays: 90
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-SCR-002, KYC-SCR-005]
+      ownerInputRefs: [D02]
+    - id: EVD-PUBLIC-SOURCE-RESEARCH
+      name: Public-source investigation record
+      purpose: KYC_PUBLIC_SOURCE_RESEARCH
+      description: >-
+        The bounded public-source investigation record, with per-assertion source URL,
+        publisher, retrieval time and provider.
+      acceptableSourceTypes: [TOOL]
+      minimumTrustTier: PROVIDER_UNVERIFIED
+      instructionTrust: UNTRUSTED_EXTERNAL
+      freshnessDays: 90
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-INV-001, KYC-INV-002, KYC-INV-003]
+    - id: EVD-SOURCE-OF-FUNDS
+      name: Source of funds evidence
+      purpose: KYC_SOURCE_OF_FUNDS
+      description: Evidence of the origin of the funds involved in the relationship.
+      acceptableSourceTypes: [UPLOAD, HUMAN, INTERNAL_SYSTEM]
+      minimumTrustTier: VERIFIED_DOCUMENT
+      instructionTrust: UNTRUSTED_DATA
+      freshnessDays: 365
+      requiredFor: [RC-ELEVATED-INDIVIDUAL, RC-HIGH-INDIVIDUAL, RC-SOLE-PROPRIETOR-ELEVATED, RC-HIGH-RISK-JURISDICTION, RC-PEP-ADJACENT]
+      satisfiedBy: [KYC-EDD-001]
+    - id: EVD-EDD-NARRATIVE
+      name: Enhanced due diligence narrative
+      purpose: KYC_EDD_NARRATIVE
+      description: The documented EDD rationale for an elevated or high-risk relationship.
+      acceptableSourceTypes: [HUMAN, DERIVED]
+      minimumTrustTier: AGENT_DERIVED
+      instructionTrust: TRUSTED
+      freshnessDays: 365
+      requiredFor: [RC-ELEVATED-INDIVIDUAL, RC-HIGH-INDIVIDUAL, RC-SOLE-PROPRIETOR-ELEVATED, RC-HIGH-RISK-JURISDICTION, RC-PEP-ADJACENT]
+      satisfiedBy: [KYC-EDD-001, KYC-EDD-002, KYC-EDD-003]
+    - id: EVD-DECISION-RECOMMENDATION
+      name: Decision recommendation record
+      purpose: KYC_DECISION_RECOMMENDATION
+      description: The agent's recommendation with its policy, finding and evidence citations.
+      acceptableSourceTypes: [DERIVED]
+      minimumTrustTier: AGENT_DERIVED
+      instructionTrust: TRUSTED
+      freshnessDays: 30
+      requiredFor: ["*"]
+      satisfiedBy: [KYC-DEC-004]
+    - id: EVD-QA-REVIEW
+      name: Quality assurance review record
+      purpose: KYC_QA_REVIEW
+      description: The QA reviewer's assessment of a sampled disposition.
+      acceptableSourceTypes: [HUMAN]
+      minimumTrustTier: HUMAN_ATTESTED
+      instructionTrust: TRUSTED
+      freshnessDays: null
+      requiredFor: []
+      satisfiedBy: [KYC-QA-001]
+      ownerInputRefs: [D04]

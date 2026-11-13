@@ -1,0 +1,137 @@
+{
+  "agent_profile": "agent.identity_ownership",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "entity_id",
+        "candidates"
+      ],
+      "requires_human_decision": false,
+      "step_id": "entity_resolve"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "verifications"
+      ],
+      "requires_human_decision": false,
+      "step_id": "registry_company_verify"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "candidates",
+        "calculation"
+      ],
+      "requires_human_decision": false,
+      "step_id": "ownership_ubo_resolve"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "owners"
+      ],
+      "requires_human_decision": false,
+      "step_id": "ownership_ubo_verify"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.identity_ownership",
+  "input_fields": [
+    "entity_id",
+    "identifiers",
+    "name"
+  ],
+  "input_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "entity_id": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "identifiers": {
+        "items": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10000,
+        "minItems": 0,
+        "type": "array"
+      },
+      "name": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "identifiers",
+      "entity_id"
+    ],
+    "type": "object"
+  },
+  "objective": "Establish legal identity, existence, role authority, ownership and control; preserve trust-specific treatment, ownership ranges and incomplete structures.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "entity_resolve",
+      "input_bindings": {
+        "identifiers": "identifiers",
+        "name": "name"
+      },
+      "parameters": {},
+      "skill_id": "entity.resolve",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [],
+      "id": "registry_company_verify",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "registry.company.verify",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "entity_resolve",
+        "registry_company_verify"
+      ],
+      "id": "ownership_ubo_resolve",
+      "input_bindings": {
+        "target": "entity_id"
+      },
+      "parameters": {},
+      "skill_id": "ownership.ubo.resolve",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "ownership_ubo_resolve"
+      ],
+      "id": "ownership_ubo_verify",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "ownership.ubo.verify",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

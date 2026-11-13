@@ -1,0 +1,91 @@
+{
+  "alerts": [
+    {
+      "alert_id": "h05-alert-001",
+      "event_ids": [
+        "evt-h05-000233",
+        "evt-h05-000234",
+        "evt-h05-000235",
+        "evt-h05-000236"
+      ],
+      "raised_at": "2026-02-12T23:00:00Z",
+      "rule_id": "ROUNDTRIP-01",
+      "severity": "HIGH",
+      "subject": "h05.entity.corvane"
+    },
+    {
+      "alert_id": "h05-alert-002",
+      "event_ids": [
+        "evt-h05-000233",
+        "evt-h05-000234",
+        "evt-h05-000235",
+        "evt-h05-000236",
+        "evt-h05-000237"
+      ],
+      "raised_at": "2026-02-13T15:00:00Z",
+      "rule_id": "LAYER-01",
+      "severity": "HIGH",
+      "subject": "h05.entity.corvane"
+    },
+    {
+      "alert_id": "h05-alert-003",
+      "event_ids": [
+        "evt-h05-000259",
+        "evt-h05-000260",
+        "evt-h05-000261",
+        "evt-h05-000262"
+      ],
+      "raised_at": "2026-05-14T23:00:00Z",
+      "rule_id": "ROUNDTRIP-01",
+      "severity": "HIGH",
+      "subject": "h05.entity.corvane"
+    },
+    {
+      "alert_id": "h05-alert-004",
+      "event_ids": [
+        "evt-h05-000259",
+        "evt-h05-000260",
+        "evt-h05-000261",
+        "evt-h05-000262",
+        "evt-h05-000263",
+        "evt-h05-000265"
+      ],
+      "raised_at": "2026-05-18T15:00:00Z",
+      "rule_id": "LAYER-01",
+      "severity": "HIGH",
+      "subject": "h05.entity.corvane"
+    },
+    {
+      "alert_id": "h05-alert-005",
+      "event_ids": [
+        "evt-h05-000285",
+        "evt-h05-000287",
+        "evt-h05-000288",
+        "evt-h05-000289"
+      ],
+      "raised_at": "2026-08-13T23:00:00Z",
+      "rule_id": "ROUNDTRIP-01",
+      "severity": "HIGH",
+      "subject": "h05.entity.corvane"
+    },
+    {
+      "alert_id": "h05-alert-006",
+      "event_ids": [
+        "evt-h05-000284",
+        "evt-h05-000285",
+        "evt-h05-000287",
+        "evt-h05-000288",
+        "evt-h05-000289",
+        "evt-h05-000291"
+      ],
+      "raised_at": "2026-08-16T15:00:00Z",
+      "rule_id": "LAYER-01",
+      "severity": "HIGH",
+      "subject": "h05.entity.corvane"
+    }
+  ],
+  "as_of": "2026-09-30T00:00:00Z",
+  "monitor": "synthetic-rules-v1",
+  "schema": "transaction.monitor.v1/alerts",
+  "subject": "h05.entity.corvane"
+}

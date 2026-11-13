@@ -1,0 +1,152 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:transaction.behavior.profile
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Profile counts, currency totals and unique account activity over
+  complete windows.
+code_hash: 4d3fc47072678186bb6813a2873973e2d4b33cb5e3961e3bfc0d1b933ee0ec2f
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Profile counts, currency totals and unique account activity over complete
+  windows.
+effects: read_only
+entrypoint: financial_crime.skills.transactions:behavior
+evaluation_profile: transaction.behavior.profile-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: transaction-behavior-profile
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: transaction.behavior.profile
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:transaction.behavior.profile:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 3d004e9bbd8f7edd224de2f8539ff6328216178fb3c9fb42e8e4a6b0ae5696dc
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Count:
+      minimum: 0
+      type: integer
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    TransactionProfile:
+      additionalProperties: false
+      properties:
+        count:
+          $ref: '#/$defs/Count'
+        source_count:
+          $ref: '#/$defs/Count'
+        target_count:
+          $ref: '#/$defs/Count'
+        totals:
+          additionalProperties:
+            $ref: '#/$defs/Decimal'
+          type: object
+          x-dynamic-map-reason: keyed collection
+      required:
+      - count
+      - totals
+      - source_count
+      - target_count
+      type: object
+  $id: urn:financial-crime:skill:transaction.behavior.profile:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    profile:
+      $ref: '#/$defs/TransactionProfile'
+  required:
+  - profile
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - source
+  - target
+  - amount
+  - currency
+  - timestamp
+  - event_id
+  - status
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Transaction
+  optional: false
+- fields:
+  - start
+  - end
+  - complete
+  - expected_count
+  - watermark
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DatasetScope
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

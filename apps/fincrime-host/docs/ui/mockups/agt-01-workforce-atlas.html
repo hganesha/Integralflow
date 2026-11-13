@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AGT-01 · Workforce Atlas</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .domain { margin-bottom: var(--space-5); }
+  .agents { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-3); }
+  .agent { display: flex; flex-direction: column; gap: 8px; padding: var(--space-4); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); text-decoration: none; color: inherit; min-height: 176px; }
+  .agent:hover { border-color: var(--porcelain-500); box-shadow: var(--shadow-1); }
+  .agent__id { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); background: var(--surface-well); border-radius: 5px; padding: 1px 6px; }
+  .agent__m { font-size: var(--text-sm); color: var(--ink-2); flex: 1; }
+  .agent__f { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .agent.planned { background: transparent; border-style: dashed; }
+  .svc { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-3); }
+  .svc .card { display: flex; gap: 10px; align-items: flex-start; }
+</style>
+</head>
+<body data-studio="agents" data-role="Agent Architect" data-user="J. Moreau">
+<div class="app app--no-inspector">
+  <header data-shell="chrome"></header>
+  <nav class="orient" aria-label="Atlas filters">
+    <div class="orient__group"><span class="t-engraved">Agent Studio</span>
+      <a class="nav-item" aria-current="page" href="#">Workforce Atlas <span class="count">16</span></a>
+      <a class="nav-item" href="agt-04-skillboard.html">Skill registry <span class="count">222</span></a>
+      <a class="nav-item" href="#">Rehearsal</a><a class="nav-item" href="#">Publish &amp; diff</a></div>
+    <div class="orient__group"><span class="t-engraved">Publication</span>
+      <a class="nav-item" href="#">Published <span class="count">0</span></a><a class="nav-item" href="#">Draft <span class="count">6</span></a><a class="nav-item" href="#">Planned <span class="count">10</span></a></div>
+    <div class="orient__group"><span class="t-engraved">Maturity</span>
+      <a class="nav-item" href="#">implemented_synthetic <span class="count">222</span></a><a class="nav-item" href="#">integration_verified <span class="count">0</span></a><a class="nav-item" href="#">production_qualified <span class="count">0</span></a></div>
+  </nav>
+  <main class="main">
+    <div class="row row--between" style="margin-bottom:var(--space-4)">
+      <div><div class="t-engraved">Agent Studio · specialist workforce</div><div class="t-display">Sixteen performers, <em>one</em> score.</div></div>
+      <div class="row"><div class="segmented segmented--sm"><button aria-pressed="true">By domain</button><button aria-pressed="false">By persona</button><button aria-pressed="false">Table</button></div><button class="btn btn--sm btn--primary" data-icon="plus" data-icon-class="i--sm"> New profile</button></div>
+    </div>
+    <div class="disclosure" data-tone="attention" style="margin-bottom:var(--space-5)"><svg class="i"><use href="#i-alert"/></svg><div><strong>Registry today holds one runtime profile</strong> — <span class="mono">synthetic-analyst 0.2.0</span>, admitting all 222 skills and 9 capabilities. The 16 mandates below are design targets; each needs an <span class="mono">AgentProfile</span> with a narrowed <span class="mono">allowed_skills</span> map before Phase 1 exit.</div></div>
+    <div id="atlas"></div>
+    <section class="domain"><div class="bay__label row" style="margin-bottom:8px"><span class="t-engraved">Shared orchestration services (runtime, not agents)</span></div>
+      <div class="svc">
+        <div class="card card--white"><span data-icon="workflow"></span><div><div class="strong">Workflow Coordinator</div><div class="xs muted">WorkflowRunner · DAG, checkpoints, joins</div></div></div>
+        <div class="card card--white"><span data-icon="compass"></span><div><div class="strong">Task Planner</div><div class="xs muted">AgentRunner · bounded two-stage planner</div></div></div>
+        <div class="card card--white"><span data-icon="stack"></span><div><div class="strong">Context Assembler</div><div class="xs muted">Context compiler · ContextManifest</div></div></div>
+        <div class="card card--white"><span data-icon="refresh"></span><div><div class="strong">Execution &amp; Recovery</div><div class="xs muted">Executor · approve / resume / replay</div></div></div>
+      </div></section>
+  </main>
+  <aside class="inspector"></aside>
+  <footer class="rail"><div class="rail__bar"><span class="t-engraved">Registry</span><span class="xs muted">catalog 0.2.0 · bundle accf08…c6e4 · 222 skills · 20 domains · context schema 2.0.0</span></div></footer>
+</div>
+<script src="../assets/shell.js"></script>
+<script>
+const D = [
+ ["Identify & relate", [["A01","Intake & Profile","Case creation, requirements, customer profile","case · party","draft",[9,10]],["A02","Identity & Ownership","Entity identity, legal existence, UBO and control","entity · registry · ownership","draft",[18,20]],["A03","Document Intelligence","Classification, extraction, validation, citation","document · evidence","draft",[11,12]],["A11","Network Intelligence","Relationship and transaction network analysis","network","planned",null]]],
+ ["Gather intelligence", [["A04","Internal Intelligence","Authorized internal party, customer and transaction intelligence","party · transaction","planned",null],["A05","External Intelligence","External records and provider-backed intelligence","registry · fraud(provider)","draft",[6,8]],["A09","Transaction Intelligence","Enrichment, behaviour and fund flows","transaction","planned",null],["A13","Fraud Intelligence","Identity, device, deepfake and payment fraud","fraud","planned",null]]],
+ ["Detect & assess", [["A06","Screening","Sanctions, PEP, adverse media, watchlists","screening","draft",[14,14]],["A07","Risk Assessment","Scoring, factors, explanations","risk","draft",[10,12]],["A10","AML Detection","Typologies and suspicious indicators","aml · alert","planned",null],["A08","EDD","Higher-risk investigations","edd","planned",null]]],
+ ["Investigate & govern", [["A12","Investigation","Hypotheses, evidence, timelines, findings","investigation · evidence","planned",null],["A14","Regulatory Reporting","Filing preparation and controlled submission","regulatory","planned",null],["A15","Decision Support","Policy evaluation, recommendations, approvals","decision","planned",null],["A16","QA & Assurance","Independent evidence and control verification","quality","planned",null]]]
+];
+document.getElementById("atlas").innerHTML = D.map(([g, list]) => `<section class="domain"><div class="row" style="margin-bottom:8px"><span class="t-engraved">${g}</span></div><div class="agents">${list.map(([id,n,m,dom,st,ev]) => `
+  <a class="agent ${st==="planned"?"planned":""}" href="${id==="A02"?"agt-04-skillboard.html":"#"}">
+    <div class="row row--between"><span class="agent__id">${id}</span>${st==="draft"?'<span class="status" data-tone="draft">Draft</span>':'<span class="status" data-tone="neutral">Planned</span>'}</div>
+    <div class="strong" style="font-size:var(--text-lg)">${n}</div>
+    <div class="agent__m">${m}</div>
+    <div class="agent__f"><span class="xs mono muted">${dom}</span>${ev?`<span class="status ${ev[0]===ev[1]?"":""}" data-tone="${ev[0]===ev[1]?"positive":"attention"}" style="margin-left:auto">eval ${ev[0]}/${ev[1]}</span>`:'<span class="xs subtle" style="margin-left:auto">no profile yet</span>'}</div>
+  </a>`).join("")}</div></section>`).join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Documentary evidence the KYC policy accepts for its document obligations, as document field
+# catalog types (apps/fincrime-host/src/kyc_documents). One requirement per documentary obligation
+# in evidence-obligations.yaml: any one accepted type satisfies it. A type's presence is not
+# acceptance: validity, content and verification are separate checks.
+#
+# DRAFT for the policy owner's review (owner input D05). The lists are a jurisdiction-neutral
+# starting point, not an approved acceptance policy. scripts/sync-kyc-package.mjs passes them to
+# document.requirements.resolve in the pinned policy section (extension ehf.document 1.0.0), and its
+# test checks every type exists in the catalog and every obligation exists in evidence-obligations.yaml.
+status: draft_pending_owner_review
+ownerInputRef: D05
+requirements:
+  - obligation: EVD-CIP-IDENTITY-DOCUMENT
+    description: Government identity document evidencing legal name and date of birth
+    anyOf: [passport, national_identity_card, driving_licence, residence_permit]
+  - obligation: EVD-CIP-ADDRESS
+    description: Evidence of the residential or principal business street address
+    anyOf: [utility_bill, bank_statement, official_residence_certificate, government_address_letter, telecom_bill, municipal_tax_bill]
+  - obligation: EVD-CIP-TIN
+    description: Evidence of the taxpayer identification number asserted at intake
+    anyOf: [tax_registration_certificate, individual_tax_self_certification, tax_assessment, personal_tax_return]

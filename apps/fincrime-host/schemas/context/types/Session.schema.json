@@ -1,0 +1,181 @@
+{
+  "$defs": {
+    "Bounds": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "minimum": {
+          "$ref": "#/$defs/Decimal"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "type": "object"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Extension": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "schema_version",
+        "value"
+      ],
+      "type": "object"
+    },
+    "Extensions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Extension"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "explicit versioned source/institution extensions"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Session": {
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "artifact_hash"
+          ]
+        },
+        {
+          "required": [
+            "features"
+          ]
+        }
+      ],
+      "properties": {
+        "artifact_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "baseline": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Bounds"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "challenge_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "features": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Decimal"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "modality": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:context:Session:2.0.0",
+  "$ref": "#/$defs/Session",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

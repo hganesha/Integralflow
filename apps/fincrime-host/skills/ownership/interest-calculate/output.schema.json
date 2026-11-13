@@ -1,0 +1,107 @@
+{
+  "$defs": {
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "OwnershipGap": {
+      "additionalProperties": false,
+      "properties": {
+        "interest": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "node": {
+          "$ref": "#/$defs/Id"
+        },
+        "path": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "reason": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "node",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "OwnershipPath": {
+      "additionalProperties": false,
+      "properties": {
+        "interest": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "owner": {
+          "$ref": "#/$defs/Id"
+        },
+        "path": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "owner",
+        "path",
+        "interest"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:ownership.interest.calculate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cycles": {
+      "items": {
+        "items": {
+          "$ref": "#/$defs/Id"
+        },
+        "maxItems": 10000,
+        "type": "array"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "interests": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Decimal"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    },
+    "paths": {
+      "items": {
+        "$ref": "#/$defs/OwnershipPath"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "unresolved": {
+      "items": {
+        "$ref": "#/$defs/OwnershipGap"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "interests",
+    "paths",
+    "cycles",
+    "unresolved"
+  ],
+  "type": "object"
+}

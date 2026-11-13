@@ -1,0 +1,1276 @@
+{
+  "opensanctions": {
+    "url": "https://api.opensanctions.org/openapi.json",
+    "operations": 12,
+    "bundled_schema_sha256": "63de2d9b2a61e7d4b6dbac3400403d46a2f7afa49a34065b37fab29345e5d77f"
+  },
+  "companies-house": {
+    "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+    "source_files": [
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+        "sha256": "f9f566b30896ebb568a236d2498487b27b9f71edcdeb39d738390f6acb72b3a0"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/filingHistory.json",
+        "sha256": "d6a5a5d169ba8982592140b78dfb4d902d9c8844e477a67461c8d4689a977bb9"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/psc.json",
+        "sha256": "a2ac315713c1041782b56c5fac1f70fefde356bbfa18786ab983b386b6c27f67"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/search.json",
+        "sha256": "c59dc2f9abf08053444528d050668d3df27a7af070a310df0f30a81bdb3097a0"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/companyRegisters.json",
+        "sha256": "91211d464cd2193d2d58b9e065141cb2265b3e3b2250e0f269349503f8947e2d"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/officerAppointmentList.json",
+        "sha256": "63a3724e94a337debfbf16c212c05cbf0edaeb337d7e0ff9f5852b0a4f41389c"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/disqualifications.json",
+        "sha256": "c7ffabf31fb96530055361c03758c1472f078c927219894190a12582d5069752"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/exemptions.json",
+        "sha256": "23d0cb915413af3244e2194f35e079c11ec42b5938426527fd169d3fefce8aee"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/search-companies.json",
+        "sha256": "b556142251c922acc30d47e9805986e9145634a015a115c4b9cae8acf1fed9d3"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/charges.json",
+        "sha256": "4cfb674c032fc04b7b56ff13699878818e4c5faf7283438ccce486e66d2270fa"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/pscNotificationList.json",
+        "sha256": "169a419075a16d6fc8eae3cfd89818e9df05aaa801e893a22389bf37fcb42241"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/companyAddress.json",
+        "sha256": "78321bccf0fd038127c12545a3b823dd1ecef0696447265cb5e2a1375fcc1cca"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/insolvency.json",
+        "sha256": "f01ca2e69e68cced71cc349d472102da136cd4992cca1692a33e68d932d5748e"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/companyUKEstablishments.json",
+        "sha256": "2ccc75fc10c2ddf2103752f3f6dee0f6cc58c8904b697ebf807df53ede9d36a1"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/companyOfficerList.json",
+        "sha256": "d5c5607205eb3d950e630b6322b4a5855f5eac27dbf01ed2139e8a1ed29394c8"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/companyProfile.json",
+        "sha256": "9283fde8578115207cfeca747bb917d6060bff2b4ff7721307dc62f911ed11af"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/pscModels.json",
+        "sha256": "56b9f8ad379a969a07a50abd621dc74a62fa3e9cb1a8a09db5cc32bf62d20fb9"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/models/officerChanges.json",
+        "sha256": "a5a4b6d79c8cc80af1cccb66060ba5f5e67a99c68bb8c190536f0a3cd07ea644"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/models/errors.json",
+        "sha256": "cbc10ade0689ea7a6f8774f3399dd7c60c16b8fc2476acd9555528fedd098571"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/models/registeredOfficeAddress.json",
+        "sha256": "ca2df09a08c507a20ad2a0df3c93aa265a5c0ed77a20db32a96f21fdfc7f5bd2"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/models/insolvency.json",
+        "sha256": "aae489b05733a500766118f02d3483182dbbb3047c8fa1e1553f379e6471840b"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/models/filings.json",
+        "sha256": "608a8d97383a513f7f718c082f1df20be9e4f7e0c3f5c72d3b1a573006228114"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/errorModel.json",
+        "sha256": "2c8feac9081e85761054c5817658e9bb97ddc9c71c56536c30a8367232441e72"
+      },
+      {
+        "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/models/genericModels.json",
+        "sha256": "c1e9288045319ca8100d9bb1d2b12cff5111f2be37f352d3cf24a808c34ddce4"
+      }
+    ],
+    "bundled_schema_sha256": "f828833782fc47bb514cba9669762c6e199b97838e8c8431ee52262ab8d11c26"
+  },
+  "plaid": {
+    "url": "https://raw.githubusercontent.com/plaid/plaid-openapi/master/2020-09-14.yml",
+    "operations": 351,
+    "bundled_schema_sha256": "f55b092b99364f72bc4527d7a74864e284cc86c9169989a2e026c4c8e3ed59db"
+  },
+  "entrust-onfido": {
+    "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+    "source_files": [
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+        "sha256": "483a5cb9f0ceb08c74f73c3b47ed7ac5c8848a056a1d61e37709774556e42936"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/tasks.yaml",
+        "sha256": "74fb916aaf95d2d5ac17f401e41fd3277c14d7bf210db9e89c79f7dc6e5f2be5"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/live_videos.yaml",
+        "sha256": "57b570d91e7be1b08d0f2d8d8d6080f68916e561f0452fe3cee7468e8a919eea"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/passkeys.yaml",
+        "sha256": "433916f75260a3a75012126ecd25b871503d4e30c9ed37929196a40080f1e625"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/live_photos.yaml",
+        "sha256": "2e302e1840efad328f7875b280fa28a4a15298c9d313f4bdd1aace0559253daa"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/applicants.yaml",
+        "sha256": "00a7e443e865d0cc2ea8a901804cfde74decfd23331d56a241b58e71ee74e68e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/reports.yaml",
+        "sha256": "7e006e676f781f9c6ebc16c04190a3308dc52221332a0ad6bb5859cf7ef82a25"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/results_feedback.yaml",
+        "sha256": "8d5ac9f12c5735c4b914d43100185af5b76e15bda914347143897db14aa59dd0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/advanced_electronic_signature.yaml",
+        "sha256": "94127ca9fa16d1fbb9e3f3253069683d00a89552e315f88022f1c254d8b2649a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/id_photos.yaml",
+        "sha256": "91ec1d84e294734cfac92970ddd612644309409ce8cc4312e497befe981bf052"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/motion_captures.yaml",
+        "sha256": "04ec223d9ea455123086a5dd909f685097c390f3e10240d6d3f2c6965df4f10a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/timeline_files.yaml",
+        "sha256": "82af3c16a4902b9e6cb6bd1302c748c2bf25f060dd6aacc704471d97abb6bef7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/qualified_electronic_signature.yaml",
+        "sha256": "d9f419223db2beb43373bb07e6867b81d01b7eb3047e26d29c6d52c5fc4fa900"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/checks.yaml",
+        "sha256": "27461f943aff6e72c4eafb284e845ca9f27da76c4b71a6e0484eca333bf16d79"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/addresses.yaml",
+        "sha256": "4acb11944a63553f59dd0cb289ad7c75b00e930e3ab43caf70b82a0c0f304fd6"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/signing_documents.yaml",
+        "sha256": "1e95b014748b730703b7201020aacf882563f54f4e9cab4b1c17401160be2e03"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/workflow_runs.yaml",
+        "sha256": "eca8a434799bd0f2b529a514f5022051b23b9a6d9792a58fc96a4f750a21cec5"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/ping.yaml",
+        "sha256": "11ec9006da5571a9a6fd1a3606fbb80f461079d58123c066fc48af82b7223bc9"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/watchlist_mesh.yaml",
+        "sha256": "74cb9bdfacc94cc07bf25934c4397136a8c55a93b25d1ff6a70bd0db705dc4fb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/simple_electronic_signature.yaml",
+        "sha256": "dcd1b2d6026df5b0abe6565613e65b73fd7c254f10baec7ed5b2ba826b99d651"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/biometric_tokens.yaml",
+        "sha256": "3c43324d7ea113a24d4c6a6fe6298f7bdca4a66f3d20709b52a9eef119bdfad7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/sdk_tokens.yaml",
+        "sha256": "10929b04a4381304e7e034e946d301d5c00233bdadb33861282b74ae98d40bf3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/watchlist_monitors.yaml",
+        "sha256": "ca2e9cd5e87df839681b634b4ced9a7fcfaddfb2e29de4a5e81262dd56cb828f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/repeat_attempts.yaml",
+        "sha256": "b72fe20b6febd87072736f94bfb3251a7722a5a4fcba5c82b6f32832562edd88"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/documents.yaml",
+        "sha256": "4c6933f384e2a024fa38a7386c55831cd271ac620f40582aad14ff6e69e2b8bd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/extractions.yaml",
+        "sha256": "f3ea12c52ca5e8e11095f1f89b960f3bbf870110ce66d1b8d7c390170a79d2f2"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/paths/webhooks.yaml",
+        "sha256": "28c9860a26ad92f34005c773888fe1f83e893e1f11d811ddf0e8c14d49bd43a7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/biometric_tokens/biometric_token.yaml",
+        "sha256": "dd45e6b947f69818f93b5e2fb684cae1833c7e78b83ec363595ae58d6bb9bb9d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/responses/default_error.yaml",
+        "sha256": "51ed386543b6c5038ea6d2a03cb6075e4aefe42b2bb99f89d485d14b650f7cbb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/tasks/complete_task_builder.yaml",
+        "sha256": "d398f80d32911b993743383dd03c318e6eed25cfc3bdb5f6564447e7a68f57a4"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_mesh/watchlist_mesh_alert_risk.yaml",
+        "sha256": "a20a071f08142e45e8d7b54564c39c768d81d3fb8160536734c5c9f581cf9ec7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/results_feedback/results_feedback.yaml",
+        "sha256": "3f54fd4ddddaf21b471c4ade4584a1a698d874ebeca7ca23040e96e0d9c340ca"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/checks/check_builder.yaml",
+        "sha256": "3b6497b9381f5e35950ca0cd26ab8120ad98360687eb639e79aff01ad8a3fc4b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/checks/check.yaml",
+        "sha256": "5ecbac41d7a5991c7bbf89e4ea60b8b6409a1dfe2507d4f4db32a85d084ec491"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/documents/document_uploader.yaml",
+        "sha256": "1438880a97e246569cc30c262709f52a1bd8dc6cbf9de80c71e8ad203f2187c2"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/tasks/definitions.yaml",
+        "sha256": "884c6a43f16f6bd9700f0285d14db089aff1d29614c38fb028cc42935c08ae73"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/applicants/applicant_builder.yaml",
+        "sha256": "e2e46d6472707d3093e1152ad8cdb9c8465e3c84288850286f07fe0e86da5429"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_monitors/watchlist_monitor_builder.yaml",
+        "sha256": "c5edbe2fc6191f28c7ead96d23a6e27fcbfa05d4994b04129889c54b13fa0fbf"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/webhooks/webhook.yaml",
+        "sha256": "52f8a255fb03e00e4810d94374d69abf5e3f5a1a400e7417376d35b55b577570"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/tasks/task.yaml",
+        "sha256": "20b97c6a9dbaaafff974b26a805bd74eec314b15d83222c7c9cce160289e5d72"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/address/address.yaml",
+        "sha256": "1541147d37b95bb4a4a6e3dd31e20b0e8b40c87e63845bee134046a662de8a30"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/sdk_token/sdk_token_builder.yaml",
+        "sha256": "b037234f193b6591ea25eaa142aa87e7a542a62f151a6bf7b72fc25e57a1e11b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/id_photos/id_photo.yaml",
+        "sha256": "3e52bfdf094db8c6c1d1075996d6088d916544b3fc945b9f777831f6a0f41c12"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/webhooks/webhook_builder.yaml",
+        "sha256": "78cee85f93c9e0830bc66d2e8f6a870d054f49c7dccfcdac6304fa29b4de422c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/live_photos/live_photo_uploader.yaml",
+        "sha256": "43b61d90c573578100a706f62ed76cb30f656748ead76146d00e658ecf08bcd8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/extractions/extraction.yaml",
+        "sha256": "6534ac3ec110ef98baffb1ee072765617b3fc14249074060a3b3b771d2c3ef5c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/motion_captures/motion_capture.yaml",
+        "sha256": "8133c41b30a31bbdcfc77bcb6c70f463f62e7bff380ace335af2594dbfb1e8b8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/applicants/applicant.yaml",
+        "sha256": "a06100c9cc77c3e7c75f3cc9a79e02efd2d4f6e5522883a9e8ecd1a746e121ce"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/passkeys/passkey_updater.yaml",
+        "sha256": "d25f21ad72594b523864d995156d5ad5eff490ba9e2794ad90339aaa6521f10a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/signing_documents/signing_document_uploader.yaml",
+        "sha256": "6712c2e90601fbd3974b9b5c3afb13e03ab0d5639639cc357894b2168f20e77d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/workflow_runs/workflow_run.yaml",
+        "sha256": "888202c460727963d520d0d70d2657f59fb3ef11ee571d5ac23304c789aa5ff8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_monitors/watchlist_monitor_matches_updater.yaml",
+        "sha256": "d8dc72fd4489ece878742a21b3235c2ec6db0fc35f6dc181cc87191609b7e359"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/webhooks/webhook_updater.yaml",
+        "sha256": "ddcbe58766eee4482cb9f0798478ab7ff15cfd556437fbd2f83265e2b15ee429"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/applicants/applicant_updater.yaml",
+        "sha256": "ea8c9d9f966cee4c1846f14528adff736a45099f42aaeb3b26707d2d67c03e4b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/webhooks/webhook_resend.yaml",
+        "sha256": "caaaf1cab0ee57cbc4e076288f5c1b7b5a20954a4d173f852a08e9a703ebd874"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/report.yaml",
+        "sha256": "b7dafb34d73bd085991950648cf298fdbbc73f5ea841ff87a78c1a9cdb593c85"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/webhooks/webhook_event.yaml",
+        "sha256": "00c811ae95b69ca406888c84cde62262d9cd1a17a7052a339ca26b6ca0e6bbfe"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/timeline_files/timeline_file_reference.yaml",
+        "sha256": "c979113e34b1011f85721ede18c158e6403db110322a7db785cae92238ee1780"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/live_photos/live_photo.yaml",
+        "sha256": "f07ec1a22039ef8c9d42d10d79abb1af88e9d816e91a25141f7559b7577fbdf1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/sdk_token/sdk_token.yaml",
+        "sha256": "2b276627dd6316ce7688b9cd3c24081898328ba9d64de71849c430695a2ea219"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/applicants/definitions.yaml",
+        "sha256": "9e871d4ad2f4d24d8a48f2d4591f021189f591de7ac5605ee6b9e8d4bb81a176"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_monitors/watchlist_monitor.yaml",
+        "sha256": "cb4af7f51dfbc3a1afa26dcb02ec656b0da9b6b2c6d46ab2526833dafab3458c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/documents/document.yaml",
+        "sha256": "f3d30d7eae50686dbe1670e0d07fad855da56bf2a986a548c59ce4ed7e09facf"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/repeat_attempts/repeat_attempts_list.yaml",
+        "sha256": "9bad8678e6ca78db687e6a9c288a015939dce11bdcd442157d53b7fc5fb127a8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/signing_documents/signing_document.yaml",
+        "sha256": "067fbe7e4ee583093364825abefa83f064dbb56b0078f5c68d8dc1963347b20e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/passkeys/passkey.yaml",
+        "sha256": "9be8b8750ed6ff49d7d668574934ca65f5327cc3f0f7ab980b2919b4de332e86"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/biometric_tokens/invalidated_biometric_token_summary.yaml",
+        "sha256": "5e4b76120751443b0620ddd6941d954353d1d69b8b6a56951a6a41b8bdba289b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/workflow_runs/workflow_run_builder.yaml",
+        "sha256": "4ba50492d45ac30da02e05f5a009f34cdfac809c1b7afb1596e4cb518c3eb7ce"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/biometric_tokens/biometric_token_updater.yaml",
+        "sha256": "b47c05088f6c61d594f48cb85b136c01438daa775fe2577ba9d6f693e1db52c5"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/responses/document_extraction_error.yaml",
+        "sha256": "d3021e2a7d15462d4f6de59feece6f49787aac6e8edfec4c87177e5c9bdebc2d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/live_videos/live_video.yaml",
+        "sha256": "d22e8e7a901d11f9570d8050510e74dd127a330d22c38613949f26dafeadeb3c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_monitors/watchlist_monitor_matches_list.yaml",
+        "sha256": "c443f71eb89fc1990ccb45a67ba36ce71f2fc76379e407ae4fec8819a643cc08"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/id_photos/id_photo_uploader.yaml",
+        "sha256": "e473cfe7bb66c0874c77bb140dc94fb76868223ceb131f826d1452b39fb32e26"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_photo_report.yaml",
+        "sha256": "fe743d8de1d7fc8aaf75f5837df1867d93a3856e30bb2396e683ec72f001b47f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_peps_only_report.yaml",
+        "sha256": "ef0c9a6eaa9b3b80352326b2260da5ec49e820b97b03968eafd039a9813e2c3d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/address/address_builder.yaml",
+        "sha256": "1541147d37b95bb4a4a6e3dd31e20b0e8b40c87e63845bee134046a662de8a30"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_with_driving_licence_information_report.yaml",
+        "sha256": "6ece3bca0005f96cb38c2b0977d52962598d5cb1b1ce48086d103533be03254b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/checks/definitions.yaml",
+        "sha256": "cf418cf4c4b84439a1f717293cd9a7b072aa4e5d1ffdc7d18c7a3b5acc5b5128"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_motion_report.yaml",
+        "sha256": "2e92e6c72f1bf377725867e14a80f2ef14e4e690e54e08567b3f4e3a3712e178"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/proof_of_address_report.yaml",
+        "sha256": "3da58157223ccfeb8458745e842bbca3e57a72b582b4b52f789a4d3da057d1e2"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/countries/country_codes.yaml",
+        "sha256": "7560b94cfac94d1b30f9cb1802275e19d7f6061ba96bbaa95eedcfb06dee21fe"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_monitors/definitions.yaml",
+        "sha256": "b38d68e708a8e93fdc6e14f886b6e946c5e7fc02dd5c6f802a94d4df1fa0792d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/location/location.yaml",
+        "sha256": "4a19b3d10d3cdefaea6489d2e9b3ddaf96a53b17e420ae3219c9a88d563b6ae1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/id_photos/definitions.yaml",
+        "sha256": "8d61506f71fdd6129bbc440521045a4770ed7972db055a5480d62d931146839c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/device_intelligence_report.yaml",
+        "sha256": "b6d0692c96e39a3ea00feb9cebea8f036bc26a16ac6734d0e6768d02f1cb1a99"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_enhanced_report.yaml",
+        "sha256": "44678297c143942fa703dff9739a5c707987655e685d613dd850463fbb2b9690"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_photo_fully_auto_report.yaml",
+        "sha256": "c9ad79ea1c1a616bf1fa6886b9f93592e7a4b2dfb28cfd4c1587a8da02b0f273"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/india_pan_report.yaml",
+        "sha256": "7916c75d235ca8216ad43b9d8ce3bdca893e488c116140e63b5623dfef592e38"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_report.yaml",
+        "sha256": "1381065b6a35d54688f36d1ff37822485a279ccc6120b83df2b4f22ba7de74ca"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/document_types/document_types.yaml",
+        "sha256": "303c8ccd532242bbbc2e6cac1d6fe649c96828ff9978c647f1060bbb4507304b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/signing_documents/definitions.yaml",
+        "sha256": "872066aeb3557a47c97688d6320d40f774ae5229de88364989a2622d05589c15"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/applicants/id_number.yaml",
+        "sha256": "5b9aab56e6cabe8926f8ef65695fca1c70e13bd833a6d995f1b09916ea9ee96b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_video_report.yaml",
+        "sha256": "a4b02fb00c7e46ca83773b4df2158c3a682ae898bc916f4e99ed4babd68b787e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/watchlist_mesh/definitions.yaml",
+        "sha256": "8f6eeed397213627c4c4fa3905ce1130bc52f1972d2fc0067c216e0bddc49aed"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_with_driver_verification_report.yaml",
+        "sha256": "a198fb8428e63df407a0f0fa4c4f1539e9c8670e1b29194ed2e6d8ce0eda515b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/webhooks/definitions.yaml",
+        "sha256": "7761c5f7f302c02d834e65010e42058cacaf89017f9b7fcf756b9678dbb45e42"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_standard_report.yaml",
+        "sha256": "ef0c9a6eaa9b3b80352326b2260da5ec49e820b97b03968eafd039a9813e2c3d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/address/definitions.yaml",
+        "sha256": "323f8b6aa5852691cd7e48b4f190a44fdbd6c207285f3c485d867df3a2c44dc1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/known_faces_report.yaml",
+        "sha256": "3fd4db485b687c4ae9b8e313cfcaf09e7ef851884b6072e7adccf20158e3450e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/sdk_token/definitions.yaml",
+        "sha256": "33da15ed81eccb850f6825cf3668b8ba7f9614c97a5e0b90a5c55a280a8a81d2"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/location/location_builder.yaml",
+        "sha256": "4a19b3d10d3cdefaea6489d2e9b3ddaf96a53b17e420ae3219c9a88d563b6ae1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_video_report.yaml",
+        "sha256": "1381065b6a35d54688f36d1ff37822485a279ccc6120b83df2b4f22ba7de74ca"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/live_photos/definitions.yaml",
+        "sha256": "9089b77a6b3f2e300950e110b11a8a72e271543f22768b3d955e74c87f218802"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/identity_enhanced_report.yaml",
+        "sha256": "a4d3a17903d8a346d7199e25cf7d2df89eb2fbf1e8e3ddaedd2aed0f0a0fc7d3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/documents/definitions.yaml",
+        "sha256": "5b6e02db2b88ae07a6acd8c9ce4a02f9b822affd5bf4a6b53d07f47eed2ee63d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_aml_report.yaml",
+        "sha256": "8555499da88e7cef72f2901d73a1960e18a92bb576b9e14774c3c190e8990b5a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_video_with_address_information_report.yaml",
+        "sha256": "1381065b6a35d54688f36d1ff37822485a279ccc6120b83df2b4f22ba7de74ca"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_sanctions_only_report.yaml",
+        "sha256": "ef0c9a6eaa9b3b80352326b2260da5ec49e820b97b03968eafd039a9813e2c3d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/us_driving_licence_report.yaml",
+        "sha256": "136adab73c4c976076d8fa98ebbcfbca18a5baac17af327237e9bf94b69a4fee"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/workflow_runs/definitions.yaml",
+        "sha256": "32c9c3992a083126ddb5bbef826dc7731ca1cac2f281e39a3603313e66c7bd1a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_with_address_information_report.yaml",
+        "sha256": "1381065b6a35d54688f36d1ff37822485a279ccc6120b83df2b4f22ba7de74ca"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/known_faces_breakdown.yaml",
+        "sha256": "5d363e46cd9d257f21b029d8d7f31b5eae8f029ea85ada48af5f90f881aef32d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/identity_enhanced_properties.yaml",
+        "sha256": "257f66f62feda9950ee7f7764e333dcced87b7d6866e247753c40252a3da5c67"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/proof_of_address_breakdown.yaml",
+        "sha256": "7859dbb87cb63df2a9a583b6d847b73185bc5deb151db7cf6f7eb289e8259405"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/proof_of_address_properties.yaml",
+        "sha256": "fd4671cb1f42ed0bba4bc085bdf01d8db802c230ca4ac84c5d1c2076551189e3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_motion_breakdown.yaml",
+        "sha256": "2f83a82ec7714d5d73cb49b5cd75f39c336067ee3387b53c41355fefc8d54f46"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_breakdown.yaml",
+        "sha256": "02da0ebf0bdb93a719e8b3f9dbb71454de7a98ef8f4632867e69b7be667942c7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/us_driving_licence_breakdown.yaml",
+        "sha256": "2e54bac2eb0aee1f4dcfe4f95069279f2db4eef0934667e1b05e3d41df2c6e07"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/us_driving_licence/us_driving_licence_builder.yaml",
+        "sha256": "b800959757702115420d4c365b65a416595e3273368602e357876e980e4172c7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_video_breakdown.yaml",
+        "sha256": "33427da68a29be3242bbe4f068cca61fe7b7e1f409783090abf2393b612b9321"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_enhanced_properties.yaml",
+        "sha256": "71a318f289e584e3707cb754ec2ec58023242bf3d320e954b38da979a85427ed"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_aml_breakdown.yaml",
+        "sha256": "0536c25e607441641a6c331559ebb7c084495cdfab051ed73224a3fdddceb65b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/definitions.yaml",
+        "sha256": "0e86e73d02eb64ad4f1b34c7c048f42f046a31a216e37b51d8cb0ac4a8e82733"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/device_intelligence_properties.yaml",
+        "sha256": "6344944237006b1674c9eb7e973c3da1b375dd10708d1f9f3410517fe20c3e77"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_photo_breakdown.yaml",
+        "sha256": "134eb22fcb24e5344a15b6d7a2cd0d058592dcae0944672f8a7e2ea5d6fbc7a9"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_video_properties.yaml",
+        "sha256": "603b709fd2b9932aecec72e5003c375a10dd182b5edf4e35bd9bdcaff8fa7317"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_properties_with_driving_licence_information.yaml",
+        "sha256": "b489123b2e11cd70d74a8dcd629a9eb880b4ea84c4ea7e548471dfa3f2f8fadd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/device_intelligence_breakdown.yaml",
+        "sha256": "8de7c4c96bb5bc818ec85b403c8dbcfdd79cf77333c75601e759c78351751a23"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_standard_breakdown.yaml",
+        "sha256": "3966524a777288aded83d34ef7759c6e052e00ea54e02e2c90ebd1550407d5a4"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_enhanced_breakdown.yaml",
+        "sha256": "694b692cbede9caa80d4ff987a7c207bf42a7fd35726e1b609822c8d6f472d37"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/location/definitions.yaml",
+        "sha256": "08ef53aef5db8ef66cb0e94f83f7422911046e842d878d8815434cf68b56bc16"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_properties.yaml",
+        "sha256": "45f8694093a2beda1e36f1537d76b9211fa199caf1ca4c9cbf03de202991cc14"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_motion_properties.yaml",
+        "sha256": "603b709fd2b9932aecec72e5003c375a10dd182b5edf4e35bd9bdcaff8fa7317"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/known_faces_properties.yaml",
+        "sha256": "cdbaecd9e01a2653c26061ea7875c62d873b559d675e5113fed6955b736ec4fd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_photo_fully_auto_properties.yaml",
+        "sha256": "6d9bac14cf274c01c8ff42d78fe5d331367e081acecb30471f8d9308d9e49622"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/identity_enhanced_breakdown.yaml",
+        "sha256": "6454ebea3897f98abef22f829bb0616b968458aa1b03ec28f9e26e77665ce776"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_aml_properties.yaml",
+        "sha256": "826b76b435c4ac23c0f353ac1f29a1ca9d5cd327eb8e5bfa7dd83cfd3fd44070"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/watchlist_standard_properties.yaml",
+        "sha256": "826b76b435c4ac23c0f353ac1f29a1ca9d5cd327eb8e5bfa7dd83cfd3fd44070"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_photo_fully_auto_breakdown.yaml",
+        "sha256": "a4dfe86d9382caab9670a3bf45fdcefe9c9a19587431f9dcd2f7333247bff8e3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/facial_similarity_photo_properties.yaml",
+        "sha256": "6d9bac14cf274c01c8ff42d78fe5d331367e081acecb30471f8d9308d9e49622"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_CDQ_reasons.yaml",
+        "sha256": "866204368e648908f67170133b7a4a9599f9474281267319341707e46c729fe0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/video_reasons.yaml",
+        "sha256": "ca750d1b3ea2af150a906c312f6a261a835261c3e243750f158eae04c4ba8bc0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/photo_reasons.yaml",
+        "sha256": "6e6bc694d0d172bc04a5feef73b9b4c337dc1d47a252a3a255fde2f9f319fbfb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_ODP_reasons.yaml",
+        "sha256": "a608f5632d2860574b5242327e6f09ad46e54394d96c9e1a05d803df34857590"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/photo_auto_reasons.yaml",
+        "sha256": "6e6bc694d0d172bc04a5feef73b9b4c337dc1d47a252a3a255fde2f9f319fbfb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/us_driving_licence/definitions.yaml",
+        "sha256": "d6deec2b02eabeb6b7c8fdd2be712f0891b2b647a3ae4f33da5c1f5d50f76f43"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/schemas/reports/document_IQ_reasons.yaml",
+        "sha256": "190d70813c7d61bac102893a3400d6bd5d71cdf7abed7568e98c200d7992ee31"
+      }
+    ],
+    "bundled_schema_sha256": "2577b06d2652e441dad26ab434f6ca2863d3effdc0dd8913dee46ca6fdfe65d6"
+  },
+  "fingerprint": {
+    "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+    "source_files": [
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+        "sha256": "d655ed5e52e3ff49522efa0b3cd08e6ea310988697c5a2e76f73735212c0f73f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/paths/event.yaml",
+        "sha256": "2a61c3d2095d56450b101fdc8a6d91606c014b3cf08d2b0e374d89b10db48026"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/Event.yaml",
+        "sha256": "90f86d88e706da7808b827e93424f239c167bf840b6ca1ffd6ca2cd4df281281"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/paths/edge.yaml",
+        "sha256": "bde298a2b899aaec8aa9add68f90a46e70ea4e4f354717a354d9e7445662317b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/paths/feedback.yaml",
+        "sha256": "694427d3ba1a11a79ba491c1dce3a88eac3221230ccdd69206fbba8a49487eba"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/paths/events.yaml",
+        "sha256": "07f1151201d1d9ba05be0971fbc8184aa35302faa278bb9f599074e21104d8bb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/paths/visitors.yaml",
+        "sha256": "4d325a8008da541d3654dccb18b2faae8ed0a48f0eb54e7e03f60683ec6a2c2c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/TamperingConfidence.yaml",
+        "sha256": "8b4ae1a64ca0f02e42f3df98c1928e5eeeb87064e72ea737f7983ca8f2d90ca9"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/Proximity.yaml",
+        "sha256": "5b6157bd11b2660f7d7f3841699b9238f9cf1a9bbe7802888c146d4d14e4e62e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/EventSearch.yaml",
+        "sha256": "e4c884a97549e9873357319a84677ed665cfc2fcf3f4096216665dfc3abd79b8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/IPInfo.yaml",
+        "sha256": "5cf9597853eaa632155c7a35a0b4e446cacd3f65e6b5a7e10fd6b90b3f6c6788"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/TamperingMlScore.yaml",
+        "sha256": "7c46a5b81e0c9fe1ae88c4b16048970ec9ce938e7bda6efd4e6f35c16f547244"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/RawDeviceAttributes.yaml",
+        "sha256": "0f666c85897767647995ab0dd3523e0cb9d37bf63a0045726c1f65ef55bd7baa"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/LinkedId.yaml",
+        "sha256": "0653cadb6900ed9041b72679cc159194bedf2029ce373a295959e2d2b5ce73f0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/SuspectScore.yaml",
+        "sha256": "1fc73da92bb7831fa9c4639f3f79bddfd173c5c65c045d4c494f7f27aa19af21"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/Replayed.yaml",
+        "sha256": "721e9c2baef697fb93edf9acabb1b47c2e1795a18d040870d0619f9d1ab2607f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/DeveloperTools.yaml",
+        "sha256": "e99126eaf47043c0a6a7dad64018ca4c16d635138c6fba516ceb7c809d4b0ecd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/EnvironmentId.yaml",
+        "sha256": "9168876a3125c04744ea13a66b94a9d2afbcc8e9345e1d3446fa087a87c79143"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/IPBlockList.yaml",
+        "sha256": "f5120499821161d5bfe4ceb0cbf1b93c7e39b802814f269ab434a02b04b92a64"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/LocationSpoofing.yaml",
+        "sha256": "f0a25f3205edad48a6de40bb7173f4da324d914f66aafa8446dc095288a5b579"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/BotInfo.yaml",
+        "sha256": "e7183099f80b341419d6089bdee1411a8f33d4da091bc1000c4bdd1edafabca8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/UserAgent.yaml",
+        "sha256": "b044c0853bd705df4d948327088d66a597a1df16603cdf4cc557bbd3bc16299d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VpnMethods.yaml",
+        "sha256": "bbf431343ea92274182bd5c396b69473d4d11caac6494354154d8a0291774b91"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/EventFeedbackRequest.yaml",
+        "sha256": "6e03bef7314c2e0666d75bf7ba862a8c56f166971222e78dcf76292709d708ed"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/PrivacySettings.yaml",
+        "sha256": "506f71c73f06a90ada29c313b6f2172108c4b3152d65396083b4e55764b9f208"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/TamperingDetails.yaml",
+        "sha256": "92e6087a52755c387014ec17e5d8b939da2d93fb447d5e724d19db288430d0b0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/EdgeRequest.yaml",
+        "sha256": "4f82fa31a4856d1af25bc2ea5fb86ebeb627645935d7ddaa7b0bb7dd183bb294"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/EventId.yaml",
+        "sha256": "de166b981623ffe793a21dc8c3f66b2a9cca63d6507993a986467770271b9acc"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/ClientReferrer.yaml",
+        "sha256": "71a8a4b937e3db5c5ed7c33903a2bde19a79460e65e51450ab7f112967044b5c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/SDK.yaml",
+        "sha256": "3d72dc38148d949d722077da6c504fa6e1e1c86653c3149ecae242bd7892add1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/Url.yaml",
+        "sha256": "67a8f3072cf316ce7c3c3638ce7957854e9904aaad913085e65ad1c4fef5931a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/ProxyMLScore.yaml",
+        "sha256": "7351c82d3107bb18f925de863ca06106e2bd241d4802044d1142228b6d430fb0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/EventSource.yaml",
+        "sha256": "c371fc88bcb44fd99aa2a4d17c4e5755bcf962cbb48fd5dc329ae5e05b0e2e7e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/Suspect.yaml",
+        "sha256": "6ffe9bc86b5257097b2768dd8d7c91109e6b309710e15b403bbf4aa6301891cd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VirtualMachineMLScore.yaml",
+        "sha256": "f7f1e052a37104e532aa4696f7a50b98188c7472753f19d70d7b582eaeda5b3d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/EventUpdate.yaml",
+        "sha256": "94b26109fa44ee235d022003bbefbe1db226851f86474f03ad115270b234e2c0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/error/ErrorResponse.yaml",
+        "sha256": "cf3551aa5dce5ea9d0f9b40d49f10be5942f649efd15475d5c5f3db6001b7787"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/BotType.yaml",
+        "sha256": "2d66fc61b94b989d876b3c598b06adb8284c895ea8f488b7fa0cb3c5bfdcc15d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Proxy.yaml",
+        "sha256": "cf1a99dea023c5383ed92c25a11eb6d26545ae1f94e5a76144faf99d424ed7f5"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VirtualMachine.yaml",
+        "sha256": "89b3bc58adddd761cf289580438df3a881102f8b31a0e06ec737fdb5f771d688"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/HighActivity.yaml",
+        "sha256": "bd8cd5c71728474777afef96ad2e79db0843a2a74a8cdb4b6a561f5f6b3917f3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/Tags.yaml",
+        "sha256": "d597ce3fcfd75d19bf6018bad9dd39126135ac387112ebc8ae69faa708158627"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/OsVersion.yaml",
+        "sha256": "7b928e3541c4a36f19ae386b6da144f9bb886a9ada113ab86b26e141c98af890"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/Timestamp.yaml",
+        "sha256": "7851f91bb385f3f42c8158ffbb5712349e1acd3ab9c59cf2155fb53043908b01"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/SupplementaryIDHighRecall.yaml",
+        "sha256": "cc07307144b41a5d864c188e9a48d09cb840525823610f6f49f5a62cba6983e6"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/ActiveCall.yaml",
+        "sha256": "cdff1ec24b61197520eaa1bb122a5e37ff696193cea52bdd1c2208f87048eefb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/ProxyConfidence.yaml",
+        "sha256": "d30830089837b6e6a71175d60189d1b850f5142612d5117608304faf1721d989"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VpnOriginCountry.yaml",
+        "sha256": "3db86815c60f742660b5fe85df5257a526490400e881afea1f0d22be88340cdd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/EventRuleAction.yaml",
+        "sha256": "143bf2cdb3df7759f7386fb8976bd62913c99f78a99da836938d75f87f57b715"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/RareDevice.yaml",
+        "sha256": "b9496d984f3224a14b1b3d27bd0853a0b407c4a699eb542c7949ede7519c49df"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VpnOriginTimezone.yaml",
+        "sha256": "4bf0fd8341dbb654ee482a0221e46e01df07abfdc110b04209654b08c694243f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Vpn.yaml",
+        "sha256": "dfdc40b2c6551474367e2094759712f6b48ccb8f9d2f5e0479c47f64df994b25"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/BotInfoIdentity.yaml",
+        "sha256": "9731f522c00f923ecba029fdb801ebf3280b661db2adaafebbf7aab807d1d080"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/IncrementalIdentificationStatus.yaml",
+        "sha256": "9961e9ec9c7be880a274d440627e053bfd5babae653ed3bf88e92f8cdd33a75e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/DeviceDetails.yaml",
+        "sha256": "1dd8efbde8739b3a4736fd395ccfc5ec894a955017eff3ca7c7479eb05b4a641"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/ProxyDetails.yaml",
+        "sha256": "a582b76485f89cff951821060609e2c8b9b3e439fe369ea8ea78cfe0e7fab7b2"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Velocity.yaml",
+        "sha256": "79d5d8d31ede03d1c8ac794d8c711a03c51bdf547e949622ac54cc31484ea4da"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/BrowserDetails.yaml",
+        "sha256": "a52b7b88c330a0692f6d8b8d6045b96158103ee981cc422a91de6873adbe95e4"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/BundleId.yaml",
+        "sha256": "85f2f61805ee7faca98155bb10941c710230ba8e8b544022d9751688949f3868"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VpnMLScore.yaml",
+        "sha256": "5b8dc61a999f8e5b5911a9110da4f5ef6852c0ddfa4a2dd92c4d84316d3b8345"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Frida.yaml",
+        "sha256": "33ac0b32eb1aa728e3c51f647a5f7e5ebecb36850c289781f144cd0aeae41b2b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Jailbroken.yaml",
+        "sha256": "4ac1bee62f90a1344f04db60570929206fefaeef8cf6c100eb1b1b524a53ac14"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Labels.yaml",
+        "sha256": "b3e064f899c4914264bd4da7e4bf89b840f9894f91845038c9bc532f18bf2d8c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/RootApps.yaml",
+        "sha256": "67a9fecc26b1445f4b02cb361bb3aa5038cee1dc120fdbb26b95ba0ff8edd3ea"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/BotInfoCategory.yaml",
+        "sha256": "2e8bab56f54cc5f9168c9595d6008ee2bebe941998d928873c5a32d4275a7239"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/PackageName.yaml",
+        "sha256": "87a7796feebb3929594aedb0c489aa19924be04f794cb01d5ad8ffbd64a891a3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/BotInfoConfidence.yaml",
+        "sha256": "6c01abac09b93662452064d12897aceb16798e4daf1204980213262e318450f6"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/Os.yaml",
+        "sha256": "ed75a60e4e726a417a78b369465943dbb75d19751e9f50ee577d8cf95e86e153"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/FactoryReset.yaml",
+        "sha256": "19d0b099856b0a2cf583c3017eafe104e64c3a93d112173fd1a5470e1c7e35f4"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Tampering.yaml",
+        "sha256": "409ff2c7835c4b47d9fb6a573461d6cb9a33218b1b0d34a4b8fe245dff239676"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VpnConfidence.yaml",
+        "sha256": "234664dec2386209b04feb12ed7cd06688a98d822bfa7ba46a8cf44a20030958"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/Device.yaml",
+        "sha256": "f6b5c1fd0889b1727f69e4535b817ab8136ed210b24e15aaef368368ca85ac52"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Emulator.yaml",
+        "sha256": "cc6bd6acd131e1487e9e557cb6108b70d41b8c9e17df56197ef1fe2dea0bcc2f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Incognito.yaml",
+        "sha256": "f576d247569c285745f96819c3d97d883e79f86483d947f693840a023439b82a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/RareDevicePercentileBucket.yaml",
+        "sha256": "9681521138158824461a58c01751ac116980f46b626f0e56082e65b535cb2faa"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/ClonedApp.yaml",
+        "sha256": "4ac8402b6ec7ed21961080dc338a068d1269b9c66657de73eef9936d058f7cfd"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/IpAddress.yaml",
+        "sha256": "28a86d1c9b4533af1cb0564d3f8df4dfe9bb3d825c8d83fe4a3e076d8aca88d7"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/BotResult.yaml",
+        "sha256": "9ba803aedc33ba1b5120fb6a76fe5de5615bac666c8438138870293d11b073de"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/EdgeResponse.yaml",
+        "sha256": "0ee61ab0a2614568dbf7ba6df219b2707bda64e6699bc06c57cfc3073941f0bb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Simulator.yaml",
+        "sha256": "4f2b2da467c46e14051b6c8f69b51bb0060a76d07e2aecf01af4f45fdfd9162f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/Identification.yaml",
+        "sha256": "e62feadc9af93606b72b9de53acf6966918b20b1060ab09539d19efbe973d981"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/webhook/TriggeredBy.yaml",
+        "sha256": "739285160df64834393dfd9627039a3b718b7806ffa9014e6727a4632c67e03b"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/MitMAttack.yaml",
+        "sha256": "cb8f7f31225a5334144c4ee993e29847ec572fe2deda23f825a5982928429e48"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/IPInfoV4.yaml",
+        "sha256": "8dc5bdd503442585dfde5c4e7630724329de7026b23374bcf50437229c447a29"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Emoji.yaml",
+        "sha256": "b3b7c2ea2f8a5ee3cb9548fd37b57b42e1a0a94e2ca322a1b5bcd2d4f7cdd4ae"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Fonts.yaml",
+        "sha256": "5f307d4cf61d620b763d748908f5ec876e464646723345f787e63aadebea0230"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/DeviceMemory.yaml",
+        "sha256": "2c1b2c84bef2f6caca9d2138280598ab112b5985ed56444853371e999cc6aad1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/IndexedDb.yaml",
+        "sha256": "33ff7bed6296c37d776f8765307aae7281801a980eb95467e2909d7b06950167"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/BatteryLevel.yaml",
+        "sha256": "dccdf47e837f346d4739179bf71a634dad5fe381f987af7970a59b67e8238eff"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Oscpu.yaml",
+        "sha256": "82ca948dc7bc30e8e0600dc37a2d3b45c1bdcf7fc98055ea46b67031d486952e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/WebGlBasics.yaml",
+        "sha256": "080e3594d0533d37536a63cf1c4551ecd52bff5519667a342d671d75f285d182"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Languages.yaml",
+        "sha256": "ca3e705267229dbcd35886010a00be80c779f2a42f7db06e1c5fbba50ceadbbf"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/SessionStorage.yaml",
+        "sha256": "86edfa7cfd0bde380998ae057aef3e6ba5820dafdb2313bc03aef20decea8b21"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/BatteryLowPowerMode.yaml",
+        "sha256": "7ba864c4c2a8ca46bb5e7fd8d33afc77a78db145aac32fca07c87e37df7e0bf0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/WebGlExtensions.yaml",
+        "sha256": "8fe02ec96663437203fbafd296d8d4921dc59f38f001e3b0998d33b552909d9a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Vendor.yaml",
+        "sha256": "74267a3eedaccf70f80c36eeb14c6582d6ecaecbbf0ce416445c1788ea0067c3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Audio.yaml",
+        "sha256": "e7276018a4c8e323523f8370d19c70ef1f0d6b7772cb1f245b51fe3af973d676"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/FontHash.yaml",
+        "sha256": "af40140f2c86ace24c9fff2acdda081f0aeb42ca860cf24a4c97be3943a25aec"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RulesetId.yaml",
+        "sha256": "79f2ae3cc31fbd99b0140947f22e65690aa56cc4ada47e15c1f79c18c1d625ea"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/FontPreferences.yaml",
+        "sha256": "d9ce86190b78265824780ddffe912c7a0092802f919531b0a6ef0b8dff2c58fa"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/VelocityData.yaml",
+        "sha256": "fd5fe20bb4ab6fded0319982695042f953b178ea9d0e0ac375676a1b76366412"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/identification/IdentificationConfidence.yaml",
+        "sha256": "d41ebbf494eee626820110fc35ca3582eb41783d7ff1bb629ac8e8c5460b3263"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Architecture.yaml",
+        "sha256": "c8c95e3df46992bdaca38c548d8b7d7f1333798f1f6b04d7655a84d92153446d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/HardwareConcurrency.yaml",
+        "sha256": "02b3a70839865f9ab17bb88b9e1f9f8463212e307d4d07b09a15da5ecea9c3b3"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Plugins.yaml",
+        "sha256": "29eadd33d54f48aa73de78b801fe134836ec562feb0ba95293067ac7bbbb6431"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/DeviceManufacturer.yaml",
+        "sha256": "61096170b160d9b06b46c100ca84c04cc3162e760d4538dc01befb670e6d5d98"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/Integration.yaml",
+        "sha256": "6066eb8a20ee1625543179adef6bb64721ae9865544f4f205d14c38155c77a18"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/DeviceModel.yaml",
+        "sha256": "107e401b01d4596ddf21e25c6f3f1121a17307534afd62345c3b27c47a47818a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/IPInfoV6.yaml",
+        "sha256": "fdd7d2309642d1bd6d679959c25af526251ecd59d2edb503b2b44960fc60b2fa"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/EventRuleActionBlock.yaml",
+        "sha256": "63f7a5b8c6a51876cab4756ebb240b537afec0ba0f393abe2131829b636fcbb1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/error/Error.yaml",
+        "sha256": "f408accbd9d38e6d7507eb685c5352211163401345847b92af094e0fda45bb72"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RuleId.yaml",
+        "sha256": "b25e54311df2cc6f1deb099e3e8cae0616b5440497fee469284222a7691f9b19"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/LocalStorage.yaml",
+        "sha256": "18b390f08e0bc062e338014967c4f8974ea68394197c6df4a5966981c136972d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/ScreenResolution.yaml",
+        "sha256": "75ddf4684363b3dded55be069b0ed85fb84ccdc90a71012c8bccf130971971d5"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Timezone.yaml",
+        "sha256": "0656b4c409db42709d74eeaca983f1027321fea5693c129e63ee02f90f6d1934"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/KeyboardLayoutName.yaml",
+        "sha256": "5911a949838117b0d73a5517fc99db01e3aa668340fd2497013c1b2ab3309f24"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/BatteryCharging.yaml",
+        "sha256": "329f357a615e9bc632dd514d4bc9cbd1acd4f3e3a6c4d66374900261f81b5e66"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/DateTimeLocale.yaml",
+        "sha256": "53b7ca42cf421ec7602459c92fa2ec55de66a41adc73af691b5ea04d269f4505"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/ColorDepth.yaml",
+        "sha256": "9296de98e4735f87880a0f312480d5719acafd07bda7645bc0e01d8605e44cdb"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/TouchSupport.yaml",
+        "sha256": "c6a433a821727a5ba08d4f511a275c5cf0c0e1c864f53386a527a002eb119ab0"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/CookiesEnabled.yaml",
+        "sha256": "944828026be764779a468ddf28c1f61fd1e6fc8ff017de00960c7e1f4a36014c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Math.yaml",
+        "sha256": "34983f524a28ec1927d145dd54d91d2beae2d85470041dd0527d0d8a7ac2787a"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/KeyboardLayoutHash.yaml",
+        "sha256": "0c2bab02566111d88b2d8d1a0c6a31beb5fddfb2751cdb92e32b11b79546073d"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Canvas.yaml",
+        "sha256": "09eb67682ce4a6b63d6a813f8da24d0f1efba6b48ca62b37ecc75e691449f5f8"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/Platform.yaml",
+        "sha256": "beb1d9c5c690dc5ed6e0cd446dfbcd49462490404261fa005261228b29668abc"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RuleExpression.yaml",
+        "sha256": "fc293fa0b32a5935a0a6696907079f4264b850ae8f2f0928258251965eb74438"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/raw_device_attributes/TimezoneOffset.yaml",
+        "sha256": "b5c68528fb6feddc60954be7d5113da5049b0a61f20c1fa187c31ef2460c607f"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/EventRuleActionAllow.yaml",
+        "sha256": "7c53d90bbbcb7a9d652478fee236eb01b2328ceef8945eb1fb7eb8da860fd9ac"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RuleActionBody.yaml",
+        "sha256": "e1880e695daebbeddcde5f57625269caa05ea156a007d8625954dd4e2a228b7c"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/smartsignals/Geolocation.yaml",
+        "sha256": "c0d476c2ade513aaa3cd12673a44aaf1d4d8b14c27225d816bf363f1719650de"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RequestHeaderModifications.yaml",
+        "sha256": "d797b0f4c559016bfc2ae9f64fde826cf8ee9f59a35eda1ddd4e9c0cf447322e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/StatusCode.yaml",
+        "sha256": "9b1ea3fed61f040538046075d27a9931451abcda2a486ebcc28f0c1ad7539e8e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/error/ErrorCode.yaml",
+        "sha256": "d5f4c18565bc4fcc45940b38f73aca308a94599dbedb167949935c379e3f8d99"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RuleActionType.yaml",
+        "sha256": "3c190577a9957e4e4419ecdba4106db388c5f3d1c59f89fcfda29e78a6f0c2f1"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/components/schemas/platform/RuleActionHeaderField.yaml",
+        "sha256": "f90423598e114bf12bcc870c2823f6f508f97a8abecb9958bf4d94865b367123"
+      }
+    ],
+    "bundled_schema_sha256": "53eddb443dd4d5f894d9e9a56d056ea093361ba434f3ee615268c1da5edba764"
+  },
+  "mx": {
+    "url": "https://raw.githubusercontent.com/mxenabled/openapi/master/openapi/v20250224.yml",
+    "source_files": [
+      {
+        "url": "https://raw.githubusercontent.com/mxenabled/openapi/master/openapi/v20250224.yml",
+        "sha256": "1708b3a630ea2fa084421040df6f4faca1b212e899c076f557994316a8afb9ff"
+      }
+    ],
+    "bundled_schema_sha256": "b22656826c690e53daa91ef29e7359dde1333b4a9d73adf40fa8974a439bbc68"
+  },
+  "incode": {
+    "url": "https://developer.incode.com/openapi.json",
+    "sha256": "59bca2114b83fb52dc8c40466a3130683b3dd8fac7e6a9a7feff2ad3002b4814",
+    "official_homepage_linked_docs": true,
+    "bundled_schema_sha256": "dd77a667a1e5a1008c1a13047ea364080547a427e8ac6b546cba26ed8de70c05"
+  },
+  "flinks": {
+    "url": "https://docs.flinks.com/openapi.yaml",
+    "sha256": "5c69c878f323ef2b4ae8952662e712a52b441db9006f55ceda93461152f6d6d6",
+    "official_homepage_linked_docs": true,
+    "bundled_schema_sha256": "8aaefe5c6012e4399713d77756741760916a0cf4a3a8328d44c3ffd51c9afc9f"
+  }
+}

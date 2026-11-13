@@ -1,0 +1,4301 @@
+{
+  "canonical_context_types": 89,
+  "context_schema_version": "2.0.0",
+  "distinct_skill_schemas": 464,
+  "dynamic_values": "Only explicitly typed keyed maps, JSON source/fact/schema values, and versioned namespaced extensions.",
+  "historical_snapshot_sha256": "d4a35b56534656b23c225896ed91610fe3fec2e2cfe5fd47d962e3ce0bb618ed",
+  "named_definitions": 609,
+  "production_qualified": false,
+  "published_schema_count_including_bundle_copies": 1070,
+  "release": "0.5.0",
+  "schema_inventory": [
+    {
+      "path": "schemas/context/ontology.schema.json",
+      "schema_hash": "a79e5a68a543bed18b6dff89efd6186f6af37358536abd8cff23a7dd903479da"
+    },
+    {
+      "path": "schemas/context/types/Account.schema.json",
+      "schema_hash": "58d16408d93075fe602bf9fbdd4d91aab683f4b99728754f55a792485658c1e0"
+    },
+    {
+      "path": "schemas/context/types/Actor.schema.json",
+      "schema_hash": "27382ec89cd9bab429d8c812b338c2364f142733a9ff5adae8b109cb8e7d796d"
+    },
+    {
+      "path": "schemas/context/types/Address.schema.json",
+      "schema_hash": "03e36db1190680330fa282995dd15ec0fa198ecccc071917781d0e63eedf6258"
+    },
+    {
+      "path": "schemas/context/types/AdverseMediaEvent.schema.json",
+      "schema_hash": "8f547cb77ffe5ec795f96d548c384d9b6fb1a69981b4c4ce6cdef81bc1c39055"
+    },
+    {
+      "path": "schemas/context/types/Alert.schema.json",
+      "schema_hash": "69290027b30c12dd5480673b93243619e1b327b9956eb0c85cb35d63ab309ac5"
+    },
+    {
+      "path": "schemas/context/types/Alias.schema.json",
+      "schema_hash": "e04a0183c7d4a3632cb442fd63829d534cad1de9c901022f0ebb71c46946dae9"
+    },
+    {
+      "path": "schemas/context/types/Approval.schema.json",
+      "schema_hash": "ccff6c2f650b5cb640e1443624b74c47be3dad7e7ca5a7eb2fbe0ef76e833dfa"
+    },
+    {
+      "path": "schemas/context/types/Assertion.schema.json",
+      "schema_hash": "14bb0459fa0f8816301e4592dfd434e23236bfc9f114020b1c871f8bb306257c"
+    },
+    {
+      "path": "schemas/context/types/AuditEvent.schema.json",
+      "schema_hash": "96f84cf53141492b8231b8573d81b54b99c2bc22b8dbdf154b0837c0d89aec8a"
+    },
+    {
+      "path": "schemas/context/types/AuthenticationEvent.schema.json",
+      "schema_hash": "dcd0ed95840ad7cecb1ca98ace92c595f6b171969e5fbf5a838b0fdd5e0fac34"
+    },
+    {
+      "path": "schemas/context/types/BeneficialOwner.schema.json",
+      "schema_hash": "f6766271d84f405a2cc813d73633db35657311bc83a2a7341087a7bf335dbf66"
+    },
+    {
+      "path": "schemas/context/types/BusinessCalendar.schema.json",
+      "schema_hash": "3f739348049e69e21ecb54f264c08b0ddf56a94de4bfd4a08fed45e7c2c0b36e"
+    },
+    {
+      "path": "schemas/context/types/Case.schema.json",
+      "schema_hash": "dd35a7364a95a1d6b49143fb4881da4d4dcb271d35d3312e403d1c76ea6b1ed0"
+    },
+    {
+      "path": "schemas/context/types/Checkpoint.schema.json",
+      "schema_hash": "d64cc43b07054e60bb97597d923ae43e5b30a01c3407ecac0a7092a3ede77bf2"
+    },
+    {
+      "path": "schemas/context/types/Conflict.schema.json",
+      "schema_hash": "51c2e01b7eb67ca2ab296e63d68bdba4261c537e1c356739af0a2c489ed61bd0"
+    },
+    {
+      "path": "schemas/context/types/Control.schema.json",
+      "schema_hash": "79e329d3388a512e878f5428ce7eb6d4fc428bad5a14e858e0d72a48c1a498c2"
+    },
+    {
+      "path": "schemas/context/types/ControlRight.schema.json",
+      "schema_hash": "81e10be4c7d56f54c769f14af106bd7b2668294be613e3f338d60027ecb1b504"
+    },
+    {
+      "path": "schemas/context/types/Counterparty.schema.json",
+      "schema_hash": "9d5529afff479992b1b6215a5da96df95cbb82ef26e5ba25f21ffeadb57ab368"
+    },
+    {
+      "path": "schemas/context/types/CustomerRelationship.schema.json",
+      "schema_hash": "c11fd23f48dd0ccef73aaaa8aeda63fa1bf1e3e1b0d9f2972a2f13e9456ecfe6"
+    },
+    {
+      "path": "schemas/context/types/DatasetScope.schema.json",
+      "schema_hash": "2231c74016afa4185a0ec3f2cc36f238faa483d6fecea4a514222c3afcbeec18"
+    },
+    {
+      "path": "schemas/context/types/Decision.schema.json",
+      "schema_hash": "68ccfacda6e40e3ccf3df209660705346cbd1ad5702b22c85b2d009db8ce8c92"
+    },
+    {
+      "path": "schemas/context/types/DetectionRule.schema.json",
+      "schema_hash": "6730790cb670920d023b6afa6fb301eced29207b10d9737d8e9bece1d09c70e3"
+    },
+    {
+      "path": "schemas/context/types/Device.schema.json",
+      "schema_hash": "bef1a67e4b0eab310087e4b07b1d3292f812a969b1fad2ce375eb1a2b1a9f0bc"
+    },
+    {
+      "path": "schemas/context/types/Document.schema.json",
+      "schema_hash": "cdfba25e6dcb64473f238e063a451b133cf56e6f8963983170dfc998e6fc02ac"
+    },
+    {
+      "path": "schemas/context/types/DocumentPage.schema.json",
+      "schema_hash": "26c4b9f79188705475bc74ac22d1177756e45fbc9a9416a7c8f615f8f0ae0b64"
+    },
+    {
+      "path": "schemas/context/types/DocumentVersion.schema.json",
+      "schema_hash": "3995a35740ae2fbe92df268abc4d02f1873ebc031548a7a4ab749f38ec4dca5f"
+    },
+    {
+      "path": "schemas/context/types/Entity.schema.json",
+      "schema_hash": "3cb86b0fd311e56a036f7cf50989699b26c09c1cfb79f0bbe36bc0642ea9e77e"
+    },
+    {
+      "path": "schemas/context/types/EntityCandidate.schema.json",
+      "schema_hash": "aa0beef4af71b588d608a76732c34d6d36f2d971cda57309d4b6b979bafa52ed"
+    },
+    {
+      "path": "schemas/context/types/EvaluationCase.schema.json",
+      "schema_hash": "4e89197d48439eda7aaa33e8c3909f57b5fc273192417e38b66ef9e13e07e3c0"
+    },
+    {
+      "path": "schemas/context/types/Event.schema.json",
+      "schema_hash": "2c04255a654c8ffbf04214903aa0852585ddbea3a43b80cc936c0b6edf622e2b"
+    },
+    {
+      "path": "schemas/context/types/Evidence.schema.json",
+      "schema_hash": "de986d2918e568b58e642b542423a5b2c75e7bdb22b75f37d4ce0b28e955f1eb"
+    },
+    {
+      "path": "schemas/context/types/Exception.schema.json",
+      "schema_hash": "437131e1fbcba71137a87f062f94ec39ca79465d255cec97a57b855b57369bfd"
+    },
+    {
+      "path": "schemas/context/types/ExpectedActivity.schema.json",
+      "schema_hash": "e6be3dc1efd4d31f4e7a87e00c06aa3c370185ac1fcd42e26d144e7d08edfdbb"
+    },
+    {
+      "path": "schemas/context/types/ExpectedOutcome.schema.json",
+      "schema_hash": "76a60f40b5f2f36d8613f55f23adc3dc71538f4d3cf3a947a5ba71da934b1ed1"
+    },
+    {
+      "path": "schemas/context/types/ExtractedAssertion.schema.json",
+      "schema_hash": "a1a34b34e8e60111f31bdef89ba4ed39bb8c06d16ea2b9b9c742dcff8645b53d"
+    },
+    {
+      "path": "schemas/context/types/Fact.schema.json",
+      "schema_hash": "b2fb9c2c73038259d9e373a439f62612d4a2356babafbbc5e0bf0eeeb37b52f7"
+    },
+    {
+      "path": "schemas/context/types/Filing.schema.json",
+      "schema_hash": "2febe26266566edf3dbc126f3fe21ea1683cf131d47e4e750d76a1ad7137c8cf"
+    },
+    {
+      "path": "schemas/context/types/Finding.schema.json",
+      "schema_hash": "87ceb8b016c62d42638ce394e3f47cd87cc97d52680cecd909a3cb3910873983"
+    },
+    {
+      "path": "schemas/context/types/FraudSignal.schema.json",
+      "schema_hash": "35c64fd7b4e8486a5cc7a5038186f70373867e025027276e5ed3ae90c2a0fff4"
+    },
+    {
+      "path": "schemas/context/types/GeographyExposure.schema.json",
+      "schema_hash": "c1271cf3ebb2df4385ea71158efa258e6d7e5bb5562d92295b0eecb1cad400cd"
+    },
+    {
+      "path": "schemas/context/types/Hypothesis.schema.json",
+      "schema_hash": "8958bf00fbbd16e4d1d9d44da8a98539954f8fff486a319fe6c480cfdfdff8bf"
+    },
+    {
+      "path": "schemas/context/types/Identity.schema.json",
+      "schema_hash": "c210d67f11797ed04a85edc3a62aaa6ee71757813e7830fedb627215b3b8c34e"
+    },
+    {
+      "path": "schemas/context/types/IdentityIdentifier.schema.json",
+      "schema_hash": "57e7b81a86dbe89f2aaf5eeaa87c58c0c80ccfb81c8b3abfc9d6d49cfe8a33fc"
+    },
+    {
+      "path": "schemas/context/types/Investigation.schema.json",
+      "schema_hash": "f206808e1f5009f0bd994854acd7111ac222bde7ca7c70ca1fee0a92138f2301"
+    },
+    {
+      "path": "schemas/context/types/Invoice.schema.json",
+      "schema_hash": "618838889f6ecc286a04dcd8978e478544628ed3019b88c673fdd930d978e290"
+    },
+    {
+      "path": "schemas/context/types/Jurisdiction.schema.json",
+      "schema_hash": "4af6b6fbacb9bca7eda2641b8bd58150360392a800c97772f8e7b16c22ed40b2"
+    },
+    {
+      "path": "schemas/context/types/License.schema.json",
+      "schema_hash": "114a35795b55cbdb0ff5a2e611bc21a0b5f03043a93cb0f1247519eb090f1a85"
+    },
+    {
+      "path": "schemas/context/types/ModelVersion.schema.json",
+      "schema_hash": "d50a073c790d667c6d158cc15a9c1d7b3356119a59eea531be4c96784941b6e8"
+    },
+    {
+      "path": "schemas/context/types/MonitoringPlan.schema.json",
+      "schema_hash": "3b4bda7356645ad27480c05bcd4f62b353309aa05845a6dcbf7dbfd41218b2c1"
+    },
+    {
+      "path": "schemas/context/types/NetworkGraph.schema.json",
+      "schema_hash": "381d93975492be5c399bd4db647545170e8f0e34700c63470a09f6f5325ea8e8"
+    },
+    {
+      "path": "schemas/context/types/Obligation.schema.json",
+      "schema_hash": "7d6f05d9dc46c81ed9b76b3ab6d32338a8252810dfda68b15784dcd49e8eefce"
+    },
+    {
+      "path": "schemas/context/types/OfficerRole.schema.json",
+      "schema_hash": "a7cbe51d1092ab043d52c11242d55b823d2c291387e95a16b91107b1703dd206"
+    },
+    {
+      "path": "schemas/context/types/OwnershipGraph.schema.json",
+      "schema_hash": "5ecd48d92ee1af8940fffa33483dba7898e6542df21e856c20e811fb2c261861"
+    },
+    {
+      "path": "schemas/context/types/OwnershipInterest.schema.json",
+      "schema_hash": "6e0e0efa5be4817b0cebfd9d00c8c131e811a77911731ff6cef654d45e4eb040"
+    },
+    {
+      "path": "schemas/context/types/OwnershipRange.schema.json",
+      "schema_hash": "8e5b2034e2bb30e2e01b54f5501b9ba45f1590850102022a38c3734b19b73cae"
+    },
+    {
+      "path": "schemas/context/types/PEPRelationship.schema.json",
+      "schema_hash": "b6fc3a4c8dfd6eb526d932ef44de4a3c0f2976f448b9097b89a179c53605e358"
+    },
+    {
+      "path": "schemas/context/types/Party.schema.json",
+      "schema_hash": "03a3ff430986b84e7270812b051a92a6941bc1d0a1a68afd88bb5ce1cdd53e54"
+    },
+    {
+      "path": "schemas/context/types/Payment.schema.json",
+      "schema_hash": "50dae0d6c9f2a7bba891475d360be23e61c863c13cca948ceada069901c383e4"
+    },
+    {
+      "path": "schemas/context/types/PaymentRail.schema.json",
+      "schema_hash": "bb4e4e8cbb39c0aa19a679124f81ebb20af4c0f4f555928e66f7545dca09980d"
+    },
+    {
+      "path": "schemas/context/types/Policy.schema.json",
+      "schema_hash": "1b593379b2e08d7d86cf73404c27ae886a549830a679c7cdd26bb951feae22d9"
+    },
+    {
+      "path": "schemas/context/types/Product.schema.json",
+      "schema_hash": "b19953117f505afe1ed85834d544e7077cef84aa0c443102a44c3ccb20c9fcc5"
+    },
+    {
+      "path": "schemas/context/types/Provenance.schema.json",
+      "schema_hash": "b7d2049adf24fc48658a1a95edba01fd997c0615d88442d2f60f99b6c41c88cf"
+    },
+    {
+      "path": "schemas/context/types/Registration.schema.json",
+      "schema_hash": "fed49fc19da1deb7ca096a6771f1529057b52d3a362ee242c9f05e3ab207fdfe"
+    },
+    {
+      "path": "schemas/context/types/RegistryRecord.schema.json",
+      "schema_hash": "d2be1bd44c902dba8c68c9f85949c12276da9fb73cab0bb0ae783d30d39b929b"
+    },
+    {
+      "path": "schemas/context/types/Relationship.schema.json",
+      "schema_hash": "6c02683e572aba279a34711c7e4062a3e67b729af7eaf2434f5fa232c60ab143"
+    },
+    {
+      "path": "schemas/context/types/Requirement.schema.json",
+      "schema_hash": "3707bbb73f8fe8f315e9d0f6d244bf36750a6d77df397e3ff672ce15bfc1b4e3"
+    },
+    {
+      "path": "schemas/context/types/RetentionRule.schema.json",
+      "schema_hash": "6ce51ce72a820fdb8348000d5d821d23b16bc5fde599edad907b24b2561be4a5"
+    },
+    {
+      "path": "schemas/context/types/ReviewTrigger.schema.json",
+      "schema_hash": "f0f747e098ed8d6e2468337b0981fce45b2cd049d20522a547d36106e56c04ee"
+    },
+    {
+      "path": "schemas/context/types/RiskAssessment.schema.json",
+      "schema_hash": "98a41deec8cc4f3957bbcbc12f0472989a7aa40429b2ebaeca5340d53a7b2f20"
+    },
+    {
+      "path": "schemas/context/types/RiskFactor.schema.json",
+      "schema_hash": "d77639ceb2bfc7138e40488c1a2b4013e71d4aeb3e61a6e06e106ede85933294"
+    },
+    {
+      "path": "schemas/context/types/RiskModel.schema.json",
+      "schema_hash": "341111c46998c4aa126f3d1f1d026538e6bc220e129540a15c283dd9de4e27e4"
+    },
+    {
+      "path": "schemas/context/types/SLA.schema.json",
+      "schema_hash": "40d4ca188854784fe569c0f1934d36274fffa67acc9e7638cbb7655ffceedfc9"
+    },
+    {
+      "path": "schemas/context/types/SanctionsRegime.schema.json",
+      "schema_hash": "36952620e1acb5b03bc78afd239862be42da0b48cb51c19e92969d18a42b2d89"
+    },
+    {
+      "path": "schemas/context/types/ScreeningExecution.schema.json",
+      "schema_hash": "ab8881ff209f7002e24aa46160f59967c1fd9bea8745ad61e92ffd17951d9735"
+    },
+    {
+      "path": "schemas/context/types/ScreeningHit.schema.json",
+      "schema_hash": "4636aed2224073241a0308da387cf1d3d69c246882ea50a7b7323cf7eb9c0612"
+    },
+    {
+      "path": "schemas/context/types/Session.schema.json",
+      "schema_hash": "ad8538592fa8b67388c235820af9c1defe5caa2daf14c3ca0a8c08b304433043"
+    },
+    {
+      "path": "schemas/context/types/Shipment.schema.json",
+      "schema_hash": "33a6e6b221565483d99114546e3ab5e500787a3aedec81ebd6e4f5ef6a673499"
+    },
+    {
+      "path": "schemas/context/types/SkillExecution.schema.json",
+      "schema_hash": "c55dc26f4bb785f887411009e5db5a20f54611b8e92d2d7d049654135ddaa538"
+    },
+    {
+      "path": "schemas/context/types/SourceOfFunds.schema.json",
+      "schema_hash": "94ab0f249478175d57811f378256a735444adc3e7b086313834b56e5a3960429"
+    },
+    {
+      "path": "schemas/context/types/SourceOfWealth.schema.json",
+      "schema_hash": "0235315984258a4b3af7b0c633082307e8a267ac43f5a43271a54bdf3b37ec05"
+    },
+    {
+      "path": "schemas/context/types/SourceRecord.schema.json",
+      "schema_hash": "2cadd29d2c1b4ea7dca803c1885f11cc384f4b123f515b6f0d108f386863e404"
+    },
+    {
+      "path": "schemas/context/types/Task.schema.json",
+      "schema_hash": "087c5e9fddcb49f5c314326611391d09553dc9d979bc83d24b1cc417212bf1db"
+    },
+    {
+      "path": "schemas/context/types/TimelineEvent.schema.json",
+      "schema_hash": "abc2a4de5088caba63fb31554570b44fc848cfa93bbb5b04995cf48bc7714a0a"
+    },
+    {
+      "path": "schemas/context/types/TradeRecord.schema.json",
+      "schema_hash": "1abc22100615b32d4156d4dd12ac8641d9b3039ec03141cef083779d8d3c1f67"
+    },
+    {
+      "path": "schemas/context/types/Transaction.schema.json",
+      "schema_hash": "3d407c8631f7f644e29e8a1b605fb286fd29ae70d116b56c8448a207743fa95a"
+    },
+    {
+      "path": "schemas/context/types/Typology.schema.json",
+      "schema_hash": "740d5ed1d1d892e90c14e85160b8f16fe72ead0bd893fc546730ec99e815b47d"
+    },
+    {
+      "path": "schemas/context/types/VerificationRecord.schema.json",
+      "schema_hash": "b4a0dcffd1dab44c092d3cc357ffb615a275888ee89f2c9ebdc7124a63a789e1"
+    },
+    {
+      "path": "schemas/context/types/WatchlistEntry.schema.json",
+      "schema_hash": "edec3ce423d0d5d0f1bebf351a85eeeaae39d962ee7d6f58369626d50a58873b"
+    },
+    {
+      "path": "schemas/context/types/WorkflowDefinition.schema.json",
+      "schema_hash": "543da48342c6a411d982fd0d00824f11d1e37a38022d0711a9c5bf3eb4abb8d1"
+    },
+    {
+      "path": "schemas/integration/AssignmentScope.schema.json",
+      "schema_hash": "22623d131cc392945a4b2e6266e7bb45b37caa02d9346c6ba4b3d79432ac9012"
+    },
+    {
+      "path": "schemas/integration/BridgeOutcome.schema.json",
+      "schema_hash": "aca76c2f100a77102a0e2e69cfcc737b85b3201096c5ff4668c64da07b59a6eb"
+    },
+    {
+      "path": "schemas/integration/BridgeRequest.schema.json",
+      "schema_hash": "da8f7c7c7e45a5df0e93286702a01d27ffcbc269c56f18f93931f1a7dd035c0a"
+    },
+    {
+      "path": "schemas/integration/BusinessAgent.schema.json",
+      "schema_hash": "3ae10da77b6842b7fa866ae0a03427be16e47907442026fa2edcd62c881af8a0"
+    },
+    {
+      "path": "schemas/integration/ContextPacket.schema.json",
+      "schema_hash": "516418d64556a2498a023e79f12d787f74a34de2f7d796735701f8ce9780e96a"
+    },
+    {
+      "path": "schemas/integration/ContextProduct.schema.json",
+      "schema_hash": "974268ec8f26cbe26a59f2e80e5aba5877ccd626dd855ad676249df2a6878945"
+    },
+    {
+      "path": "schemas/integration/PlanRequest.schema.json",
+      "schema_hash": "0cbdf315234f15c62dbb053e7f46f18bac0f43eb728383428f0446875fa24a3e"
+    },
+    {
+      "path": "schemas/integration/TaskPlan.schema.json",
+      "schema_hash": "f6918bf88b88e8315e61f8a791801409ff1c33408ed6c03ba0acb98bbd49b4b5"
+    },
+    {
+      "path": "schemas/integration/TaskSpec.schema.json",
+      "schema_hash": "a56b6ea126264531ee3b4bc7b5ac5835639a684b98d7373a6b4d775e7bcc20f6"
+    },
+    {
+      "path": "schemas/providers/document.entities.request.schema.json",
+      "schema_hash": "82bcb631a6aee92e481a2cbae04debd01449ffbaa713c6780aed60c799275974"
+    },
+    {
+      "path": "schemas/providers/document.entities.response.schema.json",
+      "schema_hash": "d2b9f655128b8d0be9f092d1293f49e8d82d1cb4f59ccb486e655cbf38302db4"
+    },
+    {
+      "path": "schemas/providers/document.fields.request.schema.json",
+      "schema_hash": "ef9d458e0cd653256f1b50083d7afb822aa8b3dc80eb42c1d48ad85e3e26cd9d"
+    },
+    {
+      "path": "schemas/providers/document.fields.response.schema.json",
+      "schema_hash": "52b7baaa22d71ed54a08a985f0cd9e79b9619a508ad6c930c648ff0c082292d4"
+    },
+    {
+      "path": "schemas/providers/document.forensics.request.schema.json",
+      "schema_hash": "274151c36be37941bd547e37274010cd3a7f855133a578118bc320973d7c1cbd"
+    },
+    {
+      "path": "schemas/providers/document.forensics.response.schema.json",
+      "schema_hash": "aba2e36a79cc45c3c305db9fe969e72ebe147b5e8befb1ecfeb4eb4fe246fe4e"
+    },
+    {
+      "path": "schemas/providers/document.model.request.schema.json",
+      "schema_hash": "35f22b375e7709121c2f930d5a1d168f68a85f364c07d61f548aecaba1f8cbea"
+    },
+    {
+      "path": "schemas/providers/document.model.response.schema.json",
+      "schema_hash": "1a49f18578c5a34bac8d151235407ea7b0997eccaa1879f134aaa45c5d635fce"
+    },
+    {
+      "path": "schemas/providers/document.ocr.request.schema.json",
+      "schema_hash": "f17d2d1ffa7bb793148bd17d9229d6a6613a5930f8ec1ae0717b4d3928171a39"
+    },
+    {
+      "path": "schemas/providers/document.ocr.response.schema.json",
+      "schema_hash": "acb62c993f7a747302d3f71c5efc2ce1a286a9e69f9b68a2fb4fb9a3d4597dd4"
+    },
+    {
+      "path": "schemas/providers/document.translate.request.schema.json",
+      "schema_hash": "9e3b7d8745d8ebcae45dcad3bdfea2310f679d497844f7052c46fcfb7b3c4236"
+    },
+    {
+      "path": "schemas/providers/document.translate.response.schema.json",
+      "schema_hash": "45a7be296f9e15c11c04d9f8b6c04ed94e167a443b9f252b7bd23134733597d2"
+    },
+    {
+      "path": "schemas/providers/fraud.account_takeover.request.schema.json",
+      "schema_hash": "50d9959be9a59910e55d66f18ada63bdc56192742a6bd1d557f986ff6b363aeb"
+    },
+    {
+      "path": "schemas/providers/fraud.account_takeover.response.schema.json",
+      "schema_hash": "b0849717595d0b975ee7d51e870e8dd91f8c0a59b73ea8b0eb0a8f99fc133de8"
+    },
+    {
+      "path": "schemas/providers/fraud.deepfake.request.schema.json",
+      "schema_hash": "b47b6002fbeb5c04f833a65c1495c8f4ce615248b9e858b254fb7fb826642a2b"
+    },
+    {
+      "path": "schemas/providers/fraud.deepfake.response.schema.json",
+      "schema_hash": "d94feb74c7c0aa8aa852a367c0bb4d682e9502a8fb6a54a682fce48b6fde947c"
+    },
+    {
+      "path": "schemas/providers/fraud.document_tamper.request.schema.json",
+      "schema_hash": "7bff421cf7a5db21cd3ed4e9ed636bec9cc6d8eb059b4461d219efbb302003d0"
+    },
+    {
+      "path": "schemas/providers/fraud.document_tamper.response.schema.json",
+      "schema_hash": "76b1cacbdb3c99c41bc024b4270cb3963e09d9c2815b65e1edbb9c0b174d7834"
+    },
+    {
+      "path": "schemas/providers/fraud.identity_theft.request.schema.json",
+      "schema_hash": "0b8e0e78960eb7a3f69e9b9b90efeb7b16105ad6c12a818fb2c6ee81cb8e9765"
+    },
+    {
+      "path": "schemas/providers/fraud.identity_theft.response.schema.json",
+      "schema_hash": "de682bad1e8b6e86bee49468a6d66b853df8d0ae562f96d6ab343b0b221d2033"
+    },
+    {
+      "path": "schemas/providers/fraud.liveness.request.schema.json",
+      "schema_hash": "6139310b7c99a9143aca16791a601dc8b72acabb3d34197b4cbaa6549f3f60a2"
+    },
+    {
+      "path": "schemas/providers/fraud.liveness.response.schema.json",
+      "schema_hash": "ca0d6cecd9089d59e516c022ab0fad6f8a996e757c240d3cb4b503560d5d6b34"
+    },
+    {
+      "path": "schemas/providers/fraud.synthetic_identity.request.schema.json",
+      "schema_hash": "6564db2c7cf41c3779b51af47c0ac013de8b9e991a7e60458a2cf35d7fe79667"
+    },
+    {
+      "path": "schemas/providers/fraud.synthetic_identity.response.schema.json",
+      "schema_hash": "3631e2f7b893507175da4e1935931c7d1d9faaf0cfaf520b6c7ec4dee1bbd2b6"
+    },
+    {
+      "path": "schemas/runtime/AgentProfile.schema.json",
+      "schema_hash": "edebcb44578120f86d66e86bd5c73dcfb8adb498322da4d957a2dc4ce97c9e40"
+    },
+    {
+      "path": "schemas/runtime/Catalog.schema.json",
+      "schema_hash": "f7abfb5b9aa1119d91834e9ba561e2e5693b4d1126fbe3392de7826d308b597d"
+    },
+    {
+      "path": "schemas/runtime/Computation.schema.json",
+      "schema_hash": "7721941912c786249d179b3dae65430e60cc253b17237f5c781944e80a28c15f"
+    },
+    {
+      "path": "schemas/runtime/ContextManifest.schema.json",
+      "schema_hash": "2cae2cfd09a5af549eb23aacab8dbebddc7aed8564a51d7cffedaf444c5a4cf7"
+    },
+    {
+      "path": "schemas/runtime/EffectCommand.schema.json",
+      "schema_hash": "637df83474effe8e6309a19868eaef995dde1b14524a5c19ae780b1a8aa7949f"
+    },
+    {
+      "path": "schemas/runtime/ExecutionLock.schema.json",
+      "schema_hash": "3c4e12cb5fd83ffca8e0aed1ad6624760283bc9744f51f2062e61136d779c897"
+    },
+    {
+      "path": "schemas/runtime/Failure.schema.json",
+      "schema_hash": "918d489d9cce964a5444b1fb4025289dc9feea817b946b959f7118f034a68071"
+    },
+    {
+      "path": "schemas/runtime/Invocation.schema.json",
+      "schema_hash": "ef6ef3a671cf08da8a27bb832737f2ec0bb6c3222e443ebf5f7290d05041bd9a"
+    },
+    {
+      "path": "schemas/runtime/Metrics.schema.json",
+      "schema_hash": "636fb24f16a36dd0128a154fb39a65c3b8ffce1a7b9c31eeb26abc69c655867e"
+    },
+    {
+      "path": "schemas/runtime/Principal.schema.json",
+      "schema_hash": "af7d6213eec159947618558984a39263a734bd4b5682f15bfa2f1e27e3c0feb3"
+    },
+    {
+      "path": "schemas/runtime/ProviderResponse.schema.json",
+      "schema_hash": "c032bf7e92a18cb483f11db770d674e804a38534185883ad2b6ea36262fde6d4"
+    },
+    {
+      "path": "schemas/runtime/Record.schema.json",
+      "schema_hash": "f5b60353aef3a10625bde796d83cc3a9acbd4abf3e56ce1338df8172e6b989d7"
+    },
+    {
+      "path": "schemas/runtime/RecordView.schema.json",
+      "schema_hash": "d04403fb838e810e6cd6d46fdd27df672e184050bf97560d472f96071dde0a7a"
+    },
+    {
+      "path": "schemas/runtime/Ref.schema.json",
+      "schema_hash": "549271197d0ed3b2292a5b45f2575d008e0fc87b1605a05149ddcb33d6afd311"
+    },
+    {
+      "path": "schemas/runtime/Requirement.schema.json",
+      "schema_hash": "112e37d61b50995da22c6faa1e3f3fb72fedff0d8e500c0dab5e447fc486b99f"
+    },
+    {
+      "path": "schemas/runtime/SkillManifest.schema.json",
+      "schema_hash": "f129454a3d717ecc3ceb2268aeeaa659888a05adbf3431b46db525390a2cb6a6"
+    },
+    {
+      "path": "schemas/runtime/SkillResult.schema.json",
+      "schema_hash": "28b4eff644744e573b2f16066207e205efe98c559e5ee3cc1c833003551fbf5a"
+    },
+    {
+      "path": "schemas/runtime/UnresolvedItem.schema.json",
+      "schema_hash": "39517598ea5f7ae9edd5096bdbdaed678b5aafe4338a618e9667efc33e9aba3f"
+    },
+    {
+      "path": "schemas/runtime/Workflow.schema.json",
+      "schema_hash": "e4463836117815e9724896b61caedb73a3374fcec6792d31f596c950599948ac"
+    },
+    {
+      "path": "skills/alert/classify/input.schema.json",
+      "schema_hash": "5a1c14a0dea2a0309db55a800b9e881ddf086add9028281ebc86955d827538fe"
+    },
+    {
+      "path": "skills/alert/classify/output.schema.json",
+      "schema_hash": "3700c9a5fefb7af3cfd79a1dd25cd9e539853f565b3a013edf0f8dd48cb0436b"
+    },
+    {
+      "path": "skills/alert/context-assemble/input.schema.json",
+      "schema_hash": "c2b34f8aa5f0a3fac8466632ec797b3d9e30e7af1671786b1c373de8f5370426"
+    },
+    {
+      "path": "skills/alert/context-assemble/output.schema.json",
+      "schema_hash": "0bf37caaecf6caeb64a39dcad87830a4466a933fdef40cbdf4884a01871d0b85"
+    },
+    {
+      "path": "skills/alert/correlate/input.schema.json",
+      "schema_hash": "88166e7d4b36846176e235e2b5b0c709eaef12a9125e2e2c728c49adb1193448"
+    },
+    {
+      "path": "skills/alert/correlate/output.schema.json",
+      "schema_hash": "3e1393406400ebfe29aeec00a081b159e7e29495e73454bc0c7883aa0e094491"
+    },
+    {
+      "path": "skills/alert/deduplicate/input.schema.json",
+      "schema_hash": "238e50cb1bf0d0ca205e4caffdc86a7c608556235e7b1a474fad281a968afd32"
+    },
+    {
+      "path": "skills/alert/deduplicate/output.schema.json",
+      "schema_hash": "0a2196994afab7ce9dc5dc1a09f52fbd114ed6d1d0d018264811b70c127cf75d"
+    },
+    {
+      "path": "skills/alert/disposition-recommend/input.schema.json",
+      "schema_hash": "5a79bf388cb68148a388eed0efcd65cd86f04ceb9ca81fcf078ad7a5bdee6352"
+    },
+    {
+      "path": "skills/alert/disposition-recommend/output.schema.json",
+      "schema_hash": "fcee69bae2a755cb60660df6a3998acc754a2dd4ad63ff3aca003cc6903fea2d"
+    },
+    {
+      "path": "skills/alert/escalation-evaluate/input.schema.json",
+      "schema_hash": "ded398e168bc8945ae54ca5fdef5f25bb3aa085545df7e46dba289c05032eec7"
+    },
+    {
+      "path": "skills/alert/escalation-evaluate/output.schema.json",
+      "schema_hash": "843c24588c6f625da275ff41e33d91a797f688ff9260ea2d3dce7dd5f93aee47"
+    },
+    {
+      "path": "skills/alert/false_positive-assess/input.schema.json",
+      "schema_hash": "595359abf773184751cd95e3a2af9b09805c4bee74f527fbcb6d5bb897218e3a"
+    },
+    {
+      "path": "skills/alert/false_positive-assess/output.schema.json",
+      "schema_hash": "b0e5b8a2706d4a8b3f4048281e89e02a4ff43d8c683c7ccd7ee1c890f66eff99"
+    },
+    {
+      "path": "skills/alert/feedback-capture/input.schema.json",
+      "schema_hash": "fdfb7acdd47f3a2a9882f9ace8f9e6c6e7eaf5ac896d24eb89b61a2ecfe42e87"
+    },
+    {
+      "path": "skills/alert/feedback-capture/output.schema.json",
+      "schema_hash": "32a2e984c4d93e2a8e6c6024afb0e7fa8e0d293c5bd250cd80eb6efeba757346"
+    },
+    {
+      "path": "skills/alert/ingest/input.schema.json",
+      "schema_hash": "5cfca068b3ad1ee8966ad33cdbb01bfac787a40537eabc732c75e7c08ac2faba"
+    },
+    {
+      "path": "skills/alert/ingest/output.schema.json",
+      "schema_hash": "910ff8dd7439301f65b2336d4f757fd068c6b3b120504d72e020e3d0ce8c4a94"
+    },
+    {
+      "path": "skills/alert/prioritize/input.schema.json",
+      "schema_hash": "b00d02e5075387b2d6db3e8f8efb1a1128ccf93064ddbbed0b460943e41818c5"
+    },
+    {
+      "path": "skills/alert/prioritize/output.schema.json",
+      "schema_hash": "426f9a303bde4ecad602c0a0947204fa5987b3cc59e46a6eb998b4e680c48b51"
+    },
+    {
+      "path": "skills/aml/funnel-detect/input.schema.json",
+      "schema_hash": "a3194cfee62dfa139567d7abe6fcb2d3db383479f50ca15bdfc08a971bc84529"
+    },
+    {
+      "path": "skills/aml/funnel-detect/output.schema.json",
+      "schema_hash": "dfc5a6ec12191c7d691b3df09192e6ac6e9bfbc4218850b89a2316e8b3b06709"
+    },
+    {
+      "path": "skills/aml/layering-detect/input.schema.json",
+      "schema_hash": "b2d2e9dc532ca03acaf6e025d4ece958a45a789d3612a96ea9038c1f62fc3d73"
+    },
+    {
+      "path": "skills/aml/layering-detect/output.schema.json",
+      "schema_hash": "d6e1750cf5612aaebfcb9615ad59b0006b222eb8cf759a857bd9ca6c7dd695ac"
+    },
+    {
+      "path": "skills/aml/mule-detect/input.schema.json",
+      "schema_hash": "01896d765a2560e9f3e206ae5412b0932b4c5a76c331c27de9877300684927b8"
+    },
+    {
+      "path": "skills/aml/mule-detect/output.schema.json",
+      "schema_hash": "5eeca94ec840d8a2dfd8fa3951957ebd5d3b55197b9fb5a7499e093fd6340abf"
+    },
+    {
+      "path": "skills/aml/pass_through-detect/input.schema.json",
+      "schema_hash": "06c1b9e9392bb2d4242df68c1cc2c602259259f0132a0929145e033ae4ac6113"
+    },
+    {
+      "path": "skills/aml/pass_through-detect/output.schema.json",
+      "schema_hash": "37f927ae0d88306b59f22cf14c6ba970b0b7ac8377efde710cfa70c287d97fe8"
+    },
+    {
+      "path": "skills/aml/roundtrip-detect/input.schema.json",
+      "schema_hash": "16ca7e29c63572e26e575997164bd9ba547d312e2d707626725001b1ab741054"
+    },
+    {
+      "path": "skills/aml/roundtrip-detect/output.schema.json",
+      "schema_hash": "2dbf285171a6f11f5db3c24576fe14d06dcfae32a95b808f7628b460f9b715dc"
+    },
+    {
+      "path": "skills/aml/shell_company-detect/input.schema.json",
+      "schema_hash": "8285b5f6d0b091e5b906499cd4536cb144c5a85007304e345384844708ea439c"
+    },
+    {
+      "path": "skills/aml/shell_company-detect/output.schema.json",
+      "schema_hash": "3c9ffb9eeb14ada87fc71387ab65dc7be66b0b1331e6b30280d8aeb04d9812d8"
+    },
+    {
+      "path": "skills/aml/smurfing-detect/input.schema.json",
+      "schema_hash": "edc7247c11446d5c22e73420374e32ccd03123c6abafe038e45864482ffb1f8a"
+    },
+    {
+      "path": "skills/aml/smurfing-detect/output.schema.json",
+      "schema_hash": "5c5261c4ab467e8108804f47186404a75183fdbbab930d3c3ef1e07843090954"
+    },
+    {
+      "path": "skills/aml/structuring-detect/input.schema.json",
+      "schema_hash": "5af97751e7d357b2b14f39b49eb3f74ad1cf307e45c19a4f9e2f3eafffbd5dbd"
+    },
+    {
+      "path": "skills/aml/structuring-detect/output.schema.json",
+      "schema_hash": "e7abae000ad076e6992fffb19776043f01880834c3fcc91b4386c1728d1e8492"
+    },
+    {
+      "path": "skills/aml/suspicion-assess/input.schema.json",
+      "schema_hash": "e6957bc093e011acfc8947d8d4d41f18265c1aa661a4e5492dded7b280033c91"
+    },
+    {
+      "path": "skills/aml/suspicion-assess/output.schema.json",
+      "schema_hash": "51f425b55a0a6cbef6a45f9a35e0a54de87db3e2c63c7e12f08c7c28d21abd39"
+    },
+    {
+      "path": "skills/aml/trade_based-detect/input.schema.json",
+      "schema_hash": "162e2be56fadf2ab9ab0de21045c3f17476636e74a4c502bfa42332b52717a1c"
+    },
+    {
+      "path": "skills/aml/trade_based-detect/output.schema.json",
+      "schema_hash": "7079f5f67541458373cdbc77b751961fff287d72cd52ea3997c449f5438fc7c9"
+    },
+    {
+      "path": "skills/aml/typology-match/input.schema.json",
+      "schema_hash": "59661616adb98a6cb537635b9486ae0a4d410772f8ca9300fef3e133ce77ecd0"
+    },
+    {
+      "path": "skills/aml/typology-match/output.schema.json",
+      "schema_hash": "7c39fd168ca40bda520ef08fceb04eef1612504aba944d867eb12ff79f488c67"
+    },
+    {
+      "path": "skills/aml/velocity-detect/input.schema.json",
+      "schema_hash": "3f3d35456a645418ca2d34b26b490f154fa9083782fd4680fd1ac95fc2c11524"
+    },
+    {
+      "path": "skills/aml/velocity-detect/output.schema.json",
+      "schema_hash": "553f9e745e79ae4892cf10b58b0aedaec745f16a7ad5ad8a1fb05807bb2b1d0e"
+    },
+    {
+      "path": "skills/case/close/input.schema.json",
+      "schema_hash": "17ad1f93b97e545a723fa08400452d8c4ee9e088fb37e28fda48b6d8fcdd1729"
+    },
+    {
+      "path": "skills/case/close/output.schema.json",
+      "schema_hash": "8209331262627411f24313f6ab7edd97eee744e68f4a42f0c18a420006a56c39"
+    },
+    {
+      "path": "skills/case/context-hydrate/input.schema.json",
+      "schema_hash": "6d89618f611c7ed94a102da12863f70cc4dbf63abecb2743b51168d7bb4380db"
+    },
+    {
+      "path": "skills/case/context-hydrate/output.schema.json",
+      "schema_hash": "00022b6224fc55cc3f46d5ba049237048fb9443056d284e1f07ab9235ec5f968"
+    },
+    {
+      "path": "skills/case/create/input.schema.json",
+      "schema_hash": "ab6177a006b879ccce8b3f77b7607ca0048c51289bb3b1fdb041d26ef858cc8e"
+    },
+    {
+      "path": "skills/case/create/output.schema.json",
+      "schema_hash": "f9808ded9fb91371876f36d36d4fad34f2ee58c78dd39621a2160b1021a047fa"
+    },
+    {
+      "path": "skills/case/dependencies-evaluate/input.schema.json",
+      "schema_hash": "82df8da9a18f841fb06b1980477a3c74e4ff5a4df9194618b3867b2e6fd201f3"
+    },
+    {
+      "path": "skills/case/dependencies-evaluate/output.schema.json",
+      "schema_hash": "d66489ec16ddbdb0b06e14d750d5d3dcd88c999327d291512b3b8414d81cb818"
+    },
+    {
+      "path": "skills/case/escalate/input.schema.json",
+      "schema_hash": "4ff610aae992ef9366c990315296027d72456c7235eaafc8747755e67b01b15e"
+    },
+    {
+      "path": "skills/case/escalate/output.schema.json",
+      "schema_hash": "695b46705c024834920e5ec7a64e33421f8a3e2fd9296f910ad9bf16fc6c22c6"
+    },
+    {
+      "path": "skills/case/sla-monitor/input.schema.json",
+      "schema_hash": "ee72944636fb61144c961fe190315d9ae4a33c14551b9e0362f30a6993123843"
+    },
+    {
+      "path": "skills/case/sla-monitor/output.schema.json",
+      "schema_hash": "e3f0be97b2b917454fa654ae41470294e61e9f5f5acd44d2c6c337a8a0e1b4ef"
+    },
+    {
+      "path": "skills/case/state-transition/input.schema.json",
+      "schema_hash": "e580175e167dc93f3d084d3a2f3ff6a0ba2c9c2d6c0c25506f0209591a2654c3"
+    },
+    {
+      "path": "skills/case/state-transition/output.schema.json",
+      "schema_hash": "f85dcf1446c45021fc9954b82ed76dd859c94d1dc793689ec26a3b36ff3e5abc"
+    },
+    {
+      "path": "skills/case/summary-generate/input.schema.json",
+      "schema_hash": "124375231668b7edd61827705f52adf46889ee9384c9badff8cf05a3c8051dea"
+    },
+    {
+      "path": "skills/case/summary-generate/output.schema.json",
+      "schema_hash": "001799612b400bfc75182b4e17591bd377ff300344effc6ffdb491de49c17a03"
+    },
+    {
+      "path": "skills/case/tasks-assign/input.schema.json",
+      "schema_hash": "8ae541bdec7da2f7496748bd5960b7d1e2e6f8031c674d7ccb9149203b96fe49"
+    },
+    {
+      "path": "skills/case/tasks-assign/output.schema.json",
+      "schema_hash": "792a40039ec03b7cdcbe0141ee7e677d7ea6ca0c1bf5bbe686566b1a5d435857"
+    },
+    {
+      "path": "skills/case/tasks-plan/input.schema.json",
+      "schema_hash": "53a7cb316fe28ade0e6946bbb8294cec1021751b4270283a3d3c69183968dd35"
+    },
+    {
+      "path": "skills/case/tasks-plan/output.schema.json",
+      "schema_hash": "bfe19f994fe3863599bf5d4309a13ad1a44396ffa9ba9d1d04e7a8e8781b90a1"
+    },
+    {
+      "path": "skills/decision/approval-route/input.schema.json",
+      "schema_hash": "39359009b390ee90d3bce04ee693cb4aae6f14f0dcae66cf42ca92be1ba33275"
+    },
+    {
+      "path": "skills/decision/approval-route/output.schema.json",
+      "schema_hash": "166313366331bec92a4db3ca3be8ec30c104e24bda26987f36b648db520e62b7"
+    },
+    {
+      "path": "skills/decision/audit-verify/input.schema.json",
+      "schema_hash": "e5e0706b89cec07dc043ee3c814950654f46ddc47a52e35223cea25531110771"
+    },
+    {
+      "path": "skills/decision/audit-verify/output.schema.json",
+      "schema_hash": "7f38f2bbc0a2a5123b4863a39cfe6820fb17a7b327289972bea031db7e71f88c"
+    },
+    {
+      "path": "skills/decision/controls-assess/input.schema.json",
+      "schema_hash": "416bd3a8d8658a65daf1d0059f36628ef2a094ad87c116a2e72c0f2451ce9e47"
+    },
+    {
+      "path": "skills/decision/controls-assess/output.schema.json",
+      "schema_hash": "146a80bf7d012e5f91cabec772b60f9e96b8e6158ff8c50925257e21ba049fb2"
+    },
+    {
+      "path": "skills/decision/disposition-record/input.schema.json",
+      "schema_hash": "5cf9507c457fb4f69dc35fc0606fe57c8f8d06766c3335621a2a8112aae2474f"
+    },
+    {
+      "path": "skills/decision/disposition-record/output.schema.json",
+      "schema_hash": "b9852732b446400a39602e67aecaf165a57e0aae89a72cd3644f43c33a949369"
+    },
+    {
+      "path": "skills/decision/exceptions-evaluate/input.schema.json",
+      "schema_hash": "3c1843182463179e2c8b6ca8004d86618e767e438abb796cd6b16bf9a2693f07"
+    },
+    {
+      "path": "skills/decision/exceptions-evaluate/output.schema.json",
+      "schema_hash": "c657bf2e262205f0a33d92cfe573c76ba46e07ce95c3d3bdfb445d357e0ad3e5"
+    },
+    {
+      "path": "skills/decision/explain/input.schema.json",
+      "schema_hash": "00dcba01edd2affc773f31eb33e132faf643099adab7e2ffd287496479a922c2"
+    },
+    {
+      "path": "skills/decision/explain/output.schema.json",
+      "schema_hash": "8bce5a830ac0db34bfa2a2ed17a70d72fd5b3b2da0d9a0707669f989fb12f6c0"
+    },
+    {
+      "path": "skills/decision/gaps-evaluate/input.schema.json",
+      "schema_hash": "bbcbf9774e294a4f790b199685a0fcd5c6fa185a6d2fb1e360df5494abf017fc"
+    },
+    {
+      "path": "skills/decision/gaps-evaluate/output.schema.json",
+      "schema_hash": "cc01503ae82e68e8ee19ff07688b645cd212a4d866128676a01a5bd31ac65cef"
+    },
+    {
+      "path": "skills/decision/human-review/input.schema.json",
+      "schema_hash": "394f3045b20c5000187999fc8f5414e6f0d1e5dbcac073dd83448164eca37fb2"
+    },
+    {
+      "path": "skills/decision/human-review/output.schema.json",
+      "schema_hash": "6dd1684bafaeacce1ff590e8bb7d454ed2a1b6a5a60b4ce3a8ff4019f3ffc17e"
+    },
+    {
+      "path": "skills/decision/policy-resolve/input.schema.json",
+      "schema_hash": "ea9028654dd1349cb9670258b7c9f5ecc632a49f91621426e492f74e2448b5b5"
+    },
+    {
+      "path": "skills/decision/policy-resolve/output.schema.json",
+      "schema_hash": "c6162058bb49b3d533533971134f9120726ee06b84343fc0df1b0bd55cd147f0"
+    },
+    {
+      "path": "skills/decision/recommendation-generate/input.schema.json",
+      "schema_hash": "db2f68d9db66bfb84bb2bae4d4f277b7860512aafbee153adfc4c0f36a6f36f3"
+    },
+    {
+      "path": "skills/decision/recommendation-generate/output.schema.json",
+      "schema_hash": "ffe1af3614c253d82020c0ec4017f3ad74aa130604ebd16220f49cc705fa8cec"
+    },
+    {
+      "path": "skills/decision/requirements-compile/input.schema.json",
+      "schema_hash": "d6f289e6ebc088b5852e847547a95dc24fd8a09d82d4739931abc0fe339dc5b7"
+    },
+    {
+      "path": "skills/decision/requirements-compile/output.schema.json",
+      "schema_hash": "033af2d96229d55d245a948a36ba57fe3d5f851012bde227e9d21edd43e18895"
+    },
+    {
+      "path": "skills/decision/risk-acceptance-evaluate/input.schema.json",
+      "schema_hash": "1f430bac6f624bde51841dd511cb387e50e0c585bf67f3415afe602a4af55da6"
+    },
+    {
+      "path": "skills/decision/risk-acceptance-evaluate/output.schema.json",
+      "schema_hash": "42b2a1814fec1f597915207e5c3656ca88692c4b828143ea25d1a143e35d7bdf"
+    },
+    {
+      "path": "skills/decision/rules-evaluate/input.schema.json",
+      "schema_hash": "7287090b6e8b12905e29f88fea3215027c0ac5c758ffb33b6a371514a7874a1f"
+    },
+    {
+      "path": "skills/decision/rules-evaluate/output.schema.json",
+      "schema_hash": "c71c4dd8d2bf1fefd41cc2650400dc1e814114fdb583c6486ab074281b912957"
+    },
+    {
+      "path": "skills/document/authenticity-assess/input.schema.json",
+      "schema_hash": "6dd1d3172d35e2a1cf8a4aa31dea24ef7ad903fc8efd612f58e3b72a75e4baee"
+    },
+    {
+      "path": "skills/document/authenticity-assess/output.schema.json",
+      "schema_hash": "681d7063b1fe8976537b5b0ce6d341e6cdf3967d806718904f3673fa2c48f71d"
+    },
+    {
+      "path": "skills/document/classify/input.schema.json",
+      "schema_hash": "27de8964080f057eb09bc3600405629bb44093d1e42fdf955aff09e54d0c4e65"
+    },
+    {
+      "path": "skills/document/classify/output.schema.json",
+      "schema_hash": "8c57119bd2bebce100405e80f608b7faab46a1aad1be85fa0a5f2f377b9b510b"
+    },
+    {
+      "path": "skills/document/classify-catalog/input.schema.json",
+      "schema_hash": "c1846d6a660af9e797247f13d9727c9fdae5d7ed39f136605180fa29f32efef0"
+    },
+    {
+      "path": "skills/document/classify-catalog/output.schema.json",
+      "schema_hash": "b93bcdfc40f7076b2775cf567e6da3e2513a9309017a5bf5645bcb8d0f59fc44"
+    },
+    {
+      "path": "skills/document/consistency-assess/input.schema.json",
+      "schema_hash": "6a6ccffc84dda576f1bb5d6f8fafc5228b8f437ef738957aa50dd4857c8aa2e8"
+    },
+    {
+      "path": "skills/document/consistency-assess/output.schema.json",
+      "schema_hash": "ab9b5f9e7750d238f6efb7da169b33baab70b2ca5f97c45c133eb516aafa4430"
+    },
+    {
+      "path": "skills/document/consistency-check/input.schema.json",
+      "schema_hash": "db6a6ebf0ced80ea9a1f81ee1cbff2ddbf939037a108ed765f4a281e2453050f"
+    },
+    {
+      "path": "skills/document/consistency-check/output.schema.json",
+      "schema_hash": "b1d053ba66e9729ba9bfea963308ba8ddcaae91e264317218786aedd9184d9c5"
+    },
+    {
+      "path": "skills/document/entities-extract/input.schema.json",
+      "schema_hash": "f5e0a02e8bc478a6e2f05da81df6d12a38f5c48e33f589ef9981bbde8bda8077"
+    },
+    {
+      "path": "skills/document/entities-extract/output.schema.json",
+      "schema_hash": "91fe323f65a3ad700ccde49dec3b0a44b492af2a4948c476d20d9f7f4a80be74"
+    },
+    {
+      "path": "skills/document/evidence-link/input.schema.json",
+      "schema_hash": "6a7620e019b99f7337ecc791be2833b35c938fed7388076aa6910adc97e6c395"
+    },
+    {
+      "path": "skills/document/evidence-link/output.schema.json",
+      "schema_hash": "f2125e47196d9b3224c2e22918fb71315dd32445878f525ffb35764ab03a8926"
+    },
+    {
+      "path": "skills/document/fields-adjudicated_extract/input.schema.json",
+      "schema_hash": "94583a90d32b87a0428f2381dfeb06d243219083d975e8b3403493f8d054b739"
+    },
+    {
+      "path": "skills/document/fields-adjudicated_extract/output.schema.json",
+      "schema_hash": "0c1ccdce6c8618edda8595499d45c7c257456b7a05384cb7fd61efb87bc72df8"
+    },
+    {
+      "path": "skills/document/fields-contract_extract/input.schema.json",
+      "schema_hash": "6086f9a2fa897faa19e4a016a946bcc3c52a1eaf7d74069759628d57be9b903f"
+    },
+    {
+      "path": "skills/document/fields-contract_extract/output.schema.json",
+      "schema_hash": "c70c5b0c31776ed9d5b9429f9a77033e510a6be5ca845662d7432de121967653"
+    },
+    {
+      "path": "skills/document/fields-extract/input.schema.json",
+      "schema_hash": "21efe69ba168fc902ceeb37470adef0b4f80aebc8660e7235f0f763e4ce3895c"
+    },
+    {
+      "path": "skills/document/fields-extract/output.schema.json",
+      "schema_hash": "a2c27a82f2fb962769b483a706d94dd6ac97e13b5107cd9ab1e06c2e1e547704"
+    },
+    {
+      "path": "skills/document/parse/input.schema.json",
+      "schema_hash": "99b04979e893d11cabcf500a1da13f44db993abff4f8256466f39d414644d697"
+    },
+    {
+      "path": "skills/document/parse/output.schema.json",
+      "schema_hash": "2ed4609c05ef57def47c2825fa19f12b0a10ccb89a121260f538ca6fcd01dc87"
+    },
+    {
+      "path": "skills/document/parse-artifact/input.schema.json",
+      "schema_hash": "c35ac83b7b77b0e30b5c606e99c0b701def4cf77ab0bed4df91ca330f9344686"
+    },
+    {
+      "path": "skills/document/parse-artifact/output.schema.json",
+      "schema_hash": "405bda379e986c77673f8fecacd73e0f16d24444461fb5acf3f82e16cf3d501a"
+    },
+    {
+      "path": "skills/document/request-compose/input.schema.json",
+      "schema_hash": "f8874dcac6ee80faa6831d388e1532151272310f0cfc8dbd2b6a4c6761f718a3"
+    },
+    {
+      "path": "skills/document/request-compose/output.schema.json",
+      "schema_hash": "160305ca4922c3c5efd34c8dab5379b00e7eb38435eb5080ea27e59a8d7bfb23"
+    },
+    {
+      "path": "skills/document/request-generate/input.schema.json",
+      "schema_hash": "cf3fc0634dcc2b22a5350801e1791c538dc064ccc251d0b9839d5407d8b9fd35"
+    },
+    {
+      "path": "skills/document/request-generate/output.schema.json",
+      "schema_hash": "b3d05391ff4dd0e20dbb45925860f1aeecbf1255afad129c49ce064a3d84fe6a"
+    },
+    {
+      "path": "skills/document/requirements-evaluate/input.schema.json",
+      "schema_hash": "de7cdb695eb04459acbf624e5688cfc4d375a25c20f541cedf46f5ac8f1e1537"
+    },
+    {
+      "path": "skills/document/requirements-evaluate/output.schema.json",
+      "schema_hash": "12e915f53917cf19a88c9297a06bb69c745634a4fce61665775f6c201da1170e"
+    },
+    {
+      "path": "skills/document/requirements-resolve/input.schema.json",
+      "schema_hash": "7e7bc17ee8042b64ebf19327020f64e549bf9afa0e3cbda93d59b1c6cad149e2"
+    },
+    {
+      "path": "skills/document/requirements-resolve/output.schema.json",
+      "schema_hash": "cbab315e2dfe8117942ed806b3e592065579bae37c4430b14254a149d9410778"
+    },
+    {
+      "path": "skills/document/translation-normalize/input.schema.json",
+      "schema_hash": "c5ce075c2c3aa95c087295576d04d1f59415cfa01d137255955cc1ed652373cf"
+    },
+    {
+      "path": "skills/document/translation-normalize/output.schema.json",
+      "schema_hash": "e3bc307f18823f2edb1e0bb562289ecd10a7afcd75bc241f2b12bd6a77b63d33"
+    },
+    {
+      "path": "skills/document/validity-assess/input.schema.json",
+      "schema_hash": "3489334c7b4227b639f28c9b96b72c2311c686261b108de9ed661ad33134881c"
+    },
+    {
+      "path": "skills/document/validity-assess/output.schema.json",
+      "schema_hash": "2ed4e4444a560fed873a1cf0e31274480860bd0f14d3c5df84bee1d83af292f6"
+    },
+    {
+      "path": "skills/document/validity-check/input.schema.json",
+      "schema_hash": "6c03ce6eabf7eaf5106bb38bae4dc46e78256e248a522dcf4171e255e232b6dd"
+    },
+    {
+      "path": "skills/document/validity-check/output.schema.json",
+      "schema_hash": "e0cabbecb02781537170e44a7f8e59ed0edc9ed1fc13fa5845174d7023936f19"
+    },
+    {
+      "path": "skills/document/version-compare/input.schema.json",
+      "schema_hash": "b0637246ecef4114c8f9c7970f1172dca387cb94985da593fd44c01a6fec6bbd"
+    },
+    {
+      "path": "skills/document/version-compare/output.schema.json",
+      "schema_hash": "9177fe2568f23ae740a1df8ad04560935715b1d7151d24eb233e718012a506ed"
+    },
+    {
+      "path": "skills/edd/business-purpose-validate/input.schema.json",
+      "schema_hash": "178029801c8dcfc2fb7cc8e456b4fca24f9d80f20a727d6ee1c49380362cda9a"
+    },
+    {
+      "path": "skills/edd/business-purpose-validate/output.schema.json",
+      "schema_hash": "1bb3860c7e5b6f44febcac84b2e2d01115badf4453e65e4e1c07e084fec422f8"
+    },
+    {
+      "path": "skills/edd/counterparty-analyze/input.schema.json",
+      "schema_hash": "56881e6e099daa70caed2a72b1ad236c80f6026e8d955ddedf420beec3f8658b"
+    },
+    {
+      "path": "skills/edd/counterparty-analyze/output.schema.json",
+      "schema_hash": "6ffa73fda37d0e4a785b17750d49f924fecc5085d118b28fddc60484f27367f8"
+    },
+    {
+      "path": "skills/edd/findings-synthesize/input.schema.json",
+      "schema_hash": "e8ccc571f619ae789feb1f6a40e1fddb969bb3a9a81b8a5f616078a190ee9ede"
+    },
+    {
+      "path": "skills/edd/findings-synthesize/output.schema.json",
+      "schema_hash": "4838823b8bc031e78c77eb8a77aaacfe5d4bddc60213beb3edb1622467c01095"
+    },
+    {
+      "path": "skills/edd/geographic-exposure/input.schema.json",
+      "schema_hash": "3a9fc0b6d809a61a469a1780fd555a8f5662669dfe27bdf324180347837ba107"
+    },
+    {
+      "path": "skills/edd/geographic-exposure/output.schema.json",
+      "schema_hash": "8ef2acb22cc49435c3707a27bd35640205a761195b34a38dae077a1a0f3fe49a"
+    },
+    {
+      "path": "skills/edd/pep-exposure/input.schema.json",
+      "schema_hash": "c296fe19286fd26195853d46deb764f128aa413ee9e445f39e0a1ffa3b4966fe"
+    },
+    {
+      "path": "skills/edd/pep-exposure/output.schema.json",
+      "schema_hash": "df6c26b98422ebc6c14a6c610c15b312a555897ea35047f3a16d7efafe6f8fb7"
+    },
+    {
+      "path": "skills/edd/recommendation-generate/input.schema.json",
+      "schema_hash": "ec5356f78568ec512e60155c98f8efb65f91e0f409b932e18bac50e4f92c90c7"
+    },
+    {
+      "path": "skills/edd/recommendation-generate/output.schema.json",
+      "schema_hash": "18dca806ae6dbe384e02f847306db4ea6458a20941b5e709292a89f098beb799"
+    },
+    {
+      "path": "skills/edd/scope-plan/input.schema.json",
+      "schema_hash": "22d078ea49472586b2997e0c81cde06d77b0edaee3c8a4d787e1ca1f6768b0ff"
+    },
+    {
+      "path": "skills/edd/scope-plan/output.schema.json",
+      "schema_hash": "8a953236a637ed62a40db7f124efab4b12627e9872547cc455689dadec19a3e9"
+    },
+    {
+      "path": "skills/edd/source_of_funds-verify/input.schema.json",
+      "schema_hash": "e509693aa5c95f9b8a5afae0d7d8aac05dd5aa18e040a2f5646c85da8601f739"
+    },
+    {
+      "path": "skills/edd/source_of_funds-verify/output.schema.json",
+      "schema_hash": "8655a78679b4e734eaec8e65e6c88682f65275f72ce6754f72a18dbbadec8fba"
+    },
+    {
+      "path": "skills/edd/source_of_wealth-assess/input.schema.json",
+      "schema_hash": "c277a91327d7b59fb9316a6c3698db66af40acfb061faa35befdf6e8b9138db4"
+    },
+    {
+      "path": "skills/edd/source_of_wealth-assess/output.schema.json",
+      "schema_hash": "5a17bd5dc25ebd0dd613d778fcb6603d1947c8a9d4454086934d640f65682543"
+    },
+    {
+      "path": "skills/edd/trigger-evaluate/input.schema.json",
+      "schema_hash": "e5ce4847d4cd0efe927d93120f2d69dd0ba2e9c6f971a0096a2c6b36a8551b25"
+    },
+    {
+      "path": "skills/edd/trigger-evaluate/output.schema.json",
+      "schema_hash": "0640522dfc9445912b60faa87df2ca488965adc65bb5bc4781d7aef6325ccd5d"
+    },
+    {
+      "path": "skills/entity/address-normalize/input.schema.json",
+      "schema_hash": "2884df06858a8e1939d145ebe3d5bd5087cc5c784ca0bc36297eee2a625058d5"
+    },
+    {
+      "path": "skills/entity/address-normalize/output.schema.json",
+      "schema_hash": "05ea53e363cd9182ea9796fd3468e3674271eaa6dc16720e00148b37a332e80a"
+    },
+    {
+      "path": "skills/entity/alias-resolve/input.schema.json",
+      "schema_hash": "778409f1659fcb193a99ca37e0ab13c10c3c8494492bdad24b8b722bf749ad14"
+    },
+    {
+      "path": "skills/entity/alias-resolve/output.schema.json",
+      "schema_hash": "2de7c496a0a8c66a401b98a62397d271fd422edb5d5114bd15da44175d1cd368"
+    },
+    {
+      "path": "skills/entity/classify/input.schema.json",
+      "schema_hash": "cd318dfe9885446423c65d54f1d7194141d63f2dfd2f1688c72d3d7756ba035e"
+    },
+    {
+      "path": "skills/entity/classify/output.schema.json",
+      "schema_hash": "eb46fce256deec37cfbfc87b49e2145fee13582e18120caa3c706d5816c09d8b"
+    },
+    {
+      "path": "skills/entity/confidence-assess/input.schema.json",
+      "schema_hash": "c088c0fb49e16c6d028609a74d3785ca9d08e49fe8c661c12db10a71d0ac682b"
+    },
+    {
+      "path": "skills/entity/confidence-assess/output.schema.json",
+      "schema_hash": "a318b6598107cf5b78b40e5409e64fd45e8ba847a9f25801f0ddf08c3c7d7e0a"
+    },
+    {
+      "path": "skills/entity/deduplicate/input.schema.json",
+      "schema_hash": "66a8f4488be083fac391386ea7b152ecb5617ef595b3939739820eae47143f4b"
+    },
+    {
+      "path": "skills/entity/deduplicate/output.schema.json",
+      "schema_hash": "9f89a7a672f99639474a2a3f4649f3109dab6894795e5df73b147a00130290b5"
+    },
+    {
+      "path": "skills/entity/disambiguate/input.schema.json",
+      "schema_hash": "d375cde18dca9435d2ff38ec336f99ff2ec2f1556c959e3cd4b9d67b5de4b36f"
+    },
+    {
+      "path": "skills/entity/disambiguate/output.schema.json",
+      "schema_hash": "d4805c1210f744753f1c85a0ac90c17556229506cf9ee7b8b2f081ed6ff0b59d"
+    },
+    {
+      "path": "skills/entity/history-reconstruct/input.schema.json",
+      "schema_hash": "b1d5a77a4c01485446aa801a5ff50be2b2f882340de4068acc79eec7e899b4ca"
+    },
+    {
+      "path": "skills/entity/history-reconstruct/output.schema.json",
+      "schema_hash": "f4c3febe9666ee68b68043e693aaabecf9f91fd2a99a8dc86219a965e38dec2d"
+    },
+    {
+      "path": "skills/entity/identifiers-validate/input.schema.json",
+      "schema_hash": "6b5e966c8eb46dc6d9de34283dd6faa21ca0bfbc69b0a165cd9c900599204514"
+    },
+    {
+      "path": "skills/entity/identifiers-validate/output.schema.json",
+      "schema_hash": "0100b52542f322e815096b07d119ca5e717629b701ef3d25c2ff2a1a509b54a0"
+    },
+    {
+      "path": "skills/entity/identity-verify/input.schema.json",
+      "schema_hash": "6cf46d5ffd11cf466bf813c4eeed803a1b46372f7af42a0d0819677bec17f849"
+    },
+    {
+      "path": "skills/entity/identity-verify/output.schema.json",
+      "schema_hash": "72003a9e864458770e752fae892cfca638e72346b50fc671daf621db1136062d"
+    },
+    {
+      "path": "skills/entity/match/input.schema.json",
+      "schema_hash": "91632739798a5881618e97db06ac6a666efdc919da5223e67d566718a495ffe8"
+    },
+    {
+      "path": "skills/entity/match/output.schema.json",
+      "schema_hash": "fb74755d0b08382906830f073d2b0f4518df2ff4a4a19b45c6c59b6d463e6662"
+    },
+    {
+      "path": "skills/entity/relationship-resolve/input.schema.json",
+      "schema_hash": "c652e8bc65590c87da604a4ded9c18121d44c953f521072d4367dd8a8fd0a4fb"
+    },
+    {
+      "path": "skills/entity/relationship-resolve/output.schema.json",
+      "schema_hash": "bd22281e9167ee35d514f6a703a8a03b3f587e64107c993c2ce6300aaa65ce30"
+    },
+    {
+      "path": "skills/entity/resolve/input.schema.json",
+      "schema_hash": "5e38b89d4de105d890618dc5807065491fd5214f84e5c2d517a7b04904d36b10"
+    },
+    {
+      "path": "skills/entity/resolve/output.schema.json",
+      "schema_hash": "fdbf3246695ddabda718533e916558b989aa5124ccf4dd9b937bc9b7dd7d14f1"
+    },
+    {
+      "path": "skills/evidence/bundle-compile/input.schema.json",
+      "schema_hash": "f3f5ad4cc8997297401c54c4b3dec2f144ce23659ecb6e707dc96ff649be58e5"
+    },
+    {
+      "path": "skills/evidence/bundle-compile/output.schema.json",
+      "schema_hash": "14f60143b28e877b87875ce1c2629a2a289bd610fc4b96496f10b901fba57ecc"
+    },
+    {
+      "path": "skills/evidence/collect/input.schema.json",
+      "schema_hash": "a8ab982dcf48cbf7bac51e509f437e3a2a7c241239cd994bce507d6f04d0bd50"
+    },
+    {
+      "path": "skills/evidence/collect/output.schema.json",
+      "schema_hash": "981cc66cd43f1b9138b3a12141bf72696827eb1320cf9355278a5bba7740c01f"
+    },
+    {
+      "path": "skills/evidence/conflicts-resolve/input.schema.json",
+      "schema_hash": "4e88ae4c0b9cfac633d80da41c0ace66f80c0103f76ace5755a3232f5763a5a8"
+    },
+    {
+      "path": "skills/evidence/conflicts-resolve/output.schema.json",
+      "schema_hash": "0f1d880191299fa23f550d2d967e60899698904a5a9b89f1047710caaa46ee9e"
+    },
+    {
+      "path": "skills/evidence/facts-extract/input.schema.json",
+      "schema_hash": "8f008ec0d4a62f9e65e53d29b2b970b980d256f16880ce5df2723f371da12cf2"
+    },
+    {
+      "path": "skills/evidence/facts-extract/output.schema.json",
+      "schema_hash": "870390f6df9a1db82cb820148b9df22428c77223979358d0f310f55b85fca038"
+    },
+    {
+      "path": "skills/evidence/integrity-verify/input.schema.json",
+      "schema_hash": "eba30151f9c76b0d7cef9d79ff0410da606a741bc353748b94e3ee1d6d2d5698"
+    },
+    {
+      "path": "skills/evidence/integrity-verify/output.schema.json",
+      "schema_hash": "3a2927d56b5c1abf2fa944e121436940b07ba1618401ab7ffd83a2b0edd38bc8"
+    },
+    {
+      "path": "skills/evidence/lineage-trace/input.schema.json",
+      "schema_hash": "be2083a1f4a4577b4c356323c9ed10448bc3e5bef0a47aa481ffed6cb6df8417"
+    },
+    {
+      "path": "skills/evidence/lineage-trace/output.schema.json",
+      "schema_hash": "52537d559940c20e65610816329b43b566b3437f463ba2492bdadf2dc92d3f42"
+    },
+    {
+      "path": "skills/evidence/normalize/input.schema.json",
+      "schema_hash": "4af4934cb4a7872a067784fd6000d5265649e23d015c285da29f30f69a8e5a2c"
+    },
+    {
+      "path": "skills/evidence/normalize/output.schema.json",
+      "schema_hash": "01f688abe67e0d3fd174f4120bd0011940b1677c29e0096e30fb6b011136939c"
+    },
+    {
+      "path": "skills/evidence/provenance-attach/input.schema.json",
+      "schema_hash": "6bbacd86a31e5ee7af25fd36a3908795cab883c3a6fd237c7022e32024dacbe2"
+    },
+    {
+      "path": "skills/evidence/provenance-attach/output.schema.json",
+      "schema_hash": "2235473922dcaae25d0bbc23df32ed063c7f0e3093dd84b53a7e540ae8a7aa0e"
+    },
+    {
+      "path": "skills/evidence/retention-enforce/input.schema.json",
+      "schema_hash": "8c5d0efd7721350c9cd7787404ffc674637bc17cc98423c4f596b50b8b2f4340"
+    },
+    {
+      "path": "skills/evidence/retention-enforce/output.schema.json",
+      "schema_hash": "8b48adce49d5ec8458e1d181f06fa06b6bf19db2881dda1ec6213b380f8b1efd"
+    },
+    {
+      "path": "skills/evidence/sufficiency-assess/input.schema.json",
+      "schema_hash": "3f3a4c2e87067e6d6dba1536ce66b718cec8472459995b4c167de4e84eeab81f"
+    },
+    {
+      "path": "skills/evidence/sufficiency-assess/output.schema.json",
+      "schema_hash": "e7f30496c88afbef9c5279555167e9790042edadd3038cea67c2ea32c091bdd6"
+    },
+    {
+      "path": "skills/fraud/account_takeover-detect/input.schema.json",
+      "schema_hash": "49b75ac06e331cc06e386d4165fa70e1e37fb4f89174e2f5bd190db006e12cd4"
+    },
+    {
+      "path": "skills/fraud/account_takeover-detect/output.schema.json",
+      "schema_hash": "530c151e4491666be4542de22b262694a4a0cc76820c8670210aba8a17e686b4"
+    },
+    {
+      "path": "skills/fraud/behavior-anomaly/input.schema.json",
+      "schema_hash": "94070b1b6a3702279cf89cc12782a4fe743fcaed32eacd634c4de85c9639bd8b"
+    },
+    {
+      "path": "skills/fraud/behavior-anomaly/output.schema.json",
+      "schema_hash": "2a4228af392864d0357e1f89fcce84e0b1e11b80d9096d1bb2ac445b24f67047"
+    },
+    {
+      "path": "skills/fraud/beneficiary-risk/input.schema.json",
+      "schema_hash": "718c5b77c7c821bd6d8d799a35203801e31337c20ef56e679831c836302709a4"
+    },
+    {
+      "path": "skills/fraud/beneficiary-risk/output.schema.json",
+      "schema_hash": "582920e8ced116fffebe96e42f05a5fa3cf9d06946d83ecba4adc523aa2402b5"
+    },
+    {
+      "path": "skills/fraud/case-assess/input.schema.json",
+      "schema_hash": "0b33084b38a4cee28b0bba316ad271dd3165bcff348629b9860c2dcb2e33d8da"
+    },
+    {
+      "path": "skills/fraud/case-assess/output.schema.json",
+      "schema_hash": "064909f21f9eebcf90fd8b90768d656596dcf5f784e813b8410ddcedefbd23b6"
+    },
+    {
+      "path": "skills/fraud/deepfake-detect/input.schema.json",
+      "schema_hash": "515363c5b36cbeaa29c8d8132afa4247624880a51a87e5fa49dfa3cea9f51974"
+    },
+    {
+      "path": "skills/fraud/deepfake-detect/output.schema.json",
+      "schema_hash": "87948f185258d7be785352b9da8e7c909cc19c66c6a52782a384d093a2a9d645"
+    },
+    {
+      "path": "skills/fraud/device-fingerprint/input.schema.json",
+      "schema_hash": "4685d07a24eb7fa27373b43c66c3f8c8fc8eae8dccb055bcbbea7ec0534e9fde"
+    },
+    {
+      "path": "skills/fraud/device-fingerprint/output.schema.json",
+      "schema_hash": "d8c4adcc0e4842a510a968fe663b54234e3de2103537ee5f82b0a871e136d86b"
+    },
+    {
+      "path": "skills/fraud/document-tamper-detect/input.schema.json",
+      "schema_hash": "293f0d825da203ccfa6d74bacfba957c650655ba25461216fd48ff7a6eb4c9c1"
+    },
+    {
+      "path": "skills/fraud/document-tamper-detect/output.schema.json",
+      "schema_hash": "601b760a5669acb6c4e296f85fb02dbc6a27ecfb8562eae8b75a21710cc529b7"
+    },
+    {
+      "path": "skills/fraud/identity-synthetic-detect/input.schema.json",
+      "schema_hash": "c836dbdd899829bc31cf6c96fa65dab59ea814cef20a6205f23ba24ee3eda06a"
+    },
+    {
+      "path": "skills/fraud/identity-synthetic-detect/output.schema.json",
+      "schema_hash": "6d5677ac744dc335c780fd25082e61ead2f1b628735a27d9016e9f24dbc3c8cc"
+    },
+    {
+      "path": "skills/fraud/identity-theft-assess/input.schema.json",
+      "schema_hash": "0f90b733e7f2cf13fee371989e92b10586e1efda382456c7f827ce431c81752c"
+    },
+    {
+      "path": "skills/fraud/identity-theft-assess/output.schema.json",
+      "schema_hash": "39a845ca88c1dd5752b5da626585702bc9586552ffb419ba7083c4a21865e88a"
+    },
+    {
+      "path": "skills/fraud/liveness-verify/input.schema.json",
+      "schema_hash": "1436eff008d6d305f6f3a47033718ad30a9823de1c9de86acad61343bff4f859"
+    },
+    {
+      "path": "skills/fraud/liveness-verify/output.schema.json",
+      "schema_hash": "212cbba6fe4954007bbf2732567dca8ee1cb4fef4ccc9d7a7ce15718b8a36678"
+    },
+    {
+      "path": "skills/fraud/network-detect/input.schema.json",
+      "schema_hash": "e02675dface068ed91c636c4dfd8573603254506a61ca3303fd717bd3c76ecdf"
+    },
+    {
+      "path": "skills/fraud/network-detect/output.schema.json",
+      "schema_hash": "fbbfaece09922cb9cf402841604b83a596787394e9e69b9c1bda6963aed68739"
+    },
+    {
+      "path": "skills/fraud/payment-anomaly/input.schema.json",
+      "schema_hash": "893d1249bf1885ec98b335e0332b7425fb4a59b588b335c856fdd8501a5e5108"
+    },
+    {
+      "path": "skills/fraud/payment-anomaly/output.schema.json",
+      "schema_hash": "00c124df1af5daf0583e07d61d023f7be2be64246d5ea06e58f6b2e432e99dbd"
+    },
+    {
+      "path": "skills/investigation/contradiction-detect/input.schema.json",
+      "schema_hash": "81d3f6191534754a44ecd2b1b21235bfd9782e42a59a1be0997288d8514c066f"
+    },
+    {
+      "path": "skills/investigation/contradiction-detect/output.schema.json",
+      "schema_hash": "bc073bcc02253863eb30d4becf294b5797731536395c8e021d73bc1fa67b5283"
+    },
+    {
+      "path": "skills/investigation/evidence-collect/input.schema.json",
+      "schema_hash": "09f159cc19cb76bdbf4dcd952ba0bbb41b8819f029a84949bd61c8532b3bb2c0"
+    },
+    {
+      "path": "skills/investigation/evidence-collect/output.schema.json",
+      "schema_hash": "e10103ab85340de5d3472269370b40aac567288de34e2d5d44d60c52f1cb7cfc"
+    },
+    {
+      "path": "skills/investigation/findings-synthesize/input.schema.json",
+      "schema_hash": "c6ae4e70596bf91ac29c482d0ec4c79304cae933e9ac4b43b7d082572e6c6bb6"
+    },
+    {
+      "path": "skills/investigation/findings-synthesize/output.schema.json",
+      "schema_hash": "6a818cca9c3da32239a0364fe80363c6b8d4e371e0f86f76dbdec79b8fd02002"
+    },
+    {
+      "path": "skills/investigation/fundflow-reconstruct/input.schema.json",
+      "schema_hash": "f713030f839237a950adc2c3bf7c56602e3886d4a7965a5edd0d1027ce695f7c"
+    },
+    {
+      "path": "skills/investigation/fundflow-reconstruct/output.schema.json",
+      "schema_hash": "a4a4e18f3ce6cb8f4d360cc8a82215223ed6b2b4511c7e7d54e74cbb813b0d32"
+    },
+    {
+      "path": "skills/investigation/gaps-identify/input.schema.json",
+      "schema_hash": "8f0595f9d3ee62e8f5a119b8ce7e722e598e0c4b4437b884d195a547eff550a7"
+    },
+    {
+      "path": "skills/investigation/gaps-identify/output.schema.json",
+      "schema_hash": "ac7c230ab600b1f0a281cc5094eefcbc178bbab562c59decd87b1b22bd85c6a2"
+    },
+    {
+      "path": "skills/investigation/hypothesis-generate/input.schema.json",
+      "schema_hash": "bea0d1886d8f3e075b19445746858ded2a178ff72e8ad4ba74a8ecafb66c7fcf"
+    },
+    {
+      "path": "skills/investigation/hypothesis-generate/output.schema.json",
+      "schema_hash": "a807661e23b0698050d9573616661075744aff1cc50d7630e4d136450d94bf71"
+    },
+    {
+      "path": "skills/investigation/hypothesis-test/input.schema.json",
+      "schema_hash": "a99d9a35b57870d9615a1755c51940a20a1118c5620a3dfa0752bcb50b9275d9"
+    },
+    {
+      "path": "skills/investigation/hypothesis-test/output.schema.json",
+      "schema_hash": "54f5544a4bbdeee2fe55d52ed5d67a2144a5d41a5b78ac6021f561ea733cd27a"
+    },
+    {
+      "path": "skills/investigation/narrative-generate/input.schema.json",
+      "schema_hash": "9f46662dc33d474010add3f05a41877910378c9ad1ac300942d4ec856efac8ec"
+    },
+    {
+      "path": "skills/investigation/narrative-generate/output.schema.json",
+      "schema_hash": "d71691559b33d2b8d11699e73a512da9248f59c147c45c3f0908a2e9dee8c1b3"
+    },
+    {
+      "path": "skills/investigation/plan/input.schema.json",
+      "schema_hash": "92867fb860ca177ff72537907bcb3e789d44844f0c6c8a1056bca5457fc5c98a"
+    },
+    {
+      "path": "skills/investigation/plan/output.schema.json",
+      "schema_hash": "f5e5f83ff379d9ced11918ef0ac9a201b815a85fc25066e8e61222426d8760c4"
+    },
+    {
+      "path": "skills/investigation/recommendation-generate/input.schema.json",
+      "schema_hash": "ca5d324d644b83acb4e762e1b9155eaa9f19107c6285d1da9ef33447ab330b4a"
+    },
+    {
+      "path": "skills/investigation/recommendation-generate/output.schema.json",
+      "schema_hash": "6b9ac3165fd89795ce71da4156f9b68ef5fa8f21b402a8c4aa11ff6f4ec12294"
+    },
+    {
+      "path": "skills/investigation/relationship-analyze/input.schema.json",
+      "schema_hash": "0a7b73b04c778416ee99124c99993dc698d37cb1640747223ef3707bb6cf88ef"
+    },
+    {
+      "path": "skills/investigation/relationship-analyze/output.schema.json",
+      "schema_hash": "768e427fe5bf2ee6e8b7c8e82b9e7be72024da6cb31f73aada0311448ffdf939"
+    },
+    {
+      "path": "skills/investigation/timeline-build/input.schema.json",
+      "schema_hash": "dd07eca6d34b7afce522f020013cf64473c57ec568c938e536542f94dba3f32e"
+    },
+    {
+      "path": "skills/investigation/timeline-build/output.schema.json",
+      "schema_hash": "959ac41405c9e00b6f22811a844a7bdd6fbe8fad2e17831887060adafe8df718"
+    },
+    {
+      "path": "skills/monitor/customer-schedule/input.schema.json",
+      "schema_hash": "bda737a4eec6ca4e6bee237f501339724facc3118c01820d47ad7cc19833f139"
+    },
+    {
+      "path": "skills/monitor/customer-schedule/output.schema.json",
+      "schema_hash": "d7bed24af11a0a4c6ab7002ae7be606d483bae86159cb418e484b1548f49ed13"
+    },
+    {
+      "path": "skills/monitor/ownership-change/input.schema.json",
+      "schema_hash": "e565eb3cf360decbd39b0aff589156332b5c86cc606124dc7bb60a885c687d74"
+    },
+    {
+      "path": "skills/monitor/ownership-change/output.schema.json",
+      "schema_hash": "ad04db15534862eefca2176fcb6033f59db208e410efbb24bcd7206a30bff5ba"
+    },
+    {
+      "path": "skills/monitor/profile-change/input.schema.json",
+      "schema_hash": "4e28cbf469000874cbaa0a6d43f8c8e35ee75b518965c00d70a248d108e926fd"
+    },
+    {
+      "path": "skills/monitor/profile-change/output.schema.json",
+      "schema_hash": "18d9bd00605216bf3d6576afc221638467a2e47d6a90e37a2975b96a492c9689"
+    },
+    {
+      "path": "skills/monitor/review-close/input.schema.json",
+      "schema_hash": "b696f144caf348e30a367cbf1fa769c29e2c1b7d83f8585f31587fad3ea4747d"
+    },
+    {
+      "path": "skills/monitor/review-close/output.schema.json",
+      "schema_hash": "fefb4fb1f05cb877613b11df2fb48b7b6cc1a43f8d86245d55d336c8e8e8564a"
+    },
+    {
+      "path": "skills/monitor/review-execute/input.schema.json",
+      "schema_hash": "247edfdf447b3931a7fc739ed5810b2f8d4e98f6105bc7dde70b646a1af0457f"
+    },
+    {
+      "path": "skills/monitor/review-execute/output.schema.json",
+      "schema_hash": "33ebb233c290326adf4fada1ba1de2d36d53cc0411d15151d20597443d9d5335"
+    },
+    {
+      "path": "skills/monitor/review-scope/input.schema.json",
+      "schema_hash": "79ffa8a834c0a005a07a8302a6adcb2bf6f2c10d5495901bf67e11b4c3f4b040"
+    },
+    {
+      "path": "skills/monitor/review-scope/output.schema.json",
+      "schema_hash": "67ace430301c61de22f8ae581afb63f9f3f5bbf5a52fcac65694093be19ed472"
+    },
+    {
+      "path": "skills/monitor/risk-recalculate/input.schema.json",
+      "schema_hash": "5361e5f498cbfeb38bde710f650b0567c1e8cefab386f127e4ca37d8ca0419f4"
+    },
+    {
+      "path": "skills/monitor/risk-recalculate/output.schema.json",
+      "schema_hash": "127fa38e01580720d573bc6627838bb291f99828915ae1376539a21de2bb5c72"
+    },
+    {
+      "path": "skills/monitor/screening-refresh/input.schema.json",
+      "schema_hash": "3ddded6f234b482de7d6436cdf93aab6d4cfa732c75295a7e5f3e81e3534fa37"
+    },
+    {
+      "path": "skills/monitor/screening-refresh/output.schema.json",
+      "schema_hash": "e5b9d2f7baa0de99daa2522782e7cc2323d57e4f6053ad7f9bad7773fcd4827e"
+    },
+    {
+      "path": "skills/monitor/transaction-deviation/input.schema.json",
+      "schema_hash": "6fe9b2888834169e24c7a58cf368dcf4b5b5dff21988a89cb9c1fd9f0f29d433"
+    },
+    {
+      "path": "skills/monitor/transaction-deviation/output.schema.json",
+      "schema_hash": "cd1bae7e3f58422bc8a773128f0601152171778ca08ac9fec70a48a1e2c8d29d"
+    },
+    {
+      "path": "skills/monitor/trigger-evaluate/input.schema.json",
+      "schema_hash": "0bd32e5d79e8b6d06f6d31c77b3ec57e1c2bf9153c3f98abf7ac8aec21df613e"
+    },
+    {
+      "path": "skills/monitor/trigger-evaluate/output.schema.json",
+      "schema_hash": "244c59859e5a2105d93a60508d07dc2042dc49ab9e0f4b86a102f142be4b12e7"
+    },
+    {
+      "path": "skills/network/beneficiary-trace/input.schema.json",
+      "schema_hash": "efca773d6b6d276b4d74ef52b08fb1fedc95a42adb2163b714ab6b30efbe4201"
+    },
+    {
+      "path": "skills/network/beneficiary-trace/output.schema.json",
+      "schema_hash": "403cf715285d92d4631bb9d0b7072b72c8adae367e7d135cbe1603a095379e7d"
+    },
+    {
+      "path": "skills/network/centrality-calculate/input.schema.json",
+      "schema_hash": "b30c5390146ee4a58467613e98d0bb997076499931021ef0cba19713a2bb74d3"
+    },
+    {
+      "path": "skills/network/centrality-calculate/output.schema.json",
+      "schema_hash": "cf986b13437d63f844a89afe3e80236b87f7e545315cbc8f6989d3bf72745c5f"
+    },
+    {
+      "path": "skills/network/community-detect/input.schema.json",
+      "schema_hash": "94b767d67743c2f37ea924e15d527d51cebf516cf3b36f3a9b1fdaa774a3f0a8"
+    },
+    {
+      "path": "skills/network/community-detect/output.schema.json",
+      "schema_hash": "10e283c0dec5d2bc04c7e67ade5a15690fd09b38303372b7d77f0afe6ab0af09"
+    },
+    {
+      "path": "skills/network/cycle-detect/input.schema.json",
+      "schema_hash": "1511d2329e017b147c71eae224316f3d4a04f740a938b2e6e51c04115859a1a3"
+    },
+    {
+      "path": "skills/network/cycle-detect/output.schema.json",
+      "schema_hash": "b97fcbf417b88e6f1baaf8d3964a87156d829c278e5e10ec8de656366ad78a38"
+    },
+    {
+      "path": "skills/network/graph-build/input.schema.json",
+      "schema_hash": "f570b714a60d2d0953fc53f187c9d5ee702c1a0e605855088cafa0630a55c80c"
+    },
+    {
+      "path": "skills/network/graph-build/output.schema.json",
+      "schema_hash": "0cfcbedf77ac126be46e2d1d86bc778a62147ef0c67e43cd50733994b2a86e4e"
+    },
+    {
+      "path": "skills/network/path-find/input.schema.json",
+      "schema_hash": "4e5b905c724836f0c4883b34ef41b9d762b7d95fd62e10f2b3268bac5189db5a"
+    },
+    {
+      "path": "skills/network/path-find/output.schema.json",
+      "schema_hash": "ca2a338fd912f3113a597ae58bbf43a8713147fe7aa01ad5e27ad5909ae45d51"
+    },
+    {
+      "path": "skills/network/relationship-infer/input.schema.json",
+      "schema_hash": "b561a68d74467690483709cd699177cee4dfc56d3ec77e6acb961eaf37039169"
+    },
+    {
+      "path": "skills/network/relationship-infer/output.schema.json",
+      "schema_hash": "b0cf7602d5f0a4807e01e9cd807ae90ddfd65e77dbb5d2a5856866cd9665b757"
+    },
+    {
+      "path": "skills/network/risk-propagate/input.schema.json",
+      "schema_hash": "dd33bd5e299cfb2b9fb0dca5ecda9aaeefec10904a968fdde1a8aa48a003a57a"
+    },
+    {
+      "path": "skills/network/risk-propagate/output.schema.json",
+      "schema_hash": "be1b41481cdcad17733612d3db971c982a989cd44518547be7fc344370d2e223"
+    },
+    {
+      "path": "skills/network/shared_attributes-detect/input.schema.json",
+      "schema_hash": "6fe9ab75cd506a3a0ee6230f6f7483a86851ce124c9bd5e2ffc549d0478903e2"
+    },
+    {
+      "path": "skills/network/shared_attributes-detect/output.schema.json",
+      "schema_hash": "5784d5c9e28bf68a1b80b779071dcf281c58e2ecf255cb8d8a7f28ab731da652"
+    },
+    {
+      "path": "skills/network/temporal-analyze/input.schema.json",
+      "schema_hash": "8d051b522de34af49cdb208f1daa7ba19bf1e99faacc2512d8f8f25603721644"
+    },
+    {
+      "path": "skills/network/temporal-analyze/output.schema.json",
+      "schema_hash": "142fe92e572f4df9bc4356eb82a19afdb667157ade0f0f1edf7c531e4255f580"
+    },
+    {
+      "path": "skills/ownership/circular-detect/input.schema.json",
+      "schema_hash": "3210a16b9b5a2413e8f3be7f1847bbfdbecfa9d9f41bf5a6e238f30f38ff47ca"
+    },
+    {
+      "path": "skills/ownership/circular-detect/output.schema.json",
+      "schema_hash": "9fb716a8fcfa9650b2549df8739cbfbd422f7411779f7ef3a9ea7cba17942b7f"
+    },
+    {
+      "path": "skills/ownership/control-resolve/input.schema.json",
+      "schema_hash": "39ace670b58fc60dd26b54914e36a8dc2af792dcc6f84f2227fec2c7541fdcaf"
+    },
+    {
+      "path": "skills/ownership/control-resolve/output.schema.json",
+      "schema_hash": "8f0baddc5387dda4e71ce511a01b32756113db07948f4ec777d3b210e7cfcd37"
+    },
+    {
+      "path": "skills/ownership/discrepancy-detect/input.schema.json",
+      "schema_hash": "4760e816c7b73d9a76878de36931b544942ae46b57ebfa63bcf56e0b17f4d4a5"
+    },
+    {
+      "path": "skills/ownership/discrepancy-detect/output.schema.json",
+      "schema_hash": "7d234674444084c4a0d120351ed2c4e9df0fabe8dddfa952c38ef607969c9199"
+    },
+    {
+      "path": "skills/ownership/graph-build/input.schema.json",
+      "schema_hash": "6e2fa8d83a95a76f69b571fa484b247a814cb34eca11f214e4ad0a6287636e8b"
+    },
+    {
+      "path": "skills/ownership/graph-build/output.schema.json",
+      "schema_hash": "03d4c28ee979231f5d85c5ea28ddd221106b741fa505e4f59f247a388bdc4bcf"
+    },
+    {
+      "path": "skills/ownership/graph-expand/input.schema.json",
+      "schema_hash": "5b370a9fb3bf095164982d6ef9303b6ebd340af6a9ba93abfdab85a090b5de64"
+    },
+    {
+      "path": "skills/ownership/graph-expand/output.schema.json",
+      "schema_hash": "7ca7cf54dc43c08930e916d14a3be34ba06651f2d56fe894da0cb40a76a7d116"
+    },
+    {
+      "path": "skills/ownership/history-compare/input.schema.json",
+      "schema_hash": "a8558038c2666a649cde670b636251aa3a5c0ffb3d6c9334cb721f08ddb69d44"
+    },
+    {
+      "path": "skills/ownership/history-compare/output.schema.json",
+      "schema_hash": "8d19da36a65e92ea05e193680e629dae4875a590ccc08c26a944cf6a5ae95267"
+    },
+    {
+      "path": "skills/ownership/interest-calculate/input.schema.json",
+      "schema_hash": "3a4d366689549584e43457a338f112667ee4675d772c473fea47d2f33e41a881"
+    },
+    {
+      "path": "skills/ownership/interest-calculate/output.schema.json",
+      "schema_hash": "1abcae4993e5c8ab8f9b3a68eefb9ef817cd4268dbc72f84de2f21a47adf33cc"
+    },
+    {
+      "path": "skills/ownership/nominee-detect/input.schema.json",
+      "schema_hash": "6a2078063396c61a3661aff2caaa57af79331d87158d0ac8c18a8fb9529af3fb"
+    },
+    {
+      "path": "skills/ownership/nominee-detect/output.schema.json",
+      "schema_hash": "cf4faf3c3fcc1710b2e493456f3516d234c485d52ad0882dffe6b197d2c2f34d"
+    },
+    {
+      "path": "skills/ownership/structure-complexity/input.schema.json",
+      "schema_hash": "52195c14b71accd77f7ca2747b63e4f3cf1cb76d845fe125ae8ac27ceef892a3"
+    },
+    {
+      "path": "skills/ownership/structure-complexity/output.schema.json",
+      "schema_hash": "63996556c0f79f31525b5d60a4bcc37f30b585ae6bb78c9e4b1f4fdcffd7dfcc"
+    },
+    {
+      "path": "skills/ownership/threshold-evaluate/input.schema.json",
+      "schema_hash": "f9f7a1cc0c6206901e551a88c59d412606a13078cdac1ae71196654b8f335431"
+    },
+    {
+      "path": "skills/ownership/threshold-evaluate/output.schema.json",
+      "schema_hash": "632999f72eb303eff45e9dadda7fe77a1e8ca10b336396f44820df0a86e3f7e3"
+    },
+    {
+      "path": "skills/ownership/ubo-resolve/input.schema.json",
+      "schema_hash": "64e6771147ca52ef7cfe37aadfd14e9c5080a7f028839fec9422a39b7472bbd1"
+    },
+    {
+      "path": "skills/ownership/ubo-resolve/output.schema.json",
+      "schema_hash": "ed2208199c23a1a2bc4dbc3ff796d82255f5da342ac777ba2696ce1139e750df"
+    },
+    {
+      "path": "skills/ownership/ubo-verify/input.schema.json",
+      "schema_hash": "89e31804bbbc50e2b7370be41c29083a665ba603e1f5e47e7b9fa154fa99d335"
+    },
+    {
+      "path": "skills/ownership/ubo-verify/output.schema.json",
+      "schema_hash": "aa033196e96f1050399a85cb38535a58e87db24c60433c9f2f9200743c23a537"
+    },
+    {
+      "path": "skills/party/activity-profile/input.schema.json",
+      "schema_hash": "6f9ae007cc338ff880319fd7d4019c3542a026fb8c431eca55d9b241be48fec7"
+    },
+    {
+      "path": "skills/party/activity-profile/output.schema.json",
+      "schema_hash": "bb075a89f8ccc03b4dec4f447da27388688f8f61b51be37ae7f0803c08fc29f7"
+    },
+    {
+      "path": "skills/party/expected_behavior-model/input.schema.json",
+      "schema_hash": "b0056c8deef4e548508689f0983bc83352ce73f4957012135eeac93a3cb87770"
+    },
+    {
+      "path": "skills/party/expected_behavior-model/output.schema.json",
+      "schema_hash": "8f89cb9a114c547392510522a7122641282654bcba6be2f4078f3688d5b134d6"
+    },
+    {
+      "path": "skills/party/geography-profile/input.schema.json",
+      "schema_hash": "41f4c06dac85c030605700c873ae242558068e579d2b818049c02c9b691831c4"
+    },
+    {
+      "path": "skills/party/geography-profile/output.schema.json",
+      "schema_hash": "d53afc8ec14405f34a17ae72bcd8ae12a44c8c972cd90ba227fada86ea1de991"
+    },
+    {
+      "path": "skills/party/industry-classify/input.schema.json",
+      "schema_hash": "1d3ead599a1d7c7330eb15b1aac085880d217f14ba973353d80a368b8899f18c"
+    },
+    {
+      "path": "skills/party/industry-classify/output.schema.json",
+      "schema_hash": "587a3a42d8debc578b9424ce3c41c1ca15565b1536d1e65686c1a9f062b3ea9a"
+    },
+    {
+      "path": "skills/party/product-profile/input.schema.json",
+      "schema_hash": "0cbd0e79b51c2a4ee08f8bafc7aecb537b6d6626a2e523c7c8957c5bc8f01b79"
+    },
+    {
+      "path": "skills/party/product-profile/output.schema.json",
+      "schema_hash": "4b87e02d4a14b66f19a7115946daeaf02498d2b0abac8fd99828bbabd62d8795"
+    },
+    {
+      "path": "skills/party/profile-build/input.schema.json",
+      "schema_hash": "c64df55477a13e5240a4ab79db342efed48fd70568fc06b95b898deb98da8d23"
+    },
+    {
+      "path": "skills/party/profile-build/output.schema.json",
+      "schema_hash": "17f8147ad31a094edf3e480e43cb50ae897afd52020b1456e7e390df5d425cf1"
+    },
+    {
+      "path": "skills/party/profile-completeness/input.schema.json",
+      "schema_hash": "584371dd6634fa859a73bbc059e45636111bb2e5cd0053333cb026091358670e"
+    },
+    {
+      "path": "skills/party/profile-completeness/output.schema.json",
+      "schema_hash": "b5c83c2931a916f21285e8dde7bf2d1c98eaae79825f9e50d9ed901f6a54260d"
+    },
+    {
+      "path": "skills/party/profile-refresh/input.schema.json",
+      "schema_hash": "9c2c9cc8e11ef745e96246bd7ad14ea790a44b2d1d32ef21a2e8deaa15079505"
+    },
+    {
+      "path": "skills/party/profile-refresh/output.schema.json",
+      "schema_hash": "0bafbd243c094846ec22ab929871c8234bac2bdbac3fd6002324a5d4fde444db"
+    },
+    {
+      "path": "skills/party/role-resolve/input.schema.json",
+      "schema_hash": "2065aedc287fc7ff8b880d5a01f14cdf0b68da52516256470b546d9636ac5e38"
+    },
+    {
+      "path": "skills/party/role-resolve/output.schema.json",
+      "schema_hash": "4bcddee40e36aeba3fe3b405f0b610a8c6baf219a9c6bab9326b3916b33f930d"
+    },
+    {
+      "path": "skills/party/type-classify/input.schema.json",
+      "schema_hash": "c64b55032abdc8f47e521d1d2ac386a5b45f464f88794e34c4f2112e8b973e0d"
+    },
+    {
+      "path": "skills/party/type-classify/output.schema.json",
+      "schema_hash": "98c9d234f3034b855a7979221cf816ef3eb125290dc8210ad5c402d7187a55fd"
+    },
+    {
+      "path": "skills/quality/agent-trace-evaluate/input.schema.json",
+      "schema_hash": "5d04065471393ffc39162d79c6e879c7304d5ef3cd9f86d7a40cab2dbdd48977"
+    },
+    {
+      "path": "skills/quality/agent-trace-evaluate/output.schema.json",
+      "schema_hash": "498f998ea5e91aff8eee5b141be5cc1a98138ad6c9d72a75d09eb4befea44e1b"
+    },
+    {
+      "path": "skills/quality/confidence-calibrate/input.schema.json",
+      "schema_hash": "440132ca3a38da46504319fec5ddf6977b13636c3b9c56c475246405c747b003"
+    },
+    {
+      "path": "skills/quality/confidence-calibrate/output.schema.json",
+      "schema_hash": "baa8e027e762bdb8efccf0bd08745f8894692a522f224f1e8a3c7c6db289e73d"
+    },
+    {
+      "path": "skills/quality/coverage-assess/input.schema.json",
+      "schema_hash": "78041b8599b2f654476f3ec3ca329cdf0f3283fc10ae6d01be175e9c1749b7fb"
+    },
+    {
+      "path": "skills/quality/coverage-assess/output.schema.json",
+      "schema_hash": "83c9605f8c701e3c95a6ccd01f59aa799f7e22240f68e30b7e5678f3ef9ebbee"
+    },
+    {
+      "path": "skills/quality/data-validate/input.schema.json",
+      "schema_hash": "c23f5fc508eb909f950adba6fcbf202d87ce1d448add63e8ff51a1d29cf6e79c"
+    },
+    {
+      "path": "skills/quality/data-validate/output.schema.json",
+      "schema_hash": "d0bdb71830354c58f76b378fb04d20f72a873260acf651d77c210c3a9d242fe6"
+    },
+    {
+      "path": "skills/quality/findings-verify/input.schema.json",
+      "schema_hash": "8feabe1f413412c5d83a8eae27541f870ec388d1a33b062b0034ad05bcdb9961"
+    },
+    {
+      "path": "skills/quality/findings-verify/output.schema.json",
+      "schema_hash": "0c2d312e8a31c7c02aa746a34c6b5ca22b20793c488198dc7a0ced19dce31694"
+    },
+    {
+      "path": "skills/quality/hallucination-detect/input.schema.json",
+      "schema_hash": "2a03a5452d768fa01debab69c3ad384b8cc17cf5de2035ff8f5ac4bf69cb39ed"
+    },
+    {
+      "path": "skills/quality/hallucination-detect/output.schema.json",
+      "schema_hash": "3cfc049bc084ad2845ce6319d566f6c332d7e8f3b76c386785247f455db6e0de"
+    },
+    {
+      "path": "skills/quality/outcome-reconcile/input.schema.json",
+      "schema_hash": "a1c44d031251d614f6c670ece203a76e02360b9690c3195ee34a03273c113bd2"
+    },
+    {
+      "path": "skills/quality/outcome-reconcile/output.schema.json",
+      "schema_hash": "5a8aff3f94a09562792b0ba2377e3dd0688f404dc4597a8a2a6a872d15869e53"
+    },
+    {
+      "path": "skills/quality/policy-compliance/input.schema.json",
+      "schema_hash": "a1393aa414bda5d74090e20c8039c04f3d5b7b777879861426cbba17411093c8"
+    },
+    {
+      "path": "skills/quality/policy-compliance/output.schema.json",
+      "schema_hash": "d81559bb6842908f97c00e1eb099a394997ec1c1cb9d38b132a82823bcf0098c"
+    },
+    {
+      "path": "skills/quality/remediation-plan/input.schema.json",
+      "schema_hash": "024c0c397f27487d15ccbc16bb3399875bcc4aebc9348686a09bdcab1cc56254"
+    },
+    {
+      "path": "skills/quality/remediation-plan/output.schema.json",
+      "schema_hash": "5daff45fc179a9b1cf66fe11a305c4e62e317e80428da9ea7f72c5760ae9fcac"
+    },
+    {
+      "path": "skills/quality/schema-validate/input.schema.json",
+      "schema_hash": "62c7420f893e65e1f202d301730f7fa1b28a54798e77903fa1b36b8c36049cee"
+    },
+    {
+      "path": "skills/quality/schema-validate/output.schema.json",
+      "schema_hash": "49303c82ffdbad8953a817841986998947911ad43b8d79b8a9f68de917ab8197"
+    },
+    {
+      "path": "skills/registry/address-verify/input.schema.json",
+      "schema_hash": "cee94d55834f9ac6b7c23101a62c13b329995fb5b6977ac0d0ead778af74b3b5"
+    },
+    {
+      "path": "skills/registry/address-verify/output.schema.json",
+      "schema_hash": "0c7d80712bef8ae1943d86de0b64f6910de172dac6996208c58db4e3f19cc166"
+    },
+    {
+      "path": "skills/registry/company-lookup/input.schema.json",
+      "schema_hash": "6f326e358287c241c2504f4de282273aa238d9729d966097b11780c5ee0c7125"
+    },
+    {
+      "path": "skills/registry/company-lookup/output.schema.json",
+      "schema_hash": "766ae434d889fe0243d4da1a87915a652492f729010b0ae7d925ee5725d11176"
+    },
+    {
+      "path": "skills/registry/company-verify/input.schema.json",
+      "schema_hash": "b5be73d01959b85ee5518698257c0cf85e210e63289661d97f0812c2236083a0"
+    },
+    {
+      "path": "skills/registry/company-verify/output.schema.json",
+      "schema_hash": "f129c9ba15b2fd3bb63b4aabe53eb023f6f2d6324d776ca27f57e81c7be2d351"
+    },
+    {
+      "path": "skills/registry/directors-resolve/input.schema.json",
+      "schema_hash": "887ddfe6bc72b9bbc89bd3365b0512a7a59dcf75de2014c1c64b95682008af3d"
+    },
+    {
+      "path": "skills/registry/directors-resolve/output.schema.json",
+      "schema_hash": "b622e3e2fed5d6b84d7ef44aeab1a9fd59074e7d72f6b672f68635cfaf79309e"
+    },
+    {
+      "path": "skills/registry/discrepancy-detect/input.schema.json",
+      "schema_hash": "e58ba7b8632ec111b00a782805c3587c6b0fddda01e1f4f98e38b36548c4ea9a"
+    },
+    {
+      "path": "skills/registry/discrepancy-detect/output.schema.json",
+      "schema_hash": "a94577c5b4a5e353b2ed14c63662a34f5f045e63ad06c4aae9c8ece2434168a2"
+    },
+    {
+      "path": "skills/registry/filings-retrieve/input.schema.json",
+      "schema_hash": "f2069562439c90ef3ec1fafa3db814c5d4b5a6367c5ad57d047a8b3204783a9c"
+    },
+    {
+      "path": "skills/registry/filings-retrieve/output.schema.json",
+      "schema_hash": "aab83943ee2a6b0f37c98a05b82a087b727e545e40606b57737042d944fcf91a"
+    },
+    {
+      "path": "skills/registry/jurisdiction-resolve/input.schema.json",
+      "schema_hash": "0abd1513d32770cb93b814952c88f03010774582b3b28bf1607e328fbca995ed"
+    },
+    {
+      "path": "skills/registry/jurisdiction-resolve/output.schema.json",
+      "schema_hash": "00eae0eb03f2ba3d75446471926cdf3ab7e1ce6bb37a12c8baa2cbd1480f61c1"
+    },
+    {
+      "path": "skills/registry/licenses-verify/input.schema.json",
+      "schema_hash": "dd4fdaba19da5e4abc0f7edc12f4bcfefff24f1957d12cc309241b2d5c6f017d"
+    },
+    {
+      "path": "skills/registry/licenses-verify/output.schema.json",
+      "schema_hash": "1b3867a7b010c9417880ad9973a056ee0c5ddf960caf98e09e63a76eaadc2f5b"
+    },
+    {
+      "path": "skills/registry/status-monitor/input.schema.json",
+      "schema_hash": "c90927581f7dfd9b0e713e08693b1097857d21e0ce1cb4ef56c1311825b62c22"
+    },
+    {
+      "path": "skills/registry/status-monitor/output.schema.json",
+      "schema_hash": "c263ea05c088586fb931bf1cec24daf3c98080565acb331a32b89019b3f00900"
+    },
+    {
+      "path": "skills/registry/taxid-validate/input.schema.json",
+      "schema_hash": "4d849c10a5c891c95f788f7edff3c3233f10ea253ab7e73fd93f02b63b11a9cb"
+    },
+    {
+      "path": "skills/registry/taxid-validate/output.schema.json",
+      "schema_hash": "35668532a2e494bbe9723230fac8c30471bd510c89b09a31d96b40ece8eeba30"
+    },
+    {
+      "path": "skills/regulatory/ctr-evaluate/input.schema.json",
+      "schema_hash": "f05bd7e41349efb14a537a4d2fba5152cb2c35ad65ad8e8e8eeca257f8af29f2"
+    },
+    {
+      "path": "skills/regulatory/ctr-evaluate/output.schema.json",
+      "schema_hash": "efe53a4c751c14d6a8e53338baa4d60a67ea5d163b47567bf454bd663bce698c"
+    },
+    {
+      "path": "skills/regulatory/ctr-prepare/input.schema.json",
+      "schema_hash": "9a5760742468c1179bf5ee0ff73418ae4dca35201a991b0dc836ec8bf8bf9800"
+    },
+    {
+      "path": "skills/regulatory/ctr-prepare/output.schema.json",
+      "schema_hash": "dfc9c934a8ec164de9b88d3f5f274d21cb584936f36aaae004ac140ad398ac21"
+    },
+    {
+      "path": "skills/regulatory/deadline-calculate/input.schema.json",
+      "schema_hash": "d90b283898543a635dc674977ab0dff5edc1e506bba4253038e42361e47d019c"
+    },
+    {
+      "path": "skills/regulatory/deadline-calculate/output.schema.json",
+      "schema_hash": "dd260317a58c7792c0e9d14896ffa05d2e3fb0abd1f3337b0cbb6ab66c59ae55"
+    },
+    {
+      "path": "skills/regulatory/filing-prepare/input.schema.json",
+      "schema_hash": "d91ebbd190c477e2b5dca44924583ded6b08dced824eb175b8e38a97e048b197"
+    },
+    {
+      "path": "skills/regulatory/filing-prepare/output.schema.json",
+      "schema_hash": "19e5d12b7ff1bd0c95d20f5f2bee11976585be0e1d500617adf2892ced4762ef"
+    },
+    {
+      "path": "skills/regulatory/filing-submit/input.schema.json",
+      "schema_hash": "2f90745e9e3a4604b88d8d735d291ae627ee6bc15f9813807d7a330e76a14961"
+    },
+    {
+      "path": "skills/regulatory/filing-submit/output.schema.json",
+      "schema_hash": "8791c24638d10d351b857d67e17fdc5ab39b549869b74b79e612bdcf60297f43"
+    },
+    {
+      "path": "skills/regulatory/filing-track/input.schema.json",
+      "schema_hash": "935171c3a3de39595901d6e895a01ddcb7065edf93360eefebb548ad95547c63"
+    },
+    {
+      "path": "skills/regulatory/filing-track/output.schema.json",
+      "schema_hash": "d360579f33807ae1cde3ac9cb102ec21db278070c0447cc994f494372e290a4b"
+    },
+    {
+      "path": "skills/regulatory/obligations-resolve/input.schema.json",
+      "schema_hash": "16b68e646d42134d5aae51f81cf21d6d3e0ab5453a92e806a78f75f30b630986"
+    },
+    {
+      "path": "skills/regulatory/obligations-resolve/output.schema.json",
+      "schema_hash": "3daad3392224b028c4a1b9ce3e691b2bed203243743b414184765ec097ad8d5a"
+    },
+    {
+      "path": "skills/regulatory/sar-draft/input.schema.json",
+      "schema_hash": "daa28f460cf8628113abd254c8b4154a6fc6de064e1b3c765a446778a3b88703"
+    },
+    {
+      "path": "skills/regulatory/sar-draft/output.schema.json",
+      "schema_hash": "f30359c726715438b858537534f2988cefc48db5482cbd700b97ebf6cee9d0c7"
+    },
+    {
+      "path": "skills/regulatory/sar-evaluate/input.schema.json",
+      "schema_hash": "c52a2943421544c99e130bbefa63e67b64edb7ed4d243dbf02bd7e2be527d94e"
+    },
+    {
+      "path": "skills/regulatory/sar-evaluate/output.schema.json",
+      "schema_hash": "ccc54c7e25cb574cc58453a2fa0e01d58d0390a288873cd3de64db070239ba25"
+    },
+    {
+      "path": "skills/regulatory/sar-validate/input.schema.json",
+      "schema_hash": "c91a295f0cbc7160a411baf025e21c75fae54c654ff492b7b57f77ebd892cba4"
+    },
+    {
+      "path": "skills/regulatory/sar-validate/output.schema.json",
+      "schema_hash": "ffccda3f17569b87cc2f5a739bb6a8dba8ef446478aad55726842e628563946a"
+    },
+    {
+      "path": "skills/risk/behavior-assess/input.schema.json",
+      "schema_hash": "96b57054014857feeebefe60315022e9711a70c748ebb5a7cb5e97ad65ee2027"
+    },
+    {
+      "path": "skills/risk/behavior-assess/output.schema.json",
+      "schema_hash": "b04382725c76237e3b4afc305df26d746ff861fb7ab18ffab58fdee801ff8f41"
+    },
+    {
+      "path": "skills/risk/change-detect/input.schema.json",
+      "schema_hash": "74c445e64caf527d64f1814b76d8fc9edc0ce3796d95b84a5af4a8c19ac4075b"
+    },
+    {
+      "path": "skills/risk/change-detect/output.schema.json",
+      "schema_hash": "1f5e756ea83e99106e60230467954329280e0b0c87ff340a918f4b18fb170d62"
+    },
+    {
+      "path": "skills/risk/customer-assess/input.schema.json",
+      "schema_hash": "28868d83484d069687c817cfb1edb28774f50b304d61fe4bb4a5a3fa1d3584ac"
+    },
+    {
+      "path": "skills/risk/customer-assess/output.schema.json",
+      "schema_hash": "cdde93648e55760c38986782cb7ac9e987053627511561418ecf5be49bf6b4d2"
+    },
+    {
+      "path": "skills/risk/factor-evaluate/input.schema.json",
+      "schema_hash": "7b67edbce2bb27dcbf2040a800f63aed2f0633e7a335d184774d33969d5ab93a"
+    },
+    {
+      "path": "skills/risk/factor-evaluate/output.schema.json",
+      "schema_hash": "4488d1e24433e752ee32678cc54dbb82a2a2c9b295f7417772719c59b431d73d"
+    },
+    {
+      "path": "skills/risk/factors-derive/input.schema.json",
+      "schema_hash": "b41e8fd01e20dd6e9a604faad295c73eecccc7cb22400b6d97828b5b0eedd7e5"
+    },
+    {
+      "path": "skills/risk/factors-derive/output.schema.json",
+      "schema_hash": "f082d01b7be3380615a79bc337dcb1a6102b5f4ab3d0791a94ef23e04baa4c89"
+    },
+    {
+      "path": "skills/risk/geography-assess/input.schema.json",
+      "schema_hash": "33f63ee5fc6f01e8ed82d25461501d009c44ab0d7af2ccf314ee93fd06fe44a8"
+    },
+    {
+      "path": "skills/risk/geography-assess/output.schema.json",
+      "schema_hash": "871423d707fca26774060290f256980963b5eff55cbc8e7f66e66cbd118df34e"
+    },
+    {
+      "path": "skills/risk/industry-assess/input.schema.json",
+      "schema_hash": "dab75e00d72f0569b527512685ca8cbecda6a20c7fbd899b071dedfd0eba7742"
+    },
+    {
+      "path": "skills/risk/industry-assess/output.schema.json",
+      "schema_hash": "ec145baf8ecfa7f7a68602bc6a2b2fb2e6530ca9e675f039f7350bb157abcca0"
+    },
+    {
+      "path": "skills/risk/inherent-calculate/input.schema.json",
+      "schema_hash": "19647308213071a5a77964f172a88515068f4e0f6c049039152548bbbdc051de"
+    },
+    {
+      "path": "skills/risk/inherent-calculate/output.schema.json",
+      "schema_hash": "077fba682f34c48d78bab05f34f1ab24c8511ddd08439b88e5fd987d945bbe11"
+    },
+    {
+      "path": "skills/risk/product-assess/input.schema.json",
+      "schema_hash": "f94b85fa334c3fb08fcd7db802dd7967eb328ded5a1590129ab5a8262a023ccd"
+    },
+    {
+      "path": "skills/risk/product-assess/output.schema.json",
+      "schema_hash": "4b3c5fbeaa48df496e9ca76f0fe02f36439418e4be83f6a0e8baf7a5e0739470"
+    },
+    {
+      "path": "skills/risk/residual-calculate/input.schema.json",
+      "schema_hash": "5fd62fc8acfbfbf5e262c723c73e9ff83e071ac8ee54d7cf5c185ebc4e4296c5"
+    },
+    {
+      "path": "skills/risk/residual-calculate/output.schema.json",
+      "schema_hash": "9c654d2dd63615e8df14cad9902bd00752ab3c3ee5a0bd101e1ed295314f1d96"
+    },
+    {
+      "path": "skills/risk/score-calibrate/input.schema.json",
+      "schema_hash": "ce9c794f91db206bcb720b7e04aa88c2d012983f4d0fbd2061db8e956baee359"
+    },
+    {
+      "path": "skills/risk/score-calibrate/output.schema.json",
+      "schema_hash": "52b2cf245bc0e2a2887fe5b8551c01da4500ad7f6dce0719db4f074c45d02771"
+    },
+    {
+      "path": "skills/risk/score-explain/input.schema.json",
+      "schema_hash": "78d02dd2fd2ed5d873288eee8e2aadab08e7568e4f39cf4156e6e152d91c8ace"
+    },
+    {
+      "path": "skills/risk/score-explain/output.schema.json",
+      "schema_hash": "aebbe0bc22cffe596451b0266fa37027afc059618b104f9c80eaa73ded3d2145"
+    },
+    {
+      "path": "skills/risk/tier-assign/input.schema.json",
+      "schema_hash": "aba5575081c570597de664bdae15b531574fdd7148e260ac8ae80ad4acfd0bc5"
+    },
+    {
+      "path": "skills/risk/tier-assign/output.schema.json",
+      "schema_hash": "f4474405340e83c2f23002fed849d4adfe961a8fab2cb7dd5bdfaa6750f78e11"
+    },
+    {
+      "path": "skills/screening/adverse_media-classify/input.schema.json",
+      "schema_hash": "78c6196d844b22c6a8eb28f0d296d5397ac40593594aaa576dcfc97761fc5e9f"
+    },
+    {
+      "path": "skills/screening/adverse_media-classify/output.schema.json",
+      "schema_hash": "05489c9f0061790d9ab02f73edf74f89b29131df5aa18d1b764498c6807808a9"
+    },
+    {
+      "path": "skills/screening/adverse_media-correlate/input.schema.json",
+      "schema_hash": "6269af845cc6abbe826229efed1c363cbbe9c43a6f6faf573b8cb3d0cf690eb8"
+    },
+    {
+      "path": "skills/screening/adverse_media-correlate/output.schema.json",
+      "schema_hash": "f725c07ec63f657032eb4a03daabab2633bd459c71005258fb4ace47b0678350"
+    },
+    {
+      "path": "skills/screening/adverse_media-execute/input.schema.json",
+      "schema_hash": "be4b13064a56fbf0c50db60b209303e4599f6bd13f53a836063b65cfd1c7e621"
+    },
+    {
+      "path": "skills/screening/adverse_media-execute/output.schema.json",
+      "schema_hash": "c19a1702eb05b671411e076e8c250728b109a33202d2446305c7afd5817fdf20"
+    },
+    {
+      "path": "skills/screening/alert-disposition/input.schema.json",
+      "schema_hash": "f9565a42958b7e46297dd1ba6465e84716d74d4e90d074ef3e16982210db47f2"
+    },
+    {
+      "path": "skills/screening/alert-disposition/output.schema.json",
+      "schema_hash": "87bf3b04f7aff7483f994efa7c94ffcd87002c9d6cf989ab5df9c1ec3df3c85d"
+    },
+    {
+      "path": "skills/screening/match-disambiguate/input.schema.json",
+      "schema_hash": "f249cd694cf3ac6e41e7f6f99b563bd304736fa7ee56d46064cf90bb93440a19"
+    },
+    {
+      "path": "skills/screening/match-disambiguate/output.schema.json",
+      "schema_hash": "6f36eb4616acbd80ebb62e7d4c93dc7f5d2576c47087103d0cfc556628e32b37"
+    },
+    {
+      "path": "skills/screening/match-score/input.schema.json",
+      "schema_hash": "b172f7f8a055407e7ae7f6b8eb3f6d7fae170474fc254dd66b9978d9606e72bb"
+    },
+    {
+      "path": "skills/screening/match-score/output.schema.json",
+      "schema_hash": "46cac7e7927f4e992f91cf9792328cbdf98e5aaa9bf6c098d0e7d3325c6a7ffb"
+    },
+    {
+      "path": "skills/screening/name-normalize/input.schema.json",
+      "schema_hash": "185a2e1b43864bd9112871a6b99f1357bd6661c1c1ac8c0e9709056b2732ec10"
+    },
+    {
+      "path": "skills/screening/name-normalize/output.schema.json",
+      "schema_hash": "8029c2be1dd4a0449d4737bc5cb83b973a6bc545da11d129e892987c9eb45b96"
+    },
+    {
+      "path": "skills/screening/pep-execute/input.schema.json",
+      "schema_hash": "799bbedb18385ef6aa2c7b9fad22ad3af0181d67f0d7c4acb4316f4089cdb5f9"
+    },
+    {
+      "path": "skills/screening/pep-execute/output.schema.json",
+      "schema_hash": "e51cb0e676e502ebdec0c13c4c6031b14f3ab0d5d93226dfc948c781fe5464e9"
+    },
+    {
+      "path": "skills/screening/pep-relationship-resolve/input.schema.json",
+      "schema_hash": "b0e13ed3ed57feb79bcd6a854088d92f55c39a96bb9f904973d985bb3600f801"
+    },
+    {
+      "path": "skills/screening/pep-relationship-resolve/output.schema.json",
+      "schema_hash": "0fc7ff571847fafb26d1e21a338700b5c1aefd760632d5a696a65fa0a21dd881"
+    },
+    {
+      "path": "skills/screening/rescreen-schedule/input.schema.json",
+      "schema_hash": "678a3980ba2cf05e24891072148f775f2b43cbc96fd1322e5a83ad0012c2b38d"
+    },
+    {
+      "path": "skills/screening/rescreen-schedule/output.schema.json",
+      "schema_hash": "8049c62336c189db91dbebf7cac7e120989b0f8e9f0d033d3726a8bdfef8e84c"
+    },
+    {
+      "path": "skills/screening/sanctions-control-evaluate/input.schema.json",
+      "schema_hash": "e7172f6bd590fde9df886a3243e260dfdf460b4683410ce21de66c2c8a4d5143"
+    },
+    {
+      "path": "skills/screening/sanctions-control-evaluate/output.schema.json",
+      "schema_hash": "e8ab3cb52dd954564db653b656f7ca6da624a92173bab3ecb8dc47c98f7c9045"
+    },
+    {
+      "path": "skills/screening/sanctions-execute/input.schema.json",
+      "schema_hash": "54c00c4ddd4b7594149f21c4bf0249fa33790a5a0a309083177f66b2e50dce8d"
+    },
+    {
+      "path": "skills/screening/sanctions-execute/output.schema.json",
+      "schema_hash": "8720082ddfa2ac3139b9ddda515de297348bb4583be2c0fd898646fc9bc6b8d7"
+    },
+    {
+      "path": "skills/screening/sanctions-ownership-evaluate/input.schema.json",
+      "schema_hash": "bc2a322f00547c020d4cb234b3715340a5f49795805d6d9e05a5742ab2900f00"
+    },
+    {
+      "path": "skills/screening/sanctions-ownership-evaluate/output.schema.json",
+      "schema_hash": "2cd50c2eeac655b6640bbae90e12b3e7c6325c5e19a97d7cbe44314879e74d0d"
+    },
+    {
+      "path": "skills/screening/watchlist-execute/input.schema.json",
+      "schema_hash": "dda76c342dc2d863833d038e1d56fdf2a47a6e41c99368204e50d452b67546fc"
+    },
+    {
+      "path": "skills/screening/watchlist-execute/output.schema.json",
+      "schema_hash": "7e958fe7db23ff92ed2d158f2f53d2bcb49b7be64b097e9ae5de7783b1aa9538"
+    },
+    {
+      "path": "skills/transaction/anomaly-detect/input.schema.json",
+      "schema_hash": "dbd90ed12808323195cf20615ebc504d53c55ab64ec9b4447102a2e6d1dcf5c8"
+    },
+    {
+      "path": "skills/transaction/anomaly-detect/output.schema.json",
+      "schema_hash": "e957bc0e969102f0fa39279d18b0cc779d48093260adc837b570e53fa3eb99a7"
+    },
+    {
+      "path": "skills/transaction/baseline-compare/input.schema.json",
+      "schema_hash": "0a53668fb8536204e82f841c0bbbc8b45f8d462ac703583e4a48d2f615bb06fc"
+    },
+    {
+      "path": "skills/transaction/baseline-compare/output.schema.json",
+      "schema_hash": "eb0fa363caf1dd26a83e2b90f715d784bbb4b2c7907bb6d96314ff1700d63a38"
+    },
+    {
+      "path": "skills/transaction/behavior-profile/input.schema.json",
+      "schema_hash": "4bc51dfc193e3b3dd81d1aa4d74fb353eec8088f71a6165571755499807fdd83"
+    },
+    {
+      "path": "skills/transaction/behavior-profile/output.schema.json",
+      "schema_hash": "1cdee88d679386430b64051f5946d23e8634c5c28e90cc24c13a4492376bad43"
+    },
+    {
+      "path": "skills/transaction/cashflow-analyze/input.schema.json",
+      "schema_hash": "16922330248864fdcedf00a5660f61c96b19c21351099ec55f5787e4cb0980ab"
+    },
+    {
+      "path": "skills/transaction/cashflow-analyze/output.schema.json",
+      "schema_hash": "6fb4a014998b49760af73a1194d47e3cef4920565cee0ad2af658fed4028db15"
+    },
+    {
+      "path": "skills/transaction/classify/input.schema.json",
+      "schema_hash": "5c07e18e7091d268f928b9c82fed85c82b92b85283ed18b53cdad75d88fa8022"
+    },
+    {
+      "path": "skills/transaction/classify/output.schema.json",
+      "schema_hash": "1141bb43f090b81339b08298d1fc0db8f8959cb0999a13a1385a99c5622842a9"
+    },
+    {
+      "path": "skills/transaction/counterparty-resolve/input.schema.json",
+      "schema_hash": "190e084af5e156ffbb412220194aede48bf1fc1fa023c42b68b31935e881096f"
+    },
+    {
+      "path": "skills/transaction/counterparty-resolve/output.schema.json",
+      "schema_hash": "bd9654fe3fd474a4dd77177c5cf265209fca1fe28f44d0947205ca130b7e85d4"
+    },
+    {
+      "path": "skills/transaction/enrich/input.schema.json",
+      "schema_hash": "ad29b264021bf9df71f5392928894dbd37b3c59d8e8580c24b74b83dbb6caae6"
+    },
+    {
+      "path": "skills/transaction/enrich/output.schema.json",
+      "schema_hash": "f598ad30ec44484e2f220940cc8ad4166f3be3b5d81e2490c3180f45dc038881"
+    },
+    {
+      "path": "skills/transaction/exposure-aggregate/input.schema.json",
+      "schema_hash": "e1a17a019e147563b859364a0b79a7ff5438cbe7911027d8501a5678a0e8e66b"
+    },
+    {
+      "path": "skills/transaction/exposure-aggregate/output.schema.json",
+      "schema_hash": "bf84130c852d61bb503e83a2098fa3c62a51beb776b300c1d5211044b9dce6ca"
+    },
+    {
+      "path": "skills/transaction/flow-trace/input.schema.json",
+      "schema_hash": "ccca1a5e6b96d050a2eeca1c56461c985944b9c38b2de0680a237d8bb8d9c58b"
+    },
+    {
+      "path": "skills/transaction/flow-trace/output.schema.json",
+      "schema_hash": "c0bd468c6f65389b305f9b8f1bea6e14e1e1137c4b98c77a469bcc87e3844364"
+    },
+    {
+      "path": "skills/transaction/geography-analyze/input.schema.json",
+      "schema_hash": "5e8ea06d76ba0049dad3ed0957063ce98eef7df4a9a615feb4be9b9fbac4c49e"
+    },
+    {
+      "path": "skills/transaction/geography-analyze/output.schema.json",
+      "schema_hash": "9fa1ca2515f8bd73a04690a18eb7085d4157b9912b88d219817659f1e5cfcd7f"
+    },
+    {
+      "path": "skills/transaction/ingest/input.schema.json",
+      "schema_hash": "bcf154ebac93bdd79b203adbd477053689b1ec6ced7a0e38f17f04fb74a8cd2e"
+    },
+    {
+      "path": "skills/transaction/ingest/output.schema.json",
+      "schema_hash": "4da25a130e8745b018c624a3f89d4904cc990f38326471eb9e458084a6ff342d"
+    },
+    {
+      "path": "skills/transaction/velocity-analyze/input.schema.json",
+      "schema_hash": "0f2ebea37a8881202ee2125b2cd2bfcf60021b4c9273700ad1362b9322fee9f6"
+    },
+    {
+      "path": "skills/transaction/velocity-analyze/output.schema.json",
+      "schema_hash": "859f257b8bc218e92b0e32a51fc9af49df0b7379745d666e2ca21b2bb371cc17"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.classify/input.schema.json",
+      "schema_hash": "5a1c14a0dea2a0309db55a800b9e881ddf086add9028281ebc86955d827538fe"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.classify/output.schema.json",
+      "schema_hash": "3700c9a5fefb7af3cfd79a1dd25cd9e539853f565b3a013edf0f8dd48cb0436b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.context.assemble/input.schema.json",
+      "schema_hash": "c2b34f8aa5f0a3fac8466632ec797b3d9e30e7af1671786b1c373de8f5370426"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.context.assemble/output.schema.json",
+      "schema_hash": "0bf37caaecf6caeb64a39dcad87830a4466a933fdef40cbdf4884a01871d0b85"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.correlate/input.schema.json",
+      "schema_hash": "88166e7d4b36846176e235e2b5b0c709eaef12a9125e2e2c728c49adb1193448"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.correlate/output.schema.json",
+      "schema_hash": "3e1393406400ebfe29aeec00a081b159e7e29495e73454bc0c7883aa0e094491"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.deduplicate/input.schema.json",
+      "schema_hash": "238e50cb1bf0d0ca205e4caffdc86a7c608556235e7b1a474fad281a968afd32"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.deduplicate/output.schema.json",
+      "schema_hash": "0a2196994afab7ce9dc5dc1a09f52fbd114ed6d1d0d018264811b70c127cf75d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.disposition.recommend/input.schema.json",
+      "schema_hash": "5a79bf388cb68148a388eed0efcd65cd86f04ceb9ca81fcf078ad7a5bdee6352"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.disposition.recommend/output.schema.json",
+      "schema_hash": "fcee69bae2a755cb60660df6a3998acc754a2dd4ad63ff3aca003cc6903fea2d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.escalation.evaluate/input.schema.json",
+      "schema_hash": "ded398e168bc8945ae54ca5fdef5f25bb3aa085545df7e46dba289c05032eec7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.escalation.evaluate/output.schema.json",
+      "schema_hash": "843c24588c6f625da275ff41e33d91a797f688ff9260ea2d3dce7dd5f93aee47"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.false_positive.assess/input.schema.json",
+      "schema_hash": "595359abf773184751cd95e3a2af9b09805c4bee74f527fbcb6d5bb897218e3a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.false_positive.assess/output.schema.json",
+      "schema_hash": "b0e5b8a2706d4a8b3f4048281e89e02a4ff43d8c683c7ccd7ee1c890f66eff99"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.feedback.capture/input.schema.json",
+      "schema_hash": "fdfb7acdd47f3a2a9882f9ace8f9e6c6e7eaf5ac896d24eb89b61a2ecfe42e87"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.feedback.capture/output.schema.json",
+      "schema_hash": "32a2e984c4d93e2a8e6c6024afb0e7fa8e0d293c5bd250cd80eb6efeba757346"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.ingest/input.schema.json",
+      "schema_hash": "5cfca068b3ad1ee8966ad33cdbb01bfac787a40537eabc732c75e7c08ac2faba"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.ingest/output.schema.json",
+      "schema_hash": "910ff8dd7439301f65b2336d4f757fd068c6b3b120504d72e020e3d0ce8c4a94"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.prioritize/input.schema.json",
+      "schema_hash": "b00d02e5075387b2d6db3e8f8efb1a1128ccf93064ddbbed0b460943e41818c5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/alert.prioritize/output.schema.json",
+      "schema_hash": "426f9a303bde4ecad602c0a0947204fa5987b3cc59e46a6eb998b4e680c48b51"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.funnel.detect/input.schema.json",
+      "schema_hash": "a3194cfee62dfa139567d7abe6fcb2d3db383479f50ca15bdfc08a971bc84529"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.funnel.detect/output.schema.json",
+      "schema_hash": "dfc5a6ec12191c7d691b3df09192e6ac6e9bfbc4218850b89a2316e8b3b06709"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.layering.detect/input.schema.json",
+      "schema_hash": "b2d2e9dc532ca03acaf6e025d4ece958a45a789d3612a96ea9038c1f62fc3d73"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.layering.detect/output.schema.json",
+      "schema_hash": "d6e1750cf5612aaebfcb9615ad59b0006b222eb8cf759a857bd9ca6c7dd695ac"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.mule.detect/input.schema.json",
+      "schema_hash": "01896d765a2560e9f3e206ae5412b0932b4c5a76c331c27de9877300684927b8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.mule.detect/output.schema.json",
+      "schema_hash": "5eeca94ec840d8a2dfd8fa3951957ebd5d3b55197b9fb5a7499e093fd6340abf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.pass_through.detect/input.schema.json",
+      "schema_hash": "06c1b9e9392bb2d4242df68c1cc2c602259259f0132a0929145e033ae4ac6113"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.pass_through.detect/output.schema.json",
+      "schema_hash": "37f927ae0d88306b59f22cf14c6ba970b0b7ac8377efde710cfa70c287d97fe8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.roundtrip.detect/input.schema.json",
+      "schema_hash": "16ca7e29c63572e26e575997164bd9ba547d312e2d707626725001b1ab741054"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.roundtrip.detect/output.schema.json",
+      "schema_hash": "2dbf285171a6f11f5db3c24576fe14d06dcfae32a95b808f7628b460f9b715dc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.shell_company.detect/input.schema.json",
+      "schema_hash": "8285b5f6d0b091e5b906499cd4536cb144c5a85007304e345384844708ea439c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.shell_company.detect/output.schema.json",
+      "schema_hash": "3c9ffb9eeb14ada87fc71387ab65dc7be66b0b1331e6b30280d8aeb04d9812d8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.smurfing.detect/input.schema.json",
+      "schema_hash": "edc7247c11446d5c22e73420374e32ccd03123c6abafe038e45864482ffb1f8a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.smurfing.detect/output.schema.json",
+      "schema_hash": "5c5261c4ab467e8108804f47186404a75183fdbbab930d3c3ef1e07843090954"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.structuring.detect/input.schema.json",
+      "schema_hash": "5af97751e7d357b2b14f39b49eb3f74ad1cf307e45c19a4f9e2f3eafffbd5dbd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.structuring.detect/output.schema.json",
+      "schema_hash": "e7abae000ad076e6992fffb19776043f01880834c3fcc91b4386c1728d1e8492"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.suspicion.assess/input.schema.json",
+      "schema_hash": "e6957bc093e011acfc8947d8d4d41f18265c1aa661a4e5492dded7b280033c91"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.suspicion.assess/output.schema.json",
+      "schema_hash": "51f425b55a0a6cbef6a45f9a35e0a54de87db3e2c63c7e12f08c7c28d21abd39"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.trade_based.detect/input.schema.json",
+      "schema_hash": "162e2be56fadf2ab9ab0de21045c3f17476636e74a4c502bfa42332b52717a1c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.trade_based.detect/output.schema.json",
+      "schema_hash": "7079f5f67541458373cdbc77b751961fff287d72cd52ea3997c449f5438fc7c9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.typology.match/input.schema.json",
+      "schema_hash": "59661616adb98a6cb537635b9486ae0a4d410772f8ca9300fef3e133ce77ecd0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.typology.match/output.schema.json",
+      "schema_hash": "7c39fd168ca40bda520ef08fceb04eef1612504aba944d867eb12ff79f488c67"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.velocity.detect/input.schema.json",
+      "schema_hash": "3f3d35456a645418ca2d34b26b490f154fa9083782fd4680fd1ac95fc2c11524"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/aml.velocity.detect/output.schema.json",
+      "schema_hash": "553f9e745e79ae4892cf10b58b0aedaec745f16a7ad5ad8a1fb05807bb2b1d0e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.close/input.schema.json",
+      "schema_hash": "17ad1f93b97e545a723fa08400452d8c4ee9e088fb37e28fda48b6d8fcdd1729"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.close/output.schema.json",
+      "schema_hash": "8209331262627411f24313f6ab7edd97eee744e68f4a42f0c18a420006a56c39"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.context.hydrate/input.schema.json",
+      "schema_hash": "6d89618f611c7ed94a102da12863f70cc4dbf63abecb2743b51168d7bb4380db"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.context.hydrate/output.schema.json",
+      "schema_hash": "00022b6224fc55cc3f46d5ba049237048fb9443056d284e1f07ab9235ec5f968"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.create/input.schema.json",
+      "schema_hash": "ab6177a006b879ccce8b3f77b7607ca0048c51289bb3b1fdb041d26ef858cc8e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.create/output.schema.json",
+      "schema_hash": "f9808ded9fb91371876f36d36d4fad34f2ee58c78dd39621a2160b1021a047fa"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.dependencies.evaluate/input.schema.json",
+      "schema_hash": "82df8da9a18f841fb06b1980477a3c74e4ff5a4df9194618b3867b2e6fd201f3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.dependencies.evaluate/output.schema.json",
+      "schema_hash": "d66489ec16ddbdb0b06e14d750d5d3dcd88c999327d291512b3b8414d81cb818"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.escalate/input.schema.json",
+      "schema_hash": "4ff610aae992ef9366c990315296027d72456c7235eaafc8747755e67b01b15e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.escalate/output.schema.json",
+      "schema_hash": "695b46705c024834920e5ec7a64e33421f8a3e2fd9296f910ad9bf16fc6c22c6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.sla.monitor/input.schema.json",
+      "schema_hash": "ee72944636fb61144c961fe190315d9ae4a33c14551b9e0362f30a6993123843"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.sla.monitor/output.schema.json",
+      "schema_hash": "e3f0be97b2b917454fa654ae41470294e61e9f5f5acd44d2c6c337a8a0e1b4ef"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.state.transition/input.schema.json",
+      "schema_hash": "e580175e167dc93f3d084d3a2f3ff6a0ba2c9c2d6c0c25506f0209591a2654c3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.state.transition/output.schema.json",
+      "schema_hash": "f85dcf1446c45021fc9954b82ed76dd859c94d1dc793689ec26a3b36ff3e5abc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.summary.generate/input.schema.json",
+      "schema_hash": "124375231668b7edd61827705f52adf46889ee9384c9badff8cf05a3c8051dea"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.summary.generate/output.schema.json",
+      "schema_hash": "001799612b400bfc75182b4e17591bd377ff300344effc6ffdb491de49c17a03"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.tasks.assign/input.schema.json",
+      "schema_hash": "8ae541bdec7da2f7496748bd5960b7d1e2e6f8031c674d7ccb9149203b96fe49"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.tasks.assign/output.schema.json",
+      "schema_hash": "792a40039ec03b7cdcbe0141ee7e677d7ea6ca0c1bf5bbe686566b1a5d435857"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.tasks.plan/input.schema.json",
+      "schema_hash": "53a7cb316fe28ade0e6946bbb8294cec1021751b4270283a3d3c69183968dd35"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/case.tasks.plan/output.schema.json",
+      "schema_hash": "bfe19f994fe3863599bf5d4309a13ad1a44396ffa9ba9d1d04e7a8e8781b90a1"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.approval.route/input.schema.json",
+      "schema_hash": "39359009b390ee90d3bce04ee693cb4aae6f14f0dcae66cf42ca92be1ba33275"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.approval.route/output.schema.json",
+      "schema_hash": "166313366331bec92a4db3ca3be8ec30c104e24bda26987f36b648db520e62b7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.audit.verify/input.schema.json",
+      "schema_hash": "e5e0706b89cec07dc043ee3c814950654f46ddc47a52e35223cea25531110771"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.audit.verify/output.schema.json",
+      "schema_hash": "7f38f2bbc0a2a5123b4863a39cfe6820fb17a7b327289972bea031db7e71f88c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.controls.assess/input.schema.json",
+      "schema_hash": "416bd3a8d8658a65daf1d0059f36628ef2a094ad87c116a2e72c0f2451ce9e47"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.controls.assess/output.schema.json",
+      "schema_hash": "146a80bf7d012e5f91cabec772b60f9e96b8e6158ff8c50925257e21ba049fb2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.disposition.record/input.schema.json",
+      "schema_hash": "5cf9507c457fb4f69dc35fc0606fe57c8f8d06766c3335621a2a8112aae2474f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.disposition.record/output.schema.json",
+      "schema_hash": "b9852732b446400a39602e67aecaf165a57e0aae89a72cd3644f43c33a949369"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.exceptions.evaluate/input.schema.json",
+      "schema_hash": "3c1843182463179e2c8b6ca8004d86618e767e438abb796cd6b16bf9a2693f07"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.exceptions.evaluate/output.schema.json",
+      "schema_hash": "c657bf2e262205f0a33d92cfe573c76ba46e07ce95c3d3bdfb445d357e0ad3e5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.explain/input.schema.json",
+      "schema_hash": "00dcba01edd2affc773f31eb33e132faf643099adab7e2ffd287496479a922c2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.explain/output.schema.json",
+      "schema_hash": "8bce5a830ac0db34bfa2a2ed17a70d72fd5b3b2da0d9a0707669f989fb12f6c0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.gaps.evaluate/input.schema.json",
+      "schema_hash": "bbcbf9774e294a4f790b199685a0fcd5c6fa185a6d2fb1e360df5494abf017fc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.gaps.evaluate/output.schema.json",
+      "schema_hash": "cc01503ae82e68e8ee19ff07688b645cd212a4d866128676a01a5bd31ac65cef"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.human.review/input.schema.json",
+      "schema_hash": "394f3045b20c5000187999fc8f5414e6f0d1e5dbcac073dd83448164eca37fb2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.human.review/output.schema.json",
+      "schema_hash": "6dd1684bafaeacce1ff590e8bb7d454ed2a1b6a5a60b4ce3a8ff4019f3ffc17e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.policy.resolve/input.schema.json",
+      "schema_hash": "ea9028654dd1349cb9670258b7c9f5ecc632a49f91621426e492f74e2448b5b5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.policy.resolve/output.schema.json",
+      "schema_hash": "c6162058bb49b3d533533971134f9120726ee06b84343fc0df1b0bd55cd147f0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.recommendation.generate/input.schema.json",
+      "schema_hash": "db2f68d9db66bfb84bb2bae4d4f277b7860512aafbee153adfc4c0f36a6f36f3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.recommendation.generate/output.schema.json",
+      "schema_hash": "ffe1af3614c253d82020c0ec4017f3ad74aa130604ebd16220f49cc705fa8cec"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.requirements.compile/input.schema.json",
+      "schema_hash": "d6f289e6ebc088b5852e847547a95dc24fd8a09d82d4739931abc0fe339dc5b7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.requirements.compile/output.schema.json",
+      "schema_hash": "033af2d96229d55d245a948a36ba57fe3d5f851012bde227e9d21edd43e18895"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.risk.acceptance.evaluate/input.schema.json",
+      "schema_hash": "1f430bac6f624bde51841dd511cb387e50e0c585bf67f3415afe602a4af55da6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.risk.acceptance.evaluate/output.schema.json",
+      "schema_hash": "42b2a1814fec1f597915207e5c3656ca88692c4b828143ea25d1a143e35d7bdf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.rules.evaluate/input.schema.json",
+      "schema_hash": "7287090b6e8b12905e29f88fea3215027c0ac5c758ffb33b6a371514a7874a1f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/decision.rules.evaluate/output.schema.json",
+      "schema_hash": "c71c4dd8d2bf1fefd41cc2650400dc1e814114fdb583c6486ab074281b912957"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.authenticity.assess/input.schema.json",
+      "schema_hash": "6dd1d3172d35e2a1cf8a4aa31dea24ef7ad903fc8efd612f58e3b72a75e4baee"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.authenticity.assess/output.schema.json",
+      "schema_hash": "681d7063b1fe8976537b5b0ce6d341e6cdf3967d806718904f3673fa2c48f71d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.classify/input.schema.json",
+      "schema_hash": "27de8964080f057eb09bc3600405629bb44093d1e42fdf955aff09e54d0c4e65"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.classify/output.schema.json",
+      "schema_hash": "8c57119bd2bebce100405e80f608b7faab46a1aad1be85fa0a5f2f377b9b510b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.classify.catalog/input.schema.json",
+      "schema_hash": "c1846d6a660af9e797247f13d9727c9fdae5d7ed39f136605180fa29f32efef0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.classify.catalog/output.schema.json",
+      "schema_hash": "b93bcdfc40f7076b2775cf567e6da3e2513a9309017a5bf5645bcb8d0f59fc44"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.consistency.assess/input.schema.json",
+      "schema_hash": "6a6ccffc84dda576f1bb5d6f8fafc5228b8f437ef738957aa50dd4857c8aa2e8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.consistency.assess/output.schema.json",
+      "schema_hash": "ab9b5f9e7750d238f6efb7da169b33baab70b2ca5f97c45c133eb516aafa4430"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.consistency.check/input.schema.json",
+      "schema_hash": "db6a6ebf0ced80ea9a1f81ee1cbff2ddbf939037a108ed765f4a281e2453050f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.consistency.check/output.schema.json",
+      "schema_hash": "b1d053ba66e9729ba9bfea963308ba8ddcaae91e264317218786aedd9184d9c5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.entities.extract/input.schema.json",
+      "schema_hash": "f5e0a02e8bc478a6e2f05da81df6d12a38f5c48e33f589ef9981bbde8bda8077"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.entities.extract/output.schema.json",
+      "schema_hash": "91fe323f65a3ad700ccde49dec3b0a44b492af2a4948c476d20d9f7f4a80be74"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.evidence.link/input.schema.json",
+      "schema_hash": "6a7620e019b99f7337ecc791be2833b35c938fed7388076aa6910adc97e6c395"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.evidence.link/output.schema.json",
+      "schema_hash": "f2125e47196d9b3224c2e22918fb71315dd32445878f525ffb35764ab03a8926"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.fields.adjudicated_extract/input.schema.json",
+      "schema_hash": "94583a90d32b87a0428f2381dfeb06d243219083d975e8b3403493f8d054b739"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.fields.adjudicated_extract/output.schema.json",
+      "schema_hash": "0c1ccdce6c8618edda8595499d45c7c257456b7a05384cb7fd61efb87bc72df8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.fields.contract_extract/input.schema.json",
+      "schema_hash": "6086f9a2fa897faa19e4a016a946bcc3c52a1eaf7d74069759628d57be9b903f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.fields.contract_extract/output.schema.json",
+      "schema_hash": "c70c5b0c31776ed9d5b9429f9a77033e510a6be5ca845662d7432de121967653"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.fields.extract/input.schema.json",
+      "schema_hash": "21efe69ba168fc902ceeb37470adef0b4f80aebc8660e7235f0f763e4ce3895c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.fields.extract/output.schema.json",
+      "schema_hash": "a2c27a82f2fb962769b483a706d94dd6ac97e13b5107cd9ab1e06c2e1e547704"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.parse/input.schema.json",
+      "schema_hash": "99b04979e893d11cabcf500a1da13f44db993abff4f8256466f39d414644d697"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.parse/output.schema.json",
+      "schema_hash": "2ed4609c05ef57def47c2825fa19f12b0a10ccb89a121260f538ca6fcd01dc87"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.parse.artifact/input.schema.json",
+      "schema_hash": "c35ac83b7b77b0e30b5c606e99c0b701def4cf77ab0bed4df91ca330f9344686"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.parse.artifact/output.schema.json",
+      "schema_hash": "405bda379e986c77673f8fecacd73e0f16d24444461fb5acf3f82e16cf3d501a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.request.compose/input.schema.json",
+      "schema_hash": "f8874dcac6ee80faa6831d388e1532151272310f0cfc8dbd2b6a4c6761f718a3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.request.compose/output.schema.json",
+      "schema_hash": "160305ca4922c3c5efd34c8dab5379b00e7eb38435eb5080ea27e59a8d7bfb23"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.request.generate/input.schema.json",
+      "schema_hash": "cf3fc0634dcc2b22a5350801e1791c538dc064ccc251d0b9839d5407d8b9fd35"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.request.generate/output.schema.json",
+      "schema_hash": "b3d05391ff4dd0e20dbb45925860f1aeecbf1255afad129c49ce064a3d84fe6a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.requirements.evaluate/input.schema.json",
+      "schema_hash": "de7cdb695eb04459acbf624e5688cfc4d375a25c20f541cedf46f5ac8f1e1537"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.requirements.evaluate/output.schema.json",
+      "schema_hash": "12e915f53917cf19a88c9297a06bb69c745634a4fce61665775f6c201da1170e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.requirements.resolve/input.schema.json",
+      "schema_hash": "7e7bc17ee8042b64ebf19327020f64e549bf9afa0e3cbda93d59b1c6cad149e2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.requirements.resolve/output.schema.json",
+      "schema_hash": "cbab315e2dfe8117942ed806b3e592065579bae37c4430b14254a149d9410778"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.translation.normalize/input.schema.json",
+      "schema_hash": "c5ce075c2c3aa95c087295576d04d1f59415cfa01d137255955cc1ed652373cf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.translation.normalize/output.schema.json",
+      "schema_hash": "e3bc307f18823f2edb1e0bb562289ecd10a7afcd75bc241f2b12bd6a77b63d33"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.validity.assess/input.schema.json",
+      "schema_hash": "3489334c7b4227b639f28c9b96b72c2311c686261b108de9ed661ad33134881c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.validity.assess/output.schema.json",
+      "schema_hash": "2ed4e4444a560fed873a1cf0e31274480860bd0f14d3c5df84bee1d83af292f6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.validity.check/input.schema.json",
+      "schema_hash": "6c03ce6eabf7eaf5106bb38bae4dc46e78256e248a522dcf4171e255e232b6dd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.validity.check/output.schema.json",
+      "schema_hash": "e0cabbecb02781537170e44a7f8e59ed0edc9ed1fc13fa5845174d7023936f19"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.version.compare/input.schema.json",
+      "schema_hash": "b0637246ecef4114c8f9c7970f1172dca387cb94985da593fd44c01a6fec6bbd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/document.version.compare/output.schema.json",
+      "schema_hash": "9177fe2568f23ae740a1df8ad04560935715b1d7151d24eb233e718012a506ed"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.business.purpose.validate/input.schema.json",
+      "schema_hash": "178029801c8dcfc2fb7cc8e456b4fca24f9d80f20a727d6ee1c49380362cda9a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.business.purpose.validate/output.schema.json",
+      "schema_hash": "1bb3860c7e5b6f44febcac84b2e2d01115badf4453e65e4e1c07e084fec422f8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.counterparty.analyze/input.schema.json",
+      "schema_hash": "56881e6e099daa70caed2a72b1ad236c80f6026e8d955ddedf420beec3f8658b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.counterparty.analyze/output.schema.json",
+      "schema_hash": "6ffa73fda37d0e4a785b17750d49f924fecc5085d118b28fddc60484f27367f8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.findings.synthesize/input.schema.json",
+      "schema_hash": "e8ccc571f619ae789feb1f6a40e1fddb969bb3a9a81b8a5f616078a190ee9ede"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.findings.synthesize/output.schema.json",
+      "schema_hash": "4838823b8bc031e78c77eb8a77aaacfe5d4bddc60213beb3edb1622467c01095"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.geographic.exposure/input.schema.json",
+      "schema_hash": "3a9fc0b6d809a61a469a1780fd555a8f5662669dfe27bdf324180347837ba107"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.geographic.exposure/output.schema.json",
+      "schema_hash": "8ef2acb22cc49435c3707a27bd35640205a761195b34a38dae077a1a0f3fe49a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.pep.exposure/input.schema.json",
+      "schema_hash": "c296fe19286fd26195853d46deb764f128aa413ee9e445f39e0a1ffa3b4966fe"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.pep.exposure/output.schema.json",
+      "schema_hash": "df6c26b98422ebc6c14a6c610c15b312a555897ea35047f3a16d7efafe6f8fb7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.recommendation.generate/input.schema.json",
+      "schema_hash": "ec5356f78568ec512e60155c98f8efb65f91e0f409b932e18bac50e4f92c90c7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.recommendation.generate/output.schema.json",
+      "schema_hash": "18dca806ae6dbe384e02f847306db4ea6458a20941b5e709292a89f098beb799"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.scope.plan/input.schema.json",
+      "schema_hash": "22d078ea49472586b2997e0c81cde06d77b0edaee3c8a4d787e1ca1f6768b0ff"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.scope.plan/output.schema.json",
+      "schema_hash": "8a953236a637ed62a40db7f124efab4b12627e9872547cc455689dadec19a3e9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.source_of_funds.verify/input.schema.json",
+      "schema_hash": "e509693aa5c95f9b8a5afae0d7d8aac05dd5aa18e040a2f5646c85da8601f739"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.source_of_funds.verify/output.schema.json",
+      "schema_hash": "8655a78679b4e734eaec8e65e6c88682f65275f72ce6754f72a18dbbadec8fba"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.source_of_wealth.assess/input.schema.json",
+      "schema_hash": "c277a91327d7b59fb9316a6c3698db66af40acfb061faa35befdf6e8b9138db4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.source_of_wealth.assess/output.schema.json",
+      "schema_hash": "5a17bd5dc25ebd0dd613d778fcb6603d1947c8a9d4454086934d640f65682543"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.trigger.evaluate/input.schema.json",
+      "schema_hash": "e5ce4847d4cd0efe927d93120f2d69dd0ba2e9c6f971a0096a2c6b36a8551b25"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/edd.trigger.evaluate/output.schema.json",
+      "schema_hash": "0640522dfc9445912b60faa87df2ca488965adc65bb5bc4781d7aef6325ccd5d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.address.normalize/input.schema.json",
+      "schema_hash": "2884df06858a8e1939d145ebe3d5bd5087cc5c784ca0bc36297eee2a625058d5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.address.normalize/output.schema.json",
+      "schema_hash": "05ea53e363cd9182ea9796fd3468e3674271eaa6dc16720e00148b37a332e80a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.alias.resolve/input.schema.json",
+      "schema_hash": "778409f1659fcb193a99ca37e0ab13c10c3c8494492bdad24b8b722bf749ad14"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.alias.resolve/output.schema.json",
+      "schema_hash": "2de7c496a0a8c66a401b98a62397d271fd422edb5d5114bd15da44175d1cd368"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.classify/input.schema.json",
+      "schema_hash": "cd318dfe9885446423c65d54f1d7194141d63f2dfd2f1688c72d3d7756ba035e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.classify/output.schema.json",
+      "schema_hash": "eb46fce256deec37cfbfc87b49e2145fee13582e18120caa3c706d5816c09d8b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.confidence.assess/input.schema.json",
+      "schema_hash": "c088c0fb49e16c6d028609a74d3785ca9d08e49fe8c661c12db10a71d0ac682b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.confidence.assess/output.schema.json",
+      "schema_hash": "a318b6598107cf5b78b40e5409e64fd45e8ba847a9f25801f0ddf08c3c7d7e0a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.deduplicate/input.schema.json",
+      "schema_hash": "66a8f4488be083fac391386ea7b152ecb5617ef595b3939739820eae47143f4b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.deduplicate/output.schema.json",
+      "schema_hash": "9f89a7a672f99639474a2a3f4649f3109dab6894795e5df73b147a00130290b5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.disambiguate/input.schema.json",
+      "schema_hash": "d375cde18dca9435d2ff38ec336f99ff2ec2f1556c959e3cd4b9d67b5de4b36f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.disambiguate/output.schema.json",
+      "schema_hash": "d4805c1210f744753f1c85a0ac90c17556229506cf9ee7b8b2f081ed6ff0b59d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.history.reconstruct/input.schema.json",
+      "schema_hash": "b1d5a77a4c01485446aa801a5ff50be2b2f882340de4068acc79eec7e899b4ca"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.history.reconstruct/output.schema.json",
+      "schema_hash": "f4c3febe9666ee68b68043e693aaabecf9f91fd2a99a8dc86219a965e38dec2d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.identifiers.validate/input.schema.json",
+      "schema_hash": "6b5e966c8eb46dc6d9de34283dd6faa21ca0bfbc69b0a165cd9c900599204514"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.identifiers.validate/output.schema.json",
+      "schema_hash": "0100b52542f322e815096b07d119ca5e717629b701ef3d25c2ff2a1a509b54a0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.identity.verify/input.schema.json",
+      "schema_hash": "6cf46d5ffd11cf466bf813c4eeed803a1b46372f7af42a0d0819677bec17f849"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.identity.verify/output.schema.json",
+      "schema_hash": "72003a9e864458770e752fae892cfca638e72346b50fc671daf621db1136062d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.match/input.schema.json",
+      "schema_hash": "91632739798a5881618e97db06ac6a666efdc919da5223e67d566718a495ffe8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.match/output.schema.json",
+      "schema_hash": "fb74755d0b08382906830f073d2b0f4518df2ff4a4a19b45c6c59b6d463e6662"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.relationship.resolve/input.schema.json",
+      "schema_hash": "c652e8bc65590c87da604a4ded9c18121d44c953f521072d4367dd8a8fd0a4fb"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.relationship.resolve/output.schema.json",
+      "schema_hash": "bd22281e9167ee35d514f6a703a8a03b3f587e64107c993c2ce6300aaa65ce30"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.resolve/input.schema.json",
+      "schema_hash": "5e38b89d4de105d890618dc5807065491fd5214f84e5c2d517a7b04904d36b10"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/entity.resolve/output.schema.json",
+      "schema_hash": "fdbf3246695ddabda718533e916558b989aa5124ccf4dd9b937bc9b7dd7d14f1"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.bundle.compile/input.schema.json",
+      "schema_hash": "f3f5ad4cc8997297401c54c4b3dec2f144ce23659ecb6e707dc96ff649be58e5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.bundle.compile/output.schema.json",
+      "schema_hash": "14f60143b28e877b87875ce1c2629a2a289bd610fc4b96496f10b901fba57ecc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.collect/input.schema.json",
+      "schema_hash": "a8ab982dcf48cbf7bac51e509f437e3a2a7c241239cd994bce507d6f04d0bd50"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.collect/output.schema.json",
+      "schema_hash": "981cc66cd43f1b9138b3a12141bf72696827eb1320cf9355278a5bba7740c01f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.conflicts.resolve/input.schema.json",
+      "schema_hash": "4e88ae4c0b9cfac633d80da41c0ace66f80c0103f76ace5755a3232f5763a5a8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.conflicts.resolve/output.schema.json",
+      "schema_hash": "0f1d880191299fa23f550d2d967e60899698904a5a9b89f1047710caaa46ee9e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.facts.extract/input.schema.json",
+      "schema_hash": "8f008ec0d4a62f9e65e53d29b2b970b980d256f16880ce5df2723f371da12cf2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.facts.extract/output.schema.json",
+      "schema_hash": "870390f6df9a1db82cb820148b9df22428c77223979358d0f310f55b85fca038"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.integrity.verify/input.schema.json",
+      "schema_hash": "eba30151f9c76b0d7cef9d79ff0410da606a741bc353748b94e3ee1d6d2d5698"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.integrity.verify/output.schema.json",
+      "schema_hash": "3a2927d56b5c1abf2fa944e121436940b07ba1618401ab7ffd83a2b0edd38bc8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.lineage.trace/input.schema.json",
+      "schema_hash": "be2083a1f4a4577b4c356323c9ed10448bc3e5bef0a47aa481ffed6cb6df8417"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.lineage.trace/output.schema.json",
+      "schema_hash": "52537d559940c20e65610816329b43b566b3437f463ba2492bdadf2dc92d3f42"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.normalize/input.schema.json",
+      "schema_hash": "4af4934cb4a7872a067784fd6000d5265649e23d015c285da29f30f69a8e5a2c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.normalize/output.schema.json",
+      "schema_hash": "01f688abe67e0d3fd174f4120bd0011940b1677c29e0096e30fb6b011136939c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.provenance.attach/input.schema.json",
+      "schema_hash": "6bbacd86a31e5ee7af25fd36a3908795cab883c3a6fd237c7022e32024dacbe2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.provenance.attach/output.schema.json",
+      "schema_hash": "2235473922dcaae25d0bbc23df32ed063c7f0e3093dd84b53a7e540ae8a7aa0e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.retention.enforce/input.schema.json",
+      "schema_hash": "8c5d0efd7721350c9cd7787404ffc674637bc17cc98423c4f596b50b8b2f4340"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.retention.enforce/output.schema.json",
+      "schema_hash": "8b48adce49d5ec8458e1d181f06fa06b6bf19db2881dda1ec6213b380f8b1efd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.sufficiency.assess/input.schema.json",
+      "schema_hash": "3f3a4c2e87067e6d6dba1536ce66b718cec8472459995b4c167de4e84eeab81f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/evidence.sufficiency.assess/output.schema.json",
+      "schema_hash": "e7f30496c88afbef9c5279555167e9790042edadd3038cea67c2ea32c091bdd6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.account_takeover.detect/input.schema.json",
+      "schema_hash": "49b75ac06e331cc06e386d4165fa70e1e37fb4f89174e2f5bd190db006e12cd4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.account_takeover.detect/output.schema.json",
+      "schema_hash": "530c151e4491666be4542de22b262694a4a0cc76820c8670210aba8a17e686b4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.behavior.anomaly/input.schema.json",
+      "schema_hash": "94070b1b6a3702279cf89cc12782a4fe743fcaed32eacd634c4de85c9639bd8b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.behavior.anomaly/output.schema.json",
+      "schema_hash": "2a4228af392864d0357e1f89fcce84e0b1e11b80d9096d1bb2ac445b24f67047"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.beneficiary.risk/input.schema.json",
+      "schema_hash": "718c5b77c7c821bd6d8d799a35203801e31337c20ef56e679831c836302709a4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.beneficiary.risk/output.schema.json",
+      "schema_hash": "582920e8ced116fffebe96e42f05a5fa3cf9d06946d83ecba4adc523aa2402b5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.case.assess/input.schema.json",
+      "schema_hash": "0b33084b38a4cee28b0bba316ad271dd3165bcff348629b9860c2dcb2e33d8da"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.case.assess/output.schema.json",
+      "schema_hash": "064909f21f9eebcf90fd8b90768d656596dcf5f784e813b8410ddcedefbd23b6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.deepfake.detect/input.schema.json",
+      "schema_hash": "515363c5b36cbeaa29c8d8132afa4247624880a51a87e5fa49dfa3cea9f51974"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.deepfake.detect/output.schema.json",
+      "schema_hash": "87948f185258d7be785352b9da8e7c909cc19c66c6a52782a384d093a2a9d645"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.device.fingerprint/input.schema.json",
+      "schema_hash": "4685d07a24eb7fa27373b43c66c3f8c8fc8eae8dccb055bcbbea7ec0534e9fde"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.device.fingerprint/output.schema.json",
+      "schema_hash": "d8c4adcc0e4842a510a968fe663b54234e3de2103537ee5f82b0a871e136d86b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.document.tamper.detect/input.schema.json",
+      "schema_hash": "293f0d825da203ccfa6d74bacfba957c650655ba25461216fd48ff7a6eb4c9c1"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.document.tamper.detect/output.schema.json",
+      "schema_hash": "601b760a5669acb6c4e296f85fb02dbc6a27ecfb8562eae8b75a21710cc529b7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.identity.synthetic.detect/input.schema.json",
+      "schema_hash": "c836dbdd899829bc31cf6c96fa65dab59ea814cef20a6205f23ba24ee3eda06a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.identity.synthetic.detect/output.schema.json",
+      "schema_hash": "6d5677ac744dc335c780fd25082e61ead2f1b628735a27d9016e9f24dbc3c8cc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.identity.theft.assess/input.schema.json",
+      "schema_hash": "0f90b733e7f2cf13fee371989e92b10586e1efda382456c7f827ce431c81752c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.identity.theft.assess/output.schema.json",
+      "schema_hash": "39a845ca88c1dd5752b5da626585702bc9586552ffb419ba7083c4a21865e88a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.liveness.verify/input.schema.json",
+      "schema_hash": "1436eff008d6d305f6f3a47033718ad30a9823de1c9de86acad61343bff4f859"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.liveness.verify/output.schema.json",
+      "schema_hash": "212cbba6fe4954007bbf2732567dca8ee1cb4fef4ccc9d7a7ce15718b8a36678"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.network.detect/input.schema.json",
+      "schema_hash": "e02675dface068ed91c636c4dfd8573603254506a61ca3303fd717bd3c76ecdf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.network.detect/output.schema.json",
+      "schema_hash": "fbbfaece09922cb9cf402841604b83a596787394e9e69b9c1bda6963aed68739"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.payment.anomaly/input.schema.json",
+      "schema_hash": "893d1249bf1885ec98b335e0332b7425fb4a59b588b335c856fdd8501a5e5108"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/fraud.payment.anomaly/output.schema.json",
+      "schema_hash": "00c124df1af5daf0583e07d61d023f7be2be64246d5ea06e58f6b2e432e99dbd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.contradiction.detect/input.schema.json",
+      "schema_hash": "81d3f6191534754a44ecd2b1b21235bfd9782e42a59a1be0997288d8514c066f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.contradiction.detect/output.schema.json",
+      "schema_hash": "bc073bcc02253863eb30d4becf294b5797731536395c8e021d73bc1fa67b5283"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.evidence.collect/input.schema.json",
+      "schema_hash": "09f159cc19cb76bdbf4dcd952ba0bbb41b8819f029a84949bd61c8532b3bb2c0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.evidence.collect/output.schema.json",
+      "schema_hash": "e10103ab85340de5d3472269370b40aac567288de34e2d5d44d60c52f1cb7cfc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.findings.synthesize/input.schema.json",
+      "schema_hash": "c6ae4e70596bf91ac29c482d0ec4c79304cae933e9ac4b43b7d082572e6c6bb6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.findings.synthesize/output.schema.json",
+      "schema_hash": "6a818cca9c3da32239a0364fe80363c6b8d4e371e0f86f76dbdec79b8fd02002"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.fundflow.reconstruct/input.schema.json",
+      "schema_hash": "f713030f839237a950adc2c3bf7c56602e3886d4a7965a5edd0d1027ce695f7c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.fundflow.reconstruct/output.schema.json",
+      "schema_hash": "a4a4e18f3ce6cb8f4d360cc8a82215223ed6b2b4511c7e7d54e74cbb813b0d32"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.gaps.identify/input.schema.json",
+      "schema_hash": "8f0595f9d3ee62e8f5a119b8ce7e722e598e0c4b4437b884d195a547eff550a7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.gaps.identify/output.schema.json",
+      "schema_hash": "ac7c230ab600b1f0a281cc5094eefcbc178bbab562c59decd87b1b22bd85c6a2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.hypothesis.generate/input.schema.json",
+      "schema_hash": "bea0d1886d8f3e075b19445746858ded2a178ff72e8ad4ba74a8ecafb66c7fcf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.hypothesis.generate/output.schema.json",
+      "schema_hash": "a807661e23b0698050d9573616661075744aff1cc50d7630e4d136450d94bf71"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.hypothesis.test/input.schema.json",
+      "schema_hash": "a99d9a35b57870d9615a1755c51940a20a1118c5620a3dfa0752bcb50b9275d9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.hypothesis.test/output.schema.json",
+      "schema_hash": "54f5544a4bbdeee2fe55d52ed5d67a2144a5d41a5b78ac6021f561ea733cd27a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.narrative.generate/input.schema.json",
+      "schema_hash": "9f46662dc33d474010add3f05a41877910378c9ad1ac300942d4ec856efac8ec"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.narrative.generate/output.schema.json",
+      "schema_hash": "d71691559b33d2b8d11699e73a512da9248f59c147c45c3f0908a2e9dee8c1b3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.plan/input.schema.json",
+      "schema_hash": "92867fb860ca177ff72537907bcb3e789d44844f0c6c8a1056bca5457fc5c98a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.plan/output.schema.json",
+      "schema_hash": "f5e5f83ff379d9ced11918ef0ac9a201b815a85fc25066e8e61222426d8760c4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.recommendation.generate/input.schema.json",
+      "schema_hash": "ca5d324d644b83acb4e762e1b9155eaa9f19107c6285d1da9ef33447ab330b4a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.recommendation.generate/output.schema.json",
+      "schema_hash": "6b9ac3165fd89795ce71da4156f9b68ef5fa8f21b402a8c4aa11ff6f4ec12294"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.relationship.analyze/input.schema.json",
+      "schema_hash": "0a7b73b04c778416ee99124c99993dc698d37cb1640747223ef3707bb6cf88ef"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.relationship.analyze/output.schema.json",
+      "schema_hash": "768e427fe5bf2ee6e8b7c8e82b9e7be72024da6cb31f73aada0311448ffdf939"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.timeline.build/input.schema.json",
+      "schema_hash": "dd07eca6d34b7afce522f020013cf64473c57ec568c938e536542f94dba3f32e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/investigation.timeline.build/output.schema.json",
+      "schema_hash": "959ac41405c9e00b6f22811a844a7bdd6fbe8fad2e17831887060adafe8df718"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.customer.schedule/input.schema.json",
+      "schema_hash": "bda737a4eec6ca4e6bee237f501339724facc3118c01820d47ad7cc19833f139"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.customer.schedule/output.schema.json",
+      "schema_hash": "d7bed24af11a0a4c6ab7002ae7be606d483bae86159cb418e484b1548f49ed13"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.ownership.change/input.schema.json",
+      "schema_hash": "e565eb3cf360decbd39b0aff589156332b5c86cc606124dc7bb60a885c687d74"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.ownership.change/output.schema.json",
+      "schema_hash": "ad04db15534862eefca2176fcb6033f59db208e410efbb24bcd7206a30bff5ba"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.profile.change/input.schema.json",
+      "schema_hash": "4e28cbf469000874cbaa0a6d43f8c8e35ee75b518965c00d70a248d108e926fd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.profile.change/output.schema.json",
+      "schema_hash": "18d9bd00605216bf3d6576afc221638467a2e47d6a90e37a2975b96a492c9689"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.review.close/input.schema.json",
+      "schema_hash": "b696f144caf348e30a367cbf1fa769c29e2c1b7d83f8585f31587fad3ea4747d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.review.close/output.schema.json",
+      "schema_hash": "fefb4fb1f05cb877613b11df2fb48b7b6cc1a43f8d86245d55d336c8e8e8564a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.review.execute/input.schema.json",
+      "schema_hash": "247edfdf447b3931a7fc739ed5810b2f8d4e98f6105bc7dde70b646a1af0457f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.review.execute/output.schema.json",
+      "schema_hash": "33ebb233c290326adf4fada1ba1de2d36d53cc0411d15151d20597443d9d5335"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.review.scope/input.schema.json",
+      "schema_hash": "79ffa8a834c0a005a07a8302a6adcb2bf6f2c10d5495901bf67e11b4c3f4b040"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.review.scope/output.schema.json",
+      "schema_hash": "67ace430301c61de22f8ae581afb63f9f3f5bbf5a52fcac65694093be19ed472"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.risk.recalculate/input.schema.json",
+      "schema_hash": "5361e5f498cbfeb38bde710f650b0567c1e8cefab386f127e4ca37d8ca0419f4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.risk.recalculate/output.schema.json",
+      "schema_hash": "127fa38e01580720d573bc6627838bb291f99828915ae1376539a21de2bb5c72"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.screening.refresh/input.schema.json",
+      "schema_hash": "3ddded6f234b482de7d6436cdf93aab6d4cfa732c75295a7e5f3e81e3534fa37"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.screening.refresh/output.schema.json",
+      "schema_hash": "e5b9d2f7baa0de99daa2522782e7cc2323d57e4f6053ad7f9bad7773fcd4827e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.transaction.deviation/input.schema.json",
+      "schema_hash": "6fe9b2888834169e24c7a58cf368dcf4b5b5dff21988a89cb9c1fd9f0f29d433"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.transaction.deviation/output.schema.json",
+      "schema_hash": "cd1bae7e3f58422bc8a773128f0601152171778ca08ac9fec70a48a1e2c8d29d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.trigger.evaluate/input.schema.json",
+      "schema_hash": "0bd32e5d79e8b6d06f6d31c77b3ec57e1c2bf9153c3f98abf7ac8aec21df613e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/monitor.trigger.evaluate/output.schema.json",
+      "schema_hash": "244c59859e5a2105d93a60508d07dc2042dc49ab9e0f4b86a102f142be4b12e7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.beneficiary.trace/input.schema.json",
+      "schema_hash": "efca773d6b6d276b4d74ef52b08fb1fedc95a42adb2163b714ab6b30efbe4201"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.beneficiary.trace/output.schema.json",
+      "schema_hash": "403cf715285d92d4631bb9d0b7072b72c8adae367e7d135cbe1603a095379e7d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.centrality.calculate/input.schema.json",
+      "schema_hash": "b30c5390146ee4a58467613e98d0bb997076499931021ef0cba19713a2bb74d3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.centrality.calculate/output.schema.json",
+      "schema_hash": "cf986b13437d63f844a89afe3e80236b87f7e545315cbc8f6989d3bf72745c5f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.community.detect/input.schema.json",
+      "schema_hash": "94b767d67743c2f37ea924e15d527d51cebf516cf3b36f3a9b1fdaa774a3f0a8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.community.detect/output.schema.json",
+      "schema_hash": "10e283c0dec5d2bc04c7e67ade5a15690fd09b38303372b7d77f0afe6ab0af09"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.cycle.detect/input.schema.json",
+      "schema_hash": "1511d2329e017b147c71eae224316f3d4a04f740a938b2e6e51c04115859a1a3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.cycle.detect/output.schema.json",
+      "schema_hash": "b97fcbf417b88e6f1baaf8d3964a87156d829c278e5e10ec8de656366ad78a38"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.graph.build/input.schema.json",
+      "schema_hash": "f570b714a60d2d0953fc53f187c9d5ee702c1a0e605855088cafa0630a55c80c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.graph.build/output.schema.json",
+      "schema_hash": "0cfcbedf77ac126be46e2d1d86bc778a62147ef0c67e43cd50733994b2a86e4e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.path.find/input.schema.json",
+      "schema_hash": "4e5b905c724836f0c4883b34ef41b9d762b7d95fd62e10f2b3268bac5189db5a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.path.find/output.schema.json",
+      "schema_hash": "ca2a338fd912f3113a597ae58bbf43a8713147fe7aa01ad5e27ad5909ae45d51"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.relationship.infer/input.schema.json",
+      "schema_hash": "b561a68d74467690483709cd699177cee4dfc56d3ec77e6acb961eaf37039169"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.relationship.infer/output.schema.json",
+      "schema_hash": "b0cf7602d5f0a4807e01e9cd807ae90ddfd65e77dbb5d2a5856866cd9665b757"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.risk.propagate/input.schema.json",
+      "schema_hash": "dd33bd5e299cfb2b9fb0dca5ecda9aaeefec10904a968fdde1a8aa48a003a57a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.risk.propagate/output.schema.json",
+      "schema_hash": "be1b41481cdcad17733612d3db971c982a989cd44518547be7fc344370d2e223"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.shared_attributes.detect/input.schema.json",
+      "schema_hash": "6fe9ab75cd506a3a0ee6230f6f7483a86851ce124c9bd5e2ffc549d0478903e2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.shared_attributes.detect/output.schema.json",
+      "schema_hash": "5784d5c9e28bf68a1b80b779071dcf281c58e2ecf255cb8d8a7f28ab731da652"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.temporal.analyze/input.schema.json",
+      "schema_hash": "8d051b522de34af49cdb208f1daa7ba19bf1e99faacc2512d8f8f25603721644"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/network.temporal.analyze/output.schema.json",
+      "schema_hash": "142fe92e572f4df9bc4356eb82a19afdb667157ade0f0f1edf7c531e4255f580"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.circular.detect/input.schema.json",
+      "schema_hash": "3210a16b9b5a2413e8f3be7f1847bbfdbecfa9d9f41bf5a6e238f30f38ff47ca"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.circular.detect/output.schema.json",
+      "schema_hash": "9fb716a8fcfa9650b2549df8739cbfbd422f7411779f7ef3a9ea7cba17942b7f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.control.resolve/input.schema.json",
+      "schema_hash": "39ace670b58fc60dd26b54914e36a8dc2af792dcc6f84f2227fec2c7541fdcaf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.control.resolve/output.schema.json",
+      "schema_hash": "8f0baddc5387dda4e71ce511a01b32756113db07948f4ec777d3b210e7cfcd37"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.discrepancy.detect/input.schema.json",
+      "schema_hash": "4760e816c7b73d9a76878de36931b544942ae46b57ebfa63bcf56e0b17f4d4a5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.discrepancy.detect/output.schema.json",
+      "schema_hash": "7d234674444084c4a0d120351ed2c4e9df0fabe8dddfa952c38ef607969c9199"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.graph.build/input.schema.json",
+      "schema_hash": "6e2fa8d83a95a76f69b571fa484b247a814cb34eca11f214e4ad0a6287636e8b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.graph.build/output.schema.json",
+      "schema_hash": "03d4c28ee979231f5d85c5ea28ddd221106b741fa505e4f59f247a388bdc4bcf"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.graph.expand/input.schema.json",
+      "schema_hash": "5b370a9fb3bf095164982d6ef9303b6ebd340af6a9ba93abfdab85a090b5de64"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.graph.expand/output.schema.json",
+      "schema_hash": "7ca7cf54dc43c08930e916d14a3be34ba06651f2d56fe894da0cb40a76a7d116"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.history.compare/input.schema.json",
+      "schema_hash": "a8558038c2666a649cde670b636251aa3a5c0ffb3d6c9334cb721f08ddb69d44"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.history.compare/output.schema.json",
+      "schema_hash": "8d19da36a65e92ea05e193680e629dae4875a590ccc08c26a944cf6a5ae95267"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.interest.calculate/input.schema.json",
+      "schema_hash": "3a4d366689549584e43457a338f112667ee4675d772c473fea47d2f33e41a881"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.interest.calculate/output.schema.json",
+      "schema_hash": "1abcae4993e5c8ab8f9b3a68eefb9ef817cd4268dbc72f84de2f21a47adf33cc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.nominee.detect/input.schema.json",
+      "schema_hash": "6a2078063396c61a3661aff2caaa57af79331d87158d0ac8c18a8fb9529af3fb"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.nominee.detect/output.schema.json",
+      "schema_hash": "cf4faf3c3fcc1710b2e493456f3516d234c485d52ad0882dffe6b197d2c2f34d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.structure.complexity/input.schema.json",
+      "schema_hash": "52195c14b71accd77f7ca2747b63e4f3cf1cb76d845fe125ae8ac27ceef892a3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.structure.complexity/output.schema.json",
+      "schema_hash": "63996556c0f79f31525b5d60a4bcc37f30b585ae6bb78c9e4b1f4fdcffd7dfcc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.threshold.evaluate/input.schema.json",
+      "schema_hash": "f9f7a1cc0c6206901e551a88c59d412606a13078cdac1ae71196654b8f335431"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.threshold.evaluate/output.schema.json",
+      "schema_hash": "632999f72eb303eff45e9dadda7fe77a1e8ca10b336396f44820df0a86e3f7e3"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.ubo.resolve/input.schema.json",
+      "schema_hash": "64e6771147ca52ef7cfe37aadfd14e9c5080a7f028839fec9422a39b7472bbd1"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.ubo.resolve/output.schema.json",
+      "schema_hash": "ed2208199c23a1a2bc4dbc3ff796d82255f5da342ac777ba2696ce1139e750df"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.ubo.verify/input.schema.json",
+      "schema_hash": "89e31804bbbc50e2b7370be41c29083a665ba603e1f5e47e7b9fa154fa99d335"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/ownership.ubo.verify/output.schema.json",
+      "schema_hash": "aa033196e96f1050399a85cb38535a58e87db24c60433c9f2f9200743c23a537"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.activity.profile/input.schema.json",
+      "schema_hash": "6f9ae007cc338ff880319fd7d4019c3542a026fb8c431eca55d9b241be48fec7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.activity.profile/output.schema.json",
+      "schema_hash": "bb075a89f8ccc03b4dec4f447da27388688f8f61b51be37ae7f0803c08fc29f7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.expected_behavior.model/input.schema.json",
+      "schema_hash": "b0056c8deef4e548508689f0983bc83352ce73f4957012135eeac93a3cb87770"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.expected_behavior.model/output.schema.json",
+      "schema_hash": "8f89cb9a114c547392510522a7122641282654bcba6be2f4078f3688d5b134d6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.geography.profile/input.schema.json",
+      "schema_hash": "41f4c06dac85c030605700c873ae242558068e579d2b818049c02c9b691831c4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.geography.profile/output.schema.json",
+      "schema_hash": "d53afc8ec14405f34a17ae72bcd8ae12a44c8c972cd90ba227fada86ea1de991"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.industry.classify/input.schema.json",
+      "schema_hash": "1d3ead599a1d7c7330eb15b1aac085880d217f14ba973353d80a368b8899f18c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.industry.classify/output.schema.json",
+      "schema_hash": "587a3a42d8debc578b9424ce3c41c1ca15565b1536d1e65686c1a9f062b3ea9a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.product.profile/input.schema.json",
+      "schema_hash": "0cbd0e79b51c2a4ee08f8bafc7aecb537b6d6626a2e523c7c8957c5bc8f01b79"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.product.profile/output.schema.json",
+      "schema_hash": "4b87e02d4a14b66f19a7115946daeaf02498d2b0abac8fd99828bbabd62d8795"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.profile.build/input.schema.json",
+      "schema_hash": "c64df55477a13e5240a4ab79db342efed48fd70568fc06b95b898deb98da8d23"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.profile.build/output.schema.json",
+      "schema_hash": "17f8147ad31a094edf3e480e43cb50ae897afd52020b1456e7e390df5d425cf1"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.profile.completeness/input.schema.json",
+      "schema_hash": "584371dd6634fa859a73bbc059e45636111bb2e5cd0053333cb026091358670e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.profile.completeness/output.schema.json",
+      "schema_hash": "b5c83c2931a916f21285e8dde7bf2d1c98eaae79825f9e50d9ed901f6a54260d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.profile.refresh/input.schema.json",
+      "schema_hash": "9c2c9cc8e11ef745e96246bd7ad14ea790a44b2d1d32ef21a2e8deaa15079505"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.profile.refresh/output.schema.json",
+      "schema_hash": "0bafbd243c094846ec22ab929871c8234bac2bdbac3fd6002324a5d4fde444db"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.role.resolve/input.schema.json",
+      "schema_hash": "2065aedc287fc7ff8b880d5a01f14cdf0b68da52516256470b546d9636ac5e38"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.role.resolve/output.schema.json",
+      "schema_hash": "4bcddee40e36aeba3fe3b405f0b610a8c6baf219a9c6bab9326b3916b33f930d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.type.classify/input.schema.json",
+      "schema_hash": "c64b55032abdc8f47e521d1d2ac386a5b45f464f88794e34c4f2112e8b973e0d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/party.type.classify/output.schema.json",
+      "schema_hash": "98c9d234f3034b855a7979221cf816ef3eb125290dc8210ad5c402d7187a55fd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.agent.trace.evaluate/input.schema.json",
+      "schema_hash": "5d04065471393ffc39162d79c6e879c7304d5ef3cd9f86d7a40cab2dbdd48977"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.agent.trace.evaluate/output.schema.json",
+      "schema_hash": "498f998ea5e91aff8eee5b141be5cc1a98138ad6c9d72a75d09eb4befea44e1b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.confidence.calibrate/input.schema.json",
+      "schema_hash": "440132ca3a38da46504319fec5ddf6977b13636c3b9c56c475246405c747b003"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.confidence.calibrate/output.schema.json",
+      "schema_hash": "baa8e027e762bdb8efccf0bd08745f8894692a522f224f1e8a3c7c6db289e73d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.coverage.assess/input.schema.json",
+      "schema_hash": "78041b8599b2f654476f3ec3ca329cdf0f3283fc10ae6d01be175e9c1749b7fb"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.coverage.assess/output.schema.json",
+      "schema_hash": "83c9605f8c701e3c95a6ccd01f59aa799f7e22240f68e30b7e5678f3ef9ebbee"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.data.validate/input.schema.json",
+      "schema_hash": "c23f5fc508eb909f950adba6fcbf202d87ce1d448add63e8ff51a1d29cf6e79c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.data.validate/output.schema.json",
+      "schema_hash": "d0bdb71830354c58f76b378fb04d20f72a873260acf651d77c210c3a9d242fe6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.findings.verify/input.schema.json",
+      "schema_hash": "8feabe1f413412c5d83a8eae27541f870ec388d1a33b062b0034ad05bcdb9961"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.findings.verify/output.schema.json",
+      "schema_hash": "0c2d312e8a31c7c02aa746a34c6b5ca22b20793c488198dc7a0ced19dce31694"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.hallucination.detect/input.schema.json",
+      "schema_hash": "2a03a5452d768fa01debab69c3ad384b8cc17cf5de2035ff8f5ac4bf69cb39ed"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.hallucination.detect/output.schema.json",
+      "schema_hash": "3cfc049bc084ad2845ce6319d566f6c332d7e8f3b76c386785247f455db6e0de"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.outcome.reconcile/input.schema.json",
+      "schema_hash": "a1c44d031251d614f6c670ece203a76e02360b9690c3195ee34a03273c113bd2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.outcome.reconcile/output.schema.json",
+      "schema_hash": "5a8aff3f94a09562792b0ba2377e3dd0688f404dc4597a8a2a6a872d15869e53"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.policy.compliance/input.schema.json",
+      "schema_hash": "a1393aa414bda5d74090e20c8039c04f3d5b7b777879861426cbba17411093c8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.policy.compliance/output.schema.json",
+      "schema_hash": "d81559bb6842908f97c00e1eb099a394997ec1c1cb9d38b132a82823bcf0098c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.remediation.plan/input.schema.json",
+      "schema_hash": "024c0c397f27487d15ccbc16bb3399875bcc4aebc9348686a09bdcab1cc56254"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.remediation.plan/output.schema.json",
+      "schema_hash": "5daff45fc179a9b1cf66fe11a305c4e62e317e80428da9ea7f72c5760ae9fcac"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.schema.validate/input.schema.json",
+      "schema_hash": "62c7420f893e65e1f202d301730f7fa1b28a54798e77903fa1b36b8c36049cee"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/quality.schema.validate/output.schema.json",
+      "schema_hash": "49303c82ffdbad8953a817841986998947911ad43b8d79b8a9f68de917ab8197"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.address.verify/input.schema.json",
+      "schema_hash": "cee94d55834f9ac6b7c23101a62c13b329995fb5b6977ac0d0ead778af74b3b5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.address.verify/output.schema.json",
+      "schema_hash": "0c7d80712bef8ae1943d86de0b64f6910de172dac6996208c58db4e3f19cc166"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.company.lookup/input.schema.json",
+      "schema_hash": "6f326e358287c241c2504f4de282273aa238d9729d966097b11780c5ee0c7125"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.company.lookup/output.schema.json",
+      "schema_hash": "766ae434d889fe0243d4da1a87915a652492f729010b0ae7d925ee5725d11176"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.company.verify/input.schema.json",
+      "schema_hash": "b5be73d01959b85ee5518698257c0cf85e210e63289661d97f0812c2236083a0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.company.verify/output.schema.json",
+      "schema_hash": "f129c9ba15b2fd3bb63b4aabe53eb023f6f2d6324d776ca27f57e81c7be2d351"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.directors.resolve/input.schema.json",
+      "schema_hash": "887ddfe6bc72b9bbc89bd3365b0512a7a59dcf75de2014c1c64b95682008af3d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.directors.resolve/output.schema.json",
+      "schema_hash": "b622e3e2fed5d6b84d7ef44aeab1a9fd59074e7d72f6b672f68635cfaf79309e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.discrepancy.detect/input.schema.json",
+      "schema_hash": "e58ba7b8632ec111b00a782805c3587c6b0fddda01e1f4f98e38b36548c4ea9a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.discrepancy.detect/output.schema.json",
+      "schema_hash": "a94577c5b4a5e353b2ed14c63662a34f5f045e63ad06c4aae9c8ece2434168a2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.filings.retrieve/input.schema.json",
+      "schema_hash": "f2069562439c90ef3ec1fafa3db814c5d4b5a6367c5ad57d047a8b3204783a9c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.filings.retrieve/output.schema.json",
+      "schema_hash": "aab83943ee2a6b0f37c98a05b82a087b727e545e40606b57737042d944fcf91a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.jurisdiction.resolve/input.schema.json",
+      "schema_hash": "0abd1513d32770cb93b814952c88f03010774582b3b28bf1607e328fbca995ed"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.jurisdiction.resolve/output.schema.json",
+      "schema_hash": "00eae0eb03f2ba3d75446471926cdf3ab7e1ce6bb37a12c8baa2cbd1480f61c1"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.licenses.verify/input.schema.json",
+      "schema_hash": "dd4fdaba19da5e4abc0f7edc12f4bcfefff24f1957d12cc309241b2d5c6f017d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.licenses.verify/output.schema.json",
+      "schema_hash": "1b3867a7b010c9417880ad9973a056ee0c5ddf960caf98e09e63a76eaadc2f5b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.status.monitor/input.schema.json",
+      "schema_hash": "c90927581f7dfd9b0e713e08693b1097857d21e0ce1cb4ef56c1311825b62c22"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.status.monitor/output.schema.json",
+      "schema_hash": "c263ea05c088586fb931bf1cec24daf3c98080565acb331a32b89019b3f00900"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.taxid.validate/input.schema.json",
+      "schema_hash": "4d849c10a5c891c95f788f7edff3c3233f10ea253ab7e73fd93f02b63b11a9cb"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/registry.taxid.validate/output.schema.json",
+      "schema_hash": "35668532a2e494bbe9723230fac8c30471bd510c89b09a31d96b40ece8eeba30"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.ctr.evaluate/input.schema.json",
+      "schema_hash": "f05bd7e41349efb14a537a4d2fba5152cb2c35ad65ad8e8e8eeca257f8af29f2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.ctr.evaluate/output.schema.json",
+      "schema_hash": "efe53a4c751c14d6a8e53338baa4d60a67ea5d163b47567bf454bd663bce698c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.ctr.prepare/input.schema.json",
+      "schema_hash": "9a5760742468c1179bf5ee0ff73418ae4dca35201a991b0dc836ec8bf8bf9800"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.ctr.prepare/output.schema.json",
+      "schema_hash": "dfc9c934a8ec164de9b88d3f5f274d21cb584936f36aaae004ac140ad398ac21"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.deadline.calculate/input.schema.json",
+      "schema_hash": "d90b283898543a635dc674977ab0dff5edc1e506bba4253038e42361e47d019c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.deadline.calculate/output.schema.json",
+      "schema_hash": "dd260317a58c7792c0e9d14896ffa05d2e3fb0abd1f3337b0cbb6ab66c59ae55"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.filing.prepare/input.schema.json",
+      "schema_hash": "d91ebbd190c477e2b5dca44924583ded6b08dced824eb175b8e38a97e048b197"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.filing.prepare/output.schema.json",
+      "schema_hash": "19e5d12b7ff1bd0c95d20f5f2bee11976585be0e1d500617adf2892ced4762ef"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.filing.submit/input.schema.json",
+      "schema_hash": "2f90745e9e3a4604b88d8d735d291ae627ee6bc15f9813807d7a330e76a14961"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.filing.submit/output.schema.json",
+      "schema_hash": "8791c24638d10d351b857d67e17fdc5ab39b549869b74b79e612bdcf60297f43"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.filing.track/input.schema.json",
+      "schema_hash": "935171c3a3de39595901d6e895a01ddcb7065edf93360eefebb548ad95547c63"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.filing.track/output.schema.json",
+      "schema_hash": "d360579f33807ae1cde3ac9cb102ec21db278070c0447cc994f494372e290a4b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.obligations.resolve/input.schema.json",
+      "schema_hash": "16b68e646d42134d5aae51f81cf21d6d3e0ab5453a92e806a78f75f30b630986"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.obligations.resolve/output.schema.json",
+      "schema_hash": "3daad3392224b028c4a1b9ce3e691b2bed203243743b414184765ec097ad8d5a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.sar.draft/input.schema.json",
+      "schema_hash": "daa28f460cf8628113abd254c8b4154a6fc6de064e1b3c765a446778a3b88703"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.sar.draft/output.schema.json",
+      "schema_hash": "f30359c726715438b858537534f2988cefc48db5482cbd700b97ebf6cee9d0c7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.sar.evaluate/input.schema.json",
+      "schema_hash": "c52a2943421544c99e130bbefa63e67b64edb7ed4d243dbf02bd7e2be527d94e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.sar.evaluate/output.schema.json",
+      "schema_hash": "ccc54c7e25cb574cc58453a2fa0e01d58d0390a288873cd3de64db070239ba25"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.sar.validate/input.schema.json",
+      "schema_hash": "c91a295f0cbc7160a411baf025e21c75fae54c654ff492b7b57f77ebd892cba4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/regulatory.sar.validate/output.schema.json",
+      "schema_hash": "ffccda3f17569b87cc2f5a739bb6a8dba8ef446478aad55726842e628563946a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.behavior.assess/input.schema.json",
+      "schema_hash": "96b57054014857feeebefe60315022e9711a70c748ebb5a7cb5e97ad65ee2027"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.behavior.assess/output.schema.json",
+      "schema_hash": "b04382725c76237e3b4afc305df26d746ff861fb7ab18ffab58fdee801ff8f41"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.change.detect/input.schema.json",
+      "schema_hash": "74c445e64caf527d64f1814b76d8fc9edc0ce3796d95b84a5af4a8c19ac4075b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.change.detect/output.schema.json",
+      "schema_hash": "1f5e756ea83e99106e60230467954329280e0b0c87ff340a918f4b18fb170d62"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.customer.assess/input.schema.json",
+      "schema_hash": "28868d83484d069687c817cfb1edb28774f50b304d61fe4bb4a5a3fa1d3584ac"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.customer.assess/output.schema.json",
+      "schema_hash": "cdde93648e55760c38986782cb7ac9e987053627511561418ecf5be49bf6b4d2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.factor.evaluate/input.schema.json",
+      "schema_hash": "7b67edbce2bb27dcbf2040a800f63aed2f0633e7a335d184774d33969d5ab93a"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.factor.evaluate/output.schema.json",
+      "schema_hash": "4488d1e24433e752ee32678cc54dbb82a2a2c9b295f7417772719c59b431d73d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.factors.derive/input.schema.json",
+      "schema_hash": "b41e8fd01e20dd6e9a604faad295c73eecccc7cb22400b6d97828b5b0eedd7e5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.factors.derive/output.schema.json",
+      "schema_hash": "f082d01b7be3380615a79bc337dcb1a6102b5f4ab3d0791a94ef23e04baa4c89"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.geography.assess/input.schema.json",
+      "schema_hash": "33f63ee5fc6f01e8ed82d25461501d009c44ab0d7af2ccf314ee93fd06fe44a8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.geography.assess/output.schema.json",
+      "schema_hash": "871423d707fca26774060290f256980963b5eff55cbc8e7f66e66cbd118df34e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.industry.assess/input.schema.json",
+      "schema_hash": "dab75e00d72f0569b527512685ca8cbecda6a20c7fbd899b071dedfd0eba7742"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.industry.assess/output.schema.json",
+      "schema_hash": "ec145baf8ecfa7f7a68602bc6a2b2fb2e6530ca9e675f039f7350bb157abcca0"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.inherent.calculate/input.schema.json",
+      "schema_hash": "19647308213071a5a77964f172a88515068f4e0f6c049039152548bbbdc051de"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.inherent.calculate/output.schema.json",
+      "schema_hash": "077fba682f34c48d78bab05f34f1ab24c8511ddd08439b88e5fd987d945bbe11"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.product.assess/input.schema.json",
+      "schema_hash": "f94b85fa334c3fb08fcd7db802dd7967eb328ded5a1590129ab5a8262a023ccd"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.product.assess/output.schema.json",
+      "schema_hash": "4b3c5fbeaa48df496e9ca76f0fe02f36439418e4be83f6a0e8baf7a5e0739470"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.residual.calculate/input.schema.json",
+      "schema_hash": "5fd62fc8acfbfbf5e262c723c73e9ff83e071ac8ee54d7cf5c185ebc4e4296c5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.residual.calculate/output.schema.json",
+      "schema_hash": "9c654d2dd63615e8df14cad9902bd00752ab3c3ee5a0bd101e1ed295314f1d96"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.score.calibrate/input.schema.json",
+      "schema_hash": "ce9c794f91db206bcb720b7e04aa88c2d012983f4d0fbd2061db8e956baee359"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.score.calibrate/output.schema.json",
+      "schema_hash": "52b2cf245bc0e2a2887fe5b8551c01da4500ad7f6dce0719db4f074c45d02771"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.score.explain/input.schema.json",
+      "schema_hash": "78d02dd2fd2ed5d873288eee8e2aadab08e7568e4f39cf4156e6e152d91c8ace"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.score.explain/output.schema.json",
+      "schema_hash": "aebbe0bc22cffe596451b0266fa37027afc059618b104f9c80eaa73ded3d2145"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.tier.assign/input.schema.json",
+      "schema_hash": "aba5575081c570597de664bdae15b531574fdd7148e260ac8ae80ad4acfd0bc5"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/risk.tier.assign/output.schema.json",
+      "schema_hash": "f4474405340e83c2f23002fed849d4adfe961a8fab2cb7dd5bdfaa6750f78e11"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.adverse_media.classify/input.schema.json",
+      "schema_hash": "78c6196d844b22c6a8eb28f0d296d5397ac40593594aaa576dcfc97761fc5e9f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.adverse_media.classify/output.schema.json",
+      "schema_hash": "05489c9f0061790d9ab02f73edf74f89b29131df5aa18d1b764498c6807808a9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.adverse_media.correlate/input.schema.json",
+      "schema_hash": "6269af845cc6abbe826229efed1c363cbbe9c43a6f6faf573b8cb3d0cf690eb8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.adverse_media.correlate/output.schema.json",
+      "schema_hash": "f725c07ec63f657032eb4a03daabab2633bd459c71005258fb4ace47b0678350"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.adverse_media.execute/input.schema.json",
+      "schema_hash": "be4b13064a56fbf0c50db60b209303e4599f6bd13f53a836063b65cfd1c7e621"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.adverse_media.execute/output.schema.json",
+      "schema_hash": "c19a1702eb05b671411e076e8c250728b109a33202d2446305c7afd5817fdf20"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.alert.disposition/input.schema.json",
+      "schema_hash": "f9565a42958b7e46297dd1ba6465e84716d74d4e90d074ef3e16982210db47f2"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.alert.disposition/output.schema.json",
+      "schema_hash": "87bf3b04f7aff7483f994efa7c94ffcd87002c9d6cf989ab5df9c1ec3df3c85d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.match.disambiguate/input.schema.json",
+      "schema_hash": "f249cd694cf3ac6e41e7f6f99b563bd304736fa7ee56d46064cf90bb93440a19"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.match.disambiguate/output.schema.json",
+      "schema_hash": "6f36eb4616acbd80ebb62e7d4c93dc7f5d2576c47087103d0cfc556628e32b37"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.match.score/input.schema.json",
+      "schema_hash": "b172f7f8a055407e7ae7f6b8eb3f6d7fae170474fc254dd66b9978d9606e72bb"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.match.score/output.schema.json",
+      "schema_hash": "46cac7e7927f4e992f91cf9792328cbdf98e5aaa9bf6c098d0e7d3325c6a7ffb"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.name.normalize/input.schema.json",
+      "schema_hash": "185a2e1b43864bd9112871a6b99f1357bd6661c1c1ac8c0e9709056b2732ec10"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.name.normalize/output.schema.json",
+      "schema_hash": "8029c2be1dd4a0449d4737bc5cb83b973a6bc545da11d129e892987c9eb45b96"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.pep.execute/input.schema.json",
+      "schema_hash": "799bbedb18385ef6aa2c7b9fad22ad3af0181d67f0d7c4acb4316f4089cdb5f9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.pep.execute/output.schema.json",
+      "schema_hash": "e51cb0e676e502ebdec0c13c4c6031b14f3ab0d5d93226dfc948c781fe5464e9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.pep.relationship.resolve/input.schema.json",
+      "schema_hash": "b0e13ed3ed57feb79bcd6a854088d92f55c39a96bb9f904973d985bb3600f801"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.pep.relationship.resolve/output.schema.json",
+      "schema_hash": "0fc7ff571847fafb26d1e21a338700b5c1aefd760632d5a696a65fa0a21dd881"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.rescreen.schedule/input.schema.json",
+      "schema_hash": "678a3980ba2cf05e24891072148f775f2b43cbc96fd1322e5a83ad0012c2b38d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.rescreen.schedule/output.schema.json",
+      "schema_hash": "8049c62336c189db91dbebf7cac7e120989b0f8e9f0d033d3726a8bdfef8e84c"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.sanctions.control.evaluate/input.schema.json",
+      "schema_hash": "e7172f6bd590fde9df886a3243e260dfdf460b4683410ce21de66c2c8a4d5143"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.sanctions.control.evaluate/output.schema.json",
+      "schema_hash": "e8ab3cb52dd954564db653b656f7ca6da624a92173bab3ecb8dc47c98f7c9045"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.sanctions.execute/input.schema.json",
+      "schema_hash": "54c00c4ddd4b7594149f21c4bf0249fa33790a5a0a309083177f66b2e50dce8d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.sanctions.execute/output.schema.json",
+      "schema_hash": "8720082ddfa2ac3139b9ddda515de297348bb4583be2c0fd898646fc9bc6b8d7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.sanctions.ownership.evaluate/input.schema.json",
+      "schema_hash": "bc2a322f00547c020d4cb234b3715340a5f49795805d6d9e05a5742ab2900f00"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.sanctions.ownership.evaluate/output.schema.json",
+      "schema_hash": "2cd50c2eeac655b6640bbae90e12b3e7c6325c5e19a97d7cbe44314879e74d0d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.watchlist.execute/input.schema.json",
+      "schema_hash": "dda76c342dc2d863833d038e1d56fdf2a47a6e41c99368204e50d452b67546fc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/screening.watchlist.execute/output.schema.json",
+      "schema_hash": "7e958fe7db23ff92ed2d158f2f53d2bcb49b7be64b097e9ae5de7783b1aa9538"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.anomaly.detect/input.schema.json",
+      "schema_hash": "dbd90ed12808323195cf20615ebc504d53c55ab64ec9b4447102a2e6d1dcf5c8"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.anomaly.detect/output.schema.json",
+      "schema_hash": "e957bc0e969102f0fa39279d18b0cc779d48093260adc837b570e53fa3eb99a7"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.baseline.compare/input.schema.json",
+      "schema_hash": "0a53668fb8536204e82f841c0bbbc8b45f8d462ac703583e4a48d2f615bb06fc"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.baseline.compare/output.schema.json",
+      "schema_hash": "eb0fa363caf1dd26a83e2b90f715d784bbb4b2c7907bb6d96314ff1700d63a38"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.behavior.profile/input.schema.json",
+      "schema_hash": "4bc51dfc193e3b3dd81d1aa4d74fb353eec8088f71a6165571755499807fdd83"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.behavior.profile/output.schema.json",
+      "schema_hash": "1cdee88d679386430b64051f5946d23e8634c5c28e90cc24c13a4492376bad43"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.cashflow.analyze/input.schema.json",
+      "schema_hash": "16922330248864fdcedf00a5660f61c96b19c21351099ec55f5787e4cb0980ab"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.cashflow.analyze/output.schema.json",
+      "schema_hash": "6fb4a014998b49760af73a1194d47e3cef4920565cee0ad2af658fed4028db15"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.classify/input.schema.json",
+      "schema_hash": "5c07e18e7091d268f928b9c82fed85c82b92b85283ed18b53cdad75d88fa8022"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.classify/output.schema.json",
+      "schema_hash": "1141bb43f090b81339b08298d1fc0db8f8959cb0999a13a1385a99c5622842a9"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.counterparty.resolve/input.schema.json",
+      "schema_hash": "190e084af5e156ffbb412220194aede48bf1fc1fa023c42b68b31935e881096f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.counterparty.resolve/output.schema.json",
+      "schema_hash": "bd9654fe3fd474a4dd77177c5cf265209fca1fe28f44d0947205ca130b7e85d4"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.enrich/input.schema.json",
+      "schema_hash": "ad29b264021bf9df71f5392928894dbd37b3c59d8e8580c24b74b83dbb6caae6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.enrich/output.schema.json",
+      "schema_hash": "f598ad30ec44484e2f220940cc8ad4166f3be3b5d81e2490c3180f45dc038881"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.exposure.aggregate/input.schema.json",
+      "schema_hash": "e1a17a019e147563b859364a0b79a7ff5438cbe7911027d8501a5678a0e8e66b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.exposure.aggregate/output.schema.json",
+      "schema_hash": "bf84130c852d61bb503e83a2098fa3c62a51beb776b300c1d5211044b9dce6ca"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.flow.trace/input.schema.json",
+      "schema_hash": "ccca1a5e6b96d050a2eeca1c56461c985944b9c38b2de0680a237d8bb8d9c58b"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.flow.trace/output.schema.json",
+      "schema_hash": "c0bd468c6f65389b305f9b8f1bea6e14e1e1137c4b98c77a469bcc87e3844364"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.geography.analyze/input.schema.json",
+      "schema_hash": "5e8ea06d76ba0049dad3ed0957063ce98eef7df4a9a615feb4be9b9fbac4c49e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.geography.analyze/output.schema.json",
+      "schema_hash": "9fa1ca2515f8bd73a04690a18eb7085d4157b9912b88d219817659f1e5cfcd7f"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.ingest/input.schema.json",
+      "schema_hash": "bcf154ebac93bdd79b203adbd477053689b1ec6ced7a0e38f17f04fb74a8cd2e"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.ingest/output.schema.json",
+      "schema_hash": "4da25a130e8745b018c624a3f89d4904cc990f38326471eb9e458084a6ff342d"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.velocity.analyze/input.schema.json",
+      "schema_hash": "0f2ebea37a8881202ee2125b2cd2bfcf60021b4c9273700ad1362b9322fee9f6"
+    },
+    {
+      "path": "src/financial_crime/resources/skills/transaction.velocity.analyze/output.schema.json",
+      "schema_hash": "859f257b8bc218e92b0e32a51fc9af49df0b7379745d666e2ca21b2bb371cc17"
+    }
+  ],
+  "semantic_checks": [
+    "reference tenant and version binding",
+    "record temporal intervals",
+    "projected field key equality and authorization",
+    "provider entitlement and evidence binding"
+  ],
+  "skill_count": 232,
+  "untyped_containers": 0
+}

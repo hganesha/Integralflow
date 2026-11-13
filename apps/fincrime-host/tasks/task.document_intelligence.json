@@ -1,0 +1,321 @@
+{
+  "agent_profile": "agent.document_intelligence",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "classifications",
+        "catalog_hash"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_classify_catalog"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "subject",
+        "catalog_hash",
+        "review_required",
+        "promotion_allowed",
+        "semantic_verification",
+        "route_policy",
+        "extractions",
+        "unclassified",
+        "proposed_records"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_fields_adjudicated_extract"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "assessments"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_validity_assess"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "conflicts",
+        "compared"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_consistency_assess"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "requirements",
+        "present",
+        "missing",
+        "request_types",
+        "satisfied",
+        "options",
+        "uncataloged"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_requirements_resolve"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "requests",
+        "unknown",
+        "sent"
+      ],
+      "requires_human_decision": false,
+      "step_id": "document_request_compose"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.document_intelligence",
+  "input_fields": [
+    "classifications",
+    "event",
+    "missing_types",
+    "package",
+    "subject"
+  ],
+  "input_schema": {
+    "$defs": {
+      "CatalogCandidate": {
+        "additionalProperties": false,
+        "properties": {
+          "display_name": {
+            "$ref": "#/$defs/Text"
+          },
+          "document_type": {
+            "$ref": "#/$defs/Id"
+          },
+          "matches": {
+            "items": {
+              "$ref": "#/$defs/CatalogMatch"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          }
+        },
+        "required": [
+          "document_type",
+          "display_name",
+          "matches"
+        ],
+        "type": "object"
+      },
+      "CatalogClassification": {
+        "additionalProperties": false,
+        "properties": {
+          "basis": {
+            "$ref": "#/$defs/ClassificationBasis"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/$defs/CatalogCandidate"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "document_type": {
+            "$ref": "#/$defs/Id"
+          },
+          "document_version": {
+            "$ref": "#/$defs/Id"
+          }
+        },
+        "required": [
+          "document_version",
+          "document_type",
+          "basis",
+          "candidates"
+        ],
+        "type": "object"
+      },
+      "CatalogMatch": {
+        "additionalProperties": false,
+        "properties": {
+          "end": {
+            "$ref": "#/$defs/PositiveCount"
+          },
+          "page": {
+            "$ref": "#/$defs/PositiveCount"
+          },
+          "quote": {
+            "$ref": "#/$defs/Text"
+          },
+          "start": {
+            "$ref": "#/$defs/Count"
+          }
+        },
+        "required": [
+          "page",
+          "start",
+          "end",
+          "quote"
+        ],
+        "type": "object"
+      },
+      "ClassificationBasis": {
+        "enum": [
+          "title",
+          "unique_mention",
+          "ambiguous_or_unmatched"
+        ]
+      },
+      "Count": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "Id": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "PositiveCount": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "Text": {
+        "maxLength": 200000,
+        "type": "string"
+      }
+    },
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "classifications": {
+        "items": {
+          "$ref": "#/$defs/CatalogClassification"
+        },
+        "maxItems": 10000,
+        "minItems": 0,
+        "type": "array"
+      },
+      "event": {
+        "maxLength": 512,
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "missing_types": {
+        "items": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10000,
+        "minItems": 0,
+        "type": "array"
+      },
+      "package": {
+        "maxLength": 512,
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "subject": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    "required": [
+      "classifications",
+      "subject",
+      "package",
+      "event",
+      "missing_types"
+    ],
+    "type": "object"
+  },
+  "objective": "Classify case documents, extract their catalog fields with exact spans, and report validity, conflicts and missing documents for human review.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "document_classify_catalog",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "document.classify.catalog",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "document_classify_catalog"
+      ],
+      "id": "document_fields_adjudicated_extract",
+      "input_bindings": {
+        "classifications": "classifications",
+        "subject": "subject"
+      },
+      "parameters": {},
+      "skill_id": "document.fields.adjudicated_extract",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "document_fields_adjudicated_extract"
+      ],
+      "id": "document_validity_assess",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "document.validity.assess",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "document_validity_assess"
+      ],
+      "id": "document_consistency_assess",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "document.consistency.assess",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "document_consistency_assess"
+      ],
+      "id": "document_requirements_resolve",
+      "input_bindings": {
+        "classifications": "classifications",
+        "event": "event",
+        "package": "package"
+      },
+      "parameters": {},
+      "skill_id": "document.requirements.resolve",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "document_requirements_resolve"
+      ],
+      "id": "document_request_compose",
+      "input_bindings": {
+        "missing_types": "missing_types"
+      },
+      "parameters": {},
+      "skill_id": "document.request.compose",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

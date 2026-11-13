@@ -1,0 +1,82 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "corpus"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "entity_id": "e-owner",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h07.entity.owner"
+        }
+      ],
+      "names": [
+        {
+          "full": "Dorian Quayle",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h07.entity.owner"
+      ]
+    },
+    {
+      "entity_id": "e-quickparcel",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h07.entity.quickparcel"
+        },
+        {
+          "jurisdiction": "US-NJ",
+          "scheme": "company_registration",
+          "value": "SYN-NJ-0600519"
+        }
+      ],
+      "jurisdiction": "US-NJ",
+      "names": [
+        {
+          "full": "QuickParcel Couriers LLC",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h07.entity.quickparcel"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-owner",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 100.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-01",
+      "to_entity_id": "e-quickparcel",
+      "type": "owns",
+      "valid_from": "2019-03-14"
+    }
+  ],
+  "result": {
+    "completeness": "complete",
+    "kind": "ownership",
+    "root_entity_id": "e-quickparcel"
+  },
+  "result_id": "corpus-ownership-h07",
+  "subject_entity_id": "e-quickparcel"
+}

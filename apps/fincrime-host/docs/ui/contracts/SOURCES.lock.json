@@ -1,0 +1,377 @@
+{
+  "$comment": "Pins every upstream file docs/ui is derived from. Regenerate with tools/check_sources.py --update after reviewing a drift report; never hand-edit digests.",
+  "lockVersion": 1,
+  "pinnedAt": "2026-11-07",
+  "repos": {
+    "ehfconcept": {
+      "commit": "249ab420f9f109cd4fcd077a57d38ea1254834bc",
+      "dirty_paths": [
+        "packages/contracts",
+        "apps/control-api/src",
+        "apps/case-api/src",
+        "apps/capability-gateway/src",
+        "packages/identity/src",
+        "docs"
+      ]
+    },
+    "kyc": {
+      "commit": null,
+      "note": "kyc lives in ehfconcept at apps/fincrime-host; pinned by file digest and catalog/release-lock.json (0.4.0)"
+    }
+  },
+  "groups": {
+    "kyc.release": {
+      "root": "kyc",
+      "include": [
+        "catalog/release-lock.json",
+        "catalog/ehf-catalog.json",
+        "docs/ehf-integration.md"
+      ],
+      "consumers": [
+        "ALIGNMENT \u00a72",
+        "BUILD-SPEC \u00a74 sync"
+      ],
+      "files": {
+        "catalog/ehf-catalog.json": "b3db4e90ee94835862794b5648992ca5c7e6a674b60285a831c387eea4b44e86",
+        "catalog/release-lock.json": "9efc5cbabfe07957924c0c482dab83c3fa5844e8c4e0cf35aeeae033c949a4e4",
+        "docs/ehf-integration.md": "e7621d8e8a17134fc206363f0906ad3e423e7248e4ce4d700a923a11a5a15613"
+      }
+    },
+    "kyc.integration": {
+      "root": "kyc",
+      "include": [
+        "schemas/integration/*.schema.json"
+      ],
+      "consumers": [
+        "experience-api.openapi.yaml /v1/fincrime/agents|tasks|plans",
+        "fixtures/fincrime.*.json",
+        "BUILD-SPEC \u00a710 AGT-*"
+      ],
+      "files": {
+        "schemas/integration/AssignmentScope.schema.json": "bade12fdd4e3ce8abcc71038aa3193d34f18ba06b48659550247f6e5130b23e2",
+        "schemas/integration/BridgeOutcome.schema.json": "da131da3c7e0adf39df85b208dd299754cd56587830e5072a16c7a925ea758d6",
+        "schemas/integration/BridgeRequest.schema.json": "37a01f057a67b43b5136cd79dc4cb5f578cdd741dfbde5a6472cf5d7b5f33f5f",
+        "schemas/integration/BusinessAgent.schema.json": "69bb4ceb3972806b038d46064164aed27c7b387088737f4db425556426493061",
+        "schemas/integration/ContextPacket.schema.json": "7bcd9ae4b2ba858d02b43d8e4c26b7f604486910e6939be9e513c7765e8bbf43",
+        "schemas/integration/ContextProduct.schema.json": "7aa656c257295cc51a29375a077d94e3eea3fb3c7a6149bde77943ca5c23e3ef",
+        "schemas/integration/PlanRequest.schema.json": "962ff48edd9ffa5e2f6ff887e008554f8ea7d5640dacd3085ef7ff4cf18aa55e",
+        "schemas/integration/TaskPlan.schema.json": "32c9aea68924a64dffd8255dec275789da33d77688752ab599769ccc3d4fe6ed",
+        "schemas/integration/TaskSpec.schema.json": "4e5b88a0b0f193724313606cf333c7ddc9b6a0fd1b0ad2ba2006fda77725fa1f"
+      }
+    },
+    "kyc.tasks": {
+      "root": "kyc",
+      "include": [
+        "tasks/*.json"
+      ],
+      "consumers": [
+        "fixtures/fincrime.catalog.json (loaded verbatim)",
+        "BUILD-SPEC \u00a710 AGT-04/ASR-03"
+      ],
+      "files": {
+        "tasks/task.decision_support.json": "53da5abadd6738e993477d4a510bd331729261e7b3c3e28f175d9c0f9634cdcb",
+        "tasks/task.document_intelligence.json": "0b323156fcbeb19bfe7b58fbb23a616888f38e99bc00a9d192708b56368792b8",
+        "tasks/task.identity_ownership.json": "f6cd3b78a47822f60e5b68240cc0687e5f7b6f6186b5872df383b057d484c933",
+        "tasks/task.intake_profile.json": "3aff484f9c08788fb8d755441e6e6c5879a37446634b669fe664ac12e35c89b9",
+        "tasks/task.qa_assurance.json": "9b82bb180a351599fe5ad242fc4c80e99ff0aaf13119af7d73aec2d4ddf06593",
+        "tasks/task.risk_edd.json": "f726f73755eaa97d2402904ac93a4077a9274f02769f55593cda2882a129031c",
+        "tasks/task.screening.json": "762b0c3a1c61cf9ab5fc8a7178862f833113e5b57a410d906c0fcdc535b65d77"
+      }
+    },
+    "kyc.agents": {
+      "root": "kyc",
+      "include": [
+        "profiles/agent.*.json"
+      ],
+      "consumers": [
+        "fixtures/fincrime.catalog.json (loaded verbatim)",
+        "BUILD-SPEC \u00a710 AGT-01"
+      ],
+      "files": {
+        "profiles/agent.decision_support.json": "2200389a6b48b7f736fd25231b0b4302a2f9904ecfc518c59779cf495b448937",
+        "profiles/agent.document_intelligence.json": "606ad9d2f7d5246c98e4fa9fe722ff4cd64e3cda2fe8165089d19c2c1173498d",
+        "profiles/agent.identity_ownership.json": "a3c0c7320906cc907a9e8825ff9a04905ae10507f24bc65747a9b6cfa342f5bc",
+        "profiles/agent.intake_profile.json": "6008fc47c152ea9f3a05c01626b961d7deea918c5ad922b24a1fbbb7e925c4ce",
+        "profiles/agent.qa_assurance.json": "a0caf9d50661a9bb7e54b11488cbbf7bde579a7f775e2ad780f1f2c94e3f9a90",
+        "profiles/agent.risk_edd.json": "c194c5f935687b8d4c98e99a9717f1f71c64f0a6aa742a0656bd3f4b6d0ae96d",
+        "profiles/agent.screening.json": "e5e80e3a45ad8895a481822990c59567be0a2fa76de34f837730f96c6a48c618"
+      }
+    },
+    "kyc.context": {
+      "root": "kyc",
+      "include": [
+        "catalog/context-products.json",
+        "catalog/context-consumers.json",
+        "catalog/context-matrix.json",
+        "catalog/catalog.json"
+      ],
+      "consumers": [
+        "/v1/fincrime/context/*",
+        "BUILD-SPEC \u00a710 CXT-*"
+      ],
+      "files": {
+        "catalog/catalog.json": "b0919f70b8616d179e3c2718870642c9534cdbd7e89fd9e70fcbbae173cc7288",
+        "catalog/context-consumers.json": "954ab5d2021da8a84d6fc1ff3e5403df54554cf8608613a8e8e2f2b1cf297bf9",
+        "catalog/context-matrix.json": "b6349b3afc5062e441a4c8b175995f5d45546150aefa8ed6796a7c2fbb95c565",
+        "catalog/context-products.json": "fd6319709e9943c8e36dff8fcac72bc65cfd8ec74cd86d053833ef6fd17a8927"
+      }
+    },
+    "kyc.records": {
+      "root": "kyc",
+      "include": [
+        "schemas/context/**/*.json",
+        "schemas/runtime/*.json",
+        "schemas/history/*.json",
+        "schemas/providers/*.json"
+      ],
+      "consumers": [
+        "experience-api.openapi.yaml external $refs",
+        "fixtures/records.kyb-1042.json"
+      ],
+      "files": {
+        "schemas/context/ontology.schema.json": "84a60ebe9c40bb9f5bee571e665588eeece8d6ec6a5642dfb025a4fafddf8f35",
+        "schemas/context/types/Account.schema.json": "f229793bb51dc8d7a8de5b5e68f4b03baa4336dbe4fe9ae2ba5ff375cee1a221",
+        "schemas/context/types/Actor.schema.json": "d23513a8df8ccea344a6af36b3b02d48cbf72334741c5897c4d41fdf6318b6e6",
+        "schemas/context/types/Address.schema.json": "6e578fd922a619cc58f7aecb9ffdd6d3ed58280f1636453cd50fd54b0e2f39ed",
+        "schemas/context/types/AdverseMediaEvent.schema.json": "2b06017aeb9ea3e395182389e5fa2e4289eec2fc9ac5233cd3d21e6d1ccfe28d",
+        "schemas/context/types/Alert.schema.json": "54a6dbaae9e3490c851e246f74eab1609ed01f062c4ce6feec0050db08c9aaf1",
+        "schemas/context/types/Alias.schema.json": "74ec3f3c1ab46f0137abcd269a5baba81256fc810423807a6146b4c836b8b5c4",
+        "schemas/context/types/Approval.schema.json": "af5e1d7a1134175727a6c0d5e513dc58660df287b3d074b6329f4bb74b3ae5c3",
+        "schemas/context/types/Assertion.schema.json": "8bbc9c1616325ae87ad9c903957cfdd6118313b372b875c9a775b6c29cc02b35",
+        "schemas/context/types/AuditEvent.schema.json": "56ee4641bc7a179d90d94ca2a8dddc260b4f38de1423919f68a6187c80410ab7",
+        "schemas/context/types/AuthenticationEvent.schema.json": "ddcb7a3f5cc4754d70f53b8d9c2b6eaa1c713a40cb7fba573b7ad167ab7b0db7",
+        "schemas/context/types/BeneficialOwner.schema.json": "174a8957dba9c256838d676838ee8dde4dc77f105a2f5036356157c184eb390f",
+        "schemas/context/types/BusinessCalendar.schema.json": "fc652601a79e904fabf484c311e9cf2dc6b97379cb08761a151481a3199828dc",
+        "schemas/context/types/Case.schema.json": "02da0fc111b7b65a5cc2567bf1275dd5ebda2e803b06d90c92d1668103ea369b",
+        "schemas/context/types/Checkpoint.schema.json": "0e3f89e4a9c4f02b7bcdc1c603380f13650971e9311c7e31894163cb2b61d3be",
+        "schemas/context/types/Conflict.schema.json": "97b7e638ce8752a2e9a260ef9d12620d37cb11f558d04629e5f8e3d7fbca13e9",
+        "schemas/context/types/Control.schema.json": "edb79f4d585939fb4a7385112519319c8594d3c66c4c61477c58f05022e8c84b",
+        "schemas/context/types/ControlRight.schema.json": "93691cb8a216cf2b10617f715c79cd3f257dc180fec5bfcd904ad1df49b872c6",
+        "schemas/context/types/Counterparty.schema.json": "b9a4530f80e68170810dd6e04e02e503dfac2c10eb2d654d91f6564af6a96606",
+        "schemas/context/types/CustomerRelationship.schema.json": "ee4c7c9eee90bc749038c4050779f60519f0d79c10f1a1ff0a3fdd2c29227c46",
+        "schemas/context/types/DatasetScope.schema.json": "5b337cdfd9b48e1d95484ea26f1d6bf2c3a685c185caf6bfe208c80efb2a58ed",
+        "schemas/context/types/Decision.schema.json": "926eadae81ff5e27e2b666809ea44698f9b719f224515662aa521a2a84342dcc",
+        "schemas/context/types/DetectionRule.schema.json": "335c9c5dba8c04a98c6d0aab36220bcfb66efd720c84751e2fd046e9209b52a2",
+        "schemas/context/types/Device.schema.json": "57eb7fae1e585c313ce2c081e8e5332d652f57d94eb277c30eb97f41accb1ba5",
+        "schemas/context/types/Document.schema.json": "91bd1d8540000b668f00675352b90908dad0300c98f21949e33a7709d700df70",
+        "schemas/context/types/DocumentPage.schema.json": "2a0bedce945fccd2efb58e8b7c38a2dc1de074d080398a186c08d99605c11638",
+        "schemas/context/types/DocumentVersion.schema.json": "1bf9b90182239ad17a42592bd238b56d89bc907b99f37721b120451a41312061",
+        "schemas/context/types/Entity.schema.json": "856f424f5982072c8067f7e54a765dc85caa8633ad4b8366321fe6410cd48dd1",
+        "schemas/context/types/EntityCandidate.schema.json": "951e51a78215a8a1e4cbc3f24f89bbf5055c3c16e5a70b3b6e1fcf11ec41ca88",
+        "schemas/context/types/EvaluationCase.schema.json": "d43c37c34feb7fdf91832c2b0855f5d61f555df1c172fa7b7131ae2493e0a33b",
+        "schemas/context/types/Event.schema.json": "9c67d939d345195b58d7eb25f67bf145172780a43855fef5d7a0f6e0773d43d2",
+        "schemas/context/types/Evidence.schema.json": "83b2c5a20c67f56908542a633a5a4a710b54ee36c42ddfd6f36e8a4a799418e5",
+        "schemas/context/types/Exception.schema.json": "6a9831a35978b5b8681bea59b190b319d63bdef82ced02b44242a4d25c756bd2",
+        "schemas/context/types/ExpectedActivity.schema.json": "ced542e1ebfed6969972ab865af42b879bd3013ef47f7dc55a9318e27219700f",
+        "schemas/context/types/ExpectedOutcome.schema.json": "5926491be602fca8b1f3ef206d2e92948ee4164b5e1e6543f673410f3870258f",
+        "schemas/context/types/ExtractedAssertion.schema.json": "086a62bbf2820331c29f797264aa198462fa3bed18c93c810b51a9f4629120ce",
+        "schemas/context/types/Fact.schema.json": "86692c8793104aa3290efc4fb17f4cef66b2b2707325264a45b66958b7b3fd7c",
+        "schemas/context/types/Filing.schema.json": "f55e5b7adb72bdc731249dbaa9e0fa96874a70008037a90450451377a79da178",
+        "schemas/context/types/Finding.schema.json": "7dd4610b98417a497cd6e7810938702eeb24585dda99897b18432f9cf46d77db",
+        "schemas/context/types/FraudSignal.schema.json": "002b8c2e27d36a292e94686981170cf80541eb9daccea391fd3fd9081914160d",
+        "schemas/context/types/GeographyExposure.schema.json": "10dcf0aa61fcfc9e0db012bbcca5e718630efc8849085c027538f0f8997fdb7e",
+        "schemas/context/types/Hypothesis.schema.json": "426ea727746214cee1b237d0f95a7b3812b417b9ba6a7bc9302b78d946e1606c",
+        "schemas/context/types/Identity.schema.json": "3a73164c7c94505af94eea770bf6e3f5bb006ac46133e09e223ac071a448b1c3",
+        "schemas/context/types/IdentityIdentifier.schema.json": "51efe890e9114dc8da2fa21e887938312d2161a6238a97b0e9ad2e36b45bb20a",
+        "schemas/context/types/Investigation.schema.json": "a23b9ad03d13c9e25e0711b8d2a91df3366bb0786b98640f585916470684e26a",
+        "schemas/context/types/Invoice.schema.json": "ccd9a618c1812cd9701fd153877e9b96785aeca7363fa92f1e1ced7935a87e92",
+        "schemas/context/types/Jurisdiction.schema.json": "0ea30eb9b0cbf9ee599227835164b64509accf575b91fe4874c29e4e2d0694d8",
+        "schemas/context/types/License.schema.json": "ce854851d029cfe3a58f516630cd37db869f4e72d1a88eec6d978b9a674fe80e",
+        "schemas/context/types/ModelVersion.schema.json": "a1d92d54388c4f7789aba0524648ea7f2bf28b4cc5fee54ad1726393b0a76082",
+        "schemas/context/types/MonitoringPlan.schema.json": "e98f44c597ee4b33443c3cd7f375fda6e543538c654737c142f6e77e2a31e415",
+        "schemas/context/types/NetworkGraph.schema.json": "8dcdc80d8696cc7081bf4df1ac71495a1ce41574e2e7b13a3916f2b077732c6d",
+        "schemas/context/types/Obligation.schema.json": "c92a3617498c4a8bf4cc28533251e43aad30d5a2a18c02679e23668baaddc91f",
+        "schemas/context/types/OfficerRole.schema.json": "dc72db5c9b65340d4a1ad7cdfd8d42f1fa215c578864cf6d047c51eb48eb38b3",
+        "schemas/context/types/OwnershipGraph.schema.json": "32e01cd2c94475619b1c0857c74e10f1a7efb9bc9d279af9870aa0cb114d71c0",
+        "schemas/context/types/OwnershipInterest.schema.json": "bb614edec1622c24027b54338fad262f46a47d571a54f68339693efd10167ad6",
+        "schemas/context/types/OwnershipRange.schema.json": "46ab721061db62f5c5806c6e8a2037b9462b31c68906f69ea4624bed9f5f8219",
+        "schemas/context/types/PEPRelationship.schema.json": "1fdb06ce3660ab96291547b0dda4b71ac9263119f4b1b9cde0011adb68af8fa0",
+        "schemas/context/types/Party.schema.json": "f71bf6e2444a3f0a741d8c7387abd70cdbc57b00012f707130c064da70d6aac1",
+        "schemas/context/types/Payment.schema.json": "30d30187a0a78e19fabb774097628add3f6905ac314fe92fdee04a5a9b91abf7",
+        "schemas/context/types/PaymentRail.schema.json": "8b8173e114d5915ddc58452577deaece2ba3440cde480a003ee417e8ccad1f3b",
+        "schemas/context/types/Policy.schema.json": "21bf00357816e09b57f640e667934f2c40006ff680a7a8d238ae6fce6a50fc89",
+        "schemas/context/types/Product.schema.json": "89d6e1a46a0b2bc290d67dd93a192592a862da5112068c008d725dc5ab793904",
+        "schemas/context/types/Provenance.schema.json": "494bd2bdedfc442794f4d539e52d54ee37abd5a0e04a2030118922459ed30b29",
+        "schemas/context/types/Registration.schema.json": "297deda323a4c6657b58605b4ece652a86a7e1a72f9a0ed4ab93ee3f69d1049e",
+        "schemas/context/types/RegistryRecord.schema.json": "15cc794246b45f45c0fd8f3d2e5fba4b85e3b968ec51d5b5c1c654681abcb995",
+        "schemas/context/types/Relationship.schema.json": "9a008d8db43afa49b8359d304e395d235a7bf8bbe177e621694adccf6acf79ab",
+        "schemas/context/types/Requirement.schema.json": "3eadd794e0ea0c37c0a4180f33d3bab578ae99adc739828fc83af8420ff51c9b",
+        "schemas/context/types/RetentionRule.schema.json": "362448ec480703b01f05e671dd8ca876fbbc50d9a6ce0d670b561910b46b1271",
+        "schemas/context/types/ReviewTrigger.schema.json": "0f729b452517ee32657cd2b416854c31fa7000c51bb3dd061766aa36a6a8f409",
+        "schemas/context/types/RiskAssessment.schema.json": "b814afca7098fa48b3f0ef839b5a7a2ec8a5090900d0a5ce1ddafdc51804822f",
+        "schemas/context/types/RiskFactor.schema.json": "ffb998ebb0fdb355edb7b0ed3a4e2bd8dba9b00d398ef76da2000ca9b6ec3fba",
+        "schemas/context/types/RiskModel.schema.json": "edaf160b1cd726bfb15e037babfce679a248d7f75978e267438e42fced69e828",
+        "schemas/context/types/SLA.schema.json": "66dd24274fa1b3f08d91585c5bfcf63dc5ae2b021058f0d2e9d05f6a4e256ac8",
+        "schemas/context/types/SanctionsRegime.schema.json": "ded1da2cce15eb7806ee4b6a5cbe981a3d755477fdb3c310c7a21cf8575f98f0",
+        "schemas/context/types/ScreeningExecution.schema.json": "0efe51b19ee9efdcdb5687f57060d9411452db00989626acc1c152fd6895dd2c",
+        "schemas/context/types/ScreeningHit.schema.json": "85c7c7f8f84863e626bf2e09c25d547ed0903c8003e9286cd357132d9ad53954",
+        "schemas/context/types/Session.schema.json": "5bacf5487a94ef296de391db9b4a035232e7a218fd4f0fad5fcf4644ad82bae4",
+        "schemas/context/types/Shipment.schema.json": "b0c86b6b8d9eccf28a689c9227b0c08658f936903191dee6534b83faed05886e",
+        "schemas/context/types/SkillExecution.schema.json": "1d5f9f12519976a50cb49e81572575ed5a3f0549d192981f9d8110096a24b48d",
+        "schemas/context/types/SourceOfFunds.schema.json": "153e2f6c77b90001388b2799b056bc2e4d11619daee415651803f14a5e6e5891",
+        "schemas/context/types/SourceOfWealth.schema.json": "b3d62ffdf5dabb4d7daa240d6e8688a1cc15b1282db13e54a8ba9b91905f9dd3",
+        "schemas/context/types/SourceRecord.schema.json": "a00c0beaec940a1bd9637b0c69235d69721a80c86817fcb3dd07f2f87911221e",
+        "schemas/context/types/Task.schema.json": "2209519fd0fe002215445641601836967e1761293cbdea83a34cf1544c8779ae",
+        "schemas/context/types/TimelineEvent.schema.json": "b6de0fdabd46f189c43c7c52c1e02a9c04a6a058ff818a25f8750c75d71e6c22",
+        "schemas/context/types/TradeRecord.schema.json": "a31f45a4ec9c8efcacfa05bbf91e1ab19d35e521b03b97b3295c44239e882291",
+        "schemas/context/types/Transaction.schema.json": "7664ea7ff0c1455cd5777cf0e5e43ab136a0c7c1070a099d9c73a5d6d467c556",
+        "schemas/context/types/Typology.schema.json": "c78aa2d6fbfca6fef50386a7d5bcf6a65c85eb982357018476e4f3cd8a3e4a96",
+        "schemas/context/types/VerificationRecord.schema.json": "1cf54e3c1319a965fb3571f615510d3d45e5f916bb49fd09d0dcae6a39fd98b5",
+        "schemas/context/types/WatchlistEntry.schema.json": "49c418840b82da67bb0f9ffdd055d27987113b728d4ceeb95cf888e7a542ad92",
+        "schemas/context/types/WorkflowDefinition.schema.json": "03356bf6441b76a0e1bfb51656daa5f1d11249b2b327577856e995ec34ae0d1e",
+        "schemas/providers/document.entities.request.schema.json": "f80723c172ff619801c3d35fca18d52f82b77326fc39850beb6c5db0e36a0d16",
+        "schemas/providers/document.entities.response.schema.json": "a10c0048fc3850a554acfce34891da341112a48e47bc1b39354f69e7641f4325",
+        "schemas/providers/document.fields.request.schema.json": "34381707d8d18460da6078e621447107543df357a898d0c918b5186480e81f68",
+        "schemas/providers/document.fields.response.schema.json": "b72ab14f10a5464e9904ca68dbc086e14a8fee8bbcbd8449d2605db1329dd299",
+        "schemas/providers/document.forensics.request.schema.json": "f3e30060bf84371ba8a58d23076c4bc9a68eb97932ad13d95b505e16f708e316",
+        "schemas/providers/document.forensics.response.schema.json": "f14816400ffdd918fcade73d493ecc826fa834a9a45250f3bbe04616ba95f090",
+        "schemas/providers/document.model.request.schema.json": "c775afa317103e7b5c5efed0173b808f3080504aba83171d3252e224fba2a4bb",
+        "schemas/providers/document.model.response.schema.json": "99ac84c38b45ae19ed1d4ced0cb4fabff643424d7023eba62e52f3618d2f7e02",
+        "schemas/providers/document.ocr.request.schema.json": "485fc17408da1d0ce3f29cc18fb65f6fef5827f1310fe6c154f8d26ea7abdc1f",
+        "schemas/providers/document.ocr.response.schema.json": "d692725f4a19b2832f4233e53c822e9abddee163e88691212b90449eac799e34",
+        "schemas/providers/document.translate.request.schema.json": "c8fbdaf567fc1f41c5aa251cad32ef3dd6ec4bad6fe50561397a603a0991a084",
+        "schemas/providers/document.translate.response.schema.json": "a73922b822216d49c30d7ad92b3751ff09e4ea4e6999997640d6604739dbe7ac",
+        "schemas/providers/fraud.account_takeover.request.schema.json": "468ef698a7419429b9df8e3a1215db14af8e6759813182bff40943a2e3dac1af",
+        "schemas/providers/fraud.account_takeover.response.schema.json": "bbb2a95c4f74de001112d00f9cc7a2cf300b2f583c1c8da81dba2ce3891a84d0",
+        "schemas/providers/fraud.deepfake.request.schema.json": "18f6f3ed9f8ec683fcd66a8fefd4874659fbed4509bdc5a2ce49c8907d49166c",
+        "schemas/providers/fraud.deepfake.response.schema.json": "ba91ca383eef0e66ff688f1571dd3b76b15c0417d38e872d7195341aa8bb46ce",
+        "schemas/providers/fraud.document_tamper.request.schema.json": "ba5432e75653e793cd07d14da2ceeac1c313e177b204b0727128ff7f9fd7e954",
+        "schemas/providers/fraud.document_tamper.response.schema.json": "8d02bb4478a6ef4e46cfe22d3405596adde8da692f3d6c401a516ccdb5d51b11",
+        "schemas/providers/fraud.identity_theft.request.schema.json": "0b148a1b22f660d0b33fe66c29a56aacefd4926c402acb70a04e3ca13851967a",
+        "schemas/providers/fraud.identity_theft.response.schema.json": "ff6fd3f210465c85c1ac3e4efba6a4940cf16027f5aeb3fe7cd8f0e015b7c45e",
+        "schemas/providers/fraud.liveness.request.schema.json": "b97a9b7e4193a7383ef19430a106d19c23bf26f43780b9eaba67f989fbefc7d3",
+        "schemas/providers/fraud.liveness.response.schema.json": "950876f6fe43f407b588f424e8b5983dfe2f7555cc5d127c23900f3efa14a59c",
+        "schemas/providers/fraud.synthetic_identity.request.schema.json": "6b2457c6381ee63caf35f0f9cd1801d27c0e37b6812f96fc752ee3d99e04e3b7",
+        "schemas/providers/fraud.synthetic_identity.response.schema.json": "dbf9d09c7550dcba407b4ab482895f7666092967f2cde2ee7dc038b88348ac38",
+        "schemas/runtime/AgentProfile.schema.json": "dd5a803a4e31b913528aec6708141808deabacea947b173aae75622cb8d8883d",
+        "schemas/runtime/Catalog.schema.json": "b0dbd366ec4daebc4931f3e31a7dea15f1966acba36a9fb740aa2ab14e619441",
+        "schemas/runtime/Computation.schema.json": "bb74649e8bdd3eb816241e00505de6afccbe2bc4af2e0bd6618d124a4ded1fab",
+        "schemas/runtime/ContextManifest.schema.json": "4f1564acda96262453ceff3c5235d714388925072d9cdfa7b937cfaac650343e",
+        "schemas/runtime/EffectCommand.schema.json": "bd9ee68fcb1ee094fa7b60f7df8a6f384032a764b8a24cedb565ef0870a23d78",
+        "schemas/runtime/ExecutionLock.schema.json": "b3db94dbeeee6a91fd41feba8346cb8894d3abd86cdbcc69847686818c9f9390",
+        "schemas/runtime/Failure.schema.json": "33dfad53fc6ab5811636344470a3f60f1731479a598a886ffa4489275a49a650",
+        "schemas/runtime/Invocation.schema.json": "8b2c82210e635d5874f98c069e76f95a9cae6f2051ce444ea0e769b39bc6179d",
+        "schemas/runtime/Metrics.schema.json": "9fa3511738fc14affed94a31470b8509ca3b141980b25b96f15e5dd63ee572a4",
+        "schemas/runtime/Principal.schema.json": "2adf83aeb936c562cb7c613a85208b24a1dc44e2413e38770abdc45b54d77b2f",
+        "schemas/runtime/ProviderResponse.schema.json": "17f723288e77ca04a55ba50e53ae3b8e8c7a146ff63b05277d116421b59364f1",
+        "schemas/runtime/Record.schema.json": "d86e1f2b9700ca3404ec6bb24b88f0a4d12b82acf064f9edde8f3fa1a7731c3f",
+        "schemas/runtime/RecordView.schema.json": "f97cbc89222b0e6d1b80e32190c79f9c58917a852cea905b557900e48dffe57b",
+        "schemas/runtime/Ref.schema.json": "a2c7165395d0737ab3ce4259de97171d36b48e35984e9d2c8e49a6a86083e315",
+        "schemas/runtime/Requirement.schema.json": "0dd9f5f7e152685c56c2a05d267f549f0318a9122bba1c3085dcf3f405705654",
+        "schemas/runtime/SkillManifest.schema.json": "962d9d5af804abbcf30943d8d01cde6cc54b3aa4de79e89c946f89748231c192",
+        "schemas/runtime/SkillResult.schema.json": "499dfb6239e6677cde627f76c63ea77c0f6b73f84ec149c1e6838deb918cc2cd",
+        "schemas/runtime/UnresolvedItem.schema.json": "b1034172b0548c315e58346c606e221aaa1d00fc9880d44fd59df2b423523623",
+        "schemas/runtime/Workflow.schema.json": "226eae682e7f1e396a31365a5a855789d7226c158b38624445d67e406c80c2dd"
+      }
+    },
+    "ehf.contracts": {
+      "root": "ehfconcept",
+      "include": [
+        "packages/contracts/src/index.ts",
+        "packages/contracts/package.json"
+      ],
+      "consumers": [
+        "upstream/ehf-contracts.schema.json (re-export)",
+        "generated TS types",
+        "fixtures/ehf.*.json"
+      ],
+      "files": {
+        "packages/contracts/package.json": "a51aa6025bb1549d9529b6a6824f875fe584dd618a4c4bbaa07fa196a5645dcc",
+        "packages/contracts/src/index.ts": "05113882dc88d274fda206890a83d086729f11f35294af36c25006f69daf75d7"
+      }
+    },
+    "ehf.identity": {
+      "root": "ehfconcept",
+      "include": [
+        "packages/identity/src/authorization.ts"
+      ],
+      "consumers": [
+        "fixtures/personas.json role->action table",
+        "BUILD-SPEC \u00a75.3 roles"
+      ],
+      "files": {
+        "packages/identity/src/authorization.ts": "76506427e5d34ca712ad74800b56883b39ddb02921495c5621df142875f46cb4"
+      }
+    },
+    "ehf.routes": {
+      "root": "ehfconcept",
+      "include": [
+        "apps/control-api/src/app.ts",
+        "apps/control-api/src/governance-routes.ts",
+        "apps/control-api/src/deployment-routes.ts",
+        "apps/control-api/src/deployment-bootstrap-routes.ts",
+        "apps/control-api/src/integration-routes.ts",
+        "apps/control-api/src/policy-authoring.ts",
+        "apps/case-api/src/app.ts",
+        "apps/capability-gateway/src/app.ts"
+      ],
+      "consumers": [
+        "experience-api.openapi.yaml relay paths (x-upstream)",
+        "BUILD-SPEC \u00a75 relay allow-list"
+      ],
+      "files": {
+        "apps/capability-gateway/src/app.ts": "e7294c630f328a93931eaa92432503428946a081f80e3743c5bf5ae66a1d3932",
+        "apps/case-api/src/app.ts": "95cea8013ae922a7d31bbb62389c49c7dd9e83ca3842f65c31180de10ed4abbc",
+        "apps/control-api/src/app.ts": "0e055fc87d167ce0abc5ecfe09474e34144760ae6f72677c6001ed63c6abf069",
+        "apps/control-api/src/deployment-bootstrap-routes.ts": "6590ae05115b287cfe0470fe1b936f939904ab45a6c8d36178f3676f259fa637",
+        "apps/control-api/src/deployment-routes.ts": "1fc48cbf00c6ff96471b9cf9c454bad53feffff024de135a3dd0e08d4563f1df",
+        "apps/control-api/src/governance-routes.ts": "dc1c91caf3cad37835155cc3278161ff5dfa365534cfcb3ad4f0f5ed039c8f1b",
+        "apps/control-api/src/integration-routes.ts": "12055816887338e9b9bda02aa2f3fff76d421353ea7c59e0e394f879d72f9b7b",
+        "apps/control-api/src/policy-authoring.ts": "12a243e481354df1a119ee597ffafff2bef0c6abd29b7cc5c5c4c5c55e34f393"
+      }
+    },
+    "ehf.control-ui": {
+      "root": "ehfconcept",
+      "include": [
+        "apps/control-ui/src/lib/runtime-service.ts",
+        "apps/control-ui/src/lib/types.ts",
+        "apps/control-ui/src/proxy.ts",
+        "apps/control-ui/src/app/**/page.tsx",
+        "apps/control-ui/src/app/v1/**/route.ts"
+      ],
+      "consumers": [
+        "ALIGNMENT \u00a74 parity matrix (frozen reference until cutover)"
+      ],
+      "files": {}
+    },
+    "ehf.design": {
+      "root": "ehfconcept",
+      "include": [
+        "docs/new-arch/03-studio-bff.md",
+        "docs/new-arch/16-context-assurance.md",
+        "docs/new-arch/17-human-work.md",
+        "docs/new-arch/20-authentication-authorization.md",
+        "ui-specs.md",
+        "docs/implementation/author-operations-surface.md"
+      ],
+      "consumers": [
+        "BUILD-SPEC \u00a70 N-rules, \u00a75 BFF, \u00a710 PLT-*"
+      ],
+      "files": {
+        "docs/implementation/author-operations-surface.md": "820bd51327cb9cf92b01aa67ceb19388c826b631edf8830bc1a5b60299fde265",
+        "docs/new-arch/03-studio-bff.md": "479a0a6f4e532c010d37b54f151832281ddebb728056a35ea5216a68d3793285",
+        "docs/new-arch/16-context-assurance.md": "be1778f15f52533b522acccab008e75953502220fb478fa934650db4cb5b0631",
+        "docs/new-arch/17-human-work.md": "bedae49b88bd2a14fad8d7821b40c9255d7a5b02afa72ca6d45a31a0dc66d6d8",
+        "docs/new-arch/20-authentication-authorization.md": "96e4f861cde12c9e09f065db2f7b270c48724ec156260376c64ddbae8ee732b2",
+        "ui-specs.md": "fa29d9791202eb61f80035b9e04d96f61b2bcdbdfa7918f7d021e216ed6352eb"
+      }
+    },
+    "ehf.proposals": {
+      "root": "ehfconcept",
+      "include": [
+        "docs/CANONICAL_EXTERNAL_CAPABILITY_MODEL.md"
+      ],
+      "consumers": [
+        "ALIGNMENT \u00a77 open gaps (capability readiness)"
+      ],
+      "files": {
+        "docs/CANONICAL_EXTERNAL_CAPABILITY_MODEL.md": "ebfe90ea99801f996fa6665e98cbdcf1d3b4d4900e7ba0b36ceb5cd77099f534"
+      },
+      "watch": true
+    }
+  },
+  "bundle": {
+    "file": "upstream/ehf-contracts.schema.json",
+    "defs_sha256": "1d063186572d19e1dadfca7e30b0efe3537c716a1923e435595f0a7d682a04f3"
+  }
+}

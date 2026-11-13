@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIZ-02/03 · Case Room — KYB-1042 · CDD Ownership Workbench</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .case-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,auto); gap: var(--space-4); padding: var(--space-4) var(--space-5); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); }
+  .case-head__facts { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: 6px; font-size: var(--text-sm); color: var(--ink-2); }
+  .stage { display: flex; align-items: center; gap: 0; margin-top: var(--space-3); }
+  .stage span { font-size: 11.5px; padding: 3px 10px; border: 1px solid var(--line-1); margin-left: -1px; color: var(--ink-3); background: var(--surface-raised); white-space: nowrap; }
+  .stage span:first-child { border-radius: 999px 0 0 999px; } .stage span:last-child { border-radius: 0 999px 999px 0; }
+  .stage span.done { color: var(--emerald-700); background: var(--emerald-50); }
+  .stage span.now { color: var(--ink-1); background: var(--surface-panel); border-color: var(--graphite-600); font-weight: 600; position: relative; z-index: 1; }
+  .roles { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; max-width: 330px; }
+  .canvas { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); }
+  .canvas__bar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--line-1); }
+  .canvas__body { padding: var(--space-3) var(--space-4) var(--space-4); background-image: radial-gradient(var(--porcelain-300) 1px, transparent 1px); background-size: 18px 18px; border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+  .wp { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-3) var(--space-5); font-size: var(--text-sm); }
+  .wp h4 { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); font-weight: 500; margin-bottom: 4px; }
+  .recon td.conf { background: var(--coral-100); color: var(--coral-700); font-weight: 600; }
+  .evrow { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; padding: 10px 0; border-bottom: 1px solid var(--line-1); font-size: var(--text-sm); }
+  .evrow:last-child { border-bottom: 0; }
+  .quote { font-family: var(--font-mono); font-size: 11.5px; background: var(--surface-well); padding: 6px 8px; border-radius: 6px; border-left: 3px solid var(--ochre-500); margin-top: 4px; grid-column: 2; }
+  .quote.ok { border-left-color: var(--emerald-600); }
+</style>
+</head>
+<body data-studio="workspace" data-role="CDD / KYB Analyst" data-user="R. Okafor">
+<div class="app">
+  <header data-shell="chrome"></header>
+
+  <nav class="orient" aria-label="Case navigation">
+    <div class="orient__group"><a class="nav-item" href="biz-01-my-workspace.html" data-icon="arrowl" data-icon-class="i--sm"> My Workspace</a></div>
+    <div class="orient__group">
+      <span class="t-engraved">Case room</span>
+      <a class="nav-item" href="#">Summary</a>
+      <a class="nav-item" href="#">Activities <span class="count">29</span></a>
+      <a class="nav-item" href="#">Evidence <span class="count">14</span></a>
+      <a class="nav-item" href="#">Findings <span class="count">6</span></a>
+      <a class="nav-item" href="#">Tasks <span class="count">3 open</span></a>
+      <a class="nav-item" href="biz-07-decision-desk.html">Decisions <span class="count">0</span></a>
+      <a class="nav-item" href="#">History</a>
+      <a class="nav-item" href="asr-02-flight-recorder.html">Audit</a>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Workbench lenses</span>
+      <a class="nav-item" href="#" aria-current="page" data-icon="branch" data-icon-class="i--sm"> Ownership &amp; control</a>
+      <a class="nav-item" href="#" data-icon="copy" data-icon-class="i--sm"> Document reconciliation</a>
+      <a class="nav-item" href="biz-06-screening.html" data-icon="shieldcheck" data-icon-class="i--sm"> Screening <span class="count">1 hit</span></a>
+      <a class="nav-item" href="#" data-icon="gauge" data-icon-class="i--sm"> Risk <span class="count">pending</span></a>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Handoff package</span>
+      <div class="card card--white xs stack stack--tight"><span class="strong small">From K. Haas · Onboarding</span><span class="muted">Intake complete · 4 docs · 1 open request</span><span class="muted">Due <time>Nov 11</time> · SLA 3 d 4 h</span></div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <section class="case-head" aria-label="Case header">
+      <div>
+        <div class="row"><span class="t-engraved">Case · KYB · revision 7</span><span class="id">KYB-1042</span></div>
+        <h1 style="margin-top:2px">Acme Trading Ltd</h1>
+        <div class="case-head__facts">
+          <span><span class="t-engraved">entity</span> company · <span class="mono">SYN-0001</span></span>
+          <span><span class="t-engraved">jurisdiction</span> synthetic-neutral</span>
+          <span><span class="t-engraved">purpose</span> onboarding</span>
+          <span><span class="t-engraved">risk</span> not yet assessed</span>
+          <span><span class="t-engraved">as-of</span> <time>2026-11-07 12:00 UTC</time></span>
+        </div>
+        <div class="stage" aria-label="Workflow stage, derived from checkpoint 14 of 29">
+          <span class="done">Intake</span><span class="done">Policy</span><span class="done">Entity</span><span class="done">Registry</span><span class="done">Documents</span><span class="now">Ownership · review</span><span>Screening</span><span>Risk</span><span>QA</span><span>Decision</span>
+        </div>
+      </div>
+      <div class="stack" style="align-items:flex-end;min-width:0">
+        <div class="row row--wrap" style="justify-content:flex-end"><span class="dim"><span class="t-engraved">Case</span><span class="status" data-tone="info">REVIEW</span></span><span class="dim"><span class="t-engraved">Execution</span><span class="status" data-tone="attention"><svg class="i"><use href="#i-pause"/></svg>Needs review</span></span></div>
+        <div class="roles"><span class="chip chip--outline xs">RM · D. Patel</span><span class="chip chip--outline xs">Onboarding · K. Haas</span><span class="chip xs" style="background:var(--graphite-900);color:#fff">CDD · you</span><span class="chip chip--outline xs">Compliance · pending</span></div>
+      </div>
+    </section>
+
+    <div class="interrupt" role="alert" style="margin-top:var(--space-4)">
+      <span class="interrupt__icon" data-icon="pause"></span>
+      <div class="grow"><strong>Workflow paused for your review</strong> — <span class="mono">decision.human.review</span> after <span class="mono">ownership.ubo.verify</span>. Material ownership discrepancy crosses the 20% policy threshold; one nominee path is unresolved.<div class="xs" style="margin-top:2px">Checkpoint 14/29 · interrupt since <time>13:58 UTC</time> · resumes only after a recorded review outcome.</div></div>
+      <button class="btn btn--sm" data-icon="file" data-icon-class="i--sm"> Request evidence</button>
+      <button class="btn btn--sm btn--primary" data-open-sheet="review-sheet">Record review outcome</button>
+    </div>
+
+    <section class="canvas" style="margin-top:var(--space-4)" aria-label="Ownership and control graph">
+      <div class="canvas__bar">
+        <h2 style="font-size:var(--text-lg)">Ownership &amp; control</h2>
+        <span class="xs muted">OwnershipGraph v3 · <span class="mono">complete: false</span> · 2 unresolved</span>
+        <div class="segmented segmented--sm ml-auto" data-view-switch="own"><button data-view="graph" aria-pressed="true" data-icon="graph" data-icon-class="i--sm"> Graph</button><button data-view="table" aria-pressed="false" data-icon="table" data-icon-class="i--sm"> Table</button></div>
+        <div class="segmented segmented--sm"><button aria-pressed="true">Effective</button><button aria-pressed="false">Direct</button></div>
+        <button class="btn btn--sm btn--quiet" data-icon="history" data-icon-class="i--sm"> As of…</button>
+      </div>
+      <div class="canvas__body">
+        <div data-view-of="own" data-view-name="graph">
+        <svg class="graph" viewBox="0 0 920 430" role="img" aria-labelledby="og-t og-d">
+          <title id="og-t">Ownership graph for Acme Trading Ltd</title>
+          <desc id="og-d">Harbor Holdings BV owns 60% of Acme (verified). Alice Example owns 55% of Harbor (verified), effective 33%, verified UBO, plus a board appointment control right. Meridian Nominees Ltd owns 45% of Harbor, effective 27%, nominee principal unknown — unresolved. Bram Okoro: declared 25%, registry 15% — conflict. 15% of Acme unaccounted. Use the Table view for a full accessible listing.</desc>
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3B433E"/></marker>
+            <marker id="ah-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#B47F26"/></marker>
+            <marker id="ah-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#D07A66"/></marker>
+            <marker id="ah-s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#6F88AD"/></marker>
+          </defs>
+          <!-- edges -->
+          <path class="g-edge g-edge--unresolved" d="M690 78 L 540 78" marker-end="url(#ah-c)"/>
+          <path class="g-edge g-edge--verified" d="M170 106 C 170 160, 250 170, 262 196" marker-end="url(#ah)"/>
+          <path class="g-edge g-edge--verified" d="M450 106 C 450 160, 360 170, 340 196" marker-end="url(#ah)"/>
+          <path class="g-edge g-edge--verified" d="M300 250 C 300 300, 400 310, 430 336" marker-end="url(#ah)"/>
+          <path class="g-edge g-edge--candidate g-edge--highlight" d="M600 250 C 600 300, 520 310, 500 336" marker-end="url(#ah-o)"/>
+          <path class="g-edge g-edge--unresolved" d="M820 250 C 820 320, 620 350, 548 360" marker-end="url(#ah-c)"/>
+          <path class="g-edge g-edge--control" d="M110 106 C 60 260, 250 380, 390 372" marker-end="url(#ah-s)"/>
+          <!-- edge labels -->
+          <g><rect class="g-label-bg" x="188" y="150" width="42" height="18" rx="4"/><text class="g-label" x="194" y="163">55.0%</text></g>
+          <g><rect class="g-label-bg" x="380" y="150" width="42" height="18" rx="4"/><text class="g-label" x="386" y="163">45.0%</text></g>
+          <g><rect class="g-label-bg" x="330" y="292" width="42" height="18" rx="4"/><text class="g-label" x="336" y="305">60.0%</text></g>
+          <g><rect x="540" y="288" width="140" height="20" rx="4" fill="#F5EAD2" stroke="#B47F26"/><text class="g-label" x="547" y="302" fill="#8A5A0F">25% decl · 15% reg</text></g>
+          <g><rect class="g-label-bg" x="684" y="318" width="112" height="18" rx="4"/><text class="g-label" x="696" y="331" fill="#A3412F">15% unaccounted</text></g>
+          <g><rect class="g-label-bg" x="40" y="250" width="138" height="18" rx="4"/><text class="g-label" x="54" y="263" fill="#3D5A82">control · board appt</text></g>
+          <g><rect class="g-label-bg" x="556" y="56" width="124" height="18" rx="4"/><text class="g-label" x="566" y="69" fill="#A3412F">principal unknown</text></g>
+          <!-- nodes -->
+          <g class="g-node g-node--person" tabindex="0" role="button" aria-label="Alice Example, natural person, effective 33.0 percent, verified UBO">
+            <rect x="60" y="50" width="220" height="56" rx="28"/>
+            <circle cx="88" cy="78" r="15" fill="#E2EEE6" stroke="none"/><text x="81" y="83" style="font-size:12px;font-weight:600;fill:#2E6B4F">AE</text>
+            <text x="112" y="74" style="font-weight:600">Alice Example</text><text class="g-sub" x="112" y="92">◆ verified UBO · 33.0% eff.</text>
+          </g>
+          <g class="g-node g-node--company" tabindex="0" role="button" aria-label="Meridian Nominees Ltd, company, nominee, effective 27 percent, principal unknown">
+            <rect x="350" y="50" width="190" height="56" rx="10"/>
+            <text x="366" y="74" style="font-weight:600">Meridian Nominees Ltd</text><text class="g-sub" x="366" y="92">nominee? · 27.0% eff.</text>
+          </g>
+          <g class="g-node g-node--unknown" tabindex="0" role="button" aria-label="Unknown principal behind Meridian Nominees, unresolved">
+            <rect x="692" y="54" width="170" height="48" rx="10"/>
+            <text x="708" y="76" style="font-weight:600;fill:#A3412F">? Unknown principal</text><text class="g-sub" x="708" y="92" style="fill:#A3412F">OwnershipGap · NOMINEE</text>
+          </g>
+          <g class="g-node g-node--company" tabindex="0" role="button" aria-label="Harbor Holdings BV, company, owns 60 percent of Acme, verified">
+            <rect x="200" y="196" width="200" height="54" rx="10"/>
+            <text x="216" y="219" style="font-weight:600">Harbor Holdings BV</text><text class="g-sub" x="216" y="237">registry verified · F-221</text>
+          </g>
+          <g class="g-node g-node--person g-node--selected" tabindex="0" role="button" aria-label="Bram Okoro, natural person, declared 25 percent, registry 15 percent, conflict, selected">
+            <rect x="500" y="196" width="200" height="54" rx="27"/>
+            <circle cx="527" cy="223" r="15" fill="#F5EAD2" stroke="none"/><text x="519" y="228" style="font-size:12px;font-weight:600;fill:#8A5A0F">BO</text>
+            <text x="550" y="219" style="font-weight:600">Bram Okoro</text><text class="g-sub" x="550" y="237">◇ candidate · conflict</text>
+          </g>
+          <g class="g-node g-node--unknown" tabindex="0" role="button" aria-label="Unaccounted interest 15 percent">
+            <rect x="740" y="200" width="160" height="48" rx="10"/>
+            <text x="756" y="222" style="font-weight:600;fill:#A3412F">Unaccounted</text><text class="g-sub" x="756" y="238" style="fill:#A3412F">OwnershipGap · interest</text>
+          </g>
+          <g class="g-node g-node--root" tabindex="0" role="button" aria-label="Acme Trading Ltd, root entity">
+            <rect x="388" y="338" width="160" height="56" rx="12"/>
+            <text x="404" y="362" style="font-weight:600">Acme Trading Ltd</text><text class="g-sub" x="404" y="380" style="fill:#A9C2B5">root · SYN-0001</text>
+          </g>
+        </svg>
+        </div>
+        <div data-view-of="own" data-view-name="table" hidden>
+          <table class="table"><thead><tr><th>Owner</th><th>Owned</th><th class="r">Direct</th><th class="r">Effective</th><th>Status</th><th>Evidence</th></tr></thead><tbody>
+            <tr><td>Harbor Holdings BV</td><td>Acme Trading Ltd</td><td class="r">60.0%</td><td class="r">60.0%</td><td><span class="epi" data-kind="fact">Verified fact</span></td><td class="mono xs">F-221 registry</td></tr>
+            <tr><td>Alice Example</td><td>Harbor Holdings BV</td><td class="r">55.0%</td><td class="r">33.0%</td><td><span class="epi" data-kind="fact">Verified · UBO</span></td><td class="mono xs">F-221 · VR-031</td></tr>
+            <tr><td>Meridian Nominees Ltd</td><td>Harbor Holdings BV</td><td class="r">45.0%</td><td class="r">27.0%</td><td><span class="epi" data-kind="assertion">Nominee — principal unknown</span></td><td class="mono xs">F-221</td></tr>
+            <tr aria-selected="true"><td>Bram Okoro</td><td>Acme Trading Ltd</td><td class="r">25% / 15%</td><td class="r">—</td><td><span class="status" data-tone="blocking">Conflict UNRESOLVED</span></td><td class="mono xs">DECL-07 · F-219</td></tr>
+            <tr><td><i>Unaccounted</i></td><td>Acme Trading Ltd</td><td class="r">15.0%</td><td class="r">—</td><td><span class="status" data-tone="attention">Gap</span></td><td>—</td></tr>
+            <tr><td>Alice Example</td><td>Acme Trading Ltd</td><td class="r">control</td><td class="r">—</td><td><span class="epi" data-kind="fact">Board appointment · verified</span></td><td class="mono xs">ART-04</td></tr>
+          </tbody></table>
+        </div>
+        <div class="legend" style="margin-top:8px">
+          <span><svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" class="g-edge g-edge--verified"/></svg>Verified interest</span>
+          <span><svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" class="g-edge g-edge--candidate"/></svg>Candidate / asserted</span>
+          <span><svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" class="g-edge g-edge--unresolved"/></svg>Unresolved path</span>
+          <span><svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" class="g-edge g-edge--control"/></svg>Non-equity control</span>
+          <span class="epi" data-kind="fact">Verified fact</span><span class="epi" data-kind="assertion">Assertion</span>
+          <span class="ml-auto">Policy threshold <span class="mono">ownership_threshold = 0.20</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-agent" style="margin-top:var(--space-6)" aria-label="Agent work product">
+      <span class="surface-agent__tag"><svg class="i i--sm"><use href="#i-bot"/></svg>A02 · template ownership.review_required@1 · surface s-88 rev 3</span>
+      <div class="row row--between" style="margin-bottom:var(--space-3)"><h3>Beneficial ownership — prepared for review</h3><div class="row"><span class="epi" data-kind="recommendation">Recommendation</span><span class="status" data-tone="attention">NEEDS_REVIEW</span></div></div>
+      <div class="wp">
+        <div><h4>1 · Finding</h4>One verified UBO (Alice Example, 33.0%). Two unresolved items prevent completion.</div>
+        <div><h4>2 · Evidence</h4>Registry filings F-219, F-221; declaration DECL-07; verification VR-031.</div>
+        <div><h4>3 · Verification</h4><span class="epi" data-kind="fact">1 verified</span> · <span class="epi" data-kind="assertion">2 asserted</span></div>
+        <div><h4>4 · Uncertainty</h4>Bram Okoro 15% vs 25% straddles threshold; Meridian principal unknown; 15% unaccounted.</div>
+        <div><h4>5 · Policy</h4><span class="mono xs">synthetic-neutral 0.1.0</span> · threshold 0.20 · unknown ≠ pass</div>
+        <div><h4>6 · Freshness</h4>Registry captured <time>Nov 06</time>; declaration <time>Oct 30</time>.</div>
+        <div><h4>7 · Trace</h4><a class="mono xs" href="asr-02-flight-recorder.html">exec 7c1e…a9</a> · ctx 9c41…e07b</div>
+        <div><h4>8 · Proposed action</h4>Request updated share register from customer; keep case in REVIEW.</div>
+      </div>
+      <div class="row" style="margin-top:var(--space-4)"><button class="btn btn--sm">Accept finding</button><button class="btn btn--sm">Challenge</button><button class="btn btn--sm">Request more work</button><button class="btn btn--sm btn--quiet">Escalate to EDD</button><span class="xs muted ml-auto">Accepting a finding is not a case decision.</span></div>
+    </section>
+
+    <section class="panel panel--flush" style="margin-top:var(--space-4)">
+      <div class="panel__head"><h3>Document reconciliation · Bram Okoro → Acme</h3><span class="status" data-tone="blocking" style="margin-left:auto">Conflict UNRESOLVED</span></div>
+      <div class="scroll-x"><table class="table recon"><thead><tr><th>Field</th><th>Registry filing F-219</th><th>Customer declaration DECL-07</th><th>Extracted (share register p.2)</th><th>Status</th></tr></thead><tbody>
+        <tr><td>Holder name</td><td>Bram Okoro</td><td>Bram Okoro</td><td>B. Okoro</td><td><span class="status" data-tone="positive">Agree</span></td></tr>
+        <tr><td>Interest</td><td class="num">15.0%</td><td class="conf num">25.0%</td><td class="num">15.0%</td><td><span class="status" data-tone="blocking">Disagree</span></td></tr>
+        <tr><td>Share class</td><td>Ordinary A</td><td>—</td><td>Ordinary A</td><td><span class="status" data-tone="neutral">Missing in declaration</span></td></tr>
+        <tr><td>Effective date</td><td><time>2025-03-01</time></td><td><time>2026-10-30</time></td><td><time>2025-03-01</time></td><td><span class="status" data-tone="attention">Different as-of</span></td></tr>
+      </tbody></table></div>
+    </section>
+  </main>
+
+  <aside class="inspector" aria-label="Verification drawer">
+    <div class="inspector__head">
+      <div class="t-engraved">Verification · selected edge</div>
+      <h2>Bram Okoro → Acme</h2>
+      <div class="row" style="margin-top:6px"><span class="id">Conflict cf-12</span><span class="status" data-tone="blocking">UNRESOLVED</span></div>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">Assertions</span>
+      <div class="evrow"><span class="epi" data-kind="assertion"></span><div><b>25.0%</b> — customer declaration <span class="mono xs">DECL-07 v2</span><div class="xs muted">observed <time>2026-10-30</time> · authority: customer</div></div>
+        <div class="quote">“Bram Okoro … holding: 25%” <span class="subtle">· p.1 chars 412–447</span></div></div>
+      <div class="evrow"><span class="epi" data-kind="assertion"></span><div><b>15.0%</b> — registry filing <span class="mono xs">F-219</span><div class="xs muted">observed <time>2026-11-06</time> · effective <time>2025-03-01</time> · authority: registry</div></div>
+        <div class="quote ok">holding.pct = 15.00 <span class="subtle">· capture rc-5521 · sha256 4be1…09</span></div></div>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">Why it matters</span>
+      <p class="small">Policy <span class="mono">ownership_threshold 0.20</span> sits between the two values. At 25% Bram Okoro is a UBO candidate requiring verification; at 15% he is not. <b>Unknown ≠ pass</b>: the system will not pick a value.</p>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">Provenance &amp; freshness</span>
+      <dl class="kv"><dt>Registry source</dt><dd>registry-capture · complete coverage</dd><dt>Captured</dt><dd><time>Nov 06 09:12</time> · within policy</dd><dt>Declaration</dt><dd>DECL-07 v2 · supersedes v1</dd><dt>Produced by</dt><dd class="mono xs">evidence.conflicts.resolve 0.2.0</dd></dl>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">Your authority</span>
+      <dl class="kv"><dt>Role</dt><dd>analyst</dd><dt>Can</dt><dd>request evidence · record review</dd><dt>Cannot</dt><dd>accept case (compliance)</dd></dl>
+      <div class="stack" style="margin-top:var(--space-3)"><button class="btn btn--primary" data-open-sheet="review-sheet">Record review outcome…</button><button class="btn">Request updated share register</button></div>
+    </div>
+  </aside>
+
+  <footer class="rail" data-expanded="false">
+    <div class="rail__bar">
+      <span class="t-engraved"><span data-icon="activity" data-icon-class="i--sm"></span> Agent stream</span>
+      <div class="rail__events">
+        <span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>ownership.graph.build · COMPLETED</span>
+        <span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>ownership.interest.calculate · PARTIAL</span>
+        <span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>ownership.ubo.resolve · NEEDS_REVIEW</span>
+        <span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>ownership.ubo.verify · PARTIAL</span>
+        <span class="evt" data-tone="attention"><svg class="i"><use href="#i-pause"/></svg>workflow.interrupted · decision.human.review</span>
+      </div>
+      <button class="btn btn--sm btn--quiet" data-rail-toggle aria-expanded="false">Expand</button>
+    </div>
+    <div class="rail__body">
+      <ul class="stream" style="max-width:900px">
+        <li data-state="completed"><span class="stream__mark"></span><span>Comparing ownership declarations against registry filings</span><span class="xs muted num">13:57:41</span><span class="stream__meta">evidence.conflicts.resolve · span 3f…a1</span></li>
+        <li data-state="completed"><span class="stream__mark"></span><span>Evaluating unresolved control relationships</span><span class="xs muted num">13:57:52</span><span class="stream__meta">ownership.control.resolve</span></li>
+        <li data-state="interrupted"><span class="stream__mark"></span><span>Waiting for analyst review</span><span class="xs muted num">13:58:03</span><span class="stream__meta">checkpoint cp-14 · approval pending</span></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<!-- L2 consequential action: preview → propose. Application-owned sheet, not agent-composed. -->
+<div class="sheet-scrim" id="review-sheet" role="dialog" aria-modal="true" aria-labelledby="rs-t">
+  <div class="sheet">
+    <div class="sheet__body">
+      <div><div class="t-engraved">Record review outcome · L2 · preview before commit</div><h2 id="rs-t" style="margin-top:4px">Ownership review — KYB-1042</h2></div>
+      <div class="field"><label>Outcome</label>
+        <div class="segmented segmented--wide" data-select-group><button aria-pressed="true">Request evidence &amp; keep in review</button><button aria-pressed="false">Ownership established</button><button aria-pressed="false">Escalate to EDD</button></div></div>
+      <div class="field"><label for="rat">Rationale (recorded, visible to QA &amp; audit)</label><textarea class="input" id="rat">Declared 25% conflicts with registry 15% (threshold 20%). Meridian nominee principal unknown. Requesting certified share register and nominee declaration.</textarea></div>
+      <div class="card card--well">
+        <div class="t-engraved" style="margin-bottom:8px">Impact preview</div>
+        <div class="diff-row"><span class="muted">Case state</span><span>REVIEW</span><span>REVIEW <span class="xs muted">(unchanged)</span></span></div>
+        <div class="diff-row"><span class="muted">New task</span><span class="muted">—</span><span class="diff-new">Evidence request → RM D. Patel, due Nov 12</span></div>
+        <div class="diff-row"><span class="muted">Workflow</span><span>Interrupted cp-14</span><span>Remains paused until evidence received</span></div>
+        <div class="diff-row" style="border:0"><span class="muted">Audit events</span><span class="muted">—</span><span class="mono xs">human.reviewed · task.planned</span></div>
+      </div>
+      <div class="disclosure" data-tone="info"><svg class="i"><use href="#i-info"/></svg><div>Committed server-side at expected case <b>revision 7</b>. If the case changed meanwhile you'll see a conflict comparison — nothing is overwritten silently.</div></div>
+    </div>
+    <div class="sheet__foot"><button class="btn" data-close-sheet>Cancel</button><span class="xs muted ml-auto">Idempotency key bound to this preview</span><button class="btn btn--primary" data-close-sheet>Submit review</button></div>
+  </div>
+</div>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:edd.counterparty.analyze
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Assemble evidence-backed counterparty risk indicators without inferring
+  final guilt.
+code_hash: f714bff6b914ce6130a0efa4d34e7c5f6197709056b7a33ccfe82b0a16a1d527
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Assemble evidence-backed counterparty risk indicators without inferring
+  final guilt.
+effects: read_only
+entrypoint: financial_crime.skills.risk_edd:counterparty_analyze
+evaluation_profile: edd.counterparty.analyze-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: edd-counterparty-analyze
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: edd.counterparty.analyze
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:edd.counterparty.analyze:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: c3781af0ab93d883725b04f9d79c846fa3b8b3dfc5bfedd8a49a328f8a2fff6e
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: true
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    CounterpartyRow_entity_id_evidence_ids_risk_indicators:
+      additionalProperties: false
+      properties:
+        _ref:
+          $ref: '#/$defs/Ref'
+        _synthetic:
+          $ref: '#/$defs/Bool'
+        entity_id:
+          $ref: '#/$defs/Id'
+        evidence_ids:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        id:
+          $ref: '#/$defs/Id'
+        risk_indicators:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - id
+      - entity_id
+      - risk_indicators
+      - evidence_ids
+      - _ref
+      - _synthetic
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+  $id: urn:financial-crime:skill:edd.counterparty.analyze:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    counterparties:
+      items:
+        $ref: '#/$defs/CounterpartyRow_entity_id_evidence_ids_risk_indicators'
+      maxItems: 10000
+      type: array
+  required:
+  - counterparties
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - entity_id
+  - risk_indicators
+  - evidence_ids
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Counterparty
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

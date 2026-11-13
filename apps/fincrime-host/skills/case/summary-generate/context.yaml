@@ -1,0 +1,14 @@
+dynamic_target: null
+requirements:
+- fields:
+  - claim
+  - status
+  - evidence_ids
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Finding
+  optional: false
+schema_version: 2.0.0
+skill_id: case.summary.generate

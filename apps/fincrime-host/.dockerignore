@@ -1,0 +1,14 @@
+.venv
+.git
+tests
+skills
+docs
+examples
+catalog
+schemas
+*.sqlite*
+__pycache__
+dist
+build
+.pytest_cache
+.hypothesis

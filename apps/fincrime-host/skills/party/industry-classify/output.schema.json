@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IndustryClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "$ref": "#/$defs/Id"
+        },
+        "code": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "code",
+        "classification"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:party.industry.classify:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "industries": {
+      "items": {
+        "$ref": "#/$defs/IndustryClassification"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "industries"
+  ],
+  "type": "object"
+}

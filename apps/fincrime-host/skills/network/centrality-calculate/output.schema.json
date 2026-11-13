@@ -1,0 +1,29 @@
+{
+  "$defs": {
+    "Number": {
+      "type": "number"
+    }
+  },
+  "$id": "urn:financial-crime:skill:network.centrality.calculate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "centrality": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Number"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    }
+  },
+  "required": [
+    "centrality",
+    "algorithm"
+  ],
+  "type": "object"
+}

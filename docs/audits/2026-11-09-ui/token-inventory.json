@@ -1,0 +1,199 @@
+{
+  "cssFiles": 30,
+  "generatedTokens": 151,
+  "undefinedReferences": {
+    "--extraction-width": [
+      {
+        "file": "apps/web/src/documents/documents.module.css",
+        "line": 40,
+        "fallback": false
+      },
+      {
+        "file": "apps/web/src/documents/documents.module.css",
+        "line": 91,
+        "fallback": false
+      }
+    ],
+    "--space-7": [
+      {
+        "file": "apps/web/src/onboarding/onboarding.module.css",
+        "line": 16,
+        "fallback": true
+      },
+      {
+        "file": "apps/web/src/onboarding/onboarding.module.css",
+        "line": 16,
+        "fallback": true
+      },
+      {
+        "file": "apps/web/src/onboarding/onboarding.module.css",
+        "line": 33,
+        "fallback": true
+      },
+      {
+        "file": "apps/web/src/onboarding/onboarding.module.css",
+        "line": 43,
+        "fallback": true
+      }
+    ],
+    "--font-body": [
+      {
+        "file": "apps/web/src/onboarding/onboarding.module.css",
+        "line": 26,
+        "fallback": false
+      },
+      {
+        "file": "apps/web/src/platform/surfaces/intelligence/intelligence.module.css",
+        "line": 52,
+        "fallback": false
+      },
+      {
+        "file": "apps/web/src/platform/surfaces/intelligence/intelligence.module.css",
+        "line": 61,
+        "fallback": false
+      }
+    ],
+    "--object-color": [
+      {
+        "file": "apps/web/src/domains/fincrime/context/ontology/ontology.module.css",
+        "line": 11,
+        "fallback": false
+      },
+      {
+        "file": "apps/web/src/domains/fincrime/context/ontology/ontology.module.css",
+        "line": 17,
+        "fallback": false
+      },
+      {
+        "file": "apps/web/src/domains/fincrime/context/ontology/ontology.module.css",
+        "line": 30,
+        "fallback": false
+      }
+    ]
+  },
+  "runtimePropertiesConfirmedInTsx": [
+    "--extraction-width",
+    "--object-color"
+  ],
+  "unresolvedDesignTokens": [
+    "--font-body",
+    "--space-7"
+  ],
+  "literalColorLines": [],
+  "directPaletteLines": [
+    {
+      "file": "apps/web/src/shell/shell.module.css",
+      "line": 42,
+      "text": ".skip { position: absolute; left: var(--space-3); top: -48px; z-index: var(--z-toast); background: var(--graphite-brand); color: var(--ink-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); }"
+    },
+    {
+      "file": "apps/web/src/catalogs/catalogs.module.css",
+      "line": 119,
+      "text": ".workspaceLink { display:inline-flex; gap:var(--space-2); align-items:center; padding:var(--space-2) var(--space-3); background:var(--graphite-brand); color:var(--ink-inverse); border-radius:var(--radius-sm); text-decoration:none; font-size:var(--text-sm); }"
+    },
+    {
+      "file": "apps/web/src/platform/surfaces/authoring/authoring.module.css",
+      "line": 97,
+      "text": "--xy-edge-stroke-default: var(--graphite-400);"
+    },
+    {
+      "file": "apps/web/src/platform/surfaces/authoring/authoring.module.css",
+      "line": 102,
+      "text": "--xy-handle-border-color-default: var(--porcelain-0);"
+    },
+    {
+      "file": "apps/web/src/shell/trusted/TrustedDecisionSheet.module.css",
+      "line": 4,
+      "text": ".sheet { width: min(780px, 100%); max-height: calc(100vh - 48px); overflow: auto; display: flex; flex-direction: column; background: var(--surface-panel); border: 2px solid var(--graphite-brand); border-radius: var(--radius-xl); box-shadow: var(--shadow-3); }"
+    },
+    {
+      "file": "apps/web/src/shell/trusted/TrustedDecisionSheet.module.css",
+      "line": 6,
+      "text": ".band { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-6); background: var(--graphite-brand); color: var(--ink-inverse); font-size: var(--text-2xs); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-engraved); text-transform: uppercase; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }"
+    },
+    {
+      "file": "apps/web/src/shell/trusted/TrustedDecisionSheet.module.css",
+      "line": 15,
+      "text": ".attest input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--graphite-brand); }"
+    },
+    {
+      "file": "apps/web/src/shell/trusted/TrustedDecisionSheet.module.css",
+      "line": 24,
+      "text": ".meterSeg[data-filled=\"true\"] { background: var(--graphite-brand); border-color: var(--graphite-brand); }"
+    },
+    {
+      "file": "apps/web/src/domains/fincrime/work/work.module.css",
+      "line": 110,
+      "text": ".barFill { height: 100%; background: var(--graphite-600); }"
+    },
+    {
+      "file": "packages/ui-kit/src/trusted/trusted.module.css",
+      "line": 3,
+      "text": "border-radius: var(--radius-pill); border: 1px solid var(--graphite-brand); background: var(--graphite-brand);"
+    },
+    {
+      "file": "packages/ui-kit/src/trusted/trusted.module.css",
+      "line": 6,
+      "text": ".trusted:hover:not(:disabled) { background: var(--graphite-900); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/status.module.css",
+      "line": 47,
+      "text": "font-size: var(--text-sm); color: var(--ink-2); border: 1px dashed var(--porcelain-500);"
+    },
+    {
+      "file": "packages/ui-kit/src/components/status.module.css",
+      "line": 59,
+      "text": ".message[data-tone=\"ok\"] { background: var(--tone-positive-bg); color: var(--tone-positive-fg); border-color: var(--emerald-400); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/controls.module.css",
+      "line": 8,
+      "text": ".button:hover:not(:disabled) { background: var(--surface-raised); border-color: var(--porcelain-500); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/controls.module.css",
+      "line": 12,
+      "text": ".primary { background: var(--graphite-900); color: var(--ink-inverse); border-color: var(--graphite-900); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/controls.module.css",
+      "line": 13,
+      "text": ".primary:hover:not(:disabled) { background: var(--graphite-700); border-color: var(--graphite-700); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/controls.module.css",
+      "line": 32,
+      "text": "background: var(--porcelain-400); cursor: pointer; flex: none; transition: background var(--dur-fast);"
+    },
+    {
+      "file": "packages/ui-kit/src/components/controls.module.css",
+      "line": 36,
+      "text": "background: var(--porcelain-0); box-shadow: var(--shadow-1); transition: transform var(--dur-fast) var(--ease-standard);"
+    },
+    {
+      "file": "packages/ui-kit/src/components/controls.module.css",
+      "line": 38,
+      "text": ".switch[aria-checked=\"true\"] { background: var(--graphite-700); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/tabs.module.css",
+      "line": 8,
+      "text": ".tab[aria-selected=\"true\"] { color: var(--ink-1); border-bottom-color: var(--graphite-900); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/feedback.module.css",
+      "line": 16,
+      "text": ".freshDot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald-600); }"
+    },
+    {
+      "file": "packages/ui-kit/src/components/feedback.module.css",
+      "line": 51,
+      "text": ".step[data-state=\"done\"] { border-top-color: var(--graphite-700); color: var(--ink-1); }"
+    }
+  ],
+  "tokenSourceHashes": {
+    "apps/fincrime-host/docs/ui/tokens.json": "f67bf1b5bb268c6c3ff153cc6e75f23c71498e1bc94e4620f719b09d9c883e12",
+    "packages/ui-tokens/vendor/tokens.json": "f67bf1b5bb268c6c3ff153cc6e75f23c71498e1bc94e4620f719b09d9c883e12"
+  }
+}

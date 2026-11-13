@@ -1,0 +1,67 @@
+{
+  "context_products": [
+    "policy.intelligence"
+  ],
+  "execution": {
+    "allowed_skills": {
+      "decision.approval.route": "0.3.0",
+      "decision.gaps.evaluate": "0.3.0",
+      "decision.human.review": "0.3.0",
+      "decision.recommendation.generate": "0.3.0",
+      "decision.rules.evaluate": "0.3.0"
+    },
+    "capabilities": [],
+    "context_fields": {
+      "Control": [
+        "outcome",
+        "requirement_id"
+      ]
+    },
+    "id": "agent.decision_support",
+    "instructions": "Reconcile applicable obligations and evidence into a product-specific recommendation, restrictions, approval authority and monitoring handoff for authorized human review. Use admitted evidence. Keep proposed actions and authorized decisions separate.",
+    "max_agent_steps": 16,
+    "max_objects": 1000,
+    "model_char_budget": 64000,
+    "model_config_ref": null,
+    "permissions": [
+      "effect:human_gated",
+      "skill:decision.approval.route",
+      "skill:decision.gaps.evaluate",
+      "skill:decision.human.review",
+      "skill:decision.recommendation.generate",
+      "skill:decision.rules.evaluate"
+    ],
+    "policy_fields": [
+      "approval_roles",
+      "freshness_seconds",
+      "jurisdiction",
+      "permissions",
+      "recommendations",
+      "requirements",
+      "role_members",
+      "rules",
+      "version"
+    ],
+    "purposes": [
+      "investigation",
+      "onboarding",
+      "review"
+    ],
+    "timeout_seconds": 30,
+    "version": "0.5.0"
+  },
+  "human_gates": [
+    "ambiguous evidence",
+    "policy exception",
+    "consequential decision"
+  ],
+  "id": "agent.decision_support",
+  "mandate": "Reconcile applicable obligations and evidence into a product-specific recommendation, restrictions, approval authority and monitoring handoff for authorized human review.",
+  "personas": [
+    "compliance_officer"
+  ],
+  "task_ids": [
+    "task.decision_support"
+  ],
+  "version": "1.0.0"
+}

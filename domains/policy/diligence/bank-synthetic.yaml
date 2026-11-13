@@ -1,0 +1,111 @@
+# The synthetic corpus bank's customer due-diligence design (Policy Studio builder plan, phase 2).
+# Not a real institution's policy: every value is a CANDIDATE for its policy owner to review.
+#
+# The matrix gives each party type and product a base level. Overlays can only raise it, a pack's
+# `diligence_floors` can only raise it, and an SDD cell is applied as CDD wherever a pack withdraws
+# `simplified_due_diligence_permitted` (this institution does, until its owner decides).
+# scripts/sync-agentic-flows.ts copies the party types and products each flow serves into its
+# installation policy (domains/<flow>/policy.yaml), with the taxonomy's legacy mapping as aliases, so
+# matrix columns, pack floors and overlay scopes may name taxonomy nodes (`PAY` covers cards too).
+apiVersion: harness.factory/diligence-design-v1
+kind: DiligenceDesign
+metadata:
+  id: diligence.bank-synthetic
+  institution: bank.synthetic
+  version: 1.0.0
+  status: CANDIDATE
+  ownerRole: installation.policy.owner
+  description: Base due-diligence levels by party type and product, with the risk overlays that escalate them.
+spec:
+  levels: [SDD, CDD, EDD]
+  simplifiedLevel: SDD
+  inputProfile: canonical.onboarding.v2
+  inputs:
+    legalForm: /scope/legalForm
+  partyTypes:
+    - { id: individual, label: Individual, customerType: individual, legalForms: [individual] }
+    - { id: sole_proprietor, label: Sole proprietor, customerType: corporate, legalForms: [sole_proprietor] }
+    - { id: company, label: Company, customerType: corporate, legalForms: [corporation, llc] }
+    - { id: partnership, label: Partnership, customerType: corporate, legalForms: [general_partnership, limited_partnership] }
+    - { id: trust, label: Trust or foundation, customerType: corporate, legalForms: [ordinary_trust, statutory_trust, estate, foundation] }
+    - { id: nonprofit, label: Nonprofit or charity, customerType: corporate, legalForms: [association, charity] }
+    - { id: fund, label: Fund or pension, customerType: corporate, legalForms: [fund, pension] }
+    - { id: government, label: Government body, customerType: corporate, legalForms: [government] }
+  products: [card, deposit, lending, merchant_acquiring, payments]
+  matrix:
+    individual:      { card: CDD, deposit: SDD, lending: CDD, merchant_acquiring: CDD, payments: CDD }
+    sole_proprietor: { card: CDD, deposit: CDD, lending: CDD, merchant_acquiring: CDD, payments: CDD }
+    company:         { card: CDD, deposit: CDD, lending: CDD, merchant_acquiring: CDD, payments: CDD }
+    partnership:     { card: CDD, deposit: CDD, lending: CDD, merchant_acquiring: CDD, payments: CDD }
+    trust:           { card: CDD, deposit: CDD, lending: EDD, merchant_acquiring: EDD, payments: EDD }
+    nonprofit:       { card: CDD, deposit: CDD, lending: CDD, merchant_acquiring: CDD, payments: EDD }
+    fund:            { card: CDD, deposit: CDD, lending: CDD, merchant_acquiring: CDD, payments: CDD }
+    government:      { card: CDD, deposit: CDD, lending: CDD, merchant_acquiring: CDD, payments: CDD }
+  overlays:
+    - id: overlay.pep
+      label: Politically exposed person
+      description: A verified PEP relationship, or an open PEP signal on the case.
+      enabled: true
+      requires: [/facts/selected/policyRecordPEPRelationship, /facts/selected/policyCaseFindings]
+      when:
+        any:
+          - some: { path: /facts/selected/policyRecordPEPRelationship, where: { path: /data/verified, op: eq, value: true } }
+          - some: { path: /facts/selected/policyCaseFindings, where: { all: [{ path: /findingType, op: eq, value: PEP_SIGNAL }, { path: /status, op: eq, value: OPEN }] } }
+      # Senior approval to establish a PEP relationship (for example UK MLR 2017 reg. 35(3)(a)). Held at
+      # disposition as a human requirement; it never approves anything itself.
+      effect:
+        escalateTo: EDD
+        requireApproval:
+          role: Case.Reviewer
+          quorum: 2
+          reason: Senior approval to establish a relationship with a politically exposed person (candidate - two case reviewers until a senior-management role exists).
+    - id: overlay.high-risk-geography
+      label: High-risk geography
+      description: Exposure to a country on the institution's high-risk list (candidate list from the FATF call for action; the owner maintains it).
+      enabled: true
+      requires: [/facts/selected/policyRecordGeographyExposure]
+      when:
+        some: { path: /facts/selected/policyRecordGeographyExposure, where: { path: /data/country, op: in, value: [IR, KP, MM] } }
+      effect: { escalateBy: 1 }
+    - id: overlay.complex-ownership
+      label: Complex or opaque ownership
+      description: Three or more recorded ownership interests.
+      enabled: true
+      requires: [/facts/selected/packOwnership]
+      when: { path: /facts/selected/packOwnership, op: count_gte, value: 3 }
+      effect: { escalateTo: EDD }
+    - id: overlay.adverse-media
+      label: Confirmed adverse media
+      description: A confirmed adverse-media event about the customer or a connected party.
+      enabled: false
+      requires: [/facts/selected/policyRecordAdverseMediaEvent]
+      when:
+        some: { path: /facts/selected/policyRecordAdverseMediaEvent, where: { path: /data/status, op: eq, value: CONFIRMED } }
+      effect: { escalateTo: EDD, addRequirements: [EVD-PUBLIC-SOURCE-RESEARCH] }
+    - id: overlay.high-transaction-risk
+      label: High transactional risk
+      description: A transaction risk factor scored 0.7 or more, for payment products (cards, merchant acquiring and payments).
+      enabled: false
+      # A taxonomy node: the overlay applies to products beneath PAY, and elsewhere neither fires nor asks for its input.
+      appliesTo: { products: [PAY] }
+      requires: [/facts/selected/policyRecordRiskFactor]
+      when:
+        some: { path: /facts/selected/policyRecordRiskFactor, where: { all: [{ path: /data/name, op: eq, value: transaction }, { path: /data/score, op: gte, value: "0.7" }] } }
+      effect: { escalateBy: 1 }
+    - id: overlay.assessed-high-risk
+      label: Assessed high risk
+      description: The case's assessed risk tier is HIGH. Off until the risk skills' tier reaches this gate; simulate it with the what-if's assessed-risk input.
+      enabled: false
+      requires: [/facts/assessedRisk/tier]
+      when: { path: /facts/assessedRisk/tier, op: eq, value: HIGH }
+      effect: { escalateTo: EDD }
+  requirements:
+    SDD: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING]
+    CDD: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING, EVD-CIP-ADDRESS, EVD-IDENTITY-VERIFICATION, EVD-PEP-SCREENING, EVD-RELATIONSHIP-PURPOSE, EVD-BENEFICIAL-OWNERSHIP]
+    EDD: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING, EVD-CIP-ADDRESS, EVD-IDENTITY-VERIFICATION, EVD-PEP-SCREENING, EVD-RELATIONSHIP-PURPOSE, EVD-BENEFICIAL-OWNERSHIP, EVD-ADVERSE-MEDIA, EVD-SOURCE-OF-FUNDS, EVD-EDD-NARRATIVE]
+  # Screening type → the obligation that requires it; the decision lists the types its requirements imply.
+  screening: { sanctions: EVD-SANCTIONS-SCREENING, pep: EVD-PEP-SCREENING, adverse_media: EVD-ADVERSE-MEDIA }
+  # A customer who is an authorised user on another party's card or account is identified and screened.
+  # The bank lists no other role, so a case naming one stays unresolved (CANDIDATE value).
+  roleRequirements:
+    AUTHORIZED_USER: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING]

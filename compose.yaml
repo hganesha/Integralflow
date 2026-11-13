@@ -1,0 +1,676 @@
+# The single application image (Dockerfile.platform), built once and run by every platform
+# service and job below with its own SERVICE_NAME; production runs the same image.
+x-platform-image: &platform-image
+  build:
+    context: .
+    dockerfile: Dockerfile.platform
+  image: integralflow:local
+
+x-service-hardening: &service-hardening
+  read_only: true
+  tmpfs:
+    - /tmp
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  init: true
+
+# Settings every platform service shares. Database URLs are deliberately not here: the
+# control database (ehf_control) and the case database (ehf_case) are separate, and each
+# service is given only the database it uses, as its own login.
+x-runtime-env: &runtime-env
+  DB_POOL_MAX: ${DB_POOL_MAX:-5}
+  DB_CONNECT_TIMEOUT_MS: ${DB_CONNECT_TIMEOUT_MS:-5000}
+  DB_IDLE_TIMEOUT_MS: ${DB_IDLE_TIMEOUT_MS:-30000}
+  RUN_QUEUE_MAX_PENDING: ${RUN_QUEUE_MAX_PENDING:-10000}
+  MODEL_PROFILES_PATH: /app/config/model-profiles.json
+  OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://jaeger:4318/v1/traces
+  OTEL_TRACES_SAMPLER_ARG: "1"
+  DEPLOYMENT_ENVIRONMENT: local
+  CLOUD_REGION: local
+  INTEGRATION_DESTINATIONS_JSON: ${INTEGRATION_DESTINATIONS_JSON:-[]}
+  CASE_CORE_SCHEMA: ${CASE_CORE_SCHEMA:-case_core}
+  CASE_LEDGER_SCHEMA: ${CASE_LEDGER_SCHEMA:-case_ledger}
+  EVIDENCE_SCHEMA: ${EVIDENCE_SCHEMA:-evidence}
+  CASE_ARTIFACT_BACKEND: ${CASE_ARTIFACT_BACKEND:-postgres}
+  # Evidence bytes in an S3-compatible object store (phase 5): run the object store (--profile blob), then
+  # set CASE_ARTIFACT_BACKEND=object_store and the access key pair in .env.local (see
+  # .env.local.example). No storage key is committed; empty means the database backend.
+  EVIDENCE_BLOB_ENDPOINT: ${EVIDENCE_BLOB_ENDPOINT:-http://object-store:9000}
+  EVIDENCE_BLOB_BUCKET: ${EVIDENCE_BLOB_BUCKET:-}
+  EVIDENCE_BLOB_ACCESS_KEY_ID: ${EVIDENCE_BLOB_ACCESS_KEY_ID:-}
+  EVIDENCE_BLOB_SECRET_ACCESS_KEY: ${EVIDENCE_BLOB_SECRET_ACCESS_KEY:-}
+  EVIDENCE_BLOB_IMMUTABILITY: ${EVIDENCE_BLOB_IMMUTABILITY:-none}
+  # The same for context pack bodies (control-api writes, context-release deletes) and signed
+  # ledger segments (ledger-export; without it segments go to the ehf-ledger-exports volume).
+  CONTEXT_PACK_BLOB_ENDPOINT: ${CONTEXT_PACK_BLOB_ENDPOINT:-http://object-store:9000}
+  CONTEXT_PACK_BLOB_BUCKET: ${CONTEXT_PACK_BLOB_BUCKET:-}
+  CONTEXT_PACK_BLOB_ACCESS_KEY_ID: ${CONTEXT_PACK_BLOB_ACCESS_KEY_ID:-}
+  CONTEXT_PACK_BLOB_SECRET_ACCESS_KEY: ${CONTEXT_PACK_BLOB_SECRET_ACCESS_KEY:-}
+  LEDGER_EXPORT_BLOB_ENDPOINT: ${LEDGER_EXPORT_BLOB_ENDPOINT:-http://object-store:9000}
+  LEDGER_EXPORT_BLOB_BUCKET: ${LEDGER_EXPORT_BLOB_BUCKET:-}
+  LEDGER_EXPORT_BLOB_ACCESS_KEY_ID: ${LEDGER_EXPORT_BLOB_ACCESS_KEY_ID:-}
+  LEDGER_EXPORT_BLOB_SECRET_ACCESS_KEY: ${LEDGER_EXPORT_BLOB_SECRET_ACCESS_KEY:-}
+  CASE_EVIDENCE_REQUIRE_SCAN: ${CASE_EVIDENCE_REQUIRE_SCAN:-false}
+  CASE_EVIDENCE_MAX_BYTES: ${CASE_EVIDENCE_MAX_BYTES:-1048576}
+  # The local stack runs the development profile with the development mechanism for
+  # each concern. SECURITY_PROFILE=production refuses every credential below.
+  SECURITY_PROFILE: ${SECURITY_PROFILE:-development}
+  IDENTITY_PROVIDER: ${IDENTITY_PROVIDER:-local_headers}
+  WORKLOAD_AUTH: ${WORKLOAD_AUTH:-static_token}
+  ENVELOPE_SIGNER: ${ENVELOPE_SIGNER:-hmac}
+  ENVELOPE_VERIFIER: ${ENVELOPE_VERIFIER:-hmac}
+  DATABASE_AUTH: ${DATABASE_AUTH:-url}
+  TELEMETRY_EXPORTER: ${TELEMETRY_EXPORTER:-otlp}
+  AUTHORING_MODE: ${AUTHORING_MODE:-enabled}
+  LOCAL_DEFAULT_TENANT_ID: ${CASE_UI_TENANT_ID:-tenant_demo}
+  # Workload credentials (WORKLOAD_AUTH=static_token) are NOT shared through this anchor:
+  # each service below gets its own outgoing token plus the tokens of the callers it
+  # verifies, and nothing else. Production replaces them with one projected
+  # workload-identity token per service (WORKLOAD_AUTH=workload_identity) and refuses
+  # to start while any of them is present.
+
+services:
+  jaeger:
+    image: jaegertracing/jaeger:2.11.0
+    command:
+      - --set=receivers.otlp.protocols.grpc.endpoint=0.0.0.0:4317
+      - --set=receivers.otlp.protocols.http.endpoint=0.0.0.0:4318
+
+  postgres:
+    # pgvector plus Apache AGE (Dockerfile.postgres). AGE is preloaded for ehf_context only,
+    # by the migrate job: preloaded server-wide it breaks DROP TABLE in the other databases.
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ehf
+    volumes:
+      - ehf-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ehf"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  # S3-compatible object store for evidence, ledger segments and context packs (RustFS; MinIO
+  # no longer publishes images). Object lock needs buckets created with it; the development
+  # buckets are created without it (EVIDENCE_BLOB_IMMUTABILITY=none), and the platform reports
+  # retention as NOT_ENFORCED.
+  object-store:
+    profiles: [blob]
+    image: rustfs/rustfs:1.0.3@sha256:9ca9559533b537d10482fe923288b676ad08f92a7069d9a17327fbae3cab688b
+    environment:
+      RUSTFS_ACCESS_KEY: ${OBJECT_STORE_ACCESS_KEY:-}
+      RUSTFS_SECRET_KEY: ${OBJECT_STORE_SECRET_KEY:-}
+    ports:
+      - "127.0.0.1:9000:9000"
+
+  migrate:
+    <<: [*service-hardening, *platform-image]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: dev-migrate
+      # The migrate job is the only superuser client. It creates the control and case
+      # databases (through the maintenance database) when missing, migrates each, applies
+      # the grant matrices and creates one login per service
+      # (packages/persistence/src/dev-logins.ts). No service below gets these URLs.
+      DATABASE_BOOTSTRAP_URL: postgresql://postgres:postgres@postgres:5432/ehf
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/ehf_control
+      CASE_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/ehf_case
+      CONTEXT_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/ehf_context
+      DISCOVERY_DATABASE_URL: postgresql://postgres:postgres@postgres:5432/ehf_discovery
+      DATABASE_DEV_LOGIN_PASSWORD: ${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  control-api:
+    <<: [*service-hardening, *platform-image]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: control-api
+      DB_POOL_MAX: ${CONTROL_API_DB_POOL_MAX:-5}
+      DATABASE_URL: postgresql://ehf_dev_control_api:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      # Context packs recorded for the runtime (pgvector + Apache AGE).
+      CONTEXT_DATABASE_URL: postgresql://ehf_dev_control_api:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_context
+      CONTEXT_REFRESH_SERVICE_TOKEN: ${CONTEXT_REFRESH_SERVICE_TOKEN:-local-context-refresh-service-token-change-before-share}
+      CONTROL_API_PORT: "4100"
+      EVIDENCE_PIPELINE_URL: ${EVIDENCE_PIPELINE_URL:-http://evidence-pipeline:8080}
+      # OCR/layout for scans and images (document factory plan, Phase 1). Off unless both are set; the
+      # key (AZURE_DOCUMENT_INTELLIGENCE_AUTH=key) comes from .env.local, managed identity in Azure.
+      DOCUMENT_LAYOUT_PROVIDER: ${DOCUMENT_LAYOUT_PROVIDER:-none}
+      DOCUMENT_LAYOUT_REMOTE_ALLOWED: ${DOCUMENT_LAYOUT_REMOTE_ALLOWED:-false}
+      # Route A in Document Studio shadow tests (Phase 2): an Azure prebuilt extraction model beside the LLM.
+      DOCUMENT_MODEL_PROVIDER: ${DOCUMENT_MODEL_PROVIDER:-none}
+      DOCUMENT_MODEL_REMOTE_ALLOWED: ${DOCUMENT_MODEL_REMOTE_ALLOWED:-false}
+      AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT: ${AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT:-}
+      AZURE_DOCUMENT_INTELLIGENCE_AUTH: ${AZURE_DOCUMENT_INTELLIGENCE_AUTH:-managed_identity}
+      AZURE_DOCUMENT_INTELLIGENCE_KEY: ${AZURE_DOCUMENT_INTELLIGENCE_KEY:-}
+      EVIDENCE_PIPELINE_TOKEN: ${EVIDENCE_PIPELINE_TOKEN:-}
+      DOCUMENT_STUDIO_SKILL_HOST_URL: ${DOCUMENT_STUDIO_SKILL_HOST_URL:-http://library-skill-host:8090}
+      DOCUMENT_STUDIO_SKILL_HOST_TOKEN: ${GATEWAY_SERVICE_TOKEN:-local-gateway-service-token-change-before-share}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      EXECUTION_ENVELOPE_SECRET: ${EXECUTION_ENVELOPE_SECRET:-local-poc-secret-change-before-sharing}
+      INTEGRATION_ENVELOPE_SECRET: ${INTEGRATION_ENVELOPE_SECRET:-local-integration-envelope-secret-change-before-share}
+      RUNTIME_GRANT_SECRET: ${RUNTIME_GRANT_SECRET:-local-runtime-grant-secret-change-before-share}
+      # Its own identity (calls to the case API on a person's behalf)...
+      DISCOVERY_SYNTHETIC_ENABLED: ${DISCOVERY_SYNTHETIC_ENABLED:-false}
+      DISCOVERY_HOSTED_PLAN_DIGEST: ${DISCOVERY_HOSTED_PLAN_DIGEST:-}
+      DISCOVERY_WORKER_SERVICE_TOKEN: ${DISCOVERY_WORKER_SERVICE_TOKEN:-local-discovery-worker-token-change-before-sharing}
+      CONTROL_API_SERVICE_TOKEN: ${CONTROL_API_SERVICE_TOKEN:-local-control-api-service-token-change-before-share}
+      # ...and the callers it verifies.
+      EDGE_SERVICE_TOKEN: ${EDGE_SERVICE_TOKEN:-local-edge-service-token-change-before-sharing}
+      RUNTIME_SERVICE_TOKEN: ${RUNTIME_SERVICE_TOKEN:-local-runtime-service-token-change-before-share}
+      INTEGRATION_SERVICE_TOKEN: ${INTEGRATION_SERVICE_TOKEN:-local-integration-service-token-change-before-share}
+      CASE_API_SERVICE_TOKEN: ${CASE_API_SERVICE_TOKEN:-local-case-api-service-token-change-before-share}
+      # The Document Factory worker (profile factory), and the spend above which a budget owner approves too.
+      FACTORY_WORKER_SERVICE_TOKEN: ${FACTORY_WORKER_SERVICE_TOKEN:-local-factory-worker-token-change-before-share}
+      FACTORY_BUDGET_LIMIT_USD: ${FACTORY_BUDGET_LIMIT_USD:-25}
+      RELEASE_ENVIRONMENT: ${RELEASE_ENVIRONMENT:-development}
+      # Sandbox runs of a draft (docs/implementation/draft-testing.md) load a synthetic test party as a
+      # fresh case. The corpus is mounted for local development only; it is not part of the image, and
+      # the feature is refused under the production profile.
+      SANDBOX_CORPUS_ROOT: /app/sandbox-corpus
+      # A sandbox run also hands the party's synthetic source documents to the evidence pipeline, as
+      # an upload would, when EVIDENCE_PIPELINE_URL and EVIDENCE_PIPELINE_TOKEN above are set.
+    volumes:
+      - ./fixtures/context-corpus:/app/sandbox-corpus:ro
+    ports:
+      - "127.0.0.1:4100:4100"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4100/health/ready').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  capability-gateway:
+    <<: [*service-hardening, *platform-image]
+    env_file:
+      - path: .env.local
+        required: false
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: capability-gateway
+      DB_POOL_MAX: ${GATEWAY_DB_POOL_MAX:-5}
+      DATABASE_URL: postgresql://ehf_dev_capability_gateway:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      # Retrieval only: the gateway's login may read the knowledge index and nothing else here.
+      CONTEXT_DATABASE_URL: postgresql://ehf_dev_capability_gateway:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_context
+      GATEWAY_CASE_SERVICE_TOKEN: ${GATEWAY_CASE_SERVICE_TOKEN:-local-gateway-case-service-token-change-before-share}
+      GATEWAY_PORT: "4101"
+      EXECUTION_ENVELOPE_SECRET: ${EXECUTION_ENVELOPE_SECRET:-local-poc-secret-change-before-sharing}
+      # KYC services (profile kyc-adapters). Only the gateway reaches them; their
+      # tokens (KYC_WIRING_TOKEN, EVIDENCE_PIPELINE_TOKEN) come from .env.local.
+      KYC_WIRING_URL: ${KYC_WIRING_URL:-http://kyc-wiring:8000}
+      KYC_WIRING_TENANT_ID: ${KYC_WIRING_TENANT_ID:-demo-tenant}
+      EVIDENCE_PIPELINE_URL: ${EVIDENCE_PIPELINE_URL:-http://evidence-pipeline:8080}
+      # OCR/layout for scans and images (document factory plan, Phase 1). Off unless both are set; the
+      # key (AZURE_DOCUMENT_INTELLIGENCE_AUTH=key) comes from .env.local, managed identity in Azure.
+      DOCUMENT_LAYOUT_PROVIDER: ${DOCUMENT_LAYOUT_PROVIDER:-none}
+      DOCUMENT_LAYOUT_REMOTE_ALLOWED: ${DOCUMENT_LAYOUT_REMOTE_ALLOWED:-false}
+      # Route A for case document runs (document-model connector): the run's own original, read by the model of
+      # the Document Factory release in effect in DOCUMENT_MODEL_RELEASE_ENVIRONMENT, else the prebuilt model.
+      DOCUMENT_MODEL_PROVIDER: ${DOCUMENT_MODEL_PROVIDER:-none}
+      DOCUMENT_MODEL_REMOTE_ALLOWED: ${DOCUMENT_MODEL_REMOTE_ALLOWED:-false}
+      DOCUMENT_MODEL_RELEASE_ENVIRONMENT: ${DOCUMENT_MODEL_RELEASE_ENVIRONMENT:-}
+      AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT: ${AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT:-}
+      AZURE_DOCUMENT_INTELLIGENCE_AUTH: ${AZURE_DOCUMENT_INTELLIGENCE_AUTH:-managed_identity}
+      AZURE_DOCUMENT_INTELLIGENCE_KEY: ${AZURE_DOCUMENT_INTELLIGENCE_KEY:-}
+      # `decisions:` adapter (System 1, plan §6.6), off unless GATEWAY_ADAPTERS names it. Foundry
+      # bindings read this resource; OpenRouter bindings use OPENROUTER_API_KEY.
+      DECISION_FOUNDRY_ENDPOINT: ${DECISION_FOUNDRY_ENDPOINT:-}
+      DECISION_FOUNDRY_AUTH: ${DECISION_FOUNDRY_AUTH:-managed_identity}
+      # `skills:` adapter -> the skill library's host, library-skill-host (`docker compose --profile
+      # skills up`; register its bundle lock with `pnpm agentic:prepare`, then approve it as another
+      # identity). The adapter is off unless GATEWAY_ADAPTERS (in .env.local) names it, e.g.
+      # GATEWAY_ADAPTERS=default,skills. The sample-skill reference host remains available with
+      # SKILL_HOST_URL=http://skill-host-reference:8090.
+      SKILL_HOST_URL: ${SKILL_HOST_URL:-http://library-skill-host:8090}
+      SKILL_HOST_AUTH: platform_token
+      SKILL_HOST_GATEWAY_URL: http://capability-gateway:4101
+      # Its one identity, presented to every service it calls (skill hosts included); it
+      # issues delegated skill envelopes itself, so it never calls the control plane.
+      GATEWAY_SERVICE_TOKEN: ${GATEWAY_SERVICE_TOKEN:-local-gateway-service-token-change-before-share}
+      # The callers it verifies.
+      RUNTIME_SERVICE_TOKEN: ${RUNTIME_SERVICE_TOKEN:-local-runtime-service-token-change-before-share}
+      EDGE_SERVICE_TOKEN: ${EDGE_SERVICE_TOKEN:-local-edge-service-token-change-before-sharing}
+      SKILL_HOST_GATEWAY_TOKEN: ${SKILL_HOST_GATEWAY_TOKEN:-local-skill-host-gateway-token-change-before-share}
+      # Sandbox connector entitlement/coverage/list attestations that skill resolution policies
+      # are checked against. A stored admin setting or CONNECTOR_COVERAGE_JSON replaces it.
+      CONNECTOR_COVERAGE_PATH: ${CONNECTOR_COVERAGE_PATH:-/app/config/connector-coverage.sandbox.json}
+    ports:
+      - "127.0.0.1:4101:4101"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      kyc-wiring:
+        condition: service_healthy
+        required: false
+      evidence-pipeline:
+        condition: service_healthy
+        required: false
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4101/health/ready').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # KYC services built from apps/kyc-wiring and apps/evidence-pipeline. Opt in with
+  # `docker compose --profile kyc-adapters up`; without the profile the gateway starts
+  # without them and the wiring/evidence adapters fail closed. Both run in demo mode
+  # (simulated vendors, synthetic data only) and publish no host ports.
+  kyc-wiring:
+    <<: *service-hardening
+    profiles: [kyc-adapters]
+    build:
+      context: ./apps/kyc-wiring
+    environment:
+      WIRING_MODE: demo
+    volumes:
+      - kyc-wiring-data:/app/.local
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=2).status == 200 else 1)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  evidence-pipeline:
+    <<: *service-hardening
+    profiles: [kyc-adapters]
+    build:
+      context: ./apps/evidence-pipeline
+    environment:
+      EVIDENCE_PIPELINE_MODE: demo
+      EVIDENCE_PIPELINE_TOKEN: ${EVIDENCE_PIPELINE_TOKEN:-}
+      EVIDENCE_PIPELINE_DATA_DIR: /data
+      EVIDENCE_ALLOW_REMOTE_SENSITIVE_DATA: ${EVIDENCE_ALLOW_REMOTE_SENSITIVE_DATA:-false}
+    volumes:
+      - kyc-evidence-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=2).status == 200 else 1)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # The financial-crime skill library's skill.execution.v1 host (apps/fincrime-host), the gateway's
+  # default skill host for library skills. Opt in with `docker compose --profile skills up`. Its bundle
+  # lock must be registered (`pnpm agentic:prepare`) and approved in the artifact registry by another
+  # identity before the gateway admits it. Executions persist in the skill-host-data volume, so a
+  # status poll after a restart still finds them. With SKILL_HOST_ENVELOPE_PUBLIC_KEY_PEM (the
+  # platform's envelope public key, ENVELOPE_VERIFIER=public_key) it also verifies the signature of
+  # every delegated envelope; production requires it.
+  library-skill-host:
+    <<: *service-hardening
+    profiles: [skills]
+    build:
+      context: ./apps/fincrime-host
+    command: ["python", "-m", "kyc_document_studio"]
+    environment:
+      # The caller it verifies is the gateway, so it accepts the gateway's own token.
+      SKILL_HOST_AUTH_TOKEN: ${GATEWAY_SERVICE_TOKEN:-local-gateway-service-token-change-before-share}
+      SKILL_HOST_GATEWAY_TOKEN: ${SKILL_HOST_GATEWAY_TOKEN:-local-skill-host-gateway-token-change-before-share}
+      SKILL_HOST_PORT: "8090"
+      SKILL_HOST_EXECUTIONS_DB: /data/skill-executions.db
+      SKILL_HOST_ENVELOPE_PUBLIC_KEY_PEM: ${EXECUTION_ENVELOPE_PUBLIC_KEY_PEM:-}
+    volumes:
+      - skill-host-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8090/healthz', timeout=2).status == 200 else 1)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # The Document Factory worker (document factory plan §7, Phase 3), opt in with
+  # `docker compose --profile factory up`. It claims release jobs whose spend someone approved and
+  # trains and evaluates with Azure Document Intelligence; it never decides what runs. Custom models
+  # need FACTORY_TRAINING_CONTAINER_URL (a container SAS URL, in .env.local only); prebuilt-only
+  # releases do not. Register datasets first: `docker compose run --rm document-factory-worker sync`.
+  document-factory-worker:
+    <<: *service-hardening
+    profiles: [factory]
+    build:
+      context: ./apps/fincrime-host
+    command: ["python", "-m", "document_factory.worker", "run"]
+    environment:
+      CONTROL_API_URL: http://control-api:4100
+      FACTORY_WORKER_SERVICE_TOKEN: ${FACTORY_WORKER_SERVICE_TOKEN:-local-factory-worker-token-change-before-share}
+      FACTORY_DATASET_ROOT: /data/datasets
+      FACTORY_SPLIT_SALT: ${FACTORY_SPLIT_SALT:-ehf-factory-split-v1}
+      FACTORY_PREBUILT_ROUTES_PATH: /app/config/azure-prebuilt-routes.json
+      AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT: ${AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT:-}
+      AZURE_DOCUMENT_INTELLIGENCE_KEY: ${AZURE_DOCUMENT_INTELLIGENCE_KEY:-}
+      FACTORY_TRAINING_CONTAINER_URL: ${FACTORY_TRAINING_CONTAINER_URL:-}
+    volumes:
+      - ${FACTORY_DATASET_DIR:-./.factory-datasets}:/data/datasets:ro
+      - ./packages/adapters/src/azure-prebuilt-routes.json:/app/config/azure-prebuilt-routes.json:ro
+    depends_on:
+      control-api:
+        condition: service_healthy
+
+  # The financial-crime skill library's bridge host (apps/fincrime-host), opt in with
+  # `docker compose --profile fincrime up`. It readies and denies business requests until a
+  # trusted runtime configuration is mounted at /app/config/runtime.json (see its README).
+  fincrime-host:
+    <<: *service-hardening
+    profiles: [fincrime]
+    build:
+      context: ./apps/fincrime-host
+    command: ["python", "-m", "financial_crime.ehf"]
+    environment:
+      PORT: "8088"
+    volumes:
+      - fincrime-host-data:/data
+
+  case-api:
+    <<: [*service-hardening, *platform-image]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: case-api
+      DB_POOL_MAX: ${CASE_API_DB_POOL_MAX:-5}
+      CASE_DATABASE_URL: postgresql://ehf_dev_case_api:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_case
+      # Execution authority only: two functions in the control database answer whether an
+      # execution still holds its lease; case-api reads no control table.
+      EXECUTION_DATABASE_URL: postgresql://ehf_dev_case_api:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      CONTEXT_DATABASE_URL: postgresql://ehf_dev_case_api:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_context
+      DISCOVERY_SYNTHETIC_ENABLED: ${DISCOVERY_SYNTHETIC_ENABLED:-false}
+      DISCOVERY_TENANT_ID: ${PLATFORM_TENANT_ID:-tenant_demo}
+      DISCOVERY_WEB_SEARCH_ENABLED: ${DISCOVERY_WEB_SEARCH_ENABLED:-true}
+      DISCOVERY_WEB_SEARCH_PROVIDER: ${DISCOVERY_WEB_SEARCH_PROVIDER:-openrouter}
+      DISCOVERY_WEB_SEARCH_CONFIGURED_PROVIDERS: ${OPENROUTER_API_KEY:+openrouter,}${DISCOVERY_FOUNDRY_API_KEY:+${DISCOVERY_FOUNDRY_ENDPOINT:+${DISCOVERY_FOUNDRY_DEPLOYMENT:+azure_foundry,}}}
+      DISCOVERY_HOSTED_PLAN_DIGEST: ${DISCOVERY_HOSTED_PLAN_DIGEST:-}
+      DISCOVERY_DATABASE_URL: postgresql://ehf_dev_discovery_reader:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_discovery
+      CASE_API_PORT: "4102"
+      EXECUTION_ENVELOPE_SECRET: ${EXECUTION_ENVELOPE_SECRET:-local-poc-secret-change-before-sharing}
+      INTEGRATION_ENVELOPE_SECRET: ${INTEGRATION_ENVELOPE_SECRET:-local-integration-envelope-secret-change-before-share}
+      # Its own identity (outbox publishing and policy-authority reads at the control plane)...
+      CASE_API_SERVICE_TOKEN: ${CASE_API_SERVICE_TOKEN:-local-case-api-service-token-change-before-share}
+      # ...and the callers it verifies.
+      EDGE_SERVICE_TOKEN: ${EDGE_SERVICE_TOKEN:-local-edge-service-token-change-before-sharing}
+      RUNTIME_SERVICE_TOKEN: ${RUNTIME_SERVICE_TOKEN:-local-runtime-service-token-change-before-share}
+      INTEGRATION_SERVICE_TOKEN: ${INTEGRATION_SERVICE_TOKEN:-local-integration-service-token-change-before-share}
+      CONTROL_API_SERVICE_TOKEN: ${CONTROL_API_SERVICE_TOKEN:-local-control-api-service-token-change-before-share}
+      GATEWAY_CASE_SERVICE_TOKEN: ${GATEWAY_CASE_SERVICE_TOKEN:-local-gateway-case-service-token-change-before-share}
+      CONTEXT_RELEASE_SERVICE_TOKEN: ${CONTEXT_RELEASE_SERVICE_TOKEN:-local-context-release-token-change-before-share}
+      CONTROL_API_URL: http://control-api:4100
+      OUTBOX_INTERVAL_MS: ${OUTBOX_INTERVAL_MS:-5000}
+      OUTBOX_RETENTION_DAYS: ${OUTBOX_RETENTION_DAYS:-7}
+    ports:
+      - "127.0.0.1:4102:4102"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      jaeger:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4102/health/ready').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  runtime-host-local:
+    <<: [*service-hardening, *platform-image]
+    # Holds no envelope signing key and no run journal credential: it exchanges the
+    # dispatcher's grant for a per-node envelope at the control plane, and journals
+    # through it too. The only database handle left is the LangGraph checkpoint store,
+    # which RUNTIME_CHECKPOINT_BACKEND=memory removes entirely at the cost of resumability.
+    environment:
+      SERVICE_NAME: runtime-host
+      RUNTIME_CHECKPOINT_BACKEND: ${RUNTIME_CHECKPOINT_BACKEND:-postgres}
+      RUNTIME_CHECKPOINT_DATABASE_URL: postgresql://ehf_dev_runtime_host:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      RUNTIME_HOST_AUTH_TOKEN: ${RUNTIME_HOST_AUTH_TOKEN:-local-runtime-host-token-change-before-sharing}
+      RUNTIME_SERVICE_TOKEN: ${RUNTIME_SERVICE_TOKEN:-local-runtime-service-token-change-before-share}
+      SECURITY_PROFILE: ${SECURITY_PROFILE:-development}
+      WORKLOAD_AUTH: ${WORKLOAD_AUTH:-static_token}
+      TELEMETRY_EXPORTER: ${TELEMETRY_EXPORTER:-otlp}
+      ENVELOPE_BROKER_URL: http://control-api:4100
+      CAPABILITY_GATEWAY_URL: http://capability-gateway:4101
+      CASE_API_URL: http://case-api:4102
+      FANOUT_EXECUTOR_URL: ${FANOUT_EXECUTOR_URL:-}
+      SUBGRAPH_EXECUTOR_URL: ${SUBGRAPH_EXECUTOR_URL:-}
+      RUNTIME_HOST_PORT: "8088"
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://jaeger:4318/v1/traces
+      OTEL_TRACES_SAMPLER_ARG: "1"
+      DEPLOYMENT_ENVIRONMENT: local
+      CLOUD_REGION: local
+    depends_on:
+      capability-gateway:
+        condition: service_healthy
+      case-api:
+        condition: service_healthy
+      control-api:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+      jaeger:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8088/health/ready').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  runtime-dispatcher:
+    <<: [*service-hardening, *platform-image]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: runtime-worker
+      DB_POOL_MAX: ${WORKER_DB_POOL_MAX:-5}
+      DATABASE_URL: postgresql://ehf_dev_runtime_dispatcher:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      RUNTIME_PROVIDER: ${RUNTIME_PROVIDER:-local_http}
+      RUNTIME_LOCAL_ENDPOINT: http://runtime-host-local:8088/invocations
+      # Its one identity, presented to the runtime host.
+      RUNTIME_HOST_AUTH_TOKEN: ${RUNTIME_HOST_AUTH_TOKEN:-local-runtime-host-token-change-before-sharing}
+      WORKER_LEASE_SECONDS: "60"
+      WORKER_CONCURRENCY: ${WORKER_CONCURRENCY:-2}
+      WORKER_METRICS_PORT: "9090"
+      WORKER_RETRY_BASE_MS: ${WORKER_RETRY_BASE_MS:-2000}
+      WORKER_RETRY_MAX_MS: ${WORKER_RETRY_MAX_MS:-60000}
+      RUNTIME_GRANT_SECRET: ${RUNTIME_GRANT_SECRET:-local-runtime-grant-secret-change-before-share}
+    depends_on:
+      runtime-host-local:
+        condition: service_healthy
+      control-api:
+        condition: service_healthy
+      jaeger:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:9090/health/ready').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  integration-worker:
+    <<: [*service-hardening, *platform-image]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: integration-worker
+      DB_POOL_MAX: ${INTEGRATION_WORKER_DB_POOL_MAX:-5}
+      DATABASE_URL: postgresql://ehf_dev_integration_worker:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      CONTROL_API_URL: http://control-api:4100
+      CASE_API_URL: http://case-api:4102
+      INTEGRATION_ENVELOPE_SECRET: ${INTEGRATION_ENVELOPE_SECRET:-local-integration-envelope-secret-change-before-share}
+      INTEGRATION_SERVICE_TOKEN: ${INTEGRATION_SERVICE_TOKEN:-local-integration-service-token-change-before-share}
+      INTEGRATION_DESTINATIONS_JSON: ${INTEGRATION_DESTINATIONS_JSON:-[]}
+      INTEGRATION_POLL_INTERVAL_MS: ${INTEGRATION_POLL_INTERVAL_MS:-1000}
+    depends_on:
+      control-api:
+        condition: service_healthy
+      case-api:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  # Reference skill host (skill.execution.v1): three synthetic sample skills for the `skills`
+  # gateway adapter and the conformance suite (docs/implementation/skill-library-integration-contract.md).
+  # Opt-in, so the default stack and the deployment-parity service set are unchanged:
+  # `GATEWAY_ADAPTERS=default,skills docker compose --profile skills up`. It holds no provider
+  # credentials and reaches only the gateway; the skill library's own host replaces it.
+  skill-host-reference:
+    <<: [*service-hardening, *platform-image]
+    profiles: [skills]
+    environment:
+      SERVICE_NAME: skill-host-reference
+      SKILL_HOST_PORT: "8090"
+      # The caller it verifies is the gateway, so it accepts the gateway's own token.
+      SKILL_HOST_AUTH_TOKEN: ${GATEWAY_SERVICE_TOKEN:-local-gateway-service-token-change-before-share}
+      SKILL_HOST_GATEWAY_TOKEN: ${SKILL_HOST_GATEWAY_TOKEN:-local-skill-host-gateway-token-change-before-share}
+      SECURITY_PROFILE: development
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8090/healthz').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # Signed ledger segments (docs/implementation/data-stores-plan.md §3.5). A one-shot job:
+  #   LEDGER_EXPORT_PRIVATE_KEY_PEM="$(cat ledger-key.pem)" docker compose --profile ledger-export run --rm ledger-export
+  # then verify offline with the public key:
+  #   pnpm --filter @ehf/case-store ledger:verify <dir>/<tenant> ledger-key.pub.pem
+  ledger-export:
+    <<: [*service-hardening, *platform-image]
+    profiles: [ledger-export]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: ledger-export
+      CASE_DATABASE_URL: postgresql://ehf_dev_ledger_exporter:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_case
+      LEDGER_EXPORT_TENANTS: ${LEDGER_EXPORT_TENANTS:-tenant_demo}
+      LEDGER_EXPORT_DIR: /exports
+      LEDGER_EXPORT_SIGNER: pem
+      LEDGER_EXPORT_KEY_ID: ${LEDGER_EXPORT_KEY_ID:-local-ledger-export}
+      LEDGER_EXPORT_PRIVATE_KEY_PEM: ${LEDGER_EXPORT_PRIVATE_KEY_PEM:-}
+    volumes:
+      - ehf-ledger-exports:/exports
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  discovery-worker:
+    <<: [*service-hardening, *platform-image]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: discovery-worker
+      DISCOVERY_SYNTHETIC_ENABLED: ${DISCOVERY_SYNTHETIC_ENABLED:-false}
+      DISCOVERY_WEB_SEARCH_ENABLED: ${DISCOVERY_WEB_SEARCH_ENABLED:-true}
+      DISCOVERY_WEB_SEARCH_PROVIDER: ${DISCOVERY_WEB_SEARCH_PROVIDER:-openrouter}
+      DISCOVERY_FOUNDRY_ENDPOINT: ${DISCOVERY_FOUNDRY_ENDPOINT:-}
+      DISCOVERY_FOUNDRY_DEPLOYMENT: ${DISCOVERY_FOUNDRY_DEPLOYMENT:-}
+      DISCOVERY_FOUNDRY_API_KEY: ${DISCOVERY_FOUNDRY_API_KEY:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      DISCOVERY_HOSTED_PLAN_DIGEST: ${DISCOVERY_HOSTED_PLAN_DIGEST:-}
+      DISCOVERY_TENANT_ID: ${PLATFORM_TENANT_ID:-tenant_demo}
+      DISCOVERY_WORKER_SERVICE_TOKEN: ${DISCOVERY_WORKER_SERVICE_TOKEN:-local-discovery-worker-token-change-before-sharing}
+      CASE_DATABASE_URL: postgresql://ehf_dev_discovery_worker:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_case
+      DISCOVERY_CONTROL_DATABASE_URL: postgresql://ehf_dev_discovery_worker:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      DISCOVERY_DATABASE_URL: postgresql://ehf_dev_discovery_worker:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_discovery
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      control-api:
+        condition: service_started
+
+  # Evidence retention, legal holds and storage reconciliation (data-stores-plan.md §3.6).
+  # A one-shot job: docker compose --profile blob run --rm evidence-governance
+  # With the database evidence backend it dates retention and records holds as NOT_ENFORCED.
+  evidence-governance:
+    <<: [*service-hardening, *platform-image]
+    profiles: [blob]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: evidence-governance
+      CASE_DATABASE_URL: postgresql://ehf_dev_evidence_retention:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_case
+      EVIDENCE_RETENTION_TENANTS: ${EVIDENCE_RETENTION_TENANTS:-tenant_demo}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  # Releases closed cases' working context after the grace period (data-stores-plan.md §3.3).
+  # A one-shot job: docker compose --profile context-release run --rm context-release
+  context-release:
+    <<: [*service-hardening, *platform-image]
+    profiles: [context-release]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: context-release
+      CASE_API_URL: http://case-api:4102
+      DATABASE_URL: postgresql://ehf_dev_context_release:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_control
+      CONTEXT_DATABASE_URL: postgresql://ehf_dev_context_release:${DATABASE_DEV_LOGIN_PASSWORD:-local-db-login-password-change-before-share}@postgres:5432/ehf_context
+      CONTEXT_RELEASE_TENANTS: ${CONTEXT_RELEASE_TENANTS:-tenant_demo}
+      # Its one identity, presented to the case API.
+      CONTEXT_RELEASE_SERVICE_TOKEN: ${CONTEXT_RELEASE_SERVICE_TOKEN:-local-context-release-token-change-before-share}
+      CONTEXT_RELEASE_GRACE_DAYS: ${CONTEXT_RELEASE_GRACE_DAYS:-30}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      case-api:
+        condition: service_started
+
+  # Same-origin HTTP UI and BFF. Opt in: docker compose --profile web up --build web
+  web:
+    <<: *service-hardening
+    profiles: [web]
+    build:
+      context: .
+      dockerfile: Dockerfile.platform
+    environment:
+      SERVICE_NAME: experience-bff
+      HOST: 0.0.0.0
+      PORT: "4200"
+      WEB_ROOT: /app/web
+      OIDC_ISSUER: ${OIDC_ISSUER:-}
+      OIDC_AUDIENCE: ${OIDC_AUDIENCE:-}
+      BFF_OIDC_CLIENT_SECRET: ${BFF_OIDC_CLIENT_SECRET:-}
+      IDENTITY_DIRECTORY_CLIENT_ID: ${IDENTITY_DIRECTORY_CLIENT_ID:-}
+      IDENTITY_DIRECTORY_CLIENT_SECRET_REF: ${IDENTITY_DIRECTORY_CLIENT_SECRET_REF:-}
+      IDENTITY_DIRECTORY_CLIENT_SECRET: ${IDENTITY_DIRECTORY_CLIENT_SECRET:-}
+      BFF_PUBLIC_ORIGIN: ${BFF_PUBLIC_ORIGIN:-http://localhost:4200}
+      BFF_LOCAL_SUBJECT: ${BFF_LOCAL_SUBJECT:-local.reader}
+      BFF_LOCAL_ROLES: ${BFF_LOCAL_ROLES:-Harness.Reader}
+      LOCAL_DEFAULT_TENANT_ID: ${LOCAL_DEFAULT_TENANT_ID:-tenant_demo}
+      CONTROL_API_INTERNAL_URL: http://control-api:4100
+      CASE_API_INTERNAL_URL: http://case-api:4102
+      CAPABILITY_GATEWAY_INTERNAL_URL: http://capability-gateway:4101
+      EDGE_SERVICE_TOKEN: ${EDGE_SERVICE_TOKEN:-local-edge-service-token-change-before-sharing}
+      BFF_JAEGER_QUERY_URL: http://jaeger:16686
+      BFF_TRACE_VIEWER_URL: ${BFF_TRACE_VIEWER_URL:-http://localhost:16686/}
+      BFF_DOCUMENT_PLAN_DIGEST: ${BFF_DOCUMENT_PLAN_DIGEST:-}
+      BFF_DOCUMENT_SOURCE_CONTEXT_DIGEST: ${BFF_DOCUMENT_SOURCE_CONTEXT_DIGEST:-}
+    ports:
+      - "127.0.0.1:${WEB_PORT:-4200}:4200"
+    depends_on:
+      control-api:
+        condition: service_started
+      case-api:
+        condition: service_started
+      capability-gateway:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4200/health/ready').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # Optional tenant-scoped scheduler; dispatches approved refresh runs through control-api.
+  context-refresh:
+    <<: [*platform-image, *service-hardening]
+    profiles: [context-refresh]
+    environment:
+      <<: *runtime-env
+      SERVICE_NAME: context-refresh
+      CONTROL_API_URL: http://control-api:4100
+      CONTEXT_REFRESH_SERVICE_TOKEN: ${CONTEXT_REFRESH_SERVICE_TOKEN:-local-context-refresh-service-token-change-before-share}
+    depends_on:
+      control-api:
+        condition: service_started
+
+volumes:
+  ehf-ledger-exports:
+  ehf-postgres:
+  kyc-wiring-data:
+  kyc-evidence-data:
+  fincrime-host-data:
+  skill-host-data:

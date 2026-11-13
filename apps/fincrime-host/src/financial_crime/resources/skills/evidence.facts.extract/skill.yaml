@@ -1,0 +1,198 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:evidence.facts.extract
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Separate extracted assertions from facts with explicit verification
+  records.
+code_hash: 9e9fd05cc370854d077c65b8ae9fcb632d0e4dec985d61349ff23f4943691f12
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Separate extracted assertions from facts with explicit verification records.
+effects: read_only
+entrypoint: financial_crime.skills.governance:facts_extract
+evaluation_profile: evidence.facts.extract-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: evidence-facts-extract
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: evidence.facts.extract
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:evidence.facts.extract:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 75959da885290072613b3e8e4def576fd18f191fd43ecffb00d1fcb602aeea21
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    AssertionRow_claim_evidence_ids_verification:
+      additionalProperties: false
+      properties:
+        _ref:
+          $ref: '#/$defs/Ref'
+        _synthetic:
+          $ref: '#/$defs/Bool'
+        claim:
+          $ref: '#/$defs/Text'
+        evidence_ids:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        id:
+          $ref: '#/$defs/Id'
+        verification:
+          $ref: '#/$defs/Verification'
+      required:
+      - id
+      - claim
+      - evidence_ids
+      - verification
+      - _ref
+      - _synthetic
+      type: object
+    Bool:
+      type: boolean
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+    Timestamp:
+      format: date-time
+      type: string
+    Verification:
+      additionalProperties: false
+      properties:
+        actor_ref:
+          $ref: '#/$defs/Id'
+        evidence_ids:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        method:
+          $ref: '#/$defs/Id'
+        status:
+          $ref: '#/$defs/Id'
+        verified_at:
+          $ref: '#/$defs/Timestamp'
+      required:
+      - status
+      - method
+      type: object
+  $id: urn:financial-crime:skill:evidence.facts.extract:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    assertions:
+      items:
+        $ref: '#/$defs/AssertionRow_claim_evidence_ids_verification'
+      maxItems: 10000
+      type: array
+    verified_facts:
+      items:
+        $ref: '#/$defs/AssertionRow_claim_evidence_ids_verification'
+      maxItems: 10000
+      type: array
+  required:
+  - assertions
+  - verified_facts
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- verification_methods
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - claim
+  - evidence_ids
+  - verification
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Assertion
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

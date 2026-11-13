@@ -1,0 +1,217 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:decision.requirements.compile
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Compile requirement applicability with explicit unknown conditions.
+code_hash: 7eec1bba87bec2d1297794cf998184913f652c624051d557f1f1a5909523f19e
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Compile requirement applicability with explicit unknown conditions.
+effects: read_only
+entrypoint: financial_crime.skills.governance:requirements_compile
+evaluation_profile: decision.requirements.compile-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: decision-requirements-compile
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: decision.requirements.compile
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    JsonObject:
+      additionalProperties:
+        $ref: '#/$defs/JsonValue'
+      type: object
+      x-dynamic-map-reason: schema-selected or source-domain JSON values
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+  $id: urn:financial-crime:skill:decision.requirements.compile:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    facts:
+      $ref: '#/$defs/JsonObject'
+  required:
+  - facts
+  type: object
+instruction_hash: 3b11cd294b8ebc63cad67e39a8547d441b3283bc5154705fdd233e8e3a2c71ee
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    Outcome:
+      enum:
+      - PASS
+      - FAIL
+      - UNKNOWN
+      - NOT_APPLICABLE
+    Predicate:
+      oneOf:
+      - $ref: '#/$defs/RuleLeaf'
+      - additionalProperties: false
+        properties:
+          all:
+            items:
+              $ref: '#/$defs/Predicate'
+            maxItems: 100
+            minItems: 1
+            type: array
+        required:
+        - all
+        type: object
+      - additionalProperties: false
+        properties:
+          any:
+            items:
+              $ref: '#/$defs/Predicate'
+            maxItems: 100
+            minItems: 1
+            type: array
+        required:
+        - any
+        type: object
+    RequirementApplicability:
+      additionalProperties: false
+      properties:
+        applicability:
+          $ref: '#/$defs/Outcome'
+        description:
+          $ref: '#/$defs/Text'
+        id:
+          $ref: '#/$defs/Id'
+        when:
+          $ref: '#/$defs/Predicate'
+      required:
+      - id
+      - applicability
+      type: object
+    RuleLeaf:
+      additionalProperties: false
+      properties:
+        field:
+          $ref: '#/$defs/Id'
+        op:
+          $ref: '#/$defs/RuleOperator'
+        value:
+          $ref: '#/$defs/JsonValue'
+      required:
+      - field
+      - op
+      type: object
+    RuleOperator:
+      enum:
+      - eq
+      - ne
+      - in
+      - contains
+      - excludes
+      - gte
+      - gt
+      - lte
+      - lt
+      - present
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:decision.requirements.compile:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    requirements:
+      items:
+        $ref: '#/$defs/RequirementApplicability'
+      maxItems: 10000
+      type: array
+  required:
+  - requirements
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- requirements
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

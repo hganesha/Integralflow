@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "TraceViolation": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/TraceViolationCode"
+        },
+        "index": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "index",
+        "code"
+      ],
+      "type": "object"
+    },
+    "TraceViolationCode": {
+      "enum": [
+        "UNADMITTED_SKILL",
+        "MISSING_APPROVAL"
+      ]
+    }
+  },
+  "$id": "urn:financial-crime:skill:quality.agent.trace.evaluate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "valid": {
+      "type": "boolean"
+    },
+    "violations": {
+      "items": {
+        "$ref": "#/$defs/TraceViolation"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "violations",
+    "valid"
+  ],
+  "type": "object"
+}

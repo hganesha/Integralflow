@@ -1,0 +1,137 @@
+{
+  "agent_profile": "agent.qa_assurance",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "checks",
+        "semantic_review_required"
+      ],
+      "requires_human_decision": false,
+      "step_id": "quality_findings_verify"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "unsupported",
+        "semantic_review_required"
+      ],
+      "requires_human_decision": false,
+      "step_id": "quality_hallucination_detect"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "compliant",
+        "unresolved"
+      ],
+      "requires_human_decision": false,
+      "step_id": "quality_policy_compliance"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "coverage",
+        "missing",
+        "denominator"
+      ],
+      "requires_human_decision": false,
+      "step_id": "quality_coverage_assess"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.qa_assurance",
+  "input_fields": [
+    "covered",
+    "required"
+  ],
+  "input_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "covered": {
+        "items": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10000,
+        "minItems": 0,
+        "type": "array"
+      },
+      "required": {
+        "items": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10000,
+        "minItems": 0,
+        "type": "array"
+      }
+    },
+    "required": [
+      "required",
+      "covered"
+    ],
+    "type": "object"
+  },
+  "objective": "Independently challenge legal applicability, omitted parties, evidence sufficiency, stale sources, unsupported findings, overrides and monitoring handoff.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "quality_findings_verify",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "quality.findings.verify",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "quality_findings_verify"
+      ],
+      "id": "quality_hallucination_detect",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "quality.hallucination.detect",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "quality_hallucination_detect"
+      ],
+      "id": "quality_policy_compliance",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "quality.policy.compliance",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "quality_policy_compliance"
+      ],
+      "id": "quality_coverage_assess",
+      "input_bindings": {
+        "covered": "covered",
+        "required": "required"
+      },
+      "parameters": {},
+      "skill_id": "quality.coverage.assess",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

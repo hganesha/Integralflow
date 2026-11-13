@@ -1,0 +1,24 @@
+{
+  "$id": "urn:financial-crime:skill:entity.identifiers.validate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "existence_verified": {
+      "type": "boolean"
+    },
+    "issuer": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "structurally_valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "structurally_valid",
+    "existence_verified",
+    "issuer"
+  ],
+  "type": "object"
+}

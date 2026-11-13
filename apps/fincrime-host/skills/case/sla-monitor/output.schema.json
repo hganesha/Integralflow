@@ -1,0 +1,51 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "DeadlineStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "overdue": {
+          "$ref": "#/$defs/Bool"
+        },
+        "seconds_remaining": {
+          "$ref": "#/$defs/Number"
+        },
+        "task_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "task_id",
+        "overdue",
+        "seconds_remaining"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Number": {
+      "type": "number"
+    }
+  },
+  "$id": "urn:financial-crime:skill:case.sla.monitor:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deadlines": {
+      "items": {
+        "$ref": "#/$defs/DeadlineStatus"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "deadlines"
+  ],
+  "type": "object"
+}

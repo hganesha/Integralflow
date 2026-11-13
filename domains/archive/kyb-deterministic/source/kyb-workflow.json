@@ -1,0 +1,415 @@
+{
+  "id": "synthetic-kyb",
+  "steps": [
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [],
+      "id": "case_create",
+      "parameters": {
+        "case_type": "KYB"
+      },
+      "skill_id": "case.create",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "case_create"
+      ],
+      "id": "decision_policy_resolve",
+      "parameters": {},
+      "skill_id": "decision.policy.resolve",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_policy_resolve"
+      ],
+      "id": "entity_resolve",
+      "parameters": {
+        "identifiers": []
+      },
+      "skill_id": "entity.resolve",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "entity_resolve"
+      ],
+      "id": "entity_match",
+      "parameters": {},
+      "skill_id": "entity.match",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "entity_match"
+      ],
+      "id": "registry_company_verify",
+      "parameters": {},
+      "skill_id": "registry.company.verify",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "registry_company_verify"
+      ],
+      "id": "document_classify",
+      "parameters": {},
+      "skill_id": "document.classify",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_classify"
+      ],
+      "id": "document_fields_extract",
+      "parameters": {
+        "fields": [
+          "Name",
+          "Registration"
+        ]
+      },
+      "skill_id": "document.fields.extract",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "assertions": "document_fields_extract.payload.assertions"
+      },
+      "condition": null,
+      "dependencies": [
+        "document_fields_extract"
+      ],
+      "id": "document_evidence_link",
+      "parameters": {
+        "assertions": []
+      },
+      "skill_id": "document.evidence.link",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_evidence_link"
+      ],
+      "id": "document_classify_catalog",
+      "parameters": {},
+      "skill_id": "document.classify.catalog",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "classifications": "document_classify_catalog.payload.classifications"
+      },
+      "condition": null,
+      "dependencies": [
+        "document_classify_catalog"
+      ],
+      "id": "document_fields_contract_extract",
+      "parameters": {
+        "classifications": []
+      },
+      "skill_id": "document.fields.contract_extract",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_fields_contract_extract"
+      ],
+      "id": "document_validity_assess",
+      "parameters": {},
+      "skill_id": "document.validity.assess",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_validity_assess"
+      ],
+      "id": "document_consistency_assess",
+      "parameters": {},
+      "skill_id": "document.consistency.assess",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "document_consistency_assess"
+      ],
+      "id": "party_profile_build",
+      "parameters": {},
+      "skill_id": "party.profile.build",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "party_profile_build"
+      ],
+      "id": "ownership_graph_build",
+      "parameters": {},
+      "skill_id": "ownership.graph.build",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "ownership_graph_build"
+      ],
+      "id": "ownership_interest_calculate",
+      "parameters": {},
+      "skill_id": "ownership.interest.calculate",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "ownership_interest_calculate"
+      ],
+      "id": "ownership_ubo_resolve",
+      "parameters": {},
+      "skill_id": "ownership.ubo.resolve",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "ownership_ubo_resolve"
+      ],
+      "id": "ownership_ubo_verify",
+      "parameters": {},
+      "skill_id": "ownership.ubo.verify",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "ownership_ubo_verify"
+      ],
+      "id": "screening_sanctions_execute",
+      "parameters": {},
+      "skill_id": "screening.sanctions.execute",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_sanctions_execute"
+      ],
+      "id": "screening_pep_execute",
+      "parameters": {},
+      "skill_id": "screening.pep.execute",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_pep_execute"
+      ],
+      "id": "screening_adverse_media_execute",
+      "parameters": {},
+      "skill_id": "screening.adverse_media.execute",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_adverse_media_execute"
+      ],
+      "id": "screening_match_disambiguate",
+      "parameters": {},
+      "skill_id": "screening.match.disambiguate",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "screening_match_disambiguate"
+      ],
+      "id": "risk_customer_assess",
+      "parameters": {},
+      "skill_id": "risk.customer.assess",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "facts.tier": "risk_customer_assess.payload.tier"
+      },
+      "condition": null,
+      "dependencies": [
+        "risk_customer_assess"
+      ],
+      "id": "edd_trigger_evaluate",
+      "parameters": {
+        "facts": {}
+      },
+      "skill_id": "edd.trigger.evaluate",
+      "success_condition": {
+        "field": "payload.required",
+        "op": "eq",
+        "value": false
+      }
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "edd_trigger_evaluate"
+      ],
+      "id": "case_context_hydrate",
+      "parameters": {
+        "target_skill": "entity.resolve"
+      },
+      "skill_id": "case.context.hydrate",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "case_context_hydrate"
+      ],
+      "id": "case_tasks_plan",
+      "parameters": {},
+      "skill_id": "case.tasks.plan",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "case_tasks_plan"
+      ],
+      "id": "evidence_provenance_attach",
+      "parameters": {},
+      "skill_id": "evidence.provenance.attach",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "evidence_provenance_attach"
+      ],
+      "id": "evidence_sufficiency_assess",
+      "parameters": {},
+      "skill_id": "evidence.sufficiency.assess",
+      "success_condition": {
+        "field": "payload.sufficient",
+        "op": "eq",
+        "value": true
+      }
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "evidence_sufficiency_assess"
+      ],
+      "id": "quality_findings_verify",
+      "parameters": {},
+      "skill_id": "quality.findings.verify",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "facts.identity_verified": "registry_company_verify.payload.verifications.0.verified",
+        "facts.tier": "risk_customer_assess.payload.tier"
+      },
+      "condition": null,
+      "dependencies": [
+        "quality_findings_verify"
+      ],
+      "id": "decision_requirements_compile",
+      "parameters": {
+        "facts": {}
+      },
+      "skill_id": "decision.requirements.compile",
+      "success_condition": null
+    },
+    {
+      "bindings": {
+        "facts.identity_verified": "registry_company_verify.payload.verifications.0.verified"
+      },
+      "condition": null,
+      "dependencies": [
+        "decision_requirements_compile"
+      ],
+      "id": "decision_rules_evaluate",
+      "parameters": {
+        "facts": {}
+      },
+      "skill_id": "decision.rules.evaluate",
+      "success_condition": {
+        "field": "payload.outcome",
+        "op": "eq",
+        "value": "PASS"
+      }
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_rules_evaluate"
+      ],
+      "id": "decision_approval_route",
+      "parameters": {
+        "action": "ACCEPT"
+      },
+      "skill_id": "decision.approval.route",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_approval_route"
+      ],
+      "id": "decision_disposition_record",
+      "parameters": {
+        "disposition": "ACCEPT"
+      },
+      "skill_id": "decision.disposition.record",
+      "success_condition": null
+    },
+    {
+      "bindings": {},
+      "condition": null,
+      "dependencies": [
+        "decision_disposition_record"
+      ],
+      "id": "monitor_customer_schedule",
+      "parameters": {},
+      "skill_id": "monitor.customer.schedule",
+      "success_condition": null
+    }
+  ],
+  "version": "0.4.0"
+}

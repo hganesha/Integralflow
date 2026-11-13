@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PresentationIntent",
+  "description": "Semantic presentation request resolved by the presentation orchestrator into an A2UI surface (addendum \u00a76.2).",
+  "x-urn": "urn:financial-crime:ui-proposed:PresentationIntent:0.1.0",
+  "x-status": "proposed \u2014 UI-local until reviewed; migrate to schemas/presentation/PresentationIntent.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "intent_id": {
+      "type": "string",
+      "pattern": "^[a-z]+(\\.[a-z_]+)+$"
+    },
+    "intent_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "object_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "../../../../schemas/runtime/Ref.schema.json"
+      },
+      "minItems": 1
+    },
+    "audience_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "purpose": {
+          "enum": [
+            "onboarding",
+            "review",
+            "monitoring",
+            "investigation",
+            "fraud",
+            "reporting"
+          ]
+        }
+      },
+      "required": [
+        "role",
+        "purpose"
+      ]
+    },
+    "priority": {
+      "enum": [
+        "low",
+        "normal",
+        "high",
+        "urgent"
+      ]
+    },
+    "data_projection": {
+      "enum": [
+        "overview",
+        "working",
+        "assurance"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      }
+    },
+    "available_action_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      }
+    },
+    "attention_class": {
+      "enum": [
+        "overview",
+        "working",
+        "investigative",
+        "consequential"
+      ]
+    },
+    "freshness_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_age_seconds": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "on_stale": {
+          "enum": [
+            "mark",
+            "refetch",
+            "block_actions"
+          ]
+        }
+      },
+      "required": [
+        "max_age_seconds",
+        "on_stale"
+      ]
+    },
+    "preferred_template": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fallback_template": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    }
+  },
+  "required": [
+    "intent_id",
+    "intent_version",
+    "object_refs",
+    "audience_context",
+    "priority",
+    "data_projection",
+    "evidence_refs",
+    "available_action_refs",
+    "attention_class",
+    "freshness_policy",
+    "preferred_template",
+    "fallback_template"
+  ]
+}

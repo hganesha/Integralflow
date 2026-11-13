@@ -1,0 +1,5065 @@
+{
+  "alert.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e5edb0f913af9edb5812bd6629cc34c928340d6b3c20b38849c07493154da1b3",
+    "idempotency_key": "alert.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "870399eb0eac685c2ef27f79d314b91a0848b6fdca61e9435649669644ec0552"
+  },
+  "alert.context.assemble": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "abdd6462007dc9f8e7410109720d41d294ed47922d7e2563601cf82f88f970f0",
+    "idempotency_key": "alert.context.assemble-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.context.assemble",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1b3a1a26e651aa001008fda5c4e7c0a731df7ab80b6e4641a9cb0415f9d61a9a"
+  },
+  "alert.correlate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "bfe1699d5ea736ba5763a3f5b1d20d05cb6e49cc42480eed511b3854b81e06b8",
+    "idempotency_key": "alert.correlate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.correlate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "36eb20a4529d109a672c94fe39d88fa82787989a77814fb26eec042a5e51d570"
+  },
+  "alert.deduplicate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e6efebabe4dc77e0f5c50e56a5fce3825d47ea2018b453aea26fe9af560b6cd4",
+    "idempotency_key": "alert.deduplicate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.deduplicate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "98dc395f7b88dd6d1e65abc7d7b344c016a11f1b6245f0e9a0d43bd07de87716"
+  },
+  "alert.disposition.recommend": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "684937a2cbef02d3b687f8d5cee2eb4bf9592e83621891f8d4a59fe6f9d225fa",
+    "idempotency_key": "alert.disposition.recommend-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.disposition.recommend",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "968d4a4a380f2ab4140f206b499fa1dfcfebed6f3b59f1f3e434b620b4fa135e"
+  },
+  "alert.escalation.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "05645e3484834e90f0c601c52bf3a55cc960a6b1199fe6a51fcbce99eecdd9ed",
+    "idempotency_key": "alert.escalation.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.escalation.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c1f4043cfdf83438a6f0d150d61384af635917b9a8bfe4d5ed5599aac7ed944e"
+  },
+  "alert.false_positive.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0537d8c98fcb14a18b2f202ef715af72f32816d42081b23f0e12d5c320489826",
+    "idempotency_key": "alert.false_positive.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.false_positive.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1305cdf64815e829c1a8f3b3d97e302626f1c0dd4226b3a47d768dabd2f82448"
+  },
+  "alert.feedback.capture": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5b41ee1774ec8b88b0680e1f24bf355642ba921252c99c37398efb433df9896f",
+    "idempotency_key": "alert.feedback.capture-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "alert_id": "alert-1",
+      "label": "reviewed",
+      "reason": "Synthetic test"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.feedback.capture",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c09843431d9dc89efaa4cf803bd92861404b3c3e0dbceddffbbcd4d744d28ba5"
+  },
+  "alert.ingest": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "11556f8c0a3de2f9de982e1faeb4cda6a81dab606063d541c524397934be913a",
+    "idempotency_key": "alert.ingest-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.ingest",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "f55de6b234b943eabb0c87cab668dc5df84aa418b53c548ab0013c8a0e5990d3"
+  },
+  "alert.prioritize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3b1066241651b6d11e7d9d48309978864dee249a9509515707c60c22cb22cc3f",
+    "idempotency_key": "alert.prioritize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "alert.prioritize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "97e8042554fd4fc7b7a6e1afedeb634095e6442dd2b0ab786f7ce964a122419f"
+  },
+  "aml.funnel.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "df058b0c658dd60c5cc6615227afd25a27510b317c9a8b888d7f10c8b345113f",
+    "idempotency_key": "aml.funnel.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.funnel.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "06659d9fdcbccadbcb3844a1e775a53cdf616becee0173531f0235b24f70b129"
+  },
+  "aml.layering.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1b3032744a39cf09eecf6e500be920ad48747b82fac12eaea0d3244dae8e22d8",
+    "idempotency_key": "aml.layering.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.layering.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2d54f281d59ac7ac0c095d1d0d988e15836d423e92e329a7e9674e1da544cf05"
+  },
+  "aml.mule.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "78074a72713daad30abba743de4f2ba58f76307c6c57f80a83e1333c51eac6f8",
+    "idempotency_key": "aml.mule.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.mule.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "077de7ce1c3e08dd7918c2d80334586fb87316b21bdec7d79c6dcbff7c459621"
+  },
+  "aml.pass_through.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1df2b5fe0e880b889ff241508f8744471fe5974b3fa60425948d412b44295475",
+    "idempotency_key": "aml.pass_through.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.pass_through.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fdda1770d8d6b98c4c81ca092727b20db62aa92adeea86657728e33e681a2219"
+  },
+  "aml.roundtrip.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "9ac5cd12be9b82315311f8526d1366fa3abb00ddb7561e58d73ffb92e8f570f5",
+    "idempotency_key": "aml.roundtrip.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.roundtrip.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7d1ab2bb6e3a4ce81fa00b514e2a139af6ab8ad48ace77e224a67f190288c171"
+  },
+  "aml.shell_company.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "639bc71be255aa1fc6948a6678944d19ef5535dfa6525a6b2b80a5931f0e901d",
+    "idempotency_key": "aml.shell_company.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.shell_company.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "560d0aac8965d679a28e9a87e1396aa30749a6f2b4cd46551e62026bd01d70df"
+  },
+  "aml.smurfing.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "710b084482c7565902dd1f24a77a72e8800b33d919bd66e4f54d5d940ff789b3",
+    "idempotency_key": "aml.smurfing.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.smurfing.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5e414ef1088c5be945502f4640454b96aa1cf3717068b49b4b5992195cd1e04c"
+  },
+  "aml.structuring.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1f7e5d31cb06923f6405a622c3ef5c073ddc723dc21c10501e2c1867f2c13c4a",
+    "idempotency_key": "aml.structuring.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.structuring.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "382ba0fdf1a14c3420c1ad95f5de69ef083f6b11d766da7a3450fb4243634bf7"
+  },
+  "aml.suspicion.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7eed38a142a26f018477b2536c26101fed975817292398614d117de3f9e7ddd9",
+    "idempotency_key": "aml.suspicion.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.suspicion.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3790e1c59c09e8a0c679d2ed5d66eb09bf2eee86b293d3894059f72731aa78e6"
+  },
+  "aml.trade_based.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5a2712b9ed4b31d7a44dba714fa0c0dcb4536b61543b8c17427d6af43eaf31f4",
+    "idempotency_key": "aml.trade_based.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.trade_based.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0f93b6b66aa4decebbe9af3637aa74d8e366ed489b537b6689a529735d5637ac"
+  },
+  "aml.typology.match": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1940fbbbf292f3a478c8ee90aa2dcf342d29b13108148cb3282ac67ffdb3d9a3",
+    "idempotency_key": "aml.typology.match-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.typology.match",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "e73348cd07eaae8c9eead60c86408eb81af01b555f86f8e93ada65ba9cfcdb59"
+  },
+  "aml.velocity.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "adffa795ee2e48fdcf44e47277a12af1129aa06b6f07ea4b181de3d17370abfb",
+    "idempotency_key": "aml.velocity.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "aml.velocity.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2514ce94d4c1c16bbdd33c1b78457d0b9f484f776a2e01bb12c5b74b76398b14"
+  },
+  "case.close": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "86d439f2e2ecf57204b68700396dee8d562eb67dbe4c49aaecdc8a31bc7f9777",
+    "idempotency_key": "case.close-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.close",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fe7d80a370a05472665f98278998571e7b650fe0d78a20d662cc55fd91684cb8"
+  },
+  "case.context.hydrate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "93e9fbc2d84ad27f52a412e3bf69f19636d5e111e150eb2354a7a2e63229fe05",
+    "idempotency_key": "case.context.hydrate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "target_skill": "entity.resolve"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.context.hydrate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3e9fa5d415f30fc4a87530ea62351a5d78e803d0afb90da7f54950f4e9022fc3"
+  },
+  "case.create": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4ef4c4d273547b360e4e4aa2c995f7463aa3a4cf6050de470df0bb859c819ddc",
+    "idempotency_key": "case.create-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "case_type": "KYB"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.create",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "83fecf769cf68d9c937dfeb7ecff5d3d4af0a48b555f5789421d6f711e48e91b"
+  },
+  "case.dependencies.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cb21051005dd567739590160748b417a4d499711c1facad22125a99c2cfa424d",
+    "idempotency_key": "case.dependencies.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.dependencies.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "6930acf7d4dbe128f179a28323e9df954bbd0d6389821fe524553c5300c1b154"
+  },
+  "case.escalate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "136a5c3bc58c76acba9984c93bf5a755f1ceaa24e49948d0468ffb72e256e3e7",
+    "idempotency_key": "case.escalate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "reason": "Synthetic test",
+      "role": "compliance"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.escalate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "cef139c8684b9e8a8a9fb7c65d411921c775396500d6db91f6e2154e9ec81f55"
+  },
+  "case.sla.monitor": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "ddcaa94c69c9061ae8c8ebcbd6005c79516f866fae4d694c147229aba0ca4a2e",
+    "idempotency_key": "case.sla.monitor-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.sla.monitor",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "6acd58482459ebff8386e0f6b5f9d527fc6eb6228ce8a3c0e2632cb743f7b492"
+  },
+  "case.state.transition": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "bf780cbca9ea7e93ee11ce22984f504855e08f7d6c85d6adc52ff368fd959f37",
+    "idempotency_key": "case.state.transition-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "expected_revision": 1,
+      "target": "REVIEW"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.state.transition",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9bdf1eccdc702ccb4a2be85ed645703efdf66417d794a317c457cedf3284fb1a"
+  },
+  "case.summary.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "aa1490da53e12a0565e4771f04399ea86773937f96ed413d66924dcedfd5b3c9",
+    "idempotency_key": "case.summary.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.summary.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7bf77f43b405e19861347a331da062e5d38551e087e6dffabd5ae3ea044b598c"
+  },
+  "case.tasks.assign": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "bd8c1dba32279a712250d158e32b0a53d8bd6c763ded0dbe588b800fbc0d9cb9",
+    "idempotency_key": "case.tasks.assign-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "assignments": {
+        "task-1": "analyst"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.tasks.assign",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "da372ac0a83074d0354e7d0968ca60f813992b224803e635376bd9b9bfe52da2"
+  },
+  "case.tasks.plan": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "49205ff40927ea6db636f187603d0efc7a6414410322975d3e247cf38bd27014",
+    "idempotency_key": "case.tasks.plan-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "case.tasks.plan",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "391af6f7af475fcbb8c2766c20c907e4c419cb7d6f33e747138a28f09f0182c6"
+  },
+  "decision.approval.route": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0702829a34993c9f1149d458583d501be8d891eae17dde51d362c093e5ab063a",
+    "idempotency_key": "decision.approval.route-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "action": "ACCEPT"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.approval.route",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "24519971145c5ebc3b4b45ae3905b4fdba5642b34bc02ef6f9d248721149ffd0"
+  },
+  "decision.audit.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cca13f0b9a5c195e3ea06a7a55046e5139e0831a2f1f7e2e4c81eb067df9fd20",
+    "idempotency_key": "decision.audit.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.audit.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "4fd5c915e55db65efe51f0fa9fa0f84e05d369fcc2f104aeaff4f36501e3abe1"
+  },
+  "decision.controls.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "61f1025ffdb7e2b6a3a73dd914e94b51883bd9bd57735bad75e1603793ea1266",
+    "idempotency_key": "decision.controls.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "facts": {
+        "identity_verified": true,
+        "tier": "LOW"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.controls.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b4e6a139636bbc9ee29500b41289f54c5faa5967d5c44b0a6734c8556ecf0b8c"
+  },
+  "decision.disposition.record": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "67bf8a93f0ebae1c297778ea89f886e11c26197bac12f563d8fb9e475672c80c",
+    "idempotency_key": "decision.disposition.record-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "disposition": "ACCEPT"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.disposition.record",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "70b52bd579995e73e33d6fbd7c7a8af089b3318d2d26f8eb0524aaeea923b9de"
+  },
+  "decision.exceptions.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "67c22c7b275dcf05fad4ee5a09baa87f182cd916f7ebe9481c31e312cf23ac78",
+    "idempotency_key": "decision.exceptions.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "scope": "deposit"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.exceptions.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b56e5741630996ba17c658f7c320657327c0cc9aa99313df65e897fc0c33268b"
+  },
+  "decision.explain": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5d9c1043d14359f2e742348e7cf482b9fe62a882e818a81defd18d01a3061dd4",
+    "idempotency_key": "decision.explain-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.explain",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2c2475b20c3a827e7d234058199e21fa0c141995edb62c497f9eea83a1ac110b"
+  },
+  "decision.gaps.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d7ea3b42c0786b4fc06c882ba9d34077078ff0a54ac4985fa1fb821f877f2182",
+    "idempotency_key": "decision.gaps.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.gaps.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a9e2038c83791fc2a559ada7a9cf88a75cb04386d3f210293ebe12d2fc753609"
+  },
+  "decision.human.review": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "9a9bb81e82cd072840728e140c036219595d58638efd0afcf02507df5ebebead",
+    "idempotency_key": "decision.human.review-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "action": "ACCEPT"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.human.review",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "6c16db66076cba19f5c29da5534b28d0f219a83d0cbb85de3ccb863d9da703c4"
+  },
+  "decision.policy.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "477d6261d9f076e5266c4189be12237a5edfa62e5ccb8785d08ed8b2a225a6bf",
+    "idempotency_key": "decision.policy.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.policy.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "dd05ae8713d05a5fad785af90005fb1c6fb772031517069525d3d9d804719da1"
+  },
+  "decision.recommendation.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3fcea6c6b3efd114e1fdb23bd6b2a890afe7748688fc6e9c38067328e03a0bbf",
+    "idempotency_key": "decision.recommendation.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.recommendation.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "96cdbecd7943e4dcb2beee689dddd24650a88ab675ac0da665a67d15866fba07"
+  },
+  "decision.requirements.compile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0ec26d5f3b92a8d07a4d8fcedc492492b0d5c1e3191cb5ab564b46e50eee4fd3",
+    "idempotency_key": "decision.requirements.compile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "facts": {
+        "identity_verified": true,
+        "tier": "LOW"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.requirements.compile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "e1a69b0df0027f192d35777d67985cc0e8fc6b0fe31872cf008e89ac3354453e"
+  },
+  "decision.risk.acceptance.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "382959bf865dab7b2cb6bc29030609c2a776b34135bcedbd421caeb92f8d4396",
+    "idempotency_key": "decision.risk.acceptance.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.risk.acceptance.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5fabb9da49392925d063c9397d9fa1dc9374fe32d893a09a52bbb0fffc323352"
+  },
+  "decision.rules.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "6b2e458df65f3c343230caf0d8723189ca0220a7e1e8a5effb3cc60daa2df928",
+    "idempotency_key": "decision.rules.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "facts": {
+        "identity_verified": true,
+        "tier": "LOW"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "decision.rules.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "d2f1aae8c500d1e0ff2d3a23c01a89654368ed5032c1905cdf20621dc2875e0c"
+  },
+  "document.authenticity.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "792d556073846ee6b3ad2af4dc38cd6a489c840fb7f5b477257ff1fee8d4bcc9",
+    "idempotency_key": "document.authenticity.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.authenticity.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "02181dff006a26461fac5b804777e22d455d1900dd739284c280d4a3a9448639"
+  },
+  "document.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "df44fe36a9cad81fcecb4ece1443375a3745443277a8b2bef94d7ac18058eea3",
+    "idempotency_key": "document.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ffbb33eb07284f6e77eb25be07ff2bf899ddbc7ea5ba0a37494ffe0a47c35489"
+  },
+  "document.classify.catalog": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "8cab9db3b91e4208a818bf3e52954f728a10d30aeaff14261597ba724bd047dd",
+    "idempotency_key": "document.classify.catalog-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.classify.catalog",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "94036c7ca6b78146fe4de707f788d1c692943c98973b02091b0fd6dd6cb0f914"
+  },
+  "document.consistency.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5209f9460b4c2b6c032aebd955e63ccbdfe4fb443564ae8a591ceb043527855a",
+    "idempotency_key": "document.consistency.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.consistency.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9422a10830d0905213d34d7c8a9867eb44c500ffbabb611d2f282f19fffca27f"
+  },
+  "document.consistency.check": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5b9ea980ea9111b1691b61ab7b35efa29b4dbf1e91896ed509c4cf773f8a43bb",
+    "idempotency_key": "document.consistency.check-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.consistency.check",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c8d531d8f6bd0b87d6217589b63736f35aab25ce1f7da858b4752e51ec0b6af0"
+  },
+  "document.entities.extract": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "6e8d2156c3e53a173c01b28d03aff6e2444bd02fc4062de2c5c6bd3537776ddf",
+    "idempotency_key": "document.entities.extract-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.entities.extract",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b442486fe770071cc2b8e3195838501b2b99cd82f3f746b13c2bbc8635cd40a6"
+  },
+  "document.evidence.link": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4f2211a2701fd67cc011105f65ca6044b9f804501556e81d1dccfb79161969f8",
+    "idempotency_key": "document.evidence.link-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "assertions": [
+        {
+          "document_version": "doc-v1",
+          "end": 39,
+          "epistemic_status": "EXTRACTED_ASSERTION",
+          "field": "Name",
+          "page_id": "page-1",
+          "start": 35,
+          "value": "Acme"
+        }
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.evidence.link",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "26734fd0f616aac1042af5ed594351e5e85be4900f18e0eed7f2193f044f64f2"
+  },
+  "document.fields.adjudicated_extract": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3cd013d2b015622036178793798c327d4d4cc4537e7d8e8fb719620e38045f7c",
+    "idempotency_key": "document.fields.adjudicated_extract-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "classifications": [
+        {
+          "basis": "title",
+          "candidates": [],
+          "document_type": "certificate_of_incorporation",
+          "document_version": "doc-v1"
+        }
+      ],
+      "subject": "acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.fields.adjudicated_extract",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ba43328aa953c82d604f29e89b624ced55fc6cd5244e1e4c4218425d0657e623"
+  },
+  "document.fields.contract_extract": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0eea99c69d2cff876d1a112bdc4da679b6ef55471de834851856becd3bd5bb38",
+    "idempotency_key": "document.fields.contract_extract-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "classifications": [
+        {
+          "basis": "title",
+          "candidates": [],
+          "document_type": "certificate_of_incorporation",
+          "document_version": "doc-v1"
+        }
+      ],
+      "subject": "acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.fields.contract_extract",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c00e97ffa833b37c47e7672f0f054b83f699e74163c4598c1e9e994abc6f0c14"
+  },
+  "document.fields.extract": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "8a3c7e0eba724162b926b6f5842deec67a9793d3a2654e5848d7979ce15d7e6c",
+    "idempotency_key": "document.fields.extract-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "fields": [
+        "Name",
+        "Registration"
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.fields.extract",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ab075f164b28e526bcabe9ecf6ed8ce492c1f09320f886cdf4b8da7b456968a8"
+  },
+  "document.parse": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "75d9a76a805de1f948cb2b001d73c8cce6c8563f83508d76b2cfd3e9485a28df",
+    "idempotency_key": "document.parse-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.parse",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "61d28273167347b8d0a768c893ce9c022e2eb92bd1f693f57bb7254e28f5128e"
+  },
+  "document.parse.artifact": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "32281e21b8737d510e7ae6b67659e5749e4e2bddb957c8b7b6fd07e216630a59",
+    "idempotency_key": "document.parse.artifact-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "document_version": "98768ee4bb77bb2dab1b67ff082801b490eb5f2c6af252d5ae8657367f69b5d7"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.parse.artifact",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "14fc7f036b8c936a10b684db1fc46913c1ef6acafa75c2be1bd73a25658166b2"
+  },
+  "document.request.compose": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7a441e68903fd0d693a96a1cf38aa876618055d056ec7f3fb4cd9a804852b2f2",
+    "idempotency_key": "document.request.compose-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "missing_types": [
+        "certificate_of_incorporation",
+        "incorporation"
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.request.compose",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0e7c21674834f80a9254c05fb38e849ca2de6f04da58301468ef55e1c35753d9"
+  },
+  "document.request.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "8dc1ded1af2d1153aff802677d177fe26aaf951159274fce3069b8b6891d082a",
+    "idempotency_key": "document.request.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "missing_types": [
+        "incorporation"
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.request.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "419e8f835be1b24382b697324df3390f134d270427ba77e7d71836caa15eff14"
+  },
+  "document.requirements.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "2b0165c9e55743f118ca390c136b8d318bb6d588caddcf0081ccf1108355134b",
+    "idempotency_key": "document.requirements.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.requirements.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "61729744c7464794f5d1ae86eb17a4d5c49bc9b219c012e39ade32fca289875d"
+  },
+  "document.requirements.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b3e9b800aba6b24c9d950dbcfd30e10a6e618c2719ba4c9a51c771a506059a64",
+    "idempotency_key": "document.requirements.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "classifications": [
+        {
+          "basis": "title",
+          "candidates": [],
+          "document_type": "certificate_of_incorporation",
+          "document_version": "doc-v1"
+        }
+      ],
+      "event": null,
+      "package": "private_company"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.requirements.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a99d8cc4e14f11bd0df98420f6213f281ba47b665a43dc78a1f80ee8339525d0"
+  },
+  "document.translation.normalize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "935db97b67bdd0f32e7754068c8fa7cc69bcf443f641545ba7139137ce2846f7",
+    "idempotency_key": "document.translation.normalize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "target_language": "en"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.translation.normalize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0bb1695c88d31a013644cbb04d847fc41973669c5d38e344c9924283225b1a74"
+  },
+  "document.validity.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "99450dbca6fa4a16de8a9c761e127a4f771c5e28eda5780914fc73048ab9f366",
+    "idempotency_key": "document.validity.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.validity.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3704ec1b18d3dccd3962191e05d5d6dc1afe13a024cf4ef2e4c2eb4182673c70"
+  },
+  "document.validity.check": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cabf6e29155b2adc536d7ad3eb8d1021dc2a693300ce6e23ff0f629179cda00c",
+    "idempotency_key": "document.validity.check-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.validity.check",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "870823c952d910597989da03b70282ae020e3e0c34de86e5a76163c31a973852"
+  },
+  "document.version.compare": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "916eba186a2afee451528c2d022d994ec49f13b56231f548ce8cce6a1177c0be",
+    "idempotency_key": "document.version.compare-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": "Name: Acme New",
+      "before": "Name: Acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "document.version.compare",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3d8e4a2b18ed5c44161f0dbe46849371fa777d02346b86bd9e1b89a50d19894b"
+  },
+  "edd.business.purpose.validate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "448272d4c54ba7d92e6767c508bd7fb5ccb2f44b086cddd0d2d6b61c941be8d1",
+    "idempotency_key": "edd.business.purpose.validate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.business.purpose.validate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2df0dc975db8f647aa4621412a9aa35a52bd1ed122c8e31d078ff2e2f0363045"
+  },
+  "edd.counterparty.analyze": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0217aa66dce8af62b21ad4d4e2ac3e00510783683658268c910eeedd3795fedd",
+    "idempotency_key": "edd.counterparty.analyze-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.counterparty.analyze",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b4c5fe6ba94c3eaed1e604a731379654eeb29a499d68511a74ecd327238b7129"
+  },
+  "edd.findings.synthesize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a97a967d06e272ca9a5ff2f937daec89e080cc8ac4974e6759803366709d86a9",
+    "idempotency_key": "edd.findings.synthesize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.findings.synthesize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9378c5745bbaa35c18ff3a010b8a13129e570d63fced388beaffee9da78552a9"
+  },
+  "edd.geographic.exposure": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b25d49ef2b0b32cee5feaaecf624ca14f5500843731fbebe85ee78d144876c3d",
+    "idempotency_key": "edd.geographic.exposure-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.geographic.exposure",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1833f87355f296f9bac6164107c95bddb92e44d3d57c364840b08d4fe0d8ce9f"
+  },
+  "edd.pep.exposure": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "f72e67eb0881aa44432c9728eb4c1287890a0bf769562b3f92698f5a25d854cb",
+    "idempotency_key": "edd.pep.exposure-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.pep.exposure",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1c6c4a09b5de3ef52cb421b4c30ab7655e0dcf0951d86b828eb2cee1f0f8d4fa"
+  },
+  "edd.recommendation.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a633c6466a262634c37118c098d1adfba17e49b512982e1512b0e61eafb0f764",
+    "idempotency_key": "edd.recommendation.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.recommendation.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5c6576a24b20f51587e56349f34a5dc3d86e38a814f276b262de715f3b47103c"
+  },
+  "edd.scope.plan": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cde56406c0cfa2b55f1cc65ae5f73ac8cda3b2ad368dfbb7149bda3b6ff12de8",
+    "idempotency_key": "edd.scope.plan-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "trigger_ids": [
+        "high-risk"
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.scope.plan",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "55b484b61a41721755f469ecd96291a1cb09b33436cad28e313c92cdff918a1b"
+  },
+  "edd.source_of_funds.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "305204ad6dbced5f1939394a30ae0f1bbb95ff9fcbbcb517bfbf8108f77b7ba7",
+    "idempotency_key": "edd.source_of_funds.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.source_of_funds.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "09e77bc7e48ee6477d70813c4688858144b16ea41d1e3661e2b96d001ad71c2f"
+  },
+  "edd.source_of_wealth.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5a6d80d00ea397dbd4c1506bda34168111aad15dad94529a837d96e9b0641212",
+    "idempotency_key": "edd.source_of_wealth.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.source_of_wealth.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "4b89ea93ad4e09a12e5e2251a70e910846e88b537c6076fbe426c409054876ea"
+  },
+  "edd.trigger.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "8125355746da98d6f0886473238d9ada5e37080b37fbd6244697558f0c24c0c5",
+    "idempotency_key": "edd.trigger.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "facts": {
+        "identity_verified": true,
+        "tier": "LOW"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "edd.trigger.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "75715c71470bb528db0af0cf08f98c8c4fcc219344143600f08bb99442c1a589"
+  },
+  "entity.address.normalize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "6bd965ef63d65f2e3050c1056543fd1936c5627ff72e9b5fda3c7dd23d3a824f",
+    "idempotency_key": "entity.address.normalize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "address": "1 Test Street"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.address.normalize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "144ea64a269e0320eb5cc136ac6370b6a93d401d105e4884eb53edb73f1588c7"
+  },
+  "entity.alias.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b3abd6d54d0c4a72b72ca5bacb4614d3b7b6e6887c48b0f66054cbe50e117b0c",
+    "idempotency_key": "entity.alias.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.alias.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7864c2b2e7728a32ed26730f80507d5f84e2ac4e16613ff432b4f5d220f10a82"
+  },
+  "entity.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "c851ef6f9fd0b2e6f84dca3dc8d2547d37802892fd15fd730beadec62e8f40b8",
+    "idempotency_key": "entity.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2beba9fbfa81f875c69802156dfe7fdda68e23b1a3442bf41a1bb45b365bc150"
+  },
+  "entity.confidence.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "ae1f651ff069b20dd241b588cc8f5d62f43a385320305087ce3099e69824f742",
+    "idempotency_key": "entity.confidence.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "left": {
+        "identifiers": [
+          "SYN-0001"
+        ],
+        "name": "Acme"
+      },
+      "right": {
+        "identifiers": [
+          "SYN-0001"
+        ],
+        "name": "Acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.confidence.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0c40fbc72a8ee0fc114ec2a946d1fba957e136840b42f9650ca1cacd50348d09"
+  },
+  "entity.deduplicate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "02bf5735a8937f4fade2cb10c87da8dfa4223a33761408de5722a1106e32c03b",
+    "idempotency_key": "entity.deduplicate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.deduplicate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "292a13dd47c3d96866d9a15bfe510638212bae3cb01d3dad29a651b767d6363d"
+  },
+  "entity.disambiguate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "36bf9189b1abe4701d97c6e1b4f6e69d1110b77fb8c877a62d5a0511ad6f463d",
+    "idempotency_key": "entity.disambiguate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "identifiers": [
+        "SYN-0001"
+      ],
+      "name": "Acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.disambiguate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "6eb4b10faec4b927133df8a1348b07088dcacf7d8be3c09feb4ace32464b9da8"
+  },
+  "entity.history.reconstruct": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "f941e9a82331775162d54635eb2d5fd5f5ac6bef9c90e15b2d5fbc1d7248879d",
+    "idempotency_key": "entity.history.reconstruct-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.history.reconstruct",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b2182a8575f5354ebf9576bbcd8e202ced5c4357d23a78c83888db76804bb936"
+  },
+  "entity.identifiers.validate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "ed0964dee8043502e652c9df4f7df1a9f0c6dbd1ae6e052b932bf2d4b5eeb995",
+    "idempotency_key": "entity.identifiers.validate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "issuer": "synthetic-registry",
+      "value": "SYN-0001"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.identifiers.validate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "53d0380ec082ea421967845f68115f48f3f9b6b41d53247002ce57ad745839b8"
+  },
+  "entity.identity.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3225837c87724be50ed3f69d0a53398fd8295f7f55f7620e41f01912e0ce9eb0",
+    "idempotency_key": "entity.identity.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.identity.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1690c9687c56d81045517a383aaf4cc9b4920fd487b27d9352fd0e8dc4f13879"
+  },
+  "entity.match": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "784e1bb444e771026bf9a810ca68f2b16bde3b69eeee233e164f99a389746cad",
+    "idempotency_key": "entity.match-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "left": {
+        "identifiers": [
+          "SYN-0001"
+        ],
+        "name": "Acme"
+      },
+      "right": {
+        "identifiers": [
+          "SYN-0001"
+        ],
+        "name": "Acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.match",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1f1f0e3d07f87efa0ce0ec148b81c8796f59a59104313c4201ee69ffb9028be3"
+  },
+  "entity.relationship.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1a23dd5321a70497cb0ab1bb1192ef1c6af854aef4108d21a1228e56420446e2",
+    "idempotency_key": "entity.relationship.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.relationship.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5c1828ddebbf8f44160e750d3dfed04547ca6170c18b08a2f74f16dafe145a56"
+  },
+  "entity.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "14d2b2a7ee0476c985926417277a0bb470841065adc21c580542803fe7bdcb66",
+    "idempotency_key": "entity.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "identifiers": [
+        "SYN-0001"
+      ],
+      "name": "Acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "entity.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "098e231f4f5f5797277c17e6715ed9cd39d9393a5b68600423ebada6232f7e56"
+  },
+  "evidence.bundle.compile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "eb300ac920f666d24a40b1a942dcf9a9a6456f6d12c9319e8d664c08eca73ee7",
+    "idempotency_key": "evidence.bundle.compile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.bundle.compile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "bbd249c9a1db2dd02a0bcffeda671d6d0047733f98ebbee1139aba4b997b85fc"
+  },
+  "evidence.collect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "fed6184d2c784045577db621d8d62a748eae8531e53f4733c490fcc9a6a4939b",
+    "idempotency_key": "evidence.collect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.collect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0ec55e6f790c38b4be00cd5404fe3771c1b0fdf4aceace7d9850346b557e4d77"
+  },
+  "evidence.conflicts.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a27b36bce4bb853d7ce3d07c4fa05c5ed3603e73409ba0f3f1aa2dc8d20db0dd",
+    "idempotency_key": "evidence.conflicts.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.conflicts.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "860531eedef6e9c75ddb60ac501c0a4c20d9d9f0f3af5a9886f022872ffc7996"
+  },
+  "evidence.facts.extract": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "00328a3b394b712be55e24e58a7c64759335ab1672db10578d8aca1986542793",
+    "idempotency_key": "evidence.facts.extract-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.facts.extract",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "85062180eb9cf8431d9a7a2752e6e22f5b16dbc69caf7e6a905d14964531392a"
+  },
+  "evidence.integrity.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1922451db5a1b4d14c7f87bee3a3efe0e3c9b463be133df3de2e1a7db10ded68",
+    "idempotency_key": "evidence.integrity.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.integrity.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3e2de073ae127a8acaa08e2da9fcca750bc63464189257c2dc2adcf566f43599"
+  },
+  "evidence.lineage.trace": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "12a282770d57d51e8048ac5d11c69aad58e94e26e0f8066c32311bd1e0e0cfeb",
+    "idempotency_key": "evidence.lineage.trace-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "target": "finding-1"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.lineage.trace",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c99585708082ec4a174bf1b19d471c9f6d56560ce1d739c2ff4962a118739de4"
+  },
+  "evidence.normalize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7abb2a58209cb5f58d32fc8093e4368186e35ac36d65b4a548c2049b0e9a4ef9",
+    "idempotency_key": "evidence.normalize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.normalize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5fcca06ffcdf950ee8210a77f5e1e0e5c8cfb2522020a18d7c0e5178220f1e25"
+  },
+  "evidence.provenance.attach": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d970947b9bab96f4ba8a708673bb12b451a59d2938d2f593f08ec61e774bfcbc",
+    "idempotency_key": "evidence.provenance.attach-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.provenance.attach",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2d9da4e992f0676943af4fd68ef364c313b3074e0829482d037bc6260681f8bc"
+  },
+  "evidence.retention.enforce": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0ced0cfc18e5be8f74e884650f066b9b02fb70307d8a4247305bf4d2498c5d87",
+    "idempotency_key": "evidence.retention.enforce-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.retention.enforce",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "bcfdaaa4c27ffb6156440f2321d9e89f42bcbfa188fa488b6ca064f5e58199d6"
+  },
+  "evidence.sufficiency.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "139bf199b1335dae88395d125093395789189aeaf5d5d8ac357dc44076f59711",
+    "idempotency_key": "evidence.sufficiency.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "evidence.sufficiency.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "450c3dcff677795d49a9b6fcbc1ae71290a6c934a8ca71d0d9445810a250752e"
+  },
+  "fraud.account_takeover.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "82355903d55c600cebb03783fce022ccbf70c38aea237f19701d530561669bef",
+    "idempotency_key": "fraud.account_takeover.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.account_takeover.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "55526cb73c5038783dad1cd13638d6fc091505a153d3ca9a86b50eddd9f635e3"
+  },
+  "fraud.behavior.anomaly": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4afae7b9341aaadc6cf3f4f5fcf0494468d5d6b418ae4028c1a27d89bdffef30",
+    "idempotency_key": "fraud.behavior.anomaly-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.behavior.anomaly",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2d8f02fbb1c00f8cf9738f9a99304c38e244e29523d35116d532076bb968ea82"
+  },
+  "fraud.beneficiary.risk": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "da6cec36e13e34aae1d2dfd8918995ca84d9c4ae8580fdabc07aa9d84d6dc3bc",
+    "idempotency_key": "fraud.beneficiary.risk-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.beneficiary.risk",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "514ed23314ca7e855b363302308b7c80cbd23fbbc6dbd4ba9e7e484cf8a5fd2d"
+  },
+  "fraud.case.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e3c26bc292920422952bb5dbf6b74a88e39789d7af2115527d88113e939af49d",
+    "idempotency_key": "fraud.case.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.case.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "78270c3327f493d5d4199be06b9867ef74623316e2b5909128b95d3964589359"
+  },
+  "fraud.deepfake.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7541ff22066118da208db94d37f3b72cbf1e3920c7c509deef87c50751c9d752",
+    "idempotency_key": "fraud.deepfake.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.deepfake.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fff670420e0043c85d9f930d5129390d8eb98012e78bf07763324d71823bed30"
+  },
+  "fraud.device.fingerprint": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "c779a2d287e628ee88cd504e7ead6cc66ffad349a6d23843f3a8250a05d1cacd",
+    "idempotency_key": "fraud.device.fingerprint-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.device.fingerprint",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "61fa49506cf3c95ff1cad2c91bfd71a29872b4dff1289d8ba458680607743ed0"
+  },
+  "fraud.document.tamper.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5ae8c47caa8c476bc5c92c6c77b6d9668f75d2e0616789aa809fa51f4cbf6e59",
+    "idempotency_key": "fraud.document.tamper.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.document.tamper.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "856feb0c69357f29942960f7151fcbc6bb99c466bcef4d38d8614e1c7b4eb2c6"
+  },
+  "fraud.identity.synthetic.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "11f172f639e2ac57cea658cee3c888c1ab71809df5ed1fc5dc3761abddff686b",
+    "idempotency_key": "fraud.identity.synthetic.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.identity.synthetic.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "61a1cb47135351b1a9e49ab62424d1aab055315d6aeacf25837acf91d9094fef"
+  },
+  "fraud.identity.theft.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "917e4fdf6d99df2e27cc08076b0a8e24c354858e209f2e5118d4ded2d54fb174",
+    "idempotency_key": "fraud.identity.theft.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.identity.theft.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ff59263d2bbdcc3eae90d253a82210f11b7303b62ce24b6eedb4ea5e02fe804f"
+  },
+  "fraud.liveness.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5e74f80217196667bc2e7a7b84ed14008f27a9897d44a1e7a77c874eaa91d976",
+    "idempotency_key": "fraud.liveness.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.liveness.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "66dc0432324dc6cb6ded8c7702b5d975245e3184efe20029dcb91a2b00daa5ac"
+  },
+  "fraud.network.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "998f1c6b0f2f9bf74b320e907e27680fa101b4e81b96bd707b5c08faaee54fab",
+    "idempotency_key": "fraud.network.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.network.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "4724ea1f60140514334e1d8380f9da7b34ce895b6202516b0e1027079e46d054"
+  },
+  "fraud.payment.anomaly": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "45269b2039f486de6805a9a3c808568e1e739c6112f225663d6cdc78e2f97c91",
+    "idempotency_key": "fraud.payment.anomaly-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "fraud.payment.anomaly",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "98362c560f86023d3378f11e63c8b73f28a80138ebabf5897f7a6d0574f33fef"
+  },
+  "investigation.contradiction.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4df75dc160d579328107795c680522a55c0442dba3fecfc8dea3098bf4e7e715",
+    "idempotency_key": "investigation.contradiction.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.contradiction.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "e0fca2ec483162bc640b76f4d1074aa6d0101441ddf43662411dfc65a3ae46be"
+  },
+  "investigation.evidence.collect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "785ad60cf1b601e8927f07fb5a261b6ccf11d9f68cc04b5b92867b7341212e60",
+    "idempotency_key": "investigation.evidence.collect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.evidence.collect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9f1bf17badd29d5a4887a46345737e659342ebebce3a0c26281f1b9a822f5198"
+  },
+  "investigation.findings.synthesize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "98b538f0a682c39fea05b085a50f7f92f4d70b56b74b28b04b7b31f87c03ac03",
+    "idempotency_key": "investigation.findings.synthesize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.findings.synthesize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "aa33a158f72f72b49220568bbc9e47900740b0690cba99b954f951c75670ea8b"
+  },
+  "investigation.fundflow.reconstruct": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "6eaaafe02382d1d431042bdb48321d32333b88043fce05c1220968a15ecfc366",
+    "idempotency_key": "investigation.fundflow.reconstruct-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.fundflow.reconstruct",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c3519b35939d5e433b16c942fe16cb88f5e045b05fd6087aad5eb28fc7400144"
+  },
+  "investigation.gaps.identify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "105d3aebf1a0086c4a1e1301f08a79784e9ac753bf79275921f87d8f73d0f7da",
+    "idempotency_key": "investigation.gaps.identify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.gaps.identify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "295a6b7bc457f82a90e104202836cb16b8f1ebe41c2c5f4cee43b6ff6d949403"
+  },
+  "investigation.hypothesis.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b63cf272abdba564fe646090d8d2a79089408c7bf58888ed1335b92f9c6dbba8",
+    "idempotency_key": "investigation.hypothesis.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.hypothesis.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "33266427489c2d8205abb0c0b26b9a8ca3c02ed747506b3d1592fd381caa876e"
+  },
+  "investigation.hypothesis.test": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b00be1ca77ecf5d32a9041e97e89bec4d05f3b0e49ea815783729ccff4b2e8b4",
+    "idempotency_key": "investigation.hypothesis.test-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.hypothesis.test",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0804b46422be002f8fc3ff6908ebe058b6663684ee0b44a914138a7d81364ad3"
+  },
+  "investigation.narrative.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "9eaad59a28929d7fbe7d521af1495924d90eff08cdf1b218710431299368b00c",
+    "idempotency_key": "investigation.narrative.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.narrative.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c60e20ff2721b36344c4ee815a28a817bd0b86cb3cb0cf38911f86b45fcbe180"
+  },
+  "investigation.plan": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "ddb030ce1651136a3fcf5ab137e1079597d3cf1d7ef7a3f1a9b578311a9f4e1a",
+    "idempotency_key": "investigation.plan-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.plan",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "4fa94825728bf29f29f1d3066caf917a88939b6b492f47f10169674f15b997ea"
+  },
+  "investigation.recommendation.generate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "38b98bf2a9ccce17938b135a31443652d761cb1c075745928d53b32c3dd7e713",
+    "idempotency_key": "investigation.recommendation.generate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.recommendation.generate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "692a69774fdf5a64c4f87a9675f69d387329390b99a664f1d68f9e2862fdfd77"
+  },
+  "investigation.relationship.analyze": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4b6018f8d4fa8d7a9b88400270bc90c386c59cc6efc832dcd29d62d63a145bc2",
+    "idempotency_key": "investigation.relationship.analyze-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.relationship.analyze",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ba029b7401c81d729f395cc94160a4c38bcce5459eb68ea5f14d4b4a3c773f80"
+  },
+  "investigation.timeline.build": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "9f2a66e0c86b99a40e96ccb9789b216f5685cbeb9c071430885fc54baad1e1c8",
+    "idempotency_key": "investigation.timeline.build-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "investigation.timeline.build",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "434989c6a72eb3b88676f0fb27325da63600a837d5de2901d45379041393c167"
+  },
+  "monitor.customer.schedule": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7fddc4d938fa8ce430d77ee83b99f32588021585c60963a3b5eb838bd6c13c29",
+    "idempotency_key": "monitor.customer.schedule-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.customer.schedule",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7295d17141e276dfde0e0901cc53fdf33a99bed82130ef964a79287751262867"
+  },
+  "monitor.ownership.change": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "372b956bfcdecf5b5cf1c87fc3375bddaea81ed5f728197285b69b7eded68b03",
+    "idempotency_key": "monitor.ownership.change-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": {
+        "alice": "0.8"
+      },
+      "before": {
+        "alice": "0.6"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.ownership.change",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "65814170da83348656ddfa962126d9c892f55c14c166057db2b66006dbed3b8e"
+  },
+  "monitor.profile.change": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "78210b7bec3ffae117d5bb976b27f9cae06a41a48c6ee33b5047c95c361f033e",
+    "idempotency_key": "monitor.profile.change-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": {
+        "name": "Acme New"
+      },
+      "before": {
+        "name": "Acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.profile.change",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5e6bd6e701a2defe58400fc4c8d747650e4a30208c1176ccd01193e34ad0682a"
+  },
+  "monitor.review.close": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "49c599d1d6ee44a5d1fb32dc9e161b915d0af5cf46d8dceacdf3c02f18c717d4",
+    "idempotency_key": "monitor.review.close-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.review.close",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ce286c299a7e0c62d149f12adde792affd7bb8057e3cabc7e41d607bf1e82d51"
+  },
+  "monitor.review.execute": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3a7da610635a7c47d1297900289dc4a9384e80b105d7d3bfc98f1a7bced13393",
+    "idempotency_key": "monitor.review.execute-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.review.execute",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ed582e59cb4e37fc98da0ec7d1b1247b795781377d0bca701d5caa4414277e86"
+  },
+  "monitor.review.scope": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "095d135a73fa53dff8cfecd5d43baf3b3c1a47567b3a85d6238f874c4e287d61",
+    "idempotency_key": "monitor.review.scope-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.review.scope",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "d507d1dd658ee901c305d6d09aa8c223f23fb9e97f9ab6885a7c0123e42462df"
+  },
+  "monitor.risk.recalculate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d84fcfd9c0f3f038c3f7882af3fd9c00fb12d12cd3442b64ef3d27ecc709126b",
+    "idempotency_key": "monitor.risk.recalculate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.risk.recalculate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a6f33556b6dd853510ca9f8492baa89387d60e24e656512213dbe626e0f05f62"
+  },
+  "monitor.screening.refresh": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "63ec7a56922f08535368be22d572f123fd8acd2b61807317d22d67f1b7581737",
+    "idempotency_key": "monitor.screening.refresh-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.screening.refresh",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "532b75d021a30f23afb7491a809397fad6d3b47bd8084a4bfa1088fa76fa6f4c"
+  },
+  "monitor.transaction.deviation": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1c5f2f3c1406d8ae2fdc2d10a013c6ad85cee8951cc6315fee9f10c181ad58c9",
+    "idempotency_key": "monitor.transaction.deviation-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "expected_totals": {
+        "SYN": "200"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.transaction.deviation",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "76a5d8e5294b37b27433cb8730bfd8bad1e9117976992480db37265f60fc2352"
+  },
+  "monitor.trigger.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "8051575bd7520863ce226bf9083814b6cf47296b95ffb06ca5067f416cb8bf11",
+    "idempotency_key": "monitor.trigger.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "monitor.trigger.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "d3ac3a891e521852c4c3ae679597eb42f032de3c90697cd9cad914af35203cf9"
+  },
+  "network.beneficiary.trace": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "57e12a86e5f99bb5b187408ec567c02c9df2adb060870581bebd660dc385e9ea",
+    "idempotency_key": "network.beneficiary.trace-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "source": "acct-a"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.beneficiary.trace",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "675ebb9805a29fbad95e7b2606fa9a6637e92286dee3067ed3953548f54327cd"
+  },
+  "network.centrality.calculate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0b13a153afa134d6b859ab3ecbd85b1a9d69c986c8fd5f6e8c1774d9f88004b7",
+    "idempotency_key": "network.centrality.calculate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.centrality.calculate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "74b971d551e11e563162e1c1e53c117b14d726c8406c01a24e14144879780d75"
+  },
+  "network.community.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b5dbb3a5a2918d6dbaa4512970c8838b5b8c21efde6af89b7ac36b740c265dd1",
+    "idempotency_key": "network.community.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.community.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "122b5400998777377be54f45f9527a949bb1851a7fa0edf6fbb192c98d9b8ee6"
+  },
+  "network.cycle.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "636943493f837a80da237b6d7de7f8f0083f9ab29ff9f73da6f4fee5e3e3753c",
+    "idempotency_key": "network.cycle.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.cycle.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "642ec6bee2392e14b4e6325423dfbbb984cd004791b60703390f0a60e17e08a5"
+  },
+  "network.graph.build": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cfe52649a7727fdfa0963dd71cda3b27f93542b143dbc55ba16d5dd694de2ec6",
+    "idempotency_key": "network.graph.build-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.graph.build",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "944018ca7e2367caa0da4067acd8ffefcc676ba2b6c9c3acdd6273ad34d71c91"
+  },
+  "network.path.find": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "42e19e756ae9ea04a7a265f7eed0b5708787cfe6ef6d1202b2c2d6fd02d15d15",
+    "idempotency_key": "network.path.find-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "max_hops": 3,
+      "source": "acct-a",
+      "target": "acct-c"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.path.find",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a8ac389a3e03ae00add774d03c804634021ae0167deee719f1b5f8712e70fe32"
+  },
+  "network.relationship.infer": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "456a3cba511a98b6372d4c63792db1170241f0662fef8c27bd518be9cee695ab",
+    "idempotency_key": "network.relationship.infer-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.relationship.infer",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "456985419f1e036f7bfd586d3abf2f1c3b3d4da8200af405341058095ec1b4c9"
+  },
+  "network.risk.propagate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "78130af160ff023d76007e4c40459dbd00b89d91e42369a362a4e1b2554f714d",
+    "idempotency_key": "network.risk.propagate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "max_hops": 3,
+      "seed_risks": {
+        "acct-a": "0.8"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.risk.propagate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "068ab6b3d71ad550dadd0ec8d2d5b3de70451a20c522b3a577518eaad13d8978"
+  },
+  "network.shared_attributes.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5ce9ee70d6736af17ba36ae0cf22fae8c85b23f4f0202d837002411623ba6e00",
+    "idempotency_key": "network.shared_attributes.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.shared_attributes.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "789b8ce381918eb04d43ed76627f9a86e1190448ea3e9329c1d24e5684537a04"
+  },
+  "network.temporal.analyze": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "68878acd0c80a1516f445d362b8aac0fa2d97cce106f53c83c5e0dd7e6dd32f0",
+    "idempotency_key": "network.temporal.analyze-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": {
+        "complete": true,
+        "nodes": [
+          "acct-a",
+          "acct-b"
+        ]
+      },
+      "before": {
+        "complete": true,
+        "nodes": [
+          "acct-a"
+        ]
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "network.temporal.analyze",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ce44828e1931c707f5b0d4572bb8d822deca585831860dccd42e68197abefabc"
+  },
+  "ownership.circular.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cdc014c8e9e27edb7c5331c37cea79f57d877e0c8e1699574047399248e23fe8",
+    "idempotency_key": "ownership.circular.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.circular.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "cad12aef2cfd55725341285861570eef451314732c4df79d698c4b919f752661"
+  },
+  "ownership.control.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "45e826cb8047230e4af52f724ab2740d435ea4a232160a9547e3963094dd3f97",
+    "idempotency_key": "ownership.control.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.control.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "359244a747672e936744ac2383e57ab833a9dc127c00d094bf46fc393f4aa3e0"
+  },
+  "ownership.discrepancy.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a25566220b614d75189cca22623f9f2c9e8f00de2b3e02b555bfbf397e24b090",
+    "idempotency_key": "ownership.discrepancy.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "declared": {
+        "alice": "0.6"
+      },
+      "discovered": {
+        "alice": "0.8"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.discrepancy.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "8befabe1ae1ad5e0c206cf98b46f3c3f1e6fd6f3e7516c2fdc1071fa99e3d66f"
+  },
+  "ownership.graph.build": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e2ebd52f49c4f6c03729f3becbf7cc48b13c498dd6ed514831b6b37d59c899eb",
+    "idempotency_key": "ownership.graph.build-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.graph.build",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0d7154830484443fc30e25b9af010d9247fb4c111130f6528f2c258a1656114b"
+  },
+  "ownership.graph.expand": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "bfd1570accc6a988075de116eb7cd8772c82d07e1ffcacb9bb48c917cebb07a2",
+    "idempotency_key": "ownership.graph.expand-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "max_depth": 3,
+      "target": "acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.graph.expand",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2034aff2febd65bfd08000c81c053f2ec2a07b44db99413556ff4ea22a628bff"
+  },
+  "ownership.history.compare": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "69eef3f61b5c4d72fe73ee2a2205ebec1385f97d816e84d8422929d55dc5f28f",
+    "idempotency_key": "ownership.history.compare-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": {
+        "alice": "0.8"
+      },
+      "before": {
+        "alice": "0.6"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.history.compare",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ca6808d2e0e8219626a31238b0b0458dff64feb9ebbf07ff537eca20dcbd4987"
+  },
+  "ownership.interest.calculate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "40062733bccc9c766e963b950a8c6f49d6a34b221b4fb55a52a7e84289e83bc0",
+    "idempotency_key": "ownership.interest.calculate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "target": "acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.interest.calculate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "44a8abbb72793dadc8d7331d6760f5bc1869c5226fab12e25d55723a24a43743"
+  },
+  "ownership.nominee.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "fedd89e8d27d9ec5420002c317eb05cdd1658b80d37a13153b5cac07356032c2",
+    "idempotency_key": "ownership.nominee.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.nominee.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "832f1833eb9f658301c3d066028485c691158b853f751f1b1e3ea414e7033342"
+  },
+  "ownership.structure.complexity": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "72516bd27d65f3c0457cdfef8a7bbad3f7fb13dff81809d1534298538ce3234a",
+    "idempotency_key": "ownership.structure.complexity-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.structure.complexity",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0f47d01a5db75d4360501fffcbce1b8452dcf1c43a9fc878ffeca426a755ca36"
+  },
+  "ownership.threshold.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4141837e0c0b0df97822c77a4220bf1d8c59e55b2ceb1e96aadaafd0f1c81a75",
+    "idempotency_key": "ownership.threshold.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "interests": {
+        "alice": "1.0"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.threshold.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3b59ddc805199f5f4cb11e6acc0b9b24743396b5d2cdb0ddfd5e380004196b38"
+  },
+  "ownership.ubo.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "992c8539dd8631a08ba304283c781ca62cdc3d28c94eb453666ef48066f71d65",
+    "idempotency_key": "ownership.ubo.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "target": "acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.ubo.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7b922ba001a2847ecadb749bc298c30fc8069b0de6b407c8f8b2d99e96dd3979"
+  },
+  "ownership.ubo.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "abfda9ff868946b61552bcad7eb23de7b17dafb75ddd3019228b8cbb6039d4fa",
+    "idempotency_key": "ownership.ubo.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "ownership.ubo.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ba774fa826147f58ae81a3048b97133bfb01b8436ce1eccd3f089201c0bbcb15"
+  },
+  "party.activity.profile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "604cac9998a0749a1a7e57e7e231e35a167143660b6c447489fbffcfd576ad28",
+    "idempotency_key": "party.activity.profile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.activity.profile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0b1122cfe8fd1f2dd4ef4158dcd8d75c38536039b3d8344e6520a41749e2b542"
+  },
+  "party.expected_behavior.model": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7983b760c43707743fd2e4954ed28a7823a78ed039ba6ebc49c1f41c6ff69f72",
+    "idempotency_key": "party.expected_behavior.model-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.expected_behavior.model",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "21276db2a4c1c3e0e7c55e584d4415fff1c00cf3971c13f0e1bc7a698f841e8e"
+  },
+  "party.geography.profile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "c4681ee1f29fb554e74f08b9094860a664c48c1b2d0f9f23682f05ba01d39e50",
+    "idempotency_key": "party.geography.profile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.geography.profile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3dd78c38f6c7e539f72f4fef7beb1fe76d761d06f16c425c16797d7cb904aa6c"
+  },
+  "party.industry.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d3168b9fef2b41dbd8c802e9d06c3a009a6cfca06d27500d64f8b598d6915caa",
+    "idempotency_key": "party.industry.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.industry.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "d067a18b35df4fcb4932b52e1c3f0a613df945167e161831b4c1089a5c6d89dd"
+  },
+  "party.product.profile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "33e9373f74807206522d5b272f6e4b68090d37a0811af2a34343f776e65838bc",
+    "idempotency_key": "party.product.profile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.product.profile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7835043c8713d870160da9f0c7fa4e6b92adf12586a604ada7329714f61d7aa4"
+  },
+  "party.profile.build": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "f4306cad8c4028b62f953e041b20a2a4811462423e6301c30d257ab968f1d406",
+    "idempotency_key": "party.profile.build-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.profile.build",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1ba2d29227cec8a8a77f262931f8b85f4668a50b2f0058d8ded08d15aac668fd"
+  },
+  "party.profile.completeness": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "c6626b671d817f42c7bac4a2f460addb203948a5791f994cde9af1d443a5ed38",
+    "idempotency_key": "party.profile.completeness-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.profile.completeness",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fd4e78d6fd47c3d90caeec2c0999bd54e500a9b348db7259adb5e6ab5b22e8a1"
+  },
+  "party.profile.refresh": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "92e74d612b52d08e7be06b1ecc9eaff7c3e01eb6e185af7379d5fddd66f9ad07",
+    "idempotency_key": "party.profile.refresh-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": {
+        "name": "Acme New"
+      },
+      "before": {
+        "name": "Acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.profile.refresh",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "37b8780c2dde8cf560033e922f79a8fb38b78579ee238dfc4f819151919618a4"
+  },
+  "party.role.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5fa379f07f5eb5d0e7af3ab334c32c25c77f834f9feb3537228148d6191945b6",
+    "idempotency_key": "party.role.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.role.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "85f0effafaec9871ccc7542bdbfcf4abcdd9e6b3f928e779f5b6f6e31e5c1e1b"
+  },
+  "party.type.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "eb2fd4cbd9659ac04ef0c5d4c61b67525199ea065c55007adfdcb3451674c6e0",
+    "idempotency_key": "party.type.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "party.type.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7d65411a421b0d7337d0ee6cb661176d7419e52dd63ac4e0266f8159ef53e596"
+  },
+  "quality.agent.trace.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0bbd28badeb521d64d67668d0f31ee8b37aceab56a79f76e480d567003de89b5",
+    "idempotency_key": "quality.agent.trace.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "allowed_skills": [
+        "entity.resolve"
+      ],
+      "events": [
+        {
+          "event": "skill_started",
+          "skill_id": "entity.resolve"
+        }
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.agent.trace.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9d3dd9f6818310ec6cb695df9987e2dbad35ada9c42a5c4e0a712ee9969c6a42"
+  },
+  "quality.confidence.calibrate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0ac340a4509d19f053a0e7b78c9cd8da74bcd2a0099e051ae49dfb6cb18064e4",
+    "idempotency_key": "quality.confidence.calibrate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "samples": [
+        {
+          "label": 1,
+          "score": 0.8
+        },
+        {
+          "label": 0,
+          "score": 0.2
+        }
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.confidence.calibrate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b02c55114e099d57b9a4c8148f06ccccef3de7dd16b1e2660ebe235d54f7f998"
+  },
+  "quality.coverage.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5616556409dffe2650627b0429049262789d1dd19740aee71f3f43160ce9e57b",
+    "idempotency_key": "quality.coverage.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "covered": [
+        "identity"
+      ],
+      "required": [
+        "identity"
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.coverage.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5cde2f6b8e1b6e9ab165ce0746c5c26283d204189cf9287c712abe7afcf97640"
+  },
+  "quality.data.validate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e4b689733476893ca2e7145c3774c584387ace5859b3677a8408b2053a9e511c",
+    "idempotency_key": "quality.data.validate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "required_fields": [
+        "name"
+      ],
+      "rows": [
+        {
+          "id": "1",
+          "name": "Acme"
+        }
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.data.validate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "8c2444eeab0f16132389bb1a2d67f28328ed96a6d9e6cb023ffefcba527ec4ed"
+  },
+  "quality.findings.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "9b29808b4e256a2f437fd043afa2ddba02dc05a7792ca64e328ee5d35c67fdaf",
+    "idempotency_key": "quality.findings.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.findings.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5e5d9f3b1c963b940084408d3273b1d07b754cdb2c2a3efd837fec6848cc8847"
+  },
+  "quality.hallucination.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "2661b080530c552329eb642ec82c9d59eb3915b687dbaf5a71d563c53cdd3332",
+    "idempotency_key": "quality.hallucination.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.hallucination.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "99a6e29fbe8af08c48c928a2db203aba3f26822a3f65c60f679a6c639f3375e1"
+  },
+  "quality.outcome.reconcile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "13b89a0d6bed4d0b01cc6440d645b4803d48c7990cc63f3514c6fdee2c987493",
+    "idempotency_key": "quality.outcome.reconcile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "expected": {
+        "score": "0.2"
+      },
+      "observed": {
+        "score": "0.3"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.outcome.reconcile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ac65365be80cfcff74dfc45968f874a3ce284274f631d1c0541af8952e6d9425"
+  },
+  "quality.policy.compliance": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a64f62b1ce73786f35bf428b4ead42ac26222b64d47cf736aa3417b5e13bfbbc",
+    "idempotency_key": "quality.policy.compliance-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.policy.compliance",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "d8fb35457f805390c4a6f1e406397ce25283805847ae42a0a659553ebca14189"
+  },
+  "quality.remediation.plan": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "929daf4064a50eca2792132bfd68d518910cc69a812178946843cb073388cf8e",
+    "idempotency_key": "quality.remediation.plan-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "issues": [
+        {
+          "code": "MISSING",
+          "field": "name"
+        }
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.remediation.plan",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "36abac7c99f23ef3a281ad1058837e3915a462e48e7a0a000cb6d0af9ccc4cd9"
+  },
+  "quality.schema.validate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "71a3ab615b77fef4a211fa76b0c5274f1cb0ce4eeb9ae68e7beaea781b3fcb42",
+    "idempotency_key": "quality.schema.validate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "instance": {
+        "name": "Acme"
+      },
+      "schema": {
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "quality.schema.validate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fceab748c80b48e8e8b1ac630efa4697fb3223ba66b0c96f42b2dfb370daf009"
+  },
+  "registry.address.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "969b54272ccd832449ad32ce6f6e26e1d8195affe89fe2a961a8a0a97ca5d97e",
+    "idempotency_key": "registry.address.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "declared_address": "1 Test Street"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.address.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ce685f24a2565afaeb79d7c8476e5d754ff2243d504315782e2df1b65756ab93"
+  },
+  "registry.company.lookup": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e20aa63494a3574f48349591da352b7e0d31be0dc9f01cc89234d2d4b94d841c",
+    "idempotency_key": "registry.company.lookup-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "name": "Acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.company.lookup",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "bb3a5a35329fe0d712ec8fb69923ed62b5200c21beb6dfe8e22d1c8ab6732112"
+  },
+  "registry.company.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d67a86eb0576411bb13b60f55bb04d6b92471f9015cbb9e2baaa0c744fe6d245",
+    "idempotency_key": "registry.company.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.company.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "f4e0a7520debacc0b152112aad5e82a3bcbc268324b1082ea6b08e98af411409"
+  },
+  "registry.directors.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "6c36a7254874aa7c3d3db9d438f00cb19495f3b497bcb7d5475f9f69038d5f79",
+    "idempotency_key": "registry.directors.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.directors.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "3dda5180ca99f660067eff36714df93882787aab874ae4aac54fd68b13c81127"
+  },
+  "registry.discrepancy.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d22f10ccc84f72f6e62d5fc49cb1eaad1f14220504aacd5b96f5c8aaa3382934",
+    "idempotency_key": "registry.discrepancy.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "declared": {
+        "name": "Acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.discrepancy.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c9c3c9a76473f2736b0c089cf1dfb7d5fea78b19fd9267c77749c9ffb9519cb8"
+  },
+  "registry.filings.retrieve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "05fb0ba45a21319b48e84e667638ac18edbfc4af66aa3cbeaa85080b081843c2",
+    "idempotency_key": "registry.filings.retrieve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.filings.retrieve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "dbe0aeed6b4c614a501cc00697835f636f6628a77c20d37e379b7bb0a2fcdc41"
+  },
+  "registry.jurisdiction.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "dbb3fbb9e99e64350a0aa5bbd58a068d18a5d822ed10a1abefd1e086e58702dd",
+    "idempotency_key": "registry.jurisdiction.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.jurisdiction.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "b8fd47141bbc4ea7a8b1708657b7a0341e42b7e6ed399405a52dcf0aaa5bb593"
+  },
+  "registry.licenses.verify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "f8f65a549c70823091d6f7aae36ae8806303fbb3c10d8cd8010c53adcd9dd445",
+    "idempotency_key": "registry.licenses.verify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "scope": "deposit"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.licenses.verify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0ba8e475f03c50f0882aba35f1111bfe510f6704e11712299b0099567bc9bf21"
+  },
+  "registry.status.monitor": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "c40e9e8d162a14f82abc0ecab08090a548a871b8b72f5eddd87950a79a13ef29",
+    "idempotency_key": "registry.status.monitor-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "previous": {
+        "registry-1": "PENDING"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.status.monitor",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fed26c94c5621fad27af3c10c2f0d4d40308b2cfa4f183412ab15f305e5990ae"
+  },
+  "registry.taxid.validate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "29dfc6cba3718700353cc5411acb2c765398a4b32dc00d25d098d8bcfc7a3712",
+    "idempotency_key": "registry.taxid.validate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "issuer": "synthetic-registry",
+      "value": "SYN-0001"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "registry.taxid.validate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ef00f290269d0c90012c60d91a38eb12f0a87839f7cb65e0d4d1ad2f53b60b79"
+  },
+  "regulatory.ctr.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3d460999f764e1ccdf60272d24a9adcd3169c34f238f6b5c733ece8dccc8d414",
+    "idempotency_key": "regulatory.ctr.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.ctr.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "6ac3d54ab1e247020669503b86936673be52a0afce16e09ba02d670efe707670"
+  },
+  "regulatory.ctr.prepare": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a674e0861ea4edc8b8ed40ebb054e14d4a664d5344d0e24c6db70cd0b03ed51f",
+    "idempotency_key": "regulatory.ctr.prepare-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.ctr.prepare",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "044ea4c626c5e358f51baa02ab381878179aa7b92b90fbd485a33caff9560b96"
+  },
+  "regulatory.deadline.calculate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "43bfeee5d28f7fe8878ef76fb4fd861ae8ff0fd0109e4fc669991385b529589a",
+    "idempotency_key": "regulatory.deadline.calculate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "event_at": "2026-11-01T00:00:00+00:00",
+      "report_type": "SAR"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.deadline.calculate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "70c504b721df037cdbecf8405703b2c9dd71037e710d5b8c6bfdede57068d1ee"
+  },
+  "regulatory.filing.prepare": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7a6b04fabaa88ca81338fbb4b2dd754da22869506f0415b32ae6a2d530d02621",
+    "idempotency_key": "regulatory.filing.prepare-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "filing": {
+        "citations": [
+          "evidence-1"
+        ],
+        "narrative": "Synthetic finding [evidence-1]",
+        "report_type": "SAR",
+        "subject_id": "acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.filing.prepare",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "eb766860d0b5291941f8366689b4f2e627fb99180f63ae7affb5fcb641bd120b"
+  },
+  "regulatory.filing.submit": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "914c3a9a0956f8d19d494a90ffc0ff7e6b5e9fad9de4e083928bc7dfbbbdd428",
+    "idempotency_key": "regulatory.filing.submit-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "filing": {
+        "citations": [
+          "evidence-1"
+        ],
+        "narrative": "Synthetic finding [evidence-1]",
+        "report_type": "SAR",
+        "subject_id": "acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.filing.submit",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "aa8e3d822fcf0dba0d8a08af041f394b30512d1bbf8abddb6c3243f5ee96be3d"
+  },
+  "regulatory.filing.track": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "c6c9e109f68a05986e02f015131df8a94f0c5186b9e4a288b8a5a32d2cc6dbfa",
+    "idempotency_key": "regulatory.filing.track-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "submission_id": "submission-1"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.filing.track",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "96846944d21d235d069fad5b21f311a0f27ac4344106998e53455201e689956f"
+  },
+  "regulatory.obligations.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5c605a2c7f7cd5c748e377397a87efdf80e39c84e60cf957a888d3380d133573",
+    "idempotency_key": "regulatory.obligations.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "report_type": "SAR"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.obligations.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "83f91cc8b9845741bc0fb96807b68d13bbf1442e56cdd5df001a5ae65b39b5aa"
+  },
+  "regulatory.sar.draft": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "200283abb2e46045011fc004b6218e0e8e5bb8039e804f780c295d5cf92d6cea",
+    "idempotency_key": "regulatory.sar.draft-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.sar.draft",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2cc4c9deaef99185229cfbd2a8d77439ffbffcbc5deff4bee9f6c8af3d2d1f35"
+  },
+  "regulatory.sar.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "13f9bce15389fd6407553f5e7170a4e5b66c68ac7b1b6b66cc99fdac4fda8e6d",
+    "idempotency_key": "regulatory.sar.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.sar.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "238a28272d5d0405d5b983bd0f87359b25ebcfb990962ffe75dc6e5650409091"
+  },
+  "regulatory.sar.validate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "8eed0b0e9cf1302ae006849adf1c8f0d24081327ee196c125d62fecc0bd2b500",
+    "idempotency_key": "regulatory.sar.validate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "filing": {
+        "citations": [
+          "evidence-1"
+        ],
+        "narrative": "Synthetic finding [evidence-1]",
+        "report_type": "SAR",
+        "subject_id": "acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "regulatory.sar.validate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "27dbbf64a41fcf68d4ef48811e579f90ef2596b23ae7c7b718090289b9d676fd"
+  },
+  "risk.behavior.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "196f7f5117325092055bb86ec8746e94941dd0709c2dfe5eb0cce2f7b27d956e",
+    "idempotency_key": "risk.behavior.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.behavior.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a9b4a1415edfb4ccad303d2dca39aa2c4d2a3621f7b2a2f433a73b3ef243c2b7"
+  },
+  "risk.change.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "98140401a7058060bd5bdffff6667653fadb816c21bc7d5e9c324bce12a08d95",
+    "idempotency_key": "risk.change.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "after": {
+        "score": "0.3"
+      },
+      "before": {
+        "score": "0.2"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.change.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "df57dc363d2e73d1104667b8531a5a5a0d48e48f15641731c8efe864828980ca"
+  },
+  "risk.customer.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "e418e898a1e7cca6f3540e53afc9ed743d99c5cb991ad80a330adc8536d3dfe3",
+    "idempotency_key": "risk.customer.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.customer.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9fa0ed635942a16e0581b12b9e54291ccaae9a2e6774d91cf403f17b5bb87547"
+  },
+  "risk.factor.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a845f4bcde0b4a96efafbe07e7073d7ef3c8220ce9ed059a1c3cca26bfb4205b",
+    "idempotency_key": "risk.factor.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "factor": "geography",
+      "value": "SYN"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.factor.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "221097f66b083d31e0c7e813e2933728e11fc3a8d8557563921657c75665e904"
+  },
+  "risk.factors.derive": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "824b463b8bfa03fc9451279b748ace0aab7bb48526e859d4a2ba9870f4d91df1",
+    "idempotency_key": "risk.factors.derive-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.factors.derive",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "1cdce499632312ec844ba41a9e4df59120301450cbaf3fb8efda44dc049baa35"
+  },
+  "risk.geography.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "09bd343ffb7753a69f78e67dcd3ec261b70dca92f70b1b9a0dd9bae1d88cd4be",
+    "idempotency_key": "risk.geography.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.geography.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ded4517adb7a21558ddbdc6bc6667b7b38f7fc7750934179df9832cc9906799f"
+  },
+  "risk.industry.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a59ba8097d6c9897d5b9ad777bc9f83ea98c5241cc9108844a341b644edacc84",
+    "idempotency_key": "risk.industry.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.industry.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "27cf2693ae444c3b6d92ab86905aa85e1e9e61a9a504aac8a7e18b64db68906d"
+  },
+  "risk.inherent.calculate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4664c1ec5b179c836a9661c63d433fe2dc0717c1c5c9077b482c6f13d5a7aa10",
+    "idempotency_key": "risk.inherent.calculate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.inherent.calculate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9b3036c60ea2735b59cb1da31abf3cee747aeb486c302459c6f6f29422eee06f"
+  },
+  "risk.product.assess": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "238eea8322c0321116863dc6b203b36ed0239da1d429875e4189cee446d177ee",
+    "idempotency_key": "risk.product.assess-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.product.assess",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "ce6db09988eed6816b8f69d5b60d7c35f13f6a8f9aa143122585aa78e3b94930"
+  },
+  "risk.residual.calculate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "62cbe156eeddddc91f806c10a2bf179d4ee677571f8e206704893c4d4c77a360",
+    "idempotency_key": "risk.residual.calculate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "control_effectiveness": "0.5",
+      "inherent_score": "0.6"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.residual.calculate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "9c5bafde2f6740a89527a332fb8be24a33bf646f523087e2409aa82e4b23bac5"
+  },
+  "risk.score.calibrate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "efba683d5ce92c1aadd4beb53f906604d51e16fe019a328e04191eb40a76a5cb",
+    "idempotency_key": "risk.score.calibrate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "samples": [
+        {
+          "label": 1,
+          "score": 0.8
+        },
+        {
+          "label": 0,
+          "score": 0.2
+        }
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.score.calibrate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "5a2863c1d1207dbd6394e2b88ef0350985409be0480d03602b5b3d29dc85e537"
+  },
+  "risk.score.explain": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "647806a9bd5d225606aee5892157460c36063a7ac56551046b30157e250f189a",
+    "idempotency_key": "risk.score.explain-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.score.explain",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "50f02e43ddb727e5c20f059ca78fdd49f542a8b70ad84c3eb5f939d72306d92e"
+  },
+  "risk.tier.assign": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "cf0e4290eeb3ef25400b9bec3f760693ef951833278109d7f272b13edc7d46fd",
+    "idempotency_key": "risk.tier.assign-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "score": "0.2"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "risk.tier.assign",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "4d8d24b68199793f541c9f31464ebaaca9dec7f46bbe6825881e283617709cd0"
+  },
+  "screening.adverse_media.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0793f035b2cc7959f6b8a29e2d44ddd0042cbcf67a0bb60e7c4724646777524a",
+    "idempotency_key": "screening.adverse_media.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.adverse_media.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "64f2ef4d39f2f23bb3dfd13e41f5bf3a4b695750fafb10a96d97630a7195e262"
+  },
+  "screening.adverse_media.correlate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "3d7ea36f727dafe3b58c284231ac127b620dbc8448a8f5e5ee698b96e7efe3dd",
+    "idempotency_key": "screening.adverse_media.correlate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.adverse_media.correlate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "2a057f9ab366e848268333429af7fb7f9ef5d2ee5a437f73bd05587bcd57d456"
+  },
+  "screening.adverse_media.execute": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "59c49cbb0e266797135e9aa97ef0d3a0cd39ac7f7af711b100e9850f85926811",
+    "idempotency_key": "screening.adverse_media.execute-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "name": "Acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.adverse_media.execute",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "63552b1f6d1ae36fcb29f8e19668524f282c93b19afb8e0ae3d262671d77bf7d"
+  },
+  "screening.alert.disposition": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "61d7fa49edc30b806cabe442d847a280b41b609eb63495a5ab4666552bf46aa9",
+    "idempotency_key": "screening.alert.disposition-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "disposition": "ACCEPT"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.alert.disposition",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "8fe490da9e48945c60fc8b5c9032176d25a96059dc101afdec26e76a927ffa11"
+  },
+  "screening.match.disambiguate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7f3e8dc194841a336a61564125022701a430bb52138e8bd301f4b862330e68e0",
+    "idempotency_key": "screening.match.disambiguate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.match.disambiguate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "887dfe68d2b961e9c8876a1f2ed8c5538d16b153318b2891be2c8ed99dab6fef"
+  },
+  "screening.match.score": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "80e6e334699d4d7a14a7a3068444d3bda0e01c6b57b80098253463a718c4a66a",
+    "idempotency_key": "screening.match.score-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "left": {
+        "identifiers": [
+          "SYN-0001"
+        ],
+        "name": "Acme"
+      },
+      "right": {
+        "identifiers": [
+          "SYN-0001"
+        ],
+        "name": "Acme"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.match.score",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "49a496382e7bbf7503e993f53c58c8c27300e0dc974eb5aa35c665bae85d62cb"
+  },
+  "screening.name.normalize": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "a9101b143fa73c04513ae60683ea8906c822694700e454448095e31fa7089173",
+    "idempotency_key": "screening.name.normalize-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "name": "Acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.name.normalize",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a4b1083604dcac5f74ca2efd361e531f9b7d0dec6e28a2dbdafa7b3684135898"
+  },
+  "screening.pep.execute": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "946b047f36db3c328a893f7d44a130282710765e4474bcfb707fd0cdc2825ddf",
+    "idempotency_key": "screening.pep.execute-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.pep.execute",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "72194451698bed6e860776936798e19335d1e87f8543ccc734fe1c17acceab19"
+  },
+  "screening.pep.relationship.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0ed3fdb8ac0e9377a5ddf0b1dad62e2d7658bff8ff22d35dd40353c5f0ea390b",
+    "idempotency_key": "screening.pep.relationship.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.pep.relationship.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "d7ac494f108286ae4c9c7438064144fc899835ea79c61a863fd813b8c3a61c98"
+  },
+  "screening.rescreen.schedule": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b270294ebde4a5e63b766f9251f3ec21db43222f23810a51f1700ae8d48c1490",
+    "idempotency_key": "screening.rescreen.schedule-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.rescreen.schedule",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "4b1345294aebdc38f105ccd7e90506d1dd87e1bc36388ad3bf85dc1969190ceb"
+  },
+  "screening.sanctions.control.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "54d5728f220b1881fd67ea25dd4f30428c5253591962ac5953b3637ef7897599",
+    "idempotency_key": "screening.sanctions.control.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "blocked_ids": [
+        "alice"
+      ]
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.sanctions.control.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "f6b560bee14edffec0a054be267cdff7a6ef3d442ab3efb96756a8bcaacccda2"
+  },
+  "screening.sanctions.execute": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "f886f6dc11ae9d619755e3984d1265c70fcc93f112e8ca32b1c023a640562a45",
+    "idempotency_key": "screening.sanctions.execute-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.sanctions.execute",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "72e3b7e443d4478b2991571f6034cd3353e1194d62a1db4add6a12adcaf4f27e"
+  },
+  "screening.sanctions.ownership.evaluate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "df50c6f0b7472477bcaadf1f4658f65b7949c63900878dd408575506f49a0f9b",
+    "idempotency_key": "screening.sanctions.ownership.evaluate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "blocked_ids": [
+        "alice"
+      ],
+      "target": "acme"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.sanctions.ownership.evaluate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "308373648fe807da86c9d646d933b1481ca07804834b165be8496703d56f87de"
+  },
+  "screening.watchlist.execute": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "5bc7467aeb5d3f6f0089ad5456079302f8d31855aa4106cda799047528407864",
+    "idempotency_key": "screening.watchlist.execute-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "screening.watchlist.execute",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "18039f92c216eb2fd7a1c6f4fb540f43da351feea3e9ce8fdecfb049f8766f94"
+  },
+  "transaction.anomaly.detect": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "950193d85d54d8e8b1010bdb64dd6171ce57c0d4cdf9b08ea01d4e5730948c3d",
+    "idempotency_key": "transaction.anomaly.detect-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "currency": "SYN",
+      "mean": "50",
+      "standard_deviation": "10",
+      "z_threshold": "2"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.anomaly.detect",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "0178599aa39877361eab1126def4cde188f0cb1935f5f20793c460590b7c2f6f"
+  },
+  "transaction.baseline.compare": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1d88ba7d2056c0100a64dc7aa85c36fc03929fed9bb33b32df8dd86449f9479d",
+    "idempotency_key": "transaction.baseline.compare-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "expected_totals": {
+        "SYN": "200"
+      }
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.baseline.compare",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fcc8ed1119ddbc392d1a098f78bd11a55bfbb1de856c25cf8faa81e3a572ea6d"
+  },
+  "transaction.behavior.profile": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "058c483a6a2a46266149ab53d754c231a9490259052273bdc8d88721f6998864",
+    "idempotency_key": "transaction.behavior.profile-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.behavior.profile",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "fff7eda92515e39f12f93a15522e319cc651b0810ae4ef909156a124c7c6f3a7"
+  },
+  "transaction.cashflow.analyze": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "97fb9e9b86ee21d851650a4c68ada384fc47492b1d7a9ba8211b422476a94f9e",
+    "idempotency_key": "transaction.cashflow.analyze-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "account": "acct-a"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.cashflow.analyze",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "a70cc6e13a100621434c36ea49455804d5998c6ae5ca913a98859e55f95bdbbf"
+  },
+  "transaction.classify": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "1d1d5d2ea44b4378486ab692e6b67f5370a9b41cc0323631d713a5988b5e0b7f",
+    "idempotency_key": "transaction.classify-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.classify",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c935342b3f53ad99245f710b99ebb19d88632de461fdc55a6c157720cd18872c"
+  },
+  "transaction.counterparty.resolve": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "d1edba6d3da656579f030c695227aa1280df4f17b271564a329dd20c9fde1997",
+    "idempotency_key": "transaction.counterparty.resolve-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.counterparty.resolve",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "e47049bb9fb054ffe37b77269afd79c7430c4c2526dd857b295e4d8cc86b76be"
+  },
+  "transaction.enrich": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "0825c3369556892d394a620f3727081df7eed20db6892811b340dc714c35fcd1",
+    "idempotency_key": "transaction.enrich-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.enrich",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "72da04725a0d2d1ed4a9dd9f8f3537fc66c6ab4f1c27473ea7a8007b6d58d536"
+  },
+  "transaction.exposure.aggregate": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "419d94e7621b7d70490a9911e0b73c44b8c914bdb9b8070de286203106144390",
+    "idempotency_key": "transaction.exposure.aggregate-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "dimension": "source"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.exposure.aggregate",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "68ecf168bcb05200b3bfd2c2c707ba7ba7fae38debc754e2b40b0744b8e2daff"
+  },
+  "transaction.flow.trace": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "b239a210666a5d20bda8626eb3ea26e6d8f1c6808a605a1f042ff17901b19df9",
+    "idempotency_key": "transaction.flow.trace-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "max_hops": 3,
+      "source": "acct-a",
+      "target": "acct-b"
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.flow.trace",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "c2e64ba2714515f189084af15490bdd99eee8e3057da843a016cccf917216095"
+  },
+  "transaction.geography.analyze": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "2538da59c1bf66b47ca47969ed80151edcd34311482b081aa7d5f59ca2326877",
+    "idempotency_key": "transaction.geography.analyze-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.geography.analyze",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "7c4e238db1681b64023fb4bcaa1d45bae1cc25a7515a8862f64b38df58ef04f3"
+  },
+  "transaction.ingest": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "7d54a69c73c150961a3c62ca489bf49511b56fb261903f4f817aaf4286c9da18",
+    "idempotency_key": "transaction.ingest-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {},
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.ingest",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "95bebf067af7a1b9d51ba0b92f3dc0a834151189b366987da9e840d975ae1b45"
+  },
+  "transaction.velocity.analyze": {
+    "actor_ref": "analyst",
+    "as_of_time": "2026-11-07T12:00:00+00:00",
+    "case_id": "case-demo",
+    "execution_id": "4827b5e68f2ff905bf4ed015f0b71bc634f3d8f0c33c1948a81368da7e4bc066",
+    "idempotency_key": "transaction.velocity.analyze-example",
+    "knowledge_cutoff": "2026-11-07T12:00:00+00:00",
+    "object_refs": [],
+    "parameters": {
+      "window_seconds": 86400
+    },
+    "policy_snapshot_ref": "synthetic-policy-v1",
+    "profile_id": "synthetic-analyst",
+    "purpose": "onboarding",
+    "skill_id": "transaction.velocity.analyze",
+    "skill_version": "0.3.0",
+    "subject_ids": [
+      "acme"
+    ],
+    "tenant_id": "tenant-synthetic",
+    "trace_id": "895812a38de9128c9a6b541887df20d172d0f250932e9c902040626924dc4520"
+  }
+}

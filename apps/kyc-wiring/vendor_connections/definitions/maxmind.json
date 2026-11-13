@@ -1,0 +1,78 @@
+{
+  "provider_id": "maxmind",
+  "version": "2.0",
+  "bases": {
+    "production": "https://minfraud.maxmind.com",
+    "sandbox": "https://sandbox.maxmind.com"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "ACCOUNT_ID",
+      "LICENSE_KEY"
+    ]
+  },
+  "sources": [
+    "https://dev.maxmind.com/minfraud/api-documentation/requests/",
+    "https://dev.maxmind.com/minfraud/sandbox-environment/"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "score": {
+      "method": "POST",
+      "path": "/minfraud/v2.0/score",
+      "required_body": [],
+      "required_query": [],
+      "body_example": {
+        "device": {
+          "ip_address": "128.101.101.101"
+        }
+      },
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://dev.maxmind.com/minfraud/api-documentation/requests/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "insights": {
+      "method": "POST",
+      "path": "/minfraud/v2.0/insights",
+      "required_body": [],
+      "required_query": [],
+      "body_example": {
+        "device": {
+          "ip_address": "128.101.101.101"
+        }
+      },
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://dev.maxmind.com/minfraud/api-documentation/requests/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "factors": {
+      "method": "POST",
+      "path": "/minfraud/v2.0/factors",
+      "required_body": [],
+      "required_query": [],
+      "body_example": {
+        "device": {
+          "ip_address": "128.101.101.101"
+        }
+      },
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": "/id",
+      "source": "https://dev.maxmind.com/minfraud/api-documentation/requests/",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

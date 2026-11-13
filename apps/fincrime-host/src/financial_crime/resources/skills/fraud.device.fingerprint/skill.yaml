@@ -1,0 +1,135 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:fraud.device.fingerprint
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Build purpose-permitted synthetic tenant-keyed device fingerprints
+  from allowed features.
+code_hash: 3cc7311b93db70f5dfa82a50e15b9f6f265c88eb0f341d957f6e72f4d5bcb0b0
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Build purpose-permitted synthetic tenant-keyed device fingerprints from
+  allowed features.
+effects: read_only
+entrypoint: financial_crime.skills.fraud:fingerprint
+evaluation_profile: fraud.device.fingerprint-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: fraud-device-fingerprint
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: fraud.device.fingerprint
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:fraud.device.fingerprint:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 6f1061077dc840576232cdd44bb9ec6f914f88b3fa711e854e54ed8c29d2fdd5
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    DeviceFingerprint:
+      additionalProperties: false
+      properties:
+        device_id:
+          $ref: '#/$defs/Id'
+        fingerprint:
+          $ref: '#/$defs/Hash'
+        synthetic:
+          $ref: '#/$defs/Bool'
+      required:
+      - device_id
+      - fingerprint
+      - synthetic
+      type: object
+    Hash:
+      pattern: ^[a-f0-9]{64}$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:fraud.device.fingerprint:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    fingerprints:
+      items:
+        $ref: '#/$defs/DeviceFingerprint'
+      maxItems: 10000
+      type: array
+  required:
+  - fingerprints
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- device_fields
+- freshness_seconds
+- jurisdiction
+- permissions
+- synthetic_fingerprint_key
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - attributes
+  - permitted
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Device
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

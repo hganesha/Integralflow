@@ -1,0 +1,480 @@
+# Illustrative typed extraction schemas, reusable across policies and workflows.
+# The policy decides which categories a document family must cover; these
+# schemas decide what a fact in each category may say.
+#
+# A category with declared predicates is TYPED: a candidate using any other
+# predicate is rejected. A category with none is OPEN: its facts are kept but
+# marked UNTYPED, and nothing downstream reasons about their predicates.
+#
+# Fields per predicate (all optional except category and description):
+#   object: required | optional | none           (default optional)
+#   value: none | percent | amount | count | text  (default none: value must be empty)
+#   value_required: true | false                   (default false)
+#   date: required | optional                      (default optional)
+#   date_roles / claim_types: allowed values       (default any)
+#   evidence_terms: regex the cited spans must match, or the fact is flagged
+#   magnitude: the value is an unsigned size and the predicate gives the
+#     direction (a debit printed as -250.00 is made_payment 250); default false
+#   subject_name_parts: the subject is a person whose name may be printed as
+#     separate surname and given-name fields; every part must be cited
+#   single_valued: true: one object (or value) per subject and period;
+#     per_object: one value per subject, object and period (one status per licence).
+#     Differing values in overlapping or undated periods conflict.
+version: 1
+predicates:
+  # legal_identity
+  has_legal_name:
+    category: legal_identity
+    description: The subject's exact legal name, as registered.
+    object: required
+    single_valued: true
+  has_former_name:
+    category: legal_identity
+    description: A name the subject previously used.
+    object: required
+  has_registration_number:
+    category: legal_identity
+    description: Company registration number issued by a registry.
+    object: required
+    single_valued: true
+  has_jurisdiction:
+    category: legal_identity
+    description: Jurisdiction of incorporation or registration.
+    object: required
+    single_valued: true
+  has_legal_status:
+    category: legal_identity
+    description: Registry status such as active, dissolved or in liquidation.
+    object: required
+    single_valued: true
+  has_lei:
+    category: legal_identity
+    description: Legal Entity Identifier (20 characters).
+    object: required
+    single_valued: true
+  has_sec_file_number:
+    category: legal_identity
+    description: SEC Commission file number.
+    object: required
+    single_valued: true
+  has_us_employer_identification_number:
+    category: legal_identity
+    description: US IRS Employer Identification Number.
+    object: required
+    single_valued: true
+  has_registered_address:
+    category: legal_identity
+    description: Registered office address, as one line.
+    object: required
+    single_valued: true
+  has_incorporation_date:
+    category: legal_identity
+    description: Date of incorporation or registration; the date goes in effective_date.
+    object: none
+    date: required
+    date_roles: [event, unspecified]
+  has_legal_form:
+    category: legal_identity
+    description: Legal form or company type, such as private limited company.
+    object: required
+    single_valued: true
+
+  # ownership
+  owns_equity_in:
+    category: ownership
+    description: The subject holds an equity stake in the object, as a percentage.
+    object: required
+    value: percent
+    date_roles: [as_of, reporting_period, unspecified]
+
+  is_beneficial_owner_of:
+    category: ownership
+    description: A source declares the subject, a natural person, to be a beneficial owner of the object; value is the declared ultimate interest and qualifier the nature of control, if stated.
+    object: required
+    value: percent
+    date_roles: [as_of, unspecified]
+
+  # control
+  has_voting_rights_over:
+    category: control
+    description: The subject holds voting rights or voting control over the object.
+    object: required
+    value: percent
+    evidence_terms: '\b(?:vote|votes|voting)\b'
+  appoints_board_of:
+    category: control
+    description: The subject may appoint or remove a majority of the object's board.
+    object: required
+    evidence_terms: '\b(?:appoint|appoints|nominate|nominates|remove|board|directors?)\b'
+
+  # related_parties
+  is_director_of:
+    category: related_parties
+    description: The subject is a director or board member of the object.
+    object: required
+  is_officer_of:
+    category: related_parties
+    description: The subject is an officer of the object, such as company secretary or chief executive; value is the role if stated.
+    object: required
+    value: text
+  has_related_party_transaction_with:
+    category: related_parties
+    description: A transaction the source reports as with a related party; value is its amount.
+    object: required
+    value: amount
+    evidence_terms: '\brelated[\s-]+part(?:y|ies)\b'
+
+  # financial_condition
+  reported_revenue:
+    category: financial_condition
+    description: Revenue, sales or turnover for a reporting period.
+    value: amount
+    value_required: true
+    date: required
+    date_roles: [reporting_period, as_of, unspecified]
+    evidence_terms: '\b(?:revenues?|sales|turnover)\b'
+  reported_net_income:
+    category: financial_condition
+    description: Net income or net earnings for a reporting period.
+    value: amount
+    value_required: true
+    date: required
+    date_roles: [reporting_period, as_of, unspecified]
+    evidence_terms: '\bnet\s+(?:income|earnings|loss)\b'
+  reported_total_assets:
+    category: financial_condition
+    description: Total assets at a balance-sheet date.
+    value: amount
+    value_required: true
+    date: required
+    evidence_terms: '\btotal\s+assets\b'
+  reported_total_liabilities:
+    category: financial_condition
+    description: Total liabilities at a balance-sheet date.
+    value: amount
+    value_required: true
+    date: required
+    evidence_terms: '\btotal\s+liabilities\b'
+  received_audit_opinion:
+    category: financial_condition
+    description: The auditor's opinion type (unqualified, qualified, adverse, disclaimer); object is the auditor.
+    object: optional
+    value: text
+    value_required: true
+    evidence_terms: '\b(?:opinion|audit(?:ed|or)?)\b'
+
+  # legal_regulatory
+  subject_to_regulatory_investigation:
+    category: legal_regulatory
+    description: A regulator is investigating the subject; object is the regulator if named.
+    object: optional
+    claim_types: [assertion, reported_statement, allegation]
+  party_to_legal_proceedings:
+    category: legal_regulatory
+    description: The subject is a party to legal proceedings; object describes them.
+    object: required
+  launch_enjoined_by_court:
+    category: legal_regulatory
+    description: A court order enjoined the launch of the subject.
+    object: optional
+    claim_types: [order]
+  received_regulatory_penalty:
+    category: legal_regulatory
+    description: A regulator imposed a fine or penalty on the subject; object is the regulator, qualifier the conduct penalized if stated.
+    object: optional
+    value: amount
+    date_roles: [event, unspecified]
+    claim_types: [order, finding, disposition, reported_statement]
+  subject_to_enforcement_action:
+    category: legal_regulatory
+    description: A regulator took enforcement action against the subject other than a fine (a ban, prohibition, censure, restriction or cancellation); object is the action, qualifier the regulator.
+    object: required
+    date_roles: [event, unspecified]
+    claim_types: [order, finding, disposition, reported_statement]
+
+  # material_changes
+  acquired_interest_in:
+    category: material_changes
+    description: The subject acquired an interest in the object; value is the stake acquired if stated.
+    object: required
+    value: percent
+    date_roles: [event, unspecified]
+  disposed_interest_in:
+    category: material_changes
+    description: The subject sold or disposed of an interest in the object.
+    object: required
+    value: percent
+    date_roles: [event, as_of, unspecified]
+  repurchased_own_shares:
+    category: material_changes
+    description: The subject repurchased a percentage of its own shares.
+    object: required
+    value: percent
+    date_roles: [event, unspecified]
+
+  # transactions
+  received_payment:
+    category: transactions
+    description: Money credited to the subject's account; object is the payer, or the transaction description as printed.
+    object: required
+    value: amount
+    value_required: true
+    magnitude: true
+    date: required
+    date_roles: [event, unspecified]
+  made_payment:
+    category: transactions
+    description: Money debited from the subject's account; object is the payee, or the transaction description as printed.
+    object: required
+    value: amount
+    value_required: true
+    magnitude: true
+    date: required
+    date_roles: [event, unspecified]
+  reported_account_balance:
+    category: transactions
+    description: An account balance printed on a statement (opening, closing or running); qualifier says which. Object is the account if stated.
+    value: amount
+    value_required: true
+    date: required
+    date_roles: [as_of, unspecified]
+  holds_account_at:
+    category: transactions
+    description: The subject holds an account at the object (a bank); value is the account identifier as printed, usually masked.
+    object: required
+    value: text
+
+  # wealth_and_funds
+  declared_source_of_funds:
+    category: wealth_and_funds
+    description: The source of the funds for this relationship or transaction, as the customer declares it; value is the declared amount.
+    object: required
+    value: amount
+  declared_source_of_wealth:
+    category: wealth_and_funds
+    description: How the customer says their overall wealth arose (employment, business sale, inheritance, ...); value is an amount if stated.
+    object: required
+    value: amount
+  sold_asset:
+    category: wealth_and_funds
+    description: The subject sold the object (a property, shares or a business); value is the sale price.
+    object: required
+    value: amount
+    date_roles: [event, unspecified]
+  received_sale_proceeds:
+    category: wealth_and_funds
+    description: Net proceeds of a sale paid to the subject; object is the asset sold.
+    object: required
+    value: amount
+    value_required: true
+    magnitude: true
+    date_roles: [event, unspecified]
+  received_income_from:
+    category: wealth_and_funds
+    description: Salary, dividends or other income paid to the subject by the object, for a period.
+    object: required
+    value: amount
+    date_roles: [reporting_period, event, unspecified]
+
+  # legal_proceedings
+  party_to_case:
+    category: legal_proceedings
+    description: The subject is a named party to a case; object is the case name or number.
+    object: required
+  court_found:
+    category: legal_proceedings
+    description: A court or tribunal finding against or about the subject; object states the finding.
+    object: required
+    claim_types: [finding]
+  court_ordered:
+    category: legal_proceedings
+    description: A court order directed at the subject; object states the order.
+    object: required
+    claim_types: [order]
+  case_disposed:
+    category: legal_proceedings
+    description: The final disposition of a case involving the subject; object states it.
+    object: required
+    claim_types: [disposition]
+
+  # allegations_and_outcomes
+  accused_of:
+    category: allegations_and_outcomes
+    description: Someone alleges the subject did the object; never a finding.
+    object: required
+    claim_types: [allegation]
+  denied:
+    category: allegations_and_outcomes
+    description: The subject denies the object.
+    object: required
+    claim_types: [denial]
+  found_responsible_for:
+    category: allegations_and_outcomes
+    description: An authority found the subject responsible for the object.
+    object: required
+    claim_types: [finding, order, disposition]
+  under_investigation_for:
+    category: allegations_and_outcomes
+    description: A source reports an authority is investigating the subject over the object (the suspected conduct); qualifier is the authority if named. Not a finding.
+    object: required
+    date_roles: [event, as_of, unspecified]
+    claim_types: [reported_statement, assertion]
+  charged_with:
+    category: allegations_and_outcomes
+    description: The subject was charged with or indicted for the object; a charge is not a conviction.
+    object: required
+    date_roles: [event, unspecified]
+    claim_types: [reported_statement, order, disposition]
+  convicted_of:
+    category: allegations_and_outcomes
+    description: The subject was convicted of, found guilty of, or pleaded guilty to the object.
+    object: required
+    date_roles: [event, unspecified]
+    claim_types: [reported_statement, finding, disposition]
+  cleared_of:
+    category: allegations_and_outcomes
+    description: The subject was acquitted or cleared of the object, or the charges were dropped or dismissed.
+    object: required
+    date_roles: [event, unspecified]
+    claim_types: [reported_statement, finding, disposition]
+  settled:
+    category: allegations_and_outcomes
+    description: The subject settled the object (a claim, case or investigation); value is the amount paid if stated. A settlement is usually without admission.
+    object: required
+    value: amount
+    date_roles: [event, unspecified]
+    claim_types: [reported_statement, disposition]
+
+  # source_metadata
+  published_by:
+    category: source_metadata
+    description: The publisher or author of the source; subject is the article or document.
+    object: required
+  published_on:
+    category: source_metadata
+    description: The source's publication date; subject is the article or document.
+    date: required
+    date_roles: [event, unspecified]
+
+  # sanctions_pep
+  sanctions_screening_result:
+    category: sanctions_pep
+    description: The result of screening the subject against sanctions lists, as a screening report states it; object is the lists screened, value the result (no match, potential match, confirmed match), qualifier the matched entry if any, date the screening date.
+    object: optional
+    value: text
+    value_required: true
+    date_roles: [as_of, unspecified]
+  pep_screening_result:
+    category: sanctions_pep
+    description: The result of screening the subject for politically exposed person status; value is the result, date the screening date.
+    value: text
+    value_required: true
+    date_roles: [as_of, unspecified]
+  holds_public_function:
+    category: sanctions_pep
+    description: The subject holds or held a prominent public function (a PEP); object is the position, qualifier the country or relationship (for a family member or close associate).
+    object: required
+    date_roles: [as_of, event, unspecified]
+  declared_pep_status:
+    category: sanctions_pep
+    description: The customer's own declaration of whether the subject is a politically exposed person; value is the answer as written.
+    value: text
+    value_required: true
+    date_roles: [as_of, unspecified]
+
+  # prior_decisions
+  kyc_decision:
+    category: prior_decisions
+    description: A decision recorded in the bank's own KYC file about the subject (approved, approved with conditions, declined, exited); value is the decision as written, qualifier the stated reason, date the decision or review date.
+    value: text
+    value_required: true
+    date_roles: [event, as_of, unspecified]
+  assigned_risk_rating:
+    category: prior_decisions
+    description: The customer risk rating recorded in the bank's own KYC file; value is the rating as written, date the review date.
+    value: text
+    value_required: true
+    date_roles: [as_of, unspecified]
+  next_review_due:
+    category: prior_decisions
+    description: The date by which the bank's own KYC file says the subject is next due for review.
+    date: required
+    date_roles: [event]
+
+  # identity_fields
+  has_date_of_birth:
+    category: identity_fields
+    description: The subject's date of birth, in effective_date.
+    object: none
+    date: required
+    date_roles: [event, unspecified]
+    subject_name_parts: true
+  has_nationality:
+    category: identity_fields
+    description: The subject's nationality or citizenship as printed.
+    object: required
+    subject_name_parts: true
+  has_place_of_birth:
+    category: identity_fields
+    description: The subject's place of birth as printed.
+    object: required
+    subject_name_parts: true
+  holds_identity_document:
+    category: identity_fields
+    description: The subject holds an identity document; object is its type (passport, national identity card, driving licence), value its number, qualifier the issuing country or authority.
+    object: required
+    value: text
+    value_required: true
+    subject_name_parts: true
+  identity_document_issued_on:
+    category: identity_fields
+    description: The issue date of the subject's identity document; object is the document number.
+    object: required
+    date: required
+    date_roles: [event, unspecified]
+    subject_name_parts: true
+  identity_document_expires_on:
+    category: identity_fields
+    description: The expiry date of the subject's identity document; object is the document number.
+    object: required
+    date: required
+    date_roles: [event, unspecified]
+    subject_name_parts: true
+
+  # address
+  has_residential_address:
+    category: address
+    description: The subject's residential or service address, as one line; the date is the document's date (as_of); qualifier "proof of address" when the document is a bill or statement rather than an identity document.
+    object: required
+    date_roles: [as_of, unspecified]
+    subject_name_parts: true
+
+  # license_status
+  holds_license:
+    category: license_status
+    description: The subject holds a licence or permission; object is its type, value its status (authorised, suspended, revoked, ...) if stated.
+    object: required
+    value: text
+    single_valued: per_object
+  has_license_number:
+    category: license_status
+    description: The reference number of the subject's licence, or its number on the regulator's register.
+    object: required
+  license_issued_by:
+    category: license_status
+    description: The authority that issued the subject's licence.
+    object: required
+  license_granted_on:
+    category: license_status
+    description: Date the licence was granted or took effect; object is the licence type if stated.
+    date: required
+    date_roles: [event, unspecified]
+  license_expires_on:
+    category: license_status
+    description: Date the licence expires or must be renewed; object is the licence type if stated.
+    date: required
+    date_roles: [event, unspecified]
+  license_restricted_by:
+    category: license_status
+    description: A condition, restriction or limitation on the subject's licence; object states it.
+    object: required

@@ -1,0 +1,47 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.jurisdiction.us
+  version: 1.0.0
+  layer: jurisdiction
+  appliesTo: { jurisdictions: [US] }
+  status: CANDIDATE
+  ownerRole: kyc-policy-owner
+  description: United States CDD, CIP and sanctions requirements for onboarding.
+values:
+  jurisdiction:
+    value: US
+    basis: { text: "US policy jurisdiction (BankingRelationship.policyJurisdiction), not the booking jurisdiction." }
+  ownership_threshold:
+    value: "0.25"
+    basis:
+      text: "FinCEN CDD rule: each individual owning, directly or indirectly, 25 percent or more of the equity interests of a legal entity customer."
+      sources: ["https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"]
+  control_bases:
+    value: [voting_majority, appoint_board]
+    basis:
+      text: "FinCEN CDD rule control prong: an individual with significant responsibility to control, manage or direct the legal entity customer."
+      sources: ["https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"]
+  sanctions_ownership:
+    value: { rule: ofac_50_percent, threshold: "0.5" }
+    basis:
+      text: "OFAC 50 Percent Rule: property of an entity owned 50 percent or more, in the aggregate, by one or more blocked persons is blocked."
+      sources: ["https://ofac.treasury.gov/faqs/401"]
+  required_screening_lists:
+    value: [ofac-sdn]
+    basis:
+      text: "OFAC Specially Designated Nationals and Blocked Persons List."
+      sources: ["https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"]
+  required_party_roles:
+    value: { individual: [customer], corporate: [customer, beneficial_owner] }
+    basis:
+      text: "FinCEN CDD rule: identify and verify the beneficial owners of a legal entity customer."
+      sources: ["https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"]
+  verification_methods:
+    value: [government_id_document, registry_extract, trust_deed, electronic_identity_verification]
+    basis:
+      text: "CIP rule: documentary and non-documentary verification are both permitted under the bank's procedures."
+      sources: ["https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1020/subpart-B/section-1020.220"]
+knownDifferences:
+  - field: required_screening_types
+    text: "US law has no general PEP screening requirement outside private banking for senior foreign political figures (31 CFR 1010.620); PEP screening comes from the institution layer."

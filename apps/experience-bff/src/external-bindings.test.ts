@@ -1,0 +1,44 @@
+import { readFileSync } from "node:fs";
+import { afterEach, expect, it, vi } from "vitest";
+import type { FastifyInstance } from "fastify";
+import { validateResponse } from "@ehf/ui-contracts/validate";
+import type { Schemas } from "@ehf/ui-contracts";
+import { buildApp } from "./app.js";
+import type { Upstream } from "./upstream.js";
+const source = JSON.parse(readFileSync(new URL("../../../config/external-capability-bindings.json", import.meta.url), "utf8"));
+const binding = source.bindings.find((item: { bindingId: string }) => item.bindingId.includes(":aamva-dldv:"));
+const path = `/api/v1/external-capability-bindings/${encodeURIComponent(binding.bindingId)}`;
+const payload = { definition: { ...binding.definition, jurisdiction: { code: "us", evidenceRefs: [] } }, expectedRevision: 0, sourceDigest: binding.sourceDigest, reason: "Scope review" };
+const apps: FastifyInstance[] = [];
+afterEach(async () => { await Promise.all(apps.splice(0).map(app => app.close())); });
+const make = (upstream: Upstream, roles = ["Platform.Admin"]) => {
+  const app = buildApp({ env: { BFF_PUBLIC_ORIGIN: "http://bff.test" }, principalResolver: { source: "local", resolve: async () => ({ subjectId: "verified-admin", tenantId: "tenant_verified", actorType: "human", roles, source: "local" }) }, upstream });
+  apps.push(app); return app;
+};
+it("protects editor access and writes, forwards the verified actor and propagates conflicts", async () => {
+  const upstream = vi.fn<Upstream>(async () => ({ status: 409, body: { error: "external_binding.revision_conflict" } }));
+  const app = make(upstream);
+  const session = await app.inject("/api/v1/session");
+  expect((await app.inject({ method: "POST", url: path, payload })).statusCode).toBe(403);
+  expect(upstream).not.toHaveBeenCalled();
+  const response = await app.inject({ method: "POST", url: path, payload, headers: { cookie: String(session.headers["set-cookie"]).split(";")[0]!, origin: "http://bff.test", "x-csrf-token": session.json().csrfToken, "x-actor-id": "spoof" } });
+  expect(response.statusCode).toBe(409);
+  expect(response.json().error).toBe("external_binding.revision_conflict");
+  expect(upstream.mock.calls[0]?.[3]).toMatchObject({ tenantId: "tenant_verified", subjectId: "verified-admin" });
+  const reader = make(upstream, ["Harness.Reader"]);
+  expect((await reader.inject(path)).statusCode).toBe(403);
+});
+it("uses tenant revisions in catalog reads and ETags and fails visibly if edit storage is unavailable", async () => {
+  const revision: Schemas["ExternalBindingRevision"] = { bindingId: binding.bindingId, definition: payload.definition, sourceDigest: binding.sourceDigest, revision: 1, reason: payload.reason, digest: "b".repeat(64), updatedBy: "admin", updatedAt: "2026-11-08T00:00:00Z" };
+  let available = true;
+  const app = make(async () => available ? { status: 200, body: { items: [revision] } } : { status: 503, body: { error: "storage.unavailable" } });
+  const response = await app.inject(`/api/v1/catalogs/external-capabilities/${encodeURIComponent(binding.bindingId)}`);
+  expect(response.statusCode).toBe(200);
+  expect(validateResponse("getCatalogsKindEntryId", 200, response.json())).toMatchObject({ valid: true });
+  expect(response.json().contract.capability_id).toBe("identity.person.intelligence.us");
+  expect(response.json().contract.governance.enabled).toBe(false);
+  expect((await app.inject({ url: `/api/v1/catalogs/external-capabilities/${encodeURIComponent(binding.bindingId)}`, headers: { "if-none-match": response.headers.etag! } })).statusCode).toBe(304);
+  available = false;
+  expect((await app.inject("/api/v1/catalogs?kind=external-capabilities")).statusCode).toBe(503);
+  expect((await app.inject("/api/v1/catalogs?kind=skills")).statusCode).toBe(200);
+});

@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "objects": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Objects",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "version": {
+      "default": "1.0.0",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "description",
+    "objects"
+  ],
+  "title": "ContextProduct",
+  "type": "object"
+}

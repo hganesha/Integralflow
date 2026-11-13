@@ -1,0 +1,16 @@
+{
+  "$id": "urn:financial-crime:skill:transaction.cashflow.analyze:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "account"
+  ],
+  "type": "object"
+}

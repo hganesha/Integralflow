@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "note": "Presentation collections only. Canonical identity, technical domain, jurisdiction basis and runtime behavior remain independent.",
+  "collections": [
+    {
+      "name": "Accounts and financial evidence",
+      "capabilityPaths": [
+        "account.control",
+        "account.ownership",
+        "account.profile",
+        "financial.analytics",
+        "financial.balance",
+        "financial.evidence",
+        "financial.income",
+        "financial.institution",
+        "financial.personal_management",
+        "financial.transactions"
+      ]
+    },
+    {
+      "name": "Business and ownership",
+      "capabilityPaths": [
+        "business.officers",
+        "business.ownership",
+        "business.registry",
+        "business.verification",
+        "entity.resolution",
+        "reference.identifier"
+      ]
+    },
+    {
+      "name": "Crypto and Travel Rule",
+      "capabilityPaths": [
+        "crypto.transaction",
+        "crypto.wallet",
+        "travel_rule.exchange"
+      ]
+    },
+    {
+      "name": "Due diligence and questionnaires",
+      "capabilityPaths": [
+        "edd.report",
+        "questionnaire.collection",
+        "questionnaire.template"
+      ]
+    },
+    {
+      "name": "Fraud and risk signals",
+      "capabilityPaths": [
+        "risk.customer",
+        "risk.device",
+        "risk.email",
+        "risk.network",
+        "risk.phone"
+      ]
+    },
+    {
+      "name": "Identity and credentials",
+      "capabilityPaths": [
+        "credential.issuance",
+        "credential.verification",
+        "identity.address",
+        "identity.biometric",
+        "identity.digital_id",
+        "identity.document",
+        "identity.document.extraction",
+        "identity.identifier.derivation",
+        "identity.person",
+        "identity.profile",
+        "identity.tax_id",
+        "identity.vehicle"
+      ]
+    },
+    {
+      "name": "Monitoring and case operations",
+      "capabilityPaths": [
+        "case.management",
+        "monitoring.subscription",
+        "regulatory.reporting",
+        "transaction.monitoring"
+      ]
+    },
+    {
+      "name": "Screening and public datasets",
+      "capabilityPaths": [
+        "reference.list",
+        "risk.jurisdiction",
+        "screening.adverse_media",
+        "screening.enforcement",
+        "screening.payment",
+        "screening.pep",
+        "screening.sanctions",
+        "screening.watchlist"
+      ]
+    },
+    {
+      "name": "Workflow, documents and platform controls",
+      "capabilityPaths": [
+        "document.evidence",
+        "document.signature",
+        "platform.integration",
+        "platform.testing",
+        "workflow.orchestration"
+      ]
+    }
+  ]
+}

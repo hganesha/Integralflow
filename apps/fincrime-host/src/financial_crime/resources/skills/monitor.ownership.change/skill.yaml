@@ -1,0 +1,150 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:monitor.ownership.change
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Compare explicit before/after monitoring snapshots without silently
+  mutating state.
+code_hash: 2cd56520edae428ba557a82ee3b19a00fd60ff3063333dd24c019b6ab31f18af
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Compare explicit before/after monitoring snapshots without silently mutating
+  state.
+effects: read_only
+entrypoint: financial_crime.skills.monitoring_reporting:ownership_change
+evaluation_profile: monitor.ownership.change-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: monitor-ownership-change
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: monitor.ownership.change
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Fraction:
+      pattern: ^(?:0(?:\.[0-9]+)?|1(?:\.0+)?)$
+      type: string
+  $id: urn:financial-crime:skill:monitor.ownership.change:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    after:
+      additionalProperties:
+        $ref: '#/$defs/Fraction'
+      type: object
+      x-dynamic-map-reason: keyed collection
+    before:
+      additionalProperties:
+        $ref: '#/$defs/Fraction'
+      type: object
+      x-dynamic-map-reason: keyed collection
+  required:
+  - before
+  - after
+  type: object
+instruction_hash: 82b37351d20937e9d238aa97c6da7b4282103e88e52ef71170a86da5029c4903
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Change:
+      additionalProperties: false
+      properties:
+        after:
+          $ref: '#/$defs/JsonValue'
+        before:
+          $ref: '#/$defs/JsonValue'
+        field:
+          $ref: '#/$defs/Id'
+      required:
+      - field
+      - before
+      - after
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+  $id: urn:financial-crime:skill:monitor.ownership.change:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    changes:
+      items:
+        $ref: '#/$defs/Change'
+      maxItems: 10000
+      type: array
+  required:
+  - changes
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

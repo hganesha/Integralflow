@@ -1,0 +1,14 @@
+# The effective packs this repository compiles: one per (jurisdiction, institution, product set).
+# A case falls under the one pinned pack whose product set holds all its products
+# (packages/policy-engine/src/policy-packs.ts, selectPolicyPack).
+apiVersion: harness.factory/policy-pack-selection-v1
+kind: PolicyPackSelection
+packs:
+  - { jurisdiction: US, institution: bank.synthetic, productSet: personal-banking, products: [card, deposit, payments], customerTypes: [individual] }
+  - { jurisdiction: US, institution: bank.synthetic, productSet: business-banking, products: [deposit, lending, merchant_acquiring, payments], customerTypes: [corporate] }
+  - { jurisdiction: GB, institution: bank.synthetic, productSet: personal-banking, products: [card, deposit, payments], customerTypes: [individual] }
+  - { jurisdiction: GB, institution: bank.synthetic, productSet: business-banking, products: [deposit, lending, merchant_acquiring, payments], customerTypes: [corporate] }
+  - { jurisdiction: AU, institution: bank.synthetic, productSet: personal-banking, products: [card, deposit, payments], customerTypes: [individual] }
+  - { jurisdiction: AU, institution: bank.synthetic, productSet: business-banking, products: [deposit, lending, merchant_acquiring, payments], customerTypes: [corporate] }
+  # The synthetic securities firm (phase G): institutional clients across brokerage, custody and wealth.
+  - { jurisdiction: US, institution: securities.synthetic, productSet: institutional-securities, products: [BRK, CUS, WLT], customerTypes: [corporate] }

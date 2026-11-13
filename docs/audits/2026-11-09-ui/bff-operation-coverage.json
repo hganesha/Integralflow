@@ -1,0 +1,4862 @@
+{
+  "summary": {
+    "declared": 178,
+    "nonMock": 171,
+    "registeredNonMock": 56,
+    "missingNonMock": 115,
+    "missingAnyRoute": 112,
+    "authBaseMismatches": 3,
+    "directlyReferenced": 163,
+    "missingDirectlyReferenced": 108
+  },
+  "probes": [
+    {
+      "url": "/api/v1/search?q=ownership",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/search?q=ownership not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/v1/fincrime/agents",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/fincrime/agents not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/v1/fincrime/skills/ownership.ubo.resolve",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/fincrime/skills/ownership.ubo.resolve not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/v1/runs",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/runs not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/v1/cases",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/cases not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/v1/human-work",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/human-work not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/v1/admin/runtime",
+      "status": 404,
+      "body": {
+        "message": "Route GET:/api/v1/admin/runtime not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/api/auth/logout",
+      "status": 404,
+      "body": {
+        "message": "Route POST:/api/auth/logout not found",
+        "error": "Not Found",
+        "statusCode": 404
+      }
+    },
+    {
+      "url": "/auth/logout",
+      "status": 403,
+      "body": {
+        "error": "csrf.invalid",
+        "status": 403,
+        "correlationId": "req-9",
+        "retryable": false
+      }
+    }
+  ],
+  "outageProbes": [
+    {
+      "url": "/api/v1/catalogs",
+      "status": 503,
+      "error": "catalog.source_unavailable"
+    },
+    {
+      "url": "/api/v1/catalogs?kind=skills&limit=1",
+      "status": 200,
+      "error": null
+    }
+  ],
+  "operations": [
+    {
+      "operationId": "deleteContextDocumentsCaseIdIndexDocumentId",
+      "method": "DELETE",
+      "path": "/v1/context/documents/{caseId}/index/{documentId}",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-06"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "DELETE",
+        "path": "/v2/cases/:caseId/documents/index/:documentId"
+      },
+      "xAction": "evidence.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-documents.tsx"
+      ]
+    },
+    {
+      "operationId": "getAdminChangeLog",
+      "method": "GET",
+      "path": "/v1/admin/change-log",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/admin/change-log"
+      },
+      "xAction": "admin.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/models-tab.tsx",
+        "apps/web/src/platform/surfaces/admin/providers-tab.tsx",
+        "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+        "apps/web/src/platform/surfaces/admin.tsx"
+      ]
+    },
+    {
+      "operationId": "getAdminModelProfiles",
+      "method": "GET",
+      "path": "/v1/admin/model-profiles",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/admin/model-profiles"
+      },
+      "xAction": "admin.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/models-tab.tsx",
+        "apps/web/src/platform/surfaces/admin.tsx"
+      ]
+    },
+    {
+      "operationId": "getAdminProviders",
+      "method": "GET",
+      "path": "/v1/admin/providers",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/admin/providers"
+      },
+      "xAction": "admin.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/providers-tab.tsx",
+        "apps/web/src/platform/surfaces/admin.tsx"
+      ]
+    },
+    {
+      "operationId": "getAdminRuntime",
+      "method": "GET",
+      "path": "/v1/admin/runtime",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/deployment/runtime"
+      },
+      "xAction": "deployment.execute",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx",
+        "apps/web/src/shell/trusted/RuntimeStopSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getAdminSettings",
+      "method": "GET",
+      "path": "/v1/admin/settings",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/admin/settings"
+      },
+      "xAction": "admin.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+        "apps/web/src/platform/surfaces/admin.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthCallback",
+      "method": "GET",
+      "path": "/auth/callback",
+      "tag": "Auth",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "validates state + PKCE verifier"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": true,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getAuthLogin",
+      "method": "GET",
+      "path": "/auth/login",
+      "tag": "Auth",
+      "xScreens": [
+        "shell"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "OIDC + PKCE; tokens stay in the BFF session store"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": true,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getAuthoringAgents",
+      "method": "GET",
+      "path": "/v1/authoring/agents",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/agents"
+      },
+      "xAction": "draft.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/context.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringCatalogsFincrimeDigest",
+      "method": "GET",
+      "path": "/v1/authoring/catalogs/fincrime/{digest}",
+      "tag": "Authoring",
+      "xScreens": [
+        "AGT-01"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/catalogs/fincrime/:digest"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/drafts.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringDrafts",
+      "method": "GET",
+      "path": "/v1/authoring/drafts",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/drafts"
+      },
+      "xAction": "draft.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Tune.tsx",
+        "apps/web/src/platform/surfaces/authoring/context.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx",
+        "apps/web/src/platform/surfaces/drafts.tsx",
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringDraftsDraftId",
+      "method": "GET",
+      "path": "/v1/authoring/drafts/{draftId}",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/drafts/:draftId"
+      },
+      "xAction": "draft.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Tune.tsx",
+        "apps/web/src/platform/surfaces/authoring/context.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx",
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringPolicies",
+      "method": "GET",
+      "path": "/v1/authoring/policies",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/policies/templates/kyc"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringPoliciesWorkspacesWorkspaceIdRevisions",
+      "method": "GET",
+      "path": "/v1/authoring/policies/workspaces/{workspaceId}/revisions",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/policies/workspaces/:workspaceId/revisions"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringSkills",
+      "method": "GET",
+      "path": "/v1/authoring/skills",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/skills"
+      },
+      "xAction": "draft.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/context.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getAuthoringTemplates",
+      "method": "GET",
+      "path": "/v1/authoring/templates",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/authoring/templates"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/drafts.tsx"
+      ]
+    },
+    {
+      "operationId": "getCases",
+      "method": "GET",
+      "path": "/v1/cases",
+      "tag": "Cases",
+      "xScreens": [
+        "PLT-09",
+        "BIZ-01"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "GET",
+        "path": "/v1/cases"
+      },
+      "xAction": "case.read",
+      "xPoll": {
+        "intervalMs": 10000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/mission-control.tsx",
+        "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+        "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+        "apps/web/src/platform/surfaces/case-detail.tsx",
+        "apps/web/src/platform/surfaces/cases.tsx",
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getCasesCaseId",
+      "method": "GET",
+      "path": "/v1/cases/{caseId}",
+      "tag": "Cases",
+      "xScreens": [
+        "PLT-09"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "composes case-api /v1/cases/:caseId + events + snapshot"
+      },
+      "xAction": "case.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+        "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+        "apps/web/src/platform/surfaces/case-detail.tsx",
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getCasesCaseIdEvents",
+      "method": "GET",
+      "path": "/v1/cases/{caseId}/events",
+      "tag": "Cases",
+      "xScreens": [
+        "BIZ-02",
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "GET",
+        "path": "/v1/cases/:caseId/events"
+      },
+      "xAction": "event.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getCasesCaseIdExportsDigestFormat",
+      "method": "GET",
+      "path": "/v1/cases/{caseId}/exports/{digest}/{format}",
+      "tag": "Cases",
+      "xScreens": [
+        "ASR-05"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "GET",
+        "path": "/v1/cases/:caseId/exports/:digest/:format"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+        "apps/web/src/platform/surfaces/case-detail.tsx"
+      ]
+    },
+    {
+      "operationId": "getCasesCaseIdSnapshot",
+      "method": "GET",
+      "path": "/v1/cases/{caseId}/snapshot",
+      "tag": "Cases",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "GET",
+        "path": "/v1/cases/:caseId/snapshot"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/case-detail.tsx",
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getCatalogs",
+      "method": "GET",
+      "path": "/v1/catalogs",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "Versioned source catalogs; per-kind authorization and filtered counts"
+      },
+      "xAction": "draft.read | capability.read | case.read | evidence.read",
+      "xPoll": null,
+      "xOwner": "experience-bff",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/binding-editor.tsx",
+        "apps/web/src/catalogs/catalog-page.tsx",
+        "apps/web/src/documents/DocumentWorkspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getCatalogsKindEntryId",
+      "method": "GET",
+      "path": "/v1/catalogs/{kind}/{entryId}",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "Same snapshot and per-kind authorization as discovery"
+      },
+      "xAction": "draft.read | capability.read | case.read | evidence.read",
+      "xPoll": null,
+      "xOwner": "experience-bff",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/binding-editor.tsx",
+        "apps/web/src/catalogs/catalog-page.tsx",
+        "apps/web/src/documents/DocumentWorkspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextDefinitions",
+      "method": "GET",
+      "path": "/v1/context/definitions",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/definitions"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Play.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextMappingsIdEnablement",
+      "method": "GET",
+      "path": "/v1/context/mappings/{id}/enablement",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/mappings/:id/enablement"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextMappingTemplates",
+      "method": "GET",
+      "path": "/v1/context/mapping-templates",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/mapping-templates"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextRefreshSchedules",
+      "method": "GET",
+      "path": "/v1/context/refresh-schedules",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/refresh-schedules"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/ContextRefreshPanel.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextRelationships",
+      "method": "GET",
+      "path": "/v1/context/relationships",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/relationships"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getContextSampleRuns",
+      "method": "GET",
+      "path": "/v1/context/sample-runs",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/sample-runs"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextSampleRunsId",
+      "method": "GET",
+      "path": "/v1/context/sample-runs/{id}",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/sample-runs/:id"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "getContextSchema",
+      "method": "GET",
+      "path": "/v1/context/schema",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/context/schema"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "getEvidenceEvidenceId",
+      "method": "GET",
+      "path": "/v1/evidence/{evidenceId}",
+      "tag": "Cases",
+      "xScreens": [
+        "BIZ-03"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "GET",
+        "path": "/v1/evidence/:evidenceId"
+      },
+      "xAction": "evidence.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getExternalCapabilityBindingsBindingId",
+      "method": "GET",
+      "path": "/v1/external-capability-bindings/{bindingId}",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/external-capability-bindings/:bindingId"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/binding-editor.tsx"
+      ]
+    },
+    {
+      "operationId": "getExternalProviders",
+      "method": "GET",
+      "path": "/v1/external-providers",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "Source catalog + tenant proposals + current gateway descriptors and connectors; registry readiness is not an observed health check"
+      },
+      "xAction": "capability.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/binding-editor.tsx",
+        "apps/web/src/catalogs/external-providers.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeAgents",
+      "method": "GET",
+      "path": "/v1/fincrime/agents",
+      "tag": "FinCrime",
+      "xScreens": [
+        "AGT-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog agents × human-work × runs × releases"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/agents/agent-profile.tsx",
+        "apps/web/src/domains/fincrime/surfaces/agents/atlas.tsx",
+        "apps/web/src/domains/fincrime/surfaces/agents/taskboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeAgentsAgentId",
+      "method": "GET",
+      "path": "/v1/fincrime/agents/{agentId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "AGT-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/agents/agent-profile.tsx",
+        "apps/web/src/domains/fincrime/surfaces/agents/taskboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeAssuranceMissionControl",
+      "method": "GET",
+      "path": "/v1/fincrime/assurance/mission-control",
+      "tag": "FinCrime",
+      "xScreens": [
+        "ASR-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "overview + human-work + runs by agent"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/mission-control.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdClaims",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/claims",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "caseSnapshot.data"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdContradictionsContradictionId",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/contradictions/{contradictionId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "caseSnapshot.data + evidence"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdDecision",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/decision",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-07"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "recommendation, gates, policy evaluation, QA, decision work item"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/decision-desk.tsx",
+        "apps/web/src/domains/fincrime/surfaces/work/risk.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdDocuments",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/documents",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "canonical records DocumentVersion/DocumentPage/ExtractedAssertion + document skill outputs (classify.catalog, requirements.resolve, validity, consistency)"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx",
+        "apps/web/src/documents/case-documents-page.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdDocumentsDocumentId",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/documents/{documentId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02",
+        "BIZ-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "DocumentPage text + ExtractedAssertion spans + Evidence spans for one document version"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx",
+        "apps/web/src/documents/case-documents-page.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdDocumentsDocumentIdContent",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/documents/{documentId}/content",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "case-api evidence content after case membership check"
+      },
+      "xAction": "evidence.read",
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdLineage",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/lineage",
+      "tag": "FinCrime",
+      "xScreens": [
+        "ASR-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "decision → policy evaluation → facts → evidence"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/lineage.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdOwnership",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/ownership",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "ownership.intelligence objects in the case"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdRecorder",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/recorder",
+      "tag": "FinCrime",
+      "xScreens": [
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "case events + run events + human decisions, merged"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdRecorderCausality",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/recorder/causality",
+      "tag": "FinCrime",
+      "xScreens": [
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "case events × work items × run events"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdRecorderEntriesEntryRef",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/recorder/entries/{entryRef}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "source record + ledger verify"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdRoom",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/room",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02",
+        "BIZ-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "snapshot + work items + human work + events"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx",
+        "apps/web/src/domains/fincrime/work/case-frame.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdScreening",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/screening",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-06"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "RecordScreeningFinding commands + screening work items"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/screening.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdScreeningFindingId",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/screening/{findingId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-06"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "finding + watchlist entry + human work"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/screening.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeCasesCaseIdSurfaces",
+      "method": "GET",
+      "path": "/v1/fincrime/cases/{caseId}/surfaces",
+      "tag": "Presentation",
+      "xScreens": [
+        "BIZ-02",
+        "BIZ-03",
+        "BIZ-06"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "presentation store"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": "proposed",
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getFincrimeCatalog",
+      "method": "GET",
+      "path": "/v1/fincrime/catalog",
+      "tag": "FinCrime",
+      "xScreens": [
+        "AGT-01",
+        "CXT-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "control-api /v1/authoring/catalogs/fincrime/:digest (digest of the active release)"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/agents/agent-profile.tsx",
+        "apps/web/src/domains/fincrime/surfaces/agents/taskboard.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/context-preview.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeContextOntology",
+      "method": "GET",
+      "path": "/v1/fincrime/context/ontology",
+      "tag": "FinCrime",
+      "xScreens": [
+        "CXT-01",
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "control-api context schema + catalog + relationships"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeContextProducts",
+      "method": "GET",
+      "path": "/v1/fincrime/context/products",
+      "tag": "FinCrime",
+      "xScreens": [
+        "CXT-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog contextProducts"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Engineer.tsx",
+        "apps/web/src/domains/fincrime/context/Play.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeContextProductsProductId",
+      "method": "GET",
+      "path": "/v1/fincrime/context/products/{productId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "CXT-02",
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog + context matrix + agent ceilings"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Engineer.tsx",
+        "apps/web/src/domains/fincrime/context/Play.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeContextReadiness",
+      "method": "GET",
+      "path": "/v1/fincrime/context/readiness",
+      "tag": "FinCrime",
+      "xScreens": [
+        "CXT-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeSkills",
+      "method": "GET",
+      "path": "/v1/fincrime/skills",
+      "tag": "FinCrime",
+      "xScreens": [
+        "AGT-04"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog skills"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/agents/skill.tsx",
+        "apps/web/src/domains/fincrime/surfaces/agents/taskboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeSkillsSkillId",
+      "method": "GET",
+      "path": "/v1/fincrime/skills/{skillId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "AGT-04",
+        "AGT-05"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog skills + context matrix"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/agents/skill.tsx",
+        "apps/web/src/domains/fincrime/surfaces/agents/taskboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeTasksTaskId",
+      "method": "GET",
+      "path": "/v1/fincrime/tasks/{taskId}",
+      "tag": "FinCrime",
+      "xScreens": [
+        "AGT-03",
+        "AGT-04"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "catalog TaskSpec + skills"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/agents/taskboard.tsx"
+      ]
+    },
+    {
+      "operationId": "getFincrimeWork",
+      "method": "GET",
+      "path": "/v1/fincrime/work",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "human-work queue × case summaries × catalog labels"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/my-workspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getGatewayAdapters",
+      "method": "GET",
+      "path": "/v1/gateway/adapters",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "capability-gateway",
+        "method": "GET",
+        "path": "/v1/adapters"
+      },
+      "xAction": "capability.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Engineer.tsx",
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx",
+        "apps/web/src/platform/surfaces/admin.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getGatewayCapabilities",
+      "method": "GET",
+      "path": "/v1/gateway/capabilities",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "capability-gateway",
+        "method": "GET",
+        "path": "/v1/capabilities"
+      },
+      "xAction": "capability.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx"
+      ]
+    },
+    {
+      "operationId": "getGatewayDecisions",
+      "method": "GET",
+      "path": "/v1/gateway/decisions",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12",
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/gateway/receipts"
+      },
+      "xAction": "receipt.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx"
+      ]
+    },
+    {
+      "operationId": "getGatewayProfiles",
+      "method": "GET",
+      "path": "/v1/gateway/profiles",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "gateway /v1/model-profiles + /v1/status"
+      },
+      "xAction": "capability.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/panels.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx",
+        "apps/web/src/platform/surfaces/system.tsx"
+      ]
+    },
+    {
+      "operationId": "getGatewayRegistry",
+      "method": "GET",
+      "path": "/v1/gateway/registry",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12",
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "capability-gateway",
+        "method": "GET",
+        "path": "/v1/capabilities"
+      },
+      "xAction": "capability.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Engineer.tsx",
+        "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+        "apps/web/src/platform/surfaces/admin.tsx",
+        "apps/web/src/platform/surfaces/authoring/context.tsx",
+        "apps/web/src/platform/surfaces/draft-workspace.tsx"
+      ]
+    },
+    {
+      "operationId": "getGatewayStatus",
+      "method": "GET",
+      "path": "/v1/gateway/status",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "capability-gateway",
+        "method": "GET",
+        "path": "/v1/status"
+      },
+      "xAction": "capability.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx"
+      ]
+    },
+    {
+      "operationId": "getIntegrationsBindings",
+      "method": "GET",
+      "path": "/v1/integrations/bindings",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/integrations/bindings"
+      },
+      "xAction": "integration.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "getIntegrationsConnectors",
+      "method": "GET",
+      "path": "/v1/integrations/connectors",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/integrations/connectors"
+      },
+      "xAction": "integration.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "getIntegrationsDeliveries",
+      "method": "GET",
+      "path": "/v1/integrations/deliveries",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/integrations/deliveries"
+      },
+      "xAction": "integration.read",
+      "xPoll": {
+        "intervalMs": 10000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "getIntegrationsHumanCasesCaseIdActions",
+      "method": "GET",
+      "path": "/v1/integrations/human/cases/{caseId}/actions",
+      "tag": "Integrations",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/integrations/human/cases/:caseId/actions"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "getIntelligence",
+      "method": "GET",
+      "path": "/v1/intelligence",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-16"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "Tenant/deployment-scoped candidates and current administered configuration; gateway availability is not verified health"
+      },
+      "xAction": "admin.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/intelligence/detail.tsx",
+        "apps/web/src/platform/surfaces/intelligence/editor.tsx",
+        "apps/web/src/platform/surfaces/intelligence.tsx"
+      ]
+    },
+    {
+      "operationId": "getMockPersonas",
+      "method": "GET",
+      "path": "/mock/personas",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getMockScenario",
+      "method": "GET",
+      "path": "/mock/scenario",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getOperationsHumanWork",
+      "method": "GET",
+      "path": "/v1/operations/human-work",
+      "tag": "HumanWork",
+      "xScreens": [
+        "PLT-10",
+        "BIZ-01"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/operations/human-work"
+      },
+      "xAction": "human_work.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/human-work.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx"
+      ]
+    },
+    {
+      "operationId": "getOverview",
+      "method": "GET",
+      "path": "/v1/overview",
+      "tag": "Platform",
+      "xScreens": [
+        "PLT-01"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "aggregation parity with control-ui getOverviewData"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/overview.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/start-run.tsx",
+        "apps/web/src/shell/trusted/RuntimeStopSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getPlans",
+      "method": "GET",
+      "path": "/v1/plans",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/plan-records"
+      },
+      "xAction": "plan.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/cases.tsx",
+        "apps/web/src/platform/surfaces/plan-detail.tsx",
+        "apps/web/src/platform/surfaces/plans.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/start-run.tsx"
+      ]
+    },
+    {
+      "operationId": "getPlansPlanDigest",
+      "method": "GET",
+      "path": "/v1/plans/{planDigest}",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/plans/:digest"
+      },
+      "xAction": "plan.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/plan-detail.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/start-run.tsx"
+      ]
+    },
+    {
+      "operationId": "getPlansPlanDigestRuns",
+      "method": "GET",
+      "path": "/v1/plans/{planDigest}/runs",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/runs?planDigest="
+      },
+      "xAction": "run.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/plan-detail.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/start-run.tsx"
+      ]
+    },
+    {
+      "operationId": "getPresentationCatalog",
+      "method": "GET",
+      "path": "/v1/presentation/catalog",
+      "tag": "Presentation",
+      "xScreens": [
+        "all"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "static catalog"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": "proposed",
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "getReleases",
+      "method": "GET",
+      "path": "/v1/releases",
+      "tag": "Releases",
+      "xScreens": [
+        "PLT-11",
+        "AGT-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/releases"
+      },
+      "xAction": "release.read",
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/releases.tsx",
+        "apps/web/src/shell/trusted/ReleaseTransitionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getRuns",
+      "method": "GET",
+      "path": "/v1/runs",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-06"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/runs"
+      },
+      "xAction": "run.read",
+      "xPoll": {
+        "intervalMs": 5000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/run-detail.tsx",
+        "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/start-run.tsx",
+        "apps/web/src/platform/surfaces/runs/use-run-events.ts",
+        "apps/web/src/platform/surfaces/runs.tsx",
+        "apps/web/src/shell/trusted/RuntimeStopSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "getRunsRunId",
+      "method": "GET",
+      "path": "/v1/runs/{runId}",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-07",
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "composes control-api /v1/runs/:runId + attempts + events"
+      },
+      "xAction": "run.read",
+      "xPoll": {
+        "intervalMs": 3000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/run-detail.tsx",
+        "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/use-run-events.ts"
+      ]
+    },
+    {
+      "operationId": "getRunsRunIdAttempts",
+      "method": "GET",
+      "path": "/v1/runs/{runId}/attempts",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/runs/:runId/attempts"
+      },
+      "xAction": "run.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx"
+      ]
+    },
+    {
+      "operationId": "getRunsRunIdEvents",
+      "method": "GET",
+      "path": "/v1/runs/{runId}/events",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-07",
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/runs/:runId/events"
+      },
+      "xAction": "run.read",
+      "xPoll": {
+        "intervalMs": 3000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/runs/use-run-events.ts"
+      ]
+    },
+    {
+      "operationId": "getRunsRunIdExecution",
+      "method": "GET",
+      "path": "/v1/runs/{runId}/execution",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-07",
+        "AGT-03"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "control-api run, immutable plan and node attempts"
+      },
+      "xAction": "run.read",
+      "xPoll": {
+        "intervalMs": 3000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx"
+      ]
+    },
+    {
+      "operationId": "getRunsRunIdTrace",
+      "method": "GET",
+      "path": "/v1/runs/{runId}/trace",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-07",
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/runs/:runId/trace"
+      },
+      "xAction": "run.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx"
+      ]
+    },
+    {
+      "operationId": "getSearch",
+      "method": "GET",
+      "path": "/v1/search",
+      "tag": "Session",
+      "xScreens": [
+        "shell"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "fans out to cases, plans, drafts, catalog"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/shell/search.tsx"
+      ]
+    },
+    {
+      "operationId": "getSession",
+      "method": "GET",
+      "path": "/v1/session",
+      "tag": "Session",
+      "xScreens": [
+        "shell"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "composes identity, roles→actions, AUTHORING_MODE, environment"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/app/session.tsx"
+      ]
+    },
+    {
+      "operationId": "getSourcePoliciesArtifacts",
+      "method": "GET",
+      "path": "/v1/source-policies/artifacts",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/source-policies/artifacts"
+      },
+      "xAction": "capability.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "getSourcePoliciesDecisionsRunId",
+      "method": "GET",
+      "path": "/v1/source-policies/decisions/{runId}",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "GET",
+        "path": "/v1/source-policies/decisions/:runId"
+      },
+      "xAction": "run.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "getSystem",
+      "method": "GET",
+      "path": "/v1/system",
+      "tag": "Platform",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "aggregation parity with control-ui getSystemStatus"
+      },
+      "xAction": null,
+      "xPoll": {
+        "intervalMs": 15000,
+        "pauseWhenHidden": true,
+        "keepLastGoodOnError": true
+      },
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx",
+        "apps/web/src/shell/chrome.tsx"
+      ]
+    },
+    {
+      "operationId": "getTracesTraceId",
+      "method": "GET",
+      "path": "/v1/traces/{traceId}",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-08",
+        "ASR-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "control-api /v1/traces/:traceId/authority, then the trace store"
+      },
+      "xAction": "telemetry.read | run.read (interactive human only)",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/assurance/trace-spans.tsx",
+        "apps/web/src/platform/surfaces/trace.tsx"
+      ]
+    },
+    {
+      "operationId": "postAdminModelProfilesProfileIdActivate",
+      "method": "POST",
+      "path": "/v1/admin/model-profiles/{profileId}/activate",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/admin/model-profiles/:profileId/activate"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/models-tab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAdminRuntime",
+      "method": "POST",
+      "path": "/v1/admin/runtime",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/deployment/runtime"
+      },
+      "xAction": "deployment.execute",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx",
+        "apps/web/src/shell/trusted/RuntimeStopSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthLogout",
+      "method": "POST",
+      "path": "/auth/logout",
+      "tag": "Auth",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "revoke + clear cookie"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": true,
+      "uiFiles": [
+        "apps/web/src/shell/app-root.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringAgents",
+      "method": "POST",
+      "path": "/v1/authoring/agents",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/agents"
+      },
+      "xAction": "agent.register",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDrafts",
+      "method": "POST",
+      "path": "/v1/authoring/drafts",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+        "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+        "apps/web/src/platform/surfaces/authoring/panels.tsx",
+        "apps/web/src/platform/surfaces/drafts.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdAgentsAgentIdAttach",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/agents/{agentId}/attach",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/agents/:agentId/attach"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdApprove",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/approve",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/approve"
+      },
+      "xAction": "draft.approve",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdCompile",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/compile",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/compile"
+      },
+      "xAction": "draft.compile",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdEvaluate",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/evaluate",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/evaluate"
+      },
+      "xAction": "draft.evaluate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdGraph",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/graph",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/graph"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdOrchestrationNodes",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/orchestration-nodes",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/orchestration-nodes"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdPublish",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/publish",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/publish"
+      },
+      "xAction": "draft.publish",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringDraftsDraftIdValidate",
+      "method": "POST",
+      "path": "/v1/authoring/drafts/{draftId}/validate",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/drafts/:draftId/validate"
+      },
+      "xAction": "draft.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringImportFincrime",
+      "method": "POST",
+      "path": "/v1/authoring/import/fincrime",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03",
+        "AGT-01"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/import/fincrime"
+      },
+      "xAction": "agent.register",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/drafts.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringImportGithub",
+      "method": "POST",
+      "path": "/v1/authoring/import/github",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/import/github"
+      },
+      "xAction": "agent.register",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringPoliciesCompile",
+      "method": "POST",
+      "path": "/v1/authoring/policies/compile",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/policies/compile"
+      },
+      "xAction": "draft.compile",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringPoliciesEvaluate",
+      "method": "POST",
+      "path": "/v1/authoring/policies/evaluate",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/policies/evaluate"
+      },
+      "xAction": "draft.evaluate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringPoliciesWorkspacesWorkspaceIdRevisions",
+      "method": "POST",
+      "path": "/v1/authoring/policies/workspaces/{workspaceId}/revisions",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/policies/workspaces/:workspaceId/revisions"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringPoliciesWorkspacesWorkspaceIdRevisionsRevisionApprove",
+      "method": "POST",
+      "path": "/v1/authoring/policies/workspaces/{workspaceId}/revisions/{revision}/approve",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/policies/workspaces/:workspaceId/revisions/:revision/approve"
+      },
+      "xAction": "draft.approve",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringPoliciesWorkspacesWorkspaceIdRevisionsRevisionCompile",
+      "method": "POST",
+      "path": "/v1/authoring/policies/workspaces/{workspaceId}/revisions/{revision}/compile",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/policies/workspaces/:workspaceId/revisions/:revision/compile"
+      },
+      "xAction": "draft.compile",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringPoliciesWorkspacesWorkspaceIdRevisionsRevisionPublish",
+      "method": "POST",
+      "path": "/v1/authoring/policies/workspaces/{workspaceId}/revisions/{revision}/publish",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/policies/workspaces/:workspaceId/revisions/:revision/publish"
+      },
+      "xAction": "draft.publish",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/policy-studio.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringSkills",
+      "method": "POST",
+      "path": "/v1/authoring/skills",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/skills"
+      },
+      "xAction": "agent.register",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringSourcePoliciesCompile",
+      "method": "POST",
+      "path": "/v1/authoring/source-policies/compile",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/source-policies/compile"
+      },
+      "xAction": "draft.compile",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "postAuthoringSourcePoliciesSimulate",
+      "method": "POST",
+      "path": "/v1/authoring/source-policies/simulate",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/authoring/source-policies/simulate"
+      },
+      "xAction": "draft.evaluate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "postCases",
+      "method": "POST",
+      "path": "/v1/cases",
+      "tag": "Cases",
+      "xScreens": [
+        "PLT-09"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v1/cases",
+        "note": "BFF completes createKycCaseRequest: tenantId, actor, schemaVersion, jurisdiction (const US today), policy digests from the plan"
+      },
+      "xAction": "case.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/assurance/ledger.tsx",
+        "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+        "apps/web/src/domains/fincrime/work/command-sheet.tsx",
+        "apps/web/src/platform/surfaces/case-detail.tsx",
+        "apps/web/src/platform/surfaces/cases.tsx"
+      ]
+    },
+    {
+      "operationId": "postCasesCaseIdCommands",
+      "method": "POST",
+      "path": "/v1/cases/{caseId}/commands",
+      "tag": "Cases",
+      "xScreens": [
+        "BIZ-03",
+        "BIZ-06",
+        "BIZ-07"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v1/cases/:caseId/commands"
+      },
+      "xAction": "case.write | case.review (FinalizeDisposition, RecordReview)",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/work/command-sheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postCasesCaseIdExports",
+      "method": "POST",
+      "path": "/v1/cases/{caseId}/exports",
+      "tag": "Cases",
+      "xScreens": [
+        "ASR-05"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v1/cases/:caseId/exports"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+        "apps/web/src/platform/surfaces/case-detail.tsx"
+      ]
+    },
+    {
+      "operationId": "postCasesCaseIdLedgerVerify",
+      "method": "POST",
+      "path": "/v1/cases/{caseId}/ledger:verify",
+      "tag": "Cases",
+      "xScreens": [
+        "ASR-02",
+        "PLT-09"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v1/cases/:caseId/ledger:verify"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/assurance/ledger.tsx",
+        "apps/web/src/platform/surfaces/case-detail.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextDefinitions",
+      "method": "POST",
+      "path": "/v1/context/definitions",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/definitions"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextDocumentsCaseIdCitationsResolve",
+      "method": "POST",
+      "path": "/v1/context/documents/{caseId}/citations/resolve",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-06"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v2/cases/:caseId/documents/citations/resolve"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-documents.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextDocumentsCaseIdIndex",
+      "method": "POST",
+      "path": "/v1/context/documents/{caseId}/index",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-06"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v2/cases/:caseId/documents/index"
+      },
+      "xAction": "evidence.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-documents.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextDocumentsCaseIdSearch",
+      "method": "POST",
+      "path": "/v1/context/documents/{caseId}/search",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-06"
+      ],
+      "xUpstream": {
+        "service": "case-api",
+        "method": "POST",
+        "path": "/v2/cases/:caseId/documents/search"
+      },
+      "xAction": "case.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-documents.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextMappingsIdEnable",
+      "method": "POST",
+      "path": "/v1/context/mappings/{id}/enable",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/mappings/:id/enable"
+      },
+      "xAction": "release.activate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextMappingsIdPause",
+      "method": "POST",
+      "path": "/v1/context/mappings/{id}/pause",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/mappings/:id/pause"
+      },
+      "xAction": "integration.pause",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextMappingsValidate",
+      "method": "POST",
+      "path": "/v1/context/mappings/validate",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/mappings/validate"
+      },
+      "xAction": "draft.compile",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextRefreshSchedules",
+      "method": "POST",
+      "path": "/v1/context/refresh-schedules",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/refresh-schedules"
+      },
+      "xAction": "release.activate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/ContextRefreshPanel.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextRefreshSchedulesIdRetry",
+      "method": "POST",
+      "path": "/v1/context/refresh-schedules/{id}/retry",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/refresh-schedules/:id/retry"
+      },
+      "xAction": "run.retry",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/ContextRefreshPanel.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextRefreshSchedulesIdTick",
+      "method": "POST",
+      "path": "/v1/context/refresh-schedules/{id}/tick",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/refresh-schedules/:id/tick"
+      },
+      "xAction": "run.start",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/ContextRefreshPanel.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextResourcesIdDiscover",
+      "method": "POST",
+      "path": "/v1/context/resources/{id}/discover",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/resources/:id/discover"
+      },
+      "xAction": "draft.evaluate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "postContextSampleRuns",
+      "method": "POST",
+      "path": "/v1/context/sample-runs",
+      "tag": "Context",
+      "xScreens": [
+        "CXT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/context/sample-runs"
+      },
+      "xAction": "draft.evaluate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx"
+      ]
+    },
+    {
+      "operationId": "postExternalCapabilityBindingsBindingId",
+      "method": "POST",
+      "path": "/v1/external-capability-bindings/{bindingId}",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/external-capability-bindings/:bindingId"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/binding-editor.tsx"
+      ]
+    },
+    {
+      "operationId": "postExternalProviders",
+      "method": "POST",
+      "path": "/v1/external-providers",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/external-providers"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/external-providers.tsx"
+      ]
+    },
+    {
+      "operationId": "postExternalProvidersProviderIdConnections",
+      "method": "POST",
+      "path": "/v1/external-providers/{providerId}/connections",
+      "tag": "Catalogs",
+      "xScreens": [],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/external-providers/:providerId/connections"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/catalogs/external-providers.tsx"
+      ]
+    },
+    {
+      "operationId": "postFincrimeCasesCaseIdCommandsPreview",
+      "method": "POST",
+      "path": "/v1/fincrime/cases/{caseId}/commands:preview",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-03",
+        "BIZ-06",
+        "BIZ-07"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "pure: builds the businessCommand + diff against the snapshot"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/work/command-sheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postFincrimeCasesCaseIdDocuments",
+      "method": "POST",
+      "path": "/v1/fincrime/cases/{caseId}/documents",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "relays case-api POST /v1/cases/:caseId/documents as the signed-in person (evidence.write); the document is untrusted until parsed and reviewed"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx",
+        "apps/web/src/documents/case-documents-page.tsx"
+      ]
+    },
+    {
+      "operationId": "postFincrimeCasesCaseIdDocumentsDocumentIdRerun",
+      "method": "POST",
+      "path": "/v1/fincrime/cases/{caseId}/documents/{documentId}/rerun",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "control-api run admission for the configured document-only plan"
+      },
+      "xAction": "run.start",
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx"
+      ]
+    },
+    {
+      "operationId": "postFincrimeCasesCaseIdDocumentsDocumentIdReviews",
+      "method": "POST",
+      "path": "/v1/fincrime/cases/{caseId}/documents/{documentId}/reviews",
+      "tag": "FinCrime",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "case-api RecordReview command, version-bound and revision checked"
+      },
+      "xAction": "case.review",
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/documents/DocumentWorkspace.tsx"
+      ]
+    },
+    {
+      "operationId": "postFincrimeContextPacketsPreview",
+      "method": "POST",
+      "path": "/v1/fincrime/context/packets:preview",
+      "tag": "FinCrime",
+      "xScreens": [
+        "CXT-04",
+        "AGT-05"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "control-api preview target/source authority + case-api /v2/cases/:caseId/context:preview"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": "fincrime-module",
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/surfaces/context/context-preview.tsx"
+      ]
+    },
+    {
+      "operationId": "postGatewayOpenrouterTest",
+      "method": "POST",
+      "path": "/v1/gateway/openrouter/test",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "capability-gateway",
+        "method": "POST",
+        "path": "/v1/openrouter/test"
+      },
+      "xAction": "capability.read (gateway-defined; verify)",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/system.tsx"
+      ]
+    },
+    {
+      "operationId": "postGatewayRegistry",
+      "method": "POST",
+      "path": "/v1/gateway/registry",
+      "tag": "Gateway",
+      "xScreens": [
+        "PLT-12"
+      ],
+      "xUpstream": {
+        "service": "capability-gateway",
+        "method": "POST",
+        "path": "/v1/capabilities"
+      },
+      "xAction": "capability.register (admin.write when authoring is disabled)",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+        "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsBindings",
+      "method": "POST",
+      "path": "/v1/integrations/bindings",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/bindings"
+      },
+      "xAction": "integration.bind",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsBindingsBindingIdActivate",
+      "method": "POST",
+      "path": "/v1/integrations/bindings/{bindingId}:activate",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/bindings/:bindingId:activate"
+      },
+      "xAction": "integration.activate",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsBindingsBindingIdPause",
+      "method": "POST",
+      "path": "/v1/integrations/bindings/{bindingId}:pause",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/bindings/:bindingId:pause"
+      },
+      "xAction": "integration.pause",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsBindingsBindingIdTest",
+      "method": "POST",
+      "path": "/v1/integrations/bindings/{bindingId}:test",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/bindings/:bindingId:test"
+      },
+      "xAction": "integration.test",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsConnectors",
+      "method": "POST",
+      "path": "/v1/integrations/connectors",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/connectors"
+      },
+      "xAction": "integration.connector.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsDeliveriesDeliveryIdReplay",
+      "method": "POST",
+      "path": "/v1/integrations/deliveries/{deliveryId}:replay",
+      "tag": "Integrations",
+      "xScreens": [
+        "PLT-15"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/deliveries/:deliveryId:replay"
+      },
+      "xAction": "integration.replay",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/integrations.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntegrationsHumanCasesCaseIdActionsActionIdExecute",
+      "method": "POST",
+      "path": "/v1/integrations/human/cases/{caseId}/actions/{actionId}:execute",
+      "tag": "Integrations",
+      "xScreens": [
+        "BIZ-02"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/integrations/human/cases/:caseId/actions/:actionId:execute"
+      },
+      "xAction": "case.read, then per-action checks upstream",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "postIntelligenceBindingsBindingIdChecks",
+      "method": "POST",
+      "path": "/v1/intelligence/bindings/{bindingId}/checks",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-16"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/intelligence/bindings/:bindingId/checks"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/intelligence/detail.tsx"
+      ]
+    },
+    {
+      "operationId": "postIntelligenceCandidates",
+      "method": "POST",
+      "path": "/v1/intelligence/candidates",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-16"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/intelligence/candidates"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/intelligence/editor.tsx"
+      ]
+    },
+    {
+      "operationId": "postMockReset",
+      "method": "POST",
+      "path": "/mock/reset",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "postOperationsHumanWorkWorkItemIdClaim",
+      "method": "POST",
+      "path": "/v1/operations/human-work/{workItemId}/claim",
+      "tag": "HumanWork",
+      "xScreens": [
+        "PLT-10",
+        "BIZ-06",
+        "BIZ-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/operations/human-work/:workItemId/claim"
+      },
+      "xAction": "human_work.claim",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postOperationsHumanWorkWorkItemIdDecisions",
+      "method": "POST",
+      "path": "/v1/operations/human-work/{workItemId}/decisions",
+      "tag": "HumanWork",
+      "xScreens": [
+        "PLT-10",
+        "BIZ-06",
+        "BIZ-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/operations/human-work/:workItemId/decisions"
+      },
+      "xAction": "human_work.decide",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postOperationsHumanWorkWorkItemIdResolve",
+      "method": "POST",
+      "path": "/v1/operations/human-work/{workItemId}/resolve",
+      "tag": "HumanWork",
+      "xScreens": [
+        "PLT-10",
+        "BIZ-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/operations/human-work/:workItemId/resolve"
+      },
+      "xAction": "human_work.resolve",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/shell/trusted/HumanDecisionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postPlans",
+      "method": "POST",
+      "path": "/v1/plans",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/plans"
+      },
+      "xAction": "plan.admit",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/plans.tsx"
+      ]
+    },
+    {
+      "operationId": "postPresentationEvents",
+      "method": "POST",
+      "path": "/v1/presentation/events",
+      "tag": "Presentation",
+      "xScreens": [
+        "all"
+      ],
+      "xUpstream": {
+        "service": "experience-bff",
+        "note": "presentation store"
+      },
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": "proposed",
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "postReleases",
+      "method": "POST",
+      "path": "/v1/releases",
+      "tag": "Releases",
+      "xScreens": [
+        "PLT-11"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/releases"
+      },
+      "xAction": "release.create",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/releases.tsx",
+        "apps/web/src/shell/trusted/ReleaseTransitionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postReleasesReleaseIdTransition",
+      "method": "POST",
+      "path": "/v1/releases/{releaseId}/transition",
+      "tag": "Releases",
+      "xScreens": [
+        "PLT-11",
+        "AGT-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/releases/:releaseId/transition"
+      },
+      "xAction": "release.approve | release.activate | release.revoke (by target)",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/shell/trusted/ReleaseTransitionSheet.tsx"
+      ]
+    },
+    {
+      "operationId": "postRuns",
+      "method": "POST",
+      "path": "/v1/runs",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-05"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/runs"
+      },
+      "xAction": "run.start",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+        "apps/web/src/platform/surfaces/runs/start-run.tsx"
+      ]
+    },
+    {
+      "operationId": "postRunsRunIdCancel",
+      "method": "POST",
+      "path": "/v1/runs/{runId}/cancel",
+      "tag": "Runs",
+      "xScreens": [
+        "PLT-07"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/runs/:runId/cancel"
+      },
+      "xAction": "run.cancel",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/runs/run-parts.tsx"
+      ]
+    },
+    {
+      "operationId": "postSigningKeysRevoke",
+      "method": "POST",
+      "path": "/v1/signing-keys/revoke",
+      "tag": "Releases",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/signing-keys/revoke"
+      },
+      "xAction": "release.revoke",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/settings-tab.tsx"
+      ]
+    },
+    {
+      "operationId": "postSourcePoliciesArtifacts",
+      "method": "POST",
+      "path": "/v1/source-policies/artifacts",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/source-policies/artifacts"
+      },
+      "xAction": "release.create",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "postSourcePoliciesArtifactsKindDigestApprove",
+      "method": "POST",
+      "path": "/v1/source-policies/artifacts/{kind}/{digest}/approve",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/source-policies/artifacts/:kind/:digest/approve"
+      },
+      "xAction": "release.approve",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "postSourcePoliciesArtifactsKindDigestRevoke",
+      "method": "POST",
+      "path": "/v1/source-policies/artifacts/{kind}/{digest}/revoke",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/source-policies/artifacts/:kind/:digest/revoke"
+      },
+      "xAction": "release.revoke",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "postSourcePoliciesEligibility",
+      "method": "POST",
+      "path": "/v1/source-policies/eligibility",
+      "tag": "PolicyStudio",
+      "xScreens": [
+        "PLT-04"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "POST",
+        "path": "/v1/source-policies/eligibility"
+      },
+      "xAction": "capability.read",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/source-policies.tsx"
+      ]
+    },
+    {
+      "operationId": "putAdminModelProfilesProfileId",
+      "method": "PUT",
+      "path": "/v1/admin/model-profiles/{profileId}",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/admin/model-profiles/:profileId"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/models-tab.tsx"
+      ]
+    },
+    {
+      "operationId": "putAdminProvidersProviderId",
+      "method": "PUT",
+      "path": "/v1/admin/providers/{providerId}",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/admin/providers/:providerId"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/providers-tab.tsx"
+      ]
+    },
+    {
+      "operationId": "putAdminSettingsSection",
+      "method": "PUT",
+      "path": "/v1/admin/settings/{section}",
+      "tag": "Admin",
+      "xScreens": [
+        "PLT-14"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/admin/settings/:section"
+      },
+      "xAction": "admin.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/admin/settings-tab.tsx"
+      ]
+    },
+    {
+      "operationId": "putAuthoringDraftsDraftId",
+      "method": "PUT",
+      "path": "/v1/authoring/drafts/{draftId}",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/authoring/drafts/:draftId"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Tune.tsx",
+        "apps/web/src/platform/surfaces/authoring/IntegrationsTab.tsx",
+        "apps/web/src/platform/surfaces/authoring/SourcesTab.tsx",
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "putAuthoringDraftsDraftIdContextClassificationPolicies",
+      "method": "PUT",
+      "path": "/v1/authoring/drafts/{draftId}/context-classification-policies",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/authoring/drafts/:draftId/context-classification-policies"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Tune.tsx",
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "putAuthoringDraftsDraftIdContextSelectors",
+      "method": "PUT",
+      "path": "/v1/authoring/drafts/{draftId}/context-selectors",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/authoring/drafts/:draftId/context-selectors"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/domains/fincrime/context/Tune.tsx",
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "putAuthoringDraftsDraftIdNodesNodeIdCaseWrites",
+      "method": "PUT",
+      "path": "/v1/authoring/drafts/{draftId}/nodes/{nodeId}/case-writes",
+      "tag": "Authoring",
+      "xScreens": [
+        "PLT-03"
+      ],
+      "xUpstream": {
+        "service": "control-api",
+        "method": "PUT",
+        "path": "/v1/authoring/drafts/:draftId/nodes/:nodeId/case-writes"
+      },
+      "xAction": "draft.write",
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": false,
+      "csrf": true,
+      "public": false,
+      "registered": true,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": [
+        "apps/web/src/platform/surfaces/authoring/panels.tsx"
+      ]
+    },
+    {
+      "operationId": "putMockClock",
+      "method": "PUT",
+      "path": "/mock/clock",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "putMockFaults",
+      "method": "PUT",
+      "path": "/mock/faults",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "putMockScenario",
+      "method": "PUT",
+      "path": "/mock/scenario",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    },
+    {
+      "operationId": "putMockSession",
+      "method": "PUT",
+      "path": "/mock/session",
+      "tag": "Mock",
+      "xScreens": [],
+      "xUpstream": null,
+      "xAction": null,
+      "xPoll": null,
+      "xOwner": null,
+      "xStatus": null,
+      "mockOnly": true,
+      "csrf": false,
+      "public": false,
+      "registered": false,
+      "alternateUnprefixedRoute": false,
+      "uiFiles": []
+    }
+  ]
+}

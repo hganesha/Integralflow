@@ -1,0 +1,33 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:regulatory.sar.evaluate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "filing_decided": {
+      "type": "boolean"
+    },
+    "indicator_ids": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "review_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "review_required",
+    "indicator_ids",
+    "filing_decided"
+  ],
+  "type": "object"
+}

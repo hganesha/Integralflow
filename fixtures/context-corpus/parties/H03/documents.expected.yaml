@@ -1,0 +1,46 @@
+party_id: H03
+as_of: '2026-09-30T00:00:00Z'
+documents:
+- document_id: doc_6ea5c9375c73e9db909dac2b
+  document_version: 6ea5c9375c73e9db909dac2bb44556d9ef882b6cddecaad82fdfc1954a47a3dd
+  file: okonkwo-bell-passport.txt
+  subject: h03.entity.adaeze
+  document_type: passport
+  fields:
+    person_name: Adaeze Okonkwo-Bell
+    identity_number: SPECIMEN-H03-PP-0001
+    date_of_birth: '1984-11-02'
+    expiry_date: '2029-05-20'
+  defects:
+  - finding: DATE_OF_BIRTH_CONFLICT
+    field: date_of_birth
+    stated: '1984-11-02'
+    record: '1984-02-11'
+    against: Identity
+- document_id: doc_bfcd40c5ce4c2b2ab2482faa
+  document_version: bfcd40c5ce4c2b2ab2482faa92f9f17ebf6948e1580c912b5138e6c9fdcd3cf4
+  file: okonkwo-bell-driving-licence.txt
+  subject: h03.entity.adaeze
+  document_type: driving_licence
+  fields:
+    person_name: Adaeze Okonkwo-Bell
+    identity_number: SPECIMEN-H03-DL-0001
+    date_of_birth: '1984-02-11'
+    expiry_date: '2026-03-31'
+  defects:
+  - finding: DOCUMENT_EXPIRED
+    field: expiry_date
+    stated: '2026-03-31'
+    record: '2026-09-30'
+    against: as_of
+- document_id: doc_90fbec9db4203db379787e1d
+  document_version: 90fbec9db4203db379787e1d85e3c47c712279f5ea70149f704571b307473c70
+  file: okonkwo-bell-utility-bill-2026-09.txt
+  subject: h03.entity.adaeze
+  document_type: utility_bill
+  fields:
+    subject_name: Adaeze Okonkwo-Bell
+    subject_address: 17 Pemberton Square, London, W1K 2ZZ, GB
+    issue_date: '2026-09-05'
+  defects: []
+missing: []

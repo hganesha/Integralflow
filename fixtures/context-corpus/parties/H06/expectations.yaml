@@ -1,0 +1,52 @@
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners:
+- c
+effective_ownership:
+  atlantic_meridian: '0.6'
+  b1: '0.18'
+  b2: '0.12'
+  bellmont_lux: '1'
+  c: '0.27'
+  seabright: '0.27'
+notes: 'Neither designated person reaches 50% alone; together they hold exactly 50%
+  of the Cyprus company. The Luxembourg company has 40% unaccounted for (a 25-40%
+  nominee range), a 5% holding in Cyprus makes the group circular, and only Leontine
+  Aldous-Frye (27% through Seabright) is a UBO candidate.
+
+  '
+ownership:
+  blocked_chain:
+  - atlantic_meridian
+  - bellmont_lux
+  - bellmont_us
+  blocked_owners:
+  - b1
+  - b2
+  path_product_blocked_total: '0.3'
+  ubo:
+  - c
+  unresolved:
+  - CYCLE
+  - UNACCOUNTED_INTEREST
+  - OWNERSHIP_RANGE_REQUIRES_RESOLUTION
+party_id: H06
+screening_result:
+  hits:
+  - entry: synthetic-designations:SYN-D-0001
+    identifier_conflict: false
+    list_type: sanctions
+    record: h06.screeninghit.b1-synthetic-designations-syn-d-0001
+    subject: b1
+    verified_match: true
+  - entry: synthetic-designations:SYN-D-0002
+    identifier_conflict: false
+    list_type: sanctions
+    record: h06.screeninghit.b2-synthetic-designations-syn-d-0002
+    subject: b2
+    verified_match: true
+seed: 1006
+signals: []
+spec_digest: c0ebb1d34bdf99cb17c2467453fdcf5583077441bd03d3f9da0f32ca12fc0b93
+workflow:
+  kyb: BLOCK_SANCTIONS_OWNERSHIP

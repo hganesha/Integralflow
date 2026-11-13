@@ -1,0 +1,62 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_by_local_test_endpoint": {
+          "$ref": "#/$defs/Bool"
+        },
+        "filing_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "receipt_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "synthetic": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "receipt_id"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:regulatory.filing.track:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "receipt": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Receipt"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "state",
+    "receipt"
+  ],
+  "type": "object"
+}

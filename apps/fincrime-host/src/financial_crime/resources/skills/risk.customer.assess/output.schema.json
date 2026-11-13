@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RiskCalculation": {
+      "additionalProperties": false,
+      "properties": {
+        "contributions": {
+          "items": {
+            "$ref": "#/$defs/RiskContribution"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "missing": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "model_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Decimal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "score",
+        "contributions",
+        "missing",
+        "model_version"
+      ],
+      "type": "object"
+    },
+    "RiskContribution": {
+      "additionalProperties": false,
+      "properties": {
+        "contribution": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "factor": {
+          "$ref": "#/$defs/Id"
+        },
+        "name": {
+          "$ref": "#/$defs/Id"
+        },
+        "value": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "weight": {
+          "$ref": "#/$defs/Decimal"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:risk.customer.assess:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment": {
+      "$ref": "#/$defs/RiskCalculation"
+    },
+    "tier": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "assessment",
+    "tier"
+  ],
+  "type": "object"
+}

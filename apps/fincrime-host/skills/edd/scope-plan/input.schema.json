@@ -1,0 +1,21 @@
+{
+  "$id": "urn:financial-crime:skill:edd.scope.plan:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "trigger_ids": {
+      "items": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "trigger_ids"
+  ],
+  "type": "object"
+}

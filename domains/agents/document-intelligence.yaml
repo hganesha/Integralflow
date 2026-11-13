@@ -1,0 +1,70 @@
+id: agent.document_intelligence
+version: 1.3.0
+source:
+  library: agent.document_intelligence
+  additions:
+    document.parse.artifact: "Re-read a document's full page text (or the OCR connector's) when a classification or extraction needs checking; read-only."
+    document.authenticity.assess: "Optional forensic indicators for the case's documents at hydration; read-only, never a verdict of authenticity."
+    fraud.document.tamper.detect: "Optional tamper detector over the case's document pages at hydration; read-only, a calibrated signal for review."
+name: Document intelligence agent
+role: Document analyst
+modelTier: standard
+customerTypes: [individual, corporate]
+skills:
+  # Delivery plan wave 4: optional authenticity checks run when the documents arrive, before
+  # classification, outside the agent's completion. A detector's absence or an INCONCLUSIVE answer is
+  # a gap the review reports, never a pass.
+  hydration: [document.authenticity.assess, fraud.document.tamper.detect]
+  required: [document.classify.catalog, document.fields.adjudicated_extract, document.validity.assess, document.consistency.assess, document.requirements.resolve]
+  optional: [document.request.compose, document.parse.artifact]
+tools: [document.evidence.package.v1]
+# Records the review reads beside its skills' results: the documents themselves and any detector signals.
+reads: [DocumentVersion, FraudSignal]
+completion: { libraryTask: task.document_intelligence }
+prompt: >-
+  Account for every document in the case: what it is, who it is about, what it states, whether it is current and
+  consistent, and which required documents are missing. Identity and company details read from a document (names,
+  dates of birth, document and registration numbers, addresses, ownership) are extracted assertions with their
+  spans, never facts, until a person or an authoritative record verifies them.
+instruction: >-
+  Use the skills' classifications, extractions, validity and consistency results, and name each document by the
+  catalog type id the classifier gave it. Re-read a document's pages only
+  when a classification or an extracted value needs checking. Explain each conflict between documents with the
+  spans that conflict, and compose a request only for documents the requirements name as missing. Never treat a
+  stated date as proof of authenticity. Report each document's authenticity from the forensic and tamper checks:
+  NOT_CHECKED when no check ran on it, INCONCLUSIVE when a check ran without a usable answer (a sandbox or
+  simulated detector is always inconclusive), SIGNAL when a detector raised an indicator or a tamper score, which is
+  a finding for review. Never report a document as authentic: no check here can establish that.
+requiresHumanReview: when_needed
+outputFields:
+  required: [documents, requests]
+  properties:
+    documents:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [documentRef, documentType, subjectRef, validity]
+        properties:
+          documentRef: { type: string, minLength: 1 }
+          # The generator replaces the placeholder with the document field catalog's type ids.
+          documentType: { type: string, enum: CATALOG_DOCUMENT_TYPES, description: "The catalog type id the classifier gave the document (passport, utility_bill, ...), never an alias." }
+          subjectRef: { type: string, minLength: 1 }
+          validity: { type: string, enum: [CURRENT, EXPIRED, UNDETERMINED, NOT_APPLICABLE] }
+          authenticity: { type: string, enum: [NOT_CHECKED, INCONCLUSIVE, SIGNAL], description: "What the optional forensic and tamper checks said; never a pass." }
+    requests:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [documentType, reason]
+        properties: { documentType: { type: string, enum: CATALOG_DOCUMENT_TYPES }, reason: { type: string, minLength: 1 } }
+example:
+  summary: Certificate of incorporation and shareholder register classified; one address conflict.
+  findings: [{ type: DOCUMENT_CONFLICT, severity: REVIEW, reason: "Registered address differs between the certificate and the register.", sourceRefs: [doc-1, doc-2] }]
+  gaps: ["proof of address for one director"]
+  requiresHumanReview: true
+  documents:
+    - { documentRef: doc-1, documentType: certificate_of_incorporation, subjectRef: e-customer, validity: NOT_APPLICABLE, authenticity: INCONCLUSIVE }
+    - { documentRef: doc-2, documentType: shareholder_register, subjectRef: e-holdings, validity: NOT_APPLICABLE, authenticity: NOT_CHECKED }
+  requests: [{ documentType: utility_bill, reason: "Required for every director; none supplied." }]

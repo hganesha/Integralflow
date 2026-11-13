@@ -1,0 +1,118 @@
+{
+  "$defs": {
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "NormalizedEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "$ref": "#/$defs/SourceContent"
+        },
+        "hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "source_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "hash",
+        "content"
+      ],
+      "type": "object"
+    },
+    "SourceArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "$ref": "#/$defs/Id"
+        },
+        "media_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "media_type",
+        "encoding",
+        "value"
+      ],
+      "type": "object"
+    },
+    "SourceContent": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Text"
+        },
+        {
+          "$ref": "#/$defs/SourceArtifact"
+        }
+      ]
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:evidence.normalize:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/NormalizedEvidence"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "evidence"
+  ],
+  "type": "object"
+}

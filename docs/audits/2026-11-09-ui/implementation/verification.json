@@ -1,0 +1,123 @@
+{
+  "verifiedAt": "2026-11-09T23:04:53.752Z",
+  "baseHead": "eee23d030a3bf1b807a410e6dd3f401c182cbd73",
+  "workingTree": "Isolated UI product-polish PR branch; see PR-VALIDATION.md for validation scope.",
+  "catalogs": {
+    "entries": 1668,
+    "mappedPresentationEntries": 1639,
+    "skillCount": 229,
+    "capabilityDefinitions": 56,
+    "providerBindings": 825,
+    "documentTypes": 293,
+    "documentFields": 236,
+    "documentCategories": 55,
+    "missingPresentation": [],
+    "spriteIcons": 81
+  },
+  "tokens": {
+    "undefinedTokens": [],
+    "rawPaletteFiles": []
+  },
+  "navigation": {
+    "brokenWorkspaceLinks": [],
+    "danglingRelationships": [],
+    "duplicateNavIds": []
+  },
+  "bff": {
+    "nonMockOperations": 179,
+    "missingRoutes": [],
+    "unavailable": {
+      "getAdminRuntime": {
+        "owner": "Deployment platform",
+        "action": "admin.read",
+        "reason": "Runtime deployment is managed outside this console. Open environment setup or use your deployment pipeline."
+      },
+      "postAdminRuntime": {
+        "owner": "Deployment platform",
+        "action": "admin.write",
+        "reason": "Runtime deployment is managed outside this console. Open environment setup or use your deployment pipeline."
+      },
+      "getOverview": {
+        "owner": "Platform experience",
+        "action": "read",
+        "reason": "Operational totals are not connected. Open Plans, Runs, Cases or Human work to inspect their recorded data."
+      },
+      "getSystem": {
+        "owner": "Platform observability",
+        "action": "capability.read|telemetry.read",
+        "reason": "System health telemetry is not connected. Use your environment monitoring tools to inspect service and worker health."
+      },
+      "getTracesTraceId": {
+        "owner": "Platform observability",
+        "action": "telemetry.read|run.read",
+        "reason": "A trace-store reader is not configured. Open the trace in your environment monitoring tools."
+      },
+      "getFincrimeAssuranceMissionControl": {
+        "owner": "FinCrime assurance",
+        "action": "run.read|human_work.read",
+        "reason": "The assurance aggregate is not connected. Inspect recorded runs and the human-work queue from Platform."
+      },
+      "getFincrimeCasesCaseIdOwnership": {
+        "owner": "FinCrime evidence projections",
+        "action": "case.read",
+        "reason": "The ownership workbench is not connected to current case records. Inspect the recorded claims and original evidence in the case room."
+      },
+      "getFincrimeCasesCaseIdContradictionsContradictionId": {
+        "owner": "FinCrime evidence projections",
+        "action": "case.read",
+        "reason": "The contradiction comparison is not connected. Inspect contradictions and their evidence references in the case room."
+      },
+      "getFincrimeCasesCaseIdScreening": {
+        "owner": "FinCrime screening",
+        "action": "case.read",
+        "reason": "The screening workbench is not connected to current case records. Inspect recorded findings and the assigned human-work item."
+      },
+      "getFincrimeCasesCaseIdScreeningFindingId": {
+        "owner": "FinCrime screening",
+        "action": "case.read",
+        "reason": "The watchlist comparison is not connected. Inspect the finding and its source evidence before deciding."
+      },
+      "getFincrimeCasesCaseIdLineage": {
+        "owner": "FinCrime assurance",
+        "action": "case.read",
+        "reason": "The decision-lineage projection is not connected. Inspect the case ledger and its evidence references from Platform."
+      },
+      "getFincrimeCasesCaseIdRecorder": {
+        "owner": "FinCrime assurance",
+        "action": "event.read",
+        "reason": "The combined case and run recorder is not connected. Inspect case events and run execution from Platform."
+      },
+      "getFincrimeCasesCaseIdRecorderCausality": {
+        "owner": "FinCrime assurance",
+        "action": "event.read",
+        "reason": "Cross-service causal links are not connected. Inspect the individual case and run records from Platform."
+      },
+      "getFincrimeCasesCaseIdRecorderEntriesEntryRef": {
+        "owner": "FinCrime assurance",
+        "action": "event.read",
+        "reason": "Combined recorder entries are not connected. Inspect the source case or run event from Platform."
+      },
+      "postFincrimeCasesCaseIdDocumentsDocumentIdRerun": {
+        "owner": "Document execution",
+        "action": "run.start",
+        "reason": "Document extraction needs a configured document-only plan and version-bound authorization. Ask your environment administrator to configure that workflow."
+      },
+      "getPresentationCatalog": {
+        "owner": "Presentation platform",
+        "action": "case.read|draft.read",
+        "reason": "Generated presentations are not configured. Canonical case and catalog views remain available."
+      },
+      "getFincrimeCasesCaseIdSurfaces": {
+        "owner": "Presentation platform",
+        "action": "case.read",
+        "reason": "Generated case presentations are not configured. Use the canonical case room."
+      },
+      "postPresentationEvents": {
+        "owner": "Presentation platform",
+        "action": "case.read|draft.read",
+        "reason": "Presentation event collection is not configured."
+      }
+    },
+    "note": "Registration coverage is not proof of live service behavior. See HTTP journey tests and the documented unavailable operations."
+  }
+}

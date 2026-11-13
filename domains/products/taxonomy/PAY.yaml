@@ -1,0 +1,70 @@
+# Payments & money movement. Candidate canonical content, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata: { code: PAY, version: 1.0.0, status: CANDIDATE, owner: platform.product-taxonomy }
+spec:
+  sectors: [BANKING, PAYMENTS, FINTECH]
+  name: Payments & money movement
+  definition: Services that move value between parties, accounts, institutions or currencies.
+  regulatedActivities: [PAYMENT_SERVICES]
+  riskDimensions: [VELOCITY, CROSS_BORDER, THIRD_PARTY_FUNDING]
+  classes:
+    - code: DOMESTIC_TRANSFERS
+      name: Domestic transfers
+      definition: Credit and debit transfers within one payment system or currency area.
+      types:
+        - { code: ACH, name: ACH and bulk credit transfers, definition: "Batched low-value credit and debit transfers." }
+        - { code: DOMESTIC_WIRE, name: Domestic wire, definition: "A high-value real-time gross settlement transfer." }
+        - { code: INSTANT_PAYMENT, name: Instant payment, definition: "A real-time retail credit transfer available around the clock." }
+        - { code: DIRECT_DEBIT, name: Direct debit, definition: "A pull payment authorised by the payer's mandate." }
+    - code: CROSS_BORDER
+      name: Cross-border payments
+      definition: Transfers between jurisdictions, usually through correspondents or networks.
+      riskDimensions: [CROSS_BORDER, GEOGRAPHIC_EXPOSURE, INTERMEDIARY_RISK]
+      types:
+        - { code: INTERNATIONAL_WIRE, name: International wire, definition: "A cross-border credit transfer through correspondent banks." }
+        - { code: REMITTANCE, name: Remittance, definition: "A person-to-person cross-border transfer, often cash-funded.", regulatedActivities: [MONEY_TRANSMISSION], riskDimensions: [CASH_INTENSITY, CROSS_BORDER] }
+        - { code: FX_PAYMENT, name: FX payment, definition: "A payment with currency conversion.", regulatedActivities: [FOREIGN_EXCHANGE] }
+    - code: CARDS
+      name: Cards
+      definition: Card products used to pay at merchants and withdraw cash.
+      regulatedActivities: [CARD_ISSUING]
+      types:
+        - { code: DEBIT, name: Debit card, definition: "A card drawing on a deposit account.", eligiblePartyTypes: [INDIVIDUAL, SOLE_PROPRIETOR, LEGAL_ENTITY] }
+        - { code: PREPAID, name: Prepaid card, definition: "A card loaded with funds in advance.", riskDimensions: [ANONYMITY, CASH_INTENSITY] }
+        - { code: CORPORATE_CARD, name: Corporate card, definition: "A card issued to employees under a company's liability.", eligiblePartyTypes: [LEGAL_ENTITY] }
+        - { code: VIRTUAL_CARD, name: Virtual card, definition: "A card number issued for online or single use.", riskDimensions: [NEW_TECHNOLOGY] }
+    - code: MERCHANT_ACQUIRING
+      name: Merchant acquiring
+      definition: Accepting card and electronic payments on behalf of merchants and settling them.
+      regulatedActivities: [MERCHANT_ACQUIRING]
+      eligiblePartyTypes: [SOLE_PROPRIETOR, LEGAL_ENTITY, PARTNERSHIP, NONPROFIT]
+      riskDimensions: [THIRD_PARTY_FUNDING, VELOCITY]
+      types:
+        - { code: CARD_ACQUIRING, name: Card acquiring, definition: "Acquiring card-present and card-not-present transactions for a merchant." }
+        - { code: PAYMENT_FACILITATION, name: Payment facilitation, definition: "Acquiring through a payment facilitator for its sub-merchants.", riskDimensions: [NESTED_ACCESS, INTERMEDIARY_RISK] }
+        - { code: ECOMMERCE_GATEWAY, name: E-commerce gateway, definition: "Online payment acceptance and routing for a merchant." }
+    - code: MONEY_SERVICES
+      name: Money services
+      definition: Non-account payment services typically offered by money services businesses.
+      regulatedActivities: [MONEY_TRANSMISSION]
+      riskDimensions: [CASH_INTENSITY, ANONYMITY]
+      types:
+        - { code: MONEY_ORDER, name: Money order, definition: "A prepaid payment instrument for a stated amount." }
+        - { code: CHECK_CASHING, name: Check cashing, definition: "Cashing checks for a fee without an account.", regulatedActivities: [CHECK_CASHING] }
+        - { code: CURRENCY_EXCHANGE, name: Currency exchange, definition: "Buying and selling foreign banknotes.", regulatedActivities: [FOREIGN_EXCHANGE] }
+    - code: WALLETS
+      name: Wallets & stored value
+      definition: Stored-value accounts and digital wallets that hold or pass through funds.
+      regulatedActivities: [E_MONEY_ISSUANCE]
+      riskDimensions: [NEW_TECHNOLOGY, VELOCITY]
+      types:
+        - { code: E_MONEY_WALLET, name: E-money wallet, definition: "A wallet holding electronic money issued against funds received." }
+        - { code: PASS_THROUGH_WALLET, name: Pass-through wallet, definition: "A wallet storing payment credentials for another account." }
+    - code: BULK_PAYMENTS
+      name: Bulk & payroll payments
+      definition: High-volume payment files for payroll, disbursements and supplier payments.
+      eligiblePartyTypes: [LEGAL_ENTITY, GOVERNMENT, NONPROFIT, FINANCIAL_INSTITUTION]
+      types:
+        - { code: PAYROLL, name: Payroll, definition: "Salary payments from an employer to employees." }
+        - { code: DISBURSEMENTS, name: Disbursements, definition: "Mass payouts such as claims, refunds or benefits." }

@@ -1,0 +1,71 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "bundle_code_hash": {
+      "title": "Bundle Code Hash",
+      "type": "string"
+    },
+    "capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Capabilities",
+      "type": "array"
+    },
+    "code_hash": {
+      "title": "Code Hash",
+      "type": "string"
+    },
+    "context_hash": {
+      "title": "Context Hash",
+      "type": "string"
+    },
+    "instruction_hash": {
+      "title": "Instruction Hash",
+      "type": "string"
+    },
+    "libraries": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Libraries",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "policy_hash": {
+      "title": "Policy Hash",
+      "type": "string"
+    },
+    "profile_hash": {
+      "title": "Profile Hash",
+      "type": "string"
+    },
+    "python_version": {
+      "title": "Python Version",
+      "type": "string"
+    },
+    "requirements_hash": {
+      "title": "Requirements Hash",
+      "type": "string"
+    },
+    "skill_version": {
+      "title": "Skill Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_hash",
+    "skill_version",
+    "code_hash",
+    "bundle_code_hash",
+    "instruction_hash",
+    "python_version",
+    "policy_hash",
+    "context_hash",
+    "requirements_hash",
+    "capabilities",
+    "libraries"
+  ],
+  "title": "ExecutionLock",
+  "type": "object"
+}

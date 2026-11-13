@@ -1,0 +1,16 @@
+{
+  "$id": "urn:financial-crime:skill:risk.residual.calculate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "residual_score": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "residual_score"
+  ],
+  "type": "object"
+}

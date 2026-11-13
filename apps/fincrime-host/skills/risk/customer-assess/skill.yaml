@@ -1,0 +1,164 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:risk.customer.assess
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Calculate a pinned weighted score with unknown factors retained
+  and no acceptance decision.
+code_hash: ed05208ae71a29d14348126806c1d9dbb19bba0baddbf753d9a2d89b19cd115b
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Calculate a pinned weighted score with unknown factors retained and no
+  acceptance decision.
+effects: read_only
+entrypoint: financial_crime.skills.risk_edd:customer_risk
+evaluation_profile: risk.customer.assess-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: risk-customer-assess
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: risk.customer.assess
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:risk.customer.assess:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 9831307bd97ac24770877a3fc9f88b470d8a4626dad10946a287c1150af9cf2d
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- No independent evidence acquisition, learned prediction or proof that supplied factor
+  scores are valid. The supported arithmetic does not establish real-world calibration,
+  population fitness or acceptance authority. Current maturity remains implemented_synthetic.
+  Independent evaluation, policy/source approvals and operating qualification are
+  required before production.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    RiskCalculation:
+      additionalProperties: false
+      properties:
+        contributions:
+          items:
+            $ref: '#/$defs/RiskContribution'
+          maxItems: 10000
+          type: array
+        missing:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        model_version:
+          $ref: '#/$defs/Id'
+        score:
+          anyOf:
+          - $ref: '#/$defs/Decimal'
+          - type: 'null'
+      required:
+      - score
+      - contributions
+      - missing
+      - model_version
+      type: object
+    RiskContribution:
+      additionalProperties: false
+      properties:
+        contribution:
+          $ref: '#/$defs/Decimal'
+        factor:
+          $ref: '#/$defs/Id'
+        name:
+          $ref: '#/$defs/Id'
+        value:
+          $ref: '#/$defs/Decimal'
+        weight:
+          $ref: '#/$defs/Decimal'
+      required:
+      - value
+      type: object
+  $id: urn:financial-crime:skill:risk.customer.assess:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    assessment:
+      $ref: '#/$defs/RiskCalculation'
+    tier:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - assessment
+  - tier
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- risk_model_version
+- risk_tiers
+- risk_weights
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - name
+  - score
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: RiskFactor
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

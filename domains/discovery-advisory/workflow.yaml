@@ -1,0 +1,59 @@
+apiVersion: ladder.dev/v1alpha1
+kind: Workflow
+metadata:
+  name: discovery-advisory
+  title: Corporate Reconnaissance Advisory
+  description: Isolated synthetic search and lead synthesis for optional analyst follow-up.
+  version: 1.0.0
+spec:
+  objective: Collect source leads and return a structured unverified brief.
+  inputs:
+    type: object
+    additionalProperties: false
+    required: [tenantId, caseId, seed]
+    properties:
+      tenantId: { type: string }
+      caseId: { type: string, pattern: '^recon_[a-f0-9]{64}$' }
+      seed:
+        type: object
+        additionalProperties: false
+        required: [companyName, country]
+        properties:
+          companyName: { const: Asterion Advanced Materials Ltd. }
+          country: { type: string, pattern: '^[A-Z]{2}$' }
+  outputs:
+    type: object
+    required: [search, draft]
+    properties:
+      search: { type: object }
+      draft: { type: object }
+  policies: { maxConcurrency: 1, onFailure: stop }
+  nodes:
+    - id: intake
+      kind: input
+      name: Approved synthetic company seed
+    - id: search
+      kind: tool
+      name: Search fictional sources
+      capabilities: { tools: [discovery.public.search.v1] }
+    - id: synthesize
+      kind: agent
+      name: Synthesize unverified leads
+      role: Corporate reconnaissance analyst
+      prompt: Review the supplied search results and return an unverified Investigation Brief.
+      config:
+        agentRef: agent.reconnaissance
+        runtimeTarget: hosted_http
+    - id: gather
+      kind: join
+      name: Gather search results and draft
+      config: { join: all, mode: all }
+    - id: advisory-output
+      kind: output
+      name: Supplemental brief and cited search results
+  edges:
+    - { id: intake-search, from: intake, to: search, kind: data, sourcePath: /seed, targetPath: / }
+    - { id: search-synthesize, from: search, to: synthesize, kind: data }
+    - { id: search-output, from: search, to: gather, kind: data, sourcePath: /, targetPath: /search }
+    - { id: synthesize-output, from: synthesize, to: gather, kind: data, sourcePath: /, targetPath: /draft }
+    - { id: gather-output, from: gather, to: advisory-output, kind: data }

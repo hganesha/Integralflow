@@ -1,0 +1,70 @@
+{
+  "provider_id": "ipqs",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://www.ipqualityscore.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "ipqs-key",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://www.ipqualityscore.com/documentation/about-ipqs-apis/submitting-data-to-ipqs-apis"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "ip": {
+      "method": "POST",
+      "path": "/api/json/ip/",
+      "required_body": [
+        "ip"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://www.ipqualityscore.com/documentation/about-ipqs-apis/submitting-data-to-ipqs-apis",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "email": {
+      "method": "POST",
+      "path": "/api/json/email/",
+      "required_body": [
+        "email"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://www.ipqualityscore.com/documentation/about-ipqs-apis/submitting-data-to-ipqs-apis",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "phone": {
+      "method": "POST",
+      "path": "/api/json/phone/",
+      "required_body": [
+        "phone"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://www.ipqualityscore.com/documentation/about-ipqs-apis/submitting-data-to-ipqs-apis",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

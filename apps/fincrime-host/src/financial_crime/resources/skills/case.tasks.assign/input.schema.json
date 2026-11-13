@@ -1,0 +1,25 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:case.tasks.assign:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Id"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    }
+  },
+  "required": [
+    "assignments"
+  ],
+  "type": "object"
+}

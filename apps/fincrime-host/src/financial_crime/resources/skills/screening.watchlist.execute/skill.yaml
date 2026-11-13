@@ -1,0 +1,239 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:screening.watchlist.execute
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Evaluate admitted watchlist search records, retain candidates and
+  identify incomplete subject coverage.
+code_hash: 90a57fb4c01bb3441948890f28264c3d158199cd5b0ac96dde13769b28624104
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Evaluate admitted watchlist search records, retain candidates and identify
+  incomplete subject coverage.
+effects: read_only
+entrypoint: financial_crime.skills.screening:list_screen
+evaluation_profile: screening.watchlist.execute-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: screening-watchlist-execute
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: screening.watchlist.execute
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:screening.watchlist.execute:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 42b95e163cf5daf6fda08a61f42d3b9d9c6ca6215d1c514bbe745928046fa092
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. Consumes admitted search records; does not acquire lists or query
+  providers. Local matching is an uncalibrated synthetic heuristic, not a match probability.
+  Does not evaluate ownership/control or authorize final disposition.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - name
+  - identifiers
+  - list_type
+  - list_version
+  - coverage
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: WatchlistEntry
+  optional: true
+- fields:
+  - subject
+  - screening_type
+  - provider
+  - query
+  - query_time
+  - status
+  - dataset_versions
+  - scope
+  - candidate_count
+  - truncated
+  - limitations
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ScreeningExecution
+  optional: true
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    ListCoverage:
+      additionalProperties: false
+      properties:
+        as_of:
+          $ref: '#/$defs/Timestamp'
+        complete:
+          $ref: '#/$defs/Bool'
+        jurisdictions:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        limitations:
+          items:
+            $ref: '#/$defs/Text'
+          maxItems: 10000
+          type: array
+        list_version:
+          $ref: '#/$defs/Id'
+        pages_complete:
+          $ref: '#/$defs/Bool'
+        provider:
+          $ref: '#/$defs/Id'
+        query:
+          $ref: '#/$defs/Text'
+      required:
+      - list_version
+      - complete
+      type: object
+    MatchFeatures:
+      additionalProperties: false
+      properties:
+        identifier_conflict:
+          $ref: '#/$defs/Bool'
+        name_score:
+          $ref: '#/$defs/Probability'
+        score:
+          $ref: '#/$defs/Probability'
+        shared_identifiers:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        verified_match:
+          $ref: '#/$defs/Bool'
+      required:
+      - score
+      - shared_identifiers
+      - identifier_conflict
+      - name_score
+      - verified_match
+      type: object
+    Probability:
+      maximum: 1
+      minimum: 0
+      type: number
+    ScreeningMatch:
+      additionalProperties: false
+      properties:
+        disposition:
+          $ref: '#/$defs/Id'
+        entity_id:
+          $ref: '#/$defs/Id'
+        entry_id:
+          $ref: '#/$defs/Id'
+        features:
+          $ref: '#/$defs/MatchFeatures'
+        list_version:
+          $ref: '#/$defs/Id'
+      required:
+      - entity_id
+      - entry_id
+      - list_version
+      - features
+      - disposition
+      type: object
+    Text:
+      maxLength: 200000
+      type: string
+    Timestamp:
+      format: date-time
+      type: string
+  $id: urn:financial-crime:skill:screening.watchlist.execute:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    coverage:
+      items:
+        $ref: '#/$defs/ListCoverage'
+      maxItems: 10000
+      type: array
+    hits:
+      items:
+        $ref: '#/$defs/ScreeningMatch'
+      maxItems: 10000
+      type: array
+    universal_clearance:
+      type: boolean
+  required:
+  - hits
+  - coverage
+  - universal_clearance
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- screening_threshold
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - name
+  - identifiers
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Entity
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

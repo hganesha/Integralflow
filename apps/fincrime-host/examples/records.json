@@ -1,0 +1,2357 @@
+[
+  {
+    "classification": "internal",
+    "data": {
+      "attributes": {
+        "address": "1 Test Street"
+      },
+      "entity_type": "company",
+      "identifiers": [
+        "SYN-0001"
+      ],
+      "name": "Acme"
+    },
+    "id": "acme",
+    "object_type": "Entity",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "attributes": {
+        "address": "1 Test Street"
+      },
+      "entity_type": "individual",
+      "identifiers": [
+        "SYN-0002"
+      ],
+      "name": "Alice Example"
+    },
+    "id": "alice",
+    "object_type": "Entity",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "identifiers": [
+        "SYN-0001"
+      ],
+      "name": "Acme"
+    },
+    "id": "candidate-1",
+    "object_type": "EntityCandidate",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "entity_id": "acme",
+      "name": "ACMÉ Ltd"
+    },
+    "id": "alias-1",
+    "object_type": "Alias",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "customer_type": "corporate",
+      "entity_id": "acme",
+      "industry": "SYN-TECH",
+      "profile": {
+        "business_purpose": "software",
+        "employees": 10,
+        "legal_name": "Acme"
+      },
+      "role": "customer"
+    },
+    "id": "party-1",
+    "object_type": "Party",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "entity_id": "alice",
+      "organization_id": "acme",
+      "role": "director"
+    },
+    "id": "officer-1",
+    "object_type": "OfficerRole",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "interest": "1.0",
+      "owned": "acme",
+      "owner": "alice"
+    },
+    "id": "own-1",
+    "object_type": "OwnershipInterest",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "basis": "appoint_board",
+      "controlled": "acme",
+      "controller": "alice",
+      "verified": true
+    },
+    "id": "control-1",
+    "object_type": "ControlRight",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "entity_id": "alice",
+      "evidence_ids": [
+        "evidence-1"
+      ]
+    },
+    "id": "ubo-1",
+    "object_type": "BeneficialOwner",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "method": "synthetic-authority",
+      "status": "VERIFIED",
+      "subject": "alice"
+    },
+    "id": "verify-1",
+    "object_type": "VerificationRecord",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "document_version": "doc-v1",
+      "page": 1,
+      "text": "Certificate of incorporation\nName: Acme\nRegistration: SYN-0001\nDate of incorporation: 2020-01-15\nJurisdiction: Synthetic Neutral"
+    },
+    "id": "page-1",
+    "object_type": "DocumentPage",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "artifact_hash": "98768ee4bb77bb2dab1b67ff082801b490eb5f2c6af252d5ae8657367f69b5d7",
+      "artifact_ref": "synthetic:doc-1",
+      "document_id": "doc-1",
+      "media_type": "application/pdf",
+      "page_count": 1
+    },
+    "id": "docver-1",
+    "object_type": "DocumentVersion",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "document_type": "incorporation",
+      "expires_at": "2027-11-07T00:00:00+00:00",
+      "issued_at": "2026-01-01T00:00:00+00:00"
+    },
+    "id": "doc-1",
+    "object_type": "Document",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "document_version": "doc-v1",
+      "field": "name",
+      "subject": "acme",
+      "value": "Acme"
+    },
+    "id": "extract-1",
+    "object_type": "ExtractedAssertion",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "document_version": "doc-v1",
+      "extensions": {
+        "ehf.document": {
+          "schema_version": "1.0.0",
+          "value": {
+            "document_type": "certificate_of_incorporation",
+            "path": "/extracted_fields/issue_date"
+          }
+        }
+      },
+      "field": "issue_date",
+      "subject": "acme",
+      "value": "2020-01-15"
+    },
+    "id": "extract-2",
+    "object_type": "ExtractedAssertion",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "address": "1 Test Street",
+      "attributes": {
+        "name": "Acme",
+        "status": "ACTIVE"
+      },
+      "coverage": {
+        "as_of": "2026-01-01T00:00:00+00:00",
+        "complete": true,
+        "jurisdictions": [
+          "synthetic-neutral"
+        ],
+        "limitations": [
+          "synthetic test source only"
+        ]
+      },
+      "name": "Acme",
+      "registration_id": "SYN-0001",
+      "status": "ACTIVE"
+    },
+    "id": "registry-1",
+    "object_type": "RegistryRecord",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "authority": "synthetic-authority",
+      "jurisdiction": "synthetic-neutral",
+      "registration_id": "SYN-0001"
+    },
+    "id": "registration-1",
+    "object_type": "Registration",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "artifact_ref": "synthetic:filing-1",
+      "authority": "synthetic-authority",
+      "content_hash": "3cd61b381615edd97a14962d6abdf6406ee0f2d8fb5bc5b5a9dce55ac947380e",
+      "filing_kind": "corporate"
+    },
+    "id": "corporate-filing-1",
+    "object_type": "Filing",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "expires_at": "2027-11-07T00:00:00+00:00",
+      "issuer": "synthetic-authority",
+      "scope": [
+        "deposit"
+      ],
+      "status": "ACTIVE"
+    },
+    "id": "license-1",
+    "object_type": "License",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "coverage": {
+        "as_of": "2026-01-01T00:00:00+00:00",
+        "complete": true,
+        "jurisdictions": [
+          "synthetic-neutral"
+        ],
+        "limitations": [
+          "synthetic test source only"
+        ]
+      },
+      "identifiers": [
+        "SYN-9991"
+      ],
+      "list_type": "sanctions",
+      "list_version": "synthetic-sanctions-v1",
+      "name": "Other Person"
+    },
+    "id": "watch-1",
+    "object_type": "WatchlistEntry",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "coverage": {
+        "as_of": "2026-01-01T00:00:00+00:00",
+        "complete": true,
+        "jurisdictions": [
+          "synthetic-neutral"
+        ],
+        "limitations": [
+          "synthetic test source only"
+        ]
+      },
+      "identifiers": [
+        "SYN-9992"
+      ],
+      "list_type": "pep",
+      "list_version": "synthetic-pep-v1",
+      "name": "Other PEP"
+    },
+    "id": "pep-1",
+    "object_type": "WatchlistEntry",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "coverage": {
+        "as_of": "2026-01-01T00:00:00+00:00",
+        "complete": true,
+        "jurisdictions": [
+          "synthetic-neutral"
+        ],
+        "limitations": [
+          "synthetic test source only"
+        ]
+      },
+      "identifiers": [
+        "SYN-9993"
+      ],
+      "list_type": "watchlist",
+      "list_version": "synthetic-general-v1",
+      "name": "Other Watch"
+    },
+    "id": "general-1",
+    "object_type": "WatchlistEntry",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "entity_id": "alice",
+      "entry_id": "watch-1",
+      "features": {
+        "identifier_conflict": true
+      }
+    },
+    "id": "hit-1",
+    "object_type": "ScreeningHit",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "relation": "relative",
+      "source": "alice",
+      "target": "pep-1",
+      "verified": false
+    },
+    "id": "pep-rel-1",
+    "object_type": "PEPRelationship",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "coverage": {
+        "as_of": "2026-01-01T00:00:00+00:00",
+        "complete": true,
+        "jurisdictions": [
+          "synthetic-neutral"
+        ],
+        "limitations": [
+          "synthetic test source only"
+        ]
+      },
+      "event_key": "event-1",
+      "source": "synthetic-news",
+      "status": "ALLEGATION",
+      "subjects": [
+        "Acme"
+      ],
+      "title": "Acme denies fraud allegation"
+    },
+    "id": "media-1",
+    "object_type": "AdverseMediaEvent",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "name": "geography",
+      "score": "0.2"
+    },
+    "id": "risk-geo",
+    "object_type": "RiskFactor",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "name": "product",
+      "score": "0.3"
+    },
+    "id": "risk-product",
+    "object_type": "RiskFactor",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "contributions": [
+        {
+          "name": "geography",
+          "value": "0.08"
+        }
+      ],
+      "model_version": "synthetic-risk-v1",
+      "score": "0.26",
+      "tier": "LOW"
+    },
+    "id": "assessment-1",
+    "object_type": "RiskAssessment",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "basis": "domicile",
+      "country": "SYN",
+      "value": "1"
+    },
+    "id": "geo-1",
+    "object_type": "GeographyExposure",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "active": true,
+      "channel": "web",
+      "product_type": "deposit"
+    },
+    "id": "product-1",
+    "object_type": "Product",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "behavior_category": "expected",
+      "declared": {
+        "currency": "SYN",
+        "monthly_amount": "1000"
+      },
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "observed": {
+        "count": 3
+      },
+      "window": {
+        "end": "2026-11-07T00:00:00+00:00",
+        "start": "2026-11-01T00:00:00+00:00"
+      }
+    },
+    "id": "expected-1",
+    "object_type": "ExpectedActivity",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "claim": "Software revenue",
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "verified": true
+    },
+    "id": "funds-1",
+    "object_type": "SourceOfFunds",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "claim": "Business ownership",
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "verified": false
+    },
+    "id": "wealth-1",
+    "object_type": "SourceOfWealth",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "entity_id": "alice",
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "risk_indicators": []
+    },
+    "id": "counterparty-1",
+    "object_type": "Counterparty",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "account_type": "deposit",
+      "entity_id": "acme"
+    },
+    "id": "acct-a",
+    "object_type": "Account",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "account_type": "deposit",
+      "entity_id": "alice"
+    },
+    "id": "acct-b",
+    "object_type": "Account",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "complete": true,
+      "end": "2026-11-07T00:00:00+00:00",
+      "expected_count": 3,
+      "start": "2026-11-01T00:00:00+00:00",
+      "watermark": "2026-11-07T00:00:00+00:00"
+    },
+    "id": "dataset-1",
+    "object_type": "DatasetScope",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "relation": "payment",
+      "source": "acct-a",
+      "target": "acct-b",
+      "verified": true
+    },
+    "id": "rel-1",
+    "object_type": "Relationship",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "relation": "payment",
+      "source": "acct-b",
+      "target": "acct-c",
+      "verified": false
+    },
+    "id": "rel-2",
+    "object_type": "Relationship",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "event_ids": [
+        "tx-1"
+      ],
+      "rule_id": "synthetic-rule",
+      "severity": "HIGH",
+      "source_id": "source-alert-1",
+      "subject": "acme"
+    },
+    "id": "alert-1",
+    "object_type": "Alert",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "claim": "Captured synthetic activity exceeds a test baseline.",
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "question": "What happened?",
+      "status": "RESOLVED"
+    },
+    "id": "finding-1",
+    "object_type": "Finding",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "questions": [
+        "What happened?",
+        "What remains unknown?"
+      ]
+    },
+    "id": "investigation-1",
+    "object_type": "Investigation",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "facts": {
+        "count": "3"
+      },
+      "predicate": {
+        "field": "count",
+        "op": "gte",
+        "value": "2"
+      }
+    },
+    "id": "hypothesis-1",
+    "object_type": "Hypothesis",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "change": {
+        "name": "Acme"
+      },
+      "subject": "acme",
+      "timestamp": "2026-11-01T00:00:00+00:00"
+    },
+    "id": "timeline-1",
+    "object_type": "TimelineEvent",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "content": "Synthetic source: Acme exists and Alice is its owner.",
+      "content_hash": "3cd61b381615edd97a14962d6abdf6406ee0f2d8fb5bc5b5a9dce55ac947380e",
+      "requirement_ids": [
+        "identity"
+      ],
+      "source_id": "source-1",
+      "verified": true
+    },
+    "id": "evidence-1",
+    "object_type": "Evidence",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "content": "Synthetic source: Acme exists and Alice is its owner.",
+      "coverage": {
+        "as_of": "2026-01-01T00:00:00+00:00",
+        "complete": true,
+        "jurisdictions": [
+          "synthetic-neutral"
+        ],
+        "limitations": [
+          "synthetic test source only"
+        ]
+      },
+      "source": "synthetic-authority"
+    },
+    "id": "source-1",
+    "object_type": "SourceRecord",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "claim": "The legal name is Acme.",
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "field": "name",
+      "subject": "acme",
+      "value": "Acme",
+      "verification": {
+        "method": "synthetic-authority",
+        "status": "VERIFIED"
+      }
+    },
+    "id": "assertion-1",
+    "object_type": "Assertion",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "sources": [
+        "evidence-1"
+      ],
+      "target": "finding-1"
+    },
+    "id": "provenance-1",
+    "object_type": "Provenance",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "legal_hold": false,
+      "object_id": "evidence-1",
+      "retain_until": "2027-11-07T00:00:00+00:00"
+    },
+    "id": "retention-1",
+    "object_type": "RetentionRule",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "outcome": "PASS",
+      "requirement_id": "identity"
+    },
+    "id": "obligation-1",
+    "object_type": "Control",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "approved": true,
+      "expires_at": "2027-11-07T00:00:00+00:00",
+      "issuer": "reviewer",
+      "scope": "deposit"
+    },
+    "id": "exception-1",
+    "object_type": "Exception",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "dependencies": [],
+      "parameters": {
+        "address": "1 Test Street"
+      },
+      "role": "analyst",
+      "skill_id": "entity.address.normalize",
+      "status": "COMPLETED"
+    },
+    "id": "task-1",
+    "object_type": "Task",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "deadline": "2027-11-07T00:00:00+00:00",
+      "task_id": "task-1"
+    },
+    "id": "sla-1",
+    "object_type": "SLA",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "steps": [
+        {
+          "dependencies": [],
+          "id": "normalize-address",
+          "skill_id": "entity.address.normalize"
+        }
+      ]
+    },
+    "id": "workflow-1",
+    "object_type": "WorkflowDefinition",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "attributes": {
+        "name": "Alice Example",
+        "synthetic": true
+      }
+    },
+    "id": "identity-1",
+    "object_type": "Identity",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "attributes": {
+        "browser": "SyntheticBrowser",
+        "os": "SyntheticOS"
+      },
+      "permitted": true
+    },
+    "id": "device-1",
+    "object_type": "Device",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "artifact_hash": "cd3f49a2e77a9c88a86a6e2a9244f2a463f439aaeac12e293f0c7668892dd048",
+      "baseline": {
+        "velocity": {
+          "maximum": "2",
+          "minimum": "0"
+        }
+      },
+      "challenge_id": "challenge-1",
+      "features": {
+        "velocity": "3"
+      },
+      "modality": "video"
+    },
+    "id": "session-1",
+    "object_type": "Session",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "session_id": "session-1",
+      "signals": {
+        "new_device": true
+      }
+    },
+    "id": "authentication-1",
+    "object_type": "AuthenticationEvent",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "amount": "200",
+      "baseline_maximum": "100",
+      "currency": "SYN"
+    },
+    "id": "payment-1",
+    "object_type": "Payment",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "evidence_ids": [
+        "evidence-1"
+      ],
+      "kind": "behavior",
+      "model_version": "synthetic-detector-v1",
+      "score": "0.8"
+    },
+    "id": "signal-1",
+    "object_type": "FraudSignal",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "event_key": "change-1",
+      "event_type": "risk_changed",
+      "facts": {
+        "changed": true
+      }
+    },
+    "id": "event-1",
+    "object_type": "Event",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "reason": "Synthetic periodic review",
+      "requirement_ids": [
+        "identity"
+      ]
+    },
+    "id": "trigger-1",
+    "object_type": "ReviewTrigger",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "holidays": [],
+      "working_weekdays": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "id": "calendar-1",
+    "object_type": "BusinessCalendar",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "invoice_id": "invoice-1",
+      "shipment_id": "shipment-1"
+    },
+    "id": "trade-1",
+    "object_type": "TradeRecord",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "currency": "SYN",
+      "quantity": "10",
+      "unit_price": "10"
+    },
+    "id": "invoice-1",
+    "object_type": "Invoice",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "quantity": "9"
+    },
+    "id": "shipment-1",
+    "object_type": "Shipment",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "amount": "60",
+      "country": "SYN",
+      "currency": "SYN",
+      "event_id": "event-tx-1",
+      "source": "acct-a",
+      "status": "settled",
+      "target": "acct-b",
+      "timestamp": "2026-11-02T01:00:00+00:00",
+      "transaction_type": "transfer"
+    },
+    "id": "tx-1",
+    "object_type": "Transaction",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "amount": "60",
+      "country": "SYN",
+      "currency": "SYN",
+      "event_id": "event-tx-2",
+      "source": "acct-a",
+      "status": "settled",
+      "target": "acct-b",
+      "timestamp": "2026-11-02T02:00:00+00:00",
+      "transaction_type": "transfer"
+    },
+    "id": "tx-2",
+    "object_type": "Transaction",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  },
+  {
+    "classification": "internal",
+    "data": {
+      "amount": "110",
+      "country": "SYN",
+      "currency": "SYN",
+      "event_id": "event-tx-3",
+      "source": "acct-b",
+      "status": "settled",
+      "target": "acct-a",
+      "timestamp": "2026-11-02T03:00:00+00:00",
+      "transaction_type": "transfer"
+    },
+    "id": "tx-3",
+    "object_type": "Transaction",
+    "observed_at": "2026-01-01T00:00:00+00:00",
+    "purposes": [
+      "fraud",
+      "investigation",
+      "monitoring",
+      "onboarding",
+      "reporting",
+      "review"
+    ],
+    "recorded_at": "2026-01-01T00:00:00+00:00",
+    "schema_version": "2.0.0",
+    "source_refs": [],
+    "subject_ids": [
+      "acme"
+    ],
+    "supersedes": null,
+    "synthetic": true,
+    "tenant_id": "tenant-synthetic",
+    "valid_from": null,
+    "valid_to": null,
+    "version_id": "v1"
+  }
+]

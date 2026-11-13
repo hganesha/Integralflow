@@ -1,0 +1,240 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:regulatory.sar.validate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Validate configured synthetic filing fields and narrative citation
+  coverage.
+code_hash: 7f1dec08981db9657b4ca06dd60141efa1e3f6e1b91cd69e0c9c4950c8f565ad
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Validate configured synthetic filing fields and narrative citation coverage.
+effects: read_only
+entrypoint: financial_crime.skills.monitoring_reporting:sar_validate
+evaluation_profile: regulatory.sar.validate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: regulatory-sar-validate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: regulatory.sar.validate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Extension:
+      additionalProperties: false
+      properties:
+        schema_version:
+          $ref: '#/$defs/Semver'
+        source_ref:
+          anyOf:
+          - $ref: '#/$defs/Ref'
+          - type: 'null'
+        value:
+          $ref: '#/$defs/JsonValue'
+      required:
+      - schema_version
+      - value
+      type: object
+    Extensions:
+      additionalProperties:
+        $ref: '#/$defs/Extension'
+      propertyNames:
+        pattern: ^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$
+        type: string
+      type: object
+      x-dynamic-map-reason: explicit versioned source/institution extensions
+    FilingData:
+      additionalProperties: false
+      properties:
+        citations:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        extensions:
+          $ref: '#/$defs/Extensions'
+        narrative:
+          $ref: '#/$defs/Text'
+        report_type:
+          $ref: '#/$defs/ReportType'
+        subject_id:
+          $ref: '#/$defs/Id'
+        totals:
+          additionalProperties:
+            $ref: '#/$defs/Decimal'
+          type: object
+          x-dynamic-map-reason: keyed collection
+      required:
+      - report_type
+      - subject_id
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    ReportType:
+      enum:
+      - SAR
+      - CTR
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:regulatory.sar.validate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    filing:
+      $ref: '#/$defs/FilingData'
+  required:
+  - filing
+  type: object
+instruction_hash: 113c525137d26999466a7d4d540af4acbb848adeec15e8e5f2d5f55a0920644b
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: true
+output_schema:
+  $defs:
+    Count:
+      minimum: 0
+      type: integer
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+    ValidationIssue:
+      additionalProperties: false
+      properties:
+        code:
+          $ref: '#/$defs/Id'
+        explanation:
+          $ref: '#/$defs/Text'
+        field:
+          $ref: '#/$defs/Id'
+        row:
+          $ref: '#/$defs/Count'
+      required:
+      - code
+      type: object
+  $id: urn:financial-crime:skill:regulatory.sar.validate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    issues:
+      items:
+        $ref: '#/$defs/ValidationIssue'
+      maxItems: 10000
+      type: array
+    valid:
+      type: boolean
+  required:
+  - valid
+  - issues
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- filing_fields
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

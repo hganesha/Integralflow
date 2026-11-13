@@ -1,0 +1,139 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:regulatory.deadline.calculate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Calculate a pinned calendar/business-day deadline on the local dates
+  of the obligation's time zone.
+code_hash: fdf67c33ad08ce4eacd5397d83a8462e6c43d0dfd21dd8068e44455bb522d2db
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Calculate a pinned calendar/business-day deadline on the local dates
+  of the obligation's time zone.
+effects: read_only
+entrypoint: financial_crime.skills.monitoring_reporting:deadline
+evaluation_profile: regulatory.deadline.calculate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: regulatory-deadline-calculate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: regulatory.deadline.calculate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Timestamp:
+      format: date-time
+      type: string
+  $id: urn:financial-crime:skill:regulatory.deadline.calculate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    event_at:
+      $ref: '#/$defs/Timestamp'
+    report_type:
+      enum:
+      - SAR
+      - CTR
+  required:
+  - event_at
+  - report_type
+  type: object
+instruction_hash: 272af013679a8a3a0d4f85e5904e3b89ff244fcb090b9770c0eff7a3461012c1
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples. Days are counted on the local
+  dates of the obligation's `time_zone` and the deadline keeps the event's local wall
+  time; a wall time skipped by a daylight-saving change is written as the instant
+  it maps to, and a repeated one takes its first occurrence. The BusinessCalendar's
+  holidays are read as dates in that zone; it does not state a zone of its own. A
+  calendar-day deadline is not moved off a weekend or holiday.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - holidays
+  - working_weekdays
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: BusinessCalendar
+  optional: true
+output_schema:
+  $defs:
+    Timestamp:
+      format: date-time
+      type: string
+  $id: urn:financial-crime:skill:regulatory.deadline.calculate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    calendar_basis:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    deadline:
+      $ref: '#/$defs/Timestamp'
+    time_zone:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - deadline
+  - calendar_basis
+  - time_zone
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- reporting_obligations
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

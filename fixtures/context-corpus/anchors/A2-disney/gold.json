@@ -1,0 +1,69 @@
+{
+  "anchor": "A2",
+  "subject": "The Walt Disney Company",
+  "labelled_by": "existing eight-claim set from apps/evidence-pipeline/real_evaluation/gold_sample.json, source-checked after development; not held out, not independently adjudicated",
+  "source": {
+    "path": "apps/evidence-pipeline/examples/public_reports/disney_2024_annual_report.pdf",
+    "url": "https://thewaltdisneycompany.com/app/uploads/2025/01/2024-Annual-Report.pdf",
+    "sha256": "8887cce1a4b609edc9f0b6aac241a1a097fa611cdaf46a84906e5c105eea66fd",
+    "pdf_pages": 132
+  },
+  "facts": [
+    {
+      "id": "DIS-espn-stake",
+      "document": "disney",
+      "page": 13,
+      "category": "ownership",
+      "subject": "the Company",
+      "predicate": "owns_equity_in",
+      "object": "ESPN",
+      "value": 80.0,
+      "unit": "percent",
+      "effective_date": null,
+      "qualifier": "generally",
+      "query": "What percentage of ESPN does the company own?",
+      "passage_terms": [
+        "ESPN",
+        "generally owned 80%"
+      ],
+      "explanation": "The report says generally 80% and uses the generic term 'the Company'; exact legal-entity resolution is unresolved."
+    },
+    {
+      "id": "DIS-consolidated-revenue",
+      "document": "disney",
+      "page": 38,
+      "category": "financial_condition",
+      "subject": "The Walt Disney Company",
+      "predicate": "reported_revenue",
+      "value": 91361.0,
+      "unit": "millions_of_dollars",
+      "effective_date": "2024",
+      "qualifier": "consolidated",
+      "query": "What were Disney's consolidated total revenues in 2024?",
+      "passage_terms": [
+        "Total revenues",
+        "91,361"
+      ],
+      "explanation": "The value and period are in an inferred borderless table; the extractor must not guess the legal subject."
+    },
+    {
+      "id": "DIS-venu-injunction",
+      "document": "disney",
+      "page": 13,
+      "category": "legal_regulatory",
+      "subject": "Venu Sports",
+      "predicate": "launch_enjoined_by_court",
+      "object": "motion for preliminary injunction",
+      "value": null,
+      "unit": null,
+      "effective_date": "2024-08",
+      "query": "What court action affected the launch of Venu Sports in August 2024?",
+      "passage_terms": [
+        "preliminary injunction",
+        "Venu Sports",
+        "August 2024"
+      ],
+      "explanation": "This is a reported injunction at the time of the 2024 report, not a current litigation outcome or finding of guilt."
+    }
+  ]
+}

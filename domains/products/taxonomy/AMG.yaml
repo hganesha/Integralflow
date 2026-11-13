@@ -1,0 +1,40 @@
+# Asset & investment management. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: AMG
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - ASSET_MANAGEMENT
+  name: Asset & investment management
+  definition: Managing investments on behalf of clients, pooled or segregated.
+  regulatedActivities:
+  - PORTFOLIO_MANAGEMENT
+  - FUND_MANAGEMENT
+  riskDimensions:
+  - INTERMEDIARY_RISK
+  classes:
+  - code: MUTUAL_FUNDS
+    name: Mutual funds
+    definition: Regulated open-ended collective investment schemes.
+  - code: ETF_SPONSORSHIP
+    name: ETF sponsorship
+    definition: Issuing and managing exchange-traded funds.
+  - code: SEPARATE_ACCOUNTS
+    name: Separately managed accounts
+    definition: Segregated portfolios managed to a client's mandate.
+  - code: HEDGE_FUNDS
+    name: Hedge funds
+    definition: Private funds using leverage, short selling or derivatives.
+  - code: PRIVATE_EQUITY
+    name: Private equity & venture funds
+    definition: Closed-ended funds investing in private companies.
+  - code: REAL_ASSETS
+    name: Real estate & infrastructure funds
+    definition: Funds investing in property and infrastructure.
+  - code: DIGITAL_ADVICE
+    name: Digital advice
+    definition: Automated, algorithm-driven investment advice and management.

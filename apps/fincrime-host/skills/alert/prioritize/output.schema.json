@@ -1,0 +1,57 @@
+{
+  "$defs": {
+    "AlertPriority": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "priority": {
+          "$ref": "#/$defs/Count"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        }
+      },
+      "required": [
+        "id",
+        "priority",
+        "severity"
+      ],
+      "type": "object"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "UNKNOWN"
+      ]
+    }
+  },
+  "$id": "urn:financial-crime:skill:alert.prioritize:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ranked": {
+      "items": {
+        "$ref": "#/$defs/AlertPriority"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "ranked"
+  ],
+  "type": "object"
+}

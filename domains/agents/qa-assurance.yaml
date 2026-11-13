@@ -1,0 +1,44 @@
+id: agent.qa_assurance
+version: 1.1.0
+source: { library: agent.qa_assurance }
+name: QA and assurance agent
+role: QA reviewer
+modelTier: judge
+customerTypes: [individual, corporate]
+skills:
+  required: [quality.findings.verify, quality.policy.compliance]
+  optional: [quality.hallucination.detect, quality.coverage.assess]
+tools: []
+# The agents' findings it challenges (UNVERIFIED Finding records, wave 2).
+reads: [Finding]
+completion: { libraryTask: task.qa_assurance }
+prompt: >-
+  Independently challenge the case before a person decides: legal applicability, omitted parties, evidence
+  sufficiency, stale sources and claims the evidence does not support. You run on a different model than the
+  agents you review.
+instruction: >-
+  Use the findings verification and policy compliance results. Check for unsupported claims or coverage gaps only
+  where an agent's output or a finding warrants it. Raise each challenge with the records it rests on; an absent
+  record is a challenge, never a pass.
+requiresHumanReview: when_needed
+outputFields:
+  required: [challenges, passed]
+  properties:
+    challenges:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [area, reason, sourceRefs]
+        properties:
+          area: { type: string, enum: [LEGAL_APPLICABILITY, OMITTED_PARTY, EVIDENCE_SUFFICIENCY, STALE_SOURCE, UNSUPPORTED_CLAIM, POLICY_COMPLIANCE] }
+          reason: { type: string, minLength: 1 }
+          sourceRefs: { type: array, items: { type: string } }
+    passed: { type: boolean }
+example:
+  summary: One director omitted from screening scope.
+  findings: [{ type: QA, severity: BLOCKING, reason: "Director e-helen has no screening execution.", sourceRefs: [rel-1] }]
+  gaps: []
+  requiresHumanReview: true
+  challenges: [{ area: OMITTED_PARTY, reason: "A director in a screening role was not screened.", sourceRefs: [rel-1] }]
+  passed: false

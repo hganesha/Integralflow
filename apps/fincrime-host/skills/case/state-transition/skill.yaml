@@ -1,0 +1,110 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:case.state.transition
+- effect:internal_write
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Apply an allowed case-state transition at the expected revision.
+code_hash: b8b84209438128e09d07fce1947bc70e054a509c592e176beedc6c0f3cee318c
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Apply an allowed case-state transition at the expected revision.
+effects: internal_write
+entrypoint: financial_crime.skills.governance:case_transition
+evaluation_profile: case.state.transition-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: case-state-transition
+human_interrupt_conditions:
+- before the effect when the parent workflow holds it for approval; otherwise the
+  effect commits only through the node's grant
+id: case.state.transition
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:case.state.transition:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    expected_revision:
+      type: integer
+    target:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - target
+  - expected_revision
+  type: object
+instruction_hash: 2a1713226cb66974b69e471bc49b07b0a5c7d2ea0f78da0e0a4c9783348a8546
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $id: urn:financial-crime:skill:case.state.transition:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    revision:
+      type: integer
+    state:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - state
+  - revision
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- case_transitions
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

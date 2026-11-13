@@ -1,0 +1,82 @@
+# Securities brokerage & trading. Candidate canonical content, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata: { code: BRK, version: 1.0.0, status: CANDIDATE, owner: platform.product-taxonomy }
+spec:
+  sectors: [SECURITIES]
+  name: Securities brokerage & trading
+  definition: Executing, financing and facilitating securities transactions for customers.
+  regulatedActivities: [SECURITIES_BROKERAGE]
+  capabilities: { margin_financing: configurable, securities_lending: configurable, custody: configurable, cross_border: configurable, third_party_funding: configurable }
+  riskDimensions: [VELOCITY, THIRD_PARTY_FUNDING, CROSS_BORDER]
+  classes:
+    - code: RETAIL
+      name: Retail brokerage
+      definition: Brokerage accounts for individuals trading on their own account.
+      eligiblePartyTypes: [INDIVIDUAL, TRUST]
+      types:
+        - { code: CASH, name: Cash brokerage, definition: "A brokerage account where purchases are paid in full.", capabilities: { margin_financing: false } }
+        - { code: MARGIN, name: Margin brokerage, definition: "A brokerage account with credit secured on the holdings.", regulatedActivities: [SECURITIES_BROKERAGE, SECURITIES_FINANCING], capabilities: { margin_financing: true }, riskDimensions: [LEVERAGE] }
+        - { code: SELF_DIRECTED, name: Self-directed trading, definition: "Execution-only trading without advice." }
+    - code: INSTITUTIONAL
+      name: Institutional brokerage
+      definition: Execution services for institutional investors.
+      eligiblePartyTypes: [LEGAL_ENTITY, INVESTMENT_FUND, FINANCIAL_INSTITUTION, GOVERNMENT]
+      types:
+        - { code: AGENCY_EXECUTION, name: Agency execution, definition: "Executing institutional orders as agent." }
+        - { code: CASH_EQUITIES, name: Institutional cash equities, definition: "Equity execution, research and trading for institutions." }
+        - { code: FIXED_INCOME, name: Fixed-income brokerage, definition: "Execution of bonds and other fixed-income securities." }
+    - code: PRIME
+      name: Prime brokerage
+      definition: A bundle of financing, custody, securities lending and execution for hedge funds and other active institutions.
+      eligiblePartyTypes: [INVESTMENT_FUND, FINANCIAL_INSTITUTION, LEGAL_ENTITY]
+      regulatedActivities: [SECURITIES_BROKERAGE, SECURITIES_FINANCING, SECURITIES_CUSTODY]
+      capabilities: { margin_financing: true, securities_lending: true, custody: true }
+      riskDimensions: [LEVERAGE, OWNERSHIP_COMPLEXITY, GEOGRAPHIC_EXPOSURE, INTERMEDIARY_RISK]
+      types:
+        - { code: INSTITUTIONAL, name: Institutional prime brokerage, definition: "Full prime services for an institutional client." }
+        - { code: PRIME_CUSTODY, name: Prime custody, definition: "Custody of a prime client's unencumbered assets.", alsoClassifiedAs: [CUS.SAFEKEEPING] }
+        - { code: SYNTHETIC, name: Synthetic prime, definition: "Prime exposure delivered through swaps rather than cash positions.", alsoClassifiedAs: [SEC.DERIVATIVES] }
+    - code: MARKET_ACCESS
+      name: Market access
+      definition: Giving clients direct or sponsored access to trading venues through the firm's membership.
+      eligiblePartyTypes: [LEGAL_ENTITY, INVESTMENT_FUND, FINANCIAL_INSTITUTION]
+      riskDimensions: [NESTED_ACCESS, INTERMEDIARY_RISK, VELOCITY]
+      types:
+        - { code: DIRECT_MARKET_ACCESS, name: Direct market access, definition: "Clients route orders to venues through the firm's systems." }
+        - { code: SPONSORED_ACCESS, name: Sponsored access, definition: "Clients access venues directly under the firm's membership." }
+        - { code: ALGORITHMIC, name: Algorithmic trading access, definition: "Access to the firm's execution algorithms." }
+    - code: OTC_DEALING
+      name: OTC dealing
+      definition: The firm acting as principal in instruments not traded on an exchange.
+      regulatedActivities: [SECURITIES_DEALING]
+      types:
+        - { code: OTC_EQUITIES, name: OTC equities, definition: "Principal dealing in unlisted or off-exchange equities." }
+        - { code: OTC_FIXED_INCOME, name: OTC fixed income, definition: "Principal dealing in bonds and money-market instruments." }
+        - { code: STRUCTURED_NOTES, name: Structured notes, definition: "Issuing or dealing in notes with embedded derivatives.", alsoClassifiedAs: [SEC.STRUCTURED] }
+        - { code: OTC_DERIVATIVES, name: OTC derivatives dealing, definition: "Principal dealing in bilateral derivatives.", alsoClassifiedAs: [SEC.DERIVATIVES] }
+    - code: FINANCING
+      name: Securities financing
+      definition: Borrowing and lending of securities and cash against securities.
+      regulatedActivities: [SECURITIES_FINANCING]
+      riskDimensions: [LEVERAGE]
+      types:
+        - { code: STOCK_BORROW_LOAN, name: Stock borrow and loan, definition: "Lending or borrowing securities against collateral." }
+        - { code: REPO, name: Repo and reverse repo, definition: "Sale and repurchase of securities as secured financing." }
+        - { code: MARGIN_LENDING, name: Margin lending, definition: "Credit secured on a client's securities portfolio." }
+    - code: INTRODUCING
+      name: Introducing brokerage
+      definition: A broker that introduces clients to a clearing firm which carries the accounts.
+      riskDimensions: [INTERMEDIARY_RISK, NESTED_ACCESS]
+      types:
+        - { code: FULLY_DISCLOSED, name: Fully disclosed clearing, definition: "The clearing firm carries accounts in each underlying client's name.", alsoClassifiedAs: [CUS.CLEARING] }
+        - { code: OMNIBUS_CLEARING, name: Omnibus clearing, definition: "The clearing firm carries one account for the introducing broker's clients." }
+    - code: DIGITAL
+      name: Digital brokerage
+      definition: App-based and automated brokerage for retail investors.
+      eligiblePartyTypes: [INDIVIDUAL]
+      riskDimensions: [NEW_TECHNOLOGY, VELOCITY]
+      types:
+        - { code: FRACTIONAL, name: Fractional securities, definition: "Trading in fractions of shares." }
+        - { code: APP_BASED, name: App-based brokerage, definition: "Commission-free brokerage delivered through a mobile app." }
+        - { code: ROBO_EXECUTION, name: Robo execution, definition: "Automated portfolio execution and rebalancing.", alsoClassifiedAs: [AMG.DIGITAL_ADVICE] }

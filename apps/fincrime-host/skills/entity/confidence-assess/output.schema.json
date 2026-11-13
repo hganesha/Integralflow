@@ -1,0 +1,69 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MatchFeatures": {
+      "additionalProperties": false,
+      "properties": {
+        "identifier_conflict": {
+          "$ref": "#/$defs/Bool"
+        },
+        "name_score": {
+          "$ref": "#/$defs/Probability"
+        },
+        "score": {
+          "$ref": "#/$defs/Probability"
+        },
+        "shared_identifiers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "verified_match": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "score",
+        "shared_identifiers",
+        "identifier_conflict",
+        "name_score",
+        "verified_match"
+      ],
+      "type": "object"
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "$id": "urn:financial-crime:skill:entity.confidence.assess:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibrated": {
+      "type": "boolean"
+    },
+    "features": {
+      "$ref": "#/$defs/MatchFeatures"
+    },
+    "review_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "features",
+    "calibrated",
+    "review_required"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,78 @@
+{
+  "provider_id": "dojah",
+  "version": "documented-public",
+  "bases": {
+    "production": "https://api.dojah.io",
+    "sandbox": "https://sandbox.dojah.io"
+  },
+  "auth": {
+    "type": "multi_header",
+    "headers": {
+      "Authorization": "SECRET_KEY",
+      "AppId": "APP_ID"
+    },
+    "keys": [
+      "SECRET_KEY",
+      "APP_ID"
+    ]
+  },
+  "sources": [
+    "https://docs.dojah.io/api-reference/individual-verification/nigeria/lookup-nin",
+    "https://docs.dojah.io/api-reference/financial-credit/nuban-kyc-status",
+    "https://docs.dojah.io/api-reference/address-verification/fetch-address-verification-data"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "lookup_nin": {
+      "method": "GET",
+      "path": "/api/v1/kyc/nin",
+      "required_body": [],
+      "required_query": [
+        "nin"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.dojah.io/api-reference/individual-verification/nigeria/lookup-nin",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "nuban_status": {
+      "method": "GET",
+      "path": "/api/v1/kyc/nuban/status",
+      "required_body": [],
+      "required_query": [
+        "account_number",
+        "bank_code"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.dojah.io/api-reference/financial-credit/nuban-kyc-status",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "address_result": {
+      "method": "GET",
+      "path": "/api/v1/kyc/address",
+      "required_body": [],
+      "required_query": [
+        "reference_id"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "address_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.dojah.io/api-reference/address-verification/fetch-address-verification-data",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

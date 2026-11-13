@@ -1,0 +1,59 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResolvedCounterparty": {
+      "additionalProperties": false,
+      "properties": {
+        "source_entity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_entity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transaction_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "source_entity",
+        "target_entity"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:transaction.counterparty.resolve:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counterparties": {
+      "items": {
+        "$ref": "#/$defs/ResolvedCounterparty"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "counterparties"
+  ],
+  "type": "object"
+}

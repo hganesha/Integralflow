@@ -1,0 +1,49 @@
+{
+  "release": "0.3.0",
+  "context_schema_version": "2.0.0",
+  "bundle": {
+    "skill_count": 222,
+    "bundle_code_hash": "4aa1dd5e61645a23d88ab7cc7210f97e1305250c20e9d1425afd4f0e801271ba",
+    "valid": true,
+    "production_qualified": false
+  },
+  "demo": {
+    "synthetic": true,
+    "workflow_state": "COMPLETED",
+    "completed_steps": 29,
+    "approval_required_and_consumed": true,
+    "case_state": {
+      "case_type": "KYB",
+      "disposition": "ACCEPT",
+      "state": "OPEN"
+    },
+    "agent_state": "COMPLETED",
+    "agent_steps": 2,
+    "risk_assessment": {
+      "assessment": {
+        "contributions": [
+          {
+            "contribution": "0.08",
+            "factor": "geography",
+            "value": "0.2",
+            "weight": "0.4"
+          },
+          {
+            "contribution": "0.18",
+            "factor": "product",
+            "value": "0.3",
+            "weight": "0.6"
+          }
+        ],
+        "missing": [],
+        "model_version": "synthetic-risk-v1",
+        "score": "0.26"
+      },
+      "tier": "LOW"
+    },
+    "trace_events": 68
+  },
+  "strict_record_contract": true,
+  "wheel_sha256": "8830cb938850393f399c976ba19acd9fdd4ad7e6ba9bcf498375933440b0d97a",
+  "outside_checkout": true
+}

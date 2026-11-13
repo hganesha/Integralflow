@@ -1,0 +1,33 @@
+# A regression set for the synthetic corpus bank (Product Policy Studio phase F): synthetic cases the
+# studio's impact simulation runs through the published policy and the working copy. Signals stand
+# for the selected facts of the canonical.onboarding.v2 input profile (packages/policy-engine/src/impact.ts).
+# Not real customers; every case is synthetic.
+apiVersion: harness.factory/policy-regression-set-v1
+kind: PolicyRegressionSet
+metadata:
+  id: regression.bank-synthetic
+  institution: bank.synthetic
+  version: 1.0.0
+  description: Personal and business onboarding in the US and GB, with and without each risk signal the diligence rules read.
+asOf: 2026-11-01T00:00:00Z
+cases:
+  - { id: us-individual-deposit, label: US individual opening a deposit account, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [deposit] } }
+  - { id: us-individual-card, label: US individual with a card and payments, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [card, payments] } }
+  - { id: us-individual-pep, label: US individual who is a verified PEP, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [deposit, card] }, signals: { pepVerified: true } }
+  - { id: us-individual-pep-signal, label: US individual with an open PEP signal, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [deposit] }, signals: { pepSignal: true } }
+  - { id: us-individual-geography, label: US individual with exposure to a high-risk country, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [payments] }, signals: { countries: [IR] } }
+  - { id: us-individual-media, label: US individual with confirmed adverse media, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [card] }, signals: { adverseMedia: true } }
+  - { id: us-individual-high-risk, label: US individual assessed as high risk, scope: { jurisdiction: US, customerType: individual, legalForm: individual, products: [deposit, payments] }, signals: { assessedRisk: HIGH, transactionRisk: 0.8 } }
+  - { id: gb-individual-deposit, label: GB individual opening a current account, scope: { jurisdiction: GB, customerType: individual, legalForm: individual, products: [deposit] } }
+  - { id: gb-individual-pep, label: GB individual who is a verified PEP, scope: { jurisdiction: GB, customerType: individual, legalForm: individual, products: [deposit, payments] }, signals: { pepVerified: true } }
+  - { id: gb-individual-media, label: GB individual with confirmed adverse media, scope: { jurisdiction: GB, customerType: individual, legalForm: individual, products: [card] }, signals: { adverseMedia: true } }
+  - { id: us-company-deposit, label: US company opening business checking, scope: { jurisdiction: US, customerType: corporate, legalForm: corporation, products: [deposit] } }
+  - { id: us-company-payments, label: US company with merchant acquiring and payments, scope: { jurisdiction: US, customerType: corporate, legalForm: llc, products: [merchant_acquiring, payments] }, signals: { transactionRisk: 0.9 } }
+  - { id: us-company-ownership, label: US company with layered ownership, scope: { jurisdiction: US, customerType: corporate, legalForm: corporation, products: [deposit, lending] }, signals: { ownershipInterests: 4 } }
+  - { id: us-trust-payments, label: US trust using payments, scope: { jurisdiction: US, customerType: corporate, legalForm: ordinary_trust, products: [payments] } }
+  - { id: us-fund-lending, label: US fund borrowing, scope: { jurisdiction: US, customerType: corporate, legalForm: fund, products: [lending] } }
+  - { id: us-charity-payments, label: US charity sending payments abroad, scope: { jurisdiction: US, customerType: corporate, legalForm: charity, products: [payments] }, signals: { countries: [MM] } }
+  - { id: gb-company-deposit, label: GB company opening a business account, scope: { jurisdiction: GB, customerType: corporate, legalForm: corporation, products: [deposit] } }
+  - { id: gb-company-pep-owner, label: GB company with a PEP among its owners, scope: { jurisdiction: GB, customerType: corporate, legalForm: corporation, products: [deposit, payments] }, signals: { pepVerified: true, ownershipInterests: 2 } }
+  - { id: gb-partnership-lending, label: GB partnership borrowing, scope: { jurisdiction: GB, customerType: corporate, legalForm: limited_partnership, products: [lending] } }
+  - { id: gb-sole-trader-acquiring, label: GB sole trader taking card payments, scope: { jurisdiction: GB, customerType: corporate, legalForm: sole_proprietor, products: [merchant_acquiring] }, signals: { adverseMedia: true } }

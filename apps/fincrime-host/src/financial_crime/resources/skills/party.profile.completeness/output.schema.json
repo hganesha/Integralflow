@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ProfileCompleteness": {
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "missing": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "missing",
+        "complete"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:party.profile.completeness:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "profiles": {
+      "items": {
+        "$ref": "#/$defs/ProfileCompleteness"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "profiles"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,130 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:risk.score.calibrate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Measure held-out risk calibration without changing the active model.
+code_hash: ab7cab9a85930dc0ff02af542314659b5f0ecff5175b2d8d6a0bf4b3185f4241
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Measure held-out risk calibration without changing the active model.
+effects: read_only
+entrypoint: financial_crime.skills.risk_edd:score_calibrate
+evaluation_profile: risk.score.calibrate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: risk-score-calibrate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: risk.score.calibrate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    BinaryLabel:
+      enum:
+      - 0
+      - 1
+      type: integer
+    Probability:
+      maximum: 1
+      minimum: 0
+      type: number
+    ScoreSample:
+      additionalProperties: false
+      properties:
+        label:
+          $ref: '#/$defs/BinaryLabel'
+        score:
+          $ref: '#/$defs/Probability'
+      required:
+      - score
+      - label
+      type: object
+  $id: urn:financial-crime:skill:risk.score.calibrate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    samples:
+      items:
+        $ref: '#/$defs/ScoreSample'
+      maxItems: 10000
+      minItems: 1
+      type: array
+  required:
+  - samples
+  type: object
+instruction_hash: f60a339990fb341ad64b91a0e2b82d386afcca5f491426c9ea5e9262591e6262
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $id: urn:financial-crime:skill:risk.score.calibrate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    brier_score:
+      type: number
+    promoted:
+      type: boolean
+    sample_count:
+      type: integer
+  required:
+  - sample_count
+  - brier_score
+  - promoted
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

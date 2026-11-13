@@ -1,0 +1,30 @@
+{
+  "$defs": {
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:network.risk.propagate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_hops": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "seed_risks": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Decimal"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    }
+  },
+  "required": [
+    "seed_risks",
+    "max_hops"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "provider_id": "opencorporates",
+  "version": "v0.4",
+  "bases": {
+    "default": "https://api.opencorporates.com"
+  },
+  "auth": {
+    "type": "query",
+    "name": "api_token",
+    "keys": [
+      "API_TOKEN"
+    ]
+  },
+  "sources": [
+    "https://api.opencorporates.com/documentation/API-Reference"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "company_search": {
+      "method": "GET",
+      "path": "/v0.4/companies/search",
+      "required_body": [],
+      "required_query": [
+        "q"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.opencorporates.com/documentation/API-Reference",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_company": {
+      "method": "GET",
+      "path": "/v0.4/companies/{jurisdiction}/{company_number}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.opencorporates.com/documentation/API-Reference",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

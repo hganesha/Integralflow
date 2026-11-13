@@ -1,0 +1,108 @@
+EXCERPT of Alphabet Inc. DEF 14A filed 2026-04-24 (accession 0001308179-26-000342), page 35; text extracted from the HTML.
+Full document sha256 b40e134ceffa9efdf9b1bd92c29b269a64afe4768a56d35f4c923db94dbf4888. SEC filings are US government public data.
+
+Common Stock Ownership of Certain Beneficial Owners and Management 
+ The following table sets forth information, as of April 6, 2026, concerning, except as indicated by the footnotes: 
+ • Each person whom we know beneficially owns more than five percent of our Class A common stock or Class B common stock. 
+ • Each of our directors and nominees for our Board. 
+ • Each of our named executive officers (see the section titled “Executive Compensation” beginning on page 42 of this proxy statement). 
+ • All of our directors and executive officers as a group. 
+ Unless otherwise noted in the footnotes, the address of each beneficial owner listed in the table is c/o Alphabet Inc., 1600 Amphitheatre Parkway, Mountain View, California 94043. 
+ We have determined beneficial ownership in accordance with the rules of the SEC. Except as indicated by the footnotes, we believe, based on the information furnished to us, that the persons and entities named in the table have sole voting and investment power with respect to all shares of common stock that they beneficially own, subject to applicable community property laws. Applicable percentage ownership is based on 5,823,665,113 shares of Class A common stock and 835,779,041 shares of Class B common stock outstanding at April 6, 2026. Beneficial ownership representing less than one percent is denoted with an asterisk (*). 
+ The information provided in the table is based on our records, information filed with the SEC, and information provided to us, except where otherwise noted. Non-voting Class C capital stock is not included in the table. As of December 31, 2025, all of our directors and named executive officers met the applicable minimum share ownership requirements under our Corporate Governance Guidelines. 
+ 
+ Name of Beneficial Owner | Voting Shares Beneficially Owned | Total Voting 
+ Power (1) % 
+ | 
+ Class A Common Stock 
+ | Class B Common Stock 
+ | 
+ Shares | % 
+ | Shares | % | 
+ Executive Officers and Directors | 
+ Larry Page | — | — | 389,051,160 | 46.5 | 27.4 | 
+ Sergey Brin (2) 
+ | 37,469 | * | 358,939,978 | 42.9 | 25.3 | 
+ Sundar Pichai | 227,560 | * | — | — | * | 
+ Anat Ashkenazi | — | — | — | — | — | 
+ Ruth M. Porat (3) 
+ | 28,060 | * | — | — | * | 
+ Philipp Schindler | — | — | — | — | — | 
+ Kent Walker | — | — | — | — | — | 
+ Frances H. Arnold | — | — | — | — | — | 
+ R. Martin “Marty” Chávez | — | — | — | — | — | 
+ L. John Doerr (4) 
+ | 472,165 | * | 22,348,940 | 2.7 | 1.6 | 
+ Roger W. Ferguson Jr. | — | — | — | — | — | 
+ John L. Hennessy (5) 
+ | 20,624 | * | — | — | * | 
+ K. Ram Shriram (6) 
+ | 1,811,108 | * | — | — | * | 
+ Robin L. Washington | — | — | — | — | — | 
+ All executive officers and directors as a group 
+ (14 persons) 
+ | 2,596,986 | * | 770,340,078 | 92.2 | 54.3 | 
+ Other > 5% Security Holders (7) 
+ | 
+ BlackRock, Inc. (8) 
+ | 356,934,964 | 6.1 | — | — | 2.5 | 
+ 
+ 
+ Alphabet 2026 Proxy Statement 
+ | 35 
+ | 
+ 
+
+
+ 
+ Proxy Statement 
+ Summary & 
+ Highlights 
+ | Corporate 
+ Governance 
+ | Director and 
+ Executive 
+ Compensation 
+ | Audit Matters 
+ | Proposals 
+ | Q&A 
+ | Appendix 
+ | 
+ 
+
+ (1) Percentage total voting power represents voting power with respect to all shares of our Class A common stock and Class B common stock, voting together as a single class. Each holder of Class B common stock is entitled to ten (10) votes per share of Class B common stock, and each holder of Class A common stock is entitled to one (1) vote per share of Class A common stock on all matters submitted to our shareholders for a vote. The Class A common stock and Class B common stock vote together as a single class on all matters submitted to a vote of our shareholders, except as may otherwise be required by law. The Class B common stock is convertible at any time by the holder into shares of Class A common stock on a share-for-share basis upon written notice to the transfer agent. 
+ (2) Includes (i) 37,469 of Class A common stock; (ii) 172,700 shares of Class B common stock held by SMB Pacific 2021 Charitable Remainder Unitrust I, of which Sergey is the sole trustee; and (iii) 172,700 shares of Class B common stock held by SMB Pacific 2021 Charitable Remainder Unitrust II, of which Sergey is the sole trustee. The address for SMB Pacific 2021 Charitable Remainder Unitrust I and SMB Pacific 2021 Charitable Remainder Unitrust II is 26 State Route 28 POB 157, Crystal Bay, NV 89402. 
+ (3) Consists of 28,060 shares of Class A common stock held by the Passfield Hall Foundation Inc. Ruth and her spouse are officers of the Passfield Hall Foundation Inc. and share voting and investment authority of the shares held by the Foundation. Ruth disclaims any pecuniary interest in shares held by the Passfield Hall Foundation Inc. The address for the Passfield Hall Foundation Inc. is 1251 Avenue of the Americas, 9th Floor, New York, New York 10020-1104. 
+ (4) Includes (i) 402,465 shares of Class A common stock held by The Benificus Foundation and (ii) 22,348,940 shares of Class B common stock held by Vallejo Ventures Trust. John is an officer and trustee of The Benificus Foundation and shares the investment authority over the shares held by The Benificus Foundation. John disclaims any pecuniary interest in the shares held by The Benificus Foundation. John is a trustee of Vallejo Ventures Trust and shares voting and investment authority over the shares held by such trust. The address for The Benificus Foundation and Vallejo Ventures Trust is 1180 San Carlos Ave., #717, San Carlos, California 94070. 
+ (5) Consists of 20,624 shares of Class A common stock held by the Hennessy 1993 Revocable Trust. John is a trustee of the Hennessy 1993 Revocable Trust and has voting and investment authority over the shares held by the Trust. The address for the Hennessy 1993 Revocable Trust is c/o Stanford University, 580 Lomita Drive, Stanford, California 94305. 
+ (6) Includes (i) 370,764 shares of Class A common stock held by Ram; (ii) 369,744 shares of Class A common stock held by Ram’s spouse; (iii) 337,680 shares of Class A common stock held by Janket Ventures Limited Partnership; (iv) 199,100 shares of Class A common stock held by the 2021 RS Irrevocable Trust UAD 9/10/2021, of which Ram is the sole trustee (the 2021 RS GRAT); (v) 197,600 shares of Class A common stock held by the 2021 VS Irrevocable Trust UAD 9/10/2021, of which Ram’s spouse is the sole trustee (the 2021 VS GRAT); (vi) 168,110 shares of Class A common stock held by the 2022 RS Irrevocable Trust UAD 10/28/2022, of which Ram is the sole trustee (the 2022 RS GRAT); and (vii) 168,110 shares of Class A common stock held by the 2022 VS Irrevocable Trust UAD 10/28/2022, of which Ram’s spouse is the sole trustee (the 2022 VS GRAT). Each, the 2021 RS GRAT, the 2021 VS GRAT, the 2022 RS GRAT, and the 2022 VS GRAT (each, a GRAT, and collectively, the GRATs) has a 5-year term. During the term, Ram and his spouse each have sole voting and sole dispositive power over the shares held by the respective GRAT. Ram has voting and investment authority over the shares held by Janket Ventures Limited Partnership. The address for Janket Ventures L.P. and for all GRATs is 2475 Hanover Street, Suite 100, Palo Alto, California 94303. 
+ (7) The Vanguard Group, Inc. (Vanguard), an investment adviser, previously reported on a Schedule 13G/A filed with the SEC on February 13, 2024, that it beneficially owned through certain of its subsidiaries 493,782,758 shares of Class A common stock, with shared voting power over 7,901,474 shares, sole dispositive power over 468,284,480 shares, and shared dispositive power over 25,498,278 shares. Vanguard would have beneficially owned approximately 8.5% of Class A common stock and had approximately 3.5% total voting power, based on the total outstanding shares of Class A common stock and Class B common stock as of April 6, 2026. On March 26, 2026, Vanguard further amended its Schedule 13G/A to disclose that, as of January 12, 2026, as a result of an internal realignment, it no longer has, or is deemed to have, beneficial ownership over any of the Class A common stock shares beneficially owned by various of its subsidiaries and business divisions. Going forward, subsidiaries and business divisions of Vanguard that formerly had, or were deemed to have, beneficial ownership with Vanguard of the Class A common stock will report such beneficial ownership separately (on a disaggregated basis) from Vanguard. As of the Record Date, we do not know the actual number of Class A common stock beneficially owned by any individual Vanguard subsidiary or business division or whether, on a disaggregated basis, any individual subsidiary or business division may be deemed a >5% security holder for purposes of this table. 
+ (8) Based on the most recently available Schedule 13G/A filed with the SEC on February 12, 2024 by BlackRock, Inc. BlackRock, Inc., a parent holding company through certain of its subsidiaries, beneficially owned 356,934,964 shares of Class A common stock with sole voting power over 321,125,552 shares and sole dispositive power over 356,934,964 shares. The address for BlackRock, Inc. is 50 Hudson Yards, New York, New York 10001. 
+ 
+ 36 
+ | Alphabet 2026 Proxy Statement 
+ | 
+ 
+
+
+ 
+ 
+ Proxy Statement 
+ Summary & 
+ Highlights 
+ | Corporate 
+ Governance 
+ | Director and 
+ Executive 
+ Compensation 
+ | Audit Matters 
+ | Proposals 
+ | Q&A 
+ | Appendix 
+ | 
+ 
+
+ Delinquent Section 16(a) Reports 
+ Section 16(a) of the Exchange Act requires our directors, executive officers, and holders of more than ten percent of our Class A common stock, Class B common stock, and Class C capital stock to file with the SEC reports of ownership of our securities and changes in reported ownership. Based on a review of reports filed with the SEC, or written representations from reporting persons that all reportable transactions were reported, we believe that, during 2025, our directors, executive officers, and ten percent shareholders timely filed all reports that were required to be filed under Section 16(a), with the exception of the following: 
+ • On July 2, 2025, John Hennessy acquired 2,879 Class C Google Stock Units (GSUs). On the same date, each of Frances, Marty, John Doerr, Roger, Ram, and Robin acquired 2,016 Class C GSUs. These acquisitions were reported on July 11, 2025. 
+ • On December 15, 2025, the following directors acquired Class C dividend equivalent units (DEUs), which were reported on December 18, 2025: Frances (3.00 units), John Doerr (3.00 units), Roger (2.94 units), Ram (3.01 

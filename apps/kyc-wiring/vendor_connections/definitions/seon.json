@@ -1,0 +1,65 @@
+{
+  "provider_id": "seon",
+  "version": "documented-public",
+  "bases": {
+    "eu": "https://api.seon.io",
+    "us": "https://api.us-east-1-main.seon.io",
+    "me": "https://api.me-central-1-main.seon.io"
+  },
+  "auth": {
+    "type": "header",
+    "name": "X-API-KEY",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.seon.io/api-reference/fraud-api"
+  ],
+  "notes": "EU uses v2.0; US/ME use v2/. Choose matching operation and region.",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "fraud_eu": {
+      "method": "POST",
+      "path": "/SeonRestService/fraud-api/v2.0",
+      "required_body": [],
+      "required_query": [],
+      "body_example": {
+        "ip": "YOUR_IP",
+        "email": "YOUR_EMAIL"
+      },
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": "/data/state",
+      "resource_pointer": null,
+      "source": "https://docs.seon.io/api-reference/fraud-api",
+      "allowed_input_headers": [],
+      "response": "json",
+      "regions": [
+        "eu"
+      ]
+    },
+    "fraud_us_me": {
+      "method": "POST",
+      "path": "/SeonRestService/fraud-api/v2/",
+      "required_body": [],
+      "required_query": [],
+      "body_example": {
+        "ip": "YOUR_IP",
+        "email": "YOUR_EMAIL"
+      },
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": "/data/state",
+      "resource_pointer": null,
+      "source": "https://docs.seon.io/api-reference/fraud-api",
+      "allowed_input_headers": [],
+      "response": "json",
+      "regions": [
+        "us",
+        "me"
+      ]
+    }
+  }
+}

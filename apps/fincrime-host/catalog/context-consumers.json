@@ -1,0 +1,2451 @@
+{
+  "Account.account_type": [
+    "transaction.enrich"
+  ],
+  "Account.entity_id": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.counterparty.resolve",
+    "transaction.enrich"
+  ],
+  "AdverseMediaEvent.coverage": [
+    "screening.adverse_media.execute"
+  ],
+  "AdverseMediaEvent.event_key": [
+    "screening.adverse_media.correlate"
+  ],
+  "AdverseMediaEvent.source": [
+    "screening.adverse_media.correlate",
+    "screening.adverse_media.execute"
+  ],
+  "AdverseMediaEvent.status": [
+    "screening.adverse_media.classify",
+    "screening.adverse_media.execute"
+  ],
+  "AdverseMediaEvent.subjects": [
+    "screening.adverse_media.execute"
+  ],
+  "AdverseMediaEvent.title": [
+    "screening.adverse_media.classify",
+    "screening.adverse_media.correlate",
+    "screening.adverse_media.execute"
+  ],
+  "Alert.event_ids": [
+    "alert.context.assemble",
+    "alert.correlate",
+    "alert.deduplicate"
+  ],
+  "Alert.rule_id": [
+    "alert.classify",
+    "alert.context.assemble",
+    "alert.deduplicate",
+    "alert.ingest",
+    "investigation.hypothesis.generate"
+  ],
+  "Alert.severity": [
+    "alert.deduplicate",
+    "alert.escalation.evaluate",
+    "alert.ingest",
+    "alert.prioritize"
+  ],
+  "Alert.source_id": [
+    "alert.ingest"
+  ],
+  "Alert.subject": [
+    "alert.context.assemble",
+    "alert.correlate",
+    "alert.deduplicate",
+    "alert.ingest",
+    "alert.prioritize",
+    "investigation.hypothesis.generate"
+  ],
+  "Alias.entity_id": [
+    "entity.alias.resolve"
+  ],
+  "Alias.name": [
+    "entity.alias.resolve"
+  ],
+  "Assertion.claim": [
+    "evidence.facts.extract"
+  ],
+  "Assertion.evidence_ids": [
+    "evidence.conflicts.resolve",
+    "evidence.facts.extract",
+    "investigation.contradiction.detect"
+  ],
+  "Assertion.field": [
+    "evidence.conflicts.resolve",
+    "investigation.contradiction.detect"
+  ],
+  "Assertion.subject": [
+    "evidence.conflicts.resolve",
+    "investigation.contradiction.detect"
+  ],
+  "Assertion.value": [
+    "evidence.conflicts.resolve",
+    "investigation.contradiction.detect"
+  ],
+  "Assertion.verification": [
+    "evidence.facts.extract"
+  ],
+  "AuthenticationEvent.session_id": [
+    "fraud.account_takeover.detect"
+  ],
+  "AuthenticationEvent.signals": [
+    "fraud.account_takeover.detect"
+  ],
+  "BeneficialOwner.entity_id": [
+    "ownership.ubo.verify"
+  ],
+  "BeneficialOwner.evidence_ids": [
+    "ownership.ubo.verify"
+  ],
+  "BusinessCalendar.holidays": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "regulatory.deadline.calculate"
+  ],
+  "BusinessCalendar.working_weekdays": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "regulatory.deadline.calculate"
+  ],
+  "Control.outcome": [
+    "case.close",
+    "decision.disposition.record",
+    "decision.explain",
+    "decision.gaps.evaluate",
+    "decision.recommendation.generate",
+    "monitor.review.close",
+    "quality.policy.compliance"
+  ],
+  "Control.requirement_id": [
+    "case.close",
+    "decision.disposition.record",
+    "decision.explain",
+    "decision.gaps.evaluate",
+    "decision.recommendation.generate",
+    "monitor.review.close",
+    "quality.policy.compliance"
+  ],
+  "ControlRight.basis": [
+    "ownership.control.resolve",
+    "ownership.ubo.resolve",
+    "screening.sanctions.control.evaluate"
+  ],
+  "ControlRight.controlled": [
+    "ownership.control.resolve",
+    "ownership.ubo.resolve",
+    "screening.sanctions.control.evaluate"
+  ],
+  "ControlRight.controller": [
+    "ownership.control.resolve",
+    "ownership.ubo.resolve",
+    "screening.sanctions.control.evaluate"
+  ],
+  "ControlRight.verified": [
+    "ownership.control.resolve",
+    "ownership.ubo.resolve",
+    "screening.sanctions.control.evaluate"
+  ],
+  "Counterparty.entity_id": [
+    "edd.counterparty.analyze",
+    "fraud.beneficiary.risk"
+  ],
+  "Counterparty.evidence_ids": [
+    "edd.counterparty.analyze",
+    "fraud.beneficiary.risk"
+  ],
+  "Counterparty.risk_indicators": [
+    "edd.counterparty.analyze",
+    "fraud.beneficiary.risk"
+  ],
+  "DatasetScope.complete": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "DatasetScope.end": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "DatasetScope.expected_count": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "DatasetScope.start": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "DatasetScope.watermark": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Device.attributes": [
+    "fraud.device.fingerprint"
+  ],
+  "Device.permitted": [
+    "fraud.device.fingerprint"
+  ],
+  "Document.document_type": [
+    "document.requirements.evaluate",
+    "document.validity.check"
+  ],
+  "Document.expires_at": [
+    "document.requirements.evaluate",
+    "document.validity.check"
+  ],
+  "Document.issued_at": [
+    "document.requirements.evaluate",
+    "document.validity.check"
+  ],
+  "DocumentPage.document_version": [
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.translation.normalize",
+    "fraud.document.tamper.detect"
+  ],
+  "DocumentPage.extensions": [
+    "document.parse.artifact"
+  ],
+  "DocumentPage.page": [
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.translation.normalize"
+  ],
+  "DocumentPage.text": [
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.translation.normalize",
+    "fraud.document.tamper.detect"
+  ],
+  "DocumentVersion.artifact_hash": [
+    "document.fields.adjudicated_extract",
+    "document.parse.artifact"
+  ],
+  "DocumentVersion.artifact_ref": [
+    "document.fields.adjudicated_extract",
+    "document.parse.artifact"
+  ],
+  "DocumentVersion.document_id": [
+    "document.parse.artifact"
+  ],
+  "DocumentVersion.media_type": [
+    "document.fields.adjudicated_extract",
+    "document.parse.artifact"
+  ],
+  "DocumentVersion.page_count": [
+    "document.parse.artifact"
+  ],
+  "Entity.attributes": [
+    "fraud.network.detect",
+    "network.relationship.infer",
+    "network.shared_attributes.detect"
+  ],
+  "Entity.entity_type": [
+    "entity.classify",
+    "ownership.ubo.resolve"
+  ],
+  "Entity.identifiers": [
+    "entity.deduplicate",
+    "entity.resolve",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "Entity.name": [
+    "entity.deduplicate",
+    "entity.resolve",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "EntityCandidate.identifiers": [
+    "entity.disambiguate"
+  ],
+  "EntityCandidate.name": [
+    "entity.disambiguate"
+  ],
+  "Event.event_key": [
+    "monitor.trigger.evaluate"
+  ],
+  "Event.event_type": [
+    "monitor.trigger.evaluate"
+  ],
+  "Event.facts": [
+    "monitor.trigger.evaluate"
+  ],
+  "Evidence.content": [
+    "alert.disposition.recommend",
+    "alert.false_positive.assess",
+    "aml.suspicion.assess",
+    "edd.business.purpose.validate",
+    "edd.counterparty.analyze",
+    "edd.findings.synthesize",
+    "edd.recommendation.generate",
+    "edd.source_of_funds.verify",
+    "edd.source_of_wealth.assess",
+    "evidence.bundle.compile",
+    "evidence.integrity.verify",
+    "evidence.normalize",
+    "evidence.provenance.attach",
+    "fraud.beneficiary.risk",
+    "fraud.case.assess",
+    "investigation.evidence.collect",
+    "investigation.findings.synthesize",
+    "investigation.gaps.identify",
+    "investigation.narrative.generate",
+    "investigation.recommendation.generate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate",
+    "regulatory.sar.validate"
+  ],
+  "Evidence.content_hash": [
+    "evidence.integrity.verify"
+  ],
+  "Evidence.requirement_ids": [
+    "evidence.sufficiency.assess"
+  ],
+  "Evidence.source_id": [
+    "evidence.bundle.compile",
+    "evidence.normalize",
+    "evidence.provenance.attach",
+    "investigation.evidence.collect"
+  ],
+  "Evidence.verified": [
+    "evidence.sufficiency.assess"
+  ],
+  "Exception.approved": [
+    "decision.exceptions.evaluate"
+  ],
+  "Exception.expires_at": [
+    "decision.exceptions.evaluate"
+  ],
+  "Exception.issuer": [
+    "decision.exceptions.evaluate"
+  ],
+  "Exception.scope": [
+    "decision.exceptions.evaluate"
+  ],
+  "ExpectedActivity.behavior_category": [
+    "risk.behavior.assess",
+    "risk.factors.derive"
+  ],
+  "ExpectedActivity.declared": [
+    "edd.business.purpose.validate",
+    "party.activity.profile",
+    "party.expected_behavior.model"
+  ],
+  "ExpectedActivity.evidence_ids": [
+    "edd.business.purpose.validate"
+  ],
+  "ExpectedActivity.observed": [
+    "party.activity.profile"
+  ],
+  "ExpectedActivity.window": [
+    "party.activity.profile",
+    "party.expected_behavior.model"
+  ],
+  "ExtractedAssertion.document_version": [
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.validity.assess"
+  ],
+  "ExtractedAssertion.field": [
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.validity.assess"
+  ],
+  "ExtractedAssertion.subject": [
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.validity.assess"
+  ],
+  "ExtractedAssertion.value": [
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.validity.assess"
+  ],
+  "Filing.artifact_ref": [
+    "registry.filings.retrieve"
+  ],
+  "Filing.authority": [
+    "registry.filings.retrieve"
+  ],
+  "Filing.content_hash": [
+    "registry.filings.retrieve"
+  ],
+  "Filing.filing_kind": [
+    "registry.filings.retrieve"
+  ],
+  "Finding.claim": [
+    "alert.false_positive.assess",
+    "case.summary.generate",
+    "edd.findings.synthesize",
+    "edd.recommendation.generate",
+    "investigation.findings.synthesize",
+    "investigation.narrative.generate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "regulatory.sar.draft"
+  ],
+  "Finding.evidence_ids": [
+    "alert.disposition.recommend",
+    "alert.false_positive.assess",
+    "aml.suspicion.assess",
+    "case.summary.generate",
+    "edd.findings.synthesize",
+    "edd.recommendation.generate",
+    "investigation.findings.synthesize",
+    "investigation.gaps.identify",
+    "investigation.narrative.generate",
+    "investigation.recommendation.generate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate"
+  ],
+  "Finding.question": [
+    "investigation.gaps.identify"
+  ],
+  "Finding.status": [
+    "alert.disposition.recommend",
+    "alert.false_positive.assess",
+    "aml.suspicion.assess",
+    "case.summary.generate",
+    "edd.findings.synthesize",
+    "edd.recommendation.generate",
+    "investigation.findings.synthesize",
+    "investigation.narrative.generate",
+    "investigation.recommendation.generate",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate"
+  ],
+  "FraudSignal.evidence_ids": [
+    "fraud.case.assess"
+  ],
+  "FraudSignal.kind": [
+    "fraud.case.assess"
+  ],
+  "FraudSignal.model_version": [
+    "fraud.case.assess"
+  ],
+  "FraudSignal.score": [
+    "fraud.case.assess"
+  ],
+  "GeographyExposure.basis": [
+    "edd.geographic.exposure",
+    "party.geography.profile"
+  ],
+  "GeographyExposure.country": [
+    "edd.geographic.exposure",
+    "party.geography.profile",
+    "risk.factors.derive",
+    "risk.geography.assess"
+  ],
+  "GeographyExposure.value": [
+    "edd.geographic.exposure",
+    "party.geography.profile"
+  ],
+  "Hypothesis.facts": [
+    "investigation.hypothesis.test"
+  ],
+  "Hypothesis.predicate": [
+    "investigation.hypothesis.test"
+  ],
+  "Identity.attributes": [
+    "fraud.identity.synthetic.detect",
+    "fraud.identity.theft.assess"
+  ],
+  "Investigation.questions": [
+    "investigation.gaps.identify",
+    "investigation.plan"
+  ],
+  "Invoice.currency": [
+    "aml.trade_based.detect"
+  ],
+  "Invoice.quantity": [
+    "aml.trade_based.detect"
+  ],
+  "Invoice.unit_price": [
+    "aml.trade_based.detect"
+  ],
+  "License.expires_at": [
+    "registry.licenses.verify"
+  ],
+  "License.issuer": [
+    "registry.licenses.verify"
+  ],
+  "License.scope": [
+    "registry.licenses.verify"
+  ],
+  "License.status": [
+    "registry.licenses.verify"
+  ],
+  "OfficerRole.entity_id": [
+    "party.role.resolve",
+    "registry.directors.resolve"
+  ],
+  "OfficerRole.organization_id": [
+    "party.role.resolve",
+    "registry.directors.resolve"
+  ],
+  "OfficerRole.role": [
+    "party.role.resolve",
+    "registry.directors.resolve"
+  ],
+  "OwnershipInterest.interest": [
+    "ownership.circular.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.interest.calculate",
+    "ownership.structure.complexity",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipInterest.owned": [
+    "ownership.circular.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.interest.calculate",
+    "ownership.structure.complexity",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipInterest.owner": [
+    "ownership.circular.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.interest.calculate",
+    "ownership.structure.complexity",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipRange.lower": [
+    "ownership.interest.calculate",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipRange.lower_inclusive": [
+    "ownership.interest.calculate",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipRange.owned": [
+    "ownership.interest.calculate",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipRange.owner": [
+    "ownership.interest.calculate",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipRange.upper": [
+    "ownership.interest.calculate",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "OwnershipRange.upper_inclusive": [
+    "ownership.interest.calculate",
+    "ownership.ubo.resolve",
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "PEPRelationship.relation": [
+    "edd.pep.exposure",
+    "screening.pep.relationship.resolve"
+  ],
+  "PEPRelationship.source": [
+    "edd.pep.exposure",
+    "screening.pep.relationship.resolve"
+  ],
+  "PEPRelationship.target": [
+    "edd.pep.exposure",
+    "screening.pep.relationship.resolve"
+  ],
+  "PEPRelationship.verified": [
+    "edd.pep.exposure",
+    "screening.pep.relationship.resolve"
+  ],
+  "Party.customer_type": [
+    "party.industry.classify",
+    "party.type.classify",
+    "risk.factors.derive"
+  ],
+  "Party.entity_id": [
+    "party.profile.build"
+  ],
+  "Party.industry": [
+    "party.industry.classify",
+    "risk.factors.derive",
+    "risk.industry.assess"
+  ],
+  "Party.profile": [
+    "aml.shell_company.detect",
+    "party.profile.build",
+    "party.profile.completeness"
+  ],
+  "Party.role": [
+    "party.profile.build"
+  ],
+  "Payment.amount": [
+    "fraud.payment.anomaly"
+  ],
+  "Payment.baseline_maximum": [
+    "fraud.payment.anomaly"
+  ],
+  "Payment.currency": [
+    "fraud.payment.anomaly"
+  ],
+  "Policy.acceptable_tiers": [
+    "decision.risk.acceptance.evaluate"
+  ],
+  "Policy.acceptance_role": [
+    "decision.risk.acceptance.evaluate"
+  ],
+  "Policy.active_registry_statuses": [
+    "registry.company.verify"
+  ],
+  "Policy.alert_priority": [
+    "alert.prioritize"
+  ],
+  "Policy.alert_types": [
+    "alert.classify"
+  ],
+  "Policy.aml_detectors": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect"
+  ],
+  "Policy.approval_roles": [
+    "decision.approval.route"
+  ],
+  "Policy.business_substance_fields": [
+    "aml.shell_company.detect"
+  ],
+  "Policy.case_transitions": [
+    "case.close",
+    "case.state.transition"
+  ],
+  "Policy.control_bases": [
+    "ownership.control.resolve",
+    "ownership.ubo.resolve"
+  ],
+  "Policy.ctr_business_day": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare"
+  ],
+  "Policy.ctr_thresholds": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare"
+  ],
+  "Policy.ctr_time_zone": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare"
+  ],
+  "Policy.ctr_transaction_types": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare"
+  ],
+  "Policy.customer_types": [
+    "party.type.classify"
+  ],
+  "Policy.device_fields": [
+    "fraud.device.fingerprint"
+  ],
+  "Policy.document_types": [
+    "document.classify"
+  ],
+  "Policy.edd_geographies": [
+    "edd.geographic.exposure"
+  ],
+  "Policy.edd_triggers": [
+    "edd.scope.plan",
+    "edd.trigger.evaluate"
+  ],
+  "Policy.entity_types": [
+    "entity.classify"
+  ],
+  "Policy.escalation_severities": [
+    "alert.escalation.evaluate"
+  ],
+  "Policy.exception_issuers": [
+    "decision.exceptions.evaluate"
+  ],
+  "Policy.extensions": [
+    "document.requirements.resolve"
+  ],
+  "Policy.filing_fields": [
+    "regulatory.filing.prepare",
+    "regulatory.filing.submit",
+    "regulatory.sar.validate"
+  ],
+  "Policy.fraud_thresholds": [
+    "fraud.case.assess"
+  ],
+  "Policy.freshness_seconds": [
+    "alert.classify",
+    "alert.context.assemble",
+    "alert.correlate",
+    "alert.deduplicate",
+    "alert.disposition.recommend",
+    "alert.escalation.evaluate",
+    "alert.false_positive.assess",
+    "alert.feedback.capture",
+    "alert.ingest",
+    "alert.prioritize",
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.shell_company.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.suspicion.assess",
+    "aml.trade_based.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "case.close",
+    "case.context.hydrate",
+    "case.create",
+    "case.dependencies.evaluate",
+    "case.escalate",
+    "case.sla.monitor",
+    "case.state.transition",
+    "case.summary.generate",
+    "case.tasks.assign",
+    "case.tasks.plan",
+    "decision.approval.route",
+    "decision.audit.verify",
+    "decision.controls.assess",
+    "decision.disposition.record",
+    "decision.exceptions.evaluate",
+    "decision.explain",
+    "decision.gaps.evaluate",
+    "decision.human.review",
+    "decision.policy.resolve",
+    "decision.recommendation.generate",
+    "decision.requirements.compile",
+    "decision.risk.acceptance.evaluate",
+    "decision.rules.evaluate",
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.request.compose",
+    "document.request.generate",
+    "document.requirements.evaluate",
+    "document.requirements.resolve",
+    "document.translation.normalize",
+    "document.validity.assess",
+    "document.validity.check",
+    "document.version.compare",
+    "edd.business.purpose.validate",
+    "edd.counterparty.analyze",
+    "edd.findings.synthesize",
+    "edd.geographic.exposure",
+    "edd.pep.exposure",
+    "edd.recommendation.generate",
+    "edd.scope.plan",
+    "edd.source_of_funds.verify",
+    "edd.source_of_wealth.assess",
+    "edd.trigger.evaluate",
+    "entity.address.normalize",
+    "entity.alias.resolve",
+    "entity.classify",
+    "entity.confidence.assess",
+    "entity.deduplicate",
+    "entity.disambiguate",
+    "entity.history.reconstruct",
+    "entity.identifiers.validate",
+    "entity.identity.verify",
+    "entity.match",
+    "entity.relationship.resolve",
+    "entity.resolve",
+    "evidence.bundle.compile",
+    "evidence.collect",
+    "evidence.conflicts.resolve",
+    "evidence.facts.extract",
+    "evidence.integrity.verify",
+    "evidence.lineage.trace",
+    "evidence.normalize",
+    "evidence.provenance.attach",
+    "evidence.retention.enforce",
+    "evidence.sufficiency.assess",
+    "fraud.account_takeover.detect",
+    "fraud.behavior.anomaly",
+    "fraud.beneficiary.risk",
+    "fraud.case.assess",
+    "fraud.deepfake.detect",
+    "fraud.device.fingerprint",
+    "fraud.document.tamper.detect",
+    "fraud.identity.synthetic.detect",
+    "fraud.identity.theft.assess",
+    "fraud.liveness.verify",
+    "fraud.network.detect",
+    "fraud.payment.anomaly",
+    "investigation.contradiction.detect",
+    "investigation.evidence.collect",
+    "investigation.findings.synthesize",
+    "investigation.fundflow.reconstruct",
+    "investigation.gaps.identify",
+    "investigation.hypothesis.generate",
+    "investigation.hypothesis.test",
+    "investigation.narrative.generate",
+    "investigation.plan",
+    "investigation.recommendation.generate",
+    "investigation.relationship.analyze",
+    "investigation.timeline.build",
+    "monitor.customer.schedule",
+    "monitor.ownership.change",
+    "monitor.profile.change",
+    "monitor.review.close",
+    "monitor.review.execute",
+    "monitor.review.scope",
+    "monitor.risk.recalculate",
+    "monitor.screening.refresh",
+    "monitor.transaction.deviation",
+    "monitor.trigger.evaluate",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.relationship.infer",
+    "network.risk.propagate",
+    "network.shared_attributes.detect",
+    "network.temporal.analyze",
+    "ownership.circular.detect",
+    "ownership.control.resolve",
+    "ownership.discrepancy.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.history.compare",
+    "ownership.interest.calculate",
+    "ownership.nominee.detect",
+    "ownership.structure.complexity",
+    "ownership.threshold.evaluate",
+    "ownership.ubo.resolve",
+    "ownership.ubo.verify",
+    "party.activity.profile",
+    "party.expected_behavior.model",
+    "party.geography.profile",
+    "party.industry.classify",
+    "party.product.profile",
+    "party.profile.build",
+    "party.profile.completeness",
+    "party.profile.refresh",
+    "party.role.resolve",
+    "party.type.classify",
+    "quality.agent.trace.evaluate",
+    "quality.confidence.calibrate",
+    "quality.coverage.assess",
+    "quality.data.validate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "quality.outcome.reconcile",
+    "quality.policy.compliance",
+    "quality.remediation.plan",
+    "quality.schema.validate",
+    "registry.address.verify",
+    "registry.company.lookup",
+    "registry.company.verify",
+    "registry.directors.resolve",
+    "registry.discrepancy.detect",
+    "registry.filings.retrieve",
+    "registry.jurisdiction.resolve",
+    "registry.licenses.verify",
+    "registry.status.monitor",
+    "registry.taxid.validate",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "regulatory.deadline.calculate",
+    "regulatory.filing.prepare",
+    "regulatory.filing.submit",
+    "regulatory.filing.track",
+    "regulatory.obligations.resolve",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate",
+    "regulatory.sar.validate",
+    "risk.behavior.assess",
+    "risk.change.detect",
+    "risk.customer.assess",
+    "risk.factor.evaluate",
+    "risk.factors.derive",
+    "risk.geography.assess",
+    "risk.industry.assess",
+    "risk.inherent.calculate",
+    "risk.product.assess",
+    "risk.residual.calculate",
+    "risk.score.calibrate",
+    "risk.score.explain",
+    "risk.tier.assign",
+    "screening.adverse_media.classify",
+    "screening.adverse_media.correlate",
+    "screening.adverse_media.execute",
+    "screening.alert.disposition",
+    "screening.match.disambiguate",
+    "screening.match.score",
+    "screening.name.normalize",
+    "screening.pep.execute",
+    "screening.pep.relationship.resolve",
+    "screening.rescreen.schedule",
+    "screening.sanctions.control.evaluate",
+    "screening.sanctions.execute",
+    "screening.sanctions.ownership.evaluate",
+    "screening.watchlist.execute",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Policy.hypothesis_templates": [
+    "investigation.hypothesis.generate"
+  ],
+  "Policy.identifier_rules": [
+    "entity.identifiers.validate",
+    "registry.taxid.validate"
+  ],
+  "Policy.industries": [
+    "party.industry.classify"
+  ],
+  "Policy.investigation_indicator_minimum": [
+    "aml.suspicion.assess"
+  ],
+  "Policy.jurisdiction": [
+    "alert.classify",
+    "alert.context.assemble",
+    "alert.correlate",
+    "alert.deduplicate",
+    "alert.disposition.recommend",
+    "alert.escalation.evaluate",
+    "alert.false_positive.assess",
+    "alert.feedback.capture",
+    "alert.ingest",
+    "alert.prioritize",
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.shell_company.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.suspicion.assess",
+    "aml.trade_based.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "case.close",
+    "case.context.hydrate",
+    "case.create",
+    "case.dependencies.evaluate",
+    "case.escalate",
+    "case.sla.monitor",
+    "case.state.transition",
+    "case.summary.generate",
+    "case.tasks.assign",
+    "case.tasks.plan",
+    "decision.approval.route",
+    "decision.audit.verify",
+    "decision.controls.assess",
+    "decision.disposition.record",
+    "decision.exceptions.evaluate",
+    "decision.explain",
+    "decision.gaps.evaluate",
+    "decision.human.review",
+    "decision.policy.resolve",
+    "decision.recommendation.generate",
+    "decision.requirements.compile",
+    "decision.risk.acceptance.evaluate",
+    "decision.rules.evaluate",
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.request.compose",
+    "document.request.generate",
+    "document.requirements.evaluate",
+    "document.requirements.resolve",
+    "document.translation.normalize",
+    "document.validity.assess",
+    "document.validity.check",
+    "document.version.compare",
+    "edd.business.purpose.validate",
+    "edd.counterparty.analyze",
+    "edd.findings.synthesize",
+    "edd.geographic.exposure",
+    "edd.pep.exposure",
+    "edd.recommendation.generate",
+    "edd.scope.plan",
+    "edd.source_of_funds.verify",
+    "edd.source_of_wealth.assess",
+    "edd.trigger.evaluate",
+    "entity.address.normalize",
+    "entity.alias.resolve",
+    "entity.classify",
+    "entity.confidence.assess",
+    "entity.deduplicate",
+    "entity.disambiguate",
+    "entity.history.reconstruct",
+    "entity.identifiers.validate",
+    "entity.identity.verify",
+    "entity.match",
+    "entity.relationship.resolve",
+    "entity.resolve",
+    "evidence.bundle.compile",
+    "evidence.collect",
+    "evidence.conflicts.resolve",
+    "evidence.facts.extract",
+    "evidence.integrity.verify",
+    "evidence.lineage.trace",
+    "evidence.normalize",
+    "evidence.provenance.attach",
+    "evidence.retention.enforce",
+    "evidence.sufficiency.assess",
+    "fraud.account_takeover.detect",
+    "fraud.behavior.anomaly",
+    "fraud.beneficiary.risk",
+    "fraud.case.assess",
+    "fraud.deepfake.detect",
+    "fraud.device.fingerprint",
+    "fraud.document.tamper.detect",
+    "fraud.identity.synthetic.detect",
+    "fraud.identity.theft.assess",
+    "fraud.liveness.verify",
+    "fraud.network.detect",
+    "fraud.payment.anomaly",
+    "investigation.contradiction.detect",
+    "investigation.evidence.collect",
+    "investigation.findings.synthesize",
+    "investigation.fundflow.reconstruct",
+    "investigation.gaps.identify",
+    "investigation.hypothesis.generate",
+    "investigation.hypothesis.test",
+    "investigation.narrative.generate",
+    "investigation.plan",
+    "investigation.recommendation.generate",
+    "investigation.relationship.analyze",
+    "investigation.timeline.build",
+    "monitor.customer.schedule",
+    "monitor.ownership.change",
+    "monitor.profile.change",
+    "monitor.review.close",
+    "monitor.review.execute",
+    "monitor.review.scope",
+    "monitor.risk.recalculate",
+    "monitor.screening.refresh",
+    "monitor.transaction.deviation",
+    "monitor.trigger.evaluate",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.relationship.infer",
+    "network.risk.propagate",
+    "network.shared_attributes.detect",
+    "network.temporal.analyze",
+    "ownership.circular.detect",
+    "ownership.control.resolve",
+    "ownership.discrepancy.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.history.compare",
+    "ownership.interest.calculate",
+    "ownership.nominee.detect",
+    "ownership.structure.complexity",
+    "ownership.threshold.evaluate",
+    "ownership.ubo.resolve",
+    "ownership.ubo.verify",
+    "party.activity.profile",
+    "party.expected_behavior.model",
+    "party.geography.profile",
+    "party.industry.classify",
+    "party.product.profile",
+    "party.profile.build",
+    "party.profile.completeness",
+    "party.profile.refresh",
+    "party.role.resolve",
+    "party.type.classify",
+    "quality.agent.trace.evaluate",
+    "quality.confidence.calibrate",
+    "quality.coverage.assess",
+    "quality.data.validate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "quality.outcome.reconcile",
+    "quality.policy.compliance",
+    "quality.remediation.plan",
+    "quality.schema.validate",
+    "registry.address.verify",
+    "registry.company.lookup",
+    "registry.company.verify",
+    "registry.directors.resolve",
+    "registry.discrepancy.detect",
+    "registry.filings.retrieve",
+    "registry.jurisdiction.resolve",
+    "registry.licenses.verify",
+    "registry.status.monitor",
+    "registry.taxid.validate",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "regulatory.deadline.calculate",
+    "regulatory.filing.prepare",
+    "regulatory.filing.submit",
+    "regulatory.filing.track",
+    "regulatory.obligations.resolve",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate",
+    "regulatory.sar.validate",
+    "risk.behavior.assess",
+    "risk.change.detect",
+    "risk.customer.assess",
+    "risk.factor.evaluate",
+    "risk.factors.derive",
+    "risk.geography.assess",
+    "risk.industry.assess",
+    "risk.inherent.calculate",
+    "risk.product.assess",
+    "risk.residual.calculate",
+    "risk.score.calibrate",
+    "risk.score.explain",
+    "risk.tier.assign",
+    "screening.adverse_media.classify",
+    "screening.adverse_media.correlate",
+    "screening.adverse_media.execute",
+    "screening.alert.disposition",
+    "screening.match.disambiguate",
+    "screening.match.score",
+    "screening.name.normalize",
+    "screening.pep.execute",
+    "screening.pep.relationship.resolve",
+    "screening.rescreen.schedule",
+    "screening.sanctions.control.evaluate",
+    "screening.sanctions.execute",
+    "screening.sanctions.ownership.evaluate",
+    "screening.watchlist.execute",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Policy.license_issuers": [
+    "registry.licenses.verify"
+  ],
+  "Policy.link_attributes": [
+    "fraud.network.detect",
+    "network.relationship.infer",
+    "network.shared_attributes.detect"
+  ],
+  "Policy.media_categories": [
+    "screening.adverse_media.classify"
+  ],
+  "Policy.monitor_triggers": [
+    "monitor.trigger.evaluate"
+  ],
+  "Policy.network_decay": [
+    "network.risk.propagate"
+  ],
+  "Policy.ownership_threshold": [
+    "ownership.threshold.evaluate",
+    "ownership.ubo.resolve"
+  ],
+  "Policy.permissions": [
+    "alert.classify",
+    "alert.context.assemble",
+    "alert.correlate",
+    "alert.deduplicate",
+    "alert.disposition.recommend",
+    "alert.escalation.evaluate",
+    "alert.false_positive.assess",
+    "alert.feedback.capture",
+    "alert.ingest",
+    "alert.prioritize",
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.shell_company.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.suspicion.assess",
+    "aml.trade_based.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "case.close",
+    "case.context.hydrate",
+    "case.create",
+    "case.dependencies.evaluate",
+    "case.escalate",
+    "case.sla.monitor",
+    "case.state.transition",
+    "case.summary.generate",
+    "case.tasks.assign",
+    "case.tasks.plan",
+    "decision.approval.route",
+    "decision.audit.verify",
+    "decision.controls.assess",
+    "decision.disposition.record",
+    "decision.exceptions.evaluate",
+    "decision.explain",
+    "decision.gaps.evaluate",
+    "decision.human.review",
+    "decision.policy.resolve",
+    "decision.recommendation.generate",
+    "decision.requirements.compile",
+    "decision.risk.acceptance.evaluate",
+    "decision.rules.evaluate",
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.request.compose",
+    "document.request.generate",
+    "document.requirements.evaluate",
+    "document.requirements.resolve",
+    "document.translation.normalize",
+    "document.validity.assess",
+    "document.validity.check",
+    "document.version.compare",
+    "edd.business.purpose.validate",
+    "edd.counterparty.analyze",
+    "edd.findings.synthesize",
+    "edd.geographic.exposure",
+    "edd.pep.exposure",
+    "edd.recommendation.generate",
+    "edd.scope.plan",
+    "edd.source_of_funds.verify",
+    "edd.source_of_wealth.assess",
+    "edd.trigger.evaluate",
+    "entity.address.normalize",
+    "entity.alias.resolve",
+    "entity.classify",
+    "entity.confidence.assess",
+    "entity.deduplicate",
+    "entity.disambiguate",
+    "entity.history.reconstruct",
+    "entity.identifiers.validate",
+    "entity.identity.verify",
+    "entity.match",
+    "entity.relationship.resolve",
+    "entity.resolve",
+    "evidence.bundle.compile",
+    "evidence.collect",
+    "evidence.conflicts.resolve",
+    "evidence.facts.extract",
+    "evidence.integrity.verify",
+    "evidence.lineage.trace",
+    "evidence.normalize",
+    "evidence.provenance.attach",
+    "evidence.retention.enforce",
+    "evidence.sufficiency.assess",
+    "fraud.account_takeover.detect",
+    "fraud.behavior.anomaly",
+    "fraud.beneficiary.risk",
+    "fraud.case.assess",
+    "fraud.deepfake.detect",
+    "fraud.device.fingerprint",
+    "fraud.document.tamper.detect",
+    "fraud.identity.synthetic.detect",
+    "fraud.identity.theft.assess",
+    "fraud.liveness.verify",
+    "fraud.network.detect",
+    "fraud.payment.anomaly",
+    "investigation.contradiction.detect",
+    "investigation.evidence.collect",
+    "investigation.findings.synthesize",
+    "investigation.fundflow.reconstruct",
+    "investigation.gaps.identify",
+    "investigation.hypothesis.generate",
+    "investigation.hypothesis.test",
+    "investigation.narrative.generate",
+    "investigation.plan",
+    "investigation.recommendation.generate",
+    "investigation.relationship.analyze",
+    "investigation.timeline.build",
+    "monitor.customer.schedule",
+    "monitor.ownership.change",
+    "monitor.profile.change",
+    "monitor.review.close",
+    "monitor.review.execute",
+    "monitor.review.scope",
+    "monitor.risk.recalculate",
+    "monitor.screening.refresh",
+    "monitor.transaction.deviation",
+    "monitor.trigger.evaluate",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.relationship.infer",
+    "network.risk.propagate",
+    "network.shared_attributes.detect",
+    "network.temporal.analyze",
+    "ownership.circular.detect",
+    "ownership.control.resolve",
+    "ownership.discrepancy.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.history.compare",
+    "ownership.interest.calculate",
+    "ownership.nominee.detect",
+    "ownership.structure.complexity",
+    "ownership.threshold.evaluate",
+    "ownership.ubo.resolve",
+    "ownership.ubo.verify",
+    "party.activity.profile",
+    "party.expected_behavior.model",
+    "party.geography.profile",
+    "party.industry.classify",
+    "party.product.profile",
+    "party.profile.build",
+    "party.profile.completeness",
+    "party.profile.refresh",
+    "party.role.resolve",
+    "party.type.classify",
+    "quality.agent.trace.evaluate",
+    "quality.confidence.calibrate",
+    "quality.coverage.assess",
+    "quality.data.validate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "quality.outcome.reconcile",
+    "quality.policy.compliance",
+    "quality.remediation.plan",
+    "quality.schema.validate",
+    "registry.address.verify",
+    "registry.company.lookup",
+    "registry.company.verify",
+    "registry.directors.resolve",
+    "registry.discrepancy.detect",
+    "registry.filings.retrieve",
+    "registry.jurisdiction.resolve",
+    "registry.licenses.verify",
+    "registry.status.monitor",
+    "registry.taxid.validate",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "regulatory.deadline.calculate",
+    "regulatory.filing.prepare",
+    "regulatory.filing.submit",
+    "regulatory.filing.track",
+    "regulatory.obligations.resolve",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate",
+    "regulatory.sar.validate",
+    "risk.behavior.assess",
+    "risk.change.detect",
+    "risk.customer.assess",
+    "risk.factor.evaluate",
+    "risk.factors.derive",
+    "risk.geography.assess",
+    "risk.industry.assess",
+    "risk.inherent.calculate",
+    "risk.product.assess",
+    "risk.residual.calculate",
+    "risk.score.calibrate",
+    "risk.score.explain",
+    "risk.tier.assign",
+    "screening.adverse_media.classify",
+    "screening.adverse_media.correlate",
+    "screening.adverse_media.execute",
+    "screening.alert.disposition",
+    "screening.match.disambiguate",
+    "screening.match.score",
+    "screening.name.normalize",
+    "screening.pep.execute",
+    "screening.pep.relationship.resolve",
+    "screening.rescreen.schedule",
+    "screening.sanctions.control.evaluate",
+    "screening.sanctions.execute",
+    "screening.sanctions.ownership.evaluate",
+    "screening.watchlist.execute",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Policy.permitted_providers": [
+    "document.authenticity.assess",
+    "document.entities.extract",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.parse.artifact",
+    "document.translation.normalize",
+    "fraud.account_takeover.detect",
+    "fraud.deepfake.detect",
+    "fraud.document.tamper.detect",
+    "fraud.identity.synthetic.detect",
+    "fraud.identity.theft.assess",
+    "fraud.liveness.verify"
+  ],
+  "Policy.profile_fields": [
+    "party.profile.completeness"
+  ],
+  "Policy.recommendations": [
+    "decision.recommendation.generate"
+  ],
+  "Policy.remediation_role": [
+    "quality.remediation.plan"
+  ],
+  "Policy.reporting_obligations": [
+    "regulatory.deadline.calculate",
+    "regulatory.obligations.resolve"
+  ],
+  "Policy.required_document_types": [
+    "document.request.generate",
+    "document.requirements.evaluate",
+    "document.requirements.resolve"
+  ],
+  "Policy.requirements": [
+    "case.close",
+    "decision.controls.assess",
+    "decision.disposition.record",
+    "decision.gaps.evaluate",
+    "decision.requirements.compile",
+    "evidence.sufficiency.assess",
+    "monitor.review.close",
+    "quality.policy.compliance"
+  ],
+  "Policy.rescreen_interval_seconds": [
+    "screening.rescreen.schedule"
+  ],
+  "Policy.review_interval_seconds": [
+    "monitor.customer.schedule"
+  ],
+  "Policy.risk_factor_maps": [
+    "risk.behavior.assess",
+    "risk.factor.evaluate",
+    "risk.factors.derive",
+    "risk.geography.assess",
+    "risk.industry.assess",
+    "risk.product.assess"
+  ],
+  "Policy.risk_model_version": [
+    "monitor.risk.recalculate",
+    "risk.customer.assess",
+    "risk.inherent.calculate"
+  ],
+  "Policy.risk_tiers": [
+    "monitor.risk.recalculate",
+    "risk.customer.assess",
+    "risk.tier.assign"
+  ],
+  "Policy.risk_weights": [
+    "monitor.risk.recalculate",
+    "risk.customer.assess",
+    "risk.factors.derive",
+    "risk.inherent.calculate"
+  ],
+  "Policy.role_members": [
+    "case.escalate",
+    "case.tasks.assign",
+    "decision.approval.route"
+  ],
+  "Policy.rules": [
+    "decision.rules.evaluate"
+  ],
+  "Policy.sanctions_control_bases": [
+    "screening.sanctions.control.evaluate"
+  ],
+  "Policy.sanctions_ownership": [
+    "screening.sanctions.ownership.evaluate"
+  ],
+  "Policy.screening_threshold": [
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "Policy.synthetic_fingerprint_key": [
+    "fraud.device.fingerprint"
+  ],
+  "Policy.transaction_types": [
+    "transaction.classify"
+  ],
+  "Policy.verification_methods": [
+    "entity.identity.verify",
+    "evidence.facts.extract",
+    "ownership.ubo.verify"
+  ],
+  "Policy.version": [
+    "alert.classify",
+    "alert.context.assemble",
+    "alert.correlate",
+    "alert.deduplicate",
+    "alert.disposition.recommend",
+    "alert.escalation.evaluate",
+    "alert.false_positive.assess",
+    "alert.feedback.capture",
+    "alert.ingest",
+    "alert.prioritize",
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.shell_company.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.suspicion.assess",
+    "aml.trade_based.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "case.close",
+    "case.context.hydrate",
+    "case.create",
+    "case.dependencies.evaluate",
+    "case.escalate",
+    "case.sla.monitor",
+    "case.state.transition",
+    "case.summary.generate",
+    "case.tasks.assign",
+    "case.tasks.plan",
+    "decision.approval.route",
+    "decision.audit.verify",
+    "decision.controls.assess",
+    "decision.disposition.record",
+    "decision.exceptions.evaluate",
+    "decision.explain",
+    "decision.gaps.evaluate",
+    "decision.human.review",
+    "decision.policy.resolve",
+    "decision.recommendation.generate",
+    "decision.requirements.compile",
+    "decision.risk.acceptance.evaluate",
+    "decision.rules.evaluate",
+    "document.authenticity.assess",
+    "document.classify",
+    "document.classify.catalog",
+    "document.consistency.assess",
+    "document.consistency.check",
+    "document.entities.extract",
+    "document.evidence.link",
+    "document.fields.adjudicated_extract",
+    "document.fields.contract_extract",
+    "document.fields.extract",
+    "document.parse",
+    "document.parse.artifact",
+    "document.request.compose",
+    "document.request.generate",
+    "document.requirements.evaluate",
+    "document.requirements.resolve",
+    "document.translation.normalize",
+    "document.validity.assess",
+    "document.validity.check",
+    "document.version.compare",
+    "edd.business.purpose.validate",
+    "edd.counterparty.analyze",
+    "edd.findings.synthesize",
+    "edd.geographic.exposure",
+    "edd.pep.exposure",
+    "edd.recommendation.generate",
+    "edd.scope.plan",
+    "edd.source_of_funds.verify",
+    "edd.source_of_wealth.assess",
+    "edd.trigger.evaluate",
+    "entity.address.normalize",
+    "entity.alias.resolve",
+    "entity.classify",
+    "entity.confidence.assess",
+    "entity.deduplicate",
+    "entity.disambiguate",
+    "entity.history.reconstruct",
+    "entity.identifiers.validate",
+    "entity.identity.verify",
+    "entity.match",
+    "entity.relationship.resolve",
+    "entity.resolve",
+    "evidence.bundle.compile",
+    "evidence.collect",
+    "evidence.conflicts.resolve",
+    "evidence.facts.extract",
+    "evidence.integrity.verify",
+    "evidence.lineage.trace",
+    "evidence.normalize",
+    "evidence.provenance.attach",
+    "evidence.retention.enforce",
+    "evidence.sufficiency.assess",
+    "fraud.account_takeover.detect",
+    "fraud.behavior.anomaly",
+    "fraud.beneficiary.risk",
+    "fraud.case.assess",
+    "fraud.deepfake.detect",
+    "fraud.device.fingerprint",
+    "fraud.document.tamper.detect",
+    "fraud.identity.synthetic.detect",
+    "fraud.identity.theft.assess",
+    "fraud.liveness.verify",
+    "fraud.network.detect",
+    "fraud.payment.anomaly",
+    "investigation.contradiction.detect",
+    "investigation.evidence.collect",
+    "investigation.findings.synthesize",
+    "investigation.fundflow.reconstruct",
+    "investigation.gaps.identify",
+    "investigation.hypothesis.generate",
+    "investigation.hypothesis.test",
+    "investigation.narrative.generate",
+    "investigation.plan",
+    "investigation.recommendation.generate",
+    "investigation.relationship.analyze",
+    "investigation.timeline.build",
+    "monitor.customer.schedule",
+    "monitor.ownership.change",
+    "monitor.profile.change",
+    "monitor.review.close",
+    "monitor.review.execute",
+    "monitor.review.scope",
+    "monitor.risk.recalculate",
+    "monitor.screening.refresh",
+    "monitor.transaction.deviation",
+    "monitor.trigger.evaluate",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.relationship.infer",
+    "network.risk.propagate",
+    "network.shared_attributes.detect",
+    "network.temporal.analyze",
+    "ownership.circular.detect",
+    "ownership.control.resolve",
+    "ownership.discrepancy.detect",
+    "ownership.graph.build",
+    "ownership.graph.expand",
+    "ownership.history.compare",
+    "ownership.interest.calculate",
+    "ownership.nominee.detect",
+    "ownership.structure.complexity",
+    "ownership.threshold.evaluate",
+    "ownership.ubo.resolve",
+    "ownership.ubo.verify",
+    "party.activity.profile",
+    "party.expected_behavior.model",
+    "party.geography.profile",
+    "party.industry.classify",
+    "party.product.profile",
+    "party.profile.build",
+    "party.profile.completeness",
+    "party.profile.refresh",
+    "party.role.resolve",
+    "party.type.classify",
+    "quality.agent.trace.evaluate",
+    "quality.confidence.calibrate",
+    "quality.coverage.assess",
+    "quality.data.validate",
+    "quality.findings.verify",
+    "quality.hallucination.detect",
+    "quality.outcome.reconcile",
+    "quality.policy.compliance",
+    "quality.remediation.plan",
+    "quality.schema.validate",
+    "registry.address.verify",
+    "registry.company.lookup",
+    "registry.company.verify",
+    "registry.directors.resolve",
+    "registry.discrepancy.detect",
+    "registry.filings.retrieve",
+    "registry.jurisdiction.resolve",
+    "registry.licenses.verify",
+    "registry.status.monitor",
+    "registry.taxid.validate",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "regulatory.deadline.calculate",
+    "regulatory.filing.prepare",
+    "regulatory.filing.submit",
+    "regulatory.filing.track",
+    "regulatory.obligations.resolve",
+    "regulatory.sar.draft",
+    "regulatory.sar.evaluate",
+    "regulatory.sar.validate",
+    "risk.behavior.assess",
+    "risk.change.detect",
+    "risk.customer.assess",
+    "risk.factor.evaluate",
+    "risk.factors.derive",
+    "risk.geography.assess",
+    "risk.industry.assess",
+    "risk.inherent.calculate",
+    "risk.product.assess",
+    "risk.residual.calculate",
+    "risk.score.calibrate",
+    "risk.score.explain",
+    "risk.tier.assign",
+    "screening.adverse_media.classify",
+    "screening.adverse_media.correlate",
+    "screening.adverse_media.execute",
+    "screening.alert.disposition",
+    "screening.match.disambiguate",
+    "screening.match.score",
+    "screening.name.normalize",
+    "screening.pep.execute",
+    "screening.pep.relationship.resolve",
+    "screening.rescreen.schedule",
+    "screening.sanctions.control.evaluate",
+    "screening.sanctions.execute",
+    "screening.sanctions.ownership.evaluate",
+    "screening.watchlist.execute",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Product.active": [
+    "party.product.profile"
+  ],
+  "Product.channel": [
+    "party.product.profile"
+  ],
+  "Product.product_type": [
+    "party.product.profile",
+    "risk.factors.derive",
+    "risk.product.assess"
+  ],
+  "Provenance.sources": [
+    "evidence.lineage.trace"
+  ],
+  "Provenance.target": [
+    "evidence.lineage.trace"
+  ],
+  "Registration.authority": [
+    "registry.jurisdiction.resolve"
+  ],
+  "Registration.jurisdiction": [
+    "registry.jurisdiction.resolve"
+  ],
+  "Registration.registration_id": [
+    "registry.jurisdiction.resolve"
+  ],
+  "RegistryRecord.address": [
+    "registry.address.verify"
+  ],
+  "RegistryRecord.attributes": [
+    "registry.discrepancy.detect"
+  ],
+  "RegistryRecord.coverage": [
+    "aml.shell_company.detect",
+    "registry.address.verify",
+    "registry.company.lookup",
+    "registry.company.verify"
+  ],
+  "RegistryRecord.name": [
+    "registry.company.lookup"
+  ],
+  "RegistryRecord.registration_id": [
+    "registry.company.lookup",
+    "registry.company.verify"
+  ],
+  "RegistryRecord.status": [
+    "aml.shell_company.detect",
+    "registry.company.lookup",
+    "registry.company.verify",
+    "registry.status.monitor"
+  ],
+  "Relationship.relation": [
+    "entity.relationship.resolve",
+    "investigation.relationship.analyze",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.risk.propagate",
+    "ownership.nominee.detect"
+  ],
+  "Relationship.source": [
+    "entity.relationship.resolve",
+    "investigation.relationship.analyze",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.risk.propagate",
+    "ownership.nominee.detect"
+  ],
+  "Relationship.target": [
+    "entity.relationship.resolve",
+    "investigation.relationship.analyze",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.risk.propagate",
+    "ownership.nominee.detect"
+  ],
+  "Relationship.verified": [
+    "entity.relationship.resolve",
+    "investigation.relationship.analyze",
+    "network.beneficiary.trace",
+    "network.centrality.calculate",
+    "network.community.detect",
+    "network.cycle.detect",
+    "network.graph.build",
+    "network.path.find",
+    "network.risk.propagate",
+    "ownership.nominee.detect"
+  ],
+  "RetentionRule.legal_hold": [
+    "evidence.retention.enforce"
+  ],
+  "RetentionRule.object_id": [
+    "evidence.retention.enforce"
+  ],
+  "RetentionRule.retain_until": [
+    "evidence.retention.enforce"
+  ],
+  "ReviewTrigger.reason": [
+    "monitor.review.scope"
+  ],
+  "ReviewTrigger.requirement_ids": [
+    "monitor.review.scope"
+  ],
+  "RiskAssessment.contributions": [
+    "risk.score.explain"
+  ],
+  "RiskAssessment.model_version": [
+    "risk.score.explain"
+  ],
+  "RiskAssessment.score": [
+    "risk.score.explain"
+  ],
+  "RiskAssessment.tier": [
+    "decision.risk.acceptance.evaluate"
+  ],
+  "RiskFactor.name": [
+    "monitor.risk.recalculate",
+    "risk.customer.assess",
+    "risk.inherent.calculate"
+  ],
+  "RiskFactor.score": [
+    "monitor.risk.recalculate",
+    "risk.customer.assess",
+    "risk.inherent.calculate"
+  ],
+  "SLA.deadline": [
+    "case.sla.monitor"
+  ],
+  "SLA.task_id": [
+    "case.sla.monitor"
+  ],
+  "ScreeningExecution.candidate_count": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.dataset_versions": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.limitations": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.provider": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.query": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.query_time": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.scope": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.screening_type": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.status": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.subject": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningExecution.truncated": [
+    "screening.adverse_media.execute",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "ScreeningHit.entity_id": [
+    "screening.alert.disposition",
+    "screening.match.disambiguate"
+  ],
+  "ScreeningHit.entry_id": [
+    "screening.alert.disposition",
+    "screening.match.disambiguate"
+  ],
+  "ScreeningHit.features": [
+    "screening.alert.disposition",
+    "screening.match.disambiguate"
+  ],
+  "Session.artifact_hash": [
+    "fraud.deepfake.detect",
+    "fraud.liveness.verify"
+  ],
+  "Session.baseline": [
+    "fraud.behavior.anomaly"
+  ],
+  "Session.challenge_id": [
+    "fraud.liveness.verify"
+  ],
+  "Session.features": [
+    "fraud.behavior.anomaly"
+  ],
+  "Session.modality": [
+    "fraud.deepfake.detect"
+  ],
+  "Shipment.quantity": [
+    "aml.trade_based.detect"
+  ],
+  "SourceOfFunds.claim": [
+    "edd.source_of_funds.verify"
+  ],
+  "SourceOfFunds.evidence_ids": [
+    "edd.source_of_funds.verify"
+  ],
+  "SourceOfFunds.verified": [
+    "edd.source_of_funds.verify"
+  ],
+  "SourceOfWealth.claim": [
+    "edd.source_of_wealth.assess"
+  ],
+  "SourceOfWealth.evidence_ids": [
+    "edd.source_of_wealth.assess"
+  ],
+  "SourceOfWealth.verified": [
+    "edd.source_of_wealth.assess"
+  ],
+  "SourceRecord.content": [
+    "evidence.collect"
+  ],
+  "SourceRecord.coverage": [
+    "evidence.collect"
+  ],
+  "SourceRecord.source": [
+    "evidence.collect"
+  ],
+  "Task.dependencies": [
+    "case.dependencies.evaluate",
+    "monitor.review.execute"
+  ],
+  "Task.parameters": [
+    "monitor.review.execute"
+  ],
+  "Task.role": [
+    "case.tasks.assign"
+  ],
+  "Task.skill_id": [
+    "monitor.review.execute"
+  ],
+  "Task.status": [
+    "case.close",
+    "case.dependencies.evaluate",
+    "case.tasks.assign",
+    "monitor.review.close",
+    "monitor.review.execute"
+  ],
+  "TimelineEvent.change": [
+    "entity.history.reconstruct",
+    "investigation.timeline.build"
+  ],
+  "TimelineEvent.subject": [
+    "entity.history.reconstruct",
+    "investigation.timeline.build"
+  ],
+  "TimelineEvent.timestamp": [
+    "entity.history.reconstruct",
+    "investigation.timeline.build"
+  ],
+  "TradeRecord.invoice_id": [
+    "aml.trade_based.detect"
+  ],
+  "TradeRecord.shipment_id": [
+    "aml.trade_based.detect"
+  ],
+  "Transaction.amount": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.country": [
+    "transaction.geography.analyze"
+  ],
+  "Transaction.currency": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.event_id": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.source": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.status": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.target": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.timestamp": [
+    "aml.funnel.detect",
+    "aml.layering.detect",
+    "aml.mule.detect",
+    "aml.pass_through.detect",
+    "aml.roundtrip.detect",
+    "aml.smurfing.detect",
+    "aml.structuring.detect",
+    "aml.typology.match",
+    "aml.velocity.detect",
+    "investigation.fundflow.reconstruct",
+    "monitor.transaction.deviation",
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.anomaly.detect",
+    "transaction.baseline.compare",
+    "transaction.behavior.profile",
+    "transaction.cashflow.analyze",
+    "transaction.classify",
+    "transaction.counterparty.resolve",
+    "transaction.enrich",
+    "transaction.exposure.aggregate",
+    "transaction.flow.trace",
+    "transaction.geography.analyze",
+    "transaction.ingest",
+    "transaction.velocity.analyze"
+  ],
+  "Transaction.transaction_type": [
+    "regulatory.ctr.evaluate",
+    "regulatory.ctr.prepare",
+    "transaction.classify"
+  ],
+  "VerificationRecord.evidence_ids": [
+    "entity.identity.verify",
+    "ownership.ubo.verify"
+  ],
+  "VerificationRecord.method": [
+    "entity.identity.verify",
+    "ownership.ubo.verify"
+  ],
+  "VerificationRecord.status": [
+    "entity.identity.verify",
+    "ownership.ubo.verify"
+  ],
+  "VerificationRecord.subject": [
+    "entity.identity.verify",
+    "ownership.ubo.verify"
+  ],
+  "WatchlistEntry.coverage": [
+    "monitor.screening.refresh",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "WatchlistEntry.identifiers": [
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "WatchlistEntry.list_type": [
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "WatchlistEntry.list_version": [
+    "monitor.screening.refresh",
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "WatchlistEntry.name": [
+    "screening.pep.execute",
+    "screening.sanctions.execute",
+    "screening.watchlist.execute"
+  ],
+  "WorkflowDefinition.steps": [
+    "case.tasks.plan"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$defs": {
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "DataIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/DataIssueCode"
+        },
+        "field": {
+          "$ref": "#/$defs/Id"
+        },
+        "row": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "row",
+        "code"
+      ],
+      "type": "object"
+    },
+    "DataIssueCode": {
+      "enum": [
+        "MISSING",
+        "DUPLICATE_ID"
+      ]
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:quality.data.validate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "issues": {
+      "items": {
+        "$ref": "#/$defs/DataIssue"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "issues",
+    "valid"
+  ],
+  "type": "object"
+}

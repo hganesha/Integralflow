@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "ControlOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "applicability": {
+          "$ref": "#/$defs/Outcome"
+        },
+        "basis": {
+          "$ref": "#/$defs/Text"
+        },
+        "outcome": {
+          "$ref": "#/$defs/Outcome"
+        },
+        "requirement_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "requirement_id",
+        "outcome",
+        "applicability",
+        "basis"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Outcome": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:decision.controls.assess:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "controls": {
+      "items": {
+        "$ref": "#/$defs/ControlOutcome"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "controls"
+  ],
+  "type": "object"
+}

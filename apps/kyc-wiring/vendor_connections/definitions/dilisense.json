@@ -1,0 +1,102 @@
+{
+  "provider_id": "dilisense",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.dilisense.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "x-api-key",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://developers.dilisense.com/products/adverse-media-screening-api/",
+    "https://developers.dilisense.com/products/aml-database/",
+    "https://developers.dilisense.com/products/ongoing-monitoring/"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "individual_media": {
+      "method": "GET",
+      "path": "/v1/media/checkIndividual",
+      "required_body": [],
+      "required_query": [
+        "search_all"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.dilisense.com/products/adverse-media-screening-api/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "entity_media": {
+      "method": "GET",
+      "path": "/v1/media/checkEntity",
+      "required_body": [],
+      "required_query": [
+        "search_all"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.dilisense.com/products/adverse-media-screening-api/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "search_media": {
+      "method": "GET",
+      "path": "/v1/media/search",
+      "required_body": [],
+      "required_query": [
+        "search_all"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.dilisense.com/products/adverse-media-screening-api/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "consolidated_file": {
+      "method": "GET",
+      "path": "/v1/getConsolidatedFile",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "dataset",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.dilisense.com/products/aml-database/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "consolidated_delta": {
+      "method": "GET",
+      "path": "/v1/getConsolidatedDelta",
+      "required_body": [],
+      "required_query": [
+        "previous"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "dataset",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developers.dilisense.com/products/aml-database/",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

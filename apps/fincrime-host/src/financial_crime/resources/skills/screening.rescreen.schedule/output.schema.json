@@ -1,0 +1,26 @@
+{
+  "$defs": {
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:screening.rescreen.schedule:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "due_at": {
+      "$ref": "#/$defs/Timestamp"
+    },
+    "schedule_id": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "due_at",
+    "schedule_id"
+  ],
+  "type": "object"
+}

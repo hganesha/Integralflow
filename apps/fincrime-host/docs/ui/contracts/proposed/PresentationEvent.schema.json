@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PresentationEvent",
+  "description": "Auditable record of what was shown and what the human did (addendum \u00a713.1).",
+  "x-urn": "urn:financial-crime:ui-proposed:PresentationEvent:0.1.0",
+  "x-status": "proposed \u2014 UI-local until reviewed; migrate to schemas/presentation/PresentationEvent.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "presentation_event_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "kind": {
+      "enum": [
+        "intent_resolved",
+        "surface_created",
+        "surface_patched",
+        "surface_rendered",
+        "interaction",
+        "preview_shown",
+        "approval_presented",
+        "approval_confirmed"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "surface_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "surface_revision": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "renderer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+        },
+        "catalog_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+        },
+        "device_class": {
+          "enum": [
+            "desktop",
+            "tablet",
+            "mobile",
+            "watch",
+            "voice"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "catalog_version",
+        "device_class"
+      ]
+    },
+    "object_versions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../../../schemas/runtime/Ref.schema.json"
+      }
+    },
+    "interaction": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "interaction_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "component_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "event": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "action_ref": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "interaction_id",
+            "component_id",
+            "event",
+            "action_ref"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "correlation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "workflow_run_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "execution_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "case_id",
+        "workflow_run_id",
+        "execution_id"
+      ]
+    }
+  },
+  "required": [
+    "presentation_event_id",
+    "kind",
+    "occurred_at",
+    "actor_ref",
+    "surface_id",
+    "surface_revision",
+    "renderer",
+    "object_versions",
+    "interaction",
+    "correlation"
+  ]
+}

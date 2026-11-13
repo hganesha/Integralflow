@@ -1,0 +1,36 @@
+{
+  "provider_id": "sec-edgar",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://data.sec.gov"
+  },
+  "auth": {
+    "type": "header",
+    "name": "User-Agent",
+    "keys": [
+      "USER_AGENT"
+    ]
+  },
+  "sources": [
+    "https://www.sec.gov/search-filings/edgar-application-programming-interfaces"
+  ],
+  "notes": "USER_AGENT must identify organization and contact email. Zero-pad CIK to 10 digits. SEC rate/fair-access rules apply.",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "submissions": {
+      "method": "GET",
+      "path": "/submissions/CIK{cik}.json",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

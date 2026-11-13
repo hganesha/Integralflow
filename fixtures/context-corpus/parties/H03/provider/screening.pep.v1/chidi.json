@@ -1,0 +1,109 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations",
+      "synthetic-peps"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1957-08-14"
+      },
+      "entity_id": "e-chidi",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "official_id",
+          "value": "SPECIMEN-PEP-0001"
+        }
+      ],
+      "names": [
+        {
+          "full": "Chidi Okonkwo-Ibe",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h03.entity.chidi"
+      ]
+    },
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1957-08-14"
+      },
+      "entity_id": "c-1",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "list_document",
+          "value": "SPECIMEN-PEP-0001"
+        }
+      ],
+      "names": [
+        {
+          "full": "Chidi Okonkwo-Ibe",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "SYN-P-0001"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [],
+  "result": {
+    "dataset_versions": [
+      "corpus-synthetic-peps-2026-09-29"
+    ],
+    "kind": "screening",
+    "list_published_at": "2026-09-29T00:00:00Z",
+    "matches": [
+      {
+        "candidate_entity_id": "c-1",
+        "categories": [],
+        "disposition": "unresolved",
+        "list_ids": [
+          "synthetic-peps"
+        ],
+        "match_id": "m-1",
+        "matched_fields": [
+          "name",
+          "identifier"
+        ],
+        "programs": [
+          "Minister of Finance, Republic of Ostrava (fictional)"
+        ],
+        "scores": [
+          {
+            "kind": "name",
+            "value": 1.0
+          }
+        ]
+      }
+    ],
+    "scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations",
+      "synthetic-peps"
+    ],
+    "total_candidates": 1,
+    "truncated": false
+  },
+  "result_id": "corpus-screening-h03-chidi-pep",
+  "subject_entity_id": "e-chidi"
+}

@@ -1,0 +1,74 @@
+{
+  "events": {
+    "account_closure_or_estate": [
+      "account_closure_instruction",
+      "account_mandate",
+      "death_certificate",
+      "grant_of_probate"
+    ],
+    "address_change": [
+      "utility_bill",
+      "bank_statement",
+      "official_residence_certificate"
+    ],
+    "authority_change": [
+      "appointment_instrument",
+      "account_mandate",
+      "board_resolution"
+    ],
+    "business_activity_change": [
+      "business_profile",
+      "trade_operating_licence",
+      "expected_activity_declaration"
+    ],
+    "entity_name_or_form_change": [
+      "company_name_change_certificate",
+      "entity_conversion_certificate",
+      "company_registry_extract"
+    ],
+    "identity_expiry": [
+      "passport",
+      "national_identity_card",
+      "residence_permit"
+    ],
+    "new_product_or_geography": [
+      "product_service_agreement",
+      "expected_activity_declaration",
+      "business_profile"
+    ],
+    "ownership_change": [
+      "shareholder_register",
+      "share_transfer_instrument",
+      "ownership_structure_chart",
+      "beneficial_ownership_declaration"
+    ],
+    "periodic_review": [
+      "periodic_review_record",
+      "company_registry_extract",
+      "expected_activity_declaration"
+    ],
+    "person_name_change": [
+      "name_change_instrument",
+      "name_change_court_order",
+      "passport"
+    ],
+    "risk_or_screening_trigger": [
+      "screening_report",
+      "customer_transaction_explanation",
+      "source_of_funds_declaration",
+      "edd_report"
+    ],
+    "tax_circumstances_change": [
+      "individual_tax_self_certification",
+      "entity_tax_self_certification",
+      "controlling_person_tax_self_certification"
+    ],
+    "trust_party_change": [
+      "trust_amendment",
+      "trustee_appointment_deed",
+      "protector_appointment",
+      "beneficiary_schedule"
+    ]
+  },
+  "selection_semantics": "candidate_refresh_options_selected_by_admitted_policy"
+}

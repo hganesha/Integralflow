@@ -1,0 +1,33 @@
+{
+  "provider_id": "prh",
+  "version": "v3",
+  "bases": {
+    "default": "https://avoindata.prh.fi"
+  },
+  "auth": {
+    "type": "none",
+    "keys": []
+  },
+  "sources": [
+    "https://avoindata.prh.fi/en/index.html"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "search_companies": {
+      "method": "GET",
+      "path": "/opendata-ytj-api/v3/companies",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://avoindata.prh.fi/en/index.html",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h01.entity.halvorsen",
+  "external_ref": "corpus-H01",
+  "party_id": "H01",
+  "record_count": 1097,
+  "relationship_record_id": "h01.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h01.entity.halvorsen",
+      "identifiers": [
+        {
+          "identifier_type": "drivers_licence",
+          "source": "US-NY-SPECIMEN",
+          "value": "SPECIMEN-H01-DL-0001"
+        },
+        {
+          "identifier_type": "passport",
+          "source": "US-SPECIMEN",
+          "value": "SPECIMEN-H01-PP-0001"
+        }
+      ],
+      "name": "Ingrid Halvorsen",
+      "ref": "halvorsen",
+      "role": "customer",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

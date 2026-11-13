@@ -1,0 +1,58 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TraceEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "event": {
+          "$ref": "#/$defs/Id"
+        },
+        "execution_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "skill_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "event"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:quality.agent.trace.evaluate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_skills": {
+      "items": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/TraceEvent"
+      },
+      "maxItems": 10000,
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "events",
+    "allowed_skills"
+  ],
+  "type": "object"
+}

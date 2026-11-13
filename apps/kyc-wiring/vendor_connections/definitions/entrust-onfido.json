@@ -1,0 +1,4219 @@
+{
+  "provider_id": "entrust-onfido",
+  "version": "v3.6",
+  "bases": {
+    "eu": "https://api.eu.onfido.com/v3.6",
+    "us": "https://api.us.onfido.com/v3.6",
+    "ca": "https://api.ca.onfido.com/v3.6"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "prefix": "Token token=",
+    "keys": [
+      "API_TOKEN"
+    ]
+  },
+  "sources": [
+    "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_applicant": {
+      "method": "POST",
+      "path": "/applicants",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants",
+      "openapi_method": "post",
+      "summary": "Create Applicant",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_82b78c60650d8b74"
+      },
+      "responses": {
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_3d23fd3ee2a5f5f3"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_applicants": {
+      "method": "GET",
+      "path": "/applicants",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants",
+      "openapi_method": "get",
+      "summary": "List Applicants",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "description": "The page to return. The first page is `page=1`",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "per_page",
+          "in": "query",
+          "description": "The number of objects per page.",
+          "schema": {
+            "type": "integer",
+            "default": 20
+          }
+        },
+        {
+          "name": "include_deleted",
+          "in": "query",
+          "description": "Whether to also include applicants scheduled for deletion.",
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A list of applicants",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Applicants list",
+                "required": [
+                  "applicants"
+                ],
+                "properties": {
+                  "applicants": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_3d23fd3ee2a5f5f3"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_applicant": {
+      "method": "GET",
+      "path": "/applicants/{applicant_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants/{applicant_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve Applicant",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Applicant object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_3d23fd3ee2a5f5f3"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "update_applicant": {
+      "method": "PUT",
+      "path": "/applicants/{applicant_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants/{applicant_id}",
+      "openapi_method": "put",
+      "summary": "Update Applicant",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_163123db17868b6f"
+      },
+      "responses": {
+        "200": {
+          "description": "Applicant Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_3d23fd3ee2a5f5f3"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "delete_applicant": {
+      "method": "DELETE",
+      "path": "/applicants/{applicant_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants/{applicant_id}",
+      "openapi_method": "delete",
+      "summary": "Delete Applicant",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "restore_applicant": {
+      "method": "POST",
+      "path": "/applicants/{applicant_id}/restore",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants/{applicant_id}/restore",
+      "openapi_method": "post",
+      "summary": "Restore Applicant",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_applicant_consents": {
+      "method": "GET",
+      "path": "/applicants/{applicant_id}/consents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/applicants/{applicant_id}/consents",
+      "openapi_method": "get",
+      "summary": "Retrieve Applicant Consents",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Applicant Consents object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "description": "The applicant's consents",
+                "items": {
+                  "$ref": "#/$defs/doc_14f28da0b050d95c/applicant_consent"
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "create_workflow_run": {
+      "method": "POST",
+      "path": "/workflow_runs",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs",
+      "openapi_method": "post",
+      "summary": "Create a Workflow Run",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_238ff257cd448c53"
+      },
+      "responses": {
+        "201": {
+          "description": "A Workflow Run object.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_47015b249d58c7fb"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_workflow_runs": {
+      "method": "GET",
+      "path": "/workflow_runs",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs",
+      "openapi_method": "get",
+      "summary": "List Workflow Runs",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "description": "The number of the page to be retrieved. If not specified, defaults to 1.",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "description": "A list of comma separated status values to filter the results. Possible values are 'processing', 'awaiting_input', 'approved', 'declined', 'review', 'abandoned' and 'error'.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "created_at_gt",
+          "in": "query",
+          "description": "A ISO-8601 date to filter results with a created date greater than (after) the one provided.",
+          "schema": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        {
+          "name": "created_at_lt",
+          "in": "query",
+          "description": "A ISO-8601 date to filter results with a created date less than (before) the one provided.",
+          "schema": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "description": "A string with the value 'desc' or 'asc' that allows to sort the returned list by the completed datetime either descending or ascending, respectively. If not specified, defaults to 'desc'.",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "desc"
+          }
+        },
+        {
+          "in": "query",
+          "name": "applicant_id",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "description": "the applicant's id."
+        },
+        {
+          "name": "tags",
+          "in": "query",
+          "description": "A list of tags to filter the results.",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of Workflow Run objects matching the query parameters.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "title": "Workflow runs",
+                "items": {
+                  "$ref": "#/$defs/doc_47015b249d58c7fb"
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_workflow_run": {
+      "method": "GET",
+      "path": "/workflow_runs/{workflow_run_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve Workflow Run",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A Workflow Run object.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_47015b249d58c7fb"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_signed_evidence_file": {
+      "method": "GET",
+      "path": "/workflow_runs/{workflow_run_id}/signed_evidence_file",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/signed_evidence_file",
+      "openapi_method": "get",
+      "summary": "Retrieve Workflow Run Evidence Summary File",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "description": "Workflow Run ID",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "302": {
+          "description": "Found",
+          "headers": {
+            "Location": {
+              "description": "Link to the signed evidence file PDF.",
+              "schema": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "200": {
+          "description": "The signed evidence PDF binary data.",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_evidence_folder": {
+      "method": "GET",
+      "path": "/workflow_runs/{workflow_run_id}/evidence_folder",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/evidence_folder",
+      "openapi_method": "get",
+      "summary": "Retrieve Workflow Run Evidence Folder",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "description": "Workflow Run ID",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "302": {
+          "description": "Found",
+          "headers": {
+            "Location": {
+              "description": "Link to the evidence folder.",
+              "schema": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "200": {
+          "description": "The evidence folder binary data.",
+          "content": {
+            "application/zip": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_documents": {
+      "method": "GET",
+      "path": "/documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/documents",
+      "openapi_method": "get",
+      "summary": "List documents",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of Documents",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Documents list",
+                "required": [
+                  "documents"
+                ],
+                "properties": {
+                  "documents": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_115510c888888751"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "upload_document": {
+      "method": "POST",
+      "path": "/documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "multipart",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/documents",
+      "openapi_method": "post",
+      "summary": "Upload a document",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_e1a3662851933b85"
+      },
+      "responses": {
+        "201": {
+          "description": "A document",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_115510c888888751"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_document": {
+      "method": "GET",
+      "path": "/documents/{document_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/documents/{document_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve document",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "document_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A document",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_115510c888888751"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_document": {
+      "method": "GET",
+      "path": "/documents/{document_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/documents/{document_id}/download",
+      "openapi_method": "get",
+      "summary": "Download document",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "document_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The document binary data",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_nfc_face": {
+      "method": "GET",
+      "path": "/documents/{document_id}/nfc_face",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/documents/{document_id}/nfc_face",
+      "openapi_method": "get",
+      "summary": "Download NFC face",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "document_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The image binary data",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_document_video": {
+      "method": "GET",
+      "path": "/documents/{document_id}/video/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/documents/{document_id}/video/download",
+      "openapi_method": "get",
+      "summary": "Download document video",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "document_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The document's video binary data",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_signing_documents": {
+      "method": "GET",
+      "path": "/signing_documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/signing_documents",
+      "openapi_method": "get",
+      "summary": "List signing documents",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of Signing Documents",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Signing Documents list",
+                "required": [
+                  "signing_documents"
+                ],
+                "properties": {
+                  "signing_documents": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_243e6962b2e9ed46"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "upload_signing_document": {
+      "method": "POST",
+      "path": "/signing_documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "multipart",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/signing_documents",
+      "openapi_method": "post",
+      "summary": "Upload a signing document",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_a4e3a908a0e1ddbd"
+      },
+      "responses": {
+        "201": {
+          "description": "A signing document",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_243e6962b2e9ed46"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_signing_document": {
+      "method": "GET",
+      "path": "/signing_documents/{signing_document_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/signing_documents/{signing_document_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve signing document",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "signing_document_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A signing document",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_243e6962b2e9ed46"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_signing_document": {
+      "method": "GET",
+      "path": "/signing_documents/{signing_document_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/signing_documents/{signing_document_id}/download",
+      "openapi_method": "get",
+      "summary": "Download signing document",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "signing_document_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The signing document binary data",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_live_photos": {
+      "method": "GET",
+      "path": "/live_photos",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_photos",
+      "openapi_method": "get",
+      "summary": "List live photos",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "description": "The id of the applicant the live photos belong to.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of live photos",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Live Photos list",
+                "required": [
+                  "live_photos"
+                ],
+                "properties": {
+                  "live_photos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_866ee1d6ddea959a"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "upload_live_photo": {
+      "method": "POST",
+      "path": "/live_photos",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "multipart",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_photos",
+      "openapi_method": "post",
+      "summary": "Upload live photo",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_6bed12c452724ef0"
+      },
+      "responses": {
+        "201": {
+          "description": "The Live Photo",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_866ee1d6ddea959a"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_live_photo": {
+      "method": "GET",
+      "path": "/live_photos/{live_photo_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_photos/{live_photo_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve live photo",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "live_photo_id",
+          "in": "path",
+          "required": true,
+          "description": "The live photo's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A live photo",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_866ee1d6ddea959a"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_live_photo": {
+      "method": "GET",
+      "path": "/live_photos/{live_photo_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_photos/{live_photo_id}/download",
+      "openapi_method": "get",
+      "summary": "Download live photo",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "live_photo_id",
+          "in": "path",
+          "required": true,
+          "description": "The live photo's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The live photo's binary data.",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_live_videos": {
+      "method": "GET",
+      "path": "/live_videos",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_videos",
+      "openapi_method": "get",
+      "summary": "List live videos",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "description": "The id of the applicant the live videos belong to.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of live videos",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Live Videos list",
+                "required": [
+                  "live_videos"
+                ],
+                "properties": {
+                  "live_videos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_ccf7a11abbf3695d"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_live_video": {
+      "method": "GET",
+      "path": "/live_videos/{live_video_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_videos/{live_video_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve live video",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "live_video_id",
+          "in": "path",
+          "required": true,
+          "description": "The live video's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A live video",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_ccf7a11abbf3695d"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_live_video": {
+      "method": "GET",
+      "path": "/live_videos/{live_video_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_videos/{live_video_id}/download",
+      "openapi_method": "get",
+      "summary": "Download live video",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "live_video_id",
+          "in": "path",
+          "required": true,
+          "description": "The live video's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The live video's binary data.",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_live_video_frame": {
+      "method": "GET",
+      "path": "/live_videos/{live_video_id}/frame",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/live_videos/{live_video_id}/frame",
+      "openapi_method": "get",
+      "summary": "Download live video frame",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "live_video_id",
+          "in": "path",
+          "required": true,
+          "description": "The live video's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The live video frame's binary data.",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_tasks": {
+      "method": "GET",
+      "path": "/workflow_runs/{workflow_run_id}/tasks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/tasks",
+      "openapi_method": "get",
+      "summary": "List Tasks",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run to which the Tasks belong.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of subset Task objects that were already started or completed, ordered by the created_at field, in ascending order.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "title": "Tasks",
+                "items": {
+                  "type": "object",
+                  "title": "TaskItem",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/$defs/doc_0b19b858fe4ddb50/task_id"
+                    },
+                    "workflow_run_id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "The workflow run id the task belongs to."
+                    },
+                    "task_def_id": {
+                      "$ref": "#/$defs/doc_0b19b858fe4ddb50/task_def_id"
+                    },
+                    "task_def_version": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "The task definition version."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The date and time when the Task was created."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The date and time when the Task was last updated."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_task": {
+      "method": "GET",
+      "path": "/workflow_runs/{workflow_run_id}/tasks/{task_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/tasks/{task_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve Task",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run to which the Task belongs.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "task_id",
+          "in": "path",
+          "required": true,
+          "description": "The identifier of the Task you want to retrieve.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A Task object.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_cf97895aadee48c7"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "complete_task": {
+      "method": "POST",
+      "path": "/workflow_runs/{workflow_run_id}/tasks/{task_id}/complete",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/tasks/{task_id}/complete",
+      "openapi_method": "post",
+      "summary": "Complete Task",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run to which the Task belongs.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "task_id",
+          "in": "path",
+          "required": true,
+          "description": "The identifier of the Task you want to complete.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_8ee6f1bacbd57a4b"
+      },
+      "responses": {
+        "200": {
+          "description": "An empty response body."
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_motion_captures": {
+      "method": "GET",
+      "path": "/motion_captures",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/motion_captures",
+      "openapi_method": "get",
+      "summary": "List motion captures",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "description": "The id of the applicant the motion captures belong to.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of motion captures",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Motion Captures list",
+                "required": [
+                  "motion_captures"
+                ],
+                "properties": {
+                  "motion_captures": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_664950791529fead"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_motion_capture": {
+      "method": "GET",
+      "path": "/motion_captures/{motion_capture_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/motion_captures/{motion_capture_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve motion capture",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "motion_capture_id",
+          "in": "path",
+          "required": true,
+          "description": "The motion capture's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A motion capture",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_664950791529fead"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_motion_capture": {
+      "method": "GET",
+      "path": "/motion_captures/{motion_capture_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/motion_captures/{motion_capture_id}/download",
+      "openapi_method": "get",
+      "summary": "Download motion capture",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "motion_capture_id",
+          "in": "path",
+          "required": true,
+          "description": "The motion capture's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The motion capture's binary data.",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_motion_capture_frame": {
+      "method": "GET",
+      "path": "/motion_captures/{motion_capture_id}/frame",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/motion_captures/{motion_capture_id}/frame",
+      "openapi_method": "get",
+      "summary": "Download motion capture frame",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "motion_capture_id",
+          "in": "path",
+          "required": true,
+          "description": "The motion capture's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The motion capture frame's binary data.",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_biometric_tokens": {
+      "method": "GET",
+      "path": "/biometric_tokens/{user_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/biometric_tokens/{user_id}",
+      "openapi_method": "get",
+      "summary": "List biometric tokens",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "required": true,
+          "description": "Customer user ID that owns the biometric tokens.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Biometric tokens belonging to the user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Biometric tokens response",
+                "required": [
+                  "biometric_tokens"
+                ],
+                "properties": {
+                  "biometric_tokens": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_3a26a6bbc47c3156"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "invalidate_biometric_tokens": {
+      "method": "DELETE",
+      "path": "/biometric_tokens/{user_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/biometric_tokens/{user_id}",
+      "openapi_method": "delete",
+      "summary": "Invalidate biometric tokens",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "required": true,
+          "description": "Customer user ID whose biometric tokens will be invalidated.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Biometric tokens invalidated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Invalidated biometric tokens response",
+                "required": [
+                  "biometric_tokens"
+                ],
+                "properties": {
+                  "biometric_tokens": {
+                    "$ref": "#/$defs/doc_0b2341953dac12e6"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_biometric_token": {
+      "method": "GET",
+      "path": "/biometric_tokens/{user_id}/{token_uuid}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/biometric_tokens/{user_id}/{token_uuid}",
+      "openapi_method": "get",
+      "summary": "Retrieve biometric token",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "required": true,
+          "description": "Customer user ID that owns the biometric token.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "token_uuid",
+          "in": "path",
+          "required": true,
+          "description": "Biometric token UUID.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The requested biometric token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Biometric token response",
+                "required": [
+                  "biometric_token"
+                ],
+                "properties": {
+                  "biometric_token": {
+                    "$ref": "#/$defs/doc_3a26a6bbc47c3156"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "update_biometric_token": {
+      "method": "PUT",
+      "path": "/biometric_tokens/{user_id}/{token_uuid}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/biometric_tokens/{user_id}/{token_uuid}",
+      "openapi_method": "put",
+      "summary": "Update biometric token",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "required": true,
+          "description": "Customer user ID that owns the biometric token.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "token_uuid",
+          "in": "path",
+          "required": true,
+          "description": "Biometric token UUID.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_cdcd5db084f77542"
+      },
+      "responses": {
+        "200": {
+          "description": "Biometric token updated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Updated biometric token response",
+                "required": [
+                  "biometric_token"
+                ],
+                "properties": {
+                  "biometric_token": {
+                    "$ref": "#/$defs/doc_3a26a6bbc47c3156"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "invalidate_biometric_token": {
+      "method": "DELETE",
+      "path": "/biometric_tokens/{user_id}/{token_uuid}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/biometric_tokens/{user_id}/{token_uuid}",
+      "openapi_method": "delete",
+      "summary": "Invalidate biometric token",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "required": true,
+          "description": "Customer user ID that owns the biometric token.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "token_uuid",
+          "in": "path",
+          "required": true,
+          "description": "Biometric token UUID.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Biometric token invalidated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Invalidated biometric token response",
+                "required": [
+                  "biometric_tokens"
+                ],
+                "properties": {
+                  "biometric_tokens": {
+                    "$ref": "#/$defs/doc_0b2341953dac12e6"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "create_watchlist_monitor": {
+      "method": "POST",
+      "path": "/watchlist_monitors",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors",
+      "openapi_method": "post",
+      "summary": "Create monitor",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_baa5e98fd01af3ce"
+      },
+      "responses": {
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_756b7d1e800a8f22"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_watchlist_monitors": {
+      "method": "GET",
+      "path": "/watchlist_monitors",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors",
+      "openapi_method": "get",
+      "summary": "List monitors",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "description": "The id of the applicant the watchlist monitors belong to. If omitted, all monitors for the account will be listed.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "include_deleted",
+          "in": "query",
+          "description": "Whether to also include deleted (inactive) monitors.",
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of watchlist monitors",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Watchlist monitors list",
+                "required": [
+                  "monitors"
+                ],
+                "properties": {
+                  "monitors": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_756b7d1e800a8f22"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_watchlist_monitor": {
+      "method": "GET",
+      "path": "/watchlist_monitors/{monitor_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors/{monitor_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve monitor",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "monitor_id",
+          "in": "path",
+          "required": true,
+          "description": "The watchlist monitor's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A watchlist monitor",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_756b7d1e800a8f22"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "delete_watchlist_monitor": {
+      "method": "DELETE",
+      "path": "/watchlist_monitors/{monitor_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors/{monitor_id}",
+      "openapi_method": "delete",
+      "summary": "Delete monitor",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "monitor_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_watchlist_monitor_matches": {
+      "method": "GET",
+      "path": "/watchlist_monitors/{monitor_id}/matches",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors/{monitor_id}/matches",
+      "openapi_method": "get",
+      "summary": "List matches (BETA)",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "monitor_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of watchlist monitors",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_985d54dc2cef5ee7"
+              }
+            }
+          }
+        }
+      }
+    },
+    "update_watchlist_monitor_match": {
+      "method": "PATCH",
+      "path": "/watchlist_monitors/{monitor_id}/matches",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors/{monitor_id}/matches",
+      "openapi_method": "patch",
+      "summary": "Set match status (BETA)",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "monitor_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_44e3421564d8dd3e"
+      },
+      "responses": {
+        "200": {
+          "description": "An array of watchlist monitors",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_985d54dc2cef5ee7"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "force_report_creation_from_watchlist_monitor": {
+      "method": "POST",
+      "path": "/watchlist_monitors/{monitor_id}/new_report",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/watchlist_monitors/{monitor_id}/new_report",
+      "openapi_method": "post",
+      "summary": "Force new report creation (BETA)",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "monitor_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Created",
+          "headers": {
+            "Location": {
+              "schema": {
+                "type": "string"
+              },
+              "description": "Link to the newly generated report."
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_watchlist_mesh_alert_risks": {
+      "method": "GET",
+      "path": "/complyadvantage_watchlists/alerts/{alert_id}/risks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/complyadvantage_watchlists/alerts/{alert_id}/risks",
+      "openapi_method": "get",
+      "summary": "Retrieve watchlist mesh alert risks",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "alert_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the alert whose risks you want to retrieve.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "description": "The page of results to retrieve.",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "per_page",
+          "in": "query",
+          "required": false,
+          "description": "The number of risks to return per page.",
+          "schema": {
+            "type": "integer",
+            "default": 25
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of watchlist alert risks.",
+          "headers": {
+            "X-Total-Count": {
+              "description": "The total number of risks associated with the alert.",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          },
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "title": "Watchlist alert risks",
+                "items": {
+                  "$ref": "#/$defs/doc_d5e8585d05d3bc98"
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_id_photos": {
+      "method": "GET",
+      "path": "/id_photos",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/id_photos",
+      "openapi_method": "get",
+      "summary": "List ID photos",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "description": "The id of the applicant the ID photos belong to.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of ID photos",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Id Photos list",
+                "required": [
+                  "id_photos"
+                ],
+                "properties": {
+                  "id_photos": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_b9dd3609a9089ee0"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "upload_id_photo": {
+      "method": "POST",
+      "path": "/id_photos",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "multipart",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/id_photos",
+      "openapi_method": "post",
+      "summary": "Upload ID photo",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_54c8f55f4c6f94be"
+      },
+      "responses": {
+        "201": {
+          "description": "The ID photo",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_b9dd3609a9089ee0"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_id_photo": {
+      "method": "GET",
+      "path": "/id_photos/{id_photo_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/id_photos/{id_photo_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve ID photo",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "id_photo_id",
+          "in": "path",
+          "required": true,
+          "description": "The ID photo's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A ID photo",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_b9dd3609a9089ee0"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_id_photo": {
+      "method": "GET",
+      "path": "/id_photos/{id_photo_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/id_photos/{id_photo_id}/download",
+      "openapi_method": "get",
+      "summary": "Download ID photo",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "id_photo_id",
+          "in": "path",
+          "required": true,
+          "description": "The ID photo's unique identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The ID photo's binary data.",
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_qes_document": {
+      "method": "GET",
+      "path": "/qualified_electronic_signature/documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/qualified_electronic_signature/documents",
+      "openapi_method": "get",
+      "summary": "Retrieves the signed document or application form",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "query",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run for which you want to retrieve the signed document.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "file_id",
+          "in": "query",
+          "required": true,
+          "description": "The unique identifier of the file which you want to retrieve.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "302": {
+          "description": "Found",
+          "headers": {
+            "Location": {
+              "description": "Pre-signed URL to download the file.",
+              "schema": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "200": {
+          "description": "The signed document PDF binary data.",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_aes_document": {
+      "method": "GET",
+      "path": "/advanced_electronic_signature/documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/advanced_electronic_signature/documents",
+      "openapi_method": "get",
+      "summary": "Retrieves the signed document or signing transaction receipt",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "query",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run for which you want to retrieve the signed document.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "description": "The unique identifier of the file which you want to retrieve.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "302": {
+          "description": "Found",
+          "headers": {
+            "Location": {
+              "description": "Pre-signed URL to download the file.",
+              "schema": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "200": {
+          "description": "The signed document PDF binary data.",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_ses_document": {
+      "method": "GET",
+      "path": "/simple_electronic_signature/documents",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/simple_electronic_signature/documents",
+      "openapi_method": "get",
+      "summary": "Retrieves the signed document or signing transaction receipt",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "query",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run for which you want to retrieve the signed document.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "description": "The unique identifier of the file which you want to retrieve.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "302": {
+          "description": "Found",
+          "headers": {
+            "Location": {
+              "description": "Pre-signed URL to download the file.",
+              "schema": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "200": {
+          "description": "The signed document PDF binary data.",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "create_timeline_file": {
+      "method": "POST",
+      "path": "/workflow_runs/{workflow_run_id}/timeline_file",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/timeline_file",
+      "openapi_method": "post",
+      "summary": "Create Timeline File for Workflow Run",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "202": {
+          "description": "A Timeline File reference.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8fb039334a0133e2"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_timeline_file": {
+      "method": "GET",
+      "path": "/workflow_runs/{workflow_run_id}/timeline_file/{timeline_file_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/workflow_runs/{workflow_run_id}/timeline_file/{timeline_file_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve Timeline File for Workflow Run",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "workflow_run_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier of the Workflow Run.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        {
+          "name": "timeline_file_id",
+          "in": "path",
+          "required": true,
+          "description": "The unique identifier for the Timefile File.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "302": {
+          "description": "Found",
+          "headers": {
+            "Location": {
+              "description": "Link to the Timeline File.",
+              "schema": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "200": {
+          "description": "The Timeline File PDF binary data.",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_passkeys": {
+      "method": "GET",
+      "path": "/passkeys/{username}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/passkeys/{username}",
+      "openapi_method": "get",
+      "summary": "List passkeys",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "username",
+          "in": "path",
+          "required": true,
+          "description": "Username that owns the passkeys.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Passkeys belonging to the username",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Passkeys list",
+                "required": [
+                  "passkeys"
+                ],
+                "properties": {
+                  "passkeys": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_89ebae671b2dd60f"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Passkey not found"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "delete_passkeys": {
+      "method": "DELETE",
+      "path": "/passkeys/{username}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/passkeys/{username}",
+      "openapi_method": "delete",
+      "summary": "Delete passkeys",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "username",
+          "in": "path",
+          "required": true,
+          "description": "Username whose passkeys will be deleted.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "All passkeys deleted"
+        },
+        "404": {
+          "description": "Passkey not found"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_passkey": {
+      "method": "GET",
+      "path": "/passkeys/{username}/{passkey_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/passkeys/{username}/{passkey_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve passkey",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "username",
+          "in": "path",
+          "required": true,
+          "description": "Username that owns the passkey.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "passkey_id",
+          "in": "path",
+          "required": true,
+          "description": "Passkey ID.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The requested passkey",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_89ebae671b2dd60f"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Passkey not found"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "update_passkey": {
+      "method": "PUT",
+      "path": "/passkeys/{username}/{passkey_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/passkeys/{username}/{passkey_id}",
+      "openapi_method": "put",
+      "summary": "Update passkey",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "username",
+          "in": "path",
+          "required": true,
+          "description": "Username that owns the passkey.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "passkey_id",
+          "in": "path",
+          "required": true,
+          "description": "Passkey ID.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_00902b43f25f680e"
+      },
+      "responses": {
+        "200": {
+          "description": "Passkey updated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_89ebae671b2dd60f"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Invalid request body"
+        },
+        "404": {
+          "description": "Passkey not found"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "delete_passkey": {
+      "method": "DELETE",
+      "path": "/passkeys/{username}/{passkey_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/passkeys/{username}/{passkey_id}",
+      "openapi_method": "delete",
+      "summary": "Delete passkey",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "username",
+          "in": "path",
+          "required": true,
+          "description": "Username that owns the passkey.",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "passkey_id",
+          "in": "path",
+          "required": true,
+          "description": "Passkey ID.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Passkey deleted"
+        },
+        "404": {
+          "description": "Passkey not found"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "ping": {
+      "method": "GET",
+      "path": "/ping",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/ping",
+      "openapi_method": "get",
+      "summary": "Ping",
+      "body_required": false,
+      "parameters": [],
+      "responses": {
+        "200": {
+          "description": "Regional base URL is operational",
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_webhooks": {
+      "method": "GET",
+      "path": "/webhooks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/webhooks",
+      "openapi_method": "get",
+      "summary": "List webhooks",
+      "body_required": false,
+      "parameters": [],
+      "responses": {
+        "200": {
+          "description": "A list of webhooks",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Webhooks list",
+                "required": [
+                  "webhooks"
+                ],
+                "properties": {
+                  "webhooks": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_fc37caba864b5a33"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "create_webhook": {
+      "method": "POST",
+      "path": "/webhooks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/webhooks",
+      "openapi_method": "post",
+      "summary": "Register webhook",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_fcc456a02ffdf9b7"
+      },
+      "responses": {
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_fc37caba864b5a33"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_webhook": {
+      "method": "GET",
+      "path": "/webhooks/{webhook_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/webhooks/{webhook_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve a Webhook",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Webhook object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_fc37caba864b5a33"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "update_webhook": {
+      "method": "PUT",
+      "path": "/webhooks/{webhook_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/webhooks/{webhook_id}",
+      "openapi_method": "put",
+      "summary": "Edit a webhook",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_585f6a82c19ffdf6"
+      },
+      "responses": {
+        "200": {
+          "description": "Webhook Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_fc37caba864b5a33"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "delete_webhook": {
+      "method": "DELETE",
+      "path": "/webhooks/{webhook_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/webhooks/{webhook_id}",
+      "openapi_method": "delete",
+      "summary": "Delete a webhook",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "Webhook deleted"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "resend_webhooks": {
+      "method": "POST",
+      "path": "/webhooks/resend",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/webhooks/resend",
+      "openapi_method": "post",
+      "summary": "Resends webhooks",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_f1e461e472ada755"
+      },
+      "responses": {
+        "204": {
+          "description": "Webhooks are resent for the respective checks"
+        },
+        "422": {
+          "description": "Request was received but it could not be processed"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_addresses": {
+      "method": "GET",
+      "path": "/addresses/pick",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/addresses/pick",
+      "openapi_method": "get",
+      "summary": "Address Picker",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "postcode",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A list of addresses",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Addresses list",
+                "required": [
+                  "address"
+                ],
+                "properties": {
+                  "addresses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_e52e6e2f92c22c5d"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "generate_sdk_token": {
+      "method": "POST",
+      "path": "/sdk_token",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/sdk_token",
+      "openapi_method": "post",
+      "summary": "Generate a SDK token",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_7387a854769d8be9"
+      },
+      "responses": {
+        "200": {
+          "description": "Generated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_9243be4d5128c01e"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_repeat_attempts": {
+      "method": "GET",
+      "path": "/repeat_attempts/{report_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/repeat_attempts/{report_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve repeat attempts",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "report_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Repeat attempts object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_7cafcfec77f35df2"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "extract": {
+      "method": "POST",
+      "path": "/extractions",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/extractions",
+      "openapi_method": "post",
+      "summary": "Autofill",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "type": "object",
+        "required": [
+          "document_id"
+        ],
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier of the uploaded document to run extraction on"
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Extraction result",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_9e67aac0f8b752d5"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_f30eaf2f3079de25"
+        }
+      }
+    },
+    "post_results_feedback": {
+      "method": "POST",
+      "path": "/results_feedback",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/results_feedback",
+      "openapi_method": "post",
+      "summary": "Fraud reporting (ALPHA)",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_237d07ed591359c8"
+      },
+      "responses": {
+        "200": {
+          "description": "Created feedback",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_237d07ed591359c8"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_checks": {
+      "method": "GET",
+      "path": "/checks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/status",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/checks",
+      "openapi_method": "get",
+      "summary": "Retrieve Checks",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "applicant_id",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "An array of checks",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Checks list",
+                "required": [
+                  "checks"
+                ],
+                "properties": {
+                  "checks": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_b1ae3bf239650ed9"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "create_check": {
+      "method": "POST",
+      "path": "/checks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/status",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/checks",
+      "openapi_method": "post",
+      "summary": "Create a check",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_b9a8f635a876826e"
+      },
+      "responses": {
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_b1ae3bf239650ed9"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_check": {
+      "method": "GET",
+      "path": "/checks/{check_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/status",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/checks/{check_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve a Check",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "check_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Check object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_b1ae3bf239650ed9"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "resume_check": {
+      "method": "POST",
+      "path": "/checks/{check_id}/resume",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/status",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/checks/{check_id}/resume",
+      "openapi_method": "post",
+      "summary": "Resume a Check",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "check_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "download_check": {
+      "method": "GET",
+      "path": "/checks/{check_id}/download",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/status",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/checks/{check_id}/download",
+      "openapi_method": "get",
+      "summary": "Download check",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "check_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "The check PDF binary data",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "list_reports": {
+      "method": "GET",
+      "path": "/reports",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/result",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/reports",
+      "openapi_method": "get",
+      "summary": "List reports",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "check_id",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of Reports",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Reports list",
+                "required": [
+                  "reports"
+                ],
+                "properties": {
+                  "reports": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/doc_8978884b4f9e2b86"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "find_report": {
+      "method": "GET",
+      "path": "/reports/{report_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/result",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/reports/{report_id}",
+      "openapi_method": "get",
+      "summary": "Retrieve report",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "report_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Report object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8978884b4f9e2b86"
+              }
+            }
+          }
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "resume_report": {
+      "method": "POST",
+      "path": "/reports/{report_id}/resume",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/result",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/reports/{report_id}/resume",
+      "openapi_method": "post",
+      "summary": "Resume report",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "report_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    },
+    "cancel_report": {
+      "method": "POST",
+      "path": "/reports/{report_id}/cancel",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/result",
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/onfido/onfido-openapi-spec/master/openapi.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/reports/{report_id}/cancel",
+      "openapi_method": "post",
+      "summary": "Cancel report",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "report_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "default": {
+          "$ref": "#/$defs/doc_7f40ac985b99608a"
+        }
+      }
+    }
+  },
+  "openapi_file": "schemas/entrust-onfido.json"
+}

@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "DocumentRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "text": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "document_type",
+        "text"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.request.generate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "requests": {
+      "items": {
+        "$ref": "#/$defs/DocumentRequest"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "sent": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "requests",
+    "sent"
+  ],
+  "type": "object"
+}

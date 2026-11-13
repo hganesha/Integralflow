@@ -1,0 +1,270 @@
+{
+  "apiVersion": "harness.factory/policy-pack-v1",
+  "kind": "EffectivePolicyPack",
+  "id": "policy.pack.us.bank-synthetic.business-banking",
+  "version": "1.0.0+1.0.0+1.0.0+1.0.0+1.0.0+1.0.0+1.1.0+1.0.0",
+  "status": "CANDIDATE",
+  "scope": {
+    "jurisdiction": "US",
+    "institution": "bank.synthetic",
+    "productSet": "business-banking",
+    "products": [
+      "deposit",
+      "lending",
+      "merchant_acquiring",
+      "payments"
+    ],
+    "customerTypes": [
+      "corporate"
+    ]
+  },
+  "layers": [
+    {
+      "id": "pack.baseline",
+      "version": "1.0.0",
+      "layer": "baseline",
+      "digest": "60b111d1c4758de9139dea0b7e3abe2fe2dfd51f277717cc6fb025662fa7c43d"
+    },
+    {
+      "id": "pack.jurisdiction.us",
+      "version": "1.0.0",
+      "layer": "jurisdiction",
+      "digest": "8dc5725a231e03844b9ef06701b30436432b1d63da9dc72229cb64907d7e30fd"
+    },
+    {
+      "id": "pack.institution.bank-synthetic",
+      "version": "1.0.0",
+      "layer": "institution",
+      "digest": "0834e06d6f88a4e215b0e40ffc8a959bd3cc548b34ecc4004360ec79af62d6ea"
+    },
+    {
+      "id": "pack.product.deposit",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "deae1379e19623a1f359ffc11bd9e04f4260454b76a1a5cdabd8b61e69302a89"
+    },
+    {
+      "id": "pack.product.lending",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "e8b004d97d940de752869776280bf4ad436e12d287abb9b9a8b55a846cb48c92"
+    },
+    {
+      "id": "pack.product.family.pay",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "511378f2501561e6f546bee2824fef253e8eb6c632004a67f0c70e6898aaff00"
+    },
+    {
+      "id": "pack.product.payments",
+      "version": "1.1.0",
+      "layer": "product",
+      "digest": "261f6f543603b793ee0414035563d6b86a008af1fcab6bcaf36692b4b50923ed"
+    },
+    {
+      "id": "pack.product.merchant-acquiring",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "f5b0365c7851bbe9f775c7441a9ebe4ccb4eaf4a1d93e0cb466132871469f5b1"
+    }
+  ],
+  "values": {
+    "jurisdiction": "US",
+    "screening_threshold": 0.85,
+    "ownership_threshold": "0.25",
+    "sanctions_ownership": {
+      "rule": "ofac_50_percent",
+      "threshold": "0.5"
+    },
+    "control_bases": [
+      "appoint_board",
+      "voting_majority"
+    ],
+    "sanctions_control_bases": [
+      "voting_majority"
+    ],
+    "verification_methods": [
+      "government_id_document",
+      "registry_extract"
+    ],
+    "active_registry_statuses": [
+      "ACTIVE"
+    ],
+    "freshness_seconds": {
+      "VerificationRecord": 5184000,
+      "WatchlistEntry": 86400
+    },
+    "required_screening_types": [
+      "adverse_media",
+      "pep",
+      "sanctions"
+    ],
+    "required_screening_lists": [
+      "ofac-sdn"
+    ],
+    "screening_roles": [
+      "attorney",
+      "beneficial_owner",
+      "beneficiary",
+      "control_person",
+      "customer",
+      "director",
+      "guarantor",
+      "protector",
+      "settlor",
+      "signatory",
+      "trustee"
+    ],
+    "pep_scope": "foreign",
+    "required_party_roles": {
+      "corporate": [
+        "beneficial_owner",
+        "customer"
+      ],
+      "individual": [
+        "customer"
+      ],
+      "trust": [
+        "customer",
+        "trustee"
+      ]
+    },
+    "dual_control_required": true,
+    "automatic_approval_enabled": false,
+    "automatic_approval_low_risk": true,
+    "low_risk_max_factor_score": "0.20",
+    "automatic_decline_enabled": false,
+    "diligence_floors": {},
+    "mandatory_overlays": [],
+    "simplified_due_diligence_permitted": false
+  },
+  "basis": {
+    "jurisdiction": {
+      "layer": "pack.jurisdiction.us",
+      "text": "US policy jurisdiction (BankingRelationship.policyJurisdiction), not the booking jurisdiction.",
+      "sources": []
+    },
+    "screening_threshold": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Owner input D01 (possible-match score) as used by the KYC reference policy.",
+      "sources": []
+    },
+    "ownership_threshold": {
+      "layer": "pack.jurisdiction.us",
+      "text": "FinCEN CDD rule: each individual owning, directly or indirectly, 25 percent or more of the equity interests of a legal entity customer.",
+      "sources": [
+        "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"
+      ]
+    },
+    "sanctions_ownership": {
+      "layer": "pack.jurisdiction.us",
+      "text": "OFAC 50 Percent Rule: property of an entity owned 50 percent or more, in the aggregate, by one or more blocked persons is blocked.",
+      "sources": [
+        "https://ofac.treasury.gov/faqs/401"
+      ]
+    },
+    "control_bases": {
+      "layer": "pack.jurisdiction.us",
+      "text": "FinCEN CDD rule control prong: an individual with significant responsibility to control, manage or direct the legal entity customer.",
+      "sources": [
+        "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"
+      ]
+    },
+    "sanctions_control_bases": {
+      "layer": "pack.baseline",
+      "text": "Majority voting control by a designated person always counts as sanctions control.",
+      "sources": []
+    },
+    "verification_methods": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution appetite: a government identity document for individuals and a registry extract for legal entities.",
+      "sources": []
+    },
+    "active_registry_statuses": {
+      "layer": "pack.baseline",
+      "text": "Only an active registration verifies legal existence (canonical status vocabulary, upper case).",
+      "sources": []
+    },
+    "freshness_seconds": {
+      "layer": "pack.product.lending",
+      "text": "Credit decisions rely on identity verification no older than 60 days.",
+      "sources": []
+    },
+    "required_screening_types": {
+      "layer": "pack.product.merchant-acquiring",
+      "text": "Merchant risk includes reputational and fraud exposure, so adverse media is screened.",
+      "sources": []
+    },
+    "required_screening_lists": {
+      "layer": "pack.jurisdiction.us",
+      "text": "OFAC Specially Designated Nationals and Blocked Persons List.",
+      "sources": [
+        "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+      ]
+    },
+    "screening_roles": {
+      "layer": "pack.product.lending+pack.product.family.pay",
+      "text": "A guarantor stands behind the credit and is screened. Anyone holding a power of attorney over a payment account or card can move funds and is screened.",
+      "sources": []
+    },
+    "pep_scope": {
+      "layer": "pack.baseline",
+      "text": "Foreign political exposure at minimum; jurisdictions widen it.",
+      "sources": []
+    },
+    "required_party_roles": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Every jurisdiction's parties, and, as institution appetite, a trust is onboarded only with at least one named trustee, who holds its legal title and acts for it.",
+      "sources": []
+    },
+    "dual_control_required": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution appetite: two independent people approve every onboarding decision a person makes; only the low-risk carve-out (automatic_approval_low_risk) decides without one.",
+      "sources": []
+    },
+    "automatic_approval_enabled": {
+      "layer": "pack.baseline",
+      "text": "No pack approves a customer without a person.",
+      "sources": []
+    },
+    "automatic_approval_low_risk": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "SYNTHETIC placeholder, not a real institution's appetite: the disposition checkpoint may approve a low-risk case without a person. Every other decision needs dual control.",
+      "sources": []
+    },
+    "low_risk_max_factor_score": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "SYNTHETIC placeholder: a case is low risk only when every risk factor scores at or below 0.20 (the corpus's clean individual, H01, scores at most 0.05).",
+      "sources": []
+    },
+    "automatic_decline_enabled": {
+      "layer": "pack.baseline",
+      "text": "No pack declines a customer without a person.",
+      "sources": []
+    },
+    "diligence_floors": {
+      "layer": "pack.baseline",
+      "text": "No floor: a cell's level comes from the institution's diligence matrix. Layers may only raise floors (keys are customer type or *, then product or *).",
+      "sources": []
+    },
+    "mandatory_overlays": {
+      "layer": "pack.baseline",
+      "text": "No overlay is mandatory everywhere; layers add the escalations their regulator requires.",
+      "sources": []
+    },
+    "simplified_due_diligence_permitted": {
+      "layer": "pack.institution.bank-synthetic",
+      "text": "Institution decision pending: simplified due diligence is not adopted until the policy owner approves where it applies, so an SDD cell is applied as CDD.",
+      "sources": []
+    }
+  },
+  "gateBundles": {},
+  "knownDifferences": [
+    {
+      "layer": "pack.jurisdiction.us",
+      "field": "required_screening_types",
+      "text": "US law has no general PEP screening requirement outside private banking for senior foreign political figures (31 CFR 1010.620); PEP screening comes from the institution layer."
+    }
+  ],
+  "digest": "acf96d9a138948f5e11bb23db953f43b187c53740096ff3b26185c1ce44555c3"
+}

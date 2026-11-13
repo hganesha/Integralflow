@@ -1,0 +1,218 @@
+{
+  "$defs": {
+    "CompletionCriterion": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_statuses": {
+          "items": {
+            "enum": [
+              "COMPLETED",
+              "PARTIAL",
+              "NEEDS_EVIDENCE",
+              "NEEDS_REVIEW",
+              "BLOCKED",
+              "FAILED"
+            ],
+            "type": "string"
+          },
+          "title": "Accepted Statuses",
+          "type": "array"
+        },
+        "required_payload_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Payload Fields",
+          "type": "array"
+        },
+        "requires_human_decision": {
+          "default": false,
+          "title": "Requires Human Decision",
+          "type": "boolean"
+        },
+        "step_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Step Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "step_id",
+        "required_payload_fields"
+      ],
+      "title": "CompletionCriterion",
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "TaskStep": {
+      "additionalProperties": false,
+      "properties": {
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "input_bindings": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Input Bindings",
+          "type": "object",
+          "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Parameters",
+          "type": "object",
+          "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+        },
+        "skill_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        },
+        "skill_version": {
+          "default": "0.3.0",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Skill Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "skill_id"
+      ],
+      "title": "TaskStep",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "agent_profile": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Agent Profile",
+      "type": "string"
+    },
+    "api_version": {
+      "const": "fincrime.tasks/v1",
+      "default": "fincrime.tasks/v1",
+      "title": "Api Version",
+      "type": "string"
+    },
+    "completion_criteria": {
+      "items": {
+        "$ref": "#/$defs/CompletionCriterion"
+      },
+      "title": "Completion Criteria",
+      "type": "array"
+    },
+    "failure_policy": {
+      "additionalProperties": {
+        "enum": [
+          "COMPLETED",
+          "PARTIAL",
+          "NEEDS_EVIDENCE",
+          "NEEDS_REVIEW",
+          "BLOCKED",
+          "FAILED"
+        ],
+        "type": "string"
+      },
+      "title": "Failure Policy",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "input_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Input Fields",
+      "type": "array"
+    },
+    "input_schema": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Input Schema",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "objective": {
+      "title": "Objective",
+      "type": "string"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/TaskStep"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "version": {
+      "default": "1.0.0",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "agent_profile",
+    "objective",
+    "input_fields",
+    "input_schema",
+    "steps",
+    "completion_criteria"
+  ],
+  "title": "TaskSpec",
+  "type": "object"
+}

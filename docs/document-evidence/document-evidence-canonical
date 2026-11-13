@@ -1,0 +1,436 @@
+For our KYC platform, I would organize this as a **document and evidence catalog covering identity, legal existence, ownership, authority, business activity, financial resources, tax status, and ongoing due diligence**.
+
+There is no universal document checklist. Requirements depend on jurisdiction, customer type, product, delivery channel, ownership structure, and risk. Some information can be verified through authoritative data or digital identity services without requesting a document from the customer. The catalog below is a comprehensive universe of potential evidence—not a requirement to collect everything. [FATF Recommendations](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html), [HKMA account-opening guidance](https://www.hkma.gov.hk/eng/smart-consumers/account-opening/information-required)
+
+I use “others” here to include periodic reviews, changes in circumstances, EDD, transaction investigations, and account closure.
+
+**1. Individual identity and personal particulars**
+
+These apply to individual customers and, where relevant, business owners, controllers, directors, trustees, representatives, and authorized signatories.
+
+| Document family | Examples | Typical purpose |
+|---|---|---|
+| Passport | Ordinary passport; official or diplomatic passport where accepted | Identity, nationality, date of birth |
+| National identity document | National ID card; government electronic ID credential | Identity and government identifier |
+| Driving licence | Government-issued photocard driving licence | Identity; sometimes address |
+| Residence and immigration evidence | Residence permit; permanent-resident card; visa; electronic immigration-status confirmation | Residency or immigration status where relevant |
+| Alternative travel documents | Refugee travel document; stateless-person travel document; government-issued travel certificate | Identity for applicants without conventional passports |
+| Civil registration documents | Birth certificate; citizenship certificate; naturalization certificate; family register | Supporting identity, nationality, parentage |
+| Name-change documents | Marriage certificate; divorce decree; deed poll; court order; official name-change certificate | Reconcile current and previous names |
+| Other accepted government identification | Military ID; voter ID; other locally recognized credentials | Alternative or supplementary identification |
+| Tax identifier evidence | Tax registration card; tax authority letter; government identifier confirmation | Verify tax or other identifying number |
+| Signature evidence | Specimen signature card; signed application; accepted electronic-signature record | Establish signing specimen and attribution |
+
+**Acceptance is document-, channel-, and jurisdiction-specific.** A birth certificate or tax card, for example, may support identification without being sufficient on its own. [FFIEC identification guidance](https://bsaaml.ffiec.gov/manual/AssessingComplianceWithBSARegulatoryRequirements/01)
+
+**2. Individual address and residence evidence**
+
+| Document family | Examples |
+|---|---|
+| Utility statements | Electricity, gas, water, fixed-line telephone, or other accepted utility bill |
+| Financial statements | Bank, building society, credit union, credit card, or mortgage statement |
+| Government correspondence | Tax assessment; municipal tax bill; benefits letter; official residence certificate |
+| Housing evidence | Tenancy agreement; lease; property title; landlord confirmation where accepted |
+| Employment or education evidence | Employer accommodation letter; university accommodation or enrollment letter |
+| Supported accommodation evidence | Care-home letter; shelter confirmation; recognized support-organization letter |
+| Household relationship evidence | Host declaration plus host’s address evidence and relationship confirmation, where accepted |
+| Address-bearing identity document | Accepted national ID, residence document, or driving licence |
+
+Do not hard-code a universal “three-month validity” rule. Freshness, acceptable issuers, and whether one document can establish both identity and address vary by institution and policy. [HSBC identification examples](https://www.hsbc.co.uk/help/banking-made-easy/help-us-identify-you/), [TSB identification examples](https://www.tsb.co.uk/current-accounts/faqs/identity.html)
+
+**3. Individual occupation, income, and economic profile**
+
+These may support understanding the relationship, EDD, or product-specific assessments.
+
+| Circumstance | Potential documents |
+|---|---|
+| Employed | Employment contract; employer letter; payslips; salary certificate; annual earnings statement |
+| Self-employed or freelance | Business registration; professional licence; service contracts; invoices; tax returns; business accounts |
+| Business owner | Company financial statements; ownership evidence; dividend vouchers; distribution statements |
+| Retired | Pension award letter; pension statements; retirement-benefit statement |
+| Student | Enrollment letter; scholarship or grant award; sponsor declaration |
+| Financially supported | Sponsor or family-support declaration; relationship evidence; supporting transfer records |
+| Receiving benefits | Government benefit award or payment statement |
+| Receiving rental income | Property ownership evidence; tenancy agreements; rental statements |
+| Investor | Brokerage, custody, investment portfolio, or fund statements |
+
+Income evidence collected for lending affordability should have its own purpose classification, even when the same document also supports KYC.
+
+**4. Individual source of funds and source of wealth**
+
+These should be separate evidence requirements:
+
+- **Source of funds:** how the money used for a particular transaction or relationship was obtained.
+- **Source of wealth:** how the person accumulated their overall wealth.
+
+A statement showing money arriving from another account establishes a transfer path; it may not establish the underlying economic source. [AUSTRAC source-of-funds guidance](https://www.austrac.gov.au/industry-and-business/obligations-and-guidance/your-amlctf-program/customer-due-diligence/source-funds-and-source-wealth)
+
+| Claimed source | Potential supporting documents |
+|---|---|
+| Employment savings | Historical payslips; earnings statements; tax returns; savings-account history |
+| Business profits | Audited accounts; tax returns; ownership records; dividend or distribution records |
+| Sale of a business | Share or asset purchase agreement; completion statement; payment evidence |
+| Property sale | Sale contract; conveyancer’s completion statement; ownership record; receipt of proceeds |
+| Securities or investment sale | Broker contract notes; redemption confirmations; portfolio and settlement statements |
+| Inheritance | Grant of probate; letters of administration; relevant will provisions; estate distribution statement |
+| Gift | Gift deed or declaration; donor identity and relationship evidence; donor source-of-funds evidence where needed |
+| Loan | Executed loan agreement; lender details; disbursement confirmation; bank records |
+| Divorce settlement | Court order; settlement agreement; payment evidence |
+| Insurance payout | Policy details; claim settlement letter; payment confirmation |
+| Compensation or legal settlement | Court judgment; settlement agreement; solicitor’s confirmation |
+| Pension withdrawal | Pension-provider statement; withdrawal or lump-sum confirmation |
+| Asset sale | Vehicle, artwork, jewellery, or other asset sale agreement; ownership and payment evidence |
+| Trust distribution | Trustee resolution; distribution statement; relevant trust and funding evidence |
+| Digital assets | Exchange statements; acquisition and trade history; wallet transaction records; evidence of original purchase funds |
+| Other documented windfall | Official award or prize confirmation; payment evidence; explanation of circumstances |
+
+The evidence package should reconcile **economic origin, amount, ownership, dates, and movement of funds**. [HMRC source-of-funds and wealth guidance](https://www.gov.uk/hmrc-internal-manuals/anti-money-laundering-guidance-for-supervised-businesses/amlg11630), [Kraken evidence examples](https://support.kraken.com/articles/source-of-wealth-or-source-of-funds-documents)
+
+**5. Business legal existence and constitution**
+
+| Document family | Examples |
+|---|---|
+| Formation | Certificate of incorporation; certificate of formation; registration certificate |
+| Constitutional documents | Memorandum and articles of association; articles of organization; bylaws; charter; constitution |
+| LLC governance | Operating agreement; member agreement |
+| Partnership governance | Partnership deed; partnership agreement; limited-partnership or LLP agreement |
+| Official registry evidence | Company registry extract; business register report; commercial register extract |
+| Current legal status | Certificate of good standing; certificate of existence; status certificate |
+| Current officeholders | Certificate of incumbency; register of directors; secretary’s certificate |
+| Business registration | Business registration certificate; trade-name or assumed-name registration |
+| Foreign establishment | Branch registration; foreign-company registration; representative-office approval |
+| Legal changes | Change-of-name certificate; conversion, continuation, or re-domiciliation documents |
+| Reorganization | Merger certificate; demerger documents; restructuring agreements |
+| Distress or termination | Insolvency order; administrator or liquidator appointment; dissolution or restoration documents |
+
+These establish different facts. A certificate of incorporation establishes formation; it does not necessarily establish current ownership, active trading, or present good standing. [HKMA corporate-document examples](https://www.hkma.gov.hk/media/eng/doc/key-functions/banking-stability/consumer-corner/english/1-Account_Opening_and_Maintenance-English.pdf)
+
+**6. Business address, operating presence, and legitimacy**
+
+| Document family | Examples |
+|---|---|
+| Registered office | Registry record; registered-office confirmation |
+| Operating premises | Commercial lease; property title; premises utility bill |
+| Occupancy arrangements | Serviced-office agreement; coworking agreement; registered-agent agreement |
+| Operating licences | Municipal trade licence; establishment permit; sector-specific operating licence |
+| Trading evidence | Customer contracts; supplier agreements; invoices; purchase orders; delivery records |
+| Market presence | Product catalog; business website; brochures; marketplace or merchant profile |
+| Operational capacity | Payroll summaries; organization chart; warehouse or facility records, where relevant |
+| Independent verification | Site-visit report; premises photographs; independent business-verification report |
+| New business | Business plan; financial projections; startup funding commitments; initial contracts |
+
+A registered-agent address and an operating address should be represented separately.
+
+**7. Ownership and beneficial ownership**
+
+| Document family | Examples |
+|---|---|
+| Customer ownership declaration | Beneficial ownership certification; ownership questionnaire |
+| Ownership chart | Signed or certified group chart showing each ownership layer |
+| Shareholder records | Register of members; shareholder register; capitalization table |
+| Ownership instruments | Share certificates; membership-interest records; partnership-interest schedules |
+| Official ownership records | Beneficial ownership register extract; corporate filings; annual return |
+| Ownership changes | Share transfer forms; subscription agreements; allotment records; acquisition agreements |
+| Intermediate entities | Formation, registry, and ownership documents for entities in the chain |
+| Nominee arrangements | Nominee declaration; declaration of trust; nominee agreement |
+| Custodial holdings | Custodian statement; depositary or nominee holding confirmation |
+| Listed-company ownership | Stock-exchange filings; annual report; substantial-shareholder disclosures |
+| Bearer interests | Custody or immobilization confirmation; applicable supporting declarations |
+
+The system must support both direct and indirect ownership evidence. A signed ownership chart is an assertion to corroborate, rather than automatic proof of every relationship.
+
+**8. Control, management, and authority to act**
+
+Ownership, control, and authority to operate an account are separate concepts.
+
+| Purpose | Potential documents |
+|---|---|
+| Identify management | Director register; officer list; management organization chart |
+| Establish control rights | Shareholder agreement; voting agreement; reserved-matters schedule; veto or appointment-right provisions |
+| Authorize account opening | Board resolution; partner resolution; trustee resolution; governing-body minutes |
+| Establish signing authority | Account mandate; authorized-signatory list; signing limits |
+| Delegated authority | Power of attorney; agency agreement; delegated-authority letter |
+| Verify appointment | Director, trustee, officer, or representative appointment documents |
+| Verify representatives | Identity and relevant address evidence for authorized persons |
+| Confirm continuing authority | Updated incumbency certificate; renewed mandate; confirmation of non-revocation |
+
+Banks commonly request both evidence of the representative’s identity and evidence of their authority. [HKMA account-opening guidance](https://www.hkma.gov.hk/eng/smart-consumers/account-opening/information-required)
+
+**9. Business financial position and funding**
+
+| Document family | Examples |
+|---|---|
+| Annual financial reporting | Audited financial statements; unaudited accounts; annual report |
+| Current financial reporting | Management accounts; interim statements; cash-flow statements |
+| Banking history | Business bank statements; banking reference where appropriate |
+| Tax evidence | Corporate tax returns; tax assessments; VAT/GST or sales-tax filings |
+| Initial capital | Capital contribution records; subscription agreements; funding-account statements |
+| Parent or shareholder funding | Intercompany loan; shareholder loan; parent funding commitment |
+| External borrowing | Loan agreement; facility letter; lender confirmation |
+| Equity investment | Investment agreement; fundraising documents; investor subscription records |
+| Grants and subsidies | Grant award; subsidy approval; disbursement confirmation |
+| Revenue support | Sales ledger; merchant settlement reports; major contracts and invoices |
+| Liquidity or asset realization | Asset-sale agreement; investment redemption statement; settlement records |
+
+These documents can support business understanding and funding provenance. Financial health assessment remains a separate use when performed for credit underwriting. [HSBC business funding examples](https://www.business.hsbc.com.hk/-/media/media/hong-kong/pdfs/form-download-centre/limited-company-and-general-partnership-established-overseas557-1-en.pdf)
+
+**10. Documents specific to different entity structures**
+
+| Customer structure | Additional documents to support |
+|---|---|
+| Sole proprietor | Proprietor identity; trade-name registration; business licence; tax registration; operating evidence |
+| General partnership | Partnership deed; current partner list; capital and profit-sharing schedules; partner mandate |
+| Limited partnership | Partnership agreement; general-partner details; limited-partner records as applicable |
+| LLP | LLP registration; agreement; member register; designated-member details |
+| Private company or LLC | Formation and constitution; directors; members; ownership and control evidence |
+| Publicly listed company | Listing confirmation; exchange filings; annual report; relevant ownership disclosures |
+| Branch | Parent legal documents; branch registration; parent authorization; local representative mandate |
+| Joint venture | Joint-venture agreement; participant ownership; governance and control arrangements |
+| SPV or holding company | Purpose statement; transaction documents; asset schedule; sponsor and funding evidence |
+| Cooperative or mutual | Registration; rules; member-governance arrangements; committee or board appointments |
+| Association, club, or society | Constitution; registration; officeholder list; meeting minutes; account resolution |
+| Charity or nonprofit | Charity registration; governing instrument; trustees; funding and program evidence |
+| Foundation | Charter; statutes or bylaws; founder, council, protector or equivalent role records |
+| Government or public body | Enabling legislation; charter; official establishment record; authorized-officer appointment |
+| Estate | Death certificate; probate or administration grant; executor or administrator authority |
+| Pension arrangement | Scheme deed and rules; registration; trustee and administrator appointments |
+
+These are alternative structural packages, selected according to the legal form. [HSBC entity-specific onboarding examples](https://www.business.hsbc.com.my/solutions/account-opening)
+
+**11. Trusts and similar legal arrangements**
+
+Trusts need their own document model.
+
+Potential documents include:
+
+- Trust deed or other constituting instrument.
+- Amendments, supplemental deeds, and restatements.
+- Trust registration certificate or registry extract, where applicable.
+- Trustee appointment, retirement, and replacement deeds.
+- Settlor or grantor details and identity evidence.
+- Trustee details and identity or entity documents.
+- Protector, appointor, enforcer, or equivalent role documents.
+- Beneficiary schedule or description of beneficiary classes.
+- Documents establishing powers of appointment, revocation, distribution, or other control.
+- Relevant letters of wishes, where necessary and appropriate.
+- Trust asset and contribution schedules.
+- Source-of-funds and wealth evidence for relevant contributors.
+- Trust accounts, tax documents, and distribution records.
+- Trustee resolution and account mandate.
+- Underlying company ownership documents where the trust owns companies.
+
+FATF’s trust framework distinguishes settlors, trustees, protectors, beneficiaries or beneficiary classes, and other persons exercising ultimate effective control. [FATF glossary](https://www.fatf-gafi.org/en/pages/fatf-glossary.html), [FATF legal-arrangements guidance](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-Beneficial-Ownership-Transparency-Legal-Arrangements.html)
+
+**12. Tax residency and reporting status**
+
+These are often collected alongside KYC but should be a distinct requirement domain.
+
+| Document family | Examples |
+|---|---|
+| Individual tax residency | Tax-residency self-certification; tax residence certificate |
+| Entity tax residency | Entity self-certification; tax residence certificate |
+| Controlling persons | Controlling-person tax-residency self-certification |
+| Tax identifiers | TIN evidence; business tax registration; explanation for missing TIN |
+| Entity classification | Financial institution, active/passive entity, or other applicable classification declaration |
+| US-person certification | Form W-9 where applicable |
+| Foreign individual status | Form W-8BEN where applicable |
+| Foreign entity status | Form W-8BEN-E where applicable |
+| Intermediary status | Form W-8IMY and relevant supporting statements |
+| Other withholding classifications | Forms W-8ECI or W-8EXP where applicable |
+| Financial institution status | GIIN information and verification evidence where relevant |
+| Changed circumstances | Updated certification; discrepancy explanation; supporting status documents |
+
+CRS controlling-person status, tax-form beneficial ownership, and AML beneficial ownership should not be treated as interchangeable concepts. [OECD controlling-person self-certification](https://www.oecd.org/content/dam/oecd/en/topics/policy-issue-focus/aeoi/crs_controlling_persons_self-cert_form.pdf), [IRS withholding certificate forms](https://www.irs.gov/individuals/international-taxpayers/withholding-certificate-forms-under-irc-sections-1441-1464)
+
+**13. Relationship purpose and expected activity**
+
+Much of this begins as a form or structured declaration, with supporting documents requested when warranted.
+
+| Information being established | Potential evidence |
+|---|---|
+| Purpose of relationship | Account application; purpose declaration; relationship questionnaire |
+| Products and services | Product application; service agreement |
+| Expected activity | Expected transaction volumes, values, currencies, and frequency declaration |
+| Geographic exposure | Countries-of-operation declaration; major trading-market information |
+| Counterparties | Major customer and supplier lists; contracts supporting material relationships |
+| Cash activity | Cash-use explanation; cash-handling model; operating records |
+| International payments | Import/export profile; trade contracts; payment-flow explanation |
+| Third-party funds | Agency, client-money, escrow, collection, or payment-processing agreements |
+| Group treasury | Group structure; treasury policy; cash-pooling and intercompany agreements |
+| Initial deposit | Funding declaration and supporting source-of-funds package |
+
+**14. Sector-specific and institutional due diligence**
+
+These are conditional extensions, not baseline requests for every company.
+
+| Sector/customer | Potential additional documents |
+|---|---|
+| Banks and correspondent institutions | Banking licence; regulatory status; ownership and management information; Wolfsberg CBDDQ/FCCQ; AML/sanctions control documentation; independent assurance summaries |
+| Money services and remittance businesses | Registration or licence; agent network; payment corridors; AML program; monitoring and audit evidence |
+| Payment institutions and processors | Regulatory authorization; payment-flow diagrams; merchant underwriting policies; settlement and safeguarding arrangements |
+| Virtual asset service providers | Registration or licence; custody model; AML and travel-rule controls; wallet and asset provenance records |
+| Investment funds | Offering memorandum; prospectus; constituting agreement; manager, administrator, and custodian appointments; investor/control information as applicable |
+| Investment managers and brokers | Regulatory authorization; mandate; client-money arrangements; control documentation |
+| Insurance businesses | Regulatory licence; ownership; relevant distribution and control arrangements |
+| Professional firms | Practising certificates; professional registration; partnership documents; client-account mandate |
+| Charities and NGOs | Donor and grant evidence; program descriptions; beneficiaries or delivery partners; geographic operations; disbursement arrangements |
+| Gambling operators | Gambling licence; payment model; AML controls; relevant operating agreements |
+| Precious metals or stones dealers | Dealer licence where applicable; supplier and provenance records; trading evidence |
+| Import/export businesses | Trade licences; customs registrations; major contracts; shipping and transaction evidence |
+| Regulated goods businesses | Sector permits; applicable import/export authorizations; end-use evidence |
+| Real-estate businesses | Professional registration; project and property records; relevant agency agreements |
+| Marketplaces and platforms | Seller onboarding model; underlying merchant profile; fund-flow and payout arrangements |
+
+Correspondent banking has a dedicated due-diligence framework; a completed questionnaire is part of an assessment, not a complete substitute for one. [AUSTRAC correspondent-banking guidance](https://www.austrac.gov.au/due-diligence-correspondent-banking-relationships), [Wolfsberg CBDDQ guidance](https://dev.wolfsberg-group.org/resources/correspondent-banking/129)
+
+**15. Enhanced due diligence, screening clarification, and investigations**
+
+| Trigger | Potential additional documents |
+|---|---|
+| PEP relationship | Public-role declaration; official appointment evidence; wealth explanation; relevant asset declarations |
+| Family or close-associate connection | Relationship declaration and corroborating evidence where necessary |
+| Screening identity ambiguity | Additional identity document; date/place-of-birth evidence; aliases or name-history documents |
+| Complex ownership | Additional registry filings; control agreements; nominee disclosures; legal explanation |
+| Conflicting evidence | Updated authoritative records; issuer confirmation; certified explanation |
+| Adverse media | Customer response; court judgment; case disposition; regulator notice; other reliable contextual evidence |
+| Unusual transaction | Transaction explanation; contract; invoice; delivery evidence; underlying funding records |
+| Third-party payment | Payer/payee relationship evidence; agency agreement; commercial rationale |
+| Sanctions-related authorization | Relevant licence, exemption, or authorization and its conditions |
+| Unexplained wealth | Expanded wealth chronology and corroborating financial or legal records |
+| Suspected document fraud | Issuer verification; replacement original; independent authenticity assessment |
+
+Requests during investigations need controlled wording and routing. Internal suspicion records and regulatory reporting material belong in restricted institutional records, not in the ordinary customer document checklist.
+
+**16. Transaction and trade evidence collected after onboarding**
+
+| Transaction type | Potential documents |
+|---|---|
+| Commercial payment | Contract; invoice; purchase order; statement of account |
+| Goods shipment | Bill of lading; air waybill; packing list; delivery confirmation |
+| Cross-border trade | Customs declaration; certificate of origin; import/export permit |
+| Controlled goods | End-user certificate; applicable licence; end-use documentation |
+| Documentary trade finance | Letter of credit; documentary collection instructions; bill of exchange; guarantee |
+| Transport and insurance | Freight agreement; cargo insurance certificate; inspection certificate |
+| Real estate | Purchase agreement; title; completion statement; financing agreement |
+| Investment | Subscription agreement; trade confirmation; redemption statement |
+| Loan | Loan agreement; drawdown notice; repayment schedule |
+| Donation | Donation agreement; donor confirmation; charitable purpose documentation |
+| Intercompany movement | Intercompany agreement; dividend resolution; treasury or cash-pool documentation |
+| Escrow/client funds | Escrow agreement; underlying transaction evidence; beneficiary schedule |
+| Digital-asset transfer | Exchange records; transaction identifiers; wallet-control evidence where appropriate; asset acquisition history |
+
+These support ongoing understanding of activity and transaction-specific review. Trade finance also needs explicit checks for inconsistent or fraudulent documentation. [FFIEC trade-finance guidance](https://bsaaml.ffiec.gov/manual/RisksAssociatedWithMoneyLaunderingAndTerroristFinancing/17)
+
+**17. Special individual circumstances**
+
+The catalog should support alternatives and representative relationships.
+
+| Circumstance | Potential documents |
+|---|---|
+| Minor | Birth certificate; guardian identity; guardianship or parental-authority evidence |
+| Person acting through an attorney | Power of attorney; attorney identity; scope and continuing validity evidence |
+| Court-appointed representative | Guardianship, conservatorship, or equivalent court order |
+| Refugee or asylum seeker | Accepted refugee/asylum documentation; alternative identity evidence |
+| No fixed address | Accepted shelter, support-agency, or official correspondence |
+| Deceased customer | Death certificate; probate or administration documents; representative identity |
+| Joint relationship | Identity and relevant declarations for each holder; joint mandate |
+| Supported or sponsored applicant | Sponsor declaration; relationship evidence; funding evidence as applicable |
+
+Which alternatives are acceptable must be policy-driven rather than inferred by the agent.
+
+**18. Digital onboarding evidence**
+
+Several important artifacts are records or credentials rather than conventional documents:
+
+- Identity-document front/back images or passport page captures.
+- Electronic identity credential or signed identity assertion.
+- NFC chip-verification results, where used.
+- Selfie, face-match, and liveness results.
+- Video-identification session evidence.
+- Identity-provider verification response.
+- Electronic-signature certificate and signing audit trail.
+- Consent or acknowledgment record where applicable.
+- Contact verification results.
+- Document authenticity, tampering, and fraud-check results.
+- Relevant device or session risk signals.
+
+These require separate data types and access controls; biometrics and session telemetry should not be modeled as ordinary uploaded PDFs. FATF supports risk-assessed use of reliable digital identity systems. [FATF digital identity guidance](https://www.fatf-gafi.org/content/fatf-gafi/en/publications/Financialinclusionandnpoissues/Digital-identity-guidance.html)
+
+**19. Certification, translation, and authenticity attachments**
+
+These attach to an underlying document:
+
+- Certified true-copy statement.
+- Notarial certification.
+- Apostille or consular legalization where applicable.
+- Certified translation.
+- Translator declaration and credentials.
+- Lawyer, accountant, or company-secretary certification where accepted.
+- Registry or issuer verification receipt.
+- Digital-signature validation result.
+- Original-seen or in-person verification record.
+- Document authenticity assessment.
+
+A translation, certification, or apostille should retain its relationship to the exact document version it supports.
+
+**20. Periodic review and event-driven refresh**
+
+The platform should request updates based on changed facts and evidence validity.
+
+| Event | Likely refresh package |
+|---|---|
+| Identity document expires | Replacement identity evidence |
+| Address changes | Updated address information and evidence where required |
+| Customer changes name | Official change document and updated identity evidence |
+| Ownership changes | Ownership declaration; registers; transfer documents; new owner evidence |
+| Directors or signatories change | Appointment records; updated mandate; representative identity |
+| Trust parties change | Amended deed; appointment documents; new party evidence |
+| Business activity changes | Updated profile; licences; contracts; expected activity |
+| New countries or products | Updated exposure and relationship-purpose information |
+| Risk increases | Targeted EDD and corroborating evidence |
+| Tax circumstances change | Updated tax certifications and supporting evidence |
+| Periodic review becomes due | Current declarations and evidence required by the applicable review policy |
+| Account closure or estate settlement | Closure instruction; authority; destination-account and entitlement evidence as relevant |
+
+**21. Evidence obtained independently and records generated internally**
+
+These belong in the same evidence architecture, while remaining distinct from documents requested from customers.
+
+| Origin | Examples |
+|---|---|
+| Government or registry | Company extracts; licence verification; beneficial ownership records; court records |
+| Screening provider | Sanctions, PEP, watchlist, and adverse-media results |
+| Identity provider | Identity verification, document checks, digital credential validation |
+| Financial or commercial source | Credit reports; business intelligence; audited public filings |
+| Institution’s own systems | Existing customer records; account history; transaction records; previous review results |
+| Analyst or reviewer | Interview notes; site-visit report; evidence assessment; screening disposition |
+| Decision process | Risk assessment; EDD report; exception record; approval; rejection rationale |
+| Execution and assurance | Verification trace; evidence lineage; QA findings; audit record |
+
+The platform should distinguish **“customer declared,” “document extracted,” “independently corroborated,” and “institution verified.”** Possessing a document does not automatically verify every assertion it contains.
+
+**22. How I would represent this in our KYC model**
+
+I would keep the catalog as three linked registries:
+
+| Registry | Defines | Example |
+|---|---|---|
+| **Document type** | What the artifact is | `document.company.shareholder_register` |
+| **Evidence requirement** | What must be established | `requirement.ownership.current_shareholders` |
+| **Acceptance rule** | Which evidence satisfies the requirement under the applicable policy | Accepted issuer, jurisdiction, freshness, certification, corroboration |
+
+Every document or evidence instance should carry:
+
+| Area | Required metadata |
+|---|---|
+| Classification | Canonical type; local name; subtype; language; format |
+| Subject | Party, entity, account, transaction, asset, or relationship it concerns |
+| Provenance | Submitted by; issuer; obtained from; retrieval method and time |
+| Time | Issue date; expiry; reporting period; effective date; superseded status |
+| Integrity | Content hash; original/copy status; signature and certification results |
+| Content | Extracted assertions; page or field references; extraction confidence |
+| Assessment | Authenticity result; verification status; conflicts; reviewer |
+| Requirements | Requirements supported; applicable policy version; unmet conditions |
+| Governance | Purpose; sensitivity; access restrictions; retention classification |
+
+For example, a bank statement can support address, account ownership, transaction history, and funding analysis. **Those are four different evidence uses with different acceptance tests.** Our skills should evaluate each use explicitly instead of marking the entire document simply “KYC verified.”

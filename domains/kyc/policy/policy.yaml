@@ -1,0 +1,235 @@
+apiVersion: harness.factory/policy-v1
+kind: Policy
+
+metadata:
+  id: policy.kyc.customer-acceptance.v1
+  name: US KYC Customer Acceptance Policy
+  version: 1.0.0
+  domain: kyc
+  jurisdiction: US
+  owner: kyc-policy-operations
+  status: CANDIDATE
+  description: >-
+    The deterministic policy the platform enforces for US KYC onboarding. It describes the
+    canonical case aggregate and nothing else: it names no agent, no workflow node and no
+    provider, so the same bundle governs a case however the case was worked.
+
+spec:
+  # ---------------------------------------------------------------
+  # COMPILATION
+  # ---------------------------------------------------------------
+  compilation:
+    target: opa
+    regoVersion: v1
+    entrypoint: data.harness.decision_table.gate.result
+    deterministic: true
+    networkAccess: denied
+
+  # ---------------------------------------------------------------
+  # AUTHORITY
+  # ---------------------------------------------------------------
+  authority:
+    source: POLICY_DB
+    casePath: $.policyAuthority
+    requireSnapshotDigest: true
+    requireCaseSequence: true
+    # Evidence produced against a different policy snapshot than the case pins does not
+    # satisfy an obligation, however good the evidence is.
+    rejectCrossSnapshotEvidence: true
+    # A decision computed from a superseded read is not a policy outcome, it is a
+    # non-decision: the case does not move and the evaluation is re-run.
+    staleSnapshotOutcome: ERROR
+
+  # ---------------------------------------------------------------
+  # INSTITUTION SETTINGS
+  #
+  # What the institution has to decide before this bundle governs anything. The values live
+  # in the owner-input register; these two are restated here because the compiler and the
+  # release gate both read them directly.
+  # ---------------------------------------------------------------
+  institutionSettings:
+    automaticDeclineEnabled: false
+    automaticApprovalEnabled: null
+
+  # ---------------------------------------------------------------
+  # COMMAND MAPPINGS
+  #
+  # The case commands a gate outcome may ask the control plane to issue. Keeping the set
+  # here rather than in code means the reviewer sees what a gate can do to a case.
+  # ---------------------------------------------------------------
+  commandMappings:
+    recordEvaluation:
+      commandType: RecordGateResult
+    routeHumanReview:
+      commandType: RequestHumanReview
+    finalizeDisposition:
+      commandType: FinalizeDisposition
+      authority: HUMAN_ONLY
+
+  # ---------------------------------------------------------------
+  # EVALUATION
+  # ---------------------------------------------------------------
+  evaluation:
+    corpus: fixtures/corpus/cases.jsonl
+    minimumCases: 300
+
+  # ---------------------------------------------------------------
+  # EVALUATION MODEL
+  # ---------------------------------------------------------------
+  subject:
+    source: caseStore
+    consistency: strong
+    # A decision computed from a snapshot older than the case's current sequence is
+    # rejected on application, not merely warned about.
+    rejectStaleSnapshotOnApply: true
+
+  defaultOutcome: REVIEW
+  unknownHandling: REVIEW
+  errorHandling: ERROR
+  outcomes: [ALLOW, BLOCK, REVIEW, UNKNOWN, ERROR]
+
+  # ---------------------------------------------------------------
+  # AUTHORITY MATRIX
+  #
+  # What each kind of actor may do. The compiler, the execution envelope and the Case API
+  # each enforce this independently; agreement between them is the point.
+  # ---------------------------------------------------------------
+  authorityMatrix:
+    agent:
+      may:
+        - LinkEvidence
+        - ProposeClaim
+        - RecordScreeningFinding
+        - RecordAssumption
+        - RaiseContradiction
+        - ProposeWorkItem
+        - CompleteWorkItem
+        - SubmitDecisionRecommendation
+        - RequestHumanReview
+      mayNot:
+        - FinalizeDisposition
+        - AcceptClaimAsFact
+        - ResolveContradiction
+        - RecordReview
+        - TransitionCaseStatus
+      note: >-
+        An agent contributes evidence, claims, findings, contradictions, work and
+        recommendations. It changes no protected lifecycle state and finalizes nothing.
+    gate:
+      may:
+        - RecordGateResult
+        - TransitionCaseStatus
+        - FinalizeDisposition
+      constrainedTo:
+        finalizeDisposition:
+          allowedDispositions: [APPROVED]
+          cohorts: [RC-LOW-STANDARD-INDIVIDUAL]
+          requiresAttestation: true
+      mayNot:
+        - FinalizeDisposition:DECLINED
+      note: >-
+        A gate may approve only an attested low-risk cohort. There is no automatic decline
+        anywhere in this policy.
+    human:
+      may:
+        - FinalizeDisposition
+        - AcceptClaimAsFact
+        - ResolveContradiction
+        - RecordReview
+        - RecordQAResult
+        - TransitionCaseStatus
+      requiresDualControlFor:
+        - FinalizeDisposition:DECLINED
+        - FinalizeDisposition:APPROVED_OVERRIDE
+        - ClearSanctionsAlert
+      ownerInputRefs: [D06]
+
+  # ---------------------------------------------------------------
+  # CATALOG BINDINGS
+  # ---------------------------------------------------------------
+  catalog:
+    rules: catalog/rules.yaml
+    reasonCodes: catalog/reason-codes.yaml
+    evidenceObligations: catalog/evidence-obligations.yaml
+    cohorts: catalog/cohorts.yaml
+    ownerInputs: catalog/owner-inputs.yaml
+
+  # ---------------------------------------------------------------
+  # GATES
+  #
+  # Each gate is a decision table. The table is the normative statement of the gate; this
+  # file binds it to a lifecycle transition and says what the gate is allowed to do.
+  # ---------------------------------------------------------------
+  gates:
+    screening-ready:
+      description: Whether authoritative KYC policy context is resolved before investigation may begin.
+      table: catalog/decision-tables/screening-ready.yaml
+      transition:
+        from: [INTAKE, VALIDATING]
+        to: SCREENING
+      mayFinalizeDisposition: false
+
+    decision-ready:
+      description: Whether the case holds sufficient policy, screening, investigation and evidence state for a recommendation.
+      table: catalog/decision-tables/decision-ready.yaml
+      transition:
+        from: [SCREENING, INVESTIGATING]
+        to: READY_FOR_DECISION
+      mayFinalizeDisposition: false
+
+    disposition:
+      description: What disposition, if any, the platform may reach without a human.
+      table: catalog/decision-tables/disposition.yaml
+      transition:
+        from: [READY_FOR_DECISION]
+        to: [APPROVED, HUMAN_REVIEW]
+      mayFinalizeDisposition: true
+      finalizeConstraints:
+        allowedDispositions: [APPROVED]
+        eligibleCohorts: [RC-LOW-STANDARD-INDIVIDUAL]
+        requiresAttestation: true
+        ownerInputRefs: [D04]
+
+  # ---------------------------------------------------------------
+  # ROUTING
+  #
+  # Where a non-ALLOW outcome goes. Routing is derived from the reason code registry so a
+  # queue is never named twice.
+  # ---------------------------------------------------------------
+  routing:
+    source: catalog/reason-codes.yaml
+    onBlock: routeByReasonCode
+    onReview: routeByReasonCode
+    onUnknown: routeByReasonCode
+    onError: queue.platform.operations
+
+  # ---------------------------------------------------------------
+  # AUDIT
+  # ---------------------------------------------------------------
+  audit:
+    recordEvaluation: true
+    include:
+      - policyId
+      - policyVersion
+      - policyBundleDigest
+      - gateId
+      - tableId
+      - tenantId
+      - caseId
+      - caseSequence
+      - cohortId
+      - conditionValues
+      - matchedRowId
+      - evaluatedRuleIds
+      - outcome
+      - reasonCodes
+      - evidenceRefs
+      - findingRefs
+      - claimRefs
+      - recommendationRef
+      - evaluatedAt
+    # Recording every condition value, not only the matched row, is what makes an
+    # evaluation replayable without the original case.
+    recordAllConditionValues: true
+    retentionClass: KYC_REGULATED
+    ownerInputRefs: [D05, D10]

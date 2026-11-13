@@ -1,0 +1,241 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:screening.adverse_media.execute
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Search captured media subjects while retaining allegations and negative
+  scope.
+code_hash: c64a2715d1526b9f1f6ab8ee1503b39d0e87d7c662013f7ba0947c9d4a11940a
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Search captured media subjects while retaining allegations and negative
+  scope.
+effects: read_only
+entrypoint: financial_crime.skills.screening:adverse_media
+evaluation_profile: screening.adverse_media.execute-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: screening-adverse-media-execute
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: screening.adverse_media.execute
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:screening.adverse_media.execute:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    name:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - name
+  type: object
+instruction_hash: b40cc0d0cca42cdc554ef81ca4a591f211112007ea8be2ff4497666299f8ff97
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- Exact normalized subject matching over captured records; no live discovery, semantic
+  relevance classifier, identity verification or final adverse finding. Current maturity
+  remains implemented_synthetic. Independent evaluation, policy/source approvals and
+  operating qualification are required before production.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - subjects
+  - title
+  - source
+  - status
+  - coverage
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: AdverseMediaEvent
+  optional: true
+- fields:
+  - subject
+  - screening_type
+  - provider
+  - query
+  - query_time
+  - status
+  - dataset_versions
+  - scope
+  - candidate_count
+  - truncated
+  - limitations
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ScreeningExecution
+  optional: true
+output_schema:
+  $defs:
+    AdverseMediaEventRow_coverage_source_status_subjects_title:
+      additionalProperties: false
+      properties:
+        _ref:
+          $ref: '#/$defs/Ref'
+        _synthetic:
+          $ref: '#/$defs/Bool'
+        coverage:
+          $ref: '#/$defs/Coverage'
+        id:
+          $ref: '#/$defs/Id'
+        source:
+          $ref: '#/$defs/Id'
+        status:
+          $ref: '#/$defs/MediaStatus'
+        subjects:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        title:
+          $ref: '#/$defs/Text'
+      required:
+      - id
+      - subjects
+      - title
+      - source
+      - status
+      - coverage
+      - _ref
+      - _synthetic
+      type: object
+    Bool:
+      type: boolean
+    Coverage:
+      additionalProperties: false
+      properties:
+        as_of:
+          $ref: '#/$defs/Timestamp'
+        complete:
+          $ref: '#/$defs/Bool'
+        jurisdictions:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        limitations:
+          items:
+            $ref: '#/$defs/Text'
+          maxItems: 10000
+          type: array
+        pages_complete:
+          $ref: '#/$defs/Bool'
+        provider:
+          $ref: '#/$defs/Id'
+        query:
+          $ref: '#/$defs/Text'
+      required:
+      - complete
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    MediaStatus:
+      enum:
+      - ALLEGATION
+      - CONFIRMED
+      - RETRACTED
+      - DISPUTED
+      - UNKNOWN
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+    Timestamp:
+      format: date-time
+      type: string
+  $id: urn:financial-crime:skill:screening.adverse_media.execute:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    coverage:
+      items:
+        $ref: '#/$defs/Coverage'
+      maxItems: 10000
+      type: array
+    events:
+      items:
+        $ref: '#/$defs/AdverseMediaEventRow_coverage_source_status_subjects_title'
+      maxItems: 10000
+      type: array
+  required:
+  - events
+  - coverage
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

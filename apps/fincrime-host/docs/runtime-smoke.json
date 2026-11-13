@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "platform": "linux/amd64",
+  "user": "10001:10001",
+  "image_id": "sha256:2db6cd5e3bb150967f3a20bab51f819245445c254e84ba21209eb28ae77d0c6e",
+  "versions": {
+    "python": "3.12.16",
+    "release": "0.3.0",
+    "context_schema_version": "2.0.0",
+    "invocations": "1.3.0",
+    "core": "2.3.1b1"
+  },
+  "readiness": 200,
+  "anonymous_denied": 401,
+  "authenticated_invocation": 200,
+  "body_permission_injection_denied": 400,
+  "status_matches_result": true,
+  "bundle_code_hash": "4aa1dd5e61645a23d88ab7cc7210f97e1305250c20e9d1425afd4f0e801271ba"
+}

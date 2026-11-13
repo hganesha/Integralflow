@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-09",
+  "revision": "d001c06be212233a3a4b694de707766163b86600",
+  "scope": "Current working tree, including existing changes; audit-only files added",
+  "preview": "Current application source bundled with esbuild, mock mode; no production upstream journey claimed",
+  "checks": {
+    "json": "valid",
+    "document_links": "all local artifact links resolve",
+    "icon_assignment": "1110 unique entries, every proposed icon exists",
+    "screenshots": "12 saved PNGs reopened and inspected",
+    "bff": "registration and local injection probes completed",
+    "vitest": "blocked at startup: TypeError: pico is not a function",
+    "vite": "blocked at startup: TypeError: pico is not a function",
+    "tsx": "blocked by Ajv Name is not a constructor"
+  },
+  "images": [
+    {
+      "file": "screenshots/01-workspace.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "be49f6b4e6ad83fbb6a13a6743d384671642c0c91139efcd592347d61257c483"
+    },
+    {
+      "file": "screenshots/02-catalogs.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "fb834f83811736ae2c7b223e797c1386b8c9138cf564986a898121b203e09145"
+    },
+    {
+      "file": "screenshots/03-skills-default.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "e54399ca3298377d66ebd8feaea7fb2afe9e58971863b38a73ce89375d94b725"
+    },
+    {
+      "file": "screenshots/04-capability-groups.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "3951f308755e9aeadd53dd103501fe587e1a3aa6c4b42bf80c42b4f4a9f10160"
+    },
+    {
+      "file": "screenshots/05-capabilities-table.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "809fef5059f877075481a11e742f9cb4c0083c793699c2defb06790c7445ca2e"
+    },
+    {
+      "file": "screenshots/06-search.png",
+      "pixels": [
+        1778,
+        1111
+      ],
+      "sha256": "622d525d167195b2ec6ae8b6f31df355fd27950ee1d36a7abe6d497d355a8c85"
+    },
+    {
+      "file": "screenshots/07-atlas.png",
+      "pixels": [
+        1778,
+        1111
+      ],
+      "sha256": "00bdd8a89a2ae7105163cca9a33df357b247f57777244d73e393bf4fc796440d"
+    },
+    {
+      "file": "screenshots/08-profile.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "77d2ade7267883059aca808fac7c59542e6b75424b30a56db953b55d50d531d1"
+    },
+    {
+      "file": "screenshots/09-profile-skills.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "6dc4c9dc3014fc45ae5dd37c105c4adc81e6e7d2d01a4230d2d53995c373f4de"
+    },
+    {
+      "file": "screenshots/10-context.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "6fccab51ee598f03d31ac69eabce75ce798793090d2339ab595fa5a4161f3244"
+    },
+    {
+      "file": "screenshots/11-platform.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7f1c02600323410aba7b6115bcf0e4f89cb61246e9065766919b33164ac499ad"
+    },
+    {
+      "file": "screenshots/12-mobile-skills.png",
+      "pixels": [
+        390,
+        844
+      ],
+      "sha256": "28a8d1c1deacbe37d146204007f7eb6e603404216ea94330ef06dd6957f199aa"
+    }
+  ]
+}

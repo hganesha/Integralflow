@@ -1,0 +1,639 @@
+{
+  "$defs": {
+    "AdjudicatedExtraction": {
+      "additionalProperties": false,
+      "properties": {
+        "adjudication": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FieldAdjudications"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_assertions": {
+          "items": {
+            "$ref": "#/$defs/CandidateAssertion"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "contract_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "extraction_status": {
+          "$ref": "#/$defs/Id"
+        },
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/ExtractionIssue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "mapping_candidates": {
+          "items": {
+            "$ref": "#/$defs/MappingCandidate"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "profile_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "proposed_route": {
+          "$ref": "#/$defs/Id"
+        },
+        "route_mode": {
+          "$ref": "#/$defs/RouteMode"
+        },
+        "route_triggers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "secondary_fills": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "source_digest": {
+          "$ref": "#/$defs/Hash"
+        }
+      },
+      "required": [
+        "document_type",
+        "profile_version",
+        "contract_hash",
+        "document_version",
+        "source_digest",
+        "extraction_status",
+        "candidate_assertions",
+        "mapping_candidates",
+        "issues",
+        "route_mode",
+        "proposed_route",
+        "route_triggers",
+        "secondary_fills",
+        "adjudication"
+      ],
+      "type": "object"
+    },
+    "AdjudicationOutcome": {
+      "enum": [
+        "AGREED_GROUNDED",
+        "SELECTED_GROUNDED",
+        "SINGLE_ROUTE",
+        "UNGROUNDED",
+        "CONFLICT",
+        "VALIDATION_FAILED",
+        "NOT_PRESENT",
+        "OCR_DISAGREEMENT"
+      ]
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "CandidateAssertion": {
+      "additionalProperties": false,
+      "properties": {
+        "context_targets": {
+          "items": {
+            "$ref": "#/$defs/ContextTargetDecl"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "contract_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "epistemic_status": {
+          "$ref": "#/$defs/Id"
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        },
+        "source_digest": {
+          "$ref": "#/$defs/Hash"
+        },
+        "source_spans": {
+          "items": {
+            "$ref": "#/$defs/ExtractionSpan"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "verification": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "path",
+        "value",
+        "document_version",
+        "source_digest",
+        "contract_hash",
+        "source_spans",
+        "epistemic_status",
+        "verification",
+        "context_targets"
+      ],
+      "type": "object"
+    },
+    "ContextTargetDecl": {
+      "additionalProperties": false,
+      "properties": {
+        "condition": {
+          "$ref": "#/$defs/Text"
+        },
+        "field_path": {
+          "$ref": "#/$defs/Id"
+        },
+        "mode": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "object_type",
+        "field_path",
+        "condition",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ExtractionIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/Id"
+        },
+        "message": {
+          "$ref": "#/$defs/Text"
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "code",
+        "path",
+        "message"
+      ],
+      "type": "object"
+    },
+    "ExtractionSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "quote": {
+          "$ref": "#/$defs/Text"
+        },
+        "start": {
+          "$ref": "#/$defs/Count"
+        }
+      },
+      "required": [
+        "page_id",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "FieldAdjudication": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "comparator": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "comparison": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "criticality": {
+          "$ref": "#/$defs/Id"
+        },
+        "field": {
+          "$ref": "#/$defs/Id"
+        },
+        "key_field": {
+          "$ref": "#/$defs/Bool"
+        },
+        "outcome": {
+          "$ref": "#/$defs/AdjudicationOutcome"
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        },
+        "review": {
+          "$ref": "#/$defs/ReviewDepth"
+        },
+        "rule": {
+          "$ref": "#/$defs/Id"
+        },
+        "selected": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonObject"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "path",
+        "field",
+        "criticality",
+        "key_field",
+        "outcome",
+        "rule",
+        "comparator",
+        "comparison",
+        "review",
+        "selected",
+        "candidates"
+      ],
+      "type": "object"
+    },
+    "FieldAdjudications": {
+      "additionalProperties": false,
+      "properties": {
+        "anchoring": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonObject"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "counts": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Count"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "epistemic_status": {
+          "$ref": "#/$defs/Id"
+        },
+        "inputs": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "inputs_digest": {
+          "$ref": "#/$defs/Hash"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonObject"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outcomes": {
+          "items": {
+            "$ref": "#/$defs/FieldAdjudication"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "policy": {
+          "$ref": "#/$defs/PolicyRef"
+        },
+        "promotion_allowed": {
+          "$ref": "#/$defs/Bool"
+        },
+        "review_required": {
+          "$ref": "#/$defs/Bool"
+        },
+        "route_errors": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "routes": {
+          "additionalProperties": {
+            "$ref": "#/$defs/RouteStatus"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        }
+      },
+      "required": [
+        "document_type",
+        "routes",
+        "policy",
+        "inputs",
+        "inputs_digest",
+        "outcomes",
+        "counts",
+        "review_required",
+        "promotion_allowed",
+        "epistemic_status",
+        "route_errors",
+        "model",
+        "anchoring"
+      ],
+      "type": "object"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "MappingCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "requires_subject_resolution_and_transform": {
+          "$ref": "#/$defs/Bool"
+        },
+        "source_path": {
+          "$ref": "#/$defs/Text"
+        },
+        "source_value": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/ContextTargetDecl"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "source_path",
+        "source_value",
+        "targets",
+        "requires_subject_resolution_and_transform"
+      ],
+      "type": "object"
+    },
+    "PolicyRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "$ref": "#/$defs/Hash"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ProposedRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/JsonObject"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "local_ref": {
+          "$ref": "#/$defs/Id"
+        },
+        "record_type": {
+          "$ref": "#/$defs/ProposedRecordType"
+        }
+      },
+      "required": [
+        "record_type",
+        "local_ref",
+        "body",
+        "evidence"
+      ],
+      "type": "object"
+    },
+    "ProposedRecordType": {
+      "enum": [
+        "CanonicalRecord",
+        "UnresolvedQuestion"
+      ]
+    },
+    "ReviewDepth": {
+      "enum": [
+        "light",
+        "standard",
+        "required"
+      ]
+    },
+    "RouteMode": {
+      "enum": [
+        "llm_only",
+        "shadow",
+        "selective"
+      ]
+    },
+    "RouteStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/RouteStatusCode"
+        }
+      },
+      "required": [
+        "status",
+        "issues"
+      ],
+      "type": "object"
+    },
+    "RouteStatusCode": {
+      "enum": [
+        "valid",
+        "integrity_failure",
+        "not_run"
+      ]
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.fields.adjudicated_extract:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "$ref": "#/$defs/Hash"
+    },
+    "extractions": {
+      "items": {
+        "$ref": "#/$defs/AdjudicatedExtraction"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "promotion_allowed": {
+      "type": "boolean"
+    },
+    "proposed_records": {
+      "items": {
+        "$ref": "#/$defs/ProposedRecord"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "route_policy": {
+      "$ref": "#/$defs/PolicyRef"
+    },
+    "semantic_verification": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "unclassified": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "subject",
+    "catalog_hash",
+    "review_required",
+    "promotion_allowed",
+    "semantic_verification",
+    "route_policy",
+    "extractions",
+    "unclassified",
+    "proposed_records"
+  ],
+  "type": "object"
+}

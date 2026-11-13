@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: wiring
+      POSTGRES_USER: wiring
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U wiring -d wiring"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: .
+    ports: ["8000:8000"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+    environment: &app_env
+      WIRING_MODE: ${WIRING_MODE:-demo}
+      WORKER_ENABLED: "0"
+      VENDOR_TEST_ENABLED: ${VENDOR_TEST_ENABLED:-0}
+      VENDOR_TEST_TENANTS_JSON: ${VENDOR_TEST_TENANTS_JSON:-[]}
+      ENABLE_API_DOCS: ${ENABLE_API_DOCS:-0}
+      DATABASE_URL: postgresql+psycopg://wiring:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@postgres:5432/wiring
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:?Generate and set a Fernet encryption key}
+      API_KEYS_JSON: ${API_KEYS_JSON:?Set tenant-bound API keys JSON}
+      CONTRACTS_PATH: /app/config/contracts.json
+      DESTINATIONS_PATH: /app/config/destinations.json
+    env_file:
+      - path: .provider-secrets.env
+        required: false
+    volumes:
+      - ./config:/app/config:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+  worker:
+    build: .
+    command: [python, -m, wiring.worker]
+    environment:
+      <<: *app_env
+    env_file:
+      - path: .provider-secrets.env
+        required: false
+    volumes:
+      - ./config:/app/config:ro
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  pgdata:

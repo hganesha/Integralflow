@@ -1,0 +1,6547 @@
+{
+  "$defs": {
+    "Activity": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "$ref": "#/$defs/Count"
+        },
+        "currency": {
+          "$ref": "#/$defs/Id"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "monthly_amount": {
+          "$ref": "#/$defs/Decimal"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "AmlDetectorConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "amount_threshold": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "currency": {
+          "$ref": "#/$defs/Id"
+        },
+        "max_hops": {
+          "$ref": "#/$defs/Hops"
+        },
+        "minimum_count": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "throughput_ratio": {
+          "$ref": "#/$defs/Fraction"
+        },
+        "window_seconds": {
+          "$ref": "#/$defs/PositiveCount"
+        }
+      },
+      "required": [
+        "amount_threshold",
+        "currency",
+        "minimum_count",
+        "window_seconds"
+      ],
+      "type": "object"
+    },
+    "ApprovalStatus": {
+      "enum": [
+        "PENDING",
+        "APPROVED",
+        "REJECTED",
+        "CONSUMED",
+        "REVOKED",
+        "EXPIRED"
+      ]
+    },
+    "AuthenticationSignals": {
+      "additionalProperties": false,
+      "properties": {
+        "credential_reset": {
+          "$ref": "#/$defs/Bool"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "failed_attempts": {
+          "$ref": "#/$defs/Count"
+        },
+        "impossible_travel": {
+          "$ref": "#/$defs/Bool"
+        },
+        "new_device": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Bounds": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "minimum": {
+          "$ref": "#/$defs/Decimal"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "type": "object"
+    },
+    "CaseState": {
+      "enum": [
+        "OPEN",
+        "REVIEW",
+        "CLOSED"
+      ]
+    },
+    "Checksum": {
+      "enum": [
+        "luhn"
+      ]
+    },
+    "ConflictStatus": {
+      "enum": [
+        "UNRESOLVED",
+        "RESOLVED",
+        "DISPUTED"
+      ]
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "jurisdictions": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "pages_complete": {
+          "$ref": "#/$defs/Bool"
+        },
+        "provider": {
+          "$ref": "#/$defs/Id"
+        },
+        "query": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "complete"
+      ],
+      "type": "object"
+    },
+    "CtrBusinessDay": {
+      "additionalProperties": false,
+      "properties": {
+        "cutoff": {
+          "$ref": "#/$defs/LocalTime"
+        },
+        "roll_non_working_days": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "cutoff",
+        "roll_non_working_days"
+      ],
+      "type": "object"
+    },
+    "DatasetSplit": {
+      "enum": [
+        "train",
+        "validation",
+        "test"
+      ]
+    },
+    "Date": {
+      "format": "date",
+      "type": "string"
+    },
+    "DeadlineDays": {
+      "maximum": 366,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "DeviceAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "browser": {
+          "$ref": "#/$defs/Id"
+        },
+        "device_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "os": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Disposition": {
+      "enum": [
+        "ACCEPT",
+        "REJECT",
+        "ESCALATE"
+      ]
+    },
+    "EddTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Predicate"
+        },
+        "tasks": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "predicate",
+        "tasks"
+      ],
+      "type": "object"
+    },
+    "EntityAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/Text"
+        },
+        "email": {
+          "$ref": "#/$defs/Id"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "phone": {
+          "$ref": "#/$defs/Id"
+        },
+        "registration_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "EntityKind": {
+      "enum": [
+        "individual",
+        "company",
+        "trust",
+        "fund",
+        "partnership",
+        "organization",
+        "unknown"
+      ]
+    },
+    "ExecutionLock": {
+      "additionalProperties": false,
+      "properties": {
+        "bundle_code_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "capabilities": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "code_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "context_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "instruction_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "libraries": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Id"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        },
+        "policy_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "profile_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "python_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "requirements_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "skill_version": {
+          "$ref": "#/$defs/Semver"
+        }
+      },
+      "required": [
+        "profile_hash",
+        "skill_version",
+        "code_hash",
+        "bundle_code_hash",
+        "instruction_hash",
+        "python_version",
+        "policy_hash",
+        "context_hash",
+        "requirements_hash",
+        "capabilities",
+        "libraries"
+      ],
+      "type": "object"
+    },
+    "Extension": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "schema_version",
+        "value"
+      ],
+      "type": "object"
+    },
+    "Extensions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Extension"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "explicit versioned source/institution extensions"
+    },
+    "FilingKind": {
+      "enum": [
+        "corporate",
+        "regulatory"
+      ]
+    },
+    "FindingStatus": {
+      "enum": [
+        "RESOLVED",
+        "UNRESOLVED",
+        "INDICATOR",
+        "EXCULPATORY",
+        "UNVERIFIED",
+        "DISPUTED"
+      ]
+    },
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    },
+    "GraphScope": {
+      "additionalProperties": false,
+      "properties": {
+        "as_of_time": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "max_depth": {
+          "$ref": "#/$defs/Count"
+        },
+        "max_edges": {
+          "$ref": "#/$defs/Count"
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "roots",
+        "max_depth",
+        "max_edges",
+        "as_of_time"
+      ],
+      "type": "object"
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "HitFeatures": {
+      "additionalProperties": false,
+      "properties": {
+        "identifier_conflict": {
+          "$ref": "#/$defs/Bool"
+        },
+        "name_score": {
+          "$ref": "#/$defs/Probability"
+        },
+        "score": {
+          "$ref": "#/$defs/Probability"
+        },
+        "shared_identifiers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "verified_match": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "identifier_conflict"
+      ],
+      "type": "object"
+    },
+    "Hops": {
+      "maximum": 30,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IdentifierRule": {
+      "additionalProperties": false,
+      "properties": {
+        "checksum": {
+          "$ref": "#/$defs/Checksum"
+        },
+        "pattern": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "pattern"
+      ],
+      "type": "object"
+    },
+    "IdentityAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "date_of_birth": {
+          "$ref": "#/$defs/Date"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "identifiers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "name": {
+          "$ref": "#/$defs/Id"
+        },
+        "synthetic": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "ListOrMediaType": {
+      "enum": [
+        "sanctions",
+        "pep",
+        "watchlist",
+        "adverse_media"
+      ]
+    },
+    "ListType": {
+      "enum": [
+        "sanctions",
+        "pep",
+        "watchlist"
+      ]
+    },
+    "LocalTime": {
+      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+      "type": "string"
+    },
+    "MediaStatus": {
+      "enum": [
+        "ALLEGATION",
+        "CONFIRMED",
+        "RETRACTED",
+        "DISPUTED",
+        "UNKNOWN"
+      ]
+    },
+    "MissingBehavior": {
+      "enum": [
+        "UNKNOWN",
+        "BLOCKED",
+        "NEEDS_EVIDENCE"
+      ]
+    },
+    "MonitorTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "event_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "id",
+        "event_type",
+        "predicate"
+      ],
+      "type": "object"
+    },
+    "Outcome": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "OwnershipGap": {
+      "additionalProperties": false,
+      "properties": {
+        "interest": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "node": {
+          "$ref": "#/$defs/Id"
+        },
+        "path": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "reason": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "node",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "PolicyRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "control": {
+          "$ref": "#/$defs/RequirementControl"
+        },
+        "description": {
+          "$ref": "#/$defs/Text"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "when": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "PolicyRule": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "id",
+        "predicate"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Predicate": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/RuleLeaf"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "all": {
+              "items": {
+                "$ref": "#/$defs/Predicate"
+              },
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "any": {
+              "items": {
+                "$ref": "#/$defs/Predicate"
+              },
+              "maxItems": 100,
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "Profile": {
+      "additionalProperties": false,
+      "properties": {
+        "business_purpose": {
+          "$ref": "#/$defs/Text"
+        },
+        "employees": {
+          "$ref": "#/$defs/Count"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "legal_name": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "RegistryAttributes": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/Text"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "jurisdiction": {
+          "$ref": "#/$defs/Id"
+        },
+        "name": {
+          "$ref": "#/$defs/Id"
+        },
+        "registration_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "status": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "ReportType": {
+      "enum": [
+        "SAR",
+        "CTR"
+      ]
+    },
+    "ReportingObligation": {
+      "additionalProperties": false,
+      "properties": {
+        "business_days": {
+          "$ref": "#/$defs/Bool"
+        },
+        "deadline_days": {
+          "$ref": "#/$defs/DeadlineDays"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "time_zone": {
+          "$ref": "#/$defs/Id"
+        },
+        "type": {
+          "$ref": "#/$defs/ReportType"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "deadline_days",
+        "business_days",
+        "time_zone"
+      ],
+      "type": "object"
+    },
+    "RequirementControl": {
+      "additionalProperties": false,
+      "properties": {
+        "fail": {
+          "$ref": "#/$defs/Predicate"
+        },
+        "pass": {
+          "$ref": "#/$defs/Predicate"
+        }
+      },
+      "required": [
+        "pass"
+      ],
+      "type": "object"
+    },
+    "RiskContribution": {
+      "additionalProperties": false,
+      "properties": {
+        "contribution": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "factor": {
+          "$ref": "#/$defs/Id"
+        },
+        "name": {
+          "$ref": "#/$defs/Id"
+        },
+        "value": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "weight": {
+          "$ref": "#/$defs/Decimal"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "RiskTier": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "tier": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "minimum",
+        "tier"
+      ],
+      "type": "object"
+    },
+    "RuleLeaf": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/Id"
+        },
+        "op": {
+          "$ref": "#/$defs/RuleOperator"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "field",
+        "op"
+      ],
+      "type": "object"
+    },
+    "RuleOperator": {
+      "enum": [
+        "eq",
+        "ne",
+        "in",
+        "contains",
+        "excludes",
+        "gte",
+        "gt",
+        "lte",
+        "lt",
+        "present"
+      ]
+    },
+    "SanctionsAggregation": {
+      "additionalProperties": false,
+      "properties": {
+        "rule": {
+          "$ref": "#/$defs/SyntheticAggregation"
+        },
+        "threshold": {
+          "$ref": "#/$defs/Fraction"
+        }
+      },
+      "required": [
+        "rule",
+        "threshold"
+      ],
+      "type": "object"
+    },
+    "SearchStatus": {
+      "enum": [
+        "COMPLETED",
+        "PARTIAL",
+        "FAILED"
+      ]
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "UNKNOWN"
+      ]
+    },
+    "SkillStatus": {
+      "enum": [
+        "COMPLETED",
+        "PARTIAL",
+        "NEEDS_EVIDENCE",
+        "NEEDS_REVIEW",
+        "BLOCKED",
+        "FAILED"
+      ]
+    },
+    "SourceArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "$ref": "#/$defs/Id"
+        },
+        "media_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "media_type",
+        "encoding",
+        "value"
+      ],
+      "type": "object"
+    },
+    "SourceContent": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Text"
+        },
+        {
+          "$ref": "#/$defs/SourceArtifact"
+        }
+      ]
+    },
+    "SyntheticAggregation": {
+      "enum": [
+        "synthetic_aggregate",
+        "ofac_50_percent"
+      ]
+    },
+    "TaskStatus": {
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "COMPLETED",
+        "BLOCKED",
+        "CANCELLED"
+      ]
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TransactionStatus": {
+      "enum": [
+        "settled",
+        "pending",
+        "reversed",
+        "cancelled"
+      ]
+    },
+    "Verification": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_ref": {
+          "$ref": "#/$defs/Id"
+        },
+        "evidence_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "method": {
+          "$ref": "#/$defs/Id"
+        },
+        "status": {
+          "$ref": "#/$defs/Id"
+        },
+        "verified_at": {
+          "$ref": "#/$defs/Timestamp"
+        }
+      },
+      "required": [
+        "status",
+        "method"
+      ],
+      "type": "object"
+    },
+    "VerificationStatus": {
+      "enum": [
+        "VERIFIED",
+        "UNVERIFIED",
+        "DISPUTED",
+        "FAILED",
+        "UNKNOWN"
+      ]
+    },
+    "Weekday": {
+      "maximum": 6,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Window": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "start": {
+          "$ref": "#/$defs/Timestamp"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "WorkflowTask": {
+      "additionalProperties": false,
+      "properties": {
+        "dependencies": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "parameters": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "skill_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "skill_id",
+        "dependencies"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Account"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "account_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "currency": {
+                "$ref": "#/$defs/Id"
+              },
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "status": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "account_type",
+                "currency",
+                "entity_id",
+                "extensions",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Actor"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "active": {
+                "$ref": "#/$defs/Bool"
+              },
+              "actor_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "permissions": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "roles": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "active",
+                "actor_id",
+                "extensions",
+                "permissions",
+                "roles"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Address"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "country": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "lines": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "locality": {
+                "$ref": "#/$defs/Id"
+              },
+              "normalized": {
+                "$ref": "#/$defs/Text"
+              },
+              "postal_code": {
+                "$ref": "#/$defs/Id"
+              },
+              "region": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "country",
+                "extensions",
+                "lines",
+                "locality",
+                "normalized",
+                "postal_code",
+                "region"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "AdverseMediaEvent"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "coverage": {
+                "$ref": "#/$defs/Coverage"
+              },
+              "event_key": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              },
+              "status": {
+                "$ref": "#/$defs/MediaStatus"
+              },
+              "subjects": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "title": {
+                "$ref": "#/$defs/Text"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "coverage",
+                "event_key",
+                "extensions",
+                "source",
+                "status",
+                "subjects",
+                "title"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Alert"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "event_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "rule_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "severity": {
+                "$ref": "#/$defs/Severity"
+              },
+              "source_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "event_ids",
+                "extensions",
+                "rule_id",
+                "severity",
+                "source_id",
+                "subject"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Alias"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "language": {
+                "$ref": "#/$defs/Id"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "script": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "entity_id",
+                "extensions",
+                "language",
+                "name",
+                "script"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Approval"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "$ref": "#/$defs/Id"
+              },
+              "approver_ref": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Ref"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "context_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "execution_lock_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "expires_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "request_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "requester_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "status": {
+                "$ref": "#/$defs/ApprovalStatus"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "action",
+                "approver_ref",
+                "context_hash",
+                "execution_lock_hash",
+                "expires_at",
+                "extensions",
+                "request_hash",
+                "requester_ref",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Assertion"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "claim": {
+                "$ref": "#/$defs/Text"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "field": {
+                "$ref": "#/$defs/Id"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              },
+              "value": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "verification": {
+                "$ref": "#/$defs/Verification"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "claim",
+                "evidence_ids",
+                "extensions",
+                "field",
+                "subject",
+                "value",
+                "verification"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "AuditEvent"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "actor_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "event": {
+                "$ref": "#/$defs/Id"
+              },
+              "event_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "execution_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "occurred_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "previous_hash": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Hash"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "actor_ref",
+                "event",
+                "event_hash",
+                "execution_id",
+                "extensions",
+                "occurred_at",
+                "previous_hash"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "AuthenticationEvent"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "session_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "signals": {
+                "$ref": "#/$defs/AuthenticationSignals"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "session_id",
+                "signals"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "BeneficialOwner"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "interest": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "verification_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "entity_id",
+                "evidence_ids",
+                "extensions",
+                "interest",
+                "verification_ref"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "BusinessCalendar"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "holidays": {
+                "items": {
+                  "$ref": "#/$defs/Date"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "working_weekdays": {
+                "items": {
+                  "$ref": "#/$defs/Weekday"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "holidays",
+                "working_weekdays"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Case"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "case_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "disposition": {
+                "$ref": "#/$defs/Disposition"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "revision": {
+                "$ref": "#/$defs/Count"
+              },
+              "state": {
+                "$ref": "#/$defs/CaseState"
+              },
+              "subject_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "case_type",
+                "disposition",
+                "extensions",
+                "revision",
+                "state",
+                "subject_refs"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Checkpoint"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "completed_step_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "execution_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "pending_step_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "state_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "workflow_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "completed_step_ids",
+                "execution_id",
+                "extensions",
+                "pending_step_ids",
+                "state_ref",
+                "workflow_ref"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Conflict"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "assertion_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "field": {
+                "$ref": "#/$defs/Id"
+              },
+              "resolution_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "status": {
+                "$ref": "#/$defs/ConflictStatus"
+              },
+              "subject_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "assertion_refs",
+                "extensions",
+                "field",
+                "resolution_ref",
+                "status",
+                "subject_ref"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Control"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "outcome": {
+                "$ref": "#/$defs/Outcome"
+              },
+              "requirement_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "outcome",
+                "requirement_id"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ControlRight"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "basis": {
+                "$ref": "#/$defs/Id"
+              },
+              "controlled": {
+                "$ref": "#/$defs/Id"
+              },
+              "controller": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "basis",
+                "controlled",
+                "controller",
+                "extensions",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Counterparty"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "risk_indicators": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "entity_id",
+                "evidence_ids",
+                "extensions",
+                "risk_indicators"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "CustomerRelationship"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "ended_at": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Timestamp"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "institution_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "party_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "relationship_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "started_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "status": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "ended_at",
+                "extensions",
+                "institution_id",
+                "party_id",
+                "relationship_type",
+                "started_at",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "DatasetScope"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "end": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "expected_count": {
+                "$ref": "#/$defs/Count"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "start": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "watermark": {
+                "$ref": "#/$defs/Timestamp"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "complete",
+                "end",
+                "expected_count",
+                "extensions",
+                "start",
+                "watermark"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Decision"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "actor_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "approval_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "context_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "disposition": {
+                "$ref": "#/$defs/Disposition"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "finding_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "policy_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "actor_ref",
+                "approval_refs",
+                "context_hash",
+                "disposition",
+                "extensions",
+                "finding_refs",
+                "policy_ref"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "DetectionRule"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "model_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "predicate": {
+                "$ref": "#/$defs/Predicate"
+              },
+              "typology_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "model_version",
+                "name",
+                "predicate",
+                "typology_ref"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Device"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "attributes": {
+                "$ref": "#/$defs/DeviceAttributes"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "permitted": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "attributes",
+                "extensions",
+                "permitted"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Document"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "document_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "expires_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "issued_at": {
+                "$ref": "#/$defs/Timestamp"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "document_type",
+                "expires_at",
+                "extensions",
+                "issued_at"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "DocumentPage"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "document_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "page": {
+                "$ref": "#/$defs/PositiveCount"
+              },
+              "text": {
+                "$ref": "#/$defs/Text"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "document_version",
+                "extensions",
+                "page",
+                "text"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "DocumentVersion"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "artifact_ref": {
+                "$ref": "#/$defs/Id"
+              },
+              "document_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "media_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "page_count": {
+                "$ref": "#/$defs/Count"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "artifact_hash",
+                "artifact_ref",
+                "document_id",
+                "extensions",
+                "media_type",
+                "page_count"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Entity"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "attributes": {
+                "$ref": "#/$defs/EntityAttributes"
+              },
+              "entity_type": {
+                "$ref": "#/$defs/EntityKind"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "identifiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "attributes",
+                "entity_type",
+                "extensions",
+                "identifiers",
+                "name"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "EntityCandidate"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "identifiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "identifiers",
+                "name"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "EvaluationCase"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "dataset_split": {
+                "$ref": "#/$defs/DatasetSplit"
+              },
+              "expected_outcome_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "input_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "skill_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "synthetic": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "dataset_split",
+                "expected_outcome_ref",
+                "extensions",
+                "input_ref",
+                "skill_id",
+                "synthetic"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Event"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "event_key": {
+                "$ref": "#/$defs/Id"
+              },
+              "event_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "facts": {
+                "$ref": "#/$defs/JsonObject"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "event_key",
+                "event_type",
+                "extensions",
+                "facts"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Evidence"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "content": {
+                "$ref": "#/$defs/SourceContent"
+              },
+              "content_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "requirement_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "source_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "content",
+                "content_hash",
+                "extensions",
+                "requirement_ids",
+                "source_id",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Exception"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "approved": {
+                "$ref": "#/$defs/Bool"
+              },
+              "expires_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "issuer": {
+                "$ref": "#/$defs/Id"
+              },
+              "scope": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "approved",
+                "expires_at",
+                "extensions",
+                "issuer",
+                "scope"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ExpectedActivity"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "behavior_category": {
+                "$ref": "#/$defs/Id"
+              },
+              "declared": {
+                "$ref": "#/$defs/Activity"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "observed": {
+                "$ref": "#/$defs/Activity"
+              },
+              "window": {
+                "$ref": "#/$defs/Window"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "behavior_category",
+                "declared",
+                "evidence_ids",
+                "extensions",
+                "observed",
+                "window"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ExpectedOutcome"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "payload": {
+                "$ref": "#/$defs/JsonObject"
+              },
+              "status": {
+                "$ref": "#/$defs/SkillStatus"
+              },
+              "tolerances": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Decimal"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "payload",
+                "status",
+                "tolerances"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ExtractedAssertion"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "document_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "field": {
+                "$ref": "#/$defs/Id"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              },
+              "value": {
+                "$ref": "#/$defs/JsonValue"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "document_version",
+                "extensions",
+                "field",
+                "subject",
+                "value"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Fact"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "assertion_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "evidence_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "field": {
+                "$ref": "#/$defs/Id"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              },
+              "value": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "verification_ref": {
+                "$ref": "#/$defs/Ref"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "assertion_refs",
+                "evidence_refs",
+                "extensions",
+                "field",
+                "subject",
+                "value",
+                "verification_ref"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Filing"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact_ref": {
+                "$ref": "#/$defs/Id"
+              },
+              "authority": {
+                "$ref": "#/$defs/Id"
+              },
+              "content_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "filing_kind": {
+                "$ref": "#/$defs/FilingKind"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "artifact_ref",
+                "authority",
+                "content_hash",
+                "extensions",
+                "filing_kind"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Finding"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "claim": {
+                "$ref": "#/$defs/Text"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "question": {
+                "$ref": "#/$defs/Text"
+              },
+              "status": {
+                "$ref": "#/$defs/FindingStatus"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "claim",
+                "evidence_ids",
+                "extensions",
+                "question",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "FraudSignal"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "kind": {
+                "$ref": "#/$defs/Id"
+              },
+              "model_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "score": {
+                "$ref": "#/$defs/Fraction"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "evidence_ids",
+                "extensions",
+                "kind",
+                "model_version",
+                "score"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "GeographyExposure"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "basis": {
+                "$ref": "#/$defs/Id"
+              },
+              "country": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "value": {
+                "$ref": "#/$defs/Decimal"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "basis",
+                "country",
+                "extensions",
+                "value"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Hypothesis"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "facts": {
+                "$ref": "#/$defs/JsonObject"
+              },
+              "predicate": {
+                "$ref": "#/$defs/Predicate"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "facts",
+                "predicate"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Identity"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "attributes": {
+                "$ref": "#/$defs/IdentityAttributes"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "attributes",
+                "extensions"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "IdentityIdentifier"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "identifier_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "issuer": {
+                "$ref": "#/$defs/Id"
+              },
+              "value": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "entity_id",
+                "extensions",
+                "identifier_type",
+                "issuer",
+                "value",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Investigation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "questions": {
+                "items": {
+                  "$ref": "#/$defs/Text"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "questions"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Invoice"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "currency": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "quantity": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "unit_price": {
+                "$ref": "#/$defs/Decimal"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "currency",
+                "extensions",
+                "quantity",
+                "unit_price"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Jurisdiction"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "calendar_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "code": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "policy_pack_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "calendar_ref",
+                "code",
+                "extensions",
+                "name",
+                "policy_pack_refs"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "License"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "expires_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "issuer": {
+                "$ref": "#/$defs/Id"
+              },
+              "scope": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "status": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "expires_at",
+                "extensions",
+                "issuer",
+                "scope",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ModelVersion"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "configuration_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "evaluation_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "model_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "version": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "artifact_hash",
+                "configuration_ref",
+                "evaluation_refs",
+                "extensions",
+                "model_id",
+                "version"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "MonitoringPlan"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "next_review_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "party_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "schedule_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "trigger_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "next_review_at",
+                "party_ref",
+                "schedule_ref",
+                "trigger_refs"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "NetworkGraph"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "edge_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "nodes": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "scope": {
+                "$ref": "#/$defs/GraphScope"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "complete",
+                "edge_refs",
+                "extensions",
+                "nodes",
+                "scope"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Obligation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "due_at": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "jurisdiction": {
+                "$ref": "#/$defs/Id"
+              },
+              "obligation_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "requirement_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "due_at",
+                "extensions",
+                "jurisdiction",
+                "obligation_type",
+                "requirement_refs"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "OfficerRole"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "organization_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "role": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "entity_id",
+                "extensions",
+                "organization_id",
+                "role"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "OwnershipGraph"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "complete": {
+                "$ref": "#/$defs/Bool"
+              },
+              "edge_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "nodes": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "root_entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "unresolved": {
+                "items": {
+                  "$ref": "#/$defs/OwnershipGap"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "complete",
+                "edge_refs",
+                "extensions",
+                "nodes",
+                "root_entity_id",
+                "unresolved"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "OwnershipInterest"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "interest": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "owned": {
+                "$ref": "#/$defs/Id"
+              },
+              "owner": {
+                "$ref": "#/$defs/Id"
+              },
+              "share_class": {
+                "$ref": "#/$defs/Id"
+              },
+              "voting_interest": {
+                "$ref": "#/$defs/Fraction"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "interest",
+                "owned",
+                "owner",
+                "share_class",
+                "voting_interest"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "OwnershipRange"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "lower": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "lower_inclusive": {
+                "$ref": "#/$defs/Bool"
+              },
+              "owned": {
+                "$ref": "#/$defs/Id"
+              },
+              "owner": {
+                "$ref": "#/$defs/Id"
+              },
+              "upper": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "upper_inclusive": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "lower",
+                "lower_inclusive",
+                "owned",
+                "owner",
+                "upper",
+                "upper_inclusive"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "PEPRelationship"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "relation": {
+                "$ref": "#/$defs/Id"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              },
+              "target": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "relation",
+                "source",
+                "target",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Party"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "customer_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "industry": {
+                "$ref": "#/$defs/Id"
+              },
+              "profile": {
+                "$ref": "#/$defs/Profile"
+              },
+              "role": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "customer_type",
+                "entity_id",
+                "extensions",
+                "industry",
+                "profile",
+                "role"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Payment"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "baseline_maximum": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "currency": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "amount",
+                "baseline_maximum",
+                "currency",
+                "extensions"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "PaymentRail"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "rail_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "settlement_currency_codes": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "supports_reversal": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "name",
+                "rail_id",
+                "settlement_currency_codes",
+                "supports_reversal"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Policy"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "acceptable_tiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "acceptance_role": {
+                "$ref": "#/$defs/Id"
+              },
+              "active_registry_statuses": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "alert_priority": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Count"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "alert_types": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "aml_detectors": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/AmlDetectorConfig"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "approval_roles": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "business_substance_fields": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "case_transitions": {
+                "additionalProperties": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "control_bases": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "ctr_business_day": {
+                "$ref": "#/$defs/CtrBusinessDay"
+              },
+              "ctr_thresholds": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Decimal"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "ctr_time_zone": {
+                "$ref": "#/$defs/Id"
+              },
+              "ctr_transaction_types": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "customer_types": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "device_fields": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "document_types": {
+                "additionalProperties": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "edd_geographies": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "edd_triggers": {
+                "items": {
+                  "$ref": "#/$defs/EddTrigger"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "entity_types": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "escalation_severities": {
+                "items": {
+                  "$ref": "#/$defs/Severity"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "exception_issuers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "filing_fields": {
+                "additionalProperties": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "fraud_thresholds": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Fraction"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "freshness_seconds": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Count"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "hypothesis_templates": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Text"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "identifier_rules": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/IdentifierRule"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "industries": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "investigation_indicator_minimum": {
+                "$ref": "#/$defs/PositiveCount"
+              },
+              "jurisdiction": {
+                "$ref": "#/$defs/Id"
+              },
+              "license_issuers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "link_attributes": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "media_categories": {
+                "additionalProperties": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "monitor_triggers": {
+                "items": {
+                  "$ref": "#/$defs/MonitorTrigger"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "network_decay": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "ownership_threshold": {
+                "$ref": "#/$defs/Fraction"
+              },
+              "permissions": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "permitted_providers": {
+                "additionalProperties": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "profile_fields": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "recommendations": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "remediation_role": {
+                "$ref": "#/$defs/Id"
+              },
+              "reporting_obligations": {
+                "items": {
+                  "$ref": "#/$defs/ReportingObligation"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "required_document_types": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "requirements": {
+                "items": {
+                  "$ref": "#/$defs/PolicyRequirement"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "rescreen_interval_seconds": {
+                "$ref": "#/$defs/PositiveCount"
+              },
+              "review_interval_seconds": {
+                "$ref": "#/$defs/PositiveCount"
+              },
+              "risk_factor_maps": {
+                "additionalProperties": {
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Decimal"
+                  },
+                  "type": "object",
+                  "x-dynamic-map-reason": "keyed collection"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "risk_model_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "risk_tiers": {
+                "items": {
+                  "$ref": "#/$defs/RiskTier"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "risk_weights": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Decimal"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "role_members": {
+                "additionalProperties": {
+                  "items": {
+                    "$ref": "#/$defs/Id"
+                  },
+                  "maxItems": 10000,
+                  "type": "array"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "rules": {
+                "items": {
+                  "$ref": "#/$defs/PolicyRule"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "sanctions_control_bases": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "sanctions_ownership": {
+                "$ref": "#/$defs/SanctionsAggregation"
+              },
+              "screening_threshold": {
+                "$ref": "#/$defs/Probability"
+              },
+              "synthetic": {
+                "$ref": "#/$defs/Bool"
+              },
+              "synthetic_fingerprint_key": {
+                "$ref": "#/$defs/Id"
+              },
+              "transaction_types": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Id"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "verification_methods": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "version": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "acceptable_tiers",
+                "acceptance_role",
+                "active_registry_statuses",
+                "alert_priority",
+                "alert_types",
+                "aml_detectors",
+                "approval_roles",
+                "business_substance_fields",
+                "case_transitions",
+                "control_bases",
+                "ctr_business_day",
+                "ctr_thresholds",
+                "ctr_time_zone",
+                "ctr_transaction_types",
+                "customer_types",
+                "device_fields",
+                "document_types",
+                "edd_geographies",
+                "edd_triggers",
+                "entity_types",
+                "escalation_severities",
+                "exception_issuers",
+                "extensions",
+                "filing_fields",
+                "fraud_thresholds",
+                "freshness_seconds",
+                "hypothesis_templates",
+                "identifier_rules",
+                "industries",
+                "investigation_indicator_minimum",
+                "jurisdiction",
+                "license_issuers",
+                "link_attributes",
+                "media_categories",
+                "monitor_triggers",
+                "network_decay",
+                "ownership_threshold",
+                "permissions",
+                "permitted_providers",
+                "profile_fields",
+                "recommendations",
+                "remediation_role",
+                "reporting_obligations",
+                "required_document_types",
+                "requirements",
+                "rescreen_interval_seconds",
+                "review_interval_seconds",
+                "risk_factor_maps",
+                "risk_model_version",
+                "risk_tiers",
+                "risk_weights",
+                "role_members",
+                "rules",
+                "sanctions_control_bases",
+                "sanctions_ownership",
+                "screening_threshold",
+                "synthetic",
+                "synthetic_fingerprint_key",
+                "transaction_types",
+                "verification_methods",
+                "version"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Product"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "active": {
+                "$ref": "#/$defs/Bool"
+              },
+              "channel": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "product_type": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "active",
+                "channel",
+                "extensions",
+                "product_type"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Provenance"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "method": {
+                "$ref": "#/$defs/Id"
+              },
+              "sources": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "target": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "method",
+                "sources",
+                "target"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Registration"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "authority": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "jurisdiction": {
+                "$ref": "#/$defs/Id"
+              },
+              "registration_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "authority",
+                "extensions",
+                "jurisdiction",
+                "registration_id"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "RegistryRecord"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "address": {
+                "$ref": "#/$defs/Text"
+              },
+              "attributes": {
+                "$ref": "#/$defs/RegistryAttributes"
+              },
+              "coverage": {
+                "$ref": "#/$defs/Coverage"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "registration_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "status": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "address",
+                "attributes",
+                "coverage",
+                "extensions",
+                "name",
+                "registration_id",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Relationship"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "relation": {
+                "$ref": "#/$defs/Id"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              },
+              "target": {
+                "$ref": "#/$defs/Id"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "relation",
+                "source",
+                "target",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Requirement"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "applicability": {
+                "$ref": "#/$defs/Predicate"
+              },
+              "description": {
+                "$ref": "#/$defs/Text"
+              },
+              "evidence_types": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "mandatory": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "applicability",
+                "description",
+                "evidence_types",
+                "extensions",
+                "mandatory"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "RetentionRule"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "legal_hold": {
+                "$ref": "#/$defs/Bool"
+              },
+              "object_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "object_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "retain_until": {
+                "$ref": "#/$defs/Timestamp"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "legal_hold",
+                "object_id",
+                "object_type",
+                "retain_until"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ReviewTrigger"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "reason": {
+                "$ref": "#/$defs/Text"
+              },
+              "requirement_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "reason",
+                "requirement_ids"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "RiskAssessment"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "contributions": {
+                "items": {
+                  "$ref": "#/$defs/RiskContribution"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "model_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "score": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "tier": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "contributions",
+                "extensions",
+                "model_version",
+                "score",
+                "tier"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "RiskFactor"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "score": {
+                "$ref": "#/$defs/Decimal"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "name",
+                "score"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "RiskModel"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "factor_weights": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Decimal"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "missing_factor_behavior": {
+                "$ref": "#/$defs/MissingBehavior"
+              },
+              "model_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "tiers": {
+                "items": {
+                  "$ref": "#/$defs/RiskTier"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "factor_weights",
+                "missing_factor_behavior",
+                "model_version",
+                "tiers"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "SLA"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "deadline": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "task_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "deadline",
+                "extensions",
+                "task_id"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "SanctionsRegime"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "jurisdiction": {
+                "$ref": "#/$defs/Id"
+              },
+              "list_snapshot_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "policy_ref": {
+                "$ref": "#/$defs/Ref"
+              },
+              "regime_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "jurisdiction",
+                "list_snapshot_refs",
+                "policy_ref",
+                "regime_id"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ScreeningExecution"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "candidate_count": {
+                "$ref": "#/$defs/Count"
+              },
+              "dataset_versions": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "limitations": {
+                "items": {
+                  "$ref": "#/$defs/Text"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "list_published_at": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Timestamp"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "provider": {
+                "$ref": "#/$defs/Id"
+              },
+              "query": {
+                "$ref": "#/$defs/Id"
+              },
+              "query_time": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "scope": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "screening_type": {
+                "$ref": "#/$defs/ListOrMediaType"
+              },
+              "status": {
+                "$ref": "#/$defs/SearchStatus"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              },
+              "truncated": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "candidate_count",
+                "dataset_versions",
+                "extensions",
+                "limitations",
+                "list_published_at",
+                "provider",
+                "query",
+                "query_time",
+                "scope",
+                "screening_type",
+                "status",
+                "subject",
+                "truncated"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "ScreeningHit"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "entry_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "features": {
+                "$ref": "#/$defs/HitFeatures"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "entity_id",
+                "entry_id",
+                "extensions",
+                "features"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Session"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "baseline": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Bounds"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "challenge_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "features": {
+                "additionalProperties": {
+                  "$ref": "#/$defs/Decimal"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "keyed collection"
+              },
+              "modality": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "artifact_hash",
+                "baseline",
+                "challenge_id",
+                "extensions",
+                "features",
+                "modality"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Shipment"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "quantity": {
+                "$ref": "#/$defs/Decimal"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "quantity"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "SkillExecution"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "lock": {
+                "$ref": "#/$defs/ExecutionLock"
+              },
+              "payload": {
+                "$ref": "#/$defs/JsonObject"
+              },
+              "skill_id": {
+                "enum": [
+                  "alert.classify",
+                  "alert.context.assemble",
+                  "alert.correlate",
+                  "alert.deduplicate",
+                  "alert.disposition.recommend",
+                  "alert.escalation.evaluate",
+                  "alert.false_positive.assess",
+                  "alert.feedback.capture",
+                  "alert.ingest",
+                  "alert.prioritize",
+                  "aml.funnel.detect",
+                  "aml.layering.detect",
+                  "aml.mule.detect",
+                  "aml.pass_through.detect",
+                  "aml.roundtrip.detect",
+                  "aml.shell_company.detect",
+                  "aml.smurfing.detect",
+                  "aml.structuring.detect",
+                  "aml.suspicion.assess",
+                  "aml.trade_based.detect",
+                  "aml.typology.match",
+                  "aml.velocity.detect",
+                  "case.close",
+                  "case.context.hydrate",
+                  "case.create",
+                  "case.dependencies.evaluate",
+                  "case.escalate",
+                  "case.sla.monitor",
+                  "case.state.transition",
+                  "case.summary.generate",
+                  "case.tasks.assign",
+                  "case.tasks.plan",
+                  "decision.approval.route",
+                  "decision.audit.verify",
+                  "decision.controls.assess",
+                  "decision.disposition.record",
+                  "decision.exceptions.evaluate",
+                  "decision.explain",
+                  "decision.gaps.evaluate",
+                  "decision.human.review",
+                  "decision.policy.resolve",
+                  "decision.recommendation.generate",
+                  "decision.requirements.compile",
+                  "decision.risk.acceptance.evaluate",
+                  "decision.rules.evaluate",
+                  "document.authenticity.assess",
+                  "document.classify",
+                  "document.classify.catalog",
+                  "document.consistency.assess",
+                  "document.consistency.check",
+                  "document.entities.extract",
+                  "document.evidence.link",
+                  "document.fields.adjudicated_extract",
+                  "document.fields.contract_extract",
+                  "document.fields.extract",
+                  "document.parse",
+                  "document.parse.artifact",
+                  "document.request.compose",
+                  "document.request.generate",
+                  "document.requirements.evaluate",
+                  "document.requirements.resolve",
+                  "document.translation.normalize",
+                  "document.validity.assess",
+                  "document.validity.check",
+                  "document.version.compare",
+                  "edd.business.purpose.validate",
+                  "edd.counterparty.analyze",
+                  "edd.findings.synthesize",
+                  "edd.geographic.exposure",
+                  "edd.pep.exposure",
+                  "edd.recommendation.generate",
+                  "edd.scope.plan",
+                  "edd.source_of_funds.verify",
+                  "edd.source_of_wealth.assess",
+                  "edd.trigger.evaluate",
+                  "entity.address.normalize",
+                  "entity.alias.resolve",
+                  "entity.classify",
+                  "entity.confidence.assess",
+                  "entity.deduplicate",
+                  "entity.disambiguate",
+                  "entity.history.reconstruct",
+                  "entity.identifiers.validate",
+                  "entity.identity.verify",
+                  "entity.match",
+                  "entity.relationship.resolve",
+                  "entity.resolve",
+                  "evidence.bundle.compile",
+                  "evidence.collect",
+                  "evidence.conflicts.resolve",
+                  "evidence.facts.extract",
+                  "evidence.integrity.verify",
+                  "evidence.lineage.trace",
+                  "evidence.normalize",
+                  "evidence.provenance.attach",
+                  "evidence.retention.enforce",
+                  "evidence.sufficiency.assess",
+                  "fraud.account_takeover.detect",
+                  "fraud.behavior.anomaly",
+                  "fraud.beneficiary.risk",
+                  "fraud.case.assess",
+                  "fraud.deepfake.detect",
+                  "fraud.device.fingerprint",
+                  "fraud.document.tamper.detect",
+                  "fraud.identity.synthetic.detect",
+                  "fraud.identity.theft.assess",
+                  "fraud.liveness.verify",
+                  "fraud.network.detect",
+                  "fraud.payment.anomaly",
+                  "investigation.contradiction.detect",
+                  "investigation.evidence.collect",
+                  "investigation.findings.synthesize",
+                  "investigation.fundflow.reconstruct",
+                  "investigation.gaps.identify",
+                  "investigation.hypothesis.generate",
+                  "investigation.hypothesis.test",
+                  "investigation.narrative.generate",
+                  "investigation.plan",
+                  "investigation.recommendation.generate",
+                  "investigation.relationship.analyze",
+                  "investigation.timeline.build",
+                  "monitor.customer.schedule",
+                  "monitor.ownership.change",
+                  "monitor.profile.change",
+                  "monitor.review.close",
+                  "monitor.review.execute",
+                  "monitor.review.scope",
+                  "monitor.risk.recalculate",
+                  "monitor.screening.refresh",
+                  "monitor.transaction.deviation",
+                  "monitor.trigger.evaluate",
+                  "network.beneficiary.trace",
+                  "network.centrality.calculate",
+                  "network.community.detect",
+                  "network.cycle.detect",
+                  "network.graph.build",
+                  "network.path.find",
+                  "network.relationship.infer",
+                  "network.risk.propagate",
+                  "network.shared_attributes.detect",
+                  "network.temporal.analyze",
+                  "ownership.circular.detect",
+                  "ownership.control.resolve",
+                  "ownership.discrepancy.detect",
+                  "ownership.graph.build",
+                  "ownership.graph.expand",
+                  "ownership.history.compare",
+                  "ownership.interest.calculate",
+                  "ownership.nominee.detect",
+                  "ownership.structure.complexity",
+                  "ownership.threshold.evaluate",
+                  "ownership.ubo.resolve",
+                  "ownership.ubo.verify",
+                  "party.activity.profile",
+                  "party.expected_behavior.model",
+                  "party.geography.profile",
+                  "party.industry.classify",
+                  "party.product.profile",
+                  "party.profile.build",
+                  "party.profile.completeness",
+                  "party.profile.refresh",
+                  "party.role.resolve",
+                  "party.type.classify",
+                  "quality.agent.trace.evaluate",
+                  "quality.confidence.calibrate",
+                  "quality.coverage.assess",
+                  "quality.data.validate",
+                  "quality.findings.verify",
+                  "quality.hallucination.detect",
+                  "quality.outcome.reconcile",
+                  "quality.policy.compliance",
+                  "quality.remediation.plan",
+                  "quality.schema.validate",
+                  "registry.address.verify",
+                  "registry.company.lookup",
+                  "registry.company.verify",
+                  "registry.directors.resolve",
+                  "registry.discrepancy.detect",
+                  "registry.filings.retrieve",
+                  "registry.jurisdiction.resolve",
+                  "registry.licenses.verify",
+                  "registry.status.monitor",
+                  "registry.taxid.validate",
+                  "regulatory.ctr.evaluate",
+                  "regulatory.ctr.prepare",
+                  "regulatory.deadline.calculate",
+                  "regulatory.filing.prepare",
+                  "regulatory.filing.submit",
+                  "regulatory.filing.track",
+                  "regulatory.obligations.resolve",
+                  "regulatory.sar.draft",
+                  "regulatory.sar.evaluate",
+                  "regulatory.sar.validate",
+                  "risk.behavior.assess",
+                  "risk.change.detect",
+                  "risk.customer.assess",
+                  "risk.factor.evaluate",
+                  "risk.factors.derive",
+                  "risk.geography.assess",
+                  "risk.industry.assess",
+                  "risk.inherent.calculate",
+                  "risk.product.assess",
+                  "risk.residual.calculate",
+                  "risk.score.calibrate",
+                  "risk.score.explain",
+                  "risk.tier.assign",
+                  "screening.adverse_media.classify",
+                  "screening.adverse_media.correlate",
+                  "screening.adverse_media.execute",
+                  "screening.alert.disposition",
+                  "screening.match.disambiguate",
+                  "screening.match.score",
+                  "screening.name.normalize",
+                  "screening.pep.execute",
+                  "screening.pep.relationship.resolve",
+                  "screening.rescreen.schedule",
+                  "screening.sanctions.control.evaluate",
+                  "screening.sanctions.execute",
+                  "screening.sanctions.ownership.evaluate",
+                  "screening.watchlist.execute",
+                  "transaction.anomaly.detect",
+                  "transaction.baseline.compare",
+                  "transaction.behavior.profile",
+                  "transaction.cashflow.analyze",
+                  "transaction.classify",
+                  "transaction.counterparty.resolve",
+                  "transaction.enrich",
+                  "transaction.exposure.aggregate",
+                  "transaction.flow.trace",
+                  "transaction.geography.analyze",
+                  "transaction.ingest",
+                  "transaction.velocity.analyze"
+                ]
+              },
+              "status": {
+                "$ref": "#/$defs/SkillStatus"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "lock",
+                "payload",
+                "skill_id",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "SourceOfFunds"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "claim": {
+                "$ref": "#/$defs/Text"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "claim",
+                "evidence_ids",
+                "extensions",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "SourceOfWealth"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "claim": {
+                "$ref": "#/$defs/Text"
+              },
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "verified": {
+                "$ref": "#/$defs/Bool"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "claim",
+                "evidence_ids",
+                "extensions",
+                "verified"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "SourceRecord"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "content": {
+                "$ref": "#/$defs/SourceContent"
+              },
+              "coverage": {
+                "$ref": "#/$defs/Coverage"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "content",
+                "coverage",
+                "extensions",
+                "source"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Task"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "dependencies": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "parameters": {
+                "$ref": "#/$defs/JsonObject"
+              },
+              "role": {
+                "$ref": "#/$defs/Id"
+              },
+              "skill_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "status": {
+                "$ref": "#/$defs/TaskStatus"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "dependencies",
+                "extensions",
+                "parameters",
+                "role",
+                "skill_id",
+                "status"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "TimelineEvent"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "change": {
+                "$ref": "#/$defs/JsonObject"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              },
+              "timestamp": {
+                "$ref": "#/$defs/Timestamp"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "change",
+                "extensions",
+                "subject",
+                "timestamp"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "TradeRecord"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "invoice_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "shipment_id": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "invoice_id",
+                "shipment_id"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Transaction"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "$ref": "#/$defs/Decimal"
+              },
+              "country": {
+                "$ref": "#/$defs/Id"
+              },
+              "currency": {
+                "$ref": "#/$defs/Id"
+              },
+              "event_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "source": {
+                "$ref": "#/$defs/Id"
+              },
+              "status": {
+                "$ref": "#/$defs/TransactionStatus"
+              },
+              "target": {
+                "$ref": "#/$defs/Id"
+              },
+              "timestamp": {
+                "$ref": "#/$defs/Timestamp"
+              },
+              "transaction_type": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "amount",
+                "country",
+                "currency",
+                "event_id",
+                "extensions",
+                "source",
+                "status",
+                "target",
+                "timestamp",
+                "transaction_type"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "Typology"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "$ref": "#/$defs/Text"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              },
+              "required_features": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "rule_refs": {
+                "items": {
+                  "$ref": "#/$defs/Ref"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "description",
+                "extensions",
+                "name",
+                "required_features",
+                "rule_refs"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "VerificationRecord"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "method": {
+                "$ref": "#/$defs/Id"
+              },
+              "status": {
+                "$ref": "#/$defs/VerificationStatus"
+              },
+              "subject": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "evidence_ids",
+                "extensions",
+                "method",
+                "status",
+                "subject"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "WatchlistEntry"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "coverage": {
+                "$ref": "#/$defs/Coverage"
+              },
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "identifiers": {
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "list_type": {
+                "$ref": "#/$defs/ListType"
+              },
+              "list_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "name": {
+                "$ref": "#/$defs/Id"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "coverage",
+                "extensions",
+                "identifiers",
+                "list_type",
+                "list_version",
+                "name"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "object_type": {
+            "const": "WorkflowDefinition"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "properties": {
+              "extensions": {
+                "$ref": "#/$defs/Extensions"
+              },
+              "steps": {
+                "items": {
+                  "$ref": "#/$defs/WorkflowTask"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "selected_fields": {
+            "items": {
+              "enum": [
+                "extensions",
+                "steps"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "classification": {
+      "default": "internal",
+      "title": "Classification",
+      "type": "string"
+    },
+    "data": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Data",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "object_type": {
+      "enum": [
+        "Account",
+        "Actor",
+        "Address",
+        "AdverseMediaEvent",
+        "Alert",
+        "Alias",
+        "Approval",
+        "Assertion",
+        "AuditEvent",
+        "AuthenticationEvent",
+        "BeneficialOwner",
+        "BusinessCalendar",
+        "Case",
+        "Checkpoint",
+        "Conflict",
+        "Control",
+        "ControlRight",
+        "Counterparty",
+        "CustomerRelationship",
+        "DatasetScope",
+        "Decision",
+        "DetectionRule",
+        "Device",
+        "Document",
+        "DocumentPage",
+        "DocumentVersion",
+        "Entity",
+        "EntityCandidate",
+        "EvaluationCase",
+        "Event",
+        "Evidence",
+        "Exception",
+        "ExpectedActivity",
+        "ExpectedOutcome",
+        "ExtractedAssertion",
+        "Fact",
+        "Filing",
+        "Finding",
+        "FraudSignal",
+        "GeographyExposure",
+        "Hypothesis",
+        "Identity",
+        "IdentityIdentifier",
+        "Investigation",
+        "Invoice",
+        "Jurisdiction",
+        "License",
+        "ModelVersion",
+        "MonitoringPlan",
+        "NetworkGraph",
+        "Obligation",
+        "OfficerRole",
+        "OwnershipGraph",
+        "OwnershipInterest",
+        "OwnershipRange",
+        "PEPRelationship",
+        "Party",
+        "Payment",
+        "PaymentRail",
+        "Policy",
+        "Product",
+        "Provenance",
+        "Registration",
+        "RegistryRecord",
+        "Relationship",
+        "Requirement",
+        "RetentionRule",
+        "ReviewTrigger",
+        "RiskAssessment",
+        "RiskFactor",
+        "RiskModel",
+        "SLA",
+        "SanctionsRegime",
+        "ScreeningExecution",
+        "ScreeningHit",
+        "Session",
+        "Shipment",
+        "SkillExecution",
+        "SourceOfFunds",
+        "SourceOfWealth",
+        "SourceRecord",
+        "Task",
+        "TimelineEvent",
+        "TradeRecord",
+        "Transaction",
+        "Typology",
+        "VerificationRecord",
+        "WatchlistEntry",
+        "WorkflowDefinition"
+      ]
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "purposes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Purposes",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "recorded_at": {
+      "format": "date-time",
+      "title": "Recorded At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "selected_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Selected Fields",
+      "type": "array"
+    },
+    "source_refs": {
+      "items": {
+        "$ref": "#/$defs/Ref"
+      },
+      "title": "Source Refs",
+      "type": "array"
+    },
+    "subject_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Subject Ids",
+      "type": "array"
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Supersedes"
+    },
+    "synthetic": {
+      "default": false,
+      "title": "Synthetic",
+      "type": "boolean"
+    },
+    "tenant_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Tenant Id",
+      "type": "string"
+    },
+    "valid_from": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid From"
+    },
+    "valid_to": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid To"
+    },
+    "version_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Version Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "tenant_id",
+    "object_type",
+    "data",
+    "selected_fields"
+  ],
+  "title": "RecordView",
+  "type": "object",
+  "x-semantic-checks": [
+    "data keys must equal selected_fields",
+    "selected fields must be authorized by the context compiler"
+  ]
+}

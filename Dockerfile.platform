@@ -1,0 +1,71 @@
+# syntax=docker/dockerfile:1.7
+# The one application artifact: SERVICE_NAME selects the entrypoint (deploy/platform-entrypoint.sh),
+# in production and in the development Compose stack. Databases and the Python capability
+# hosts remain independently deployed dependencies.
+FROM openpolicyagent/opa:1.9.0-static AS opa
+FROM node:24-bookworm-slim@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6 AS builder
+WORKDIR /src
+RUN corepack enable && corepack prepare pnpm@11.9.0 --activate
+RUN apt-get update && apt-get install -y --no-install-recommends python3 ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json ./
+COPY apps ./apps
+COPY packages ./packages
+COPY config ./config
+COPY domains ./domains
+COPY tools ./tools
+COPY scripts ./scripts
+COPY docs/visual-story.html ./docs/visual-story.html
+COPY artifacts/policy/packs/index.json ./artifacts/policy/packs/index.json
+COPY artifacts/products/taxonomy.json ./artifacts/products/taxonomy.json
+RUN pnpm install --frozen-lockfile --config.minimum-release-age=0 \
+    && pnpm ui:sync --portable \
+    && node scripts/build-service.mjs platform \
+    && pnpm --filter @ehf/ui-tokens build \
+    && pnpm --filter @ehf/web build
+
+FROM node:24-bookworm-slim@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6 AS runner
+WORKDIR /app
+ARG IMAGE_REVISION=unknown
+LABEL org.opencontainers.image.title="IntegralFlow" \
+      org.opencontainers.image.revision="${IMAGE_REVISION}" \
+      org.opencontainers.image.source="https://github.com/hganesha/ehfconcept"
+ENV NODE_ENV=production SERVICE_NAME=launcher HOST=0.0.0.0 \
+    ONBOARDING_WEB_ROOT=/app/web ONBOARDING_STATE_DIR=/app/state \
+    ONBOARDING_CATALOG_PATH=/app/config/onboarding-models.json POLICY_REGO_ROOT=/app/policy-rego \
+    MIGRATION_ROOT=/app/migrations MODEL_PROFILES_PATH=/app/config/model-profiles.json \
+    CATALOG_SNAPSHOT_PATH=/app/config/ui-catalogs.json FINCRIME_CATALOG_PATH=/app/config/fincrime-catalog.json \
+    CONNECTOR_CATALOG_PATH=/app/config/connector-catalog.json BUSINESS_SKILL_CATALOG_PATH=/app/config/business-skills.json \
+    WORKBENCH_LIBRARY_ROOT=/app/skill-library
+RUN groupadd --system --gid 1001 integralflow \
+    && useradd --system --uid 1001 --gid integralflow --home-dir /nonexistent integralflow \
+    && mkdir /app/state /exports && chown 1001:1001 /app/state /exports
+COPY --from=builder /src/dist/services /app/services
+COPY --from=builder /src/apps/web/dist /app/web
+COPY --from=builder /src/config /app/config
+# Reviewed source bundles for the skill/agent workbench. No host paths are exposed.
+COPY --from=builder /src/apps/fincrime-host/src /app/skill-library/src
+COPY --from=builder /src/apps/fincrime-host/skills /app/skill-library/skills
+COPY --from=builder /src/apps/fincrime-host/profiles /app/skill-library/profiles
+COPY --from=builder /src/apps/fincrime-host/tests /app/skill-library/tests
+COPY --from=builder /src/apps/fincrime-host/catalog/catalog.json /app/skill-library/catalog/catalog.json
+COPY --from=builder /src/apps/fincrime-host/pyproject.toml /app/skill-library/pyproject.toml
+# The library skill host's bundle lock, built into its image from the same checkout. A
+# development deployment can approve exactly this lock (migrate, DEPLOYMENT_SKILL_BUNDLE_LOCK_DIGEST).
+COPY --from=builder /src/apps/fincrime-host/src/financial_crime/resources/bundle.lock.json /app/config/skill-bundle.lock.json
+COPY --from=builder /src/apps/fincrime-host/docs/ui/contracts/fixtures/catalogs.json /app/config/ui-catalogs.json
+COPY --from=builder /src/apps/fincrime-host/catalog/ehf-catalog.json /app/config/fincrime-catalog.json
+COPY --from=builder /src/packages/persistence/migrations /app/migrations/control/migrations
+COPY --from=builder /src/packages/persistence/grants.sql /app/migrations/control/grants.sql
+COPY --from=builder /src/packages/case-store/migrations /app/migrations/case/migrations
+COPY --from=builder /src/packages/case-store/grants.sql /app/migrations/case/grants.sql
+COPY --from=builder /src/packages/context-store/migrations /app/migrations/context/migrations
+COPY --from=builder /src/packages/context-store/grants.sql /app/migrations/context/grants.sql
+COPY --from=builder /src/packages/case-store/discovery/bootstrap.sql /app/migrations/discovery/bootstrap.sql
+COPY --from=builder /src/domains /app/domains
+COPY --from=builder /src/packages/policy-engine/rego /app/policy-rego
+COPY --from=opa /opa /usr/local/bin/opa
+COPY deploy/platform-entrypoint.sh /app/entrypoint.sh
+USER 1001:1001
+EXPOSE 4300
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]

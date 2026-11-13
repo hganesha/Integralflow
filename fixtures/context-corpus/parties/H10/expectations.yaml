@@ -1,0 +1,70 @@
+alert_rules: []
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners: []
+effective_ownership: {}
+ledger:
+  hero_accounts:
+  - h10.account.card
+  - h10.account.deposit
+  - h10.account.payments
+  ring_entities:
+  - h10.entity.cp-ring-21d5b6
+  - h10.entity.cp-ring-d0de05
+  trades: {}
+  tx_count: 872
+  window:
+  - '2024-09-30T00:00:00Z'
+  - '2026-09-30T00:00:00Z'
+non_findings:
+- screening.sanctions.execute
+- screening.pep.execute
+- aml.structuring.detect
+notes: 'The main payment is held (pending). The probe payment is under the baseline
+  and settles; it is still part of the episode. Everything outside the episode is
+  the customer''s ordinary history.
+
+  '
+party_id: H10
+screening_result:
+  hits: []
+seed: 1010
+signals:
+- expect:
+    detected_by:
+    - fraud.behavior.anomaly
+    - fraud.payment.anomaly
+    - fraud.beneficiary.risk
+    - fraud.network.detect
+    - fraud.case.assess
+    - fraud.account_takeover.detect
+    outcome: PAYMENT_HELD
+  id: SIG-H10-ATO
+  params:
+    amount: '4800.00'
+    currency: EUR
+    day: '2026-08-18'
+    payee_country: NL
+    probe: '1.00'
+    ring_size: 2
+    shared_phone: +31-600-555-0199
+  records:
+    AuthenticationEvent:
+    - h10.authenticationevent.s-takeover
+    Device:
+    - h10.device.takeover
+    FraudSignal:
+    - h10.fraudsignal.ato-s-takeover
+    - h10.fraudsignal.pay-000821
+    Payment:
+    - h10.payment.000821
+    Session:
+    - h10.session.s-takeover
+  transaction_ids:
+  - h10.transaction.000820
+  - h10.transaction.000821
+  type: account_takeover
+spec_digest: 568a8e3a56aa29abd11fcb6aa4e899f4e66cc66c3e35f77db3f5114ee82e7f59
+workflow:
+  kyc_v2: APPROVE
+  monitoring: PAYMENT_HELD

@@ -1,0 +1,38 @@
+# Fund administration & servicing. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: FND
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - ASSET_MANAGEMENT
+  - SECURITIES
+  name: Fund administration & servicing
+  definition: Back- and middle-office services that funds and their managers outsource.
+  regulatedActivities:
+  - FUND_ADMINISTRATION
+  riskDimensions:
+  - NESTED_ACCESS
+  - INTERMEDIARY_RISK
+  classes:
+  - code: FUND_ACCOUNTING
+    name: Fund accounting & NAV
+    definition: Valuing fund assets and calculating net asset value.
+  - code: TRANSFER_AGENCY
+    name: Transfer agency
+    definition: Maintaining a fund's investor register and processing subscriptions and redemptions.
+  - code: INVESTOR_SERVICES
+    name: Investor onboarding
+    definition: KYC and onboarding of a fund's investors on the manager's behalf.
+  - code: DISTRIBUTION_PLATFORMS
+    name: Fund distribution platforms
+    definition: Platforms and nominees through which intermediaries buy fund units.
+  - code: MIDDLE_OFFICE
+    name: Middle-office outsourcing
+    definition: Trade capture, reconciliation and performance reporting for managers.
+  - code: CORPORATE_SECRETARIAL
+    name: Fund corporate secretarial
+    definition: Directors, registered office and governance services for fund vehicles.

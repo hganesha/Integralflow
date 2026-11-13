@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "agents": {
+    "agent.intake_profile": "Intake and profile",
+    "agent.identity_ownership": "Identity and ownership",
+    "agent.document_intelligence": "Document intelligence",
+    "agent.screening": "Screening",
+    "agent.risk_edd": "Risk and enhanced due diligence",
+    "agent.decision_support": "Decision support",
+    "agent.qa_assurance": "Quality assurance"
+  },
+  "context": {
+    "identity.intelligence": "Identity",
+    "ownership.intelligence": "Ownership",
+    "party360": "Party 360",
+    "network.intelligence": "Network",
+    "document.intelligence": "Documents",
+    "registry.intelligence": "Registry",
+    "screening.intelligence": "Screening",
+    "transaction.intelligence": "Transactions",
+    "evidence.intelligence": "Evidence",
+    "risk.intelligence": "Risk",
+    "case.intelligence": "Case",
+    "policy.intelligence": "Policy"
+  },
+  "skills": {
+    "ownership.ubo.resolve": "Resolve beneficial owners",
+    "ownership.ubo.verify": "Verify beneficial owners",
+    "document.fields.contract_extract": "Extract document fields",
+    "document.classify.catalog": "Classify documents",
+    "document.requirements.resolve": "Resolve document requirements",
+    "document.request.compose": "Prepare a document request",
+    "document.validity.assess": "Assess document validity",
+    "document.consistency.assess": "Assess document consistency"
+  },
+  "policies": {
+    "catalog.kyc.cohorts.v1": "Customer cohorts",
+    "catalog.kyc.evidence-obligations.v1": "Evidence obligations",
+    "catalog.kyc.owner-inputs.v1": "Policy owner inputs",
+    "catalog.kyc.reason-codes.v1": "Decision reason codes",
+    "catalog.kyc.rules.v1": "Customer due diligence rules",
+    "document-requirements": "Document requirements",
+    "table.kyc.decision-ready.v1": "Decision readiness",
+    "table.kyc.disposition.v1": "Case disposition",
+    "table.kyc.screening-ready.v1": "Screening readiness"
+  }
+}

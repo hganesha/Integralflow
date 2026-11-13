@@ -1,0 +1,55 @@
+{
+  "provider_id": "yapily",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.yapily.com"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "APPLICATION_ID",
+      "APPLICATION_SECRET"
+    ]
+  },
+  "sources": [
+    "https://docs.yapily.com/api-reference/financial-data/get-accounts",
+    "https://docs.yapily.com/api-reference/financial-data/get-account-transactions"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "accounts": {
+      "method": "GET",
+      "path": "/accounts",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.yapily.com/api-reference/financial-data/get-accounts",
+      "allowed_input_headers": [
+        "consent"
+      ],
+      "response": "json"
+    },
+    "transactions": {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transactions",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "transaction_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.yapily.com/api-reference/financial-data/get-account-transactions",
+      "allowed_input_headers": [
+        "consent"
+      ],
+      "response": "json"
+    }
+  }
+}

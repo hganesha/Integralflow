@@ -1,0 +1,35 @@
+# Specialized financial services. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: OTH
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - OTHER
+  name: Specialized financial services
+  definition: Other regulated or higher-risk financial services.
+  classes:
+  - code: GAMING
+    name: Gaming & casino accounts
+    definition: Accounts and credit for casinos and gaming operators' customers.
+  - code: PRECIOUS_METALS
+    name: Precious metals & stones dealing
+    definition: Dealing in bullion, precious stones and jewellery.
+  - code: PAWN
+    name: Pawnbroking
+    definition: Secured lending against personal property.
+  - code: TRUST_COMPANY
+    name: Trust & company service providers
+    definition: Forming companies and acting as nominee directors or shareholders.
+  - code: ESCROW_AGENTS
+    name: Escrow & settlement agents
+    definition: Third parties holding funds pending real-estate or business transactions.
+  - code: CROWDFUNDING
+    name: Crowdfunding
+    definition: Raising funds from many investors or donors through a platform.
+  - code: CHARITY_SERVICES
+    name: Charity & donation services
+    definition: Collecting and distributing donations for charities.

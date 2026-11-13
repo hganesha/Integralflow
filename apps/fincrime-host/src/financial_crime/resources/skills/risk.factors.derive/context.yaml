@@ -1,0 +1,38 @@
+dynamic_target: null
+requirements:
+- fields:
+  - country
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: GeographyExposure
+  optional: true
+- fields:
+  - customer_type
+  - industry
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields:
+  - industry
+  object_type: Party
+  optional: true
+- fields:
+  - product_type
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Product
+  optional: true
+- fields:
+  - behavior_category
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ExpectedActivity
+  optional: true
+schema_version: 2.0.0
+skill_id: risk.factors.derive

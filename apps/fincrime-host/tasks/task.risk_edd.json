@@ -1,0 +1,154 @@
+{
+  "agent_profile": "agent.risk_edd",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "assessment",
+        "tier"
+      ],
+      "requires_human_decision": false,
+      "step_id": "risk_customer_assess"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "triggers",
+        "required"
+      ],
+      "requires_human_decision": false,
+      "step_id": "edd_trigger_evaluate"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "claims"
+      ],
+      "requires_human_decision": false,
+      "step_id": "edd_source_of_funds_verify"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "assessments"
+      ],
+      "requires_human_decision": false,
+      "step_id": "edd_source_of_wealth_assess"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.risk_edd",
+  "input_fields": [
+    "facts"
+  ],
+  "input_schema": {
+    "$defs": {
+      "JsonObject": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object",
+        "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+      },
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "maxLength": 200000,
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "items": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "raw JSON source value"
+          }
+        ]
+      }
+    },
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "facts": {
+        "$ref": "#/$defs/JsonObject"
+      }
+    },
+    "required": [
+      "facts"
+    ],
+    "type": "object"
+  },
+  "objective": "Assess customer, product, geography, channel and activity risk; scope enhanced due diligence, distinguish funds from wealth and retain remediation and approval gaps.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "risk_customer_assess",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "risk.customer.assess",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "risk_customer_assess"
+      ],
+      "id": "edd_trigger_evaluate",
+      "input_bindings": {
+        "facts": "facts"
+      },
+      "parameters": {},
+      "skill_id": "edd.trigger.evaluate",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "edd_trigger_evaluate"
+      ],
+      "id": "edd_source_of_funds_verify",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "edd.source_of_funds.verify",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "edd_source_of_funds_verify"
+      ],
+      "id": "edd_source_of_wealth_assess",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "edd.source_of_wealth.assess",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

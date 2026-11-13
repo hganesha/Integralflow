@@ -1,0 +1,99 @@
+{
+  "additionalProperties": false,
+  "description": "Trusted application identity. Never construct permissions from request JSON.",
+  "properties": {
+    "actor_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "case_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Case Ids"
+    },
+    "classifications": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Classifications",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "permissions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Permissions",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "purposes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Purposes",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "readable_fields": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "title": "Readable Fields",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "revoked": {
+      "default": false,
+      "title": "Revoked",
+      "type": "boolean"
+    },
+    "subject_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Subject Ids"
+    },
+    "tenant_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Tenant Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tenant_id",
+    "actor_id",
+    "permissions",
+    "purposes"
+  ],
+  "title": "Principal",
+  "type": "object"
+}

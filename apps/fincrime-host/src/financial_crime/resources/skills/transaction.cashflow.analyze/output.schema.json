@@ -1,0 +1,32 @@
+{
+  "$defs": {
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:transaction.cashflow.analyze:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "inflows": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Decimal"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    },
+    "outflows": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Decimal"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    }
+  },
+  "required": [
+    "inflows",
+    "outflows"
+  ],
+  "type": "object"
+}

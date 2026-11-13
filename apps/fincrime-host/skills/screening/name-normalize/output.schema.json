@@ -1,0 +1,22 @@
+{
+  "$id": "urn:financial-crime:skill:screening.name.normalize:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "normalized": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "original": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "original",
+    "normalized"
+  ],
+  "type": "object"
+}

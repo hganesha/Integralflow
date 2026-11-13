@@ -1,0 +1,28 @@
+{
+  "$id": "urn:financial-crime:skill:alert.feedback.capture:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alert_id": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "label": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "alert_id",
+    "label",
+    "reason"
+  ],
+  "type": "object"
+}

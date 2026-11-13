@@ -1,0 +1,5 @@
+"""Independently version the distributable, skill APIs and canonical record schema."""
+RELEASE_VERSION = "0.5.0"
+SKILL_VERSION = "0.3.0"
+SCHEMA_VERSION = "2.0.0"
+LEGACY_SCHEMA_VERSION = "1.0.0"

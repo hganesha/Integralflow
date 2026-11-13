@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ShellIndicator": {
+      "additionalProperties": false,
+      "properties": {
+        "missing": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "party_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "party_id",
+        "missing"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:aml.shell_company.detect:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "indicators": {
+      "items": {
+        "$ref": "#/$defs/ShellIndicator"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "not_proof": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "indicators",
+    "not_proof"
+  ],
+  "type": "object"
+}

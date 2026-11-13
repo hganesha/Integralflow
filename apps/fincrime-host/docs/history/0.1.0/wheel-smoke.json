@@ -1,0 +1,46 @@
+{
+  "bundle": {
+    "skill_count": 222,
+    "bundle_code_hash": "f44beb4a04c9767af6340325c308e6805f5ccc27135d1f73d23de94dc56b3c1f",
+    "valid": true,
+    "production_qualified": false
+  },
+  "demo": {
+    "synthetic": true,
+    "workflow_state": "COMPLETED",
+    "completed_steps": 29,
+    "approval_required_and_consumed": true,
+    "case_state": {
+      "case_type": "KYB",
+      "disposition": "ACCEPT",
+      "state": "OPEN"
+    },
+    "agent_state": "COMPLETED",
+    "agent_steps": 2,
+    "risk_assessment": {
+      "assessment": {
+        "contributions": [
+          {
+            "contribution": "0.08",
+            "factor": "geography",
+            "value": "0.2",
+            "weight": "0.4"
+          },
+          {
+            "contribution": "0.18",
+            "factor": "product",
+            "value": "0.3",
+            "weight": "0.6"
+          }
+        ],
+        "missing": [],
+        "model_version": "synthetic-risk-v1",
+        "score": "0.26"
+      },
+      "tier": "LOW"
+    },
+    "trace_events": 68
+  },
+  "wheel_sha256": "31a8e7d741ad32009a7b28a9f80d405d263c064476f0a5de6dcaa843f6f45aaf",
+  "outside_checkout": true
+}

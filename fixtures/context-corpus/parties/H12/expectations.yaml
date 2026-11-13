@@ -1,0 +1,23 @@
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners:
+- ben1
+- ben2
+- ben3
+- protector
+- settlor
+- trustee_ind
+beneficial_owners_basis: every party with a defined trust role, no percentage threshold
+effective_ownership: {}
+notes: 'Elodie Marchetti was added on 2025-03-14. As of a date before that she must
+  not appear as a beneficiary; as of today she must.
+
+  '
+party_id: H12
+screening_result:
+  hits: []
+seed: 1012
+signals: []
+spec_digest: 03b14df75677fdc1700919bc0aa0c20a81dc10bcc2972d54d0d75789774458c5
+workflow:
+  kyb: REASSESS_AT_PERIODIC_REVIEW

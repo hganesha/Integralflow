@@ -1,0 +1,47 @@
+{
+  "provider_id": "gleif",
+  "version": "v1",
+  "bases": {
+    "default": "https://api.gleif.org"
+  },
+  "auth": {
+    "type": "none",
+    "keys": []
+  },
+  "sources": [
+    "https://api.gleif.org/docs"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "search_lei": {
+      "method": "GET",
+      "path": "/api/v1/lei-records",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.gleif.org/docs",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_lei": {
+      "method": "GET",
+      "path": "/api/v1/lei-records/{lei}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": "/data/id",
+      "source": "https://api.gleif.org/docs",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "apiVersion": "harness.factory/policy-bundle-v1",
+  "kind": "PolicyBundle",
+  "bundleId": "policy.kyc.customer-acceptance.v1@1.0.0:8735e35193f3",
+  "policyId": "policy.kyc.customer-acceptance.v1",
+  "policyVersion": "1.0.0",
+  "sourceDigest": "52df90961da6f9eae51a72df6612a83d792ef1e1bb6f887845b46231ff63dc21",
+  "bundleDigest": "8735e35193f31c561260d22eb95b10546ccb55da84ef24f6810dcb2e782febb3",
+  "opaVersion": "1.9.0",
+  "regoModules": [
+    {
+      "path": "harness/decision_table/conditions.rego",
+      "digest": "f8c44da23ef0dea88a0af21cdbec09cbea26744c227c78c47b3e687a77d1a0bb"
+    },
+    {
+      "path": "harness/decision_table/gate.rego",
+      "digest": "ac1628dd5499b053034e2714ba5106d929a25ea125294325f24d57f2c9e9ab16"
+    }
+  ],
+  "dataDigest": "081d186bdedcbb31d74b4febedf48d9f09a98129e9851a6a4d741c169f2737e6",
+  "gates": [
+    {
+      "gateId": "decision-ready",
+      "entrypoint": "data.harness.decision_table.gate.result",
+      "allowedOutcomes": [
+        "ALLOW",
+        "BLOCK",
+        "REVIEW",
+        "UNKNOWN",
+        "ERROR"
+      ]
+    },
+    {
+      "gateId": "disposition",
+      "entrypoint": "data.harness.decision_table.gate.result",
+      "allowedOutcomes": [
+        "ALLOW",
+        "BLOCK",
+        "REVIEW",
+        "UNKNOWN",
+        "ERROR"
+      ]
+    },
+    {
+      "gateId": "screening-ready",
+      "entrypoint": "data.harness.decision_table.gate.result",
+      "allowedOutcomes": [
+        "ALLOW",
+        "BLOCK",
+        "REVIEW",
+        "UNKNOWN",
+        "ERROR"
+      ]
+    }
+  ],
+  "ruleIds": [
+    "KYC-AUD-001",
+    "KYC-AUD-002",
+    "KYC-CDD-001",
+    "KYC-CDD-002",
+    "KYC-CDD-003",
+    "KYC-CDD-004",
+    "KYC-CIP-001",
+    "KYC-CIP-002",
+    "KYC-CIP-003",
+    "KYC-CONFIG-001",
+    "KYC-DEC-001",
+    "KYC-DEC-002",
+    "KYC-DEC-003",
+    "KYC-DEC-004",
+    "KYC-DEC-005",
+    "KYC-DEC-006",
+    "KYC-EDD-001",
+    "KYC-EDD-002",
+    "KYC-EDD-003",
+    "KYC-INV-001",
+    "KYC-INV-002",
+    "KYC-INV-003",
+    "KYC-INV-004",
+    "KYC-OPS-001",
+    "KYC-OPS-002",
+    "KYC-OPS-003",
+    "KYC-OPS-004",
+    "KYC-QA-001",
+    "KYC-QA-002",
+    "KYC-SCR-001",
+    "KYC-SCR-002",
+    "KYC-SCR-003",
+    "KYC-SCR-004",
+    "KYC-SCR-005"
+  ],
+  "testsDigest": "269a7bcf8c3e92cd589d088bdd4d5a4c86cca6834baf9ed08a4a645c64e82fad",
+  "authority": {
+    "source": "POLICY_DB",
+    "casePath": "$.policyAuthority",
+    "requireSnapshotDigest": true
+  },
+  "productionEligible": false,
+  "releaseBlockers": [
+    {
+      "id": "D01",
+      "status": "UNRESOLVED",
+      "reasonCode": "SANCTIONS_CONFIGURATION_UNRESOLVED",
+      "title": "Sanctions provider selection, match threshold and list freshness window",
+      "owner": "Financial crime compliance"
+    },
+    {
+      "id": "D02",
+      "status": "UNRESOLVED",
+      "reasonCode": "ADVERSE_MEDIA_CONFIGURATION_UNRESOLVED",
+      "title": "Adverse media lookback window and relevance standard",
+      "owner": "Financial crime compliance"
+    },
+    {
+      "id": "D03",
+      "status": "UNRESOLVED",
+      "reasonCode": "PEP_CONFIGURATION_UNRESOLVED",
+      "title": "PEP tiers in scope and decay period",
+      "owner": "Financial crime compliance"
+    },
+    {
+      "id": "D04",
+      "status": "UNRESOLVED",
+      "reasonCode": "AUTOMATIC_APPROVAL_POLICY_UNRESOLVED",
+      "title": "Automatic-approval cohort definition and attestation authority",
+      "owner": "Chief compliance officer and model risk"
+    },
+    {
+      "id": "D05",
+      "status": "UNRESOLVED",
+      "reasonCode": "EVIDENCE_RETENTION_UNRESOLVED",
+      "title": "Evidence freshness windows and retention schedule",
+      "owner": "Records management and compliance"
+    },
+    {
+      "id": "D06",
+      "status": "UNRESOLVED",
+      "reasonCode": "DUAL_CONTROL_CONFIGURATION_UNRESOLVED",
+      "title": "Dual-control roles and separation of duties",
+      "owner": "Chief compliance officer"
+    },
+    {
+      "id": "D07",
+      "status": "UNRESOLVED",
+      "reasonCode": "CONFIDENCE_THRESHOLD_UNRESOLVED",
+      "title": "Recommendation confidence threshold for automatic disposition",
+      "owner": "Model risk"
+    },
+    {
+      "id": "D08",
+      "status": "UNRESOLVED",
+      "reasonCode": "JURISDICTION_LIST_UNRESOLVED",
+      "title": "High-risk jurisdiction list and its source",
+      "owner": "Financial crime compliance"
+    },
+    {
+      "id": "D09",
+      "status": "UNRESOLVED",
+      "reasonCode": "PERIODIC_REVIEW_CADENCE_UNRESOLVED",
+      "title": "Periodic review cadence and material-change triggers",
+      "owner": "Financial crime compliance"
+    },
+    {
+      "id": "D10",
+      "status": "UNRESOLVED",
+      "reasonCode": "RESIDENCY_CONFIGURATION_UNRESOLVED",
+      "title": "Data residency, model deployment region and quota",
+      "owner": "Technology risk and privacy"
+    }
+  ],
+  "source": "domains/kyc/policy"
+}

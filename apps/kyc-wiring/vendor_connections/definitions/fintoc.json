@@ -1,0 +1,54 @@
+{
+  "provider_id": "fintoc",
+  "version": "v1",
+  "bases": {
+    "default": "https://api.fintoc.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "keys": [
+      "SECRET_API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.fintoc.com/docs/quickstart"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "accounts": {
+      "method": "GET",
+      "path": "/v1/accounts",
+      "required_body": [],
+      "required_query": [
+        "link_token"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "account_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.fintoc.com/docs/quickstart",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "movements": {
+      "method": "GET",
+      "path": "/v1/accounts/{account_id}/movements",
+      "required_body": [],
+      "required_query": [
+        "link_token"
+      ],
+      "body_example": null,
+      "content": "json",
+      "semantics": "transaction_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.fintoc.com/docs/quickstart",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

@@ -1,0 +1,960 @@
+{
+ "_doc": "Mock personas mapped to EHF roles. `actions` are derived from packages/identity/src/authorization.ts (pinned); the mock authorizes with roleActions, never with persona names.",
+ "default": "cdd_analyst",
+ "roleActions": {
+  "Legal.HoldOfficer": [
+   "case.read",
+   "legal_hold.read",
+   "legal_hold.write"
+  ],
+  "Harness.Reader": [
+   "capability.read",
+   "case.read",
+   "draft.read",
+   "event.read",
+   "evidence.read",
+   "human_work.read",
+   "integration.read",
+   "plan.read",
+   "receipt.read",
+   "release.read",
+   "run.read"
+  ],
+  "Harness.Author": [
+   "agent.register",
+   "capability.read",
+   "capability.register",
+   "case.read",
+   "dataset.curate",
+   "dataset.read",
+   "draft.compile",
+   "draft.evaluate",
+   "draft.read",
+   "draft.write",
+   "event.read",
+   "evidence.read",
+   "human_work.read",
+   "integration.read",
+   "plan.read",
+   "receipt.read",
+   "release.create",
+   "release.read",
+   "run.read"
+  ],
+  "Harness.Approver": [
+   "capability.read",
+   "case.read",
+   "dataset.read",
+   "draft.approve",
+   "draft.publish",
+   "draft.read",
+   "event.read",
+   "evidence.read",
+   "human_work.read",
+   "integration.read",
+   "plan.read",
+   "receipt.read",
+   "release.approve",
+   "release.read",
+   "run.read"
+  ],
+  "Harness.Operator": [
+   "capability.read",
+   "case.read",
+   "dataset.read",
+   "draft.read",
+   "event.read",
+   "evidence.read",
+   "factory.train",
+   "human_work.read",
+   "human_work.resolve",
+   "integration.activate",
+   "integration.bind",
+   "integration.pause",
+   "integration.read",
+   "integration.replay",
+   "integration.test",
+   "plan.admit",
+   "plan.read",
+   "receipt.read",
+   "release.activate",
+   "release.read",
+   "release.revoke",
+   "run.cancel",
+   "run.read",
+   "run.retry",
+   "run.start",
+   "runtime.admission.write",
+   "telemetry.read"
+  ],
+  "Case.Analyst": [
+   "case.read",
+   "case.write",
+   "discovery.read",
+   "discovery.request",
+   "event.read",
+   "evidence.read",
+   "evidence.write",
+   "human_work.read",
+   "run.read"
+  ],
+  "Case.Reviewer": [
+   "case.read",
+   "case.review",
+   "discovery.read",
+   "event.read",
+   "evidence.read",
+   "human_work.claim",
+   "human_work.decide",
+   "human_work.read",
+   "run.read"
+  ],
+  "Case.Manager": [
+   "case.assign",
+   "case.read",
+   "discovery.read",
+   "event.read",
+   "evidence.read",
+   "human_work.read",
+   "run.read"
+  ],
+  "Platform.Auditor": [
+   "admin.read",
+   "capability.read",
+   "case.read",
+   "dataset.read",
+   "draft.read",
+   "event.read",
+   "evidence.read",
+   "human_work.read",
+   "integration.read",
+   "plan.read",
+   "receipt.read",
+   "release.read",
+   "run.read",
+   "telemetry.read"
+  ],
+  "Platform.Admin": [
+   "admin.read",
+   "admin.write",
+   "capability.read",
+   "capability.register",
+   "case.read",
+   "draft.read",
+   "event.read",
+   "evidence.read",
+   "human_work.read",
+   "integration.connector.write",
+   "integration.read",
+   "plan.read",
+   "receipt.read",
+   "release.read",
+   "run.read"
+  ],
+  "Data.Owner": [
+   "dataset.authorize",
+   "dataset.read"
+  ]
+ },
+ "personas": [
+  {
+   "persona": {
+    "personaId": "cdd_analyst",
+    "displayName": "R. Okafor",
+    "roleLabel": "CDD / KYB Analyst",
+    "roles": [
+     "Case.Analyst",
+     "Case.Reviewer"
+    ],
+    "landingRoute": "/work",
+    "notes": "Claims and decides ownership review work items."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "r.okafor",
+     "displayName": "R. Okafor",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Analyst",
+     "Case.Reviewer"
+    ],
+    "actions": [
+     "case.read",
+     "case.review",
+     "case.write",
+     "discovery.read",
+     "discovery.request",
+     "event.read",
+     "evidence.read",
+     "evidence.write",
+     "human_work.claim",
+     "human_work.decide",
+     "human_work.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-r.okafor",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "screening_analyst",
+    "displayName": "L. Nakamura",
+    "roleLabel": "Sanctions & Screening Analyst",
+    "roles": [
+     "Case.Analyst",
+     "Case.Reviewer"
+    ],
+    "landingRoute": "/work",
+    "notes": "Decides screening review work items."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "l.nakamura",
+     "displayName": "L. Nakamura",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Analyst",
+     "Case.Reviewer"
+    ],
+    "actions": [
+     "case.read",
+     "case.review",
+     "case.write",
+     "discovery.read",
+     "discovery.request",
+     "event.read",
+     "evidence.read",
+     "evidence.write",
+     "human_work.claim",
+     "human_work.decide",
+     "human_work.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-l.nakamura",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "compliance_officer",
+    "displayName": "S. Varga",
+    "roleLabel": "Compliance Officer / MLRO",
+    "roles": [
+     "Case.Reviewer"
+    ],
+    "landingRoute": "/work",
+    "notes": "First approver on the dual-control decision gate."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "s.varga",
+     "displayName": "S. Varga",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Reviewer"
+    ],
+    "actions": [
+     "case.read",
+     "case.review",
+     "discovery.read",
+     "event.read",
+     "evidence.read",
+     "human_work.claim",
+     "human_work.decide",
+     "human_work.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-s.varga",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "second_approver",
+    "displayName": "H. Adeyemi",
+    "roleLabel": "Deputy MLRO",
+    "roles": [
+     "Case.Reviewer"
+    ],
+    "landingRoute": "/work",
+    "notes": "Second, distinct approver for dual control."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "h.adeyemi",
+     "displayName": "H. Adeyemi",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Reviewer"
+    ],
+    "actions": [
+     "case.read",
+     "case.review",
+     "discovery.read",
+     "event.read",
+     "evidence.read",
+     "human_work.claim",
+     "human_work.decide",
+     "human_work.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-h.adeyemi",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "qa_reviewer",
+    "displayName": "T. Brandt",
+    "roleLabel": "QA Reviewer",
+    "roles": [
+     "Case.Reviewer",
+     "Harness.Reader"
+    ],
+    "landingRoute": "/assurance",
+    "notes": "Reads everything; reviews QA work items."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "t.brandt",
+     "displayName": "T. Brandt",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Reviewer",
+     "Harness.Reader"
+    ],
+    "actions": [
+     "capability.read",
+     "case.read",
+     "case.review",
+     "discovery.read",
+     "draft.read",
+     "event.read",
+     "evidence.read",
+     "human_work.claim",
+     "human_work.decide",
+     "human_work.read",
+     "integration.read",
+     "plan.read",
+     "receipt.read",
+     "release.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-t.brandt",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "relationship_manager",
+    "displayName": "D. Patel",
+    "roleLabel": "Relationship Manager",
+    "roles": [
+     "Case.Analyst"
+    ],
+    "landingRoute": "/work",
+    "notes": "Can add evidence; cannot decide."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "d.patel",
+     "displayName": "D. Patel",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Analyst"
+    ],
+    "actions": [
+     "case.read",
+     "case.write",
+     "discovery.read",
+     "discovery.request",
+     "event.read",
+     "evidence.read",
+     "evidence.write",
+     "human_work.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-d.patel",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "case_manager",
+    "displayName": "M. Castillo",
+    "roleLabel": "KYC Team Manager",
+    "roles": [
+     "Case.Manager"
+    ],
+    "landingRoute": "/work",
+    "notes": "Assigns cases to teams and people; oversees the queue; cannot decide."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "m.castillo",
+     "displayName": "M. Castillo",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Case.Manager"
+    ],
+    "actions": [
+     "case.assign",
+     "case.read",
+     "discovery.read",
+     "event.read",
+     "evidence.read",
+     "human_work.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-m.castillo",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "ops_manager",
+    "displayName": "A. Ruiz",
+    "roleLabel": "KYC Operations Manager",
+    "roles": [
+     "Harness.Operator"
+    ],
+    "landingRoute": "/assurance",
+    "notes": "Resolves conflicting decisions; starts/cancels runs."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "a.ruiz",
+     "displayName": "A. Ruiz",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Harness.Operator"
+    ],
+    "actions": [
+     "capability.read",
+     "case.read",
+     "dataset.read",
+     "draft.read",
+     "event.read",
+     "evidence.read",
+     "factory.train",
+     "human_work.read",
+     "human_work.resolve",
+     "integration.activate",
+     "integration.bind",
+     "integration.pause",
+     "integration.read",
+     "integration.replay",
+     "integration.test",
+     "plan.admit",
+     "plan.read",
+     "receipt.read",
+     "release.activate",
+     "release.read",
+     "release.revoke",
+     "run.cancel",
+     "run.read",
+     "run.retry",
+     "run.start",
+     "runtime.admission.write",
+     "telemetry.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-a.ruiz",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "agent_architect",
+    "displayName": "J. Moreau",
+    "roleLabel": "Agent Architect",
+    "roles": [
+     "Harness.Author"
+    ],
+    "landingRoute": "/platform/drafts",
+    "notes": "Authors drafts; cannot approve own drafts."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "j.moreau",
+     "displayName": "J. Moreau",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Harness.Author"
+    ],
+    "actions": [
+     "agent.register",
+     "capability.read",
+     "capability.register",
+     "case.read",
+     "dataset.curate",
+     "dataset.read",
+     "draft.compile",
+     "draft.evaluate",
+     "draft.read",
+     "draft.write",
+     "event.read",
+     "evidence.read",
+     "human_work.read",
+     "integration.read",
+     "plan.read",
+     "receipt.read",
+     "release.create",
+     "release.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-j.moreau",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "harness_approver",
+    "displayName": "E. Kowalski",
+    "roleLabel": "Harness Approver",
+    "roles": [
+     "Harness.Approver"
+    ],
+    "landingRoute": "/platform/drafts",
+    "notes": "Approves and publishes drafts authored by others."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "e.kowalski",
+     "displayName": "E. Kowalski",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Harness.Approver"
+    ],
+    "actions": [
+     "capability.read",
+     "case.read",
+     "dataset.read",
+     "draft.approve",
+     "draft.publish",
+     "draft.read",
+     "event.read",
+     "evidence.read",
+     "human_work.read",
+     "integration.read",
+     "plan.read",
+     "receipt.read",
+     "release.approve",
+     "release.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-e.kowalski",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "context_architect",
+    "displayName": "M. Lindqvist",
+    "roleLabel": "Context Architect",
+    "roles": [
+     "Harness.Author"
+    ],
+    "landingRoute": "/context",
+    "notes": "Edits context selectors and classification policies on drafts."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "m.lindqvist",
+     "displayName": "M. Lindqvist",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Harness.Author"
+    ],
+    "actions": [
+     "agent.register",
+     "capability.read",
+     "capability.register",
+     "case.read",
+     "dataset.curate",
+     "dataset.read",
+     "draft.compile",
+     "draft.evaluate",
+     "draft.read",
+     "draft.write",
+     "event.read",
+     "evidence.read",
+     "human_work.read",
+     "integration.read",
+     "plan.read",
+     "receipt.read",
+     "release.create",
+     "release.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-m.lindqvist",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "auditor",
+    "displayName": "P. Lindgren",
+    "roleLabel": "Internal Auditor",
+    "roles": [
+     "Platform.Auditor"
+    ],
+    "landingRoute": "/assurance",
+    "notes": "Read-only including admin configuration and change log."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "p.lindgren",
+     "displayName": "P. Lindgren",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Platform.Auditor"
+    ],
+    "actions": [
+     "admin.read",
+     "capability.read",
+     "case.read",
+     "dataset.read",
+     "draft.read",
+     "event.read",
+     "evidence.read",
+     "human_work.read",
+     "integration.read",
+     "plan.read",
+     "receipt.read",
+     "release.read",
+     "run.read",
+     "telemetry.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-p.lindgren",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  },
+  {
+   "persona": {
+    "personaId": "platform_admin",
+    "displayName": "N. Osei",
+    "roleLabel": "Platform Administrator",
+    "roles": [
+     "Platform.Admin"
+    ],
+    "landingRoute": "/platform/admin",
+    "notes": "Writes admin configuration; not an author or approver."
+   },
+   "session": {
+    "subject": {
+     "subjectId": "n.osei",
+     "displayName": "N. Osei",
+     "actorType": "human",
+     "email": null
+    },
+    "tenant": {
+     "tenantId": "tenant_demo",
+     "name": "Demo tenant (synthetic)"
+    },
+    "roles": [
+     "Platform.Admin"
+    ],
+    "actions": [
+     "admin.read",
+     "admin.write",
+     "capability.read",
+     "capability.register",
+     "case.read",
+     "draft.read",
+     "event.read",
+     "evidence.read",
+     "human_work.read",
+     "integration.connector.write",
+     "integration.read",
+     "plan.read",
+     "receipt.read",
+     "release.read",
+     "run.read"
+    ],
+    "authoringEnabled": true,
+    "environment": {
+     "name": "mock",
+     "managedConfiguration": false,
+     "runtimeMode": "Recorded",
+     "build": "ui-mock 2.0.0",
+     "synthetic": true
+    },
+    "domains": [
+     {
+      "id": "fincrime",
+      "label": "Financial crime (KYC/KYB)",
+      "catalogDigest": null,
+      "sourceRelease": null
+     }
+    ],
+    "csrfToken": "mock-csrf-n.osei",
+    "expiresAt": "2026-11-08T23:59:59Z"
+   }
+  }
+ ]
+}

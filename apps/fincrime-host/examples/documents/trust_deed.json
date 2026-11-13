@@ -1,0 +1,557 @@
+{
+  "expected": {
+    "issues": [],
+    "promotion_allowed": false,
+    "review_required": true,
+    "valid": true
+  },
+  "pages": [
+    {
+      "document_version": "synthetic-version-1",
+      "page_id": "synthetic-page-1",
+      "text": "SYNTHETIC TRUST DEED\nTrust: Example Family Trust\nGoverning law: Synthetic jurisdiction\nSettlor: Alex Example\nTrustee: Morgan Example\nProtector: Taylor Example\nBeneficiary class: Descendants of Alex Example\nPower holder: Morgan Example; controlled party: Example Family Trust; right: distribution; discretionary distributions\n"
+    }
+  ],
+  "qualification": "contract_and_source_span_example_not_extractor_evaluation",
+  "result": {
+    "contract_hash": "cfb65077c1f16359f978edd9ab548c42f01a6c7d12dcc20409cd3b17b57a38b7",
+    "document_type": "trust_deed",
+    "document_version": "synthetic-version-1",
+    "extracted_fields": {
+      "beneficiary_classes": [
+        "Descendants of Alex Example"
+      ],
+      "distribution_terms": null,
+      "document_number": null,
+      "document_title": null,
+      "effective_date": null,
+      "governing_law": "Synthetic jurisdiction",
+      "issue_date": null,
+      "issuer_name": null,
+      "signatures": null,
+      "trust_asset_schedule": null,
+      "trust_name": "Example Family Trust",
+      "trust_parties": [
+        {
+          "address": null,
+          "date_of_birth": null,
+          "effective_from": null,
+          "effective_to": null,
+          "identifier": null,
+          "identifier_issuer": null,
+          "identifier_type": null,
+          "jurisdiction": null,
+          "name": "Alex Example",
+          "party_kind": null,
+          "role": "Settlor"
+        },
+        {
+          "address": null,
+          "date_of_birth": null,
+          "effective_from": null,
+          "effective_to": null,
+          "identifier": null,
+          "identifier_issuer": null,
+          "identifier_type": null,
+          "jurisdiction": null,
+          "name": "Morgan Example",
+          "party_kind": null,
+          "role": "Trustee"
+        },
+        {
+          "address": null,
+          "date_of_birth": null,
+          "effective_from": null,
+          "effective_to": null,
+          "identifier": null,
+          "identifier_issuer": null,
+          "identifier_type": null,
+          "jurisdiction": null,
+          "name": "Taylor Example",
+          "party_kind": null,
+          "role": "Protector"
+        }
+      ],
+      "trust_powers": [
+        {
+          "conditions": null,
+          "controlled_party_name": "Example Family Trust",
+          "controller_name": "Morgan Example",
+          "effective_from": null,
+          "effective_to": null,
+          "right_description": "discretionary distributions",
+          "right_type": "distribution"
+        }
+      ],
+      "trust_purpose": null,
+      "trust_type": null
+    },
+    "observations": [
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_title",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuer_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issue_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_name",
+        "spans": [
+          {
+            "end": 48,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Family Trust",
+            "start": 28
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_purpose",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/governing_law",
+        "spans": [
+          {
+            "end": 86,
+            "page_id": "synthetic-page-1",
+            "quote": "Synthetic jurisdiction",
+            "start": 64
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/effective_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/name",
+        "spans": [
+          {
+            "end": 108,
+            "page_id": "synthetic-page-1",
+            "quote": "Alex Example",
+            "start": 96
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/role",
+        "spans": [
+          {
+            "end": 94,
+            "page_id": "synthetic-page-1",
+            "quote": "Settlor",
+            "start": 87
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/party_kind",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/identifier_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/identifier_issuer",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/date_of_birth",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/jurisdiction",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/0/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/name",
+        "spans": [
+          {
+            "end": 132,
+            "page_id": "synthetic-page-1",
+            "quote": "Morgan Example",
+            "start": 118
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/role",
+        "spans": [
+          {
+            "end": 116,
+            "page_id": "synthetic-page-1",
+            "quote": "Trustee",
+            "start": 109
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/party_kind",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/identifier_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/identifier_issuer",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/date_of_birth",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/jurisdiction",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/1/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/name",
+        "spans": [
+          {
+            "end": 158,
+            "page_id": "synthetic-page-1",
+            "quote": "Taylor Example",
+            "start": 144
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/role",
+        "spans": [
+          {
+            "end": 142,
+            "page_id": "synthetic-page-1",
+            "quote": "Protector",
+            "start": 133
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/party_kind",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/identifier_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/identifier_issuer",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/date_of_birth",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/jurisdiction",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_parties/2/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/beneficiary_classes/0",
+        "spans": [
+          {
+            "end": 205,
+            "page_id": "synthetic-page-1",
+            "quote": "Descendants of Alex Example",
+            "start": 178
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/controller_name",
+        "spans": [
+          {
+            "end": 132,
+            "page_id": "synthetic-page-1",
+            "quote": "Morgan Example",
+            "start": 118
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/controlled_party_name",
+        "spans": [
+          {
+            "end": 48,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Family Trust",
+            "start": 28
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/right_type",
+        "spans": [
+          {
+            "end": 295,
+            "page_id": "synthetic-page-1",
+            "quote": "distribution",
+            "start": 283
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/right_description",
+        "spans": [
+          {
+            "end": 324,
+            "page_id": "synthetic-page-1",
+            "quote": "discretionary distributions",
+            "start": 297
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/conditions",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_powers/0/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/distribution_terms",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/trust_asset_schedule",
+        "spans": [],
+        "status": "not_present"
+      }
+    ],
+    "profile_version": "0.1.0",
+    "source_digest": "18c555f31011696dba13f8fbebf52025fe5be79557707a11286ace51e405fe04"
+  },
+  "synthetic": true
+}

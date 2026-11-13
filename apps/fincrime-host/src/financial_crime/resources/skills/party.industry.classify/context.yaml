@@ -1,0 +1,14 @@
+dynamic_target: null
+requirements:
+- fields:
+  - customer_type
+  - industry
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields:
+  - industry
+  object_type: Party
+  optional: false
+schema_version: 2.0.0
+skill_id: party.industry.classify

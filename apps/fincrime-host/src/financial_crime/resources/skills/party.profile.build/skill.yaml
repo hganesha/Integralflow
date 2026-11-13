@@ -1,0 +1,204 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:party.profile.build
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Assemble sourced party profiles while retaining distinct relationship
+  roles.
+code_hash: ebbef0c9fe0352b2a091cf44cdee0427fd2253f13b20b4ad5975dc285b3811dc
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Assemble sourced party profiles while retaining distinct relationship
+  roles.
+effects: read_only
+entrypoint: financial_crime.skills.identity:profile_build
+evaluation_profile: party.profile.build-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: party-profile-build
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: party.profile.build
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:party.profile.build:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: c615cc104fd79e30935b66a82c04aeb7e0c4cdee15bc59cfb97a11c2569da9bd
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Count:
+      minimum: 0
+      type: integer
+    Extension:
+      additionalProperties: false
+      properties:
+        schema_version:
+          $ref: '#/$defs/Semver'
+        source_ref:
+          anyOf:
+          - $ref: '#/$defs/Ref'
+          - type: 'null'
+        value:
+          $ref: '#/$defs/JsonValue'
+      required:
+      - schema_version
+      - value
+      type: object
+    Extensions:
+      additionalProperties:
+        $ref: '#/$defs/Extension'
+      propertyNames:
+        pattern: ^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$
+        type: string
+      type: object
+      x-dynamic-map-reason: explicit versioned source/institution extensions
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+    PartyProfile:
+      additionalProperties: false
+      properties:
+        business_purpose:
+          $ref: '#/$defs/Text'
+        employees:
+          $ref: '#/$defs/Count'
+        entity_id:
+          $ref: '#/$defs/Id'
+        extensions:
+          $ref: '#/$defs/Extensions'
+        legal_name:
+          $ref: '#/$defs/Id'
+        party_id:
+          $ref: '#/$defs/Id'
+        role:
+          $ref: '#/$defs/Id'
+      required:
+      - party_id
+      - entity_id
+      - role
+      type: object
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:party.profile.build:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    profiles:
+      items:
+        $ref: '#/$defs/PartyProfile'
+      maxItems: 10000
+      type: array
+  required:
+  - profiles
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - entity_id
+  - role
+  - profile
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Party
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

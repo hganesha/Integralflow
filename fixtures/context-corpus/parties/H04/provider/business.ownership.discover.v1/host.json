@@ -1,0 +1,152 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "corpus"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "entity_id": "e-gareth",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h04.entity.gareth"
+        }
+      ],
+      "names": [
+        {
+          "full": "Gareth Thistlewood",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h04.entity.gareth"
+      ]
+    },
+    {
+      "entity_id": "e-priya",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h04.entity.priya"
+        }
+      ],
+      "names": [
+        {
+          "full": "Priya Nair-Calloway",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h04.entity.priya"
+      ]
+    },
+    {
+      "entity_id": "e-thistlewood-fab",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h04.entity.thistlewood-fab"
+        },
+        {
+          "jurisdiction": "GB",
+          "scheme": "company_registration",
+          "value": "SYN-GB-00041042"
+        }
+      ],
+      "jurisdiction": "GB",
+      "names": [
+        {
+          "full": "Thistlewood Fabrication Ltd",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h04.entity.thistlewood-fab"
+      ]
+    },
+    {
+      "entity_id": "e-thistlewood-holdings",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h04.entity.thistlewood-holdings"
+        },
+        {
+          "jurisdiction": "GB",
+          "scheme": "company_registration",
+          "value": "SYN-GB-00041077"
+        }
+      ],
+      "jurisdiction": "GB",
+      "names": [
+        {
+          "full": "Thistlewood Holdings Ltd",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h04.entity.thistlewood-holdings"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-thistlewood-holdings",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 100.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-01",
+      "to_entity_id": "e-thistlewood-fab",
+      "type": "owns",
+      "valid_from": "2015-02-03"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-gareth",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 60.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-02",
+      "to_entity_id": "e-thistlewood-holdings",
+      "type": "owns",
+      "valid_from": "2015-02-03"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-priya",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 40.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-03",
+      "to_entity_id": "e-thistlewood-holdings",
+      "type": "owns",
+      "valid_from": "2015-02-03"
+    }
+  ],
+  "result": {
+    "completeness": "complete",
+    "kind": "ownership",
+    "root_entity_id": "e-thistlewood-fab"
+  },
+  "result_id": "corpus-ownership-h04",
+  "subject_entity_id": "e-thistlewood-fab"
+}

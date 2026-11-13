@@ -1,0 +1,43 @@
+dynamic_target: null
+requirements:
+- fields:
+  - name
+  - identifiers
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Entity
+  optional: false
+- fields:
+  - name
+  - identifiers
+  - list_type
+  - list_version
+  - coverage
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: WatchlistEntry
+  optional: true
+- fields:
+  - subject
+  - screening_type
+  - provider
+  - query
+  - query_time
+  - status
+  - dataset_versions
+  - scope
+  - candidate_count
+  - truncated
+  - limitations
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ScreeningExecution
+  optional: true
+schema_version: 2.0.0
+skill_id: screening.sanctions.execute

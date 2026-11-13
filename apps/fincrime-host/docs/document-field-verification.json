@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-08",
+  "catalog_version": "0.1.0",
+  "catalog_hash": "05f289200cab38f0710d00b3f8546fd26ed0e3a7a236f0d73426c989d956b1b3",
+  "docubricks_reference_revision": "3de54e97437d284ea898a2e0e4367efd1ba97851",
+  "statistics": {
+    "aliases": 19,
+    "coverage_categories": 21,
+    "document_types": 293,
+    "families": 38,
+    "field_assignments": 4413,
+    "maturity": "draft_field_contract",
+    "nested_members": 160,
+    "nested_types": 21,
+    "production_qualified": false,
+    "shared_fields": 236
+  },
+  "tests": {
+    "python": "3.14.4",
+    "tests": 2002,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "new_document_tests": 331
+  },
+  "generated_artifacts": {
+    "document_artifacts_checked": 894,
+    "existing_skill_artifacts_checked": 2392
+  },
+  "wheel": {
+    "file": "financial_crime_skills-0.3.0-py3-none-any.whl",
+    "sha256": "0ef66b94514b726c050149940f6c7090fc48d109dd148b076854385f983987a6",
+    "installed_outside_checkout": true,
+    "all_profile_hashes_match_packaged_catalog": true,
+    "trust_fixture_status": "NEEDS_REVIEW",
+    "existing_222_skill_bundle_valid": true
+  },
+  "real_document_evaluations": 0,
+  "ocr_or_model_invocations": 0,
+  "canonical_records_mutated": 0,
+  "production_qualified": false
+}

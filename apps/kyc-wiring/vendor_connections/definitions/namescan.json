@@ -1,0 +1,165 @@
+{
+  "provider_id": "namescan",
+  "version": "3.1",
+  "bases": {
+    "default": "https://api.namescan.io"
+  },
+  "auth": {
+    "type": "header",
+    "name": "api-key",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://api.namescan.io/doc/index.html?v=6"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_person_emerald": {
+      "method": "POST",
+      "path": "/v3.1/person-scans/emerald",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_person_emerald": {
+      "method": "GET",
+      "path": "/v3.1/person-scans/emerald/{scanId}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "create_person_sapphire": {
+      "method": "POST",
+      "path": "/v3.1/person-scans/sapphire",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_person_sapphire": {
+      "method": "GET",
+      "path": "/v3.1/person-scans/sapphire/{scanId}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "person_risk_check": {
+      "method": "POST",
+      "path": "/v3.1/risk-check/person",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "create_organisation_emerald": {
+      "method": "POST",
+      "path": "/v3.1/organisation-scans/emerald",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_organisation_emerald": {
+      "method": "GET",
+      "path": "/v3.1/organisation-scans/emerald/{scanId}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "create_organisation_sapphire": {
+      "method": "POST",
+      "path": "/v3.1/organisation-scans/sapphire",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_organisation_sapphire": {
+      "method": "GET",
+      "path": "/v3.1/organisation-scans/sapphire/{scanId}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "organisation_risk_check": {
+      "method": "POST",
+      "path": "/v3.1/risk-check/organisation",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://api.namescan.io/doc/index.html?v=6",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  },
+  "headers": {
+    "Content-Type": "application/json-patch+json"
+  }
+}

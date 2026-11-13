@@ -1,0 +1,323 @@
+{
+ "_doc": "Seeds for platform surfaces, shaped by upstream/control-ui-views.schema.json (the replaced BFF's view models). Minimal but valid; extend as surfaces need.",
+ "overview": {
+  "activeRuns": [],
+  "activeRunsCount": 4,
+  "admittedHarnessesCount": 2,
+  "deniedCount": 0,
+  "failedCount": 1,
+  "fixture": true,
+  "generatedAt": "2026-11-07T14:05:00Z",
+  "globalReadiness": "Ready",
+  "modelTiers": [],
+  "needsAttentionCount": 5,
+  "queuedCount": 1,
+  "recentIssues": [],
+  "reportedCost24h": {
+   "complete": false,
+   "reportedUsd": 0
+  },
+  "retryingCount": 0,
+  "runningCount": 3,
+  "runtimeMode": "Recorded",
+  "serviceStatus": [],
+  "staleLeaseCount": 0,
+  "telemetryFreshThrough": "2026-11-07T14:05:00Z",
+  "window": "window"
+ },
+ "system": {
+  "buildMetadata": {
+   "adapterBundleVersion": "adapterBundleVersion",
+   "apiVersion": "apiVersion",
+   "builtAt": "2026-11-07T14:00:00Z",
+   "commitSha": "commitSha",
+   "compilerVersion": "compilerVersion",
+   "runtimeVersion": "runtimeVersion",
+   "uiVersion": "uiVersion"
+  },
+  "componentReadiness": [],
+  "databaseMigrationVersion": "databaseMigrationVersion",
+  "environment": "local",
+  "fixture": true,
+  "generatedAt": "2026-11-07T14:05:00Z",
+  "globalReadiness": "Ready",
+  "knownPocLimitations": [],
+  "queueWorkState": {
+   "activeWorkers": 0,
+   "fencingAuthority": "fencingAuthority",
+   "leased": 0,
+   "ready": 0,
+   "retrying": 0,
+   "stale": 0
+  },
+  "runtimeIsolation": {
+   "defaultProvider": "local_http",
+   "mixedTargetsAllowed": false,
+   "providers": [],
+   "scope": "harness_invocation",
+   "selectionAuthority": "selectionAuthority"
+  },
+  "runtimeMode": "Recorded",
+  "supportedPrimitives": [],
+  "telemetryFreshThrough": "2026-11-07T14:05:00Z"
+ },
+ "drafts": [
+  {
+   "approvedBy": null,
+   "compiledPlan": null,
+   "createdAt": "2026-11-07T10:00:00Z",
+   "diagnostics": [],
+   "domain": "fincrime",
+   "draftId": "draft_6f1c2c3e-0000-4000-8000-000000000001",
+   "evaluationReport": null,
+   "name": "FinCrime KYB 1.1 — screening threshold",
+   "packageSource": "name: fincrime-kyb\nversion: 1.1.0\n",
+   "parsedPackage": {
+    "name": "fincrime-kyb"
+   },
+   "parsedWorkflow": {},
+   "publishedPlanDigest": null,
+   "revision": 7,
+   "status": "COMPILED",
+   "updatedAt": "2026-11-07T16:00:00Z",
+   "version": "1.1.0",
+   "workflowSource": "nodes: []\n",
+   "events": [
+    {
+     "eventId": "draft_6f1c2c3e-0000-4000-8000-000000000001-e1",
+     "eventType": "draft.created",
+     "actor": "j.moreau",
+     "revision": 1,
+     "details": {},
+     "occurredAt": "2026-11-07T10:00:00Z"
+    }
+   ]
+  },
+  {
+   "approvedBy": null,
+   "compiledPlan": null,
+   "createdAt": "2026-11-07T10:00:00Z",
+   "diagnostics": [],
+   "domain": "fincrime",
+   "draftId": "draft_6f1c2c3e-0000-4000-8000-000000000002",
+   "evaluationReport": null,
+   "name": "FinCrime KYB 1.1 — context selectors",
+   "packageSource": "name: fincrime-kyb\nversion: 1.1.0\n",
+   "parsedPackage": {
+    "name": "fincrime-kyb"
+   },
+   "parsedWorkflow": {},
+   "publishedPlanDigest": null,
+   "revision": 3,
+   "status": "DRAFT",
+   "updatedAt": "2026-11-07T16:00:00Z",
+   "version": "1.1.0",
+   "workflowSource": "nodes: []\n",
+   "events": [
+    {
+     "eventId": "draft_6f1c2c3e-0000-4000-8000-000000000002-e1",
+     "eventType": "draft.created",
+     "actor": "m.lindqvist",
+     "revision": 1,
+     "details": {},
+     "occurredAt": "2026-11-07T10:00:00Z"
+    }
+   ]
+  }
+ ],
+ "harnesses": [
+  {
+   "admittedAt": "2026-11-06T08:00:00Z",
+   "capabilityCount": 9,
+   "compilerVersion": "harnessc 0.9.0",
+   "completedRuns": 41,
+   "completionRatePct": 0,
+   "domain": "fincrime",
+   "edgeCount": 34,
+   "edgesPreview": [],
+   "effectfulCapabilityCount": 0,
+   "lastRunAt": "2026-11-07T14:00:00Z",
+   "meanReportedCost": {
+    "complete": false,
+    "reportedUsd": 0
+   },
+   "modelTiers": [],
+   "name": "fincrime-kyb",
+   "nodeCount": 29,
+   "nodesPreview": [],
+   "objective": "Corporate KYB onboarding",
+   "p50DurationMs": 0,
+   "p95DurationMs": 0,
+   "packageVersion": "1.0.0",
+   "planDigest": "bcd282f4fea36064672d780fc58478330b105effb706a2727e20794bf82162f8",
+   "runs": 48
+  }
+ ],
+ "runs": [
+  {
+   "attempt": 1,
+   "capabilityCalls": 0,
+   "cost": {
+    "complete": false,
+    "reportedUsd": 0
+   },
+   "currentNodeId": "identity_ownership.review",
+   "domain": "fincrime",
+   "durationMs": 0,
+   "fencingEpoch": 1,
+   "fixture": false,
+   "harnessName": "fincrime-kyb",
+   "modelCalls": 0,
+   "modelTiers": [],
+   "needsAttention": true,
+   "packageVersion": "1.0.0",
+   "planDigest": "bcd282f4fea36064672d780fc58478330b105effb706a2727e20794bf82162f8",
+   "rootSpanId": "2bc3e2d0bf178f64",
+   "runId": "run_kyb_1042",
+   "startedAt": "2026-11-07T09:12:04Z",
+   "status": "manual_review",
+   "terminalOutcome": "terminalOutcome",
+   "traceId": "2bc3e2d0bf178f646b13c35b25ee0ddb",
+   "traceViewerUrl": "traceViewerUrl",
+   "updatedAt": "2026-11-07T09:12:30Z"
+  }
+ ],
+ "cases": [
+  {
+   "caseId": "KYB-1042",
+   "caseSequence": 14,
+   "caseType": "KYB",
+   "classification": "confidential",
+   "createdAt": "2026-11-07T09:12:04Z",
+   "externalRef": "ONB-88412",
+   "harnessPlanDigest": "bcd282f4fea36064672d780fc58478330b105effb706a2727e20794bf82162f8",
+   "jurisdiction": "US",
+   "status": "INVESTIGATING",
+   "tenantId": "tenant_demo",
+   "updatedAt": "2026-11-07T09:12:30Z"
+  }
+ ],
+ "gatewayStatus": {
+  "calls24h": 0,
+  "denials24h": 0,
+  "envelopeVerifierStatus": "envelopeVerifierStatus",
+  "generatedAt": "2026-11-07T14:05:00Z",
+  "lastConnectionLatencyMs": 0,
+  "lastConnectionMessage": "lastConnectionMessage",
+  "lastConnectionTestAt": "2026-11-07T14:00:00Z",
+  "openRouterState": "Configured",
+  "openSanctionsState": "Configured",
+  "readiness": "Ready",
+  "runtimeMode": "Recorded",
+  "telemetryFreshThrough": "2026-11-07T14:05:00Z"
+ },
+ "modelTiers": [
+  {
+   "concurrencyLimit": 4,
+   "credentialState": "Configured",
+   "enabled": true,
+   "lastSuccessAt": "2026-11-07T14:00:00Z",
+   "maxInputTokens": 128000,
+   "maxOutputTokens": 4096,
+   "profileDigest": "af24bc58b5bc6c321f8ed5158788665b94787dfe26a9df6a786d5806f78e5557",
+   "purpose": "openrouter capability tier",
+   "resolvedOpenRouterModel": "synthetic/recorded",
+   "tierId": "analysis",
+   "timeoutMs": 30000,
+   "version": "v1"
+  }
+ ],
+ "providers": [
+  {
+   "createdAt": "2026-11-06T08:00:00Z",
+   "credentialPresent": true,
+   "digest": "9871f51be25b94f8ed72fc36d678042ec97b52442ac4581bf374c2264e992284",
+   "provider": {
+    "appName": "appName",
+    "baseUrl": "baseUrl",
+    "credentialRef": "credentialRef",
+    "displayName": "displayName",
+    "id": "id",
+    "kind": "openrouter",
+    "siteUrl": "siteUrl",
+    "status": "active"
+   },
+   "updatedAt": "2026-11-06T08:00:00Z",
+   "updatedBy": "n.osei"
+  }
+ ],
+ "modelProfiles": [
+  {
+   "createdAt": "2026-11-06T08:00:00Z",
+   "createdBy": "n.osei",
+   "digest": "4242e0e259832fb854b2bee796db48ddd6038e1722702c2efae4d331b1975d9c",
+   "note": "initial",
+   "profile": {
+    "id": "id",
+    "maxConcurrency": 0,
+    "maxOutputTokens": 0,
+    "model": "model",
+    "provider": "provider",
+    "timeoutMs": 0
+   },
+   "revision": 1,
+   "revisions": [],
+   "status": "active"
+  }
+ ],
+ "settings": [
+  {
+   "appliesAt": "restart",
+   "fields": [],
+   "section": "dispatcher",
+   "service": "service",
+   "source": "store",
+   "summary": "Runtime limits",
+   "updatedAt": "2026-11-06T08:00:00Z",
+   "updatedBy": "n.osei",
+   "value": {}
+  }
+ ],
+ "changeLog": [
+  {
+   "action": "activate",
+   "actorId": "n.osei",
+   "actorRoles": [
+    "Platform.Admin"
+   ],
+   "after": null,
+   "afterDigest": "4242e0e259832fb854b2bee796db48ddd6038e1722702c2efae4d331b1975d9c",
+   "before": null,
+   "beforeDigest": null,
+   "changeId": "chg_0001",
+   "occurredAt": "2026-11-06T08:00:00Z",
+   "reason": "initial activation",
+   "resourceId": "analysis",
+   "resourceKind": "model-profile"
+  }
+ ],
+ "releases": [
+  {
+   "releaseId": "rel_fincrime_1_0_0",
+   "manifestDigest": "f387e631a6e780e9df6fc35a973e5234889fa54cfd2d66b40184fe1868e02fdc",
+   "status": "active",
+   "revision": 3,
+   "activatedAt": "2026-11-06T08:00:00Z",
+   "deprecatedAt": null,
+   "revokedAt": null,
+   "reasonCode": "release.operator_decision",
+   "updatedAt": "2026-11-06T08:00:00Z"
+  },
+  {
+   "releaseId": "rel_fincrime_1_1_0",
+   "manifestDigest": "209afdaf76a1f8b631113ea257fa1233c8c54e138d60765a110161614cdd4ac9",
+   "status": "candidate",
+   "revision": 1,
+   "activatedAt": null,
+   "deprecatedAt": null,
+   "revokedAt": null,
+   "reasonCode": null,
+   "updatedAt": "2026-11-07T16:00:00Z"
+  }
+ ]
+}

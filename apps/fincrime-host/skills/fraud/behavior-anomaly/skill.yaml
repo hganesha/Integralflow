@@ -1,0 +1,165 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:fraud.behavior.anomaly
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Compare sourced session features to explicit baseline intervals
+  and retain unknown features.
+code_hash: ca8b92853b248bc74d4412643bfdd17afaf52e3b563ea0f9e2edb96dc4398343
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Compare sourced session features to explicit baseline intervals and retain
+  unknown features.
+effects: read_only
+entrypoint: financial_crime.skills.fraud:behavior
+evaluation_profile: fraud.behavior.anomaly-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: fraud-behavior-anomaly
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: fraud.behavior.anomaly
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:fraud.behavior.anomaly:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: b260d3df9d356c24da13bc5eb548eb24bc53448b0f5cd09c35dbf43396f82c66
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    BehaviorAnomaly:
+      oneOf:
+      - $ref: '#/$defs/BehaviorUnknown'
+      - $ref: '#/$defs/BehaviorDeviation'
+    BehaviorDeviation:
+      additionalProperties: false
+      properties:
+        bounds:
+          $ref: '#/$defs/Bounds'
+        feature:
+          $ref: '#/$defs/Id'
+        session_id:
+          $ref: '#/$defs/Id'
+        value:
+          $ref: '#/$defs/Decimal'
+      required:
+      - session_id
+      - feature
+      - value
+      - bounds
+      type: object
+    BehaviorUnknown:
+      additionalProperties: false
+      properties:
+        feature:
+          $ref: '#/$defs/Id'
+        session_id:
+          $ref: '#/$defs/Id'
+        status:
+          $ref: '#/$defs/UnknownBaseline'
+      required:
+      - session_id
+      - feature
+      - status
+      type: object
+    Bounds:
+      additionalProperties: false
+      properties:
+        maximum:
+          $ref: '#/$defs/Decimal'
+        minimum:
+          $ref: '#/$defs/Decimal'
+      required:
+      - minimum
+      - maximum
+      type: object
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    UnknownBaseline:
+      const: UNKNOWN_BASELINE
+  $id: urn:financial-crime:skill:fraud.behavior.anomaly:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    anomalies:
+      items:
+        $ref: '#/$defs/BehaviorAnomaly'
+      maxItems: 10000
+      type: array
+  required:
+  - anomalies
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - features
+  - baseline
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Session
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

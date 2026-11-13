@@ -1,0 +1,72 @@
+# Deposits & accounts. Candidate canonical content, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata: { code: DEP, version: 1.0.0, status: CANDIDATE, owner: platform.product-taxonomy }
+spec:
+  sectors: [BANKING]
+  name: Deposits & accounts
+  definition: Accounts in which an institution holds a customer's funds and owes them back on demand, at notice or at term.
+  regulatedActivities: [DEPOSIT_TAKING]
+  eligiblePartyTypes: [INDIVIDUAL, SOLE_PROPRIETOR, LEGAL_ENTITY, PARTNERSHIP, TRUST, INVESTMENT_FUND, FINANCIAL_INSTITUTION, GOVERNMENT, NONPROFIT]
+  capabilities: { cash_deposits: configurable, wires: configurable, cross_border: configurable, third_party_funding: configurable }
+  riskDimensions: [CASH_INTENSITY, CROSS_BORDER, THIRD_PARTY_FUNDING, VELOCITY]
+  classes:
+    - code: TRANSACTION
+      name: Transaction deposits
+      definition: Demand accounts used for day-to-day receipts and payments.
+      aliases: [Demand deposits, Current accounts]
+      types:
+        - { code: PERSONAL_CHECKING, name: Personal checking, definition: "A demand account for an individual's everyday payments.", eligiblePartyTypes: [INDIVIDUAL] }
+        - { code: BUSINESS_CHECKING, name: Business checking, definition: "A demand account for a small business or sole proprietor.", eligiblePartyTypes: [SOLE_PROPRIETOR, LEGAL_ENTITY, PARTNERSHIP, NONPROFIT] }
+        - { code: CORPORATE_CURRENT, name: Corporate current account, definition: "A demand account for a corporate client's operating flows.", eligiblePartyTypes: [LEGAL_ENTITY, FINANCIAL_INSTITUTION, GOVERNMENT] }
+        - { code: NOW_ACCOUNT, name: NOW account, definition: "An interest-bearing negotiable order of withdrawal account.", eligiblePartyTypes: [INDIVIDUAL, NONPROFIT, GOVERNMENT] }
+    - code: SAVINGS
+      name: Savings deposits
+      definition: Interest-bearing accounts held mainly to store value rather than to make payments.
+      types:
+        - { code: STANDARD_SAVINGS, name: Savings account, definition: "A basic interest-bearing savings account." }
+        - { code: HIGH_YIELD_SAVINGS, name: High-yield savings, definition: "A savings account paying a premium rate, often opened digitally.", capabilities: { digital_onboarding: true } }
+        - { code: MONEY_MARKET_DEPOSIT, name: Money market deposit account, definition: "A savings account with limited transfers and a market-linked rate." }
+    - code: TERM
+      name: Term deposits
+      definition: Deposits placed for a fixed period or subject to notice before withdrawal.
+      types:
+        - { code: CERTIFICATE_OF_DEPOSIT, name: Certificate of deposit, definition: "A deposit for a fixed term at a fixed or stepped rate." }
+        - { code: FIXED_DEPOSIT, name: Fixed deposit, definition: "A deposit locked for a set term with early-withdrawal penalties." }
+        - { code: NOTICE_DEPOSIT, name: Notice deposit, definition: "A deposit withdrawable after a stated notice period." }
+        - { code: NEGOTIABLE_CD, name: Negotiable CD, definition: "A large-denomination certificate of deposit that can be traded.", capabilities: { transferable: true }, riskDimensions: [TRANSFERABILITY] }
+    - code: SPECIAL_PURPOSE
+      name: Special-purpose accounts
+      definition: Accounts held for a defined purpose or on behalf of others, where the account holder is not the sole beneficial owner of the funds.
+      riskDimensions: [OWNERSHIP_COMPLEXITY, THIRD_PARTY_FUNDING]
+      types:
+        - { code: ESCROW, name: Escrow account, definition: "Funds held by a third party pending completion of an agreement." }
+        - { code: TRUST_ACCOUNT, name: Trust account, definition: "An account held by a trustee for a trust's beneficiaries.", eligiblePartyTypes: [TRUST] }
+        - { code: ESTATE, name: Estate account, definition: "An account administering a deceased person's estate.", eligiblePartyTypes: [TRUST] }
+        - { code: CLIENT_MONEY, name: Client money account, definition: "Pooled or designated funds a professional holds for its clients.", riskDimensions: [INTERMEDIARY_RISK, NESTED_ACCESS] }
+        - { code: IOLTA, name: Lawyer trust account (IOLTA), definition: "A pooled interest-bearing account a lawyer holds for client funds.", riskDimensions: [INTERMEDIARY_RISK, NESTED_ACCESS] }
+        - { code: CUSTODIAL_MINOR, name: Custodial account for a minor, definition: "An account held by an adult custodian for a minor.", eligiblePartyTypes: [INDIVIDUAL] }
+        - { code: FBO_ACCOUNT, name: For-benefit-of account, definition: "An account opened by one party for the benefit of others, typical of platforms and program managers.", riskDimensions: [NESTED_ACCESS, INTERMEDIARY_RISK], alsoClassifiedAs: [FIN.BAAS] }
+    - code: INSTITUTIONAL
+      name: Institutional deposits
+      definition: Deposits placed by or through institutions, brokers or public bodies.
+      eligiblePartyTypes: [FINANCIAL_INSTITUTION, GOVERNMENT, INVESTMENT_FUND, LEGAL_ENTITY]
+      types:
+        - { code: BROKERED, name: Brokered deposit, definition: "A deposit placed through a deposit broker.", riskDimensions: [INTERMEDIARY_RISK] }
+        - { code: OMNIBUS, name: Omnibus deposit, definition: "A pooled deposit held by an intermediary for underlying customers.", riskDimensions: [NESTED_ACCESS, INTERMEDIARY_RISK] }
+        - { code: PUBLIC_FUNDS, name: Public funds deposit, definition: "A deposit of a government body.", eligiblePartyTypes: [GOVERNMENT] }
+    - code: FOREIGN_CURRENCY
+      name: Foreign currency accounts
+      definition: Accounts denominated in, or holding several, currencies other than the booking currency.
+      riskDimensions: [CROSS_BORDER, GEOGRAPHIC_EXPOSURE]
+      types:
+        - { code: MULTICURRENCY, name: Multicurrency account, definition: "One account holding balances in several currencies." }
+        - { code: NONRESIDENT, name: Nonresident account, definition: "An account for a customer resident outside the booking jurisdiction." }
+        - { code: OFFSHORE, name: Offshore account, definition: "An account booked in an international financial centre for a foreign customer." }
+    - code: SWEEP
+      name: Sweep structures
+      definition: Arrangements that move balances automatically between accounts or institutions.
+      types:
+        - { code: DEPOSIT_SWEEP, name: Deposit sweep, definition: "Moves excess balances into an interest-bearing deposit." }
+        - { code: INSURED_CASH_SWEEP, name: Insured cash sweep, definition: "Spreads balances across several institutions to extend deposit insurance.", riskDimensions: [INTERMEDIARY_RISK] }
+        - { code: ZERO_BALANCE, name: Zero-balance account, definition: "A subsidiary account swept to zero against a master account each day." }

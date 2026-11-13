@@ -1,0 +1,24 @@
+{
+  "$defs": {
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:ownership.threshold.evaluate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "interests": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Fraction"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    }
+  },
+  "required": [
+    "interests"
+  ],
+  "type": "object"
+}

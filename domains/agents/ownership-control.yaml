@@ -1,0 +1,49 @@
+id: agent.identity_ownership
+version: 1.0.0
+source:
+  library: agent.identity_ownership
+  narrowed: "Identity and registry verification moved to agent.identity_verification; this agent owns ownership and control."
+  additions:
+    ownership.graph.build: "Building the ownership graph is the first step of the ownership mandate."
+    ownership.interest.calculate: "Effective interest is how ownership thresholds are applied."
+    ownership.circular.detect: "Circular holdings are an ownership anomaly the mandate names (incomplete structures)."
+    ownership.control.resolve: "Control without ownership is part of the mandate (role authority, control)."
+    ownership.nominee.detect: "Nominee arrangements hide beneficial owners."
+name: Ownership and control agent
+role: Ownership specialist
+modelTier: deep
+customerTypes: [corporate]
+skills:
+  required: [ownership.graph.build, ownership.interest.calculate, ownership.ubo.resolve, ownership.ubo.verify]
+  optional: [ownership.circular.detect, ownership.control.resolve, ownership.nominee.detect]
+tools: [business.ownership.discover.v1, business.officers.lookup.v1, business.registry.lookup.v1, reference.identifier.lookup.v1]
+completion: { libraryTask: task.identity_ownership }
+prompt: >-
+  Establish who owns and controls the customer and who its beneficial owners are, under the case's pinned policy.
+  Ranges, cycles and unaccounted interest stay unresolved until evidence resolves them.
+instruction: >-
+  Start from the skills' ownership graph and effective interests. Run circular-holding, control or nominee
+  analysis only when it could resolve an open item, and look up a register only for a specific missing link.
+  Never treat a range as an exact interest, and propose a beneficial owner only on an ownership or control basis
+  the records support.
+requiresHumanReview: when_needed
+outputFields:
+  required: [beneficialOwners]
+  properties:
+    beneficialOwners:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [entityRef, basis, sourceRefs]
+        properties:
+          entityRef: { type: string, minLength: 1 }
+          basis: { type: string, enum: [ownership, control] }
+          interest: { type: string }
+          sourceRefs: { type: array, minItems: 1, items: { type: string } }
+example:
+  summary: Two beneficial owners through the holding company; structure complete.
+  findings: [{ type: OWNERSHIP, severity: INFO, reason: "Effective interests 60% and 40%.", sourceRefs: [own-1, own-2] }]
+  gaps: []
+  requiresHumanReview: false
+  beneficialOwners: [{ entityRef: e-gareth, basis: ownership, interest: "0.6", sourceRefs: [own-1] }]

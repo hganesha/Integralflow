@@ -1,0 +1,20 @@
+{
+  "$id": "urn:financial-crime:skill:case.state.transition:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_revision": {
+      "type": "integer"
+    },
+    "target": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "target",
+    "expected_revision"
+  ],
+  "type": "object"
+}

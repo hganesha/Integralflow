@@ -1,0 +1,24 @@
+import { expect,test } from "@playwright/test";
+import { expectAccessible } from "./support";
+test.skip(!process.env.CONTEXT_HTTP_URL||!process.env.CONTEXT_DOCUMENT_CASE_ID,'Requires HTTP services and a case with captured, parsed document pages.');
+test('HTTP document retrieval indexes captured pages, resolves citations and withdraws derived text',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`${process.env.CONTEXT_HTTP_URL}/context/documents?caseId=${encodeURIComponent(process.env.CONTEXT_DOCUMENT_CASE_ID!)}`);
+ await expect(page.getByRole('heading',{name:'Document search',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Build / refresh index',exact:true}).click();
+ await expect(page.getByRole('status')).toContainText('Indexed 1 documents');
+ await page.getByLabel('Lexical query',{exact:true}).fill('Acme');
+ await page.getByRole('button',{name:'Test retrieval',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'doc1 · page 1'})).toBeVisible();
+ await expect(page.getByText(/Index current for this scope/)).toBeVisible();
+ await page.getByRole('button',{name:'Resolve exact citation',exact:true}).click();
+ await expect(page.getByRole('region',{name:'Resolved document citation'})).toContainText('Acme Holdings');
+ await expectAccessible(page);
+ await page.screenshot({path:'/tmp/ehf-context-documents-http.png',fullPage:true});
+ await page.getByRole('button',{name:'Withdraw from index',exact:true}).click();
+ await expect(page.getByRole('status')).toContainText('Derived text withdrawn');
+ await page.getByRole('button',{name:'Test retrieval',exact:true}).click();
+ await expect(page.getByText('No matching indexed text in the tested scope.',{exact:false})).toBeVisible();
+ await expect(page.getByText(/Index incomplete or changed/)).toBeVisible();
+ expect(errors).toEqual([]);
+});

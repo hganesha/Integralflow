@@ -1,0 +1,32 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.institution.securities-synthetic
+  version: 1.0.0
+  layer: institution
+  appliesTo: { institutions: [securities.synthetic], jurisdictions: [US] }
+  status: CANDIDATE
+  ownerRole: kyb-policy-owner
+  description: The synthetic securities firm (institutionId securities.synthetic); its risk appetite for institutional clients. Not a real firm's policy.
+values:
+  screening_threshold:
+    value: 0.85
+    basis: { text: "Same possible-match score as the synthetic bank (owner input D01); candidate until the firm's owner sets its own." }
+  freshness_seconds:
+    value: { WatchlistEntry: 86400, VerificationRecord: 7776000 }
+    basis: { text: "List freshness 1 day and identity verification 90 days, as for the synthetic bank." }
+  verification_methods:
+    value: [registry_extract, government_id_document]
+    basis: { text: "Firm appetite: a registry extract for institutional clients and a government identity document for their individuals." }
+  required_screening_types:
+    value: [sanctions, pep]
+    basis: { text: "Firm appetite: PEP screening for every client." }
+  screening_roles:
+    value: [customer, beneficial_owner, control_person, director, signatory]
+    basis: { text: "Firm appetite: directors and signatories of an institutional client are screened." }
+  dual_control_required:
+    value: true
+    basis: { text: "Firm appetite: two people approve every onboarding decision." }
+  simplified_due_diligence_permitted:
+    value: false
+    basis: { text: "Firm decision pending: simplified due diligence is not adopted until the policy owner approves where it applies." }

@@ -1,0 +1,42 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IdentityCandidateInput": {
+      "additionalProperties": false,
+      "properties": {
+        "identifiers": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "name": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:entity.match:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "left": {
+      "$ref": "#/$defs/IdentityCandidateInput"
+    },
+    "right": {
+      "$ref": "#/$defs/IdentityCandidateInput"
+    }
+  },
+  "required": [
+    "left",
+    "right"
+  ],
+  "type": "object"
+}

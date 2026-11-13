@@ -1,0 +1,76 @@
+# The synthetic corpus bank's institution catalog seed (Product Policy Studio plan, phase B).
+# Not a real institution. The control API serves this as the starting draft; edits become revisions.
+apiVersion: harness.factory/institution-catalog-v1
+kind: InstitutionCatalog
+institution:
+  id: bank.synthetic
+  name: Synthetic Bank
+  description: The corpus bank behind the agentic KYC and KYB flows. Synthetic.
+  synthetic: true
+  jurisdictions: [US, GB]
+  legalEntities:
+    - { id: synthetic-bank-na, name: Synthetic Bank N.A., jurisdiction: US, regulatoryRegimes: [BANKING] }
+    - { id: synthetic-bank-uk, name: Synthetic Bank UK plc, jurisdiction: GB, regulatoryRegimes: [BANKING] }
+  businessLines:
+    - { id: personal-banking, name: Personal banking, productScope: [DEP.TRANSACTION, DEP.SAVINGS, PAY.CARDS, PAY.DOMESTIC_TRANSFERS, LND.CONSUMER] }
+    - { id: business-banking, name: Business banking, productScope: [DEP.TRANSACTION, DEP.SAVINGS, PAY, LND.SMALL_BUSINESS, LND.COMMERCIAL] }
+offerings:
+  - offeringId: everyday-checking
+    name: Everyday Checking
+    canonicalProductId: DEP.TRANSACTION.PERSONAL_CHECKING
+    businessLine: personal-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US]
+    variantAttributes: { channels: [BRANCH, DIGITAL], funding_methods: [CASH, ACH, WIRE] }
+  - offeringId: current-account-uk
+    name: Current Account
+    canonicalProductId: DEP.TRANSACTION.PERSONAL_CHECKING
+    businessLine: personal-banking
+    legalEntity: synthetic-bank-uk
+    jurisdictions: [GB]
+    variantAttributes: { channels: [DIGITAL], non_face_to_face: true }
+  - offeringId: saver-plus
+    name: Saver Plus
+    canonicalProductId: DEP.SAVINGS.HIGH_YIELD_SAVINGS
+    businessLine: personal-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US]
+    variantAttributes: { channels: [DIGITAL], non_face_to_face: true }
+  - offeringId: debit-card
+    name: Debit Card
+    canonicalProductId: PAY.CARDS.DEBIT
+    businessLine: personal-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US, GB]
+    eligiblePartyTypes: [INDIVIDUAL]
+    legacyProductTypes: [card]
+  - offeringId: business-checking
+    name: Business Checking
+    canonicalProductId: DEP.TRANSACTION.BUSINESS_CHECKING
+    businessLine: business-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US, GB]
+    variantAttributes: { funding_methods: [CASH, ACH, WIRE, THIRD_PARTY], third_party_funding: true }
+  - offeringId: business-term-loan
+    name: Business Term Loan
+    canonicalProductId: LND.SMALL_BUSINESS.TERM_LOAN
+    businessLine: business-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US, GB]
+    variantAttributes: { collateral: [RECEIVABLES, REAL_ESTATE] }
+    legacyProductTypes: [lending]
+  - offeringId: merchant-services
+    name: Merchant Services
+    canonicalProductId: PAY.MERCHANT_ACQUIRING.CARD_ACQUIRING
+    businessLine: business-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US, GB]
+    legacyProductTypes: [merchant_acquiring]
+  - offeringId: global-payments
+    name: Global Payments
+    canonicalProductId: PAY.CROSS_BORDER.INTERNATIONAL_WIRE
+    businessLine: business-banking
+    legalEntity: synthetic-bank-na
+    jurisdictions: [US, GB]
+    variantAttributes: { currencies: [USD, GBP, EUR] }
+    legacyProductTypes: [payments]

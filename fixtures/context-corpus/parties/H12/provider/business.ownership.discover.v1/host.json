@@ -1,0 +1,74 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "corpus"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "entity_id": "e-protector",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h12.entity.protector"
+        }
+      ],
+      "names": [
+        {
+          "full": "Quentin Marlowe",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h12.entity.protector"
+      ]
+    },
+    {
+      "entity_id": "e-trust",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h12.entity.trust"
+        }
+      ],
+      "names": [
+        {
+          "full": "Marchetti Family Trust",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h12.entity.trust"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-protector",
+      "ownership": {
+        "directness": "direct",
+        "kind": "control"
+      },
+      "relationship_id": "ctl-01",
+      "to_entity_id": "e-trust",
+      "type": "controls"
+    }
+  ],
+  "result": {
+    "completeness": "complete",
+    "kind": "ownership",
+    "root_entity_id": "e-trust"
+  },
+  "result_id": "corpus-ownership-h12",
+  "subject_entity_id": "e-trust"
+}

@@ -1,0 +1,165 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:monitor.transaction.deviation
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Compare monitored complete-window transaction totals to explicit
+  expected activity.
+code_hash: 0f01fab69add1dd2730a8935bc0d13514249443105535c2030ed6fb8b5b1e80e
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Compare monitored complete-window transaction totals to explicit expected
+  activity.
+effects: read_only
+entrypoint: financial_crime.skills.monitoring_reporting:deviations
+evaluation_profile: monitor.transaction.deviation-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: monitor-transaction-deviation
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: monitor.transaction.deviation
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+  $id: urn:financial-crime:skill:monitor.transaction.deviation:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    expected_totals:
+      additionalProperties:
+        $ref: '#/$defs/Decimal'
+      type: object
+      x-dynamic-map-reason: keyed collection
+  required:
+  - expected_totals
+  type: object
+instruction_hash: 421c1ffdc8f80a6738b778b679cab11eb1569b578cfadb976efe036db26fc9b3
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    BaselineDeviation:
+      additionalProperties: false
+      properties:
+        actual:
+          $ref: '#/$defs/Decimal'
+        baseline_known:
+          $ref: '#/$defs/Bool'
+        currency:
+          $ref: '#/$defs/Id'
+        difference:
+          anyOf:
+          - $ref: '#/$defs/Decimal'
+          - type: 'null'
+      required:
+      - currency
+      - actual
+      - difference
+      - baseline_known
+      type: object
+    Bool:
+      type: boolean
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:monitor.transaction.deviation:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    deviations:
+      items:
+        $ref: '#/$defs/BaselineDeviation'
+      maxItems: 10000
+      type: array
+  required:
+  - deviations
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - source
+  - target
+  - amount
+  - currency
+  - timestamp
+  - event_id
+  - status
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Transaction
+  optional: false
+- fields:
+  - start
+  - end
+  - complete
+  - expected_count
+  - watermark
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DatasetScope
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

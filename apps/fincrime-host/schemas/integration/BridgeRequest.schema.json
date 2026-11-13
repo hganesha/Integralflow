@@ -1,0 +1,195 @@
+{
+  "$defs": {
+    "AssignmentScope": {
+      "additionalProperties": false,
+      "properties": {
+        "bundle_code_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Bundle Code Hash",
+          "type": "string"
+        },
+        "case_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Case Id",
+          "type": "string"
+        },
+        "case_sequence": {
+          "minimum": 0,
+          "title": "Case Sequence",
+          "type": "integer"
+        },
+        "execution_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Execution Id",
+          "type": "string"
+        },
+        "instruction_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Instruction Hash",
+          "type": "string"
+        },
+        "node_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Node Id",
+          "type": "string"
+        },
+        "plan_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Plan Digest",
+          "type": "string"
+        },
+        "profile_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Profile Hash",
+          "type": "string"
+        },
+        "profile_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Profile Id",
+          "type": "string"
+        },
+        "run_fencing_epoch": {
+          "minimum": 1,
+          "title": "Run Fencing Epoch",
+          "type": "integer"
+        },
+        "run_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "skill_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        },
+        "skill_version": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Skill Version",
+          "type": "string"
+        },
+        "snapshot_digest": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Snapshot Digest",
+          "type": "string"
+        },
+        "task_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "task_version": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Task Version",
+          "type": "string"
+        },
+        "tenant_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "work_fencing_epoch": {
+          "minimum": 1,
+          "title": "Work Fencing Epoch",
+          "type": "integer"
+        },
+        "work_item_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Work Item Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "case_id",
+        "run_id",
+        "node_id",
+        "work_item_id",
+        "execution_id",
+        "work_fencing_epoch",
+        "run_fencing_epoch",
+        "case_sequence",
+        "plan_digest",
+        "snapshot_digest",
+        "task_id",
+        "task_version",
+        "profile_id",
+        "profile_hash",
+        "skill_id",
+        "skill_version",
+        "bundle_code_hash",
+        "instruction_hash"
+      ],
+      "title": "AssignmentScope",
+      "type": "object"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "api_version": {
+      "const": "fincrime.ehf/assignment-v1",
+      "default": "fincrime.ehf/assignment-v1",
+      "title": "Api Version",
+      "type": "string"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Parameters",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "scope": {
+      "$ref": "#/$defs/AssignmentScope"
+    }
+  },
+  "required": [
+    "scope",
+    "parameters"
+  ],
+  "title": "BridgeRequest",
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+# Human sourcing decisions for the Document Model Factory (plan §8.3).
+#
+# The sourcing manifest is generated from the document catalog and these reviews:
+#   python scripts/build_sourcing_manifest.py          # regenerate
+#   python scripts/build_sourcing_manifest.py --check  # CI drift check
+#
+# Regeneration never overwrites anything here. A rights decision ("allowed" or "prohibited")
+# needs reviewed_by and reviewed_at; committing samples to the repository needs
+# redistribution: allowed. Status collecting/labeled/ready needs a source whose rights allow a use.
+#
+# Example:
+#   reviews:
+#     certificate_of_incorporation:
+#       status: collecting
+#       sources:
+#         companies_house_documents:
+#           rights:
+#             training_use: allowed
+#             evaluation_use: allowed
+#             redistribution: pending_review
+#             reviewed_by: "<reviewer identity>"
+#             reviewed_at: 2026-11-20
+#           note: "Entity-level filings only; officer and PSC data minimized."
+version: 1
+reviews: {}

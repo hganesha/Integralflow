@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NormalizedAlias": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "normalized": {
+          "$ref": "#/$defs/Text"
+        },
+        "original": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "entity_id",
+        "original",
+        "normalized"
+      ],
+      "type": "object"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:entity.alias.resolve:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "items": {
+        "$ref": "#/$defs/NormalizedAlias"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "aliases"
+  ],
+  "type": "object"
+}

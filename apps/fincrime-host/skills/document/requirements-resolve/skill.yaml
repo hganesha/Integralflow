@@ -1,0 +1,294 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.requirements.resolve
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Resolve the policy's document requirements (each satisfied by any
+  one of its catalog types) against the classified documents present, and list candidate
+  evidence options for the entity package or review event.
+code_hash: 810f364a0aba799bbaf3391b23e84e41f15af1c5a2003e59cea61678842e807b
+composition_type: composite
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills:
+  - document.requirements.evaluate
+deprecation_policy: new version for contract changes
+description: Resolve the policy's document requirements (each satisfied by any one
+  of its catalog types) against the classified documents present, and list candidate
+  evidence options for the entity package or review event.
+effects: read_only
+entrypoint: financial_crime.skills.document_wrappers:requirements_resolve
+evaluation_profile: document.requirements.resolve-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: document-requirements-resolve
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: document.requirements.resolve
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    CatalogCandidate:
+      additionalProperties: false
+      properties:
+        display_name:
+          $ref: '#/$defs/Text'
+        document_type:
+          $ref: '#/$defs/Id'
+        matches:
+          items:
+            $ref: '#/$defs/CatalogMatch'
+          maxItems: 10000
+          type: array
+      required:
+      - document_type
+      - display_name
+      - matches
+      type: object
+    CatalogClassification:
+      additionalProperties: false
+      properties:
+        basis:
+          $ref: '#/$defs/ClassificationBasis'
+        candidates:
+          items:
+            $ref: '#/$defs/CatalogCandidate'
+          maxItems: 10000
+          type: array
+        document_type:
+          $ref: '#/$defs/Id'
+        document_version:
+          $ref: '#/$defs/Id'
+      required:
+      - document_version
+      - document_type
+      - basis
+      - candidates
+      type: object
+    CatalogMatch:
+      additionalProperties: false
+      properties:
+        end:
+          $ref: '#/$defs/PositiveCount'
+        page:
+          $ref: '#/$defs/PositiveCount'
+        quote:
+          $ref: '#/$defs/Text'
+        start:
+          $ref: '#/$defs/Count'
+      required:
+      - page
+      - start
+      - end
+      - quote
+      type: object
+    ClassificationBasis:
+      enum:
+      - title
+      - unique_mention
+      - ambiguous_or_unmatched
+    Count:
+      minimum: 0
+      type: integer
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    PositiveCount:
+      minimum: 1
+      type: integer
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.requirements.resolve:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    classifications:
+      items:
+        $ref: '#/$defs/CatalogClassification'
+      maxItems: 10000
+      minItems: 0
+      type: array
+    event:
+      maxLength: 512
+      type:
+      - string
+      - 'null'
+    package:
+      maxLength: 512
+      type:
+      - string
+      - 'null'
+  required:
+  - classifications
+  - package
+  - event
+  type: object
+instruction_hash: 91c5c694c81e0772eb5adef3d5646753f42c99e49ef14a056c761a15547f352f
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- Catalog/presence/date mapping only. It does not author institution policy, approve
+  exemptions, verify evidence or interpret arbitrary legal requirements. Parent workflows
+  must distinguish missing requirements configuration from approved empty requirements.
+  Current maturity remains implemented_synthetic. Independent evaluation, policy/source
+  approvals and operating qualification are required before production.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    DocumentOption:
+      additionalProperties: false
+      properties:
+        basis:
+          $ref: '#/$defs/Id'
+        display_name:
+          $ref: '#/$defs/Text'
+        document_type:
+          $ref: '#/$defs/Id'
+        key_fields:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - document_type
+      - display_name
+      - key_fields
+      - basis
+      type: object
+    DocumentRequirementStatus:
+      additionalProperties: false
+      properties:
+        any_of:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        description:
+          anyOf:
+          - $ref: '#/$defs/Text'
+          - type: 'null'
+        id:
+          $ref: '#/$defs/Id'
+        satisfied:
+          $ref: '#/$defs/Bool'
+        satisfied_by:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        uncataloged:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - id
+      - description
+      - any_of
+      - uncataloged
+      - satisfied_by
+      - satisfied
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.requirements.resolve:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    missing:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+    options:
+      items:
+        $ref: '#/$defs/DocumentOption'
+      maxItems: 10000
+      type: array
+    present:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+    request_types:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+    requirements:
+      items:
+        $ref: '#/$defs/DocumentRequirementStatus'
+      maxItems: 10000
+      type: array
+    satisfied:
+      type: boolean
+    uncataloged:
+      items:
+        $ref: '#/$defs/Id'
+      maxItems: 10000
+      type: array
+  required:
+  - requirements
+  - present
+  - missing
+  - request_types
+  - satisfied
+  - options
+  - uncataloged
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- extensions
+- freshness_seconds
+- jurisdiction
+- permissions
+- required_document_types
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

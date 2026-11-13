@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AGT-03/04/05 · Taskboard + Skillboard — A02 Identity &amp; Ownership</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .taskcard { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--space-5); }
+  .taskcard h4 { margin-bottom: 6px; }
+  .taskcard ul { margin: 0; padding-left: 18px; font-size: var(--text-sm); }
+  .taskcard li { margin: 3px 0; }
+  .tasks-strip { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-3); margin-bottom: var(--space-4); }
+  .tasks-strip .card { min-height: 92px; display: flex; flex-direction: column; gap: 6px; text-align: left; min-width: 0; }
+  .tasks-strip .card > .mono { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+  .banks6 { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: var(--space-3); }
+  .banks6 .bank { min-height: 112px; }
+  .banks6 .bank__top .num { font-size: var(--text-sm); color: var(--ink-2); }
+  .skills { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-2); }
+  .dep-wrap { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); }
+  .dep-node rect { fill: var(--surface-panel); stroke: var(--line-2); stroke-width: 1.2; }
+  .dep-node.is-sel rect { stroke: var(--graphite-900); stroke-width: 2.2; }
+  .dep-node.is-cond rect { stroke-dasharray: 5 4; }
+  .dep-node.is-gate rect { fill: var(--ochre-100); stroke: var(--ochre-500); }
+  .dep-node.is-dup rect { stroke: var(--coral-500); stroke-width: 1.8; }
+  .dep-node text { font-family: var(--font-mono); font-size: 10.5px; fill: var(--ink-1); }
+  .dep-node .sub { font-family: var(--font-ui); font-size: 10.5px; fill: var(--ink-2); }
+  .dep-edge { fill: none; stroke: var(--graphite-500); stroke-width: 1.4; marker-end: url(#arr); }
+  .dep-edge.cond { stroke-dasharray: 5 4; }
+  .dep-edge.internal { stroke: var(--coral-500); stroke-dasharray: 2 3; }
+  .lane-label { font-family: var(--font-ui); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; fill: var(--ink-3); }
+  .check-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line-1); font-size: var(--text-sm); }
+  .check-row:last-child { border-bottom: 0; }
+  .hs-step { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; }
+  .hs-step .ic { width: 40px; height: 40px; border-radius: 11px; background: var(--surface-panel); display: grid; place-items: center; box-shadow: var(--shadow-1); }
+  .hs-arrow { padding: 6px 0 6px 12px; font-size: var(--text-xs); color: var(--ink-2); display: flex; gap: 8px; align-items: center; }
+  pre.schema { margin: 0; padding: 12px; background: var(--surface-well); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 11.5px; line-height: 1.55; overflow: auto; color: var(--ink-1); }
+</style>
+</head>
+<body data-studio="agents" data-role="Agent Architect" data-user="J. Moreau">
+<div class="app">
+  <header data-shell="chrome"></header>
+
+  <nav class="orient" aria-label="Agent profile">
+    <div class="orient__group">
+      <a class="nav-item" href="agt-01-workforce-atlas.html" data-icon="arrowl" data-icon-class="i--sm"> Workforce Atlas</a>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">A02 · Identity &amp; Ownership</span>
+      <a class="nav-item" href="#">Overview</a>
+      <a class="nav-item" href="#" aria-current="page">Taskboard &amp; Skillboard <span class="count">4 · 19</span></a>
+      <a class="nav-item" href="cxt-01-contextboard.html">Context bindings</a>
+      <a class="nav-item" href="#">Mandate &amp; guardrails</a>
+      <a class="nav-item" href="#">Rehearsal <span class="count">18/20</span></a>
+      <a class="nav-item" href="#">Versions &amp; publish</a>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Mandate</span>
+      <p class="small muted" style="padding:0 8px">Establish entity identity, legal existence, beneficial ownership and control with supporting evidence. <b class="strong" style="color:var(--ink-1)">Excludes</b> screening disposition and risk acceptance.</p>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Accountable roles</span>
+      <div class="row row--wrap" style="padding:0 8px"><span class="chip chip--outline">CDD / KYB Analyst</span><span class="chip chip--outline">EDD Analyst</span></div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <section class="object-header">
+      <div class="object-header__tile" data-icon="bot"></div>
+      <div>
+        <div class="t-engraved">Agent profile · A02</div>
+        <h1>Identity &amp; Ownership</h1>
+        <div class="object-header__meta">
+          <span><span class="t-engraved">version</span> <span class="mono">0.3.0-draft</span> ← 0.2.0</span>
+          <span><span class="t-engraved">purposes</span> onboarding · review</span>
+          <span><span class="t-engraved">bounds</span> 8 steps · 1,000 objects · 64k chars · 30 s</span>
+          <span><span class="t-engraved">owner</span> KYB Platform Team</span>
+        </div>
+      </div>
+      <div class="stack" style="align-items:flex-end">
+        <span class="dim"><span class="t-engraved">Publication</span><span class="status" data-tone="draft">Draft</span></span>
+        <span class="dim"><span class="t-engraved">Evaluation</span><span class="status" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg>18 / 20 golden</span></span>
+      </div>
+    </section>
+
+    <div class="row" style="margin:var(--space-5) 0 var(--space-3)">
+      <h2>Taskboard</h2><span class="muted small">— the score: bounded business objectives</span>
+      <button class="btn btn--sm ml-auto" data-icon="plus" data-icon-class="i--sm"> New TaskSpec</button>
+    </div>
+    <div class="tasks-strip" data-select-group>
+      <button class="card card--interactive" aria-pressed="true"><span class="mono xs muted">task.resolve_corporate_ownership</span><span class="strong">Resolve corporate ownership</span><span class="row"><span class="status" data-tone="attention">Needs evidence · 1</span><span class="xs muted ml-auto">8 skills</span></span></button>
+      <button class="card card--interactive" aria-pressed="false"><span class="mono xs muted">task.verify_legal_existence</span><span class="strong">Verify legal existence</span><span class="row"><span class="status" data-tone="positive">Ready</span><span class="xs muted ml-auto">5 skills</span></span></button>
+      <button class="card card--interactive" aria-pressed="false"><span class="mono xs muted">task.resolve_officers</span><span class="strong">Resolve officers &amp; control</span><span class="row"><span class="status" data-tone="positive">Ready</span><span class="xs muted ml-auto">3 skills</span></span></button>
+      <button class="card card--interactive" aria-pressed="false"><span class="mono xs muted">task.reconcile_ownership_documents</span><span class="strong">Reconcile ownership documents</span><span class="row"><span class="status" data-tone="info">Pending evaluation</span><span class="xs muted ml-auto">5 skills</span></span></button>
+    </div>
+
+    <section class="panel" aria-label="Selected TaskSpec">
+      <div class="row row--between" style="margin-bottom:var(--space-4)">
+        <div><div class="t-engraved">TaskSpec · task.resolve_corporate_ownership · 0.3.0</div><h2 style="margin-top:2px">Establish beneficial ownership and controlling parties with supporting evidence.</h2></div>
+      </div>
+      <div class="taskcard">
+        <div><h4>Canonical outputs</h4><ul><li><span class="mono">OwnershipGraph</span> incl. <span class="mono">unresolved[]</span></li><li><span class="mono">Finding</span> — beneficial ownership</li><li><span class="mono">BeneficialOwner</span> (candidate vs verified)</li><li><span class="mono">Evidence</span> references</li></ul></div>
+        <div><h4>Completion criteria</h4><ul><li>Every path ≥ <span class="mono">ownership_threshold</span> resolved or listed as gap</li><li>Each UBO has a <span class="mono">VerificationRecord</span></li><li>No cycle left unreported</li></ul></div>
+        <div><h4>Failure &amp; interrupts</h4><ul><li><span class="mono">NEEDS_EVIDENCE</span> → request documents</li><li>Material unresolved path → <span class="mono">decision.human.review</span></li><li>Unknown ≠ pass</li></ul></div>
+      </div>
+    </section>
+
+    <div class="row" style="margin:var(--space-6) 0 var(--space-3)">
+      <h2>Skillboard</h2><span class="muted small">— the instrument: six cognitive banks over the catalog's 20 domains</span>
+      <div class="segmented segmented--sm ml-auto" role="tablist" aria-label="Disclosure level">
+        <button role="tab" aria-selected="false">Play</button><button role="tab" aria-selected="true">Tune</button><button role="tab" aria-selected="false">Engineer</button>
+      </div>
+    </div>
+    <div class="banks6" data-select-group data-cols="6" id="banks6"></div>
+
+    <div class="grid" style="grid-template-columns: minmax(0, 1fr); margin-top: var(--space-4); align-items: start; gap: var(--space-5);">
+      <section>
+        <div class="row" style="margin-bottom:var(--space-2)"><h3 id="bank-title">Relate skills</h3><span class="muted small" id="bank-domains">ownership · network</span></div>
+        <div class="skills" id="skills" data-select-group data-select-attr="aria-selected"></div>
+        <div class="legend" style="margin-top:var(--space-3)">
+          <span><span class="binding" data-kind="required">Required</span></span>
+          <span><span class="binding" data-kind="conditional">Conditional</span></span>
+          <span><span class="binding" data-kind="eligible">Eligible</span></span>
+          <span><span class="binding" data-kind="composed">Composed</span></span>
+        </div>
+      </section>
+      <section class="dep-wrap" aria-label="Dependency map">
+        <div class="row row--between" style="margin-bottom:var(--space-2)"><h3>Dependency map</h3>
+          <div class="segmented segmented--sm" data-view-switch="dep"><button data-view="graph" aria-pressed="true">Graph</button><button data-view="table" aria-pressed="false">Table</button></div></div>
+        <div data-view-of="dep" data-view-name="graph">
+        <svg class="graph" viewBox="0 0 640 380" style="max-width:900px;margin:0 auto" role="img" aria-labelledby="dep-t dep-d">
+          <title id="dep-t">Task dependency map for task.resolve_corporate_ownership</title>
+          <desc id="dep-d">entity.resolve then registry.company.verify then ownership.graph.build; graph.expand conditional; interest.calculate and control.resolve in parallel; ubo.resolve; ubo.verify; human review conditional. ubo.resolve internally re-computes interest math, flagged as possible duplicate.</desc>
+          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#5E6560"/></marker></defs>
+          <text class="lane-label" x="8" y="18">Identify</text><text class="lane-label" x="190" y="18">Relate</text><text class="lane-label" x="520" y="18">Govern</text>
+          <path class="dep-edge" d="M120 56 C 140 56, 140 56, 150 56"/>
+          <g class="dep-node"><rect x="8" y="36" width="112" height="40" rx="8"/><text x="18" y="54">entity.resolve</text><text class="sub" x="18" y="68">required</text></g>
+          <g class="dep-node"><rect x="150" y="36" width="168" height="40" rx="8"/><text x="160" y="54">registry.company.verify</text><text class="sub" x="160" y="68">required</text></g>
+          <path class="dep-edge" d="M234 76 L 234 104"/>
+          <g class="dep-node"><rect x="150" y="106" width="168" height="40" rx="8"/><text x="160" y="124">ownership.graph.build</text><text class="sub" x="160" y="138">required</text></g>
+          <path class="dep-edge cond" d="M318 126 L 352 126"/>
+          <g class="dep-node is-cond"><rect x="354" y="106" width="168" height="40" rx="8"/><text x="364" y="124">ownership.graph.expand</text><text class="sub" x="364" y="138">conditional · depth &lt; complete</text></g>
+          <path class="dep-edge" d="M234 146 C 234 170, 150 170, 150 186"/>
+          <path class="dep-edge" d="M234 146 C 234 170, 330 170, 330 186"/>
+          <g class="dep-node is-dup"><rect x="56" y="188" width="192" height="40" rx="8"/><text x="66" y="206">ownership.interest.calculate</text><text class="sub" x="66" y="220">required · parallel</text></g>
+          <g class="dep-node"><rect x="262" y="188" width="180" height="40" rx="8"/><text x="272" y="206">ownership.control.resolve</text><text class="sub" x="272" y="220">required · parallel</text></g>
+          <path class="dep-edge" d="M158 228 C 158 250, 234 250, 234 262"/>
+          <path class="dep-edge" d="M344 228 C 344 250, 250 250, 250 262"/>
+          <g class="dep-node is-sel"><rect x="150" y="264" width="168" height="40" rx="8"/><text x="160" y="282">ownership.ubo.resolve</text><text class="sub" x="160" y="296">required · join</text></g>
+          <path class="dep-edge internal" d="M150 284 C 30 284, 30 214, 54 210"/>
+          <text class="sub" x="14" y="258" style="font-family:var(--font-ui);font-size:10.5px;fill:#A3412F">re-computes internally?</text>
+          <path class="dep-edge" d="M318 284 L 352 284"/>
+          <g class="dep-node"><rect x="354" y="264" width="152" height="40" rx="8"/><text x="364" y="282">ownership.ubo.verify</text><text class="sub" x="364" y="296">required</text></g>
+          <path class="dep-edge cond" d="M506 284 C 540 284, 540 330, 520 336"/>
+          <g class="dep-node is-gate is-cond"><rect x="380" y="324" width="160" height="40" rx="8"/><text x="390" y="342">decision.human.review</text><text class="sub" x="390" y="356">human gate · if material gap</text></g>
+        </svg>
+        </div>
+        <div data-view-of="dep" data-view-name="table" hidden>
+          <table class="table"><thead><tr><th>Skill</th><th>Binding</th><th>Waits for</th><th>Mode</th></tr></thead><tbody>
+          <tr><td class="mono">entity.resolve</td><td>Required</td><td>—</td><td>sequential</td></tr>
+          <tr><td class="mono">registry.company.verify</td><td>Required</td><td>entity.resolve</td><td>sequential</td></tr>
+          <tr><td class="mono">ownership.graph.build</td><td>Required</td><td>registry.company.verify</td><td>sequential</td></tr>
+          <tr><td class="mono">ownership.graph.expand</td><td>Conditional</td><td>graph.build (if incomplete)</td><td>conditional</td></tr>
+          <tr><td class="mono">ownership.interest.calculate</td><td>Required</td><td>graph.build</td><td>parallel</td></tr>
+          <tr><td class="mono">ownership.control.resolve</td><td>Required</td><td>graph.build</td><td>parallel</td></tr>
+          <tr><td class="mono">ownership.ubo.resolve</td><td>Required</td><td>interest.calculate + control.resolve</td><td>join</td></tr>
+          <tr><td class="mono">ownership.ubo.verify</td><td>Required</td><td>ubo.resolve</td><td>sequential</td></tr>
+          <tr><td class="mono">decision.human.review</td><td>Conditional (gate)</td><td>ubo.verify, if material gap</td><td>interrupt</td></tr>
+          </tbody></table>
+        </div>
+        <div class="disclosure" data-tone="attention" style="margin-top:var(--space-3)"><svg class="i"><use href="#i-alert"/></svg><div><strong>Possible duplicate execution.</strong> The <span class="mono">ownership.ubo.resolve</span> instructions say it composes graph expansion, interest math and control tests, but its manifest declares <span class="mono">composition_type: atomic</span> and <span class="mono">dependencies.skills: []</span>. The compiler cannot prove whether the separate <span class="mono">interest.calculate</span> step is redundant. <a href="#">Open contract issue</a></div></div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="inspector" aria-label="Skill inspector">
+    <div class="inspector__head">
+      <div class="t-engraved">Selected skill · read_only · code</div>
+      <h2>Resolve Beneficial Owners</h2>
+      <div class="row row--wrap" style="margin-top:6px"><span class="id">ownership.ubo.resolve</span><span class="id">0.2.0</span><span class="status" data-tone="draft" title="maturity">implemented_synthetic</span></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Skill inspector">
+      <button role="tab" aria-selected="false" aria-controls="p-contract" id="tb-contract">Contract</button>
+      <button role="tab" aria-selected="true" aria-controls="p-context" id="tb-context">Context</button>
+      <button role="tab" aria-selected="false" aria-controls="p-deps" id="tb-deps">Deps</button>
+      <button role="tab" aria-selected="false" aria-controls="p-guard" id="tb-guard">Guardrails</button>
+      <button role="tab" aria-selected="false" aria-controls="p-eval" id="tb-eval">Eval</button>
+      <button role="tab" aria-selected="false" aria-controls="p-trace" id="tb-trace">Trace</button>
+    </div>
+
+    <div id="p-context" role="tabpanel" aria-labelledby="tb-context">
+      <div class="inspector__section">
+        <span class="t-engraved">Skill → Context handshake</span>
+        <div class="card card--well" style="padding:12px">
+          <div class="hs-step"><span class="ic" data-icon="sliders"></span><div><div class="strong small">Agent Skillboard</div><div class="xs muted">Required skill in task.resolve_corporate_ownership</div></div></div>
+          <div class="hs-arrow"><svg class="i i--sm"><use href="#i-arrowd"/></svg>Declare canonical context contract</div>
+          <div class="hs-step"><span class="ic" data-icon="stack"></span><div><div class="strong small">Contextboard</div><div class="xs muted">Resolve authorized graph, evidence &amp; policy snapshots</div></div></div>
+          <div class="hs-arrow"><svg class="i i--sm"><use href="#i-arrowd"/></svg>Hydrate task-scoped ContextManifest</div>
+          <div class="hs-step"><span class="ic" data-icon="shieldcheck"></span><div><div class="strong small">Policy &amp; execution plane</div><div class="xs muted">Authorize, resolve implementation, execute, validate</div></div></div>
+        </div>
+      </div>
+      <div class="inspector__section">
+        <div class="row row--between" style="margin-bottom:8px"><span class="t-engraved" style="margin:0">Readiness · golden case KYB-G-07</span><button class="btn btn--sm" data-icon="play" data-icon-class="i--sm"> Dry run</button></div>
+        <div class="check-row"><span class="dot" data-tone="positive"></span><span><span class="mono">OwnershipInterest</span> owner, owned, interest · min 1</span><span class="status" data-tone="positive">Met · 6</span></div>
+        <div class="check-row"><span class="dot" data-tone="positive"></span><span><span class="mono">Entity</span> entity_type · min 1</span><span class="status" data-tone="positive">Met · 5</span></div>
+        <div class="check-row"><span class="dot"></span><span><span class="mono">ControlRight</span> controller, controlled, basis, verified · optional</span><span class="status" data-tone="neutral">0 found</span></div>
+        <div class="check-row"><span class="dot" data-tone="attention"></span><span>Policy slice <span class="mono">ownership_threshold, control_bases</span></span><span class="status" data-tone="positive">Pinned 0.1.0</span></div>
+        <div class="check-row"><span class="dot" data-tone="info"></span><span>Provider authorization</span><span class="xs muted">Runtime check</span></div>
+        <div class="check-row"><span class="dot" data-tone="blocking"></span><span>Unresolved ownership paths</span><span class="xs" style="color:var(--coral-700)">Must be surfaced</span></div>
+        <p class="xs muted" style="margin-top:10px">No single readiness percentage: each requirement is met, missing, or checked at runtime.</p>
+      </div>
+    </div>
+
+    <div id="p-contract" role="tabpanel" aria-labelledby="tb-contract" hidden>
+      <div class="inspector__section"><span class="t-engraved">Input · urn:…:ownership.ubo.resolve:input:0.2.0</span>
+<pre class="schema">{
+  "target": string  <span class="subtle">// required, minLength 1</span>
+}  <span class="subtle">additionalProperties: false</span></pre></div>
+      <div class="inspector__section"><span class="t-engraved">Output</span>
+<pre class="schema">{
+  "calculation": {
+    "interests": { [id]: Decimal },
+    "paths":  [{ owner, path[], interest }],
+    "cycles": [[id]],
+    "unresolved": [{ node, reason, path?, interest? }]
+  },
+  "candidates": [{ entity_id, interest|null, verified }]
+}</pre></div>
+      <div class="inspector__section"><dl class="kv"><dt>Business outcome</dt><dd>Resolve individual UBO candidates using configured interest and control rules.</dd><dt>Entrypoint</dt><dd class="mono xs">financial_crime.skills.ownership:ubo_resolve</dd><dt>Idempotency</dt><dd class="xs">tenant+actor+key, request-hash conflict</dd><dt>Timeout</dt><dd>30 s · 1 attempt</dd></dl></div>
+    </div>
+    <div id="p-deps" role="tabpanel" aria-labelledby="tb-deps" hidden>
+      <div class="inspector__section"><span class="t-engraved">Declared (manifest)</span><dl class="kv"><dt>composition_type</dt><dd class="mono">atomic</dd><dt>skills</dt><dd class="mono">[]</dd><dt>capabilities</dt><dd class="mono">[]</dd><dt>libraries</dt><dd class="mono xs">financial-crime-skills==0.2.0</dd></dl></div>
+      <div class="inspector__section"><span class="t-engraved">Described (SKILL.md procedure)</span><p class="small">“Compose graph expansion, interest math, control tests and threshold policy into candidate UBO findings.”</p><div class="disclosure" data-tone="attention" style="margin-top:10px"><div><strong>Declaration gap.</strong> Declare internal operations so the compiler can deduplicate.</div></div></div>
+    </div>
+    <div id="p-guard" role="tabpanel" aria-labelledby="tb-guard" hidden>
+      <div class="inspector__section"><dl class="kv"><dt>Effects</dt><dd><span class="status" data-tone="positive">read_only · L0</span></dd><dt>Authorization</dt><dd class="mono xs">skill:ownership.ubo.resolve</dd><dt>Policy gates</dt><dd class="xs">unknown ≠ pass · no automatic consequential decision</dd><dt>Preconditions</dt><dd class="xs">authorized purpose · pinned policy · satisfied required context</dd><dt>Interrupts</dt><dd class="xs">authorized human task or consequential action</dd><dt>Classification</dt><dd>internal</dd><dt>Jurisdiction</dt><dd class="mono xs">synthetic-neutral</dd></dl></div>
+      <div class="inspector__section"><span class="t-engraved">Failure codes</span><div class="row row--wrap"><span class="id">INPUT_INVALID</span><span class="id">CONTEXT_MISSING</span><span class="id">CONTEXT_STALE</span><span class="id">ACCESS_DENIED</span><span class="id">CONTROL_FAILED</span><span class="id">SOURCE_UNAVAILABLE</span></div></div>
+    </div>
+    <div id="p-eval" role="tabpanel" aria-labelledby="tb-eval" hidden>
+      <div class="inspector__section"><dl class="kv"><dt>Profile</dt><dd class="mono xs">ownership.ubo.resolve-synthetic-v1</dd><dt>Golden cases</dt><dd class="num">9 / 10 pass</dd><dt>Failing</dt><dd class="mono xs">KYB-G-12 · cyclic trust</dd></dl>
+      <div class="disclosure" style="margin-top:10px"><div>Synthetic contract results — <strong>not</strong> measured accuracy on institution data.</div></div></div>
+    </div>
+    <div id="p-trace" role="tabpanel" aria-labelledby="tb-trace" hidden>
+      <div class="inspector__section"><ul class="stream">
+        <li data-state="completed"><span class="stream__mark"></span><span>Rehearsal KYB-G-07 · NEEDS_REVIEW</span><span class="xs muted">412 ms</span><span class="stream__meta">exec 7c1e…a9 · ctx 9c41…e07b</span></li>
+        <li data-state="failed"><span class="stream__mark"></span><span>Rehearsal KYB-G-12 · CONTROL_FAILED</span><span class="xs muted">88 ms</span><span class="stream__meta">exec 02fd…41</span></li>
+      </ul><a class="btn btn--sm" href="asr-02-flight-recorder.html" style="margin-top:8px">Open in Flight Recorder</a></div>
+    </div>
+
+    <div class="inspector__section">
+      <div class="row"><a class="btn btn--sm" href="cxt-01-contextboard.html">Explore binding <svg class="i i--sm"><use href="#i-external"/></svg></a><button class="btn btn--sm btn--quiet">Compare 0.2.0</button></div>
+    </div>
+  </aside>
+
+  <footer class="rail" data-expanded="false">
+    <div class="rail__bar">
+      <span class="t-engraved"><span data-icon="activity" data-icon-class="i--sm"></span> Validation</span>
+      <div class="rail__events">
+        <span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>schema ok · 8/8</span>
+        <span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>context resolvable</span>
+        <span class="evt" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg>dedup unproven · ubo.resolve</span>
+        <span class="evt" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg>eval 18/20</span>
+        <span class="evt">publish blocked → resolve 2 items</span>
+      </div>
+      <button class="btn btn--sm btn--primary" disabled>Propose publication</button>
+    </div>
+  </footer>
+</div>
+<script src="../assets/shell.js"></script>
+<script>
+const BANKS = [
+  { id:"identify", name:"Identify", icon:"fingerprint", domains:"entity · party · document · registry", a:5, t:5, skills:[["Resolve Entity","entity.resolve","required"],["Match Entities","entity.match","eligible"],["Verify Company","registry.company.verify","required"],["Resolve Directors","registry.directors.resolve","conditional"],["Extract Document Fields","document.fields.extract","eligible"]]},
+  { id:"relate", name:"Relate", icon:"sitemap", domains:"ownership · network", a:8, t:8, skills:[["Build Ownership Graph","ownership.graph.build","required"],["Expand Ownership Graph","ownership.graph.expand","conditional"],["Calculate Interests","ownership.interest.calculate","required"],["Resolve Control","ownership.control.resolve","required"],["Resolve Beneficial Owners","ownership.ubo.resolve","required"],["Verify Beneficial Owners","ownership.ubo.verify","required"],["Detect Circular Ownership","ownership.circular.detect","conditional"],["Detect Nominees","ownership.nominee.detect","eligible"]]},
+  { id:"detect", name:"Detect", icon:"scan", domains:"screening · transaction · aml · alert · fraud", a:1, t:2, skills:[["Evaluate Sanctions Ownership","screening.sanctions.ownership.evaluate","eligible"],["Detect Shell Company","aml.shell_company.detect","unassigned"]]},
+  { id:"assess", name:"Assess", icon:"gauge", domains:"risk · edd", a:0, t:1, skills:[["Assess Structure Complexity","ownership.structure.complexity","eligible"]]},
+  { id:"investigate", name:"Investigate", icon:"searchcheck", domains:"investigation · evidence", a:2, t:2, skills:[["Attach Provenance","evidence.provenance.attach","required"],["Resolve Conflicts","evidence.conflicts.resolve","required"]]},
+  { id:"govern", name:"Govern", icon:"shield", domains:"case · decision · monitor · regulatory · quality", a:1, t:3, skills:[["Human Review","decision.human.review","conditional"],["Verify Findings","quality.findings.verify","eligible"],["Route Approval","decision.approval.route","unassigned"]]}
+];
+let cur = "relate";
+const b6 = document.getElementById("banks6");
+b6.innerHTML = BANKS.map(b => `<button class="bank" aria-pressed="${b.id===cur}" data-id="${b.id}">
+  <span class="bank__top">${icon(b.icon,"i--lg")}<span class="num">${b.a}/${b.t}</span></span>
+  <span class="bank__name">${b.name}</span>
+  <span class="meter">${Array.from({length:b.t},(_,i)=>`<i class="seg" data-state="${i<b.a?"ready":""}"></i>`).join("")}</span></button>`).join("");
+function renderSkills() {
+  const b = BANKS.find(x => x.id === cur);
+  document.getElementById("bank-title").textContent = b.name + " skills";
+  document.getElementById("bank-domains").textContent = b.domains;
+  document.getElementById("skills").innerHTML = b.skills.map(s => `<button class="key" aria-selected="${s[1]==="ownership.ubo.resolve"}">
+    <span class="key__icon">${icon(s[2]==="unassigned"?"plus":"checkcircle")}</span>
+    <span class="key__name">${s[0]}</span><span class="key__id">${s[1]}</span>
+    <span class="key__aside"><span class="binding" data-kind="${s[2]}">${s[2][0].toUpperCase()+s[2].slice(1).replace("Unassigned","Not assigned")}</span></span></button>`).join("");
+  document.querySelectorAll("#skills .key").forEach(k => k.addEventListener("click", () => document.querySelectorAll("#skills .key").forEach(x => x.setAttribute("aria-selected", x===k))));
+}
+b6.querySelectorAll(".bank").forEach(x => x.addEventListener("click", () => { cur = x.dataset.id; b6.querySelectorAll(".bank").forEach(y => y.setAttribute("aria-pressed", y===x)); renderSkills(); }));
+renderSkills();
+</script>
+</body>
+</html>

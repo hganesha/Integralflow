@@ -1,0 +1,112 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "OwnershipInterestRow_interest_owned_owner": {
+      "additionalProperties": false,
+      "properties": {
+        "_ref": {
+          "$ref": "#/$defs/Ref"
+        },
+        "_synthetic": {
+          "$ref": "#/$defs/Bool"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "interest": {
+          "$ref": "#/$defs/Fraction"
+        },
+        "owned": {
+          "$ref": "#/$defs/Id"
+        },
+        "owner": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "owned",
+        "interest",
+        "_ref",
+        "_synthetic"
+      ],
+      "type": "object"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:ownership.graph.expand:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/OwnershipInterestRow_interest_owned_owner"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "frontier": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "nodes",
+    "edges",
+    "frontier"
+  ],
+  "type": "object"
+}

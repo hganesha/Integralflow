@@ -1,0 +1,114 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "corpus"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "entity_id": "e-corvane",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h05.entity.corvane"
+        },
+        {
+          "jurisdiction": "AE",
+          "scheme": "company_registration",
+          "value": "SYN-AE-FZ-208841"
+        }
+      ],
+      "jurisdiction": "AE",
+      "names": [
+        {
+          "full": "Corvane Trading FZE",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h05.entity.corvane"
+      ]
+    },
+    {
+      "entity_id": "e-orson",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h05.entity.orson"
+        }
+      ],
+      "names": [
+        {
+          "full": "Orson Pemberton",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h05.entity.orson"
+      ]
+    },
+    {
+      "entity_id": "e-yara",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h05.entity.yara"
+        }
+      ],
+      "names": [
+        {
+          "full": "Yara Zeller",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h05.entity.yara"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-orson",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 70.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-01",
+      "to_entity_id": "e-corvane",
+      "type": "owns",
+      "valid_from": "2022-01-17"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-yara",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 30.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-02",
+      "to_entity_id": "e-corvane",
+      "type": "owns",
+      "valid_from": "2022-01-17"
+    }
+  ],
+  "result": {
+    "completeness": "complete",
+    "kind": "ownership",
+    "root_entity_id": "e-corvane"
+  },
+  "result_id": "corpus-ownership-h05",
+  "subject_entity_id": "e-corvane"
+}

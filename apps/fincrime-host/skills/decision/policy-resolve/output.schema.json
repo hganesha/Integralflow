@@ -1,0 +1,30 @@
+{
+  "$defs": {
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:decision.policy.resolve:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "policy_hash": {
+      "$ref": "#/$defs/Hash"
+    },
+    "policy_id": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "synthetic": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_hash",
+    "synthetic"
+  ],
+  "type": "object"
+}

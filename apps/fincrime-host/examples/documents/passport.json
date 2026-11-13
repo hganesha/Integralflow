@@ -1,0 +1,184 @@
+{
+  "expected": {
+    "issues": [],
+    "promotion_allowed": false,
+    "review_required": true,
+    "valid": true
+  },
+  "pages": [
+    {
+      "document_version": "synthetic-version-1",
+      "page_id": "synthetic-page-1",
+      "text": "SYNTHETIC PASSPORT\nName: Alex Example\nPassport number: SYN-000042\nBirth date: 1987-04-12\nExpiry: 2030-05-31\n"
+    }
+  ],
+  "qualification": "contract_and_source_span_example_not_extractor_evaluation",
+  "result": {
+    "contract_hash": "1224b6b6e23170cd92b0ccf29fb2c8817254d9c3ce90300e6cc13f43f75ae68c",
+    "document_type": "passport",
+    "document_version": "synthetic-version-1",
+    "extracted_fields": {
+      "date_of_birth": "1987-04-12",
+      "document_number": "SYN-000042",
+      "document_title": null,
+      "expiry_date": "2030-05-31",
+      "family_name": null,
+      "given_names": null,
+      "identity_number": null,
+      "identity_type": null,
+      "issue_date": null,
+      "issuer_name": null,
+      "issuing_jurisdiction": null,
+      "nationalities": null,
+      "person_name": "Alex Example",
+      "place_of_birth": null,
+      "previous_names": null,
+      "signatures": null
+    },
+    "observations": [
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_title",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_number",
+        "spans": [
+          {
+            "end": 65,
+            "page_id": "synthetic-page-1",
+            "quote": "SYN-000042",
+            "start": 55
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuer_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issue_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/person_name",
+        "spans": [
+          {
+            "end": 37,
+            "page_id": "synthetic-page-1",
+            "quote": "Alex Example",
+            "start": 25
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/given_names",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/family_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/date_of_birth",
+        "spans": [
+          {
+            "end": 88,
+            "page_id": "synthetic-page-1",
+            "quote": "1987-04-12",
+            "start": 78
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/place_of_birth",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/nationalities",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/identity_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/identity_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuing_jurisdiction",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/expiry_date",
+        "spans": [
+          {
+            "end": 107,
+            "page_id": "synthetic-page-1",
+            "quote": "2030-05-31",
+            "start": 97
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/previous_names",
+        "spans": [],
+        "status": "not_present"
+      }
+    ],
+    "profile_version": "0.1.0",
+    "source_digest": "68643b1505a6a5893ffd9af1e8d452b8ff92dd3cb6a484c8d7ee726cd37ad31e"
+  },
+  "synthetic": true
+}

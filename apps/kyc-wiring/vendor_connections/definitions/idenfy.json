@@ -1,0 +1,42 @@
+{
+  "provider_id": "idenfy",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://ivs.idenfy.com"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "API_KEY",
+      "API_SECRET"
+    ]
+  },
+  "sources": [
+    "https://documentation.idenfy.com/kyc/generate-token"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "generate_token": {
+      "method": "POST",
+      "path": "/api/v2/token",
+      "required_body": [
+        "clientId"
+      ],
+      "required_query": [],
+      "body_example": {
+        "clientId": "YOUR_USER_ID",
+        "firstName": "YOUR_FIRST_NAME",
+        "lastName": "YOUR_LAST_NAME"
+      },
+      "content": "json",
+      "semantics": "session",
+      "status_pointer": null,
+      "resource_pointer": "/scanRef",
+      "source": "https://documentation.idenfy.com/kyc/generate-token",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

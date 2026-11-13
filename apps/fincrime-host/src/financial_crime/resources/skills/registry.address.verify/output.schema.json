@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "AddressMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "matched": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "id",
+        "matched"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:registry.address.verify:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "matches": {
+      "items": {
+        "$ref": "#/$defs/AddressMatch"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "matches"
+  ],
+  "type": "object"
+}

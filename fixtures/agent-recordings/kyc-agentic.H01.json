@@ -1,0 +1,4913 @@
+{
+ "apiVersion": "ehf.agent-flow-recording.v1",
+ "flow": "kyc-agentic",
+ "party": "H01",
+ "planDigest": "c33c4ad71dbef1ed98d5e48cbeb20e53b8245af20cbcd9dd8ee5e99a9e575236",
+ "profiles": "config/model-profiles.claude-openrouter.json",
+ "recordedAt": "2026-11-09T21:01:44.796Z",
+ "skills": [
+  {
+   "skillId": "party.profile.build",
+   "digest": "0e54938ade4eed4eb72b2c98ea844c0e82c40e62248244c3776474cfee0875a0",
+   "run": {
+    "result": {
+     "execution_id": "126ae89b-44af-4fa6-9564-bb86574e0c58",
+     "skill_id": "party.profile.build",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "profiles": [
+       {
+        "entity_id": "h01.entity.halvorsen",
+        "legal_name": "Ingrid Halvorsen",
+        "party_id": "h01.party.halvorsen",
+        "role": "customer"
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "126ae89b-44af-4fa6-9564-bb86574e0c58",
+       "version_id": "3f7c5afd-e967-4d43-90b7-d46b7bae1bc3",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Party",
+       "object_id": "h01.party.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "d3f9ce9bf0d97049d8bbc1e1e1ca62e47131b20f1aa5f4cebce5e9aa1e2affad",
+     "trace_ref": "0c2d64bb-32be-45ec-81f6-e46588e6959b",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "6c599b56ed0f8bc49d1baabd159d02b8a8c3e31d793bf31622fdf8e1e00319d8",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "d3f9ce9bf0d97049d8bbc1e1e1ca62e47131b20f1aa5f4cebce5e9aa1e2affad",
+      "requirements_hash": "b13130423ce00e5d8d109f89571532b1a8d40e39d5f1bae0990c439ca3b1249d",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 84,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "party.type.classify",
+   "digest": "a379a80c865a778801f915e57538374e110b312cd036069a4b1b4c005695b87b",
+   "run": {
+    "result": {
+     "execution_id": "d7cf1164-80f3-455a-9aef-8f0b4b2e592e",
+     "skill_id": "party.type.classify",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "classifications": [
+       {
+        "id": "h01.party.halvorsen",
+        "type": "KYC"
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "d7cf1164-80f3-455a-9aef-8f0b4b2e592e",
+       "version_id": "ec66eb77-4531-40ca-80f3-8c37a2a5682c",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Party",
+       "object_id": "h01.party.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "ea927fa7c81321a881143ea0549668ce51366a4e4ac2e3574003810e08a23f6e",
+     "trace_ref": "bf5ce313-33eb-4185-adc5-6d3bd43a82dd",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "a28b30382ee9ed22e4f08acd2a8b3ba5b89af0fe4c3655fde3dce5d61f592eca",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "ea927fa7c81321a881143ea0549668ce51366a4e4ac2e3574003810e08a23f6e",
+      "requirements_hash": "3e4a496fff2b11948c1617fa1eb85a8e1ba38475c6a84fcd1d4bd40d6a6acb24",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 43,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "party.profile.completeness",
+   "digest": "0ad63a5e8960506689e0dff7d58c2b5e30273b448cf3bc14dc0a9450eda7ae9a",
+   "run": {
+    "result": {
+     "execution_id": "f0a12480-58dd-4c2a-b24d-da64565e6819",
+     "skill_id": "party.profile.completeness",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "profiles": [
+       {
+        "complete": false,
+        "id": "h01.party.halvorsen",
+        "missing": [
+         "business_purpose"
+        ]
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "f0a12480-58dd-4c2a-b24d-da64565e6819",
+       "version_id": "05ab39a6-4f35-4972-9d25-94eba0247fcb",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Party",
+       "object_id": "h01.party.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "cf8984ac5e0dfd265e5695b44d20b56c84ccc28d2bee424f27784fe5e3044d64",
+     "trace_ref": "621a88a5-67dd-41f0-82db-fca0ee1d7e46",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "a80f57e8c070496ee563fa4bbc8fbff75b8d13d622676c298f7c543e88447217",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "cf8984ac5e0dfd265e5695b44d20b56c84ccc28d2bee424f27784fe5e3044d64",
+      "requirements_hash": "e48a9f2e70a80abe42a615374fd6b801f5f0c5308e0fe79d1182ed7cb47d20ed",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 64,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "document.authenticity.assess",
+   "digest": "6c453bcf835f8a89b692faec8be28ab966a2b288e01fb544612efae6b1c9647b",
+   "run": {
+    "result": {
+     "execution_id": "cb1604b5-58af-4876-81a5-c947354e8fe2",
+     "skill_id": "document.authenticity.assess",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "6d8fbb5f-1002-4e3b-89b8-8524bb00f6bb",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"DocumentPage\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "fraud.document.tamper.detect",
+   "digest": "9aef557a0a639de8c276c0fcb10d746e526847675f0d1214b0fd30245bbcb266",
+   "run": {
+    "result": {
+     "execution_id": "80d47b64-7540-4bf0-a808-d67e9f6b0e79",
+     "skill_id": "fraud.document.tamper.detect",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "d835a4d9-d8e6-4a22-8e5c-efe99d47b28b",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"DocumentPage\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "document.classify.catalog",
+   "digest": "1c5192286f9c46ef2258cd3b3e3652cb2245b5c595c0c19394baeb2a04d97aaa",
+   "run": {
+    "result": {
+     "execution_id": "def4f9a4-041a-419d-8507-26f09d7293ad",
+     "skill_id": "document.classify.catalog",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "10ba4ea1-8ea8-46bd-9dbc-21f571ab6f5a",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"DocumentPage\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "document.validity.assess",
+   "digest": "dcab4851812c7e3997d3663e2e9ccc2d6e400be74d4eb1b639f7905233303b12",
+   "run": {
+    "result": {
+     "execution_id": "492a3f45-2da6-4105-aa2e-a8909d159616",
+     "skill_id": "document.validity.assess",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "623c61ed-5baf-4013-b03a-c7ddae49b48d",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"ExtractedAssertion\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "document.consistency.assess",
+   "digest": "d7e72c6188f1b7c90125d21af11354403772730f408617ff54ed9cf4b5a2b0d2",
+   "run": {
+    "result": {
+     "execution_id": "89b3494a-ec6b-4cd9-af35-248ac04b2c62",
+     "skill_id": "document.consistency.assess",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "c39daefe-06f0-4c7a-967d-779a6592f92b",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"ExtractedAssertion\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "entity.resolve",
+   "digest": "c79cd1dcaec55c174ceba1d8bab83fea7179fe80097453422da0b4bfba7679a3",
+   "run": {
+    "result": {
+     "execution_id": "a5e56fa0-885c-4853-b8c4-f41b36185568",
+     "skill_id": "entity.resolve",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "entity_id": "h01.entity.halvorsen",
+      "candidates": [
+       {
+        "entity_id": "h01.entity.halvorsen",
+        "score": 1,
+        "shared_identifiers": [
+         "SPECIMEN-H01-DL-0001",
+         "SPECIMEN-H01-PP-0001"
+        ],
+        "identifier_conflict": false,
+        "name_score": 1,
+        "verified_match": true
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "a5e56fa0-885c-4853-b8c4-f41b36185568",
+       "version_id": "3a77a014-782b-41fd-8318-5ed44029d805",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Entity",
+       "object_id": "h01.entity.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "2436fc51b273dd3dc38fb1181470110986e299e1cdc77474be148ed2de40a52d",
+     "trace_ref": "0e681671-93a6-432d-ae7e-a959d4b4ab3d",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "5cea29f738a5780d56714ba67881ceb89f4564c3d828f51e17c0a55b140870e1",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "2436fc51b273dd3dc38fb1181470110986e299e1cdc77474be148ed2de40a52d",
+      "requirements_hash": "c433c80b54801a3cf2ea8bbbc1fa5151ec005e5985a50d56db708bce3ed41738",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 45,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "entity.identity.verify",
+   "digest": "09aa35b1b704fad2d50b18c1e3b115d1a2a462ae83ea1f69485f5edd7fd01dfe",
+   "run": {
+    "result": {
+     "execution_id": "f9f6c119-e8ff-41a5-ac5e-add83d59d26a",
+     "skill_id": "entity.identity.verify",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "verifications": [
+       {
+        "basis": {
+         "object_id": "h01.verificationrecord.halvorsen",
+         "object_type": "VerificationRecord",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "subject": "h01.entity.halvorsen",
+        "verified": false
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "f9f6c119-e8ff-41a5-ac5e-add83d59d26a",
+       "version_id": "d74fa920-12bd-4d92-80b8-d7ac2b257d1b",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "VerificationRecord",
+       "object_id": "h01.verificationrecord.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "6a2d7b5c35f5a63a7c69a04cf4aaeff09e581d75aa43ad792c92db3e1f280922",
+     "trace_ref": "c054cd8d-2c91-4208-acaa-d11c3e52e063",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "6b0e25edc6026ffc0ac5a0fec1c7ad616b128902be5b4fb59fc76535825bd9b9",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "6a2d7b5c35f5a63a7c69a04cf4aaeff09e581d75aa43ad792c92db3e1f280922",
+      "requirements_hash": "629cf2e3b820eb7c68dbcf9a4af98902b9274d87dc1cba673bc00887ee7bbdff",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 40,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "entity.identifiers.validate",
+   "digest": "33486a00f43d5bdcf95c9df57386545e0bdadf361fbb78928bf8a82dcf86656c",
+   "run": {
+    "result": {
+     "execution_id": "38505c41-3693-4cf8-b842-3139749634d8",
+     "skill_id": "entity.identifiers.validate",
+     "skill_version": "0.3.0",
+     "status": "BLOCKED",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "6f458f6c-a0de-4e3b-a721-59ba3ca4b1a4",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "POLICY_UNRESOLVED",
+      "message": "identifier issuer unsupported",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "screening.sanctions.execute",
+   "digest": "49135bae2ebb4ff911285a8266c66344dca0ab643062b15c82220c6e5c93dfc4",
+   "run": {
+    "result": {
+     "execution_id": "ee505947-0822-4175-acef-c763767dfaf1",
+     "skill_id": "screening.sanctions.execute",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "hits": [],
+      "coverage": [],
+      "universal_clearance": false
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "ee505947-0822-4175-acef-c763767dfaf1",
+       "version_id": "97f06f37-87ce-4c9f-b065-0549e649f8a1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Entity",
+       "object_id": "h01.entity.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-pep",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-sanctions",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-watchlist",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "ae527b113310e79edccc49c3b346ae4dd3b04c9fda728eb4368c91b70f98cdb7",
+     "trace_ref": "8fb05c00-a052-463e-b4bf-89b6582d7a82",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "cee3378cd8efcca3251939995e9d2ac0c42fc6a6b3bb76f40e6ae534f745f1f6",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "3bbb165823fc1469dbcf6fd1046a215a444713e7b4bdc491ae52bb0c32bb05f9",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "ae527b113310e79edccc49c3b346ae4dd3b04c9fda728eb4368c91b70f98cdb7",
+      "requirements_hash": "7251e07628520ac274ad942449eebd822904fecbd68b469aba23fbff9961b849",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 49,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "screening.pep.execute",
+   "digest": "2010de26f018d792371999e9edbe9bfd62e280a9d610c26aa719675db95a6914",
+   "run": {
+    "result": {
+     "execution_id": "ffb85ece-f961-4386-a7ee-74b58cb67f2c",
+     "skill_id": "screening.pep.execute",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "hits": [],
+      "coverage": [],
+      "universal_clearance": false
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "ffb85ece-f961-4386-a7ee-74b58cb67f2c",
+       "version_id": "2c7dfce9-9164-4883-a9c4-429271e4b912",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Entity",
+       "object_id": "h01.entity.halvorsen",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-pep",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-sanctions",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-watchlist",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "639fa97514a629d73ef39000c01b5d155575baaa607abcf1fc95c38a19e92259",
+     "trace_ref": "8758cecb-5a60-4a3e-955f-f565edffa8e8",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "cee3378cd8efcca3251939995e9d2ac0c42fc6a6b3bb76f40e6ae534f745f1f6",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "652e443aabefdca3b7cb7ad2bceca00efa6b2d1ff7efc65db5e92dc5b45e538d",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "639fa97514a629d73ef39000c01b5d155575baaa607abcf1fc95c38a19e92259",
+      "requirements_hash": "7251e07628520ac274ad942449eebd822904fecbd68b469aba23fbff9961b849",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 49,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "screening.match.disambiguate",
+   "digest": "ff65c65b18e782994390e2adcf2d424c6e577d6421c96dad0e7f76b8837e9fa0",
+   "run": {
+    "result": {
+     "execution_id": "aa6215d2-8495-4c85-91ce-b133cc32d143",
+     "skill_id": "screening.match.disambiguate",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "3b715cf8-3fa3-49e1-9973-b38608988149",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"ScreeningHit\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "screening.adverse_media.execute",
+   "digest": "b0acc831b0301167743cec478e59472fa3e63ae76322b8e2b27cd9674cb23ef4",
+   "run": {
+    "result": {
+     "execution_id": "333602e9-9773-4f3a-835d-6adf234d4f22",
+     "skill_id": "screening.adverse_media.execute",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "events": [],
+      "coverage": []
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "333602e9-9773-4f3a-835d-6adf234d4f22",
+       "version_id": "e0a2a1fe-bf62-49e8-b925-62dbe8782226",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-pep",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-sanctions",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ScreeningExecution",
+       "object_id": "h01.screeningexecution.halvorsen-watchlist",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "fe8ec7100321c4585703149765d866ccb81155fbc0854a0b4c0eb14046959936",
+     "trace_ref": "655e91dc-a185-4386-a4b5-805e37c67755",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "cee3378cd8efcca3251939995e9d2ac0c42fc6a6b3bb76f40e6ae534f745f1f6",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "b40cc0d0cca42cdc554ef81ca4a591f211112007ea8be2ff4497666299f8ff97",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "fe8ec7100321c4585703149765d866ccb81155fbc0854a0b4c0eb14046959936",
+      "requirements_hash": "32fee3d7d38e82573513e78223430cbd7a9eb09e2207bccbd6d4e4b214947855",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 45,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "investigation.evidence.collect",
+   "digest": "fcc367527fc9049fa50685f8edc9140f907f34d02fdfe7baa7e43446a55143e2",
+   "run": {
+    "result": {
+     "execution_id": "ec6eca5b-84e4-4946-969c-702ed7e43f83",
+     "skill_id": "investigation.evidence.collect",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "collected": [
+       {
+        "content_hash": "d2b204a4dae477caa223eed7ef2c70271afdf00369a008558f7cc609311832f4",
+        "id": "h01.evidence.halvorsen-verification",
+        "ref": {
+         "object_id": "h01.evidence.halvorsen-verification",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-halvorsen-verification"
+       },
+       {
+        "content_hash": "42f52f678cb5c52640acad689b52760af51cd46a43d08d4968d3e8b3d88b51cb",
+        "id": "h01.evidence.payment-000002",
+        "ref": {
+         "object_id": "h01.evidence.payment-000002",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000002"
+       },
+       {
+        "content_hash": "45bc92eed754223ec9ebc571bc3d9421175868947abe980d16d777b2ff9572e9",
+        "id": "h01.evidence.payment-000031",
+        "ref": {
+         "object_id": "h01.evidence.payment-000031",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000031"
+       },
+       {
+        "content_hash": "d7ed39a6b21ea49ef02d446927a783bb7f9cbcc7ed971a55c608b19725ef7cd6",
+        "id": "h01.evidence.payment-000062",
+        "ref": {
+         "object_id": "h01.evidence.payment-000062",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000062"
+       },
+       {
+        "content_hash": "192e184b4c69af6f1258ad3f93e29eb6797f2584efb3511b3ae26c3cc88e24a8",
+        "id": "h01.evidence.payment-000093",
+        "ref": {
+         "object_id": "h01.evidence.payment-000093",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000093"
+       },
+       {
+        "content_hash": "91e49e1686737853987a09488423eb0231435df063b4307b19f67e4e1d7f430d",
+        "id": "h01.evidence.payment-000125",
+        "ref": {
+         "object_id": "h01.evidence.payment-000125",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000125"
+       },
+       {
+        "content_hash": "0c067dcc2190a7e8be8d22a25c6614b2285232695e28b38a57970d34aaa413e8",
+        "id": "h01.evidence.payment-000159",
+        "ref": {
+         "object_id": "h01.evidence.payment-000159",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000159"
+       },
+       {
+        "content_hash": "9155c8287eb1fe5afc818b975b177bd4c0a95c53f90ceb51ca35346b70986a3f",
+        "id": "h01.evidence.payment-000190",
+        "ref": {
+         "object_id": "h01.evidence.payment-000190",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000190"
+       },
+       {
+        "content_hash": "a4a0e1a2651b80c1f8eb7e33c773a5e3582a8358b7db3c3a609858b7c9bdd792",
+        "id": "h01.evidence.payment-000218",
+        "ref": {
+         "object_id": "h01.evidence.payment-000218",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000218"
+       },
+       {
+        "content_hash": "d607e845bcdb04adaffde25107900e494dcb6793aada875f7c9d9fb6ec9fdcc7",
+        "id": "h01.evidence.payment-000251",
+        "ref": {
+         "object_id": "h01.evidence.payment-000251",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000251"
+       },
+       {
+        "content_hash": "326f548208453b07e28cfd862fbc903f412e4fc2a3c80abffa220d47192ea271",
+        "id": "h01.evidence.payment-000285",
+        "ref": {
+         "object_id": "h01.evidence.payment-000285",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000285"
+       },
+       {
+        "content_hash": "5862ccdc991d8ce994de373641a33e8ea8090f00573bfbad119e8df8f8452e45",
+        "id": "h01.evidence.payment-000310",
+        "ref": {
+         "object_id": "h01.evidence.payment-000310",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000310"
+       },
+       {
+        "content_hash": "67f9679a44aba15a7048ccc01a826d3c8ab0ace7574c51c213b2b31742c18118",
+        "id": "h01.evidence.payment-000345",
+        "ref": {
+         "object_id": "h01.evidence.payment-000345",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000345"
+       },
+       {
+        "content_hash": "8c2723c14a95b130d405c816d8dd1f1f4de53d3f360c2baf0e4e4d249ec705f2",
+        "id": "h01.evidence.payment-000368",
+        "ref": {
+         "object_id": "h01.evidence.payment-000368",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000368"
+       },
+       {
+        "content_hash": "b3bc46c1b34dc2e079694ec3e473267ddc769334d245cad2cfb7e98a903aca55",
+        "id": "h01.evidence.payment-000398",
+        "ref": {
+         "object_id": "h01.evidence.payment-000398",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000398"
+       },
+       {
+        "content_hash": "54cd3241ac084214c136499a1c02626645fabb6cdf57b19687cb5006b8f7431f",
+        "id": "h01.evidence.payment-000430",
+        "ref": {
+         "object_id": "h01.evidence.payment-000430",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000430"
+       },
+       {
+        "content_hash": "296165259ec7b0fa83dd833088c999d43e11fb8b42e3fca9e43730005f3821c2",
+        "id": "h01.evidence.payment-000457",
+        "ref": {
+         "object_id": "h01.evidence.payment-000457",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000457"
+       },
+       {
+        "content_hash": "89ad5390a84041729cdf155e2b9f0cb4a111eccb714833113f04b3fd70069be6",
+        "id": "h01.evidence.payment-000485",
+        "ref": {
+         "object_id": "h01.evidence.payment-000485",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000485"
+       },
+       {
+        "content_hash": "d87c6b87f0618b70e44e6edd3c7c134389000c455b6b316f7d6af76fad392ed6",
+        "id": "h01.evidence.payment-000515",
+        "ref": {
+         "object_id": "h01.evidence.payment-000515",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000515"
+       },
+       {
+        "content_hash": "e5b17c102d66d80ce9bb990355a0e4297afd0e0b67b18202168853b9e51c9234",
+        "id": "h01.evidence.payment-000542",
+        "ref": {
+         "object_id": "h01.evidence.payment-000542",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000542"
+       },
+       {
+        "content_hash": "f9d74e3c5206c46f9d206d2c43213a417aea07a388383b8c4f61678ba93e79e1",
+        "id": "h01.evidence.payment-000569",
+        "ref": {
+         "object_id": "h01.evidence.payment-000569",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000569"
+       },
+       {
+        "content_hash": "ae576b763911b1abfdbdb2529ebf4708bf7d33c849a2e1152dfbee1c986a1154",
+        "id": "h01.evidence.payment-000602",
+        "ref": {
+         "object_id": "h01.evidence.payment-000602",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000602"
+       },
+       {
+        "content_hash": "cbe2783b55642f7e67ccbb0299e2d0a3cf146ecec9f2e48f57a5ca15c01c918a",
+        "id": "h01.evidence.payment-000636",
+        "ref": {
+         "object_id": "h01.evidence.payment-000636",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000636"
+       },
+       {
+        "content_hash": "057d5b153f5d4e11d8f572758532de95c61582a4bdc4d4c8383788f5a521f268",
+        "id": "h01.evidence.payment-000663",
+        "ref": {
+         "object_id": "h01.evidence.payment-000663",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000663"
+       },
+       {
+        "content_hash": "7e288979095e87cd3b91d5763208f788036ff93ea5aeb06d4dc78ea4239413ca",
+        "id": "h01.evidence.payment-000698",
+        "ref": {
+         "object_id": "h01.evidence.payment-000698",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000698"
+       },
+       {
+        "content_hash": "950a6600d58bbeeba48d9dd96d6207dda4f38c036822d938bf0142f083320363",
+        "id": "h01.evidence.payment-000732",
+        "ref": {
+         "object_id": "h01.evidence.payment-000732",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-payment-000732"
+       },
+       {
+        "content_hash": "83137695307b343f74efc7462f40eb37468b555c422da765514d2117a660944c",
+        "id": "h01.evidence.session-s-202410-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202410-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202410-1"
+       },
+       {
+        "content_hash": "3c0d678457c0e0bd6f9f08bf86f4007803349dafc4e4076ff9b5cd7f7e9efb3d",
+        "id": "h01.evidence.session-s-202410-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202410-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202410-2"
+       },
+       {
+        "content_hash": "8290114b3ace938fa4eabcbe5b5d1e4cf9cfa863782f3688f38286e622b7d198",
+        "id": "h01.evidence.session-s-202411-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202411-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202411-1"
+       },
+       {
+        "content_hash": "7a1e7ec30a659ccc5c2d1ff4579d86d831b0c681bf49a727b0b2c3eb738f4846",
+        "id": "h01.evidence.session-s-202411-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202411-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202411-2"
+       },
+       {
+        "content_hash": "74817d69abf2f325536927c08011c312af9030712fb535743f9e462a7b02b181",
+        "id": "h01.evidence.session-s-202412-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202412-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202412-1"
+       },
+       {
+        "content_hash": "5ccd3db62a2ae8053d6b9e57e334af6d346e7881e19d6daa741ede43701ca210",
+        "id": "h01.evidence.session-s-202412-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202412-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202412-2"
+       },
+       {
+        "content_hash": "112db6e2ef665965387c331eac1b2fd2c2cbd73a3e322e2972be58e83bf45b25",
+        "id": "h01.evidence.session-s-202501-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202501-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202501-1"
+       },
+       {
+        "content_hash": "97703aad042de7692d9a2f68f9a43e959561b6985aa7dfa6f3c72bb112f16511",
+        "id": "h01.evidence.session-s-202501-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202501-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202501-2"
+       },
+       {
+        "content_hash": "6705bc910b153e308d014da6a6d8c2023be887b308b0b7b09d133ba086ae08c3",
+        "id": "h01.evidence.session-s-202502-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202502-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202502-1"
+       },
+       {
+        "content_hash": "5c62e7cfbe10aa3bf842fdedca274572bf2b860fc7b5627bdb036370964e9d49",
+        "id": "h01.evidence.session-s-202502-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202502-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202502-2"
+       },
+       {
+        "content_hash": "bf510a7ace20239a530e9d920be59422c8078d130165d8ef2e2531875ebff994",
+        "id": "h01.evidence.session-s-202503-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202503-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202503-1"
+       },
+       {
+        "content_hash": "aa7d5eaa09c73674237800ed052e3c3e6da2953e679f3304194cf47082fcdcd1",
+        "id": "h01.evidence.session-s-202503-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202503-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202503-2"
+       },
+       {
+        "content_hash": "62943ab9ac2dbf1a769eda0a8ad346d9fcdd2fb48eaad719407e2eb6b1d4dfed",
+        "id": "h01.evidence.session-s-202504-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202504-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202504-1"
+       },
+       {
+        "content_hash": "ffe045d9202c5c6cd2ad4daa798da71ea226a7a2ed44678cf09465f0bafeafcc",
+        "id": "h01.evidence.session-s-202504-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202504-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202504-2"
+       },
+       {
+        "content_hash": "15b594965b3fd84d8db63f214723fd43dbb0423e3b8ef2ca86cfc3c41b969f21",
+        "id": "h01.evidence.session-s-202505-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202505-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202505-1"
+       },
+       {
+        "content_hash": "1478eac2943003b70c82fd7dc5222a904d9c32c7a38a765585596bdfa3a13a53",
+        "id": "h01.evidence.session-s-202505-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202505-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202505-2"
+       },
+       {
+        "content_hash": "00846be1572a444a5a1bf9dff1d38665b693ced7489772c25b1082fdb9938c0b",
+        "id": "h01.evidence.session-s-202506-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202506-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202506-1"
+       },
+       {
+        "content_hash": "f6fa0f1a9b71af0ac0bd17cfaa4729ad8424dff57a010bdc2045f06747bcf40e",
+        "id": "h01.evidence.session-s-202506-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202506-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202506-2"
+       },
+       {
+        "content_hash": "59c681cc873ed1ca46bf29f2246b7edc1df29ea33f6fe4062771f3102bfc7e71",
+        "id": "h01.evidence.session-s-202507-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202507-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202507-1"
+       },
+       {
+        "content_hash": "bee7a5239e591d02219a7bf3fb89e3f7140baac58f65dff5cdbfe5b9bfc7c606",
+        "id": "h01.evidence.session-s-202507-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202507-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202507-2"
+       },
+       {
+        "content_hash": "9d8c4e1b0c293b9ec29f4a9efd5f9cc07b8ee35b00b9bde4180b2c5c8415c272",
+        "id": "h01.evidence.session-s-202508-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202508-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202508-1"
+       },
+       {
+        "content_hash": "68464c143efee60432224fbd4d34cd8c73bfa31235990311bfe06b4130a2a6e2",
+        "id": "h01.evidence.session-s-202508-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202508-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202508-2"
+       },
+       {
+        "content_hash": "fa488bb1be98f2153ef2f56f849451f2d1edd4a15a8e19900b98aea3e3b5833d",
+        "id": "h01.evidence.session-s-202509-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202509-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202509-1"
+       },
+       {
+        "content_hash": "69abae80ae969af53a08a169b3973e4d3b241a66f09e210252ed0c6c2b0a6096",
+        "id": "h01.evidence.session-s-202509-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202509-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202509-2"
+       },
+       {
+        "content_hash": "37524cfbb8dce6d1e5fb72f5ce536c51fe7dec1359900b1bb8ac487f70301cc1",
+        "id": "h01.evidence.session-s-202510-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202510-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202510-1"
+       },
+       {
+        "content_hash": "d50421c200f788eeb1d31610e3b966790953322f416d3fc6c1c9a1938d86fe07",
+        "id": "h01.evidence.session-s-202510-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202510-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202510-2"
+       },
+       {
+        "content_hash": "6720a1e306c940e8ddd7f874f6bf700389cd73bd2eb871e0a203762e2c4dd6dc",
+        "id": "h01.evidence.session-s-202511-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202511-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202511-1"
+       },
+       {
+        "content_hash": "c85d69eea8a2f438be18e32eb69325d9fbf37a40aa153bef160533ddd28c190e",
+        "id": "h01.evidence.session-s-202511-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202511-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202511-2"
+       },
+       {
+        "content_hash": "89ada8e3bbeea31f369a423c943a22924eeafd058d22a0778c714990d18b0ff7",
+        "id": "h01.evidence.session-s-202512-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202512-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202512-1"
+       },
+       {
+        "content_hash": "09d226982ed978895300e0f44449b407a3dc65661b8347d2d92a9d77c1d36243",
+        "id": "h01.evidence.session-s-202512-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202512-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202512-2"
+       },
+       {
+        "content_hash": "679a5beb96cc35348bf980827ee647f73673f40f13662541f6c2517fe79a9879",
+        "id": "h01.evidence.session-s-202601-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202601-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202601-1"
+       },
+       {
+        "content_hash": "4eb700e933d5daec6c8066b96a0555bc82eabd9561dd18fda4650dad46ddaaaa",
+        "id": "h01.evidence.session-s-202601-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202601-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202601-2"
+       },
+       {
+        "content_hash": "ec0b10f7abd8a1ad0304a4797f6af7aa3982b40e663e7f2342ccebc11fbefe6a",
+        "id": "h01.evidence.session-s-202602-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202602-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202602-1"
+       },
+       {
+        "content_hash": "a385f799745d593336c04ec47202a6b72c79fd5e7c8c9af73d7709d394f6e6ec",
+        "id": "h01.evidence.session-s-202602-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202602-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202602-2"
+       },
+       {
+        "content_hash": "b467c92b94e9b2da17643e2c8a786d8e01059ad99ec73d05d3f529197c57a57c",
+        "id": "h01.evidence.session-s-202603-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202603-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202603-1"
+       },
+       {
+        "content_hash": "6de1ecb1e6ca72bd9af98ee89270a74bc36ffe570a5df2cceb03a56f74a8c355",
+        "id": "h01.evidence.session-s-202603-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202603-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202603-2"
+       },
+       {
+        "content_hash": "d292c2df9d3ffd0a13aad8ccfaf3ff8a77f23f86c3746778f3ac7909ddef09a9",
+        "id": "h01.evidence.session-s-202604-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202604-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202604-1"
+       },
+       {
+        "content_hash": "84f9c1d8a854d4cd304359f64efec1d759a17667d6bf80aad88cfdb9cdcc45e3",
+        "id": "h01.evidence.session-s-202604-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202604-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202604-2"
+       },
+       {
+        "content_hash": "fa873441647e20cc6fb07bf60287fa8a3fb6faa26ce3e05ffc2f210e272ba928",
+        "id": "h01.evidence.session-s-202605-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202605-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202605-1"
+       },
+       {
+        "content_hash": "9917071e8c96a914aa69494927e717f30c426599cee93c134f05376959bd31e3",
+        "id": "h01.evidence.session-s-202605-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202605-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202605-2"
+       },
+       {
+        "content_hash": "d6e2ec631ed61ae890b5b03f2c28f0ebf4cca56c00b298c7fa88543aa6fbb697",
+        "id": "h01.evidence.session-s-202606-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202606-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202606-1"
+       },
+       {
+        "content_hash": "476d6d218f54ab88177028c90e2fcc26b61fcf31ff0c7e72965d5167b68a6764",
+        "id": "h01.evidence.session-s-202606-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202606-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202606-2"
+       },
+       {
+        "content_hash": "3601750e1c8524befea7f3f71ef21a25972703babfb56daa3645027e09c5e47b",
+        "id": "h01.evidence.session-s-202607-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202607-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202607-1"
+       },
+       {
+        "content_hash": "b8d1e5b0f830b6c26dd202df2906a6e631446b4e4761ec95b65eddc208e47dd5",
+        "id": "h01.evidence.session-s-202607-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202607-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202607-2"
+       },
+       {
+        "content_hash": "d71f95651ff40bdfbf7445389ea9430bebbf1f7b6919530962f4000b2b8ebbd9",
+        "id": "h01.evidence.session-s-202608-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202608-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202608-1"
+       },
+       {
+        "content_hash": "2de562ba094de49dbaced13016046b924436cea9e273568f419a1d8b18928140",
+        "id": "h01.evidence.session-s-202608-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202608-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202608-2"
+       },
+       {
+        "content_hash": "a116602cbcd1d8cc33ba7243246a06dc2b1c615ef3390dd8d2c76ff073d90ca0",
+        "id": "h01.evidence.session-s-202609-1",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202609-1",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202609-1"
+       },
+       {
+        "content_hash": "d88aa5c29d0c5a8b22b651b50b70a782c42848ee3cd2db22e09a00308624ba81",
+        "id": "h01.evidence.session-s-202609-2",
+        "ref": {
+         "object_id": "h01.evidence.session-s-202609-2",
+         "object_type": "Evidence",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "source_id": "H01-session-s-202609-2"
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "ec6eca5b-84e4-4946-969c-702ed7e43f83",
+       "version_id": "332a2ad5-61e2-443b-84ea-d1377ed4e3b3",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.halvorsen-verification",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000002",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000031",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000062",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000093",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000125",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000159",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000190",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000218",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000251",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000285",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000310",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000345",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000368",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000398",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000430",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000457",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000485",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000515",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000542",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000569",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000602",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000636",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000663",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000698",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000732",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202410-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202410-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202411-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202411-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202412-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202412-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202501-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202501-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202502-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202502-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202503-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202503-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202504-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202504-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202505-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202505-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202506-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202506-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202507-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202507-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202508-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202508-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202509-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202509-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202510-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202510-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202511-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202511-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202512-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202512-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202601-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202601-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202602-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202602-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202603-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202603-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202604-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202604-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202605-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202605-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202606-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202606-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202607-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202607-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202608-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202608-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202609-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202609-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "c2bb919902308501c2ad66137c46db866d9a7ae97d0a96fcb55a9acc42648ce5",
+     "trace_ref": "14765d9c-5b11-48cf-95e3-bfa8cbe1c9f4",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "9308552a70f3877c3361d4883c4c0bd759e65c880ac85e67353bd59ca31d0495",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "b377fbe1c71af4680e85badf9f5e4fd31b56392192725bff1b72f5da33003625",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "c2bb919902308501c2ad66137c46db866d9a7ae97d0a96fcb55a9acc42648ce5",
+      "requirements_hash": "8d28b7d121c4f9f42b8ee13a888149834f4f633c99d89b0232754121a74ad53b",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 205,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "investigation.findings.synthesize",
+   "digest": "a7c3ce794d3ffb4cee8679f24649755d026f18d4d34802be1cda24f9df3eccd6",
+   "run": {
+    "result": {
+     "execution_id": "43fde7a9-6bac-46ac-8747-5e7b981d80d7",
+     "skill_id": "investigation.findings.synthesize",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "alternatives": [],
+      "claim_evidence_matrix": [
+       {
+        "claim": "no_documents_in_case: DocumentVersion and DocumentPage records are empty, so no document can be identified, classified or reviewed.",
+        "evidence_ids": [
+         "ev_document-intelligence-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "skills_without_usable_results: Classification, validity, consistency, authenticity and tamper skills returned NEEDS_EVIDENCE with empty payloads. Field extraction and requirements resolution were BLOCKED with no computation. No classification, extracted value, validity or consistency conclusion exists.",
+        "evidence_ids": [
+         "ev_document-intelligence-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "evidence_tool_unavailable: The document.evidence.package.v1 call failed with harness.tool_unavailable, so no alternative document evidence was obtained.",
+        "evidence_ids": [
+         "ev_document-intelligence-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "verification_result_discrepancy: The verification record h01.verificationrecord.halvorsen has status VERIFIED by method government_id_document. The entity-identity-verify skill evaluated that record with verified:false. The reason is not in the payload, so the verification cannot be relied on until a person reconciles the two.",
+        "evidence_ids": [
+         "ev_identity-verification-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "identifier_validation_blocked: The entity.identifiers.validate skill returned BLOCKED with an empty payload and no unresolved items. The issuers are known (US-NY-SPECIMEN for the driver's licence, US-SPECIMEN for the passport), but the format validity of SPECIMEN-H01-DL-0001 and SPECIMEN-H01-PP-0001 is unconfirmed. The identifiers are flagged verified:true in the identifier records, but that is not a format validation.",
+        "evidence_ids": [
+         "ev_identity-verification-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "no_document_evidence: No extracted assertions, document pages, registry records or addresses were admitted. Date of birth, document number and address cannot be compared with any document. No tamper signal exists to report, but that does not show a document is genuine because no document was supplied.",
+        "evidence_ids": [
+         "ev_identity-verification-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "incomplete_profile: The party-profile-completeness skill reports the profile for h01.party.halvorsen as incomplete, with 'business_purpose' missing. The skill output is evidence for review, not a decision.",
+        "evidence_ids": [
+         "ev_intake-profile-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "expected_activity_gap: The relationship record gives expected activity for the deposit (inflow 6200 USD, outflow 5900 USD, 45 transactions, ACH and card rails, US counterparties). The card product has expectedActivity null. The separate ExpectedActivity record is empty, so the deposit figures are not corroborated by a dedicated record.",
+        "evidence_ids": [
+         "ev_intake-profile-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "NO_HITS_RETURNED: Sanctions and PEP execution completed with zero hits for the subject. The payloads show empty coverage and universal_clearance=false, so search completion cannot be treated as clearance.",
+        "evidence_ids": [
+         "ev_screening-review"
+        ],
+        "status": "UNVERIFIED"
+       },
+       {
+        "claim": "COVERAGE_NOT_EVIDENCED: The coverage arrays are empty for both the sanctions and PEP screens. The context does not say which lists, or whether any lists, were checked for this subject.",
+        "evidence_ids": [
+         "ev_screening-review"
+        ],
+        "status": "UNVERIFIED"
+       }
+      ],
+      "unsupported": []
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "43fde7a9-6bac-46ac-8747-5e7b981d80d7",
+       "version_id": "bae2d900-708f-4082-bf82-f58393236f86",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:identity-verification-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:identity-verification-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:identity-verification-review:3",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:intake-profile-review:3",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:intake-profile-review:4",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:screening-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:screening-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "baa2646002465304ecaa4f20de03287112b61575f8f5c4e1c601a480acf1b4af",
+     "trace_ref": "a18e5c94-e0c1-4d45-bd8f-6ff6ad38f40b",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "9308552a70f3877c3361d4883c4c0bd759e65c880ac85e67353bd59ca31d0495",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "40a42a070e9bf07362dbf51856d6a8718396389d5a5bb765b2aa7aba98217fad",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "baa2646002465304ecaa4f20de03287112b61575f8f5c4e1c601a480acf1b4af",
+      "requirements_hash": "c96e94d74da365c046747a91511cf210260fc2de8aa425dc357beff6efba5810",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 58,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "risk.customer.assess",
+   "digest": "00e3515d8e9c5d63aef106ee5d172f99daab3bbff9159cc8bd219f9d55313a60",
+   "run": {
+    "result": {
+     "execution_id": "fc890728-64de-48ac-9a78-334961d1e387",
+     "skill_id": "risk.customer.assess",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "assessment": {
+       "score": "0.08",
+       "contributions": [
+        {
+         "factor": "geography",
+         "value": "0.05",
+         "weight": "0.4",
+         "contribution": "0.020"
+        },
+        {
+         "factor": "product",
+         "value": "0.10",
+         "weight": "0.6",
+         "contribution": "0.060"
+        }
+       ],
+       "missing": [],
+       "model_version": "synthetic-risk-v1"
+      },
+      "tier": "LOW"
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "fc890728-64de-48ac-9a78-334961d1e387",
+       "version_id": "30d4e06d-c315-4cbd-88be-a8031e69d0d7",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "RiskFactor",
+       "object_id": "h01.riskfactor.halvorsen-customer-type",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "RiskFactor",
+       "object_id": "h01.riskfactor.halvorsen-geography",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "RiskFactor",
+       "object_id": "h01.riskfactor.halvorsen-product",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "de536305fe4c37e57e794a1560d56126ce2468696d86cb6d55c5498e03da94be",
+     "trace_ref": "9c868f15-d95b-46e4-9137-843d1043031f",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "e3df2507847de361028ae84be8df5ef15691fdb4c449b7c106862709128f0671",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "9831307bd97ac24770877a3fc9f88b470d8a4626dad10946a287c1150af9cf2d",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "de536305fe4c37e57e794a1560d56126ce2468696d86cb6d55c5498e03da94be",
+      "requirements_hash": "d947d4c2da05e18636941714f91442d7ad1090330613194a616d93a539ab1027",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 45,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "risk.tier.assign",
+   "digest": "dd2090013d979327c5a746a8c206004108edf37d1dc267b8603d902aa189cb73",
+   "run": {
+    "result": {
+     "execution_id": "d61755b0-488c-46d0-96fa-9c54836df3b1",
+     "skill_id": "risk.tier.assign",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "final_acceptance": false,
+      "tier": "LOW"
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "d61755b0-488c-46d0-96fa-9c54836df3b1",
+       "version_id": "f105b1e4-91e1-4f17-90f2-abdda4bcf861",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "32c41fe0fd96c6708602a3ab91266d403b982f085d0b7d0351f22314bfc5df70",
+     "trace_ref": "7db357da-3d75-4d9f-a3f2-a09bb9ac21a2",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "e3df2507847de361028ae84be8df5ef15691fdb4c449b7c106862709128f0671",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "0259c7ce72d7dccfe22b3f11cd34ef000e39e1a56907051ba114f86ec978eedf",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "32c41fe0fd96c6708602a3ab91266d403b982f085d0b7d0351f22314bfc5df70",
+      "requirements_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 40,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "edd.trigger.evaluate",
+   "digest": "e7936d0dcf07e2ccc5aa5881ba8e5e440459db7b22a6a1a3b642997d495d69f8",
+   "run": {
+    "result": {
+     "execution_id": "83029462-b233-4f3e-aa3e-ca0249cad9a5",
+     "skill_id": "edd.trigger.evaluate",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "required": false,
+      "triggers": [
+       {
+        "id": "high-risk",
+        "outcome": "FAIL"
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "83029462-b233-4f3e-aa3e-ca0249cad9a5",
+       "version_id": "66d23e0a-1094-45a5-878d-ac2d762e1306",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "53309bc04253b9dffc02f9f1c2b04456120ad53d37c63730735653096edba67a",
+     "trace_ref": "a23ee7bd-a8e9-4751-a824-76174f9187af",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "e3df2507847de361028ae84be8df5ef15691fdb4c449b7c106862709128f0671",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "6dde4f32b82f8bcc771c6767d52a871428d1efdb9a36d67ad5f7001502bd7b13",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "53309bc04253b9dffc02f9f1c2b04456120ad53d37c63730735653096edba67a",
+      "requirements_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 41,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "party.product.profile",
+   "digest": "858c5c1d4bc04c921a4efeb3c5ea40d0301dc13c98d14353ad73a2ff6d5899cf",
+   "run": {
+    "result": {
+     "execution_id": "b11b6c0a-06a0-41a2-b290-60bd626dd644",
+     "skill_id": "party.product.profile",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "products": [
+       {
+        "_ref": {
+         "object_id": "h01.product.card",
+         "object_type": "Product",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "_synthetic": true,
+        "active": true,
+        "channel": "online",
+        "id": "h01.product.card",
+        "product_type": "card"
+       },
+       {
+        "_ref": {
+         "object_id": "h01.product.deposit",
+         "object_type": "Product",
+         "schema_version": "2.0.0",
+         "tenant_id": "tenant-synthetic",
+         "version_id": "v1"
+        },
+        "_synthetic": true,
+        "active": true,
+        "channel": "branch",
+        "id": "h01.product.deposit",
+        "product_type": "deposit"
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "b11b6c0a-06a0-41a2-b290-60bd626dd644",
+       "version_id": "0a42b081-3c9f-4a25-912c-3ef9da270e31",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Product",
+       "object_id": "h01.product.card",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Product",
+       "object_id": "h01.product.deposit",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "a1d84a4bd0b7f87037e2bfd7efdd2467bf7624d925802e436cc701b3a998d300",
+     "trace_ref": "415a2005-4f92-48e0-8b08-ed78ead56084",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "166d86cdd013a5d0438aa52fcf0a71b2b65d7a7c0f807af6f1a9a5dfc544f795",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "a1d84a4bd0b7f87037e2bfd7efdd2467bf7624d925802e436cc701b3a998d300",
+      "requirements_hash": "c793d1a3a137159fbca8498989acc2948bf640d9973a6c7154319d98eff6f5ae",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 48,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "party.expected_behavior.model",
+   "digest": "5828d6eee6ccd55318564732e512e620af45a1cc8f35c9894726e29f268c16ee",
+   "run": {
+    "result": {
+     "execution_id": "aff526b7-6408-48c2-8f0c-9bd646e16541",
+     "skill_id": "party.expected_behavior.model",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "baseline": [
+       {
+        "id": "h01.expectedactivity.deposit",
+        "parameters": {
+         "count": 45,
+         "currency": "USD",
+         "monthly_amount": "6200"
+        },
+        "window": {
+         "end": "2026-09-30T00:00:00Z",
+         "start": "2024-10-02T00:00:00Z"
+        }
+       }
+      ],
+      "inferred": false
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "aff526b7-6408-48c2-8f0c-9bd646e16541",
+       "version_id": "7a2a259f-da25-4b5c-abda-9502d0930166",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "ExpectedActivity",
+       "object_id": "h01.expectedactivity.deposit",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "c3e08d1a8613452593e506206e7926c03c9e5a168c0d9588441a50b8d7af5259",
+     "trace_ref": "d286b24d-fc56-4752-aedb-5bccf92c6099",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "efcec795b18b480adb1e8b89858ff3a10cd5303103dcd927ee006e141071b51e",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "d286901adc8d3658129a712039a7025cbd976bfbad3fc2a66b158ab9f0e0f496",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "c3e08d1a8613452593e506206e7926c03c9e5a168c0d9588441a50b8d7af5259",
+      "requirements_hash": "95279c83e31dd0a7bc0f57c3d007919f1ca0121091225c276b2c374c68683a6d",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 50,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "monitor.customer.schedule",
+   "digest": "0dfce9be094d5d1119b9e0ca86deb52a47a29c7b63b59c08ad9dcdcb44e9cda2",
+   "run": {
+    "result": {
+     "execution_id": "06224465-91d7-47d0-ad00-845a343fe56c",
+     "skill_id": "monitor.customer.schedule",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "schedule_id": "8ca99f5ef9f5a6805367",
+      "due_at": "2026-10-30T00:00:00+00:00"
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "06224465-91d7-47d0-ad00-845a343fe56c",
+       "version_id": "c8e0f0a8-fcf2-4032-bef5-0f1488a2d32d",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "e8e424c576835737fd0cb741cfd16ed057639343ff8040d92c5dc4a425a4c62c",
+     "trace_ref": "46758b3a-37b8-46c1-b801-cabb5062755e",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "3f3c0c492f26b55f3892433067af93da42a9adb2d516b35ded748c75fef026b5",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "23de4316f4edd185312ea5db147a5667c70fffba980403e2972fb89dde1d6c83",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "e8e424c576835737fd0cb741cfd16ed057639343ff8040d92c5dc4a425a4c62c",
+      "requirements_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 49,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": true
+    }
+   }
+  },
+  {
+   "skillId": "decision.requirements.compile",
+   "digest": "5778b7fe5154de9536c8fad7330b9648ad46dd1cc87f9f0aeead751f6316940a",
+   "run": {
+    "result": {
+     "execution_id": "e74a2455-bdad-40ff-a9b2-1071e434ba13",
+     "skill_id": "decision.requirements.compile",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "requirements": [
+       {
+        "applicability": "PASS",
+        "description": "Synthetic verified identity evidence",
+        "id": "identity"
+       }
+      ]
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "e74a2455-bdad-40ff-a9b2-1071e434ba13",
+       "version_id": "a90be533-aa48-427a-8e49-5d1853b4c047",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "3a4e3601a228c0deac793c4f4b72ddc834f8d941000d2183d32df88224f28c35",
+     "trace_ref": "c4bdb3bb-4356-41a9-bc29-9627f93f6e43",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "994250b5367e0d57cffcb8bf9611fb457fd5b285d25d5091ee13960d832bda94",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "7dc912360dfdce54bd2c140857541ccf34c3ba0f911dde8703d45d952f25efcd",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "3a4e3601a228c0deac793c4f4b72ddc834f8d941000d2183d32df88224f28c35",
+      "requirements_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 39,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "decision.rules.evaluate",
+   "digest": "02c45b1c335d1cef57f26b2bc467a240a6ee857d17ab6d4be2ccc549cba2ce30",
+   "run": {
+    "result": {
+     "execution_id": "535e4312-d8d8-4c41-b16f-8820b8529f4f",
+     "skill_id": "decision.rules.evaluate",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "evaluations": [
+       {
+        "input_hash": "f07d95d1ca8f17d6ef8b334415896ee4a4c21d891ba23b28e45844060e003132",
+        "outcome": "FAIL",
+        "rule_id": "identity-verified"
+       }
+      ],
+      "outcome": "FAIL"
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "535e4312-d8d8-4c41-b16f-8820b8529f4f",
+       "version_id": "b543af06-251b-4fb0-9d95-66e7405a4046",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "029e67ea5da46f720be923817e5e5d39d3c328ed984fd7da99b94264c3d62e89",
+     "trace_ref": "6d0d0f54-c9e6-4515-bcae-4c2c7d644aab",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "994250b5367e0d57cffcb8bf9611fb457fd5b285d25d5091ee13960d832bda94",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "6f3e004c29832164d4d0d220441eb02f2ba6f3841628e4e9acc20bb0fbfcdfe2",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "029e67ea5da46f720be923817e5e5d39d3c328ed984fd7da99b94264c3d62e89",
+      "requirements_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 64,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "decision.recommendation.generate",
+   "digest": "d19a326d4303645ee70c7a3454d318a41b3f894b6d19ddfff6bb83898fc46320",
+   "run": {
+    "result": {
+     "execution_id": "13af2312-ef2a-4181-bbeb-78cbe6c99d09",
+     "skill_id": "decision.recommendation.generate",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "59ef281a-0aca-42a1-8d1b-a514b2f5a9d9",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"Control\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "decision.gaps.evaluate",
+   "digest": "7d274eb522c35e1e7ff83b8e83c782087647c3a17bb84ca15b61f24a7e88f851",
+   "run": {
+    "result": {
+     "execution_id": "2fd9bd12-57da-474b-ae67-c4df410dd430",
+     "skill_id": "decision.gaps.evaluate",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "36b97097-a5c1-4b30-bc9e-a167d9e74ecb",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"Control\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "quality.findings.verify",
+   "digest": "118a417916e9039fb5c86d1e2a6a8f250fcb92b4d46f7b9c297e08d8eea0bbd1",
+   "run": {
+    "result": {
+     "execution_id": "dd52022d-c9f3-4a3b-828e-3f6fc148bf08",
+     "skill_id": "quality.findings.verify",
+     "skill_version": "0.3.0",
+     "status": "COMPLETED",
+     "lifecycle": "SUCCEEDED",
+     "payload": {
+      "checks": [
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:0"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:1"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:2"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:3"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:4"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:5"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:6"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:7"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:decision-support-review:8"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:0"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:1"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:2"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:identity-verification-review:0"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:identity-verification-review:1"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:identity-verification-review:3"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:intake-profile-review:3"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:intake-profile-review:4"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:investigation-review:0"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:investigation-review:1"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:investigation-review:2"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:investigation-review:3"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:relationship-product-review:0"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:relationship-product-review:1"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:screening-review:0"
+       },
+       {
+        "citations_valid": false,
+        "id": "finding:RUN-kyc-agentic-H01:screening-review:1"
+       }
+      ],
+      "semantic_review_required": true
+     },
+     "result_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "SkillExecution",
+       "object_id": "dd52022d-c9f3-4a3b-828e-3f6fc148bf08",
+       "version_id": "d83def80-4d73-4210-8a25-3d1b54d8afbf",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "evidence_refs": [
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:3",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:4",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:5",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:6",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:7",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:decision-support-review:8",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:document-intelligence-review:2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:identity-verification-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:identity-verification-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:identity-verification-review:3",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:intake-profile-review:3",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:intake-profile-review:4",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:investigation-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:investigation-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:investigation-review:2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:investigation-review:3",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:relationship-product-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:relationship-product-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:screening-review:0",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Finding",
+       "object_id": "finding:RUN-kyc-agentic-H01:screening-review:1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.halvorsen-verification",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000002",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000031",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000062",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000093",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000125",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000159",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000190",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000218",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000251",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000285",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000310",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000345",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000368",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000398",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000430",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000457",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000485",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000515",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000542",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000569",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000602",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000636",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000663",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000698",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.payment-000732",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202410-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202410-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202411-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202411-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202412-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202412-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202501-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202501-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202502-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202502-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202503-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202503-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202504-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202504-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202505-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202505-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202506-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202506-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202507-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202507-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202508-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202508-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202509-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202509-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202510-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202510-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202511-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202511-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202512-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202512-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202601-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202601-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202602-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202602-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202603-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202603-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202604-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202604-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202605-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202605-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202606-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202606-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202607-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202607-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202608-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202608-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202609-1",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      },
+      {
+       "tenant_id": "tenant-synthetic",
+       "object_type": "Evidence",
+       "object_id": "h01.evidence.session-s-202609-2",
+       "version_id": "v1",
+       "schema_version": "2.0.0"
+      }
+     ],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": "fda277707a8f89ac7425e1b025532f206e3b2b9f623a82998c305dc6a0850145",
+     "trace_ref": "eacedc5b-62f3-4fe8-a739-d9305dbdd4af",
+     "execution_lock": {
+      "profile_hash": "5a12978db6252c39d1566c0e72b3cb3c54f68dd96396155340a3d7e2d2bbad4d",
+      "skill_version": "0.3.0",
+      "code_hash": "994250b5367e0d57cffcb8bf9611fb457fd5b285d25d5091ee13960d832bda94",
+      "bundle_code_hash": "cdaa1ebb4d359d8cc3ab908dbbf3d9957f88adc96f4fc8ed4080efdef93c2ae4",
+      "instruction_hash": "b817aa916a66d34ed7ef4b7701cfd80ce08d7e63b3931bbc5c48751a4280b52a",
+      "python_version": "3.13.18",
+      "policy_hash": "7e072425563fdad3e24dcae06878256d471d2450cffa3b9a080d5afcaf772561",
+      "context_hash": "fda277707a8f89ac7425e1b025532f206e3b2b9f623a82998c305dc6a0850145",
+      "requirements_hash": "86bcaf99ff24ab7eeed79421094028af17f9bf7cb7fc7a56c561f73d20ae70b1",
+      "capabilities": [],
+      "libraries": {
+       "pydantic": "2.14.3",
+       "jsonschema": "4.26.0",
+       "networkx": "3.7"
+      }
+     },
+     "metrics": {
+      "duration_ms": 139,
+      "provider_calls": 0
+     },
+     "error": null,
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  },
+  {
+   "skillId": "quality.policy.compliance",
+   "digest": "08f96456126e6abe3c4259a8ee29c6f0547589fbeb92351922f5128cb18e142b",
+   "run": {
+    "result": {
+     "execution_id": "239ca50e-4099-409e-9bde-d6888810701e",
+     "skill_id": "quality.policy.compliance",
+     "skill_version": "0.3.0",
+     "status": "NEEDS_EVIDENCE",
+     "lifecycle": "FAILED",
+     "payload": {},
+     "result_refs": [],
+     "evidence_refs": [],
+     "finding_refs": [],
+     "unresolved_items": [],
+     "policy_snapshot_ref": "bridge-policy",
+     "context_hash": null,
+     "trace_ref": "5cc77ec9-d544-4549-b5d9-f950fe90cc59",
+     "execution_lock": null,
+     "metrics": {
+      "duration_ms": 0,
+      "provider_calls": 0
+     },
+     "error": {
+      "code": "CONTEXT_MISSING",
+      "message": "[{\"code\":\"CONTEXT_MISSING\",\"minimum\":1,\"object_type\":\"Control\",\"optional\":false}]",
+      "retryable": false
+     },
+     "synthetic": true,
+     "effects_committed": false
+    }
+   }
+  }
+ ],
+ "models": [
+  {
+   "agent": "agent.intake_profile",
+   "digest": "61553dd3ebd2a7d9b87f34bd67fe1f06f696b6d80e50f2b501280aba7e9ba5e0",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "The customer is Ingrid Halvorsen, an individual and the sole party, holding the customer role. Two active products are requested: a deposit account and a card. The profile is incomplete: the completeness skill flags business_purpose as missing. The card has no expected-activity profile, and the separate ExpectedActivity record is empty even though the banking relationship carries deposit activity figures. No registry or identifier lookup was needed, because the legal identity is clear from the banking relationship (legal form 'individual', not a legal-entity customer). This describes the case only and makes no risk or acceptability judgement.",
+     "findings": [
+      {
+       "type": "customer_classification",
+       "severity": "INFO",
+       "reason": "The banking relationship names h01.entity.halvorsen as the customer, with legalForm 'individual' and legalEntityCustomer false. The case subject list has the same single subject. The customer is therefore classified as an individual.",
+       "sourceRefs": [
+        "readBankingRelationship-intake-profile-review",
+        "caseSubjects"
+       ]
+      },
+      {
+       "type": "party_roles",
+       "severity": "INFO",
+       "reason": "Only one party is recorded: Ingrid Halvorsen, role 'customer'. No authorityScope or authorityEvidenceRefs are recorded, and no other roles such as signatory, agent or beneficial owner appear in the relationship. The profile build skill returned the same single customer profile.",
+       "sourceRefs": [
+        "readBankingRelationship-intake-profile-review",
+        "skillResults"
+       ]
+      },
+      {
+       "type": "products_requested",
+       "severity": "INFO",
+       "reason": "Two active products are requested: h01.product.deposit (deposit; branch and online channels in the relationship record, 'branch' in the product record) and h01.product.card (card; online and POS channels in the relationship record, 'online' in the product record). The channel sets differ slightly between the two records. This is a minor difference to confirm, not a conflict in product type.",
+       "sourceRefs": [
+        "readBankingRelationship-intake-profile-review",
+        "readProduct-intake-profile-review"
+       ]
+      },
+      {
+       "type": "incomplete_profile",
+       "severity": "REVIEW",
+       "reason": "The party-profile-completeness skill reports the profile for h01.party.halvorsen as incomplete, with 'business_purpose' missing. The skill output is evidence for review, not a decision.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "expected_activity_gap",
+       "severity": "REVIEW",
+       "reason": "The relationship record gives expected activity for the deposit (inflow 6200 USD, outflow 5900 USD, 45 transactions, ACH and card rails, US counterparties). The card product has expectedActivity null. The separate ExpectedActivity record is empty, so the deposit figures are not corroborated by a dedicated record.",
+       "sourceRefs": [
+        "readBankingRelationship-intake-profile-review",
+        "recExpectedActivity-intake-profile-review-party-activity-profile"
+       ]
+      },
+      {
+       "type": "classification_label_unclear",
+       "severity": "INFO",
+       "reason": "The party-type-classify skill returned type 'KYC' for the party. This is not a legal-form value. The legal form comes from the banking relationship ('individual'), so the skill label adds nothing on that point.",
+       "sourceRefs": [
+        "skillResults",
+        "readBankingRelationship-intake-profile-review"
+       ]
+      }
+     ],
+     "gaps": [
+      "Business purpose is not recorded for the customer (flagged by the completeness skill).",
+      "The ExpectedActivity record is empty, so the deposit activity figures in the banking relationship have no corroborating record.",
+      "The card product has no expected-activity profile (expectedActivity is null).",
+      "The provided records contain no identity attributes (date of birth, residential address, identification document, tax identifier), so identity verification cannot be confirmed from this context.",
+      "Ownership and beneficial-owner treatment fields (boTreatment, ownershipComplete, priorBo) are null. They appear not applicable to an individual customer, but this is not stated in the records.",
+      "Channel values differ between the relationship and product records (deposit: branch+online vs branch; card: online+pos vs online)."
+     ],
+     "requiresHumanReview": true,
+     "profile": {
+      "customerType": "individual",
+      "products": [
+       "h01.product.deposit (deposit)",
+       "h01.product.card (card)"
+      ],
+      "parties": [
+       {
+        "entityRef": "h01.entity.halvorsen",
+        "roles": [
+         "customer"
+        ]
+       }
+      ]
+     },
+     "missingInformation": [
+      "Business purpose of the relationship: customer-stated purpose from the account-opening application or onboarding questionnaire.",
+      "Expected activity for the card product: customer application or product-setup record.",
+      "A populated ExpectedActivity record for the deposit, or confirmation that the relationship record figures are authoritative: onboarding questionnaire or the ExpectedActivity record.",
+      "Identity and contact attributes (date of birth, address, identification document, tax identifier): customer identification documents or the party master record.",
+      "Confirmation of the intended channels for each product: product setup or application form."
+     ]
+    },
+    "rationale": "The customer is an individual, so no registry or identifier lookup is needed. The existing records and skill results are enough to describe the profile and list the gaps."
+   }
+  },
+  {
+   "agent": "agent.document_intelligence",
+   "digest": "4bd1905fd0abfaeb622dee5db0cf80dd6525bcec242193e7ffe4a915983c2fb4",
+   "output": {
+    "action": "call_tool",
+    "tool": "document.evidence.package.v1",
+    "input": {
+     "caseId": "case-H01"
+    },
+    "rationale": "The DocumentVersion and DocumentPage records in context are empty and the classification, extraction and requirements skills returned NEEDS_EVIDENCE or BLOCKED. I am checking whether the evidence package holds any documents for the case before concluding."
+   }
+  },
+  {
+   "agent": "agent.document_intelligence",
+   "digest": "4264aeefe092f3e56cda790e33f88bf4035012156a159e5168ca425b388cec70",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "No documents can be accounted for in this case. The DocumentVersion and DocumentPage records are empty, and the evidence-package tool failed with harness.tool_unavailable. The classification, validity, consistency, authenticity and tamper skills completed but returned NEEDS_EVIDENCE with empty payloads. The field-extraction and requirements-resolve skills were BLOCKED. There is nothing to classify, extract, compare or request. The only subject is Ingrid Halvorsen (h01.entity.halvorsen). The fraud signals present are account-takeover and payment-anomaly signals, not document forensic or tamper results, so they say nothing about authenticity of any document. A person needs to confirm whether documents were submitted and restore the evidence package before a document review can be done.",
+     "findings": [
+      {
+       "type": "no_documents_in_case",
+       "severity": "BLOCKING",
+       "reason": "DocumentVersion and DocumentPage records are empty, so no document can be identified, classified or reviewed.",
+       "sourceRefs": [
+        "readDocumentVersion-document-intelligence-review",
+        "recDocumentVersion-document-intelligence-review-document-parse-artifact",
+        "recDocumentPage-document-intelligence-review-document-parse-artifact"
+       ]
+      },
+      {
+       "type": "skills_without_usable_results",
+       "severity": "REVIEW",
+       "reason": "Classification, validity, consistency, authenticity and tamper skills returned NEEDS_EVIDENCE with empty payloads. Field extraction and requirements resolution were BLOCKED with no computation. No classification, extracted value, validity or consistency conclusion exists.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "evidence_tool_unavailable",
+       "severity": "REVIEW",
+       "reason": "The document.evidence.package.v1 call failed with harness.tool_unavailable, so no alternative document evidence was obtained.",
+       "sourceRefs": [
+        "observation-1"
+       ]
+      },
+      {
+       "type": "fraud_signals_not_document_forensics",
+       "severity": "INFO",
+       "reason": "The FraudSignal records are account_takeover and payment_anomaly signals tied to session and payment evidence, with scores of 0 to 0.05. None is a document tamper or forensic detector result, so they do not establish or contradict authenticity of any document.",
+       "sourceRefs": [
+        "readFraudSignal-document-intelligence-review"
+       ]
+      }
+     ],
+     "gaps": [
+      "No document records or pages are available for subject h01.entity.halvorsen.",
+      "The requirements-resolve skill was BLOCKED, so the required document set is unknown and missing documents cannot be named.",
+      "No extracted identity values (name, date of birth, document number, address) exist to compare across documents.",
+      "No forensic or tamper check results exist for any document.",
+      "The evidence package tool was unavailable and was not retried, because the same failed call is unlikely to change the answer."
+     ],
+     "requiresHumanReview": true,
+     "documents": [],
+     "requests": []
+    },
+    "rationale": "The case contains no document records, the evidence tool failed, and the requirements skill was blocked. I report this as a gap, compose no requests, and escalate to a person."
+   }
+  },
+  {
+   "agent": "agent.identity_verification",
+   "digest": "04e96f092f908cd884d3bfae004da3f6962fb07131ff0e1e057a87063c5959e0",
+   "output": {
+    "action": "call_skill",
+    "skill": "entity.identifiers.validate",
+    "parameters": {
+     "issuer": "US-NY-SPECIMEN",
+     "value": "SPECIMEN-H01-DL-0001"
+    },
+    "rationale": "The driver's licence identifier has a known issuer (US-NY-SPECIMEN). Checking its format could confirm or contradict the identity, especially since the identity-verify skill returned verified=false against a VERIFIED verification record."
+   }
+  },
+  {
+   "agent": "agent.identity_verification",
+   "digest": "59f40381bc3dcfa10f693e6648712a96a0184906f736690e58be18db3d695f69",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "Ingrid Halvorsen (h01.entity.halvorsen) cannot be reported as verified by a record. The verification record says VERIFIED (government ID document), but the entity-identity-verify skill evaluated that same record as verified:false, and nothing explains the difference. Identifier format validation came back BLOCKED with an empty payload. No identity document assertions, document pages or registry records were admitted, so no document field could be compared. The case lists no other parties. I propose human review; this is not a decision.",
+     "findings": [
+      {
+       "type": "verification_result_discrepancy",
+       "severity": "REVIEW",
+       "reason": "The verification record h01.verificationrecord.halvorsen has status VERIFIED by method government_id_document. The entity-identity-verify skill evaluated that record with verified:false. The reason is not in the payload, so the verification cannot be relied on until a person reconciles the two.",
+       "sourceRefs": [
+        "readVerificationRecord-identity-verification-review",
+        "skillResults"
+       ]
+      },
+      {
+       "type": "identifier_validation_blocked",
+       "severity": "REVIEW",
+       "reason": "The entity.identifiers.validate skill returned BLOCKED with an empty payload and no unresolved items. The issuers are known (US-NY-SPECIMEN for the driver's licence, US-SPECIMEN for the passport), but the format validity of SPECIMEN-H01-DL-0001 and SPECIMEN-H01-PP-0001 is unconfirmed. The identifiers are flagged verified:true in the identifier records, but that is not a format validation.",
+       "sourceRefs": [
+        "observation-1",
+        "readIdentityIdentifier-identity-verification-review"
+       ]
+      },
+      {
+       "type": "name_and_identifier_match_only",
+       "severity": "INFO",
+       "reason": "Entity resolution matched the identity record with name_score 1, the two shared identifiers and no identifier conflict. That shows internal consistency of the records, not independent verification. The identity record holds date of birth 1988-04-17, with no document or registry value to compare it against.",
+       "sourceRefs": [
+        "skillResults",
+        "readIdentity-identity-verification-review"
+       ]
+      },
+      {
+       "type": "no_document_evidence",
+       "severity": "REVIEW",
+       "reason": "No extracted assertions, document pages, registry records or addresses were admitted. Date of birth, document number and address cannot be compared with any document. No tamper signal exists to report, but that does not show a document is genuine because no document was supplied.",
+       "sourceRefs": [
+        "readExtractedAssertion-identity-verification-review",
+        "readDocumentPage-identity-verification-review",
+        "readRegistryRecord-identity-verification-review",
+        "readAddress-identity-verification-review"
+       ]
+      },
+      {
+       "type": "fraud_signals_low_score",
+       "severity": "INFO",
+       "reason": "The record has repeated account_takeover and payment_anomaly signals, with scores of 0 to 0.05 from the rules model corpus-fraud-rules-v1. None is tied to a document tamper signal. They do not verify or contradict identity.",
+       "sourceRefs": [
+        "readFraudSignal-identity-verification-review"
+       ]
+      },
+      {
+       "type": "relationships_not_identity_evidence",
+       "severity": "INFO",
+       "reason": "The relationship records (employer, landlord, merchants and others) show transacts_with links marked verified. They come from an untrusted source and do not verify the customer's identity.",
+       "sourceRefs": [
+        "recRelationship-identity-verification-review-entity-relationship-resolve"
+       ]
+      }
+     ],
+     "gaps": [
+      "Reason the entity-identity-verify skill returned verified:false for a record with status VERIFIED",
+      "Format validation of the driver's licence and passport identifiers (the validate skill was blocked)",
+      "Identity document assertions (date of birth, document number, name, address) to compare with the identity and verification records",
+      "Address record for the customer",
+      "Registry record, if any company or other party is involved; the case lists only the individual",
+      "Content of evidence h01.evidence.halvorsen-verification, which is referenced but not admitted"
+     ],
+     "requiresHumanReview": true,
+     "verifications": [
+      {
+       "entityRef": "h01.entity.halvorsen",
+       "status": "UNVERIFIED",
+       "sourceRefs": [
+        "readVerificationRecord-identity-verification-review",
+        "skillResults",
+        "observation-1"
+       ]
+      }
+     ],
+     "documentChecks": []
+    },
+    "rationale": "The records give conflicting verification results, the identifier validation was blocked, and no document or registry evidence was admitted. I am reporting the customer as unverified and escalating to a person."
+   }
+  },
+  {
+   "agent": "agent.screening",
+   "digest": "6dccb8eb745215aaf980d627bf1bf785dc87df46fb50cc89fbea4ac69f66305b",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "No screening candidates were returned for the single required subject, Ingrid Halvorsen (h01.entity.halvorsen). Sanctions and PEP screening both completed with empty hit lists, but their coverage lists are empty and universal_clearance is false, so the empty results do not show that the subject was actually screened against any list. The match-disambiguation skill returned NEEDS_EVIDENCE. There is nothing to compare like-for-like, so I make no false-match or true-match proposal. A person needs to review the coverage gap. This is not a clearance.",
+     "findings": [
+      {
+       "type": "NO_HITS_RETURNED",
+       "severity": "REVIEW",
+       "reason": "Sanctions and PEP execution completed with zero hits for the subject. The payloads show empty coverage and universal_clearance=false, so search completion cannot be treated as clearance.",
+       "sourceRefs": [
+        "skillResults",
+        "caseSubjects"
+       ]
+      },
+      {
+       "type": "COVERAGE_NOT_EVIDENCED",
+       "severity": "REVIEW",
+       "reason": "The coverage arrays are empty for both the sanctions and PEP screens. The context does not say which lists, or whether any lists, were checked for this subject.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "DISAMBIGUATION_NEEDS_EVIDENCE",
+       "severity": "INFO",
+       "reason": "screening-match-disambiguate returned NEEDS_EVIDENCE with an empty payload and no unresolved items. There are no hits to disambiguate, and no identifiers were supplied to compare.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "SUBJECT_TYPE_AMBIGUITY",
+       "severity": "INFO",
+       "reason": "The subject id is 'h01.entity.halvorsen' but the display name 'Ingrid Halvorsen' looks like a natural person. The subject type is unclear, and no date of birth, nationality, or identifiers are provided.",
+       "sourceRefs": [
+        "caseSubjects"
+       ]
+      },
+      {
+       "type": "NO_PEP_OR_CONTROL_DATA",
+       "severity": "INFO",
+       "reason": "The PEP relationship and control-right records are empty. No hit or controller makes the PEP relationship or sanctions control skills relevant, so I did not run them.",
+       "sourceRefs": [
+        "recPEPRelationship-screening-review-screening-pep-relationship-resolve",
+        "recControlRight-screening-review-screening-sanctions-control-evaluate"
+       ]
+      }
+     ],
+     "gaps": [
+      "No list coverage evidence (which sanctions and PEP lists were screened) for h01.entity.halvorsen.",
+      "No identifying attributes for the subject (date of birth or incorporation, nationality or jurisdiction, identifiers), so no like-for-like comparison is possible if candidates appear.",
+      "Subject type (individual or entity) is not confirmed.",
+      "The empty PEP relationship and control-right records are untrusted external data and are not corroborated."
+     ],
+     "requiresHumanReview": true,
+     "proposals": []
+    },
+    "rationale": "There are no hits to propose on. The empty coverage and universal_clearance=false mean the result cannot support clearance, so I escalate to a person. No further tool call would change this answer."
+   }
+  },
+  {
+   "agent": "agent.investigation",
+   "digest": "28f65229016901e55221418f9bda29815c57646b1b8eca8a8c5e1f8ed41fe0f3",
+   "output": {
+    "action": "call_tool",
+    "tool": "screening.adverse_media.v1",
+    "input": {
+     "name": "Ingrid Halvorsen"
+    },
+    "rationale": "The case names one subject, Ingrid Halvorsen (h01.entity.halvorsen), in caseSubjects. The screening-adverse-media-execute skill returned NEEDS_EVIDENCE with no events and no coverage (skillResults), so the records have not covered this subject. One adverse-media search for her is needed before any item can be marked RELEVANT, NOT_RELEVANT or UNCERTAIN. No country or identifier is added because the context does not confirm her jurisdiction."
+   }
+  },
+  {
+   "agent": "agent.investigation",
+   "digest": "185e291b4e72eb740500b3ecaede19ffc8695edaf0731c5354beaf670af3d44e",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "Adverse-media review for Ingrid Halvorsen (h01.entity.halvorsen) could not be completed. The adverse-media skill finished with business_status NEEDS_EVIDENCE and returned empty events and empty coverage. A direct call to screening.adverse_media.v1 failed with harness.tool_unavailable. No article or event exists to assess, so no allegations are recorded. That absence is a gap, not a negative result. The collected evidence consists of one verification item, 25 payment items and 48 session items, identified by reference and hash only. None of it is adverse media. The relationship records show only routine transacts_with links: employer, landlord, merchants, mobile, power and savings. No adverse party is identified, so relationship analysis was not run. Assertion records are empty and no two adverse-media sources disagree, so contradiction analysis was not run. Upstream synthesis reports open issues for a person to resolve: an identity verification discrepancy, sanctions and PEP coverage that is not evidenced, missing document evidence, and an incomplete profile. The adverse-media outcome is undetermined and needs human review.",
+     "findings": [
+      {
+       "type": "ADVERSE_MEDIA_NOT_PERFORMED",
+       "severity": "BLOCKING",
+       "reason": "The adverse-media skill returned NEEDS_EVIDENCE with empty events and coverage. The retry through screening.adverse_media.v1 failed with harness.tool_unavailable. No adverse-media search result exists for the subject, and an empty result must not be read as clean.",
+       "sourceRefs": [
+        "skillResults",
+        "observation-1",
+        "caseSubjects"
+       ]
+      },
+      {
+       "type": "ADVERSE_MEDIA_COVERAGE_NOT_EVIDENCED",
+       "severity": "REVIEW",
+       "reason": "The coverage array is empty, so there is no record of which sources, languages or date ranges were searched.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "VERIFICATION_RESULT_DISCREPANCY",
+       "severity": "REVIEW",
+       "reason": "Upstream synthesis reports that verification record h01.verificationrecord.halvorsen has status VERIFIED, while the entity-identity-verify skill evaluated it as verified:false. No reason is given, and a person needs to reconcile the two. This affects subject identification for any future media match.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "SCREENING_COVERAGE_NOT_EVIDENCED",
+       "severity": "REVIEW",
+       "reason": "Upstream synthesis reports zero sanctions and PEP hits, but coverage is empty and universal_clearance is false, so the search completing is not a clearance.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "RELATIONSHIPS_ROUTINE",
+       "severity": "INFO",
+       "reason": "There are 16 verified transacts_with relationships to the employer, landlord, merchant, utility, mobile and savings counterparties. No adverse-media link to any counterparty is evidenced, so relationship analysis was not triggered.",
+       "sourceRefs": [
+        "recRelationship-investigation-review-investigation-relationship-analyze"
+       ]
+      },
+      {
+       "type": "NO_CONTRADICTING_SOURCES",
+       "severity": "INFO",
+       "reason": "Assertion, Investigation and Finding records are empty, and there are no adverse-media sources to compare, so contradiction analysis was not triggered.",
+       "sourceRefs": [
+        "recAssertion-investigation-review-investigation-contradiction-detect",
+        "recInvestigation-investigation-review-investigation-gaps-identify",
+        "recFinding-investigation-review-investigation-gaps-identify"
+       ]
+      }
+     ],
+     "gaps": [
+      "No adverse-media search result exists for Ingrid Halvorsen because the tool was unavailable and the skill returned NEEDS_EVIDENCE. The search must be re-run once the tool is available.",
+      "Adverse-media coverage (sources, jurisdictions, date range) is not evidenced.",
+      "Collected evidence is supplied by reference and hash only. Its content was not available for review.",
+      "No date of birth or address was corroborated against documents, which limits disambiguation of any future media match.",
+      "The identity verification discrepancy (VERIFIED versus verified:false) is unresolved.",
+      "Sanctions and PEP coverage is not evidenced.",
+      "The profile is missing business_purpose, and expected activity is not corroborated by a dedicated record."
+     ],
+     "requiresHumanReview": true,
+     "allegations": []
+    },
+    "rationale": "The adverse-media tool already failed (observation-1), so repeating the call would add nothing. No events exist to classify, and neither contradiction nor relationship analysis is triggered. The review ends with the gap stated and escalation to a person."
+   }
+  },
+  {
+   "agent": "agent.risk_edd",
+   "digest": "a9e98a9a6b2b7b87e18f0a82bb1649cb314f43936a88fce988b19af15c2886c8",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "For customer Ingrid Halvorsen (h01.entity.halvorsen), the risk assessment skill scored 0.08 and assigned tier LOW. Geography contributed 0.020 and product contributed 0.060, and no factors are missing. The EDD trigger skill returned required=false, with its only trigger, 'high-risk', at outcome FAIL. That skill sees only the tier, so I checked the records directly. The case has no PEP relationships and no screening hits. No connected party is a verified PEP, so nothing outside the trigger's view would justify EDD. One source-of-funds record exists and is marked verified: salaried software engineer paid by bi-weekly ACH payroll. There is no source-of-wealth record, but the case's facts do not make it material at this tier. I propose tier LOW, the tier the skills assigned, and I do not recommend EDD. This is a proposal; the tier is decided under policy by a person.",
+     "findings": [
+      {
+       "type": "RISK_TIER_ASSIGNED",
+       "severity": "INFO",
+       "reason": "The risk skill scored 0.08 (geography 0.020, product 0.060), with no missing factors, under model synthetic-risk-v1, and assigned tier LOW. The proposed tier keeps this rating and does not lower it.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "EDD_TRIGGER_NOT_MET",
+       "severity": "INFO",
+       "reason": "The EDD trigger skill returned required=false. Its 'high-risk' trigger outcome was FAIL, meaning the trigger condition was not met. This trigger evaluates only the tier.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "NO_PEP_RELATIONSHIPS",
+       "severity": "INFO",
+       "reason": "The case has no PEP relationship records. No connected party is shown as a verified PEP, so no connection-scoped EDD is warranted beyond what the tier-only trigger evaluated.",
+       "sourceRefs": [
+        "readPEPRelationship-risk-edd-review"
+       ]
+      },
+      {
+       "type": "NO_SCREENING_HITS",
+       "severity": "INFO",
+       "reason": "The case has no screening hit records. This is an observation that no hits are recorded, not a clearance of any hit.",
+       "sourceRefs": [
+        "readScreeningHit-risk-edd-review"
+       ]
+      },
+      {
+       "type": "SOURCE_OF_FUNDS_RECORDED",
+       "severity": "INFO",
+       "reason": "The source-of-funds claim is salaried employment as a staff software engineer, paid by bi-weekly ACH payroll. It is marked verified=true and cites evidence h01.evidence.halvorsen-verification. The record comes from an untrusted external source. A separate verification skill was not run because the case's facts do not make it material at LOW tier.",
+       "sourceRefs": [
+        "recSourceOfFunds-risk-edd-review-edd-source-of-funds-verify"
+       ]
+      },
+      {
+       "type": "SOURCE_OF_WEALTH_ABSENT",
+       "severity": "INFO",
+       "reason": "The case has no source-of-wealth record. With a LOW tier, no PEP links and no screening hits, source of wealth is not material, so no assessment was run.",
+       "sourceRefs": [
+        "recSourceOfWealth-risk-edd-review-edd-source-of-wealth-assess"
+       ]
+      }
+     ],
+     "gaps": [
+      "The case has no source-of-wealth record. This is not material at the current LOW tier, but it would be needed if the tier or the facts change.",
+      "The source-of-funds verified flag comes from an untrusted external record. The underlying evidence h01.evidence.halvorsen-verification is not in context to corroborate it."
+     ],
+     "requiresHumanReview": false,
+     "proposedTier": "LOW",
+     "eddRecommended": false,
+     "eddScope": []
+    },
+    "rationale": "The skills assigned tier LOW and the EDD trigger was not met. There are no PEP relationships or screening hits that the tier-only trigger could have missed. Source of funds is recorded as verified, and source of wealth is not material. No further skill call would change the answer, so I propose LOW with no EDD for policy and human decision."
+   }
+  },
+  {
+   "agent": "agent.relationship_product",
+   "digest": "016f816fe3bf831cea1bb032baec5577f16442421de0f39ebec8f9fb89734614",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "Neither product can be confirmed as consistent with the customer. The deposit has an expected-activity baseline, but there is no stated purpose, counterparty data or observed activity to test it against. The card has no baseline at all. The only geography evidence is a US residence record, which does not contradict either product. Party data is empty, so industry or occupation cannot be classified. Human review is proposed.",
+     "findings": [
+      {
+       "type": "MISSING_BASELINE",
+       "severity": "REVIEW",
+       "reason": "The expected-behavior model returns a baseline only for the deposit (h01.expectedactivity.deposit). No baseline exists for the active online card product (h01.product.card), so its expected activity cannot be assessed.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "INSUFFICIENT_CUSTOMER_CONTEXT",
+       "severity": "REVIEW",
+       "reason": "The Party record set is empty. There is no stated purpose, occupation, income source, industry or counterparty information to judge whether the deposit baseline (45 transactions, USD 6,200 per month, window 2024-10-02 to 2026-09-30) is plausible for Ingrid Halvorsen. The baseline is declared (inferred=false), but nothing has been compared against observed activity.",
+       "sourceRefs": [
+        "recParty-relationship-product-review-party-industry-classify",
+        "skillResults"
+       ]
+      },
+      {
+       "type": "GEOGRAPHY_CONTEXT",
+       "severity": "INFO",
+       "reason": "The single geography record shows US residence (basis residence, country US, value '1'). This fits a USD-denominated, branch-channel deposit and does not contradict the card. The record is from an untrusted external source, and the meaning of value '1' is unexplained. No other country exposure or counterparty geography is recorded.",
+       "sourceRefs": [
+        "recGeographyExposure-relationship-product-review-party-geography-profile",
+        "skillResults"
+       ]
+      },
+      {
+       "type": "MONITORING_SCHEDULE_ONLY",
+       "severity": "INFO",
+       "reason": "A customer review is scheduled for 2026-10-30 (schedule 8ca99f5ef9f5a6805367). This is a work item and not evidence that transaction monitoring is running on either product.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      }
+     ],
+     "gaps": [
+      "No stated purpose of the relationship or of each product.",
+      "No expected-activity baseline for the card product (h01.product.card).",
+      "No Party data (occupation, income, source of funds or industry), so industry classification is not possible.",
+      "No counterparty information for either product.",
+      "No observed transaction activity to compare with the deposit baseline.",
+      "The geography record is a single untrusted external entry, and the meaning of value '1' is not explained.",
+      "No confirmation that transaction monitoring is active on either product."
+     ],
+     "requiresHumanReview": true,
+     "products": [
+      {
+       "product": "h01.product.card",
+       "expectedActivity": "UNKNOWN",
+       "rationale": "The card is active on the online channel, but the expected-behavior model has no baseline for it and the customer's purpose and counterparties are not recorded. Only US residence is known. (skillResults, recGeographyExposure-relationship-product-review-party-geography-profile)"
+      },
+      {
+       "product": "h01.product.deposit",
+       "expectedActivity": "UNKNOWN",
+       "rationale": "A baseline exists (45 transactions, USD 6,200 per month), and the branch channel and USD currency are compatible with US residence. Without a stated purpose, income or occupation data, counterparties or observed activity, I cannot say the baseline is consistent or inconsistent with the customer. Nothing in the records contradicts it. (skillResults, recGeographyExposure-relationship-product-review-party-geography-profile, recParty-relationship-product-review-party-industry-classify)"
+      }
+     ],
+     "monitoringNotes": [
+      "The 2026-10-30 scheduled review is a work item only. Confirm separately that transaction monitoring is active on the card and the deposit.",
+      "Once a card baseline and customer purpose or occupation data are available, re-run the expected-activity comparison for both products."
+     ]
+    },
+    "rationale": "The geography profile and expected-behavior records are already in context. The Party records are empty, so the industry skill would have nothing to classify. The registry lookup is not relevant to an individual with no entity identifiers. Final output with gaps and an escalation to a person."
+   }
+  },
+  {
+   "agent": "agent.decision_support",
+   "digest": "39771bbd164c3b9ba1a4dcb346b98522faf38b7c59ee6cae27c9903db1953de0",
+   "output": {
+    "action": "call_skill",
+    "skill": "decision.gaps.evaluate",
+    "parameters": {},
+    "rationale": "The decision-rules-evaluate skill returned FAIL for rule identity-verified (skillResults). The review instructions require a gap evaluation when a requirement is unmet. decision-recommendation-generate returned NEEDS_EVIDENCE with an empty payload, so the specific gaps still need to be identified before I recommend COLLECT_EVIDENCE or ESCALATE. The Control record set is empty (recControl-decision-support-review-decision-gaps-evaluate), so the gap evaluation is the bound way to compile the unmet requirements."
+   }
+  },
+  {
+   "agent": "agent.decision_support",
+   "digest": "f6896faf3d6369baac928e89e70655a45abf90748ddca9daa74989dc0c29b494",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "Case case-H01 for Ingrid Halvorsen (h01.entity.halvorsen) cannot go forward for acceptance review. The identity-verified rule failed. No documents are in the case. Business purpose and customer context are missing. Sanctions and PEP coverage is not evidenced. Adverse media was never searched. The recommendation skill and the gaps skill both returned NEEDS_EVIDENCE with empty payloads. There are no screening hits and no ownership findings that would need a senior sanctions or ownership decision. The proposed next step is to collect evidence, and a person must review it.",
+     "findings": [
+      {
+       "type": "IDENTITY_RULE_FAIL",
+       "severity": "BLOCKING",
+       "reason": "The decision-rules-evaluate skill returned FAIL for rule identity-verified. The recommendation skill returned NEEDS_EVIDENCE with an empty payload, so no rule-based recommendation exists.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "VERIFICATION_RESULT_DISCREPANCY",
+       "severity": "REVIEW",
+       "reason": "Verification record h01.verificationrecord.halvorsen shows VERIFIED by government_id_document, but the entity-identity-verify skill evaluated it as verified:false and gave no reason. A person must reconcile the two before the verification is relied on. This finding is unverified.",
+       "sourceRefs": [
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "NO_DOCUMENT_EVIDENCE",
+       "severity": "BLOCKING",
+       "reason": "DocumentVersion and DocumentPage records are empty. The classification, validity, consistency, authenticity and tamper skills returned NEEDS_EVIDENCE. The extraction and requirements skills were blocked. The document evidence tool was unavailable. Date of birth, document number and address cannot be compared with any document, and the absence of a tamper signal is not evidence that a document is genuine.",
+       "sourceRefs": [
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "IDENTIFIER_VALIDATION_BLOCKED",
+       "severity": "REVIEW",
+       "reason": "The entity.identifiers.validate skill returned BLOCKED, so the format validity of SPECIMEN-H01-DL-0001 and SPECIMEN-H01-PP-0001 is unconfirmed. The verified:true flags in the identifier records are not a format validation.",
+       "sourceRefs": [
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "SCREENING_COVERAGE_NOT_EVIDENCED",
+       "severity": "BLOCKING",
+       "reason": "Sanctions and PEP screening returned zero hits, and the case holds no ScreeningHit records. However, the coverage arrays are empty and universal_clearance is false. Zero hits therefore cannot be treated as clearance, and screening must be re-run with evidenced list coverage. This is not a statement that the subject is cleared.",
+       "sourceRefs": [
+        "readFinding-decision-support-review",
+        "readScreeningHit-decision-support-review"
+       ]
+      },
+      {
+       "type": "ADVERSE_MEDIA_NOT_PERFORMED",
+       "severity": "BLOCKING",
+       "reason": "The adverse-media skill returned NEEDS_EVIDENCE with empty events and empty coverage. The retry failed with harness.tool_unavailable. No search result exists, and the empty result must not be read as clean.",
+       "sourceRefs": [
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "INCOMPLETE_PROFILE",
+       "severity": "BLOCKING",
+       "reason": "The profile is incomplete: business_purpose is missing. The Party record set is empty, so there is no occupation, income source, industry or counterparty information.",
+       "sourceRefs": [
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "EXPECTED_ACTIVITY_GAP",
+       "severity": "REVIEW",
+       "reason": "A deposit baseline exists (45 transactions, about USD 6,200 inflow per month), but no dedicated ExpectedActivity record corroborates it. The card product h01.product.card has null expected activity and no baseline. Plausibility cannot be judged without customer context.",
+       "sourceRefs": [
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "SUBJECT_IDENTIFIER_INCONSISTENCY",
+       "severity": "REVIEW",
+       "reason": "The case subject is h01.entity.halvorsen, but the profile finding refers to h01.party.halvorsen. A person should confirm that both refer to the same subject.",
+       "sourceRefs": [
+        "caseSubjects",
+        "readFinding-decision-support-review"
+       ]
+      },
+      {
+       "type": "NO_CONTROLS_OR_GAP_DETAIL",
+       "severity": "INFO",
+       "reason": "The Control records are empty. The decision.gaps.evaluate skill succeeded but returned NEEDS_EVIDENCE with an empty payload and no unresolved items, so the gaps were derived from the upstream findings instead.",
+       "sourceRefs": [
+        "recControl-decision-support-review-decision-gaps-evaluate",
+        "observation-1"
+       ]
+      }
+     ],
+     "gaps": [
+      "Identity document(s) (government ID / passport / driver's licence) as DocumentVersion/DocumentPage records to support the identity-verified rule",
+      "A person's reconciliation of h01.verificationrecord.halvorsen (VERIFIED) against the entity-identity-verify result (verified:false)",
+      "Format validation of identifiers SPECIMEN-H01-DL-0001 and SPECIMEN-H01-PP-0001",
+      "Sanctions and PEP screening re-run with evidenced list coverage",
+      "Adverse-media search with evidenced sources, languages and date ranges, once the tool is available",
+      "Business purpose of the relationship",
+      "Party record: occupation, source of income, industry, counterparties",
+      "A dedicated ExpectedActivity record corroborating the deposit figures, plus an expected-activity baseline for card product h01.product.card",
+      "Confirmation that h01.entity.halvorsen and h01.party.halvorsen are the same subject"
+     ],
+     "requiresHumanReview": true,
+     "recommendation": "COLLECT_EVIDENCE",
+     "rationale": "Required evidence is missing in every area: identity documents, profile purpose, customer context, screening coverage and adverse media. The identity-verified rule failed, and the recommendation and gaps skills both returned NEEDS_EVIDENCE. The case contains no screening hits and no ownership finding, so there is currently no blocking sanctions or ownership matter that calls for a senior escalation. The verification discrepancy is ambiguous evidence, and a person must reconcile it as part of review. If the re-run screening returns hits, or the discrepancy cannot be reconciled, the case should be escalated. All upstream findings are unverified proposals. Nothing here clears screening, approves the case or changes any risk rating.",
+     "citedRecords": [
+      "caseSubjects",
+      "readFinding-decision-support-review",
+      "readScreeningHit-decision-support-review",
+      "recControl-decision-support-review-decision-gaps-evaluate",
+      "skillResults",
+      "observation-1"
+     ],
+     "final": false
+    },
+    "rationale": "Required evidence is missing and the identity rule failed, with no sanctions or ownership hits present, so the proposal is COLLECT_EVIDENCE with mandatory human review."
+   }
+  },
+  {
+   "agent": "agent.qa_assurance",
+   "digest": "568e1b315c4ebc20faf4cf818e3642225b49da637cf2ceb8405e0b4a6907341e",
+   "output": {
+    "action": "final",
+    "output": {
+     "summary": "QA review of case-H01 (subject Ingrid Halvorsen, h01.entity.halvorsen per caseSubjects) cannot pass. The findings-verification skill marks all 25 upstream findings citations_valid:false and flags semantic_review_required (skillResults): every finding cites an evidence id of the form ev_<agent-review> that does not exist in the case Evidence set, which contains only h01.evidence.* records (recEvidence-qa-assurance-review-quality-hallucination-detect). The policy-compliance skill returned NEEDS_EVIDENCE with an empty payload, so no compliance determination exists (skillResults). Substantively, the upstream findings themselves report an unreconciled identity-verification discrepancy and identity-verified rule FAIL, no document evidence, blocked identifier validation, sanctions/PEP screening with empty coverage and universal_clearance=false, adverse media not performed, an empty Party record set, and a subject-identifier mismatch (readFinding-qa-assurance-review). Nothing here states a sanctions clearance, approval or risk-rating change; all of these require a person to decide.",
+     "findings": [
+      {
+       "type": "FINDING_CITATIONS_UNRESOLVED",
+       "severity": "BLOCKING",
+       "reason": "quality-findings-verify returned citations_valid:false for all 25 findings and semantic_review_required:true. Each finding's evidence_ids (e.g. ev_intake-profile-review, ev_screening-review, ev_decision-support-review) do not match any object_id in the Evidence record set, which contains only h01.evidence.halvorsen-verification, h01.evidence.payment-* and h01.evidence.session-* records. The findings therefore rest on no admitted evidence record and cannot be treated as verified.",
+       "sourceRefs": [
+        "skillResults",
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      },
+      {
+       "type": "POLICY_COMPLIANCE_NOT_EVIDENCED",
+       "severity": "BLOCKING",
+       "reason": "quality-policy-compliance completed with business_status NEEDS_EVIDENCE and an empty payload, with no unresolved_items listed. There is no record of which policy requirements apply to this case or whether any were met; an absent compliance result is a challenge, not a pass.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "type": "IDENTITY_VERIFICATION_DISCREPANCY",
+       "severity": "BLOCKING",
+       "reason": "Upstream findings report verification record h01.verificationrecord.halvorsen as VERIFIED by government_id_document while the entity-identity-verify skill evaluated it verified:false with no reason, and the decision-rules-evaluate skill returned FAIL for rule identity-verified. The Evidence record h01.evidence.halvorsen-verification carries verified:true but its content is a one-line SPECIMEN statement with empty requirement_ids and no underlying document; that flag does not resolve the discrepancy. A person must reconcile these before identity is relied on.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect",
+        "skillResults"
+       ]
+      },
+      {
+       "type": "NO_DOCUMENT_EVIDENCE",
+       "severity": "BLOCKING",
+       "reason": "Findings document-intelligence-review:0-2, identity-verification-review:3 and decision-support-review:2 report DocumentVersion and DocumentPage records empty, document skills returning NEEDS_EVIDENCE or BLOCKED, and the document evidence tool unavailable. The Evidence set confirms no document-type record exists (only verification statement, payment instructions and session logs). DOB, document number and address cannot be compared with any document; absence of a tamper signal is not evidence of genuineness.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      },
+      {
+       "type": "IDENTIFIER_VALIDATION_BLOCKED",
+       "severity": "BLOCKING",
+       "reason": "Findings identity-verification-review:1 and decision-support-review:3 report entity.identifiers.validate BLOCKED with empty payload; format validity of SPECIMEN-H01-DL-0001 and SPECIMEN-H01-PP-0001 is unconfirmed. The identifier records' verified:true flags are not format validation.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "type": "SCREENING_COVERAGE_NOT_EVIDENCED",
+       "severity": "BLOCKING",
+       "reason": "Findings screening-review:0-1, investigation-review:3 and decision-support-review:4 report sanctions and PEP screens completing with zero hits but empty coverage arrays and universal_clearance=false. No record states which lists were checked. Zero hits with no evidenced coverage is not a clearance; this review does not state the subject is cleared.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "type": "ADVERSE_MEDIA_NOT_PERFORMED",
+       "severity": "BLOCKING",
+       "reason": "Findings investigation-review:0-1 and decision-support-review:5 report the adverse-media skill returned NEEDS_EVIDENCE with empty events and coverage, and the retry failed with harness.tool_unavailable. No adverse-media result exists; empty is not clean.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "type": "INCOMPLETE_PROFILE_AND_EXPECTED_ACTIVITY_GAP",
+       "severity": "REVIEW",
+       "reason": "Findings intake-profile-review:3-4, relationship-product-review:0-1 and decision-support-review:6-7 report business_purpose missing, an empty Party record set (no occupation, income source, industry or counterparty data), a deposit baseline (45 transactions, USD 6,200 in / 5,900 out) not corroborated by a dedicated ExpectedActivity record, and no baseline for the active card product h01.product.card. The Evidence set holds 26 SPECIMEN payment-instruction records (2024-09-30 to 2026-09-28) but no finding compares them to the declared baseline.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      },
+      {
+       "type": "SUBJECT_IDENTIFIER_INCONSISTENCY",
+       "severity": "REVIEW",
+       "reason": "caseSubjects lists h01.entity.halvorsen; finding intake-profile-review:3 refers to h01.party.halvorsen and decision-support-review:8 flags the mismatch. No record in context links the two identifiers; a person should confirm they denote the same subject.",
+       "sourceRefs": [
+        "caseSubjects",
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "type": "EVIDENCE_NOT_LINKED_TO_REQUIREMENTS",
+       "severity": "REVIEW",
+       "reason": "All 76 Evidence records in the case set have requirement_ids empty and content labelled SPECIMEN. None is tied to a CDD requirement, so the verified:true flags on these records cannot be read as satisfying any onboarding requirement.",
+       "sourceRefs": [
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      }
+     ],
+     "gaps": [
+      "No Evidence record exists for any of the evidence ids cited by the 25 upstream findings (ev_intake-profile-review, ev_document-intelligence-review, ev_identity-verification-review, ev_screening-review, ev_investigation-review, ev_relationship-product-review, ev_decision-support-review).",
+      "No policy-compliance result: applicable policy/jurisdictional CDD requirements and their satisfaction status are not in context.",
+      "No DocumentVersion/DocumentPage records; no identity document available for review.",
+      "No reason recorded for the entity-identity-verify verified:false result against a VERIFIED verification record.",
+      "No screening coverage (lists, dates) for sanctions or PEP; no adverse-media search result or coverage.",
+      "Party record set empty; no business purpose, occupation, income source or counterparty information.",
+      "No dedicated ExpectedActivity record for the deposit and no baseline for the card product.",
+      "No record linking h01.entity.halvorsen to h01.party.halvorsen.",
+      "No record of related or connected parties (joint holders, authorised users, beneficial counterparties) to confirm the single-subject case scope is complete."
+     ],
+     "requiresHumanReview": true,
+     "challenges": [
+      {
+       "area": "UNSUPPORTED_CLAIM",
+       "reason": "Every upstream finding cites an evidence id that does not resolve to any Evidence record in the case; quality-findings-verify returned citations_valid:false for all 25 and requires semantic review. Until the agents' claims are re-anchored to admitted records, the findings are assertions, not evidence.",
+       "sourceRefs": [
+        "skillResults",
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      },
+      {
+       "area": "POLICY_COMPLIANCE",
+       "reason": "quality-policy-compliance returned NEEDS_EVIDENCE with an empty payload; no compliance determination exists for this case and none can be inferred.",
+       "sourceRefs": [
+        "skillResults"
+       ]
+      },
+      {
+       "area": "LEGAL_APPLICABILITY",
+       "reason": "No record in context identifies the CDD/KYC regime or policy requirements applicable to this subject (identifiers cite US-NY-SPECIMEN and US-SPECIMEN issuers per upstream findings, but no requirement set is evidenced and the compliance skill produced nothing). Applicability of the identity, screening and profile requirements being asserted as failed or missing is itself unevidenced.",
+       "sourceRefs": [
+        "skillResults",
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "area": "EVIDENCE_SUFFICIENCY",
+       "reason": "Identity verification is contradicted between the verification record (VERIFIED) and the skill result (verified:false) with the identity-verified rule FAILing; the only verification Evidence record is a SPECIMEN text line with no requirement linkage and no document. Document, identifier-format, sanctions/PEP coverage and adverse-media evidence are all absent or unavailable. The evidence base is insufficient for any onboarding conclusion.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      },
+      {
+       "area": "EVIDENCE_SUFFICIENCY",
+       "reason": "Sanctions and PEP screens report zero hits with empty coverage and universal_clearance=false; adverse media was not performed. These results must not be read as clearance, and screening should be re-run with evidenced list coverage before a person decides.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "area": "OMITTED_PARTY",
+       "reason": "The Party record set is empty and the case lists a single subject, yet the subject is referenced under two identifiers (h01.entity.halvorsen vs h01.party.halvorsen). With no Party records, the case cannot show whether other relevant parties (joint holders, authorised card users, recurring counterparties on ACH/card rails) exist and were screened. Absence of the records is a gap, not confirmation that no other party is involved.",
+       "sourceRefs": [
+        "caseSubjects",
+        "readFinding-qa-assurance-review"
+       ]
+      },
+      {
+       "area": "EVIDENCE_SUFFICIENCY",
+       "reason": "The declared deposit baseline (45 transactions/month, USD 6,200 in, 5,900 out) has no dedicated ExpectedActivity record, the card product has no baseline, and the 26 SPECIMEN payment-instruction Evidence records (one dated 2024-09-30, before the stated baseline window start of 2024-10-02) have not been compared against the baseline by any finding.",
+       "sourceRefs": [
+        "readFinding-qa-assurance-review",
+        "recEvidence-qa-assurance-review-quality-hallucination-detect"
+       ]
+      }
+     ],
+     "passed": false
+    },
+    "rationale": "The bound QA skills already answer the question: all finding citations fail to resolve and policy compliance has no result. Additional skill calls would not change a not-passed, escalate-to-human outcome; the challenges and gaps are grounded in the supplied records."
+   }
+  }
+ ],
+ "answerKey": {
+  "passed": [
+   "agent.intake_profile: answered within its output schema",
+   "agent.document_intelligence: answered within its output schema",
+   "agent.identity_verification: answered within its output schema",
+   "agent.screening: answered within its output schema",
+   "agent.investigation: answered within its output schema",
+   "agent.risk_edd: answered within its output schema",
+   "agent.relationship_product: answered within its output schema",
+   "agent.decision_support: answered within its output schema",
+   "agent.qa_assurance: answered within its output schema",
+   "agent.intake_profile: customer type individual",
+   "agent.screening: a clean hero raises no blocking screening finding",
+   "agent.risk_edd: a clean hero is not proposed HIGH",
+   "agent.investigation: a clean hero carries no relevant allegation",
+   "agent.decision_support: proposes, never decides",
+   "agent.decision_support: APPROVE: not a decline"
+  ],
+  "total": 15,
+  "costUsd": 1.1575
+ }
+}

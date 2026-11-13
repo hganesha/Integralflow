@@ -1,0 +1,76 @@
+{
+  "provider_id": "prembly",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.prembly.com"
+  },
+  "auth": {
+    "type": "multi_header",
+    "headers": {
+      "x-api-key": "API_KEY",
+      "app-id": "APP_ID"
+    },
+    "keys": [
+      "API_KEY",
+      "APP_ID"
+    ]
+  },
+  "sources": [
+    "https://docs.prembly.com/docs/national-id",
+    "https://docs.prembly.com/docs/international-passport-copy-2",
+    "https://docs.prembly.com/docs/company-search-by-person-copy-16"
+  ],
+  "notes": "The national-id source labels its example Zambia but documents /verification/gb/id. This country/path inconsistency is preserved, not interpreted as UK coverage. Confirm this product path with Prembly before submitting personal data.",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "documented_national_id": {
+      "method": "POST",
+      "path": "/verification/gb/id",
+      "required_body": [
+        "number"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.prembly.com/docs/national-id",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "ghana_passport": {
+      "method": "POST",
+      "path": "/verification/gh/passport",
+      "required_body": [
+        "number"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.prembly.com/docs/international-passport-copy-2",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "company_search": {
+      "method": "POST",
+      "path": "/identitypass/verification/global/company/search_with_string",
+      "required_body": [
+        "query"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "business_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.prembly.com/docs/company-search-by-person-copy-16",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

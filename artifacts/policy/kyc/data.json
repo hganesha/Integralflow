@@ -1,0 +1,2528 @@
+{
+  "harness": {
+    "decision_table": {
+      "catalog": {
+        "policy_id": "policy.kyc.customer-acceptance.v1",
+        "policy_version": "1.0.0",
+        "bundle_digest": "52df90961da6f9eae51a72df6612a83d792ef1e1bb6f887845b46231ff63dc21",
+        "gate_tables": {
+          "decision-ready": "table.kyc.decision-ready.v1",
+          "disposition": "table.kyc.disposition.v1",
+          "screening-ready": "table.kyc.screening-ready.v1"
+        },
+        "tables": {
+          "table.kyc.decision-ready.v1": {
+            "id": "table.kyc.decision-ready.v1",
+            "gate": "decision-ready",
+            "conditions": [
+              {
+                "id": "evaluation",
+                "description": "Did the policy engine complete without error?",
+                "extractor": {
+                  "kind": "evaluationStatus"
+                },
+                "tokens": [
+                  "OK",
+                  "ERROR"
+                ]
+              },
+              {
+                "id": "snapshot",
+                "description": "Is the evaluated case snapshot still the current one?",
+                "extractor": {
+                  "kind": "snapshotFreshness"
+                },
+                "tokens": [
+                  "CURRENT",
+                  "STALE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "cohort",
+                "description": "Which risk cohort does the case fall in?",
+                "extractor": {
+                  "kind": "riskCohort"
+                },
+                "tokens": [
+                  "RESOLVED",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "policyClaim",
+                "description": "Does the resolved policy context still exist on the case?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "claims",
+                  "where": {
+                    "predicate": "applicable_kyc_policy"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "ABSENT"
+                },
+                "tokens": [
+                  "PRESENT",
+                  "ABSENT"
+                ]
+              },
+              {
+                "id": "investigationWorkItem",
+                "description": "Has the public-source investigation work item completed?",
+                "extractor": {
+                  "kind": "itemStatus",
+                  "collection": "workItems",
+                  "where": {
+                    "workType": "PUBLIC_SOURCE_KYC_INVESTIGATION"
+                  },
+                  "statusPath": "status",
+                  "map": {
+                    "COMPLETED": "COMPLETED"
+                  },
+                  "absent": "ABSENT",
+                  "otherwise": "INCOMPLETE"
+                },
+                "tokens": [
+                  "COMPLETED",
+                  "INCOMPLETE",
+                  "ABSENT"
+                ]
+              },
+              {
+                "id": "investigationEvidence",
+                "description": "Is the investigation record linked as evidence?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "evidence",
+                  "where": {
+                    "purpose": "KYC_PUBLIC_SOURCE_RESEARCH"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "ABSENT"
+                },
+                "tokens": [
+                  "PRESENT",
+                  "ABSENT"
+                ]
+              },
+              {
+                "id": "screeningCoverage",
+                "description": "Did sanctions, PEP and adverse-media screening each return a usable result?",
+                "extractor": {
+                  "kind": "providerHealth",
+                  "basePath": "screening",
+                  "providers": [
+                    "sanctions",
+                    "pep",
+                    "adverseMedia"
+                  ]
+                },
+                "tokens": [
+                  "COMPLETE",
+                  "DEGRADED",
+                  "UNAVAILABLE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "sanctionsListFreshness",
+                "description": "Was the sanctions list version within the permitted staleness window?",
+                "extractor": {
+                  "kind": "listFreshness",
+                  "basePath": "screening",
+                  "provider": "sanctions",
+                  "maxAgeDaysOwnerInput": "D01.listFreshnessDays"
+                },
+                "tokens": [
+                  "FRESH",
+                  "STALE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "beneficialOwnership",
+                "description": "Is beneficial ownership satisfied where the cohort requires it?",
+                "extractor": {
+                  "kind": "obligationsSatisfied",
+                  "obligations": [
+                    "EVD-BENEFICIAL-OWNERSHIP",
+                    "EVD-BUSINESS-REGISTRATION"
+                  ],
+                  "exclude": []
+                },
+                "tokens": [
+                  "SATISFIED",
+                  "UNSATISFIED",
+                  "EXPIRED",
+                  "NOT_APPLICABLE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "eddObligations",
+                "description": "Are enhanced due diligence obligations satisfied where they apply?",
+                "extractor": {
+                  "kind": "obligationsSatisfied",
+                  "obligations": [
+                    "EVD-SOURCE-OF-FUNDS",
+                    "EVD-EDD-NARRATIVE"
+                  ],
+                  "exclude": []
+                },
+                "tokens": [
+                  "SATISFIED",
+                  "UNSATISFIED",
+                  "EXPIRED",
+                  "NOT_APPLICABLE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "cohortObligations",
+                "description": "Are every other evidence obligation required by this cohort satisfied?",
+                "extractor": {
+                  "kind": "obligationsSatisfied",
+                  "scope": "cohortRequired",
+                  "exclude": [
+                    "EVD-BENEFICIAL-OWNERSHIP",
+                    "EVD-BUSINESS-REGISTRATION",
+                    "EVD-SOURCE-OF-FUNDS",
+                    "EVD-EDD-NARRATIVE",
+                    "EVD-DECISION-RECOMMENDATION"
+                  ]
+                },
+                "tokens": [
+                  "SATISFIED",
+                  "UNSATISFIED",
+                  "EXPIRED",
+                  "NOT_APPLICABLE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "materialContradiction",
+                "description": "Is a HIGH-materiality contradiction open on the case?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "contradictions",
+                  "where": {
+                    "materiality": "HIGH",
+                    "status": "OPEN"
+                  },
+                  "presentToken": "OPEN",
+                  "absentToken": "NONE"
+                },
+                "tokens": [
+                  "NONE",
+                  "OPEN"
+                ]
+              }
+            ],
+            "rows": [
+              {
+                "id": "DR-001",
+                "rules": [
+                  "KYC-OPS-004"
+                ],
+                "when": {
+                  "evaluation": "ERROR"
+                },
+                "outcome": "ERROR",
+                "reasonCode": "POLICY_EVALUATION_ERROR"
+              },
+              {
+                "id": "DR-002",
+                "rules": [
+                  "KYC-OPS-003"
+                ],
+                "when": {
+                  "snapshot": "STALE"
+                },
+                "outcome": "ERROR",
+                "reasonCode": "CASE_SNAPSHOT_STALE"
+              },
+              {
+                "id": "DR-003",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "snapshot": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-004",
+                "rules": [
+                  "KYC-CDD-001"
+                ],
+                "when": {
+                  "cohort": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-005",
+                "rules": [
+                  "KYC-OPS-001"
+                ],
+                "when": {
+                  "policyClaim": "ABSENT"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "POLICY_CONTEXT_MISSING"
+              },
+              {
+                "id": "DR-006",
+                "rules": [
+                  "KYC-INV-001"
+                ],
+                "when": {
+                  "investigationWorkItem": [
+                    "ABSENT",
+                    "INCOMPLETE"
+                  ]
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "INVESTIGATION_INCOMPLETE"
+              },
+              {
+                "id": "DR-007",
+                "rules": [
+                  "KYC-INV-002"
+                ],
+                "when": {
+                  "investigationEvidence": "ABSENT"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "INVESTIGATION_EVIDENCE_MISSING"
+              },
+              {
+                "id": "DR-008",
+                "rules": [
+                  "KYC-SCR-002"
+                ],
+                "when": {
+                  "screeningCoverage": [
+                    "DEGRADED",
+                    "UNAVAILABLE"
+                  ]
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "SCREENING_PROVIDER_OUTAGE"
+              },
+              {
+                "id": "DR-009",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "screeningCoverage": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-010",
+                "rules": [
+                  "KYC-SCR-001"
+                ],
+                "when": {
+                  "sanctionsListFreshness": "STALE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "SANCTIONS_LIST_STALE"
+              },
+              {
+                "id": "DR-011",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "sanctionsListFreshness": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-012",
+                "rules": [
+                  "KYC-CDD-002"
+                ],
+                "when": {
+                  "beneficialOwnership": "UNSATISFIED"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "BENEFICIAL_OWNERSHIP_INCOMPLETE"
+              },
+              {
+                "id": "DR-013",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "beneficialOwnership": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-014",
+                "rules": [
+                  "KYC-EDD-001"
+                ],
+                "when": {
+                  "eddObligations": "UNSATISFIED"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "EDD_OBLIGATIONS_INCOMPLETE"
+              },
+              {
+                "id": "DR-015",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "eddObligations": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-016",
+                "rules": [
+                  "KYC-CIP-002",
+                  "KYC-CDD-003",
+                  "KYC-INV-002",
+                  "KYC-SCR-001",
+                  "KYC-CDD-004"
+                ],
+                "when": {
+                  "cohortObligations": "UNSATISFIED"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "REQUIRED_EVIDENCE_MISSING"
+              },
+              {
+                "id": "DR-017",
+                "rules": [
+                  "KYC-OPS-002",
+                  "KYC-CDD-004"
+                ],
+                "when": {
+                  "cohortObligations": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DR-018",
+                "rules": [
+                  "KYC-INV-004"
+                ],
+                "when": {
+                  "materialContradiction": "OPEN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "MATERIAL_CONTRADICTION"
+              },
+              {
+                "id": "DR-020",
+                "rules": [
+                  "KYC-CDD-002"
+                ],
+                "when": {
+                  "beneficialOwnership": "EXPIRED"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "EVIDENCE_EXPIRED"
+              },
+              {
+                "id": "DR-021",
+                "rules": [
+                  "KYC-EDD-001"
+                ],
+                "when": {
+                  "eddObligations": "EXPIRED"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "EVIDENCE_EXPIRED"
+              },
+              {
+                "id": "DR-022",
+                "rules": [
+                  "KYC-CIP-002",
+                  "KYC-CDD-003",
+                  "KYC-CDD-004"
+                ],
+                "when": {
+                  "cohortObligations": "EXPIRED"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "EVIDENCE_EXPIRED"
+              },
+              {
+                "id": "DR-030",
+                "rules": [
+                  "KYC-INV-001",
+                  "KYC-CIP-002",
+                  "KYC-CDD-003",
+                  "KYC-CDD-004"
+                ],
+                "when": {
+                  "evaluation": "OK",
+                  "snapshot": "CURRENT",
+                  "cohort": "RESOLVED",
+                  "policyClaim": "PRESENT",
+                  "investigationWorkItem": "COMPLETED",
+                  "investigationEvidence": "PRESENT",
+                  "screeningCoverage": "COMPLETE",
+                  "sanctionsListFreshness": "FRESH",
+                  "beneficialOwnership": [
+                    "SATISFIED",
+                    "NOT_APPLICABLE"
+                  ],
+                  "eddObligations": [
+                    "SATISFIED",
+                    "NOT_APPLICABLE"
+                  ],
+                  "cohortObligations": [
+                    "SATISFIED",
+                    "NOT_APPLICABLE"
+                  ],
+                  "materialContradiction": "NONE"
+                },
+                "outcome": "ALLOW",
+                "reasonCode": "DECISION_PRECONDITIONS_SATISFIED",
+                "transitionTo": "READY_FOR_DECISION"
+              }
+            ],
+            "default": {
+              "rules": [
+                "KYC-DEC-006"
+              ],
+              "outcome": "REVIEW",
+              "reasonCode": "NO_AUTOMATIC_DISPOSITION_RULE"
+            },
+            "transition": {
+              "from": [
+                "SCREENING",
+                "INVESTIGATING"
+              ],
+              "onAllow": "READY_FOR_DECISION"
+            }
+          },
+          "table.kyc.disposition.v1": {
+            "id": "table.kyc.disposition.v1",
+            "gate": "disposition",
+            "conditions": [
+              {
+                "id": "evaluation",
+                "description": "Did the policy engine complete without error?",
+                "extractor": {
+                  "kind": "evaluationStatus"
+                },
+                "tokens": [
+                  "OK",
+                  "ERROR"
+                ]
+              },
+              {
+                "id": "policyConfiguration",
+                "description": "Are the pinned bundle's institution settings resolved and approved?",
+                "extractor": {
+                  "kind": "booleanValue",
+                  "path": "policyConfiguration.productionReady"
+                },
+                "tokens": [
+                  "TRUE",
+                  "FALSE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "snapshot",
+                "description": "Is the evaluated case snapshot still the current one?",
+                "extractor": {
+                  "kind": "snapshotFreshness"
+                },
+                "tokens": [
+                  "CURRENT",
+                  "STALE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "sanctionsFinding",
+                "description": "What is the strongest open sanctions finding?",
+                "extractor": {
+                  "kind": "strongestFinding",
+                  "collection": "findings",
+                  "openOnly": true,
+                  "ranking": [
+                    {
+                      "findingType": "CONFIRMED_SANCTIONS_MATCH",
+                      "token": "CONFIRMED"
+                    },
+                    {
+                      "findingType": "POSSIBLE_SANCTIONS_MATCH",
+                      "token": "POSSIBLE"
+                    }
+                  ],
+                  "absentToken": "NONE"
+                },
+                "tokens": [
+                  "NONE",
+                  "POSSIBLE",
+                  "CONFIRMED",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "identityConflict",
+                "description": "Is an identity conflict finding open?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "findings",
+                  "where": {
+                    "findingType": "IDENTITY_CONFLICT",
+                    "status": "OPEN"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "NONE"
+                },
+                "tokens": [
+                  "NONE",
+                  "PRESENT"
+                ]
+              },
+              {
+                "id": "materialContradiction",
+                "description": "Is a HIGH-materiality contradiction open?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "contradictions",
+                  "where": {
+                    "materiality": "HIGH",
+                    "status": "OPEN"
+                  },
+                  "presentToken": "OPEN",
+                  "absentToken": "NONE"
+                },
+                "tokens": [
+                  "NONE",
+                  "OPEN"
+                ]
+              },
+              {
+                "id": "recommendation",
+                "description": "What did the decision agent recommend?",
+                "extractor": {
+                  "kind": "value",
+                  "path": "recommendation.outcome",
+                  "domain": [
+                    "APPROVE",
+                    "REVIEW",
+                    "DECLINE"
+                  ],
+                  "absentToken": "ABSENT"
+                },
+                "tokens": [
+                  "APPROVE",
+                  "REVIEW",
+                  "DECLINE",
+                  "ABSENT",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "requiresHumanReview",
+                "description": "Did the recommendation itself ask for a human?",
+                "extractor": {
+                  "kind": "booleanValue",
+                  "path": "recommendation.requiresHumanReview"
+                },
+                "tokens": [
+                  "TRUE",
+                  "FALSE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "pepFinding",
+                "description": "Is a PEP signal open on the case?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "findings",
+                  "where": {
+                    "findingType": "PEP_SIGNAL",
+                    "status": "OPEN"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "NONE"
+                },
+                "tokens": [
+                  "NONE",
+                  "PRESENT"
+                ]
+              },
+              {
+                "id": "adverseMediaFinding",
+                "description": "Is an adverse-media finding open on the case?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "findings",
+                  "where": {
+                    "findingType": "ADVERSE_MEDIA",
+                    "status": "OPEN"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "NONE"
+                },
+                "tokens": [
+                  "NONE",
+                  "PRESENT"
+                ]
+              },
+              {
+                "id": "jurisdictionRisk",
+                "description": "What is the jurisdiction risk rating?",
+                "extractor": {
+                  "kind": "value",
+                  "path": "risk.jurisdictionRisk",
+                  "domain": [
+                    "LOW",
+                    "MEDIUM",
+                    "HIGH"
+                  ],
+                  "absentToken": "UNKNOWN"
+                },
+                "tokens": [
+                  "LOW",
+                  "MEDIUM",
+                  "HIGH",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "cohortEligibility",
+                "description": "Is this cohort within the automatic-approval scope?",
+                "extractor": {
+                  "kind": "cohortEligibility"
+                },
+                "tokens": [
+                  "ELIGIBLE",
+                  "NOT_ELIGIBLE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "attestation",
+                "description": "Is a current signed attestation covering this cohort present?",
+                "extractor": {
+                  "kind": "attestationStatus"
+                },
+                "tokens": [
+                  "VALID",
+                  "MISSING",
+                  "EXPIRED",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "citations",
+                "description": "Does the recommendation cite policy, findings and evidence as required?",
+                "extractor": {
+                  "kind": "recommendationCitations"
+                },
+                "tokens": [
+                  "COMPLETE",
+                  "INCOMPLETE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "confidence",
+                "description": "Is recommendation confidence at or above the automatic-disposition threshold?",
+                "extractor": {
+                  "kind": "numericThreshold",
+                  "path": "recommendation.confidence",
+                  "minimumOwnerInput": "D07.minimumConfidence"
+                },
+                "tokens": [
+                  "AT_OR_ABOVE",
+                  "BELOW",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "cohortObligations",
+                "description": "Are every evidence obligation required by this cohort satisfied?",
+                "extractor": {
+                  "kind": "obligationsSatisfied",
+                  "scope": "cohortRequired",
+                  "exclude": [
+                    "EVD-QA-REVIEW"
+                  ]
+                },
+                "tokens": [
+                  "SATISFIED",
+                  "UNSATISFIED",
+                  "EXPIRED",
+                  "NOT_APPLICABLE",
+                  "UNKNOWN"
+                ]
+              }
+            ],
+            "rows": [
+              {
+                "id": "DP-001",
+                "rules": [
+                  "KYC-OPS-004"
+                ],
+                "when": {
+                  "evaluation": "ERROR"
+                },
+                "outcome": "ERROR",
+                "reasonCode": "POLICY_EVALUATION_ERROR"
+              },
+              {
+                "id": "DP-000",
+                "rules": [
+                  "KYC-CONFIG-001"
+                ],
+                "when": {
+                  "policyConfiguration": [
+                    "FALSE",
+                    "UNKNOWN"
+                  ]
+                },
+                "outcome": "ERROR",
+                "reasonCode": "PRODUCTION_POLICY_CONFIGURATION_UNRESOLVED"
+              },
+              {
+                "id": "DP-002",
+                "rules": [
+                  "KYC-OPS-003"
+                ],
+                "when": {
+                  "snapshot": "STALE"
+                },
+                "outcome": "ERROR",
+                "reasonCode": "CASE_SNAPSHOT_STALE"
+              },
+              {
+                "id": "DP-003",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "snapshot": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-010",
+                "rules": [
+                  "KYC-SCR-004"
+                ],
+                "when": {
+                  "sanctionsFinding": "CONFIRMED"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "CONFIRMED_SANCTIONS_MATCH",
+                "escalation": {
+                  "queue": "queue.kyc.sanctions",
+                  "dualControl": true
+                }
+              },
+              {
+                "id": "DP-011",
+                "rules": [
+                  "KYC-SCR-003"
+                ],
+                "when": {
+                  "sanctionsFinding": "POSSIBLE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POSSIBLE_SANCTIONS_MATCH",
+                "escalation": {
+                  "queue": "queue.kyc.sanctions",
+                  "dualControl": true
+                }
+              },
+              {
+                "id": "DP-012",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "sanctionsFinding": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-020",
+                "rules": [
+                  "KYC-CIP-003"
+                ],
+                "when": {
+                  "identityConflict": "PRESENT"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "IDENTITY_CONFLICT"
+              },
+              {
+                "id": "DP-021",
+                "rules": [
+                  "KYC-INV-004"
+                ],
+                "when": {
+                  "materialContradiction": "OPEN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "MATERIAL_CONTRADICTION"
+              },
+              {
+                "id": "DP-030",
+                "rules": [
+                  "KYC-DEC-004",
+                  "KYC-DEC-001"
+                ],
+                "when": {
+                  "recommendation": "ABSENT"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "RECOMMENDATION_MISSING"
+              },
+              {
+                "id": "DP-031",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "recommendation": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-032",
+                "rules": [
+                  "KYC-DEC-003"
+                ],
+                "when": {
+                  "recommendation": "DECLINE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "DECLINE_REQUIRES_HUMAN_AUTHORITY",
+                "escalation": {
+                  "queue": "queue.kyc.analyst",
+                  "dualControl": true
+                }
+              },
+              {
+                "id": "DP-033",
+                "rules": [
+                  "KYC-DEC-001"
+                ],
+                "when": {
+                  "requiresHumanReview": "TRUE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "HUMAN_REVIEW_REQUIRED"
+              },
+              {
+                "id": "DP-034",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "requiresHumanReview": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-035",
+                "rules": [
+                  "KYC-DEC-001"
+                ],
+                "when": {
+                  "recommendation": "REVIEW"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "HUMAN_REVIEW_REQUIRED"
+              },
+              {
+                "id": "DP-040",
+                "rules": [
+                  "KYC-EDD-002"
+                ],
+                "when": {
+                  "pepFinding": "PRESENT"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "PEP_REVIEW_REQUIRED"
+              },
+              {
+                "id": "DP-041",
+                "rules": [
+                  "KYC-SCR-005"
+                ],
+                "when": {
+                  "adverseMediaFinding": "PRESENT"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "ADVERSE_MEDIA_REVIEW_REQUIRED"
+              },
+              {
+                "id": "DP-042",
+                "rules": [
+                  "KYC-EDD-003"
+                ],
+                "when": {
+                  "jurisdictionRisk": "HIGH"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "HIGH_RISK_JURISDICTION_REVIEW"
+              },
+              {
+                "id": "DP-043",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "jurisdictionRisk": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-050",
+                "rules": [
+                  "KYC-DEC-002"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "cohortEligibility": "NOT_ELIGIBLE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "COHORT_NOT_ELIGIBLE_FOR_AUTOMATIC_APPROVAL"
+              },
+              {
+                "id": "DP-051",
+                "rules": [
+                  "KYC-CDD-001"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "cohortEligibility": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-052",
+                "rules": [
+                  "KYC-DEC-002"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "attestation": [
+                    "MISSING",
+                    "EXPIRED",
+                    "UNKNOWN"
+                  ]
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "AUTOMATIC_APPROVAL_ATTESTATION_MISSING"
+              },
+              {
+                "id": "DP-053",
+                "rules": [
+                  "KYC-DEC-004"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "citations": "INCOMPLETE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "RECOMMENDATION_CITATIONS_INCOMPLETE"
+              },
+              {
+                "id": "DP-054",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "citations": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-055",
+                "rules": [
+                  "KYC-DEC-005"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "confidence": "BELOW"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "CONFIDENCE_BELOW_THRESHOLD"
+              },
+              {
+                "id": "DP-056",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "confidence": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-057",
+                "rules": [
+                  "KYC-CIP-002",
+                  "KYC-CDD-003"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "cohortObligations": [
+                    "UNSATISFIED",
+                    "NOT_APPLICABLE"
+                  ]
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "APPROVAL_REQUIREMENTS_NOT_MET"
+              },
+              {
+                "id": "DP-060",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "cohortObligations": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "DP-058",
+                "rules": [
+                  "KYC-CIP-002"
+                ],
+                "when": {
+                  "recommendation": "APPROVE",
+                  "cohortObligations": "EXPIRED"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "EVIDENCE_EXPIRED"
+              },
+              {
+                "id": "DP-070",
+                "rules": [
+                  "KYC-DEC-002"
+                ],
+                "when": {
+                  "evaluation": "OK",
+                  "policyConfiguration": "TRUE",
+                  "snapshot": "CURRENT",
+                  "sanctionsFinding": "NONE",
+                  "identityConflict": "NONE",
+                  "materialContradiction": "NONE",
+                  "recommendation": "APPROVE",
+                  "requiresHumanReview": "FALSE",
+                  "pepFinding": "NONE",
+                  "adverseMediaFinding": "NONE",
+                  "jurisdictionRisk": [
+                    "LOW",
+                    "MEDIUM"
+                  ],
+                  "cohortEligibility": "ELIGIBLE",
+                  "attestation": "VALID",
+                  "citations": "COMPLETE",
+                  "confidence": "AT_OR_ABOVE",
+                  "cohortObligations": "SATISFIED"
+                },
+                "outcome": "ALLOW",
+                "reasonCode": "KYC_REQUIREMENTS_SATISFIED",
+                "disposition": "APPROVED"
+              }
+            ],
+            "default": {
+              "rules": [
+                "KYC-DEC-006"
+              ],
+              "outcome": "REVIEW",
+              "reasonCode": "NO_AUTOMATIC_DISPOSITION_RULE"
+            },
+            "transition": {
+              "from": [
+                "READY_FOR_DECISION"
+              ],
+              "onAllow": "APPROVED",
+              "onReview": "HUMAN_REVIEW"
+            }
+          },
+          "table.kyc.screening-ready.v1": {
+            "id": "table.kyc.screening-ready.v1",
+            "gate": "screening-ready",
+            "conditions": [
+              {
+                "id": "evaluation",
+                "description": "Did the policy engine complete without error?",
+                "extractor": {
+                  "kind": "evaluationStatus"
+                },
+                "tokens": [
+                  "OK",
+                  "ERROR"
+                ]
+              },
+              {
+                "id": "snapshot",
+                "description": "Is the evaluated case snapshot still the current one?",
+                "extractor": {
+                  "kind": "snapshotFreshness"
+                },
+                "tokens": [
+                  "CURRENT",
+                  "STALE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "policyAuthorityEvidence",
+                "description": "Is authoritative policy evidence linked to the case?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "evidence",
+                  "where": {
+                    "purpose": "KYC_POLICY_AUTHORITY"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "ABSENT"
+                },
+                "tokens": [
+                  "PRESENT",
+                  "ABSENT"
+                ]
+              },
+              {
+                "id": "policyClaim",
+                "description": "Does an applicable_kyc_policy claim exist?",
+                "extractor": {
+                  "kind": "presence",
+                  "collection": "claims",
+                  "where": {
+                    "predicate": "applicable_kyc_policy"
+                  },
+                  "presentToken": "PRESENT",
+                  "absentToken": "ABSENT"
+                },
+                "tokens": [
+                  "PRESENT",
+                  "ABSENT"
+                ]
+              },
+              {
+                "id": "policyDigest",
+                "description": "Does the policy claim's snapshot digest match the case policy authority?",
+                "extractor": {
+                  "kind": "digestMatch",
+                  "left": {
+                    "collection": "claims",
+                    "where": {
+                      "predicate": "applicable_kyc_policy"
+                    },
+                    "valuePath": "value.policySnapshotDigest"
+                  },
+                  "right": {
+                    "path": "policyAuthority.policySnapshotDigest"
+                  }
+                },
+                "tokens": [
+                  "MATCH",
+                  "MISMATCH",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "policyEvidenceFreshness",
+                "description": "Is the pinned policy evidence inside its freshness window?",
+                "extractor": {
+                  "kind": "obligationFreshness",
+                  "obligation": "EVD-POLICY-AUTHORITY"
+                },
+                "tokens": [
+                  "FRESH",
+                  "STALE",
+                  "UNKNOWN"
+                ]
+              },
+              {
+                "id": "cipAttributes",
+                "description": "Are the core customer identification attributes present?",
+                "extractor": {
+                  "kind": "attributesComplete",
+                  "path": "subject",
+                  "required": [
+                    "legalName",
+                    "dateOfBirth",
+                    "address",
+                    "taxpayerIdentificationNumber"
+                  ]
+                },
+                "tokens": [
+                  "COMPLETE",
+                  "INCOMPLETE",
+                  "UNKNOWN"
+                ]
+              }
+            ],
+            "rows": [
+              {
+                "id": "SR-001",
+                "rules": [
+                  "KYC-OPS-004"
+                ],
+                "when": {
+                  "evaluation": "ERROR"
+                },
+                "outcome": "ERROR",
+                "reasonCode": "POLICY_EVALUATION_ERROR"
+              },
+              {
+                "id": "SR-002",
+                "rules": [
+                  "KYC-OPS-003"
+                ],
+                "when": {
+                  "snapshot": "STALE"
+                },
+                "outcome": "ERROR",
+                "reasonCode": "CASE_SNAPSHOT_STALE"
+              },
+              {
+                "id": "SR-003",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "snapshot": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "SR-004",
+                "rules": [
+                  "KYC-OPS-001"
+                ],
+                "when": {
+                  "policyAuthorityEvidence": "ABSENT"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "POLICY_AUTHORITY_MISSING"
+              },
+              {
+                "id": "SR-005",
+                "rules": [
+                  "KYC-OPS-001"
+                ],
+                "when": {
+                  "policyClaim": "ABSENT"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "POLICY_CLAIM_MISSING"
+              },
+              {
+                "id": "SR-006",
+                "rules": [
+                  "KYC-OPS-001"
+                ],
+                "when": {
+                  "policyDigest": "MISMATCH"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "POLICY_SNAPSHOT_MISMATCH"
+              },
+              {
+                "id": "SR-007",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "policyDigest": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "SR-008",
+                "rules": [
+                  "KYC-OPS-001"
+                ],
+                "when": {
+                  "policyEvidenceFreshness": "STALE"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_SNAPSHOT_STALE"
+              },
+              {
+                "id": "SR-009",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "policyEvidenceFreshness": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "SR-010",
+                "rules": [
+                  "KYC-CIP-001"
+                ],
+                "when": {
+                  "cipAttributes": "INCOMPLETE"
+                },
+                "outcome": "BLOCK",
+                "reasonCode": "CIP_CORE_ATTRIBUTES_INCOMPLETE"
+              },
+              {
+                "id": "SR-011",
+                "rules": [
+                  "KYC-OPS-002"
+                ],
+                "when": {
+                  "cipAttributes": "UNKNOWN"
+                },
+                "outcome": "REVIEW",
+                "reasonCode": "POLICY_UNKNOWN_INPUT"
+              },
+              {
+                "id": "SR-012",
+                "rules": [
+                  "KYC-CIP-001"
+                ],
+                "when": {
+                  "evaluation": "OK",
+                  "snapshot": "CURRENT",
+                  "policyAuthorityEvidence": "PRESENT",
+                  "policyClaim": "PRESENT",
+                  "policyDigest": "MATCH",
+                  "policyEvidenceFreshness": "FRESH",
+                  "cipAttributes": "COMPLETE"
+                },
+                "outcome": "ALLOW",
+                "reasonCode": "SCREENING_PRECONDITIONS_SATISFIED",
+                "transitionTo": "SCREENING"
+              }
+            ],
+            "default": {
+              "rules": [
+                "KYC-DEC-006"
+              ],
+              "outcome": "REVIEW",
+              "reasonCode": "NO_AUTOMATIC_DISPOSITION_RULE"
+            },
+            "transition": {
+              "from": [
+                "INTAKE",
+                "VALIDATING"
+              ],
+              "onAllow": "SCREENING"
+            }
+          }
+        },
+        "obligations": {
+          "EVD-ADVERSE-MEDIA": {
+            "id": "EVD-ADVERSE-MEDIA",
+            "name": "Adverse media screening result",
+            "purpose": "KYC_ADVERSE_MEDIA",
+            "description": "Adverse media screening across the institution's lookback window.",
+            "acceptableSourceTypes": [
+              "TOOL"
+            ],
+            "minimumTrustTier": "VERIFIED_PROVIDER",
+            "instructionTrust": "UNTRUSTED_EXTERNAL",
+            "freshnessDays": 90,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-SCR-002",
+              "KYC-SCR-005"
+            ],
+            "ownerInputRefs": [
+              "D02"
+            ]
+          },
+          "EVD-BENEFICIAL-OWNERSHIP": {
+            "id": "EVD-BENEFICIAL-OWNERSHIP",
+            "name": "Beneficial ownership certification",
+            "purpose": "KYC_BENEFICIAL_OWNERSHIP",
+            "description": "Certification of beneficial owners at 25% or more plus one control person.",
+            "acceptableSourceTypes": [
+              "UPLOAD",
+              "HUMAN",
+              "INTERNAL_SYSTEM"
+            ],
+            "minimumTrustTier": "VERIFIED_DOCUMENT",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": 365,
+            "requiredFor": [],
+            "satisfiedBy": [
+              "KYC-CDD-002"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-BUSINESS-REGISTRATION": {
+            "id": "EVD-BUSINESS-REGISTRATION",
+            "name": "Business registration evidence",
+            "purpose": "KYC_BUSINESS_REGISTRATION",
+            "description": "Registration or formation evidence for the sole proprietorship or entity.",
+            "acceptableSourceTypes": [
+              "UPLOAD",
+              "TOOL",
+              "INTERNAL_SYSTEM"
+            ],
+            "minimumTrustTier": "VERIFIED_DOCUMENT",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": 365,
+            "requiredFor": [
+              "RC-SOLE-PROPRIETOR-STANDARD",
+              "RC-SOLE-PROPRIETOR-ELEVATED"
+            ],
+            "satisfiedBy": [
+              "KYC-CDD-004"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-CIP-ADDRESS": {
+            "id": "EVD-CIP-ADDRESS",
+            "name": "Address evidence",
+            "purpose": "KYC_CIP_ADDRESS",
+            "description": "Evidence of the customer's residential or principal business street address.",
+            "acceptableSourceTypes": [
+              "UPLOAD",
+              "HUMAN",
+              "INTERNAL_SYSTEM",
+              "TOOL"
+            ],
+            "minimumTrustTier": "VERIFIED_DOCUMENT",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": 365,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-CIP-001"
+            ],
+            "ownerInputRefs": [
+              "D05"
+            ]
+          },
+          "EVD-CIP-IDENTITY-DOCUMENT": {
+            "id": "EVD-CIP-IDENTITY-DOCUMENT",
+            "name": "Government identity document",
+            "purpose": "KYC_CIP_IDENTITY_DOCUMENT",
+            "description": "A government-issued identity document evidencing legal name and date of birth.",
+            "acceptableSourceTypes": [
+              "UPLOAD",
+              "HUMAN",
+              "INTERNAL_SYSTEM"
+            ],
+            "minimumTrustTier": "VERIFIED_DOCUMENT",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": null,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-CIP-001"
+            ],
+            "ownerInputRefs": [
+              "D05"
+            ]
+          },
+          "EVD-CIP-TIN": {
+            "id": "EVD-CIP-TIN",
+            "name": "Taxpayer identification evidence",
+            "purpose": "KYC_CIP_TIN",
+            "description": "Evidence of the taxpayer identification number asserted at intake.",
+            "acceptableSourceTypes": [
+              "UPLOAD",
+              "HUMAN",
+              "INTERNAL_SYSTEM"
+            ],
+            "minimumTrustTier": "VERIFIED_DOCUMENT",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": null,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-CIP-001"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-DECISION-RECOMMENDATION": {
+            "id": "EVD-DECISION-RECOMMENDATION",
+            "name": "Decision recommendation record",
+            "purpose": "KYC_DECISION_RECOMMENDATION",
+            "description": "The agent's recommendation with its policy, finding and evidence citations.",
+            "acceptableSourceTypes": [
+              "DERIVED"
+            ],
+            "minimumTrustTier": "AGENT_DERIVED",
+            "instructionTrust": "TRUSTED",
+            "freshnessDays": 30,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-DEC-004"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-EDD-NARRATIVE": {
+            "id": "EVD-EDD-NARRATIVE",
+            "name": "Enhanced due diligence narrative",
+            "purpose": "KYC_EDD_NARRATIVE",
+            "description": "The documented EDD rationale for an elevated or high-risk relationship.",
+            "acceptableSourceTypes": [
+              "HUMAN",
+              "DERIVED"
+            ],
+            "minimumTrustTier": "AGENT_DERIVED",
+            "instructionTrust": "TRUSTED",
+            "freshnessDays": 365,
+            "requiredFor": [
+              "RC-ELEVATED-INDIVIDUAL",
+              "RC-HIGH-INDIVIDUAL",
+              "RC-SOLE-PROPRIETOR-ELEVATED",
+              "RC-HIGH-RISK-JURISDICTION",
+              "RC-PEP-ADJACENT"
+            ],
+            "satisfiedBy": [
+              "KYC-EDD-001",
+              "KYC-EDD-002",
+              "KYC-EDD-003"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-IDENTITY-VERIFICATION": {
+            "id": "EVD-IDENTITY-VERIFICATION",
+            "name": "Identity verification result",
+            "purpose": "KYC_IDENTITY_VERIFICATION",
+            "description": "The documentary or non-documentary verification result for the subject.",
+            "acceptableSourceTypes": [
+              "TOOL",
+              "INTERNAL_SYSTEM",
+              "HUMAN"
+            ],
+            "minimumTrustTier": "VERIFIED_PROVIDER",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": 90,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-CIP-002"
+            ],
+            "ownerInputRefs": [
+              "D05"
+            ]
+          },
+          "EVD-PEP-SCREENING": {
+            "id": "EVD-PEP-SCREENING",
+            "name": "PEP screening result",
+            "purpose": "KYC_PEP_SCREENING",
+            "description": "A politically exposed person screening result with tier and relationship basis.",
+            "acceptableSourceTypes": [
+              "TOOL"
+            ],
+            "minimumTrustTier": "VERIFIED_PROVIDER",
+            "instructionTrust": "UNTRUSTED_EXTERNAL",
+            "freshnessDays": 90,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-SCR-002",
+              "KYC-EDD-002"
+            ],
+            "ownerInputRefs": [
+              "D03"
+            ]
+          },
+          "EVD-POLICY-AUTHORITY": {
+            "id": "EVD-POLICY-AUTHORITY",
+            "name": "Pinned policy authority snapshot",
+            "purpose": "KYC_POLICY_AUTHORITY",
+            "description": "The authoritative policy snapshot the case is pinned to.",
+            "acceptableSourceTypes": [
+              "INTERNAL_SYSTEM"
+            ],
+            "minimumTrustTier": "AUTHORITATIVE_POLICY",
+            "instructionTrust": "TRUSTED",
+            "freshnessDays": 1,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-OPS-001"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-PUBLIC-SOURCE-RESEARCH": {
+            "id": "EVD-PUBLIC-SOURCE-RESEARCH",
+            "name": "Public-source investigation record",
+            "purpose": "KYC_PUBLIC_SOURCE_RESEARCH",
+            "description": "The bounded public-source investigation record, with per-assertion source URL, publisher, retrieval time and provider.",
+            "acceptableSourceTypes": [
+              "TOOL"
+            ],
+            "minimumTrustTier": "PROVIDER_UNVERIFIED",
+            "instructionTrust": "UNTRUSTED_EXTERNAL",
+            "freshnessDays": 90,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-INV-001",
+              "KYC-INV-002",
+              "KYC-INV-003"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-QA-REVIEW": {
+            "id": "EVD-QA-REVIEW",
+            "name": "Quality assurance review record",
+            "purpose": "KYC_QA_REVIEW",
+            "description": "The QA reviewer's assessment of a sampled disposition.",
+            "acceptableSourceTypes": [
+              "HUMAN"
+            ],
+            "minimumTrustTier": "HUMAN_ATTESTED",
+            "instructionTrust": "TRUSTED",
+            "freshnessDays": null,
+            "requiredFor": [],
+            "satisfiedBy": [
+              "KYC-QA-001"
+            ],
+            "ownerInputRefs": [
+              "D04"
+            ]
+          },
+          "EVD-RELATIONSHIP-PURPOSE": {
+            "id": "EVD-RELATIONSHIP-PURPOSE",
+            "name": "Purpose and expected activity",
+            "purpose": "KYC_RELATIONSHIP_PURPOSE",
+            "description": "Recorded purpose of the relationship and expected activity profile.",
+            "acceptableSourceTypes": [
+              "HUMAN",
+              "INTERNAL_SYSTEM",
+              "DERIVED"
+            ],
+            "minimumTrustTier": "AGENT_DERIVED",
+            "instructionTrust": "TRUSTED",
+            "freshnessDays": 365,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-CDD-003"
+            ],
+            "ownerInputRefs": []
+          },
+          "EVD-SANCTIONS-SCREENING": {
+            "id": "EVD-SANCTIONS-SCREENING",
+            "name": "Sanctions screening result",
+            "purpose": "KYC_SANCTIONS_SCREENING",
+            "description": "A sanctions screening result recording provider, list version, list publication date and every alert produced.",
+            "acceptableSourceTypes": [
+              "TOOL"
+            ],
+            "minimumTrustTier": "VERIFIED_PROVIDER",
+            "instructionTrust": "UNTRUSTED_EXTERNAL",
+            "freshnessDays": 30,
+            "requiredFor": [
+              "*"
+            ],
+            "satisfiedBy": [
+              "KYC-SCR-001",
+              "KYC-SCR-002",
+              "KYC-SCR-003",
+              "KYC-SCR-004"
+            ],
+            "ownerInputRefs": [
+              "D01"
+            ]
+          },
+          "EVD-SOURCE-OF-FUNDS": {
+            "id": "EVD-SOURCE-OF-FUNDS",
+            "name": "Source of funds evidence",
+            "purpose": "KYC_SOURCE_OF_FUNDS",
+            "description": "Evidence of the origin of the funds involved in the relationship.",
+            "acceptableSourceTypes": [
+              "UPLOAD",
+              "HUMAN",
+              "INTERNAL_SYSTEM"
+            ],
+            "minimumTrustTier": "VERIFIED_DOCUMENT",
+            "instructionTrust": "UNTRUSTED_DATA",
+            "freshnessDays": 365,
+            "requiredFor": [
+              "RC-ELEVATED-INDIVIDUAL",
+              "RC-HIGH-INDIVIDUAL",
+              "RC-SOLE-PROPRIETOR-ELEVATED",
+              "RC-HIGH-RISK-JURISDICTION",
+              "RC-PEP-ADJACENT"
+            ],
+            "satisfiedBy": [
+              "KYC-EDD-001"
+            ],
+            "ownerInputRefs": []
+          }
+        },
+        "risk_cohorts": {
+          "RC-ELEVATED-INDIVIDUAL": {
+            "id": "RC-ELEVATED-INDIVIDUAL",
+            "name": "Elevated-risk individual",
+            "selector": {
+              "customerType": "individual",
+              "riskTier": "elevated"
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 40,
+            "ownerInputRefs": []
+          },
+          "RC-HIGH-INDIVIDUAL": {
+            "id": "RC-HIGH-INDIVIDUAL",
+            "name": "High-risk individual",
+            "selector": {
+              "customerType": "individual",
+              "riskTier": "high"
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 35,
+            "ownerInputRefs": []
+          },
+          "RC-HIGH-RISK-JURISDICTION": {
+            "id": "RC-HIGH-RISK-JURISDICTION",
+            "name": "High-risk jurisdiction exposure",
+            "selector": {
+              "jurisdictionRisk": "HIGH"
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 30,
+            "ownerInputRefs": [
+              "D08"
+            ]
+          },
+          "RC-LOW-STANDARD-INDIVIDUAL": {
+            "id": "RC-LOW-STANDARD-INDIVIDUAL",
+            "name": "Low-risk standard individual",
+            "selector": {
+              "customerType": "individual",
+              "riskTier": "standard",
+              "jurisdictionRisk": "LOW",
+              "productRisk": "LOW"
+            },
+            "automaticApprovalEligible": true,
+            "requiresAttestation": true,
+            "minimumCorpusCases": 55,
+            "description": "The only cohort in which a deterministic gate may approve without a human, and then only while a current signed attestation covers it.",
+            "ownerInputRefs": [
+              "D04"
+            ]
+          },
+          "RC-PEP-ADJACENT": {
+            "id": "RC-PEP-ADJACENT",
+            "name": "PEP-adjacent relationship",
+            "selector": {
+              "pepExposure": true
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 30,
+            "ownerInputRefs": [
+              "D03"
+            ]
+          },
+          "RC-SOLE-PROPRIETOR-ELEVATED": {
+            "id": "RC-SOLE-PROPRIETOR-ELEVATED",
+            "name": "Elevated-risk sole proprietor",
+            "selector": {
+              "customerType": "sole_proprietor",
+              "riskTier": [
+                "elevated",
+                "high"
+              ]
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 30,
+            "ownerInputRefs": []
+          },
+          "RC-SOLE-PROPRIETOR-STANDARD": {
+            "id": "RC-SOLE-PROPRIETOR-STANDARD",
+            "name": "Standard sole proprietor",
+            "selector": {
+              "customerType": "sole_proprietor",
+              "riskTier": "standard"
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 35,
+            "ownerInputRefs": []
+          },
+          "RC-STANDARD-INDIVIDUAL": {
+            "id": "RC-STANDARD-INDIVIDUAL",
+            "name": "Standard individual",
+            "selector": {
+              "customerType": "individual",
+              "riskTier": "standard",
+              "jurisdictionRisk": [
+                "LOW",
+                "MEDIUM"
+              ]
+            },
+            "automaticApprovalEligible": false,
+            "requiresAttestation": false,
+            "minimumCorpusCases": 45,
+            "ownerInputRefs": []
+          }
+        },
+        "cohort_precedence": [
+          "RC-PEP-ADJACENT",
+          "RC-HIGH-RISK-JURISDICTION",
+          "RC-SOLE-PROPRIETOR-ELEVATED",
+          "RC-SOLE-PROPRIETOR-STANDARD",
+          "RC-HIGH-INDIVIDUAL",
+          "RC-ELEVATED-INDIVIDUAL",
+          "RC-LOW-STANDARD-INDIVIDUAL",
+          "RC-STANDARD-INDIVIDUAL"
+        ],
+        "cohort_required_attributes": [
+          "customerType",
+          "riskTier",
+          "jurisdictionRisk",
+          "productRisk",
+          "pepExposure"
+        ],
+        "cohort_attribute_paths": {
+          "customerType": "subject.customerType",
+          "riskTier": "risk.riskTier",
+          "jurisdictionRisk": "risk.jurisdictionRisk",
+          "productRisk": "risk.productRisk",
+          "pepExposure": "risk.pepExposure"
+        },
+        "reason_codes": {
+          "ADVERSE_MEDIA_REVIEW_REQUIRED": {
+            "code": "ADVERSE_MEDIA_REVIEW_REQUIRED",
+            "outcome": "REVIEW",
+            "summary": "Adverse media within the policy lookback window requires analyst assessment.",
+            "analystGuidance": "Assess relevance, recency and subject attribution of the adverse media.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D02"
+            ],
+            "retired": false
+          },
+          "APPROVAL_REQUIREMENTS_NOT_MET": {
+            "code": "APPROVAL_REQUIREMENTS_NOT_MET",
+            "outcome": "REVIEW",
+            "summary": "An approval was recommended but at least one approval requirement is unmet.",
+            "analystGuidance": "The unmet requirement IDs are in the evaluation detail; resolve or decide manually.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "AUTOMATIC_APPROVAL_ATTESTATION_MISSING": {
+            "code": "AUTOMATIC_APPROVAL_ATTESTATION_MISSING",
+            "outcome": "REVIEW",
+            "summary": "The automatic-approval cohort attestation is absent, expired or unverified.",
+            "analystGuidance": "Automatic approval requires a current, signed cohort attestation. Without it every case in the cohort is routed to a human.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D04"
+            ],
+            "retired": false
+          },
+          "BENEFICIAL_OWNERSHIP_INCOMPLETE": {
+            "code": "BENEFICIAL_OWNERSHIP_INCOMPLETE",
+            "outcome": "BLOCK",
+            "summary": "Beneficial ownership information required for this cohort is missing.",
+            "analystGuidance": "Collect and verify beneficial ownership for the legal entity before the case can reach decision readiness.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "authorityBasis": "31 CFR 1010.230",
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "CASE_SNAPSHOT_STALE": {
+            "code": "CASE_SNAPSHOT_STALE",
+            "outcome": "ERROR",
+            "summary": "The evaluated case snapshot was superseded before the decision was applied.",
+            "analystGuidance": "The case changed between snapshot read and policy application. Re-evaluate against the current sequence; never apply a decision computed from a superseded snapshot.",
+            "routeTo": "queue.platform.operations",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "CIP_CORE_ATTRIBUTES_INCOMPLETE": {
+            "code": "CIP_CORE_ATTRIBUTES_INCOMPLETE",
+            "outcome": "BLOCK",
+            "summary": "Required customer identification attributes are absent from the case.",
+            "analystGuidance": "Name, date of birth, residential address and taxpayer identification number are required before screening. Request the missing attributes from intake.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "authorityBasis": "31 CFR 1020.220(a)(2)(i)",
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "COHORT_NOT_ELIGIBLE_FOR_AUTOMATIC_APPROVAL": {
+            "code": "COHORT_NOT_ELIGIBLE_FOR_AUTOMATIC_APPROVAL",
+            "outcome": "REVIEW",
+            "summary": "The case cohort is outside the attested automatic-approval scope.",
+            "analystGuidance": "Automatic approval is limited to attested low-risk cohorts. This case requires a human approval decision.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D04"
+            ],
+            "retired": false
+          },
+          "CONFIDENCE_BELOW_THRESHOLD": {
+            "code": "CONFIDENCE_BELOW_THRESHOLD",
+            "outcome": "REVIEW",
+            "summary": "Recommendation confidence is below the configured automatic-disposition threshold.",
+            "analystGuidance": "Treat the recommendation as advisory only and decide on the evidence.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D07"
+            ],
+            "retired": false
+          },
+          "CONFIRMED_SANCTIONS_MATCH": {
+            "code": "CONFIRMED_SANCTIONS_MATCH",
+            "outcome": "REVIEW",
+            "summary": "Screening produced a confirmed sanctions match.",
+            "analystGuidance": "Escalate immediately under the sanctions procedure. The platform does not decline automatically; a human with sanctions authority owns the disposition and any blocking or reporting obligation.",
+            "routeTo": "queue.kyc.sanctions",
+            "priority": "URGENT",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": true,
+            "authorityBasis": "31 CFR 501.603",
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "DECISION_PRECONDITIONS_SATISFIED": {
+            "code": "DECISION_PRECONDITIONS_SATISFIED",
+            "outcome": "ALLOW",
+            "summary": "Policy, investigation and evidence obligations are sufficient for a recommendation.",
+            "analystGuidance": "No action; the case may proceed to decision.",
+            "routeTo": null,
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "DECLINE_REQUIRES_HUMAN_AUTHORITY": {
+            "code": "DECLINE_REQUIRES_HUMAN_AUTHORITY",
+            "outcome": "REVIEW",
+            "summary": "A decline recommendation was made; declines are never automatic.",
+            "analystGuidance": "Adjudicate the recommended decline. Only a human with decline authority, under dual control, may finalize a DECLINED disposition.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": true,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "DUAL_CONTROL_REQUIRED": {
+            "code": "DUAL_CONTROL_REQUIRED",
+            "outcome": "REVIEW",
+            "summary": "The disposition requires a second approver under dual control.",
+            "analystGuidance": "Route to a second approver with the required role; the first approver may not self-confirm.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": true,
+            "ownerInputRefs": [
+              "D06"
+            ],
+            "retired": false
+          },
+          "EDD_OBLIGATIONS_INCOMPLETE": {
+            "code": "EDD_OBLIGATIONS_INCOMPLETE",
+            "outcome": "BLOCK",
+            "summary": "Enhanced due diligence obligations for an elevated or high-risk cohort are unmet.",
+            "analystGuidance": "Complete source-of-funds, relationship-purpose and EDD narrative obligations before the case may reach decision readiness.",
+            "routeTo": "queue.kyc.edd",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "EVIDENCE_EXPIRED": {
+            "code": "EVIDENCE_EXPIRED",
+            "outcome": "REVIEW",
+            "summary": "Evidence satisfying an obligation is outside its freshness window.",
+            "analystGuidance": "Refresh the expired evidence before approval.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D05"
+            ],
+            "retired": false
+          },
+          "HIGH_RISK_JURISDICTION_REVIEW": {
+            "code": "HIGH_RISK_JURISDICTION_REVIEW",
+            "outcome": "REVIEW",
+            "summary": "The subject jurisdiction is on the institution's high-risk list.",
+            "analystGuidance": "Complete the jurisdiction-specific EDD obligations and record the rationale.",
+            "routeTo": "queue.kyc.edd",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D08"
+            ],
+            "retired": false
+          },
+          "HUMAN_REVIEW_REQUIRED": {
+            "code": "HUMAN_REVIEW_REQUIRED",
+            "outcome": "REVIEW",
+            "summary": "The recommendation explicitly requires human review.",
+            "analystGuidance": "Review the cited rationale, evidence and findings, then decide.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "IDENTITY_CONFLICT": {
+            "code": "IDENTITY_CONFLICT",
+            "outcome": "REVIEW",
+            "summary": "Investigation surfaced an unresolved identity conflict for the subject.",
+            "analystGuidance": "Resolve the identity conflict before any approval; re-verify identity evidence.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "INVESTIGATION_EVIDENCE_MISSING": {
+            "code": "INVESTIGATION_EVIDENCE_MISSING",
+            "outcome": "BLOCK",
+            "summary": "No public-source investigation evidence is linked to the case.",
+            "analystGuidance": "Re-run investigation; a completed work item without evidence is not a result.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "INVESTIGATION_INCOMPLETE": {
+            "code": "INVESTIGATION_INCOMPLETE",
+            "outcome": "BLOCK",
+            "summary": "The public-source investigation work item is not completed.",
+            "analystGuidance": "Await or re-dispatch the investigation work item.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "KYC_REQUIREMENTS_SATISFIED": {
+            "code": "KYC_REQUIREMENTS_SATISFIED",
+            "outcome": "ALLOW",
+            "summary": "Every approval requirement is satisfied for an attested automatic-approval cohort.",
+            "analystGuidance": "No action; the case is approved under the attested low-risk cohort scope.",
+            "routeTo": null,
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "MATERIAL_CONTRADICTION": {
+            "code": "MATERIAL_CONTRADICTION",
+            "outcome": "REVIEW",
+            "summary": "An open high-materiality contradiction exists on the case.",
+            "analystGuidance": "Resolve or accept the contradiction with rationale before disposition.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "NO_AUTOMATIC_DISPOSITION_RULE": {
+            "code": "NO_AUTOMATIC_DISPOSITION_RULE",
+            "outcome": "REVIEW",
+            "summary": "No disposition rule matched; the policy defaults to human review.",
+            "analystGuidance": "Nothing falls through to approval. Decide manually and report the uncovered combination to the policy owner so a rule can be authored.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "PEP_REVIEW_REQUIRED": {
+            "code": "PEP_REVIEW_REQUIRED",
+            "outcome": "REVIEW",
+            "summary": "A politically exposed person signal requires the policy-defined review path.",
+            "analystGuidance": "Confirm PEP tier and complete the EDD obligations for PEP relationships.",
+            "routeTo": "queue.kyc.edd",
+            "priority": "HIGH",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D03"
+            ],
+            "retired": false
+          },
+          "POLICY_AUTHORITY_MISSING": {
+            "code": "POLICY_AUTHORITY_MISSING",
+            "outcome": "BLOCK",
+            "summary": "The case carries no authoritative policy evidence.",
+            "analystGuidance": "The policy context agent did not link KYC_POLICY_AUTHORITY evidence. Re-run policy resolution; do not proceed on an unpinned policy.",
+            "routeTo": "queue.platform.operations",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "POLICY_CLAIM_MISSING": {
+            "code": "POLICY_CLAIM_MISSING",
+            "outcome": "BLOCK",
+            "summary": "No applicable_kyc_policy claim exists on the case.",
+            "analystGuidance": "Re-run the policy context agent; screening cannot begin unpinned.",
+            "routeTo": "queue.platform.operations",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "POLICY_CONTEXT_MISSING": {
+            "code": "POLICY_CONTEXT_MISSING",
+            "outcome": "BLOCK",
+            "summary": "The case carries no resolved policy context at decision readiness.",
+            "analystGuidance": "The applicable_kyc_policy claim is absent when it should already exist. Restart the case at policy resolution rather than deciding without context.",
+            "routeTo": "queue.platform.operations",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "POLICY_EVALUATION_ERROR": {
+            "code": "POLICY_EVALUATION_ERROR",
+            "outcome": "ERROR",
+            "summary": "The policy engine failed to produce a decision.",
+            "analystGuidance": "Treat as no decision. The case stays where it is and goes to a human; an errored evaluation never advances a case.",
+            "routeTo": "queue.platform.operations",
+            "priority": "URGENT",
+            "retryable": true,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "POLICY_SNAPSHOT_MISMATCH": {
+            "code": "POLICY_SNAPSHOT_MISMATCH",
+            "outcome": "BLOCK",
+            "summary": "The policy claim digest does not match the case policy authority digest.",
+            "analystGuidance": "Evidence was produced against a different policy snapshot than the case is pinned to. Treat all downstream findings as suspect and restart the case at intake.",
+            "routeTo": "queue.platform.operations",
+            "priority": "URGENT",
+            "retryable": false,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "POLICY_SNAPSHOT_STALE": {
+            "code": "POLICY_SNAPSHOT_STALE",
+            "outcome": "REVIEW",
+            "summary": "The pinned policy snapshot is older than the configured freshness window.",
+            "analystGuidance": "Re-pin the case to the current policy version and re-screen.",
+            "routeTo": "queue.platform.operations",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D05"
+            ],
+            "retired": false
+          },
+          "POLICY_UNKNOWN_INPUT": {
+            "code": "POLICY_UNKNOWN_INPUT",
+            "outcome": "REVIEW",
+            "summary": "A required policy input could not be determined from the case snapshot.",
+            "analystGuidance": "Missing information fails closed. The undetermined condition IDs are in the evaluation detail.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "POSSIBLE_SANCTIONS_MATCH": {
+            "code": "POSSIBLE_SANCTIONS_MATCH",
+            "outcome": "REVIEW",
+            "summary": "Screening produced a possible sanctions match requiring adjudication.",
+            "analystGuidance": "Adjudicate the alert against the list record. Clearing a sanctions alert requires dual control; it is never automatic.",
+            "routeTo": "queue.kyc.sanctions",
+            "priority": "URGENT",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": true,
+            "authorityBasis": "31 CFR 501.604",
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "PRODUCTION_POLICY_CONFIGURATION_UNRESOLVED": {
+            "code": "PRODUCTION_POLICY_CONFIGURATION_UNRESOLVED",
+            "outcome": "ERROR",
+            "summary": "The pinned bundle's institution settings are unresolved or unapproved.",
+            "analystGuidance": "The bundle is a candidate, not an approved policy. No disposition may be reached against it. Resolve the outstanding owner inputs and promote an approved bundle; until then every case in flight is a human's to decide outside this gate.",
+            "routeTo": "queue.platform.operations",
+            "priority": "URGENT",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D04"
+            ],
+            "retired": false
+          },
+          "RECOMMENDATION_CITATIONS_INCOMPLETE": {
+            "code": "RECOMMENDATION_CITATIONS_INCOMPLETE",
+            "outcome": "REVIEW",
+            "summary": "The recommendation omits required policy, finding or evidence citations.",
+            "analystGuidance": "An uncited recommendation is not reviewable. Decide from the case record and report the agent defect.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": true,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "RECOMMENDATION_MISSING": {
+            "code": "RECOMMENDATION_MISSING",
+            "outcome": "BLOCK",
+            "summary": "No decision recommendation exists on the case.",
+            "analystGuidance": "The decision agent produced no recommendation; re-dispatch or review manually.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "REQUIRED_EVIDENCE_MISSING": {
+            "code": "REQUIRED_EVIDENCE_MISSING",
+            "outcome": "BLOCK",
+            "summary": "One or more policy evidence obligations are unsatisfied.",
+            "analystGuidance": "The unsatisfied obligation IDs are listed in the evaluation detail. Obtain the evidence or route the case for an EDD exception decision.",
+            "routeTo": "queue.kyc.analyst",
+            "priority": "NORMAL",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "SANCTIONS_LIST_STALE": {
+            "code": "SANCTIONS_LIST_STALE",
+            "outcome": "REVIEW",
+            "summary": "The sanctions list version used for screening is older than the permitted window.",
+            "analystGuidance": "Re-screen against the current list version before any disposition.",
+            "routeTo": "queue.kyc.sanctions",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D01"
+            ],
+            "retired": false
+          },
+          "SCREENING_PRECONDITIONS_SATISFIED": {
+            "code": "SCREENING_PRECONDITIONS_SATISFIED",
+            "outcome": "ALLOW",
+            "summary": "Authoritative policy context is pinned and intake attributes are complete.",
+            "analystGuidance": "No action; the case may proceed to screening.",
+            "routeTo": null,
+            "priority": "NORMAL",
+            "retryable": false,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [],
+            "retired": false
+          },
+          "SCREENING_PROVIDER_OUTAGE": {
+            "code": "SCREENING_PROVIDER_OUTAGE",
+            "outcome": "REVIEW",
+            "summary": "A required screening provider was unavailable or returned a degraded result.",
+            "analystGuidance": "Screening coverage is incomplete. Do not approve on partial coverage; re-screen once the provider recovers, or complete a manual screen and record it as evidence.",
+            "routeTo": "queue.platform.operations",
+            "priority": "HIGH",
+            "retryable": true,
+            "humanAuthorityRequired": false,
+            "dualControlRequired": false,
+            "ownerInputRefs": [
+              "D01"
+            ],
+            "retired": false
+          }
+        },
+        "owner_inputs": {
+          "D01": {
+            "provider": "PROVIDER_NEUTRAL_FIXTURE",
+            "possibleMatchScore": 0.85,
+            "confirmedMatchScore": 0.97,
+            "listFreshnessDays": 1
+          },
+          "D02": {
+            "lookbackYears": 5,
+            "relevanceCategories": [
+              "FINANCIAL_CRIME",
+              "FRAUD",
+              "CORRUPTION",
+              "SANCTIONS_EVASION"
+            ]
+          },
+          "D03": {
+            "tiersInScope": [
+              "TIER_1",
+              "TIER_2"
+            ],
+            "associateDegrees": 1,
+            "decayMonths": 12
+          },
+          "D04": {
+            "eligibleCohorts": [
+              "RC-LOW-STANDARD-INDIVIDUAL"
+            ],
+            "attestationValidityDays": 90,
+            "qaSamplingRate": 0.1
+          },
+          "D05": {
+            "identityVerificationDays": 90,
+            "addressEvidenceDays": 365,
+            "retentionYears": 5
+          },
+          "D06": {
+            "approverRole": "kyc_approver",
+            "declineAuthorityRole": "kyc_senior_approver",
+            "sanctionsClearanceRole": "sanctions_officer",
+            "secondApproverMustDiffer": true
+          },
+          "D07": {
+            "minimumConfidence": 0.85
+          },
+          "D08": {
+            "source": "PLACEHOLDER_INTERNAL_LIST",
+            "refreshDays": 30
+          },
+          "D09": {
+            "standardReviewMonths": 36,
+            "elevatedReviewMonths": 12,
+            "highReviewMonths": 6
+          },
+          "D10": {
+            "residency": "US",
+            "approvedDeployments": [
+              "PLACEHOLDER"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

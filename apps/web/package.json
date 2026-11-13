@@ -1,0 +1,43 @@
+{
+  "name": "@ehf/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "EHF web UI: platform surfaces + FinCrime experience (BUILD-SPEC v2).",
+  "scripts": {
+    "dev": "node ../../scripts/ui-sync.mjs --if-stale && vite --mode mock",
+    "dev:http": "node ../../scripts/ui-sync.mjs --if-stale && vite --mode http",
+    "build": "node ../../scripts/build-azure-guide.mjs && vite build --mode http",
+    "postbuild": "node ../../scripts/check-bundle.mjs dist",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/fincrime-views": "workspace:*",
+    "@ehf/policy-engine": "workspace:*",
+    "@ehf/ui-client": "workspace:*",
+    "@ehf/ui-contracts": "workspace:*",
+    "@ehf/ui-kit": "workspace:*",
+    "@ehf/ui-shell": "workspace:*",
+    "@ehf/ui-tokens": "workspace:*",
+    "@tanstack/react-query": "5.106.1",
+    "@tanstack/react-router": "1.168.26",
+    "@xyflow/react": "12.8.5",
+    "pdfjs-dist": "6.5.438",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@ehf/ui-mock": "workspace:*",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.2.0",
+    "msw": "2.15.0",
+    "vite": "7.3.7"
+  }
+}

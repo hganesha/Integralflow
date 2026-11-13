@@ -1,0 +1,86 @@
+{
+  "provider_id": "truora",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://api.checks.truora.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Truora-API-Key",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.truora.com/"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_check": {
+      "method": "POST",
+      "path": "/v1/checks",
+      "required_body": [
+        "country",
+        "type",
+        "user_authorized"
+      ],
+      "required_query": [],
+      "body_example": {
+        "country": "ALL",
+        "type": "person",
+        "user_authorized": true
+      },
+      "content": "form",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": "/check_id",
+      "source": "https://docs.truora.com/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "list_checks": {
+      "method": "GET",
+      "path": "/v1/checks",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "resource",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.truora.com/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_check": {
+      "method": "GET",
+      "path": "/v1/checks/{check_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "check_result",
+      "status_pointer": "/status",
+      "resource_pointer": "/check_id",
+      "source": "https://docs.truora.com/",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "check_details": {
+      "method": "GET",
+      "path": "/v1/checks/{check_id}/details",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "check_result",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://docs.truora.com/",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

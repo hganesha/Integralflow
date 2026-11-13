@@ -1,0 +1,71 @@
+{
+  "committed_inputs": {
+    "sources/gleif-templates.json": "083918b82feee7384429dee8bc82f64e41851aee1d827e89bbb01ef5a3307091",
+    "sources/lists.json": "0de40337a4b32a9bf0d412cb2f0767b1de325a2ab8ee5c3459e47f93b855ed34",
+    "sources/synthetic-lists.yaml": "e7f3b8549d2d8026ee73bd357cfced845d400e44195a09330f5932ead0eeb6db"
+  },
+  "schema": "harness.factory/context-corpus-sources-v1",
+  "sources": [
+    {
+      "bytes": 5833851,
+      "entries_in_list": 17651,
+      "entries_pinned": 7,
+      "id": "ofac-sdn",
+      "licence": "US government work; public domain",
+      "retrieved_at": "2026-11-09T08:15:34Z",
+      "sha256": "7f43332dae0d1b78ce44c31692d87a3c66e4075bcd97e36d3f18585572ff55b8",
+      "status": "collected",
+      "url": "https://www.treasury.gov/ofac/downloads/sdn.csv"
+    },
+    {
+      "bytes": 2177566,
+      "entries_in_list": 1007,
+      "entries_pinned": 4,
+      "id": "un-consolidated",
+      "licence": "UN Security Council public data; free to use with attribution",
+      "retrieved_at": "2026-11-09T08:15:36Z",
+      "sha256": "a61ed5984d9139e968a5a747b2c8c3479a0d537ed344bd670c41db458163bc1b",
+      "status": "collected",
+      "url": "https://scsanctions.un.org/resources/xml/en/consolidated.xml"
+    },
+    {
+      "bytes": 22084218,
+      "entries_in_list": 6418,
+      "entries_pinned": 5,
+      "id": "uk-sanctions",
+      "licence": "Open Government Licence v3.0 (FCDO)",
+      "retrieved_at": "2026-11-09T08:15:37Z",
+      "sha256": "b9edf715b3eae03c5e6ea0f6e060ebb19a6b3ebba06d6b98d038f5d12376d4ab",
+      "status": "collected",
+      "url": "https://sanctionslist.fcdo.gov.uk/docs/UK-Sanctions-List.xml"
+    },
+    {
+      "id": "eu-consolidated",
+      "licence": "EU open data (Commission reuse policy)",
+      "reason": "curl exit 22: curl: (22) The requested URL returned error: 500\n",
+      "status": "unavailable",
+      "url": "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw"
+    },
+    {
+      "id": "gleif",
+      "licence": "CC0 (GLEIF terms to confirm)",
+      "note": "Steps with 0 are plausible but not evidenced by this small sample.",
+      "sample_chains": 43,
+      "status": "collected",
+      "template_support_for_H06_steps": {
+        "CY>LU": 0,
+        "LU>CY": 0,
+        "LU>US": 0,
+        "VG>CY": 0
+      },
+      "url": "https://api.gleif.org/api/v1",
+      "use": "structural templates only"
+    },
+    {
+      "file": "sources/synthetic-lists.yaml",
+      "id": "synthetic-lists",
+      "licence": "generated for this corpus",
+      "status": "authored"
+    }
+  ]
+}

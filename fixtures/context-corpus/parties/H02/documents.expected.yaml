@@ -1,0 +1,25 @@
+party_id: H02
+as_of: '2026-09-30T00:00:00Z'
+documents:
+- document_id: doc_ecf252f1b208864349ec2fdc
+  document_version: ecf252f1b208864349ec2fdc302107f52c33cfbe19c80b7a68aac2caa4bb8d0f
+  file: rios-national-identity-card.txt
+  subject: h02.entity.mateo
+  document_type: national_identity_card
+  fields:
+    person_name: Mateo Ríos Calderón
+    identity_number: SPECIMEN-H02-DNI-0001
+    date_of_birth: '1983-06-21'
+    expiry_date: '2031-03-15'
+  defects: []
+- document_id: doc_0265a48e96150a3f752b6ecd
+  document_version: 0265a48e96150a3f752b6ecdb0257902cc9a4bc28a0c7f37998de3a43f081bcb
+  file: rios-utility-bill-2026-08.txt
+  subject: h02.entity.mateo
+  document_type: utility_bill
+  fields:
+    subject_name: Mateo Ríos Calderón
+    subject_address: Calle de Alcalá 112, 4B, Madrid, 28009, ES
+    issue_date: '2026-08-04'
+  defects: []
+missing: []

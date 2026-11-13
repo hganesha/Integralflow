@@ -1,0 +1,78 @@
+id: agent.identity_verification
+version: 1.2.0
+source: { new: "Split from the library's agent.identity_ownership so identity and ownership are separate mandates; individual cases need only this half." }
+name: Identity and verification agent
+role: Identity analyst
+mandate: >-
+  Establish and verify the legal identity and existence of the customer and its parties from admitted
+  verification and registry records; preserve unverified and conflicting identities as such.
+personas: [kyc_analyst, kyb_analyst]
+humanGates: [ambiguous evidence, policy exception, consequential decision]
+modelTier: standard
+customerTypes: [individual, corporate]
+skills:
+  required: [entity.resolve, entity.identity.verify, registry.company.verify]
+  optional: [entity.identifiers.validate, entity.relationship.resolve]
+tools: [business.registry.lookup.v1, reference.identifier.lookup.v1, business.officers.lookup.v1]
+# Records the review reads beside its skills' results: what the documents state (the document agent's
+# extracted assertions, and the pages themselves for details extraction keeps nested, such as a
+# registered office) and what the identity, verification and registry records hold.
+reads: [ExtractedAssertion, DocumentPage, Identity, IdentityIdentifier, VerificationRecord, RegistryRecord, Address, FraudSignal]
+completion:
+  criteria:
+    - { skill: entity.resolve, acceptedStatuses: [COMPLETED], requiredPayloadFields: [entity_id, candidates] }
+    - { skill: entity.identity.verify, acceptedStatuses: [COMPLETED], requiredPayloadFields: [verifications] }
+    - { skill: registry.company.verify, acceptedStatuses: [COMPLETED], requiredPayloadFields: [verifications] }
+  failurePolicy: { ambiguous_evidence: NEEDS_REVIEW, missing_required_evidence: NEEDS_EVIDENCE, unavailable_required_source: BLOCKED }
+prompt: >-
+  Decide, for the customer and each party, whether an admitted record verifies who they are. A name match is not
+  verification; an identifier that does not validate is a conflict, not a typo. Compare what each identity or
+  company document states (the extracted assertions) with the identity, verification and registry records: a
+  date of birth, document number, registration number or address that differs is a conflict to report, whichever
+  source looks more plausible. A company document's registered name, number and registered office are compared
+  with the registry record the same way.
+instruction: >-
+  Read the verification and registry records the skills evaluated and the document assertions beside them.
+  Validate an identifier's format only when its issuer is known, and look a registry or identifier service up only
+  when it could confirm or contradict an identity. Report every party as verified by a named record, unverified,
+  or in conflict, and every document field you compared as matching, conflicting or not on record. A tamper
+  signal on a document weakens what it states: name it in a finding, and never treat its absence as proof.
+requiresHumanReview: when_needed
+outputFields:
+  required: [verifications, documentChecks]
+  properties:
+    verifications:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [entityRef, status, sourceRefs]
+        properties:
+          entityRef: { type: string, minLength: 1 }
+          status: { type: string, enum: [VERIFIED_BY_RECORD, UNVERIFIED, CONFLICT] }
+          sourceRefs: { type: array, items: { type: string } }
+    documentChecks:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [entityRef, field, outcome, sourceRefs]
+        # A match or a conflict compares two sources: cite both (a conflict becomes a case contradiction).
+        allOf:
+          - if: { properties: { outcome: { enum: [MATCH, CONFLICT] } } }
+            then: { properties: { sourceRefs: { minItems: 2 } } }
+        properties:
+          entityRef: { type: string, minLength: 1 }
+          field: { type: string, minLength: 1 }
+          documentValue: { type: [string, "null"] }
+          recordValue: { type: [string, "null"] }
+          outcome: { type: string, enum: [MATCH, CONFLICT, NOT_ON_RECORD] }
+          sourceRefs: { type: array, minItems: 1, items: { type: string, minLength: 1 } }
+example:
+  summary: Customer existence verified by an active registry extract; one director unverified; one document date of birth conflicts.
+  findings: [{ type: IDENTITY, severity: REVIEW, reason: "No verification record for one director.", sourceRefs: [reg-1] }]
+  gaps: ["identity verification for director e-helen"]
+  requiresHumanReview: true
+  verifications: [{ entityRef: e-customer, status: VERIFIED_BY_RECORD, sourceRefs: [reg-1] }, { entityRef: e-helen, status: UNVERIFIED, sourceRefs: [] }]
+  documentChecks:
+    - { entityRef: e-helen, field: date_of_birth, documentValue: "1983-11-07", recordValue: "1983-07-11", outcome: CONFLICT, sourceRefs: [doc-3, identity-2] }

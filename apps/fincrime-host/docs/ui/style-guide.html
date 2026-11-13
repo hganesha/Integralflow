@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style Guide · FinCrime Experience Platform</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<style>
+  body { background: var(--surface-app); }
+  .sg { display: grid; grid-template-columns: 230px minmax(0, 1fr); min-height: calc(100vh - var(--chrome-h)); position: relative; z-index: 1; }
+  .sg-nav { position: sticky; top: 0; align-self: start; height: calc(100vh - var(--chrome-h)); overflow: auto; padding: var(--space-6) var(--space-4); border-right: 1px solid var(--line-1); }
+  .sg-nav a { display: block; padding: 5px 8px; border-radius: 6px; color: var(--ink-2); text-decoration: none; font-size: var(--text-sm); }
+  .sg-nav a:hover { background: var(--surface-well); color: var(--ink-1); }
+  .sg-main { padding: var(--space-8) var(--space-10) var(--space-16); max-width: 1280px; }
+  .sg-sec { margin-bottom: var(--space-12); scroll-margin-top: 20px; }
+  .sg-sec > h2 { font-family: var(--font-display); font-weight: 400; font-size: 34px; line-height: 40px; margin-bottom: 6px; }
+  .sg-sec > .lede { color: var(--ink-2); max-width: 75ch; margin-bottom: var(--space-5); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+  .sw { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--line-1); background: var(--surface-panel); }
+  .sw__chip { height: 64px; }
+  .sw__meta { padding: 8px 10px; font-size: 12px; } .sw__meta b { display: block; font-size: 13px; } .sw__meta code { color: var(--ink-2); font-size: 11px; }
+  .tones { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: var(--space-3); }
+  .tone { border-radius: var(--radius-md); padding: var(--space-4); display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .type-row { display: grid; grid-template-columns: 160px 1fr 170px; gap: var(--space-4); align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line-1); }
+  .type-row code { font-size: 11.5px; color: var(--ink-2); }
+  .specimen { padding: var(--space-5); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); }
+  .demo { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-5); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); }
+  .demo + .demo { margin-top: var(--space-3); }
+  .dimtable td { vertical-align: middle; padding-top: 8px; padding-bottom: 8px; height: auto; }
+  .dimtable td:first-child { font-weight: 600; white-space: nowrap; }
+  .spacebar { height: 14px; background: var(--emerald-400); border-radius: 3px; }
+  .att-grid { display: grid; grid-template-columns: 180px 260px 1fr; gap: var(--space-4); align-items: start; }
+  .watch { width: 180px; height: 210px; border-radius: 44px; background: #111; padding: 16px; color: #eee; display: flex; flex-direction: column; justify-content: space-between; font-size: 13px; }
+  .phone { width: 260px; border-radius: 30px; border: 8px solid #1b1f1d; background: var(--surface-app); padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+  .trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
+  .trust .card { display: flex; flex-direction: column; gap: 6px; }
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  .do-dont > div { border-radius: var(--radius-md); padding: var(--space-4); background: var(--surface-panel); border: 1px solid var(--line-1); font-size: 13px; }
+  .do-dont .do { border-top: 3px solid var(--emerald-600); } .do-dont .dont { border-top: 3px solid var(--coral-500); }
+</style>
+</head>
+<body data-root="" data-studio="" data-role="Product Designer" data-user="Design System">
+<header data-shell="chrome" style="position:sticky;top:0;height:var(--chrome-h)"></header>
+<div class="sg">
+  <nav class="sg-nav" aria-label="Style guide sections">
+    <div class="t-engraved" style="margin-bottom:8px">Foundations</div>
+    <a href="#principles">Principles</a><a href="#color">Colour</a><a href="#type">Typography</a><a href="#space">Space, shape, depth</a><a href="#icons">Iconography</a><a href="#motion">Motion</a>
+    <div class="t-engraved" style="margin:16px 0 8px">Semantics</div>
+    <a href="#states">State dimensions</a><a href="#epistemic">Epistemic markers</a><a href="#bindings">Binding types</a><a href="#readiness">Readiness meters</a><a href="#trust">Trust classes</a>
+    <div class="t-engraved" style="margin:16px 0 8px">Components</div>
+    <a href="#controls">Controls</a><a href="#objects">Object surfaces</a><a href="#feedback">Feedback &amp; disclosure</a><a href="#approval">Trusted approval</a>
+    <div class="t-engraved" style="margin:16px 0 8px">Adaptation</div>
+    <a href="#attention">Attention levels</a><a href="#a11y">Accessibility</a>
+    <div style="margin-top:16px"><a href="index.html">← Mockup index</a></div>
+  </nav>
+
+  <main class="sg-main">
+    <header class="sg-sec">
+      <div class="t-engraved">Design system v1.0 · Financial Crime Experience Platform</div>
+      <div class="t-display" style="font-size:56px;line-height:60px;margin-top:8px">An <em>instrument</em>, not a dashboard.</div>
+      <p class="lede" style="margin-top:12px;font-size:17px;line-height:26px">Warm porcelain and graphite surfaces, restrained emerald, ochre, coral and slate-blue. Banks keep fixed positions; segments read like keys on an analog instrument. Colour never carries meaning alone, and nothing animates unless a recorded event happened.</p>
+      <p class="xs muted">Tokens: <code>assets/tokens.css</code> · <code>tokens.json</code> · Components: <code>assets/components.css</code> · Written guidance: <code>STYLE-GUIDE.md</code></p>
+    </header>
+
+    <section class="sg-sec" id="principles"><h2>Principles in the pixels</h2>
+      <div class="do-dont">
+        <div class="do"><b>Do</b> name the dimension of every state — <span class="dim"><span class="t-engraved">Publication</span><span class="status" data-tone="draft">Draft</span></span> — so a green chip is never ambiguous.</div>
+        <div class="dont"><b>Don’t</b> use a green toggle to mean “working”. A configured switch is not a successful execution or an approval (spec §3.4).</div>
+        <div class="do"><b>Do</b> show uncertainty in shape: <span class="epi" data-kind="assertion">Assertion</span> vs <span class="epi" data-kind="fact">Verified fact</span>.</div>
+        <div class="dont"><b>Don’t</b> show an uncalibrated score as a percentage, or collapse readiness into a single %.</div>
+        <div class="do"><b>Do</b> render missing data as a hatched, labelled gap with its code (<span class="mono">CONTEXT_MISSING</span>).</div>
+        <div class="dont"><b>Don’t</b> animate progress that isn’t backed by an event, or show success before server confirmation.</div>
+      </div>
+    </section>
+
+    <section class="sg-sec" id="color"><h2>Colour</h2><p class="lede">Primitive palette → semantic tokens. Components reference semantic tokens only.</p>
+      <h3 style="margin-bottom:10px">Surfaces &amp; ink</h3>
+      <div class="swatches" id="sw-neutral"></div>
+      <h3 style="margin:24px 0 10px">Semantic tones <span class="muted small">— text on tone background, measured contrast</span></h3>
+      <div class="tones">
+        <div class="tone" style="background:var(--tone-positive-bg);color:var(--tone-positive-fg)"><b>Positive</b><span>emerald-700 on emerald-100</span><span class="mono">5.28 : 1</span><span class="xs">Completed · Verified · Ready · PASS</span></div>
+        <div class="tone" style="background:var(--tone-attention-bg);color:var(--tone-attention-fg)"><b>Attention</b><span>ochre-700 on ochre-100</span><span class="mono">4.95 : 1</span><span class="xs">Needs review · Partial · Stale · UNKNOWN</span></div>
+        <div class="tone" style="background:var(--tone-blocking-bg);color:var(--tone-blocking-fg)"><b>Blocking</b><span>coral-700 on coral-100</span><span class="mono">4.95 : 1</span><span class="xs">Blocked · Failed · Restricted · FAIL</span></div>
+        <div class="tone" style="background:var(--tone-info-bg);color:var(--tone-info-fg)"><b>Information</b><span>slate-700 on slate-100</span><span class="mono">5.66 : 1</span><span class="xs">Running · REVIEW · Hypothesis · control edge</span></div>
+        <div class="tone" style="background:var(--tone-neutral-bg);color:var(--tone-neutral-fg)"><b>Neutral</b><span>graphite-600 on porcelain-200</span><span class="mono">6.70 : 1</span><span class="xs">Not assigned · Waiting · N/A</span></div>
+      </div>
+      <p class="xs muted" style="margin-top:10px">UI marks (segments, dots, edges) meet ≥ 3:1 against adjacent surfaces: emerald-600 4.48, ochre-500 3.50, coral-500 3.15 on white. Tertiary ink graphite-400 is 4.54:1 on the app background.</p>
+    </section>
+
+    <section class="sg-sec" id="type"><h2>Typography</h2><p class="lede">Instrument Sans for interface, Instrument Serif for rare editorial display moments (studio landing, empty states — never data), JetBrains Mono for identifiers, hashes, contracts and traces. Tabular numerals for all metrics and timestamps. All three are SIL OFL and bundled in <code>assets/fonts</code>.</p>
+      <div class="specimen">
+        <div class="type-row"><code>display · serif 34/40</code><span class="t-display">What needs <em>your</em> attention</span><code>--font-display</code></div>
+        <div class="type-row"><code>2xl · 26/32 · 600</code><span style="font-size:26px;font-weight:600;letter-spacing:-.012em">Acme Trading Ltd</span><code>object title</code></div>
+        <div class="type-row"><code>xl · 20/26 · 600</code><span style="font-size:20px;font-weight:600">Ownership intelligence</span><code>panel title</code></div>
+        <div class="type-row"><code>lg · 16/22 · 600</code><span style="font-size:16px;font-weight:600">Policy obligations</span><code>section</code></div>
+        <div class="type-row"><code>md · 14/20 · 400</code><span>Discover direct and indirect beneficial owners, reconstruct paths, and identify unresolved gaps.</span><code>body</code></div>
+        <div class="type-row"><code>sm · 13/18</code><span class="small">Registry captured Nov 06 · within policy</span><code>secondary</code></div>
+        <div class="type-row"><code>2xs · engraved</code><span class="t-engraved">Context profile · purpose</span><code>labels, 0.08em caps</code></div>
+        <div class="type-row"><code>mono · 12</code><span class="mono">ownership.ubo.resolve@0.2.0 · ctx 9c41…e07b</span><code>--font-mono</code></div>
+        <div class="type-row" style="border:0"><code>tabular</code><span class="num" style="font-size:20px">33.0% · 27.0% · 15.0% · 0.46 · 11:12:40</span><code>font-variant-numeric</code></div>
+      </div>
+    </section>
+
+    <section class="sg-sec" id="space"><h2>Space, shape, depth</h2><p class="lede">4 px base. Radii grow with container size: segments 4 → inputs 8 → cards 12 → regions 18 → sheets 24. Elevation is subtle; the trusted sheet is the only element with a heavy shadow.</p>
+      <div class="grid grid-2" style="gap:var(--space-5)">
+        <div class="specimen stack stack--tight" id="spacescale"></div>
+        <div class="specimen" style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap">
+          <div style="width:70px;height:40px;border-radius:4px;background:var(--surface-well)"></div><div style="width:70px;height:40px;border-radius:8px;background:var(--surface-well)"></div><div style="width:70px;height:56px;border-radius:12px;background:var(--surface-raised);border:1px solid var(--line-1)"></div><div style="width:70px;height:70px;border-radius:18px;background:var(--surface-panel);border:1px solid var(--line-1);box-shadow:var(--shadow-1)"></div><div style="width:84px;height:84px;border-radius:24px;background:var(--surface-panel);box-shadow:var(--shadow-3)"></div>
+          <div class="xs muted" style="width:100%">xs 4 · sm 8 · md 12 · lg 18 · xl 24 (shadow-3 = trusted sheet)</div></div>
+      </div>
+      <h3 style="margin:24px 0 10px">Four stable regions</h3>
+      <div class="specimen" style="display:grid;grid-template-columns:1fr 3fr 1.4fr;grid-template-rows:90px 30px;gap:8px;font-size:12px">
+        <div class="card card--well">Left · orientation<br><span class="muted">248 px</span></div><div class="card card--white" style="box-shadow:var(--shadow-1)"><b>Center · work surface</b><br><span class="muted">greatest emphasis</span></div><div class="card card--well">Right · inspector<br><span class="muted">360 px</span></div>
+        <div class="card card--well" style="grid-column:1/-1;padding:5px 10px">Bottom · activity rail — 40 px collapsed / 220 px expanded</div></div>
+    </section>
+
+    <section class="sg-sec" id="icons"><h2>Iconography</h2><p class="lede">24-grid outline icons, 1.6 stroke, round caps. Icons label; they never replace a text label for state.</p>
+      <div class="demo" id="iconset"></div></section>
+
+    <section class="sg-sec" id="motion"><h2>Motion</h2><p class="lede">Motion communicates selection, causality, expansion, execution and state change, and only when a real event exists. <code>prefers-reduced-motion</code> sets durations to 0 but keeps the state change.</p>
+      <table class="table" style="background:var(--surface-panel);border-radius:12px;overflow:hidden"><thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead><tbody>
+        <tr><td class="mono">--dur-instant</td><td>80 ms</td><td>press, toggle</td></tr><tr><td class="mono">--dur-fast</td><td>140 ms</td><td>hover, selection</td></tr><tr><td class="mono">--dur-base</td><td>220 ms</td><td>expand, inspector swap</td></tr><tr><td class="mono">--dur-slow</td><td>420 ms</td><td>causal highlight, signal replay step</td></tr><tr><td class="mono">--ease-standard</td><td>cubic-bezier(.2,0,0,1)</td><td>everything entering</td></tr></tbody></table></section>
+
+    <section class="sg-sec" id="states"><h2>State dimensions</h2><p class="lede">Configuration and execution states are separate dimensions (spec §3.4). Values below are the real enums in <code>schemas/</code> where one exists. Every value renders tone + glyph + label.</p>
+      <table class="table dimtable" style="background:var(--surface-panel);border-radius:12px;overflow:hidden"><thead><tr><th>Dimension</th><th>Source</th><th>Values → rendering</th></tr></thead><tbody id="dims"></tbody></table></section>
+
+    <section class="sg-sec" id="epistemic"><h2>Epistemic markers</h2><p class="lede">The business object progression (spec §19.1) is encoded by <b>shape</b>, independent of status tone. Graph edges follow the same rule: solid = verified, dashed = candidate/asserted, dotted = unresolved, dash-dot = non-equity control.</p>
+      <div class="demo"><span class="epi" data-kind="observation">Observation / source</span><span class="epi" data-kind="assertion">Assertion</span><span class="epi" data-kind="fact">Verified fact</span><span class="epi" data-kind="hypothesis">Hypothesis</span><span class="epi" data-kind="finding">Finding</span><span class="epi" data-kind="recommendation">Recommendation</span><span class="epi" data-kind="decision">Authorized decision</span></div>
+      <div class="demo"><svg width="560" height="24"><line x1="0" y1="12" x2="120" y2="12" class="g-edge g-edge--verified"/><text x="0" y="8" style="font-size:10px;fill:#5E6560">verified</text><line x1="145" y1="12" x2="265" y2="12" class="g-edge g-edge--candidate"/><text x="145" y="8" style="font-size:10px;fill:#5E6560">candidate</text><line x1="290" y1="12" x2="410" y2="12" class="g-edge g-edge--unresolved"/><text x="290" y="8" style="font-size:10px;fill:#5E6560">unresolved</text><line x1="435" y1="12" x2="555" y2="12" class="g-edge g-edge--control"/><text x="435" y="8" style="font-size:10px;fill:#5E6560">control</text></svg></div></section>
+
+    <section class="sg-sec" id="bindings"><h2>Skill binding types</h2><p class="lede">Four binding kinds that must never look like interchangeable on/off states (spec §7.4).</p>
+      <div class="demo"><span class="binding" data-kind="required">Required</span><span class="binding" data-kind="conditional">Conditional</span><span class="binding" data-kind="eligible">Eligible</span><span class="binding" data-kind="composed">Composed</span><span class="binding" data-kind="unassigned">Not assigned</span></div></section>
+
+    <section class="sg-sec" id="readiness"><h2>Readiness meters &amp; banks</h2><p class="lede">One segment per governed capability. Fixed positions: provider availability changes a segment’s state, never the bank’s location.</p>
+      <div class="grid grid-3" style="max-width:860px">
+        <button class="bank" aria-pressed="false"><span class="bank__top"><svg class="i i--lg"><use href="#i-fingerprint"/></svg><span class="dot" data-tone="blocking"></span></span><span class="bank__name">Identity</span><span class="meter"><i class="seg" data-state="ready"></i><i class="seg" data-state="ready"></i><i class="seg" data-state="ready"></i><i class="seg" data-state="ready"></i><i class="seg" data-state="unavailable"></i></span><span class="bank__foot"><span>4/5 ready</span><span class="xs" style="color:var(--coral-700)">Unavailable</span></span></button>
+        <button class="bank" aria-pressed="true"><span class="bank__top"><svg class="i i--lg"><use href="#i-branch"/></svg><span class="dot" data-tone="attention"></span></span><span class="bank__name">Ownership</span><span class="meter"><i class="seg" data-state="ready"></i><i class="seg" data-state="ready"></i><i class="seg" data-state="ready"></i><i class="seg" data-state="missing"></i><i class="seg" data-state="ready"></i></span><span class="bank__foot"><span>4/5 ready</span><span class="xs" style="color:var(--ochre-700)">Missing</span></span></button>
+        <button class="bank" aria-pressed="false"><span class="bank__top"><svg class="i i--lg"><use href="#i-swap"/></svg><span class="dot" data-tone="blocking"></span></span><span class="bank__name">Transactions</span><span class="meter"><i class="seg" data-state="restricted"></i><i class="seg" data-state="restricted"></i><i class="seg"></i><i class="seg"></i><i class="seg" data-state="ready"></i></span><span class="bank__foot"><span>1/3 ready</span><span class="xs" style="color:var(--coral-700)">Restricted</span></span></button>
+      </div>
+      <div class="legend" style="margin-top:12px"><span><i class="seg" data-state="ready"></i>Ready</span><span><i class="seg" data-state="conditional"></i>Conditional</span><span><i class="seg" data-state="optional"></i>Optional</span><span><i class="seg" data-state="missing"></i>Missing</span><span><i class="seg" data-state="degraded"></i>Degraded</span><span><i class="seg" data-state="restricted"></i>Restricted</span><span><i class="seg" data-state="unavailable"></i>Unavailable</span><span><i class="seg"></i>Not assigned</span></div></section>
+
+    <section class="sg-sec" id="trust"><h2>Presentation trust classes</h2><p class="lede">Who may compose what (addendum §5.4). Agent-composed surfaces always carry a lineage tag; P3 controls only exist inside the application-owned trusted sheet.</p>
+      <div class="trust">
+        <div class="card card--white"><b>P0 · Native chrome</b><span class="small muted">Navigation, identity, tenant, synthetic/environment banner, classification.</span><span class="env-pill env-pill--synthetic" style="align-self:flex-start"><svg class="i i--sm"><use href="#i-beaker"/></svg>Synthetic · tenant</span></div>
+        <div class="card card--white"><b>P1 · Information</b><span class="small muted">Cards, evidence, tables, graphs, timelines. Agent-composable.</span><div class="surface-agent" style="padding:18px 10px 8px;margin-top:12px"><span class="surface-agent__tag">A02 · template@1 · s-88 r3</span><span class="xs">Agent-composed card</span></div></div>
+        <div class="card card--white"><b>P2 · Interactive workflow</b><span class="small muted">Forms, comparisons, candidate selection, previews. Server-validated.</span><button class="btn btn--sm" style="align-self:flex-start">Preview impact</button></div>
+        <div class="card card--white" style="border:2px solid var(--graphite-brand)"><b>P3 · Trusted action</b><span class="small muted">Approvals, filings, material mutations. Application-owned, hash-bound.</span><button class="btn btn--trusted btn--sm" style="height:30px;align-self:flex-start"><svg class="i i--sm"><use href="#i-lock"/></svg>Sign &amp; commit</button></div>
+      </div></section>
+
+    <section class="sg-sec" id="controls"><h2>Controls</h2>
+      <div class="demo"><button class="btn btn--primary">Primary</button><button class="btn">Secondary</button><button class="btn btn--quiet">Quiet</button><button class="btn btn--sm">Small</button><button class="btn" disabled>Disabled</button><button class="btn btn--trusted"><svg class="i i--sm"><use href="#i-lock"/></svg>Trusted (P3 only)</button></div>
+      <div class="demo"><div class="segmented"><button aria-pressed="true">Play</button><button aria-pressed="false">Tune</button><button aria-pressed="false">Engineer</button></div><div class="segmented segmented--sm"><button aria-pressed="false">Required</button><button aria-pressed="true">Conditional</button><button aria-pressed="false">Optional</button><button aria-pressed="false">Off</button></div><button class="switch" role="switch" aria-checked="true" aria-label="Draft switch"></button><span class="xs muted">switch = draft configuration only</span></div>
+      <div class="demo"><span class="chip">Financial Crime</span><span class="chip chip--outline">CDD · you</span><span class="id">KYB-1042</span><span class="hash">ctx 9c41…e07b</span><span class="evt" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>skill.completed</span><span class="evt" data-tone="attention"><svg class="i"><use href="#i-pause"/></svg>workflow.interrupted</span></div>
+      <div class="demo" style="display:block"><div class="tabs" role="tablist"><button role="tab" aria-selected="true">Contract</button><button role="tab" aria-selected="false">Context</button><button role="tab" aria-selected="false">Dependencies</button><button role="tab" aria-selected="false">Guardrails</button><button role="tab" aria-selected="false">Evaluation</button><button role="tab" aria-selected="false">Trace</button></div></div>
+    </section>
+
+    <section class="sg-sec" id="objects"><h2>Object surfaces</h2>
+      <section class="object-header"><div class="object-header__tile"><svg class="i"><use href="#i-stack"/></svg></div><div><div class="t-engraved">Canonical object header · ID · version · owner · scope</div><h1>Corporate KYC Onboarding</h1><div class="object-header__meta"><span><span class="t-engraved">purpose</span> onboarding</span><span><span class="t-engraved">as-of</span> 2026-11-07 12:00 UTC</span></div></div><div class="stack" style="align-items:flex-end"><span class="dim"><span class="t-engraved">Publication</span><span class="status" data-tone="draft">Draft 1.4</span></span></div></section>
+      <div class="grid grid-2" style="margin-top:12px">
+        <button class="key" aria-selected="true"><span class="key__icon"><svg class="i"><use href="#i-checkcircle"/></svg></span><span class="key__name">Resolve Beneficial Owners</span><span class="key__id">ownership.ubo.resolve</span><span class="key__aside"><span class="binding" data-kind="required">Required</span></span></button>
+        <div class="card card--white"><ul class="stream"><li data-state="completed"><span class="stream__mark"></span><span>Comparing declarations against registry</span><span class="xs muted">13:57</span></li><li data-state="running"><span class="stream__mark"></span><span>Evaluating control relationships</span><span class="xs muted">now</span></li><li data-state="interrupted"><span class="stream__mark"></span><span>Waiting for analyst review</span><span class="xs muted">—</span></li></ul></div>
+      </div>
+      <div class="compare" style="margin-top:12px"><div class="c-head">Field</div><div class="c-head">Customer</div><div class="c-head c-verdict"></div><div class="c-head">List entry</div><div class="c-field">Name</div><div>Chen Wei</div><div class="c-verdict"><span class="cmp" data-r="agree">=</span></div><div>CHEN Wei</div><div class="c-field">DOB</div><div>1981-04-12</div><div class="c-verdict"><span class="cmp" data-r="contradict">≠</span></div><div>1958-09-30</div></div>
+    </section>
+
+    <section class="sg-sec" id="feedback"><h2>Feedback &amp; disclosure</h2>
+      <div class="stack">
+        <div class="interrupt"><span class="interrupt__icon"><svg class="i"><use href="#i-pause"/></svg></span><div class="grow"><strong>Workflow paused for your review</strong> — resumes only after a recorded outcome.</div><button class="btn btn--sm btn--primary">Record outcome</button></div>
+        <div class="disclosure"><svg class="i"><use href="#i-info"/></svg><div><strong>Missing telemetry.</strong> 3 spans sampled out — ledger complete. (neutral hatch)</div></div>
+        <div class="disclosure" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg><div><strong>CONTEXT_MISSING</strong> · OwnershipInterest.voting_interest</div></div>
+        <div class="disclosure" data-tone="blocking"><svg class="i"><use href="#i-lock"/></svg><div><strong>Restricted for purpose.</strong> Connected but not entitled.</div></div>
+        <div class="disclosure" data-tone="info"><svg class="i"><use href="#i-history"/></svg><div><strong>Historical reconstruction</strong> — read only.</div></div>
+        <div class="row"><button class="new-results"><svg class="i i--sm"><use href="#i-arrowd"/></svg>2 new items — show</button><span class="status" data-tone="running">Running</span><span class="card is-stale" style="padding:28px 16px 12px;min-width:220px">Value updated in place</span></div>
+        <div class="strip"><span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Authorized</span><span class="strip__sep">→</span><span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Resolved</span><span class="strip__sep">→</span><span class="strip__step" data-state="active">Compiling</span><span class="strip__sep">→</span><span class="strip__step" data-state="pending">Validated</span></div>
+      </div></section>
+
+    <section class="sg-sec" id="approval"><h2>Trusted approval</h2><p class="lede">The only surface with the graphite band, lock glyph and heavy shadow. It shows the exact action, before/after, hash bindings, expiry, attestation and re-authentication. Live example: <a href="mockups/biz-07-decision-desk.html#sign">Decision Desk → Review &amp; sign</a>.</p>
+      <div class="sheet sheet--trusted" style="box-shadow:var(--shadow-2)"><div class="sheet__band"><svg class="i i--sm"><use href="#i-lock"/></svg> PLATFORM-VERIFIED ACTION · not agent-composed <span class="hash">action ref apr-5c19 · v1</span></div><div class="sheet__body" style="padding:18px 24px"><b>ACCEPT onboarding for Acme Trading Ltd (KYB-1042)</b><span class="small muted">request_hash 5c19…d4a2 · context_hash 2d90…0e71 · expires 15:42 UTC</span></div><div class="sheet__foot"><button class="btn">Cancel</button><button class="btn btn--trusted ml-auto">Sign &amp; commit decision</button></div></div></section>
+
+    <section class="sg-sec" id="attention"><h2>Attention levels — one intent, many devices</h2><p class="lede">Render the intent, not a scaled copy of the desktop (addendum §10). Example intent <span class="mono">decision.review_required</span> for KYB-1042. Semantics never change; detail and available actions do. No consequential action is offered where the evidence cannot be shown.</p>
+      <div class="att-grid">
+        <div><div class="t-engraved" style="margin-bottom:8px">Glance · watch</div><div class="watch"><span style="font-size:11px;opacity:.7">FinCrime</span><div><b style="font-size:15px">Review needed</b><div style="opacity:.8;margin-top:4px">KYB-1042 · ownership</div></div><span style="font-size:11px;opacity:.7">Open on a supported device</span></div></div>
+        <div><div class="t-engraved" style="margin-bottom:8px">Card · mobile</div><div class="phone"><span class="t-engraved">Decision · needs review</span><b style="font-size:16px">Acme Trading Ltd</b><span class="small muted">Ownership discrepancy crosses 20% threshold. 1 nominee path unresolved.</span><span class="status" data-tone="attention" style="align-self:flex-start">Needs review</span><button class="btn btn--sm">View evidence summary</button><span class="xs muted">Approval requires desktop review</span></div></div>
+        <div><div class="t-engraved" style="margin-bottom:8px">Detail / Workspace · desktop</div><a href="mockups/biz-03-case-cdd.html" class="card card--white" style="display:block;text-decoration:none;color:inherit"><b>CDD Workbench</b><p class="small muted" style="margin-top:4px">Full ownership graph, verification drawer, reconciliation table, trusted review sheet.</p></a>
+          <table class="table" style="margin-top:12px;background:var(--surface-panel)"><thead><tr><th>Level</th><th>Content</th><th>Max actions</th></tr></thead><tbody><tr><td>Glance</td><td>1 status, 1 change</td><td>navigate</td></tr><tr><td>Card</td><td>why it matters, status</td><td>L0–L1</td></tr><tr><td>Detail</td><td>full evidence &amp; context</td><td>L0–L2</td></tr><tr><td>Workspace</td><td>linked analysis</td><td>L0–L3 (trusted)</td></tr><tr><td>Raw</td><td>payload, ledger, spans</td><td>read only</td></tr></tbody></table></div>
+      </div></section>
+
+    <section class="sg-sec" id="a11y"><h2>Accessibility (WCAG 2.2 AA)</h2>
+      <div class="grid grid-2">
+        <div class="card card--white small"><b>Keyboard</b><ul style="margin:6px 0 0;padding-left:18px"><li>Banks &amp; keys: arrow-key grid navigation, Enter selects</li><li>Tabs: ←/→ roving tabindex</li><li>Sheets: focus trap, Esc closes, focus returns</li><li>Graph nodes focusable with full aria-labels</li></ul></div>
+        <div class="card card--white small"><b>Non-visual alternatives</b><ul style="margin:6px 0 0;padding-left:18px"><li>Every graph has a Table view and an SVG &lt;desc&gt;</li><li>Status = tone + glyph + text</li><li>Live regions for interrupts and “new items”</li><li>Reduced motion and high-contrast token overrides</li></ul></div>
+      </div></section>
+  </main>
+</div>
+<script src="assets/shell.js"></script>
+<script>
+document.getElementById("spacescale").innerHTML = [4,8,12,16,20,24,32,40,48,64].map((v,i) => `<div class="row"><span class="mono xs" style="width:90px">--space-${[1,2,3,4,5,6,8,10,12,16][i]}</span><span class="spacebar" style="width:${v*3}px"></span><span class="xs muted">${v}px</span></div>`).join("");
+const N = [["--porcelain-100","#F4F2EE","app"],["--porcelain-0","#FFFFFF","panel"],["--porcelain-50","#FBFAF8","raised"],["--porcelain-200","#ECEAE5","well"],["--porcelain-300","#E3E0DA","line-1"],["--porcelain-400","#D6D2CA","line-2"],["--graphite-900","#1F2522","ink-1 · 13.9:1"],["--graphite-500","#5E6560","ink-2 · 5.4:1"],["--graphite-400","#6A706A","ink-3 · 4.5:1"],["--graphite-brand","#24332D","brand / trusted"],["--emerald-600","#3F8462","positive fill"],["--ochre-500","#B47F26","attention fill"],["--coral-500","#D07A66","blocking fill"],["--slate-500","#6F88AD","info fill"]];
+document.getElementById("sw-neutral").innerHTML = N.map(([t,h,u]) => `<div class="sw"><div class="sw__chip" style="background:${h}"></div><div class="sw__meta"><b>${u}</b><code>${t}</code><br><code>${h}</code></div></div>`).join("");
+const DIMS = [
+ ["Execution","SkillStatus (runtime)",[["COMPLETED","positive","check"],["PARTIAL","attention","alert"],["NEEDS_EVIDENCE","attention","file"],["NEEDS_REVIEW","attention","pause"],["BLOCKED","blocking","block"],["FAILED","blocking","xcircle"]]],
+ ["Lifecycle","SkillResult.lifecycle",[["SUCCEEDED","positive","check"],["WAITING_FOR_HUMAN","attention","pause"],["FAILED","blocking","xcircle"],["CANCELLED","neutral","x"]]],
+ ["Task","TaskStatus",[["PENDING","neutral","clock"],["RUNNING","running",""],["COMPLETED","positive","check"],["BLOCKED","blocking","block"],["CANCELLED","neutral","x"]]],
+ ["Case","CaseState · Disposition",[["OPEN","info","inbox"],["REVIEW","info","eye"],["CLOSED","neutral","lock"],["ACCEPT","positive","check"],["REJECT","blocking","xcircle"],["ESCALATE","attention","flag"]]],
+ ["Approval","ApprovalStatus",[["PENDING","attention","clock"],["APPROVED","positive","check"],["REJECTED","blocking","xcircle"],["CONSUMED","neutral","lock"],["REVOKED","blocking","block"],["EXPIRED","neutral","clock"]]],
+ ["Control","Control.outcome",[["PASS","positive","check"],["FAIL","blocking","xcircle"],["UNKNOWN","attention","alert"],["NOT_APPLICABLE","neutral","x"]]],
+ ["Verification","VerificationStatus",[["VERIFIED","positive","check"],["UNVERIFIED","attention","alert"],["DISPUTED","blocking","alert"],["FAILED","blocking","xcircle"],["UNKNOWN","neutral","info"]]],
+ ["Finding","FindingStatus",[["RESOLVED","positive","check"],["UNRESOLVED","attention","alert"],["INDICATOR","info","flag"],["EXCULPATORY","info","shield"],["UNVERIFIED","attention","alert"],["DISPUTED","blocking","alert"]]],
+ ["Hypothesis","HypothesisStatus",[["SUPPORTED","positive","check"],["REFUTED","blocking","xcircle"],["UNRESOLVED","attention","alert"]]],
+ ["Conflict","ConflictStatus",[["UNRESOLVED","blocking","alert"],["RESOLVED","positive","check"],["DISPUTED","attention","alert"]]],
+ ["Effects → tier","SkillManifest.effects",[["read_only · L0","positive","eye"],["internal_write · L1","info","refresh"],["proposal · L1","info","file"],["human_gated · L2/L3","blocking","lock"],["external_write · L3","blocking","send"]]],
+ ["Maturity","SkillManifest.maturity",[["implemented_synthetic","draft","beaker"],["integration_verified","info","link"],["production_qualified","positive","shieldcheck"]]],
+ ["Readiness","UX (no schema yet)",[["Ready","positive","check"],["Missing Context","attention","alert"],["Dependency Unavailable","blocking","block"],["Pending Evaluation","info","clock"]]],
+ ["Authorization","UX (no schema yet)",[["Authorized","positive","check"],["Restricted","blocking","lock"],["Approval Required","attention","lock"]]],
+ ["Connection","UX (no schema yet)",[["Connected","positive","link"],["Degraded","attention","alert"],["Disconnected","blocking","xcircle"]]],
+ ["Publication","UX (no schema yet)",[["Draft","draft",""],["Validated","info","check"],["Approved","info","checkcircle"],["Published","positive","checkcircle"],["Deprecated","neutral","history"]]]
+];
+document.getElementById("dims").innerHTML = DIMS.map(([d,src,vals]) => `<tr><td>${d}</td><td class="mono xs ${src.startsWith("UX")?"subtle":""}">${src}</td><td><div class="row row--wrap">${vals.map(([v,t,i]) => `<span class="status" data-tone="${t}">${i?icon(i):""}${v}</span>`).join("")}</div></td></tr>`).join("");
+document.getElementById("iconset").innerHTML = ["sliders","stack","fingerprint","sitemap","branch","copy","building","shieldcheck","users","swap","graph","file","gauge","inbox","book","bot","workflow","scan","searchcheck","shield","scale","flight","activity","signal","lock","pause","play","alert","block","checkcircle","info","history","link","hash","package","beaker","eye","table"].map(n => `<span class="stack stack--tight" style="align-items:center;width:64px">${icon(n,"i--xl")}<span class="xs muted mono" style="font-size:10px">${n}</span></span>`).join("");
+</script>
+</body>
+</html>

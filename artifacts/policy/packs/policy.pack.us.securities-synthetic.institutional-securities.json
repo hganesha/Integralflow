@@ -1,0 +1,238 @@
+{
+  "apiVersion": "harness.factory/policy-pack-v1",
+  "kind": "EffectivePolicyPack",
+  "id": "policy.pack.us.securities-synthetic.institutional-securities",
+  "version": "1.0.0+1.0.0+1.0.0+1.0.0+1.0.0+1.0.0",
+  "status": "CANDIDATE",
+  "scope": {
+    "jurisdiction": "US",
+    "institution": "securities.synthetic",
+    "productSet": "institutional-securities",
+    "products": [
+      "BRK",
+      "CUS",
+      "WLT"
+    ],
+    "customerTypes": [
+      "corporate"
+    ]
+  },
+  "layers": [
+    {
+      "id": "pack.baseline",
+      "version": "1.0.0",
+      "layer": "baseline",
+      "digest": "60b111d1c4758de9139dea0b7e3abe2fe2dfd51f277717cc6fb025662fa7c43d"
+    },
+    {
+      "id": "pack.jurisdiction.us",
+      "version": "1.0.0",
+      "layer": "jurisdiction",
+      "digest": "8dc5725a231e03844b9ef06701b30436432b1d63da9dc72229cb64907d7e30fd"
+    },
+    {
+      "id": "pack.institution.securities-synthetic",
+      "version": "1.0.0",
+      "layer": "institution",
+      "digest": "b250456cbbf36e2a1007300ed17723767195c76e3837b48b625fb09962045fca"
+    },
+    {
+      "id": "pack.product.family.brk",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "179df7ebed879e69e7ffdfab25c3016e39d296ae8ccaad3ce6b8d938e568fbac"
+    },
+    {
+      "id": "pack.product.family.cus",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "e4c38fcd41c69f2f6632711a136f9faefc95566c2a7561c58c032a3de7340bb1"
+    },
+    {
+      "id": "pack.product.family.wlt",
+      "version": "1.0.0",
+      "layer": "product",
+      "digest": "ddcbd1a0f9939f53206cdf335429fb9a3849e7ef0a93d6d2997229254aa0b5f1"
+    }
+  ],
+  "values": {
+    "jurisdiction": "US",
+    "screening_threshold": 0.85,
+    "ownership_threshold": "0.25",
+    "sanctions_ownership": {
+      "rule": "ofac_50_percent",
+      "threshold": "0.5"
+    },
+    "control_bases": [
+      "appoint_board",
+      "voting_majority"
+    ],
+    "sanctions_control_bases": [
+      "voting_majority"
+    ],
+    "verification_methods": [
+      "government_id_document",
+      "registry_extract"
+    ],
+    "active_registry_statuses": [
+      "ACTIVE"
+    ],
+    "freshness_seconds": {
+      "VerificationRecord": 7776000,
+      "WatchlistEntry": 86400
+    },
+    "required_screening_types": [
+      "adverse_media",
+      "pep",
+      "sanctions"
+    ],
+    "required_screening_lists": [
+      "ofac-sdn"
+    ],
+    "screening_roles": [
+      "attorney",
+      "beneficial_owner",
+      "control_person",
+      "customer",
+      "director",
+      "signatory"
+    ],
+    "pep_scope": "foreign",
+    "required_party_roles": {
+      "corporate": [
+        "beneficial_owner",
+        "customer"
+      ],
+      "individual": [
+        "customer"
+      ]
+    },
+    "dual_control_required": true,
+    "automatic_approval_enabled": false,
+    "automatic_decline_enabled": false,
+    "diligence_floors": {},
+    "mandatory_overlays": [],
+    "simplified_due_diligence_permitted": false
+  },
+  "basis": {
+    "jurisdiction": {
+      "layer": "pack.jurisdiction.us",
+      "text": "US policy jurisdiction (BankingRelationship.policyJurisdiction), not the booking jurisdiction.",
+      "sources": []
+    },
+    "screening_threshold": {
+      "layer": "pack.institution.securities-synthetic",
+      "text": "Same possible-match score as the synthetic bank (owner input D01); candidate until the firm's owner sets its own.",
+      "sources": []
+    },
+    "ownership_threshold": {
+      "layer": "pack.jurisdiction.us",
+      "text": "FinCEN CDD rule: each individual owning, directly or indirectly, 25 percent or more of the equity interests of a legal entity customer.",
+      "sources": [
+        "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"
+      ]
+    },
+    "sanctions_ownership": {
+      "layer": "pack.jurisdiction.us",
+      "text": "OFAC 50 Percent Rule: property of an entity owned 50 percent or more, in the aggregate, by one or more blocked persons is blocked.",
+      "sources": [
+        "https://ofac.treasury.gov/faqs/401"
+      ]
+    },
+    "control_bases": {
+      "layer": "pack.jurisdiction.us",
+      "text": "FinCEN CDD rule control prong: an individual with significant responsibility to control, manage or direct the legal entity customer.",
+      "sources": [
+        "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"
+      ]
+    },
+    "sanctions_control_bases": {
+      "layer": "pack.baseline",
+      "text": "Majority voting control by a designated person always counts as sanctions control.",
+      "sources": []
+    },
+    "verification_methods": {
+      "layer": "pack.institution.securities-synthetic",
+      "text": "Firm appetite: a registry extract for institutional clients and a government identity document for their individuals.",
+      "sources": []
+    },
+    "active_registry_statuses": {
+      "layer": "pack.baseline",
+      "text": "Only an active registration verifies legal existence (canonical status vocabulary, upper case).",
+      "sources": []
+    },
+    "freshness_seconds": {
+      "layer": "pack.institution.securities-synthetic",
+      "text": "List freshness 1 day and identity verification 90 days, as for the synthetic bank.",
+      "sources": []
+    },
+    "required_screening_types": {
+      "layer": "pack.product.family.cus+pack.product.family.wlt",
+      "text": "Firm appetite: a custodian holds the client's assets, so negative news about the client is searched before onboarding. Firm appetite: wealth managed on a client's behalf is searched for negative news about the client first.",
+      "sources": []
+    },
+    "required_screening_lists": {
+      "layer": "pack.jurisdiction.us",
+      "text": "OFAC Specially Designated Nationals and Blocked Persons List.",
+      "sources": [
+        "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+      ]
+    },
+    "screening_roles": {
+      "layer": "pack.product.family.brk",
+      "text": "An authorised trader or attorney can place orders and move securities on the account, so is screened.",
+      "sources": []
+    },
+    "pep_scope": {
+      "layer": "pack.baseline",
+      "text": "Foreign political exposure at minimum; jurisdictions widen it.",
+      "sources": []
+    },
+    "required_party_roles": {
+      "layer": "pack.jurisdiction.us",
+      "text": "FinCEN CDD rule: identify and verify the beneficial owners of a legal entity customer.",
+      "sources": [
+        "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-B/section-1010.230"
+      ]
+    },
+    "dual_control_required": {
+      "layer": "pack.institution.securities-synthetic",
+      "text": "Firm appetite: two people approve every onboarding decision.",
+      "sources": []
+    },
+    "automatic_approval_enabled": {
+      "layer": "pack.baseline",
+      "text": "No pack approves a customer without a person.",
+      "sources": []
+    },
+    "automatic_decline_enabled": {
+      "layer": "pack.baseline",
+      "text": "No pack declines a customer without a person.",
+      "sources": []
+    },
+    "diligence_floors": {
+      "layer": "pack.baseline",
+      "text": "No floor: a cell's level comes from the institution's diligence matrix. Layers may only raise floors (keys are customer type or *, then product or *).",
+      "sources": []
+    },
+    "mandatory_overlays": {
+      "layer": "pack.baseline",
+      "text": "No overlay is mandatory everywhere; layers add the escalations their regulator requires.",
+      "sources": []
+    },
+    "simplified_due_diligence_permitted": {
+      "layer": "pack.institution.securities-synthetic",
+      "text": "Firm decision pending: simplified due diligence is not adopted until the policy owner approves where it applies.",
+      "sources": []
+    }
+  },
+  "gateBundles": {},
+  "knownDifferences": [
+    {
+      "layer": "pack.jurisdiction.us",
+      "field": "required_screening_types",
+      "text": "US law has no general PEP screening requirement outside private banking for senior foreign political figures (31 CFR 1010.620); PEP screening comes from the institution layer."
+    }
+  ],
+  "digest": "18859fddccc295f8220694a78c7599aca62e20967430829b66e06e23cae4a3e0"
+}

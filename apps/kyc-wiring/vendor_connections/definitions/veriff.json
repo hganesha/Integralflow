@@ -1,0 +1,106 @@
+{
+  "provider_id": "veriff",
+  "version": "documented-public",
+  "bases": {},
+  "auth": {
+    "type": "veriff",
+    "keys": [
+      "API_KEY",
+      "SHARED_SECRET"
+    ]
+  },
+  "sources": [
+    "https://devdocs.veriff.com/apidocs/v1sessionsiddecision-1",
+    "https://devdocs.veriff.com/docs/proof-of-address-capture",
+    "https://devdocs.veriff.com/apidocs/v1sessionsidwatchlist-screening-1"
+  ],
+  "notes": "Customer integration HTTPS base must be explicitly configured. Response HMAC required; session creation is not a decision.",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_session": {
+      "method": "POST",
+      "path": "/v1/sessions/",
+      "required_body": [
+        "verification"
+      ],
+      "required_query": [],
+      "body_example": {
+        "verification": {
+          "vendorData": "YOUR_REFERENCE"
+        }
+      },
+      "content": "json",
+      "semantics": "session",
+      "status_pointer": null,
+      "resource_pointer": "/verification/id",
+      "source": "https://devdocs.veriff.com/docs/proof-of-address-capture",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_decision": {
+      "method": "GET",
+      "path": "/v1/sessions/{id}/decision",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/verification/status",
+      "resource_pointer": "/verification/id",
+      "source": "https://devdocs.veriff.com/apidocs/v1sessionsiddecision-1",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_watchlist": {
+      "method": "GET",
+      "path": "/v1/sessions/{id}/watchlist-screening",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://devdocs.veriff.com/apidocs/v1sessionsidwatchlist-screening-1",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "upload_media": {
+      "method": "POST",
+      "path": "/v1/sessions/{id}/media",
+      "required_body": [
+        "image"
+      ],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://devdocs.veriff.com/docs/proof-of-address-capture",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "submit_session": {
+      "method": "PATCH",
+      "path": "/v1/sessions/{id}",
+      "required_body": [
+        "verification"
+      ],
+      "required_query": [],
+      "body_example": {
+        "verification": {
+          "status": "submitted"
+        }
+      },
+      "content": "json",
+      "semantics": "submission",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://devdocs.veriff.com/docs/proof-of-address-capture",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$id": "urn:financial-crime:skill:risk.factor.evaluate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "factor": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "outcome": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "score": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "factor",
+    "score",
+    "outcome"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Fields",
+      "type": "array"
+    },
+    "max_age_seconds": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Age Seconds"
+    },
+    "min_count": {
+      "default": 1,
+      "minimum": 0,
+      "title": "Min Count",
+      "type": "integer"
+    },
+    "model_visible": {
+      "default": true,
+      "title": "Model Visible",
+      "type": "boolean"
+    },
+    "nullable_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Nullable Fields",
+      "type": "array"
+    },
+    "object_type": {
+      "title": "Object Type",
+      "type": "string"
+    },
+    "optional": {
+      "default": false,
+      "title": "Optional",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "object_type",
+    "fields"
+  ],
+  "title": "Requirement",
+  "type": "object"
+}

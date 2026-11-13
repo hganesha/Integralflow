@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "financial-crime-skills"
+version = "0.5.0"
+description = "Portable, evidence-backed financial crime skill execution library"
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.14,<3", "jsonschema>=4.26,<5", "rfc3339-validator==0.1.4", "PyYAML>=6,<7", "networkx>=3.7,<4", "httpx>=0.28,<1", "PyJWT[crypto]>=2.10,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=9,<10", "pytest-asyncio>=1.4,<2", "hypothesis>=6,<7", "build>=1,<2"]
+
+[project.scripts]
+fc-skills = "financial_crime.cli:main"
+kyc-documents = "kyc_documents.cli:main"
+document-factory = "document_factory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+financial_crime = ["resources/**/*.json", "resources/**/*.yaml", "resources/**/*.md"]
+kyc_documents = ["resources/*.json"]
+document_factory = ["resources/*.json", "resources/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CXT-01/02/03 · Contextboard — Corporate KYC Onboarding</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .modebar { display: grid; grid-template-columns: 1fr auto; gap: var(--space-4); align-items: center; margin: var(--space-5) 0 var(--space-4); }
+  .level-hint { font-size: var(--text-sm); color: var(--ink-2); max-width: 70ch; }
+  .bay { margin-bottom: var(--space-5); }
+  .bay__label { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+  .bay__label::after { content: ""; flex: 1; height: 1px; background: var(--line-1); }
+  .bay__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); }
+  .bank .meta { font-size: var(--text-xs); color: var(--ink-3); font-family: var(--font-mono); }
+  .profile-summary { grid-column: span 2; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .cap { display: grid; grid-template-columns: 1fr auto; gap: 4px var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--line-1); align-items: center; }
+  .cap:last-child { border-bottom: 0; }
+  .cap__types { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px; }
+  .tune-row { display: grid; grid-template-columns: minmax(200px, 1.2fr) auto minmax(120px, .6fr) minmax(150px, .8fr); gap: var(--space-4); align-items: center; padding: 10px var(--space-4); border-bottom: 1px solid var(--line-1); }
+  .tune-row:last-child { border-bottom: 0; }
+  .tune-row.is-changed { background: linear-gradient(90deg, var(--ochre-100), transparent 40%); }
+  .chain { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+  .chain .card { padding: 8px 12px; min-width: 150px; }
+  .mapping td:first-child, .mapping td:nth-child(3) { font-family: var(--font-mono); font-size: 12px; }
+  .strip-wrap { display: flex; align-items: center; gap: var(--space-4); width: 100%; }
+  .draftbar { display: none; align-items: center; gap: var(--space-3); padding: 10px var(--space-4); border-radius: var(--radius-md); border: 1px dashed var(--ochre-500); background: var(--surface-panel); margin-bottom: var(--space-4); }
+  .draftbar[data-show="true"] { display: flex; }
+</style>
+</head>
+<body data-studio="context" data-role="Context Architect" data-user="M. Lindqvist">
+<div class="app">
+  <header data-shell="chrome"></header>
+
+  <!-- LEFT · Orientation -->
+  <nav class="orient" aria-label="Business contexts">
+    <div class="orient__group">
+      <span class="t-engraved">Business contexts</span>
+      <div data-select-group data-select-attr="aria-current" id="profiles">
+        <button class="nav-item" aria-current="true">Corporate KYC Onboarding <span class="count">onboarding</span></button>
+        <button class="nav-item" aria-current="false">Periodic Review <span class="count">review</span></button>
+        <button class="nav-item" aria-current="false">Investigations <span class="count">investigation</span></button>
+        <button class="nav-item" aria-current="false">Transaction Monitoring <span class="count">monitoring</span></button>
+        <button class="nav-item" aria-current="false">Fraud Detection <span class="count">fraud</span></button>
+        <button class="nav-item" aria-current="false">Regulatory Reporting <span class="count">reporting</span></button>
+      </div>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Inheritance</span>
+      <div class="card card--white small stack stack--tight">
+        <span class="row"><span data-icon="layers"></span> Foundation profile <span class="id ml-auto">2.1.0</span></span>
+        <span class="row muted" style="padding-left:22px">↳ Corporate onboarding <span class="id ml-auto">1.4 draft</span></span>
+        <span class="xs subtle" style="padding-left:22px">7 inherited · 3 overridden</span>
+      </div>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Versions</span>
+      <button class="nav-item">1.4 · Draft <span class="count">you</span></button>
+      <button class="nav-item">1.3 · Published <span class="count">Oct 28</span></button>
+      <button class="nav-item">1.2 · Deprecated <span class="count">Sep 02</span></button>
+      <button class="btn btn--sm" style="margin:8px 8px 0" data-icon="split" data-icon-class="i--sm"> Compare 1.3 ↔ 1.4</button>
+    </div>
+    <div class="orient__group">
+      <span class="t-engraved">Saved views</span>
+      <button class="nav-item" data-icon="filter" data-icon-class="i--sm"> Restricted capabilities</button>
+      <button class="nav-item" data-icon="clock" data-icon-class="i--sm"> Stale sources (&gt; policy)</button>
+    </div>
+  </nav>
+
+  <!-- CENTER · Work surface -->
+  <main class="main" id="main">
+    <section class="object-header" aria-labelledby="ph">
+      <div class="object-header__tile" data-icon="stack"></div>
+      <div>
+        <div class="t-engraved">Context profile · CTX-PRF-corp-onboarding</div>
+        <h1 id="ph">Corporate KYC Onboarding</h1>
+        <div class="object-header__meta">
+          <span><span class="t-engraved">purpose</span> onboarding</span>
+          <span><span class="t-engraved">jurisdiction</span> synthetic-neutral</span>
+          <span><span class="t-engraved">owner</span> Context Architecture</span>
+          <span><span class="t-engraved">as-of</span> <time>2026-11-07 12:00 UTC</time></span>
+          <span><span class="t-engraved">consumers</span> 41 skills · 3 agents</span>
+        </div>
+      </div>
+      <div class="stack" style="align-items:flex-end">
+        <span class="dim"><span class="t-engraved">Publication</span><span class="status" data-tone="draft">Draft 1.4</span></span>
+        <span class="dim"><span class="t-engraved">Connection</span><span class="status" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg>Degraded · 1 source</span></span>
+      </div>
+    </section>
+
+    <div class="modebar">
+      <div class="segmented segmented--wide" role="tablist" aria-label="Disclosure level" style="max-width:560px">
+        <button role="tab" aria-selected="true" aria-controls="mode-play" id="t-play" data-icon="grid" data-icon-class="i--sm"> Play</button>
+        <button role="tab" aria-selected="false" aria-controls="mode-tune" id="t-tune" data-icon="sliders" data-icon-class="i--sm"> Tune</button>
+        <button role="tab" aria-selected="false" aria-controls="mode-eng" id="t-eng" data-icon="branch" data-icon-class="i--sm"> Engineer</button>
+      </div>
+      <div class="row">
+        <button class="btn btn--sm btn--quiet" data-density-toggle aria-pressed="false" data-icon="table" data-icon-class="i--sm"> Dense</button>
+        <button class="btn btn--sm" data-icon="eye" data-icon-class="i--sm" onclick="location.href='cxt-04-context-preview.html'"> Preview context</button>
+      </div>
+    </div>
+
+    <!-- LEVEL 1 · PLAY -->
+    <section id="mode-play" role="tabpanel" aria-labelledby="t-play">
+      <p class="level-hint" style="margin-bottom:var(--space-4)"><b>What intelligence is available for this business purpose?</b> Banks keep fixed positions; segments show readiness of each governed capability for <span class="mono">purpose=onboarding</span>. Readiness is not execution success.</p>
+      <div id="bays"></div>
+      <div class="legend" aria-label="Readiness legend">
+        <span><i class="seg" data-state="ready"></i>Ready</span>
+        <span><i class="seg" data-state="missing"></i>Missing context / mapping</span>
+        <span><i class="seg" data-state="degraded"></i>Degraded source</span>
+        <span><i class="seg" data-state="restricted"></i>Restricted for purpose</span>
+        <span><i class="seg" data-state="unavailable"></i>Dependency unavailable</span>
+        <span><i class="seg"></i>Not assigned</span>
+      </div>
+    </section>
+
+    <!-- LEVEL 2 · TUNE -->
+    <section id="mode-tune" role="tabpanel" aria-labelledby="t-tune" hidden>
+      <div class="draftbar" id="draftbar" role="status">
+        <span data-icon="history"></span><span><b id="draftcount">0</b> staged change(s) in draft 1.4 — not applied to production.</span>
+        <button class="btn btn--sm ml-auto" data-icon="checkcircle" data-icon-class="i--sm"> Validate</button>
+        <button class="btn btn--sm btn--primary">Propose for approval</button>
+      </div>
+      <p class="level-hint" style="margin-bottom:var(--space-4)"><b>Which intelligence capabilities should this business process use?</b> Assignment is a separate dimension from readiness. Changes are staged in the draft and require validation, impact analysis and approval.</p>
+      <div class="panel panel--flush">
+        <div class="panel__head"><h2 id="tune-title">Ownership intelligence</h2><span class="muted small">· inherits Foundation 2.1.0</span>
+          <div class="segmented segmented--sm ml-auto" id="tune-bank-picker"></div></div>
+        <div class="tune-row t-engraved" style="padding-top:8px;padding-bottom:8px"><span>Capability</span><span>Assignment</span><span>Max age</span><span>Source priority</span></div>
+        <div id="tune-rows"></div>
+      </div>
+    </section>
+
+    <!-- LEVEL 3 · ENGINEER -->
+    <section id="mode-eng" role="tabpanel" aria-labelledby="t-eng" hidden>
+      <p class="level-hint" style="margin-bottom:var(--space-4)"><b>Provider & mapping workbench.</b> Secrets are referenced, never displayed. Tests run only against approved synthetic inputs.</p>
+      <div class="panel" style="margin-bottom:var(--space-4)">
+        <div class="row row--between" style="margin-bottom:var(--space-3)"><div><div class="t-engraved">Entity intelligence / Ownership</div><h2>Resolve beneficial ownership</h2></div><span class="status" data-tone="positive"><svg class="i"><use href="#i-check"/></svg>Ready</span></div>
+        <p class="muted" style="margin-bottom:var(--space-4)">Discover direct and indirect beneficial owners, reconstruct ownership paths, and identify unresolved ownership gaps.</p>
+        <div class="card card--well">
+          <div class="t-engraved" style="margin-bottom:var(--space-3)">Resolution path</div>
+          <div class="chain">
+            <div class="card card--white"><div class="xs muted">Primary</div><div class="strong">Registry capture adapter</div><span class="status" data-tone="positive">Available</span></div>
+            <span data-icon="arrowr" class="subtle"></span>
+            <div class="card card--white"><div class="xs muted">Enrichment</div><div class="strong">Party360 data product</div><span class="status" data-tone="positive">Available</span></div>
+            <span data-icon="arrowr" class="subtle"></span>
+            <div class="card card--white"><div class="xs muted">Fallback</div><div class="strong">Customer declaration</div><span class="status" data-tone="attention">Lower authority</span></div>
+          </div>
+          <hr class="divider">
+          <dl class="kv"><dt>Canonical result</dt><dd class="mono">OwnershipGraph · OwnershipInterest · BeneficialOwner</dd><dt>Evidence</dt><dd>Source-linked (content_hash per Evidence)</dd><dt>Uncertainty</dt><dd>Explicitly captured — <span class="mono">OwnershipGraph.unresolved[]</span></dd><dt>Fallback rule</dt><dd>Never silent — weaker source raises authority flag</dd></dl>
+        </div>
+      </div>
+      <div class="panel panel--flush">
+        <div class="panel__head"><h3>Canonical field mapping</h3><span class="id">registry-capture → OwnershipInterest@2.0.0</span><button class="btn btn--sm ml-auto" data-icon="play" data-icon-class="i--sm"> Test with synthetic input</button></div>
+        <table class="table mapping">
+          <thead><tr><th>Source field</th><th>Transform</th><th>Canonical field</th><th>Required</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>shareholder.party_id</td><td>id-namespace(registry)</td><td>owner</td><td>yes</td><td><span class="status" data-tone="positive">Mapped</span></td></tr>
+            <tr><td>company.number</td><td>id-namespace(registry)</td><td>owned</td><td>yes</td><td><span class="status" data-tone="positive">Mapped</span></td></tr>
+            <tr><td>holding.pct</td><td>percent → Fraction (exact)</td><td>interest</td><td>yes</td><td><span class="status" data-tone="positive">Mapped</span></td></tr>
+            <tr><td>holding.class</td><td>—</td><td>share_class</td><td>no</td><td><span class="status" data-tone="positive">Mapped</span></td></tr>
+            <tr><td><i class="subtle">none</i></td><td>—</td><td>voting_interest</td><td>no</td><td><span class="status" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg>Unmapped</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- RIGHT · Inspector -->
+  <aside class="inspector" aria-label="Inspector" id="inspector"></aside>
+
+  <!-- BOTTOM · Activity rail -->
+  <footer class="rail" data-expanded="false">
+    <div class="rail__bar">
+      <span class="t-engraved"><span data-icon="activity" data-icon-class="i--sm"></span> Last dry run</span>
+      <div class="strip" aria-label="Context preparation lifecycle, dry run ctx-dry-7f3a">
+        <span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Authorized</span><span class="strip__sep">→</span>
+        <span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Resolved</span><span class="strip__sep">→</span>
+        <span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Mapped</span><span class="strip__sep">→</span>
+        <span class="strip__step" data-state="blocked"><svg class="i"><use href="#i-alert"/></svg>Assembled with 2 gaps</span><span class="strip__sep">→</span>
+        <span class="strip__step" data-state="pending">Validated</span>
+      </div>
+      <span class="hash ml-auto">manifest 9c41…e07b · 14:02:11 UTC</span>
+      <button class="btn btn--sm btn--quiet" data-rail-toggle aria-expanded="false">Details</button>
+    </div>
+    <div class="rail__body small">
+      <div class="row row--wrap">
+        <span class="evt" data-tone="positive">context.requested</span><span class="evt" data-tone="positive">context.authorized</span><span class="evt" data-tone="positive">provider.called · registry-capture</span><span class="evt" data-tone="attention">provider.called · txn-core → ACCESS_DENIED (purpose)</span><span class="evt" data-tone="attention">gap · OwnershipInterest.voting_interest</span><span class="evt" data-tone="positive">context.hydrated</span>
+      </div>
+      <p class="muted" style="margin-top:12px">Every step above corresponds to a recorded event. No step is shown as complete without its event.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="../assets/shell.js"></script>
+<script>
+/* Illustrative data. Object types are real ontology types from schemas/context/ontology.schema.json */
+const BAYS = [
+  { name: "Subject", banks: [
+    { id: "identity", name: "Identity", icon: "fingerprint", types: "Identity · IdentityIdentifier · Alias · Address · VerificationRecord",
+      caps: [["Verify identity record","ready","required",["VerificationRecord"]],["Identifier validation","ready","required",["IdentityIdentifier"]],["Alias resolution","ready","optional",["Alias"]],["Address normalization","ready","required",["Address"]],["Liveness / deepfake signal","unavailable","conditional",["Session","FraudSignal"]]] },
+    { id: "entity", name: "Entity", icon: "sitemap", types: "Entity · EntityCandidate · OfficerRole",
+      caps: [["Resolve entity","ready","required",["Entity"]],["Disambiguate candidates","ready","required",["EntityCandidate"]],["Officers & roles","ready","required",["OfficerRole"]],["Corporate hierarchy","off","none",["Relationship"]]] },
+    { id: "ownership", name: "Ownership", icon: "branch", types: "OwnershipInterest · ControlRight · OwnershipGraph · BeneficialOwner",
+      caps: [["Ownership graph","ready","required",["OwnershipGraph","OwnershipInterest"]],["UBO determination","ready","required",["BeneficialOwner"]],["Control rights","ready","required",["ControlRight"]],["Voting interest","missing","conditional",["OwnershipInterest.voting_interest"]],["Nominee relationships","ready","optional",["Relationship"]]] },
+    { id: "party", name: "Party 360", icon: "users", types: "Party · CustomerRelationship · Account · Product · ExpectedActivity",
+      caps: [["Party profile","ready","required",["Party"]],["Products & channels","ready","required",["Product"]],["Expected activity","ready","required",["ExpectedActivity"]],["Geography exposure","ready","required",["GeographyExposure"]]] },
+    { id: "network", name: "Network", icon: "graph", types: "NetworkGraph · Relationship · Counterparty",
+      caps: [["Relationship network","ready","optional",["NetworkGraph"]],["Shared attributes","off","none",["Entity"]]] }
+  ]},
+  { name: "Sources", banks: [
+    { id: "documents", name: "Documents", icon: "copy", types: "Document · DocumentVersion · DocumentPage · ExtractedAssertion",
+      caps: [["Classify documents","ready","required",["DocumentPage"]],["Field extraction (spans)","ready","required",["ExtractedAssertion"]],["Evidence linking","ready","required",["DocumentPage"]],["Translation","ready","conditional",["DocumentPage"]],["Forensic authenticity","degraded","conditional",["DocumentPage"]],["OCR","off","none",["DocumentPage"]]] },
+    { id: "registry", name: "Registry", icon: "building", types: "RegistryRecord · Registration · Filing · License",
+      caps: [["Company verification","ready","required",["RegistryRecord"]],["Directors","ready","required",["OfficerRole"]],["Filings","ready","required",["Filing"]],["Licenses","ready","conditional",["License"]]] },
+    { id: "screening", name: "Screening", icon: "shieldcheck", types: "WatchlistEntry · ScreeningHit · PEPRelationship · AdverseMediaEvent",
+      caps: [["Sanctions lists","ready","required",["WatchlistEntry"]],["PEP lists","ready","required",["WatchlistEntry","PEPRelationship"]],["Adverse media","ready","required",["AdverseMediaEvent"]],["Sanctions ownership aggregation","ready","required",["OwnershipInterest"]],["Watchlists (internal)","missing","optional",["WatchlistEntry"]]] },
+    { id: "transactions", name: "Transactions", icon: "swap", types: "Transaction · Payment · DatasetScope · Counterparty",
+      caps: [["Transaction window","restricted","optional",["Transaction","DatasetScope"]],["Counterparties","restricted","optional",["Counterparty"]],["Payments","off","none",["Payment"]],["Trade records","off","none",["TradeRecord","Invoice","Shipment"]],["Account metadata","ready","optional",["Account"]]] },
+    { id: "evidence", name: "Evidence", icon: "file", types: "Evidence · SourceRecord · Provenance · Assertion · Fact",
+      caps: [["Evidence store","ready","required",["Evidence"]],["Provenance","ready","required",["Provenance"]],["Assertions & facts","ready","required",["Assertion","Fact"]],["Conflicts","ready","required",["Conflict"]]] }
+  ]},
+  { name: "Governance", banks: [
+    { id: "risk", name: "Risk", icon: "gauge", types: "RiskFactor · RiskAssessment · RiskModel · SourceOfFunds",
+      caps: [["Risk factors","ready","required",["RiskFactor"]],["Risk model","ready","required",["RiskModel"]],["Source of funds","ready","conditional",["SourceOfFunds"]],["Source of wealth","ready","conditional",["SourceOfWealth"]]] },
+    { id: "case", name: "Case", icon: "inbox", types: "Case · Task · WorkflowDefinition · Checkpoint · SLA",
+      caps: [["Case state","ready","required",["Case"]],["Tasks & SLA","ready","required",["Task","SLA"]],["Workflow definition","ready","required",["WorkflowDefinition"]]] },
+    { id: "policy", name: "Policy", icon: "book", types: "Policy · Requirement · Control · Obligation · Exception",
+      caps: [["Policy snapshot","ready","required",["Policy"]],["Requirements","ready","required",["Requirement"]],["Controls","ready","required",["Control"]],["Exceptions","ready","conditional",["Exception"]]] }
+  ]}
+];
+const ALL = BAYS.flatMap(b => b.banks);
+const counts = b => { const a = b.caps.filter(c => c[2] !== "none"); return [a.filter(c => c[1] === "ready").length, a.length]; };
+const worst = b => ["unavailable","restricted","missing","degraded"].find(s => b.caps.some(c => c[1] === s && c[2] !== "none"));
+const toneOf = { unavailable: "blocking", restricted: "blocking", missing: "attention", degraded: "attention" };
+const labelOf = { ready: "Ready", missing: "Missing context", restricted: "Restricted for purpose", unavailable: "Dependency unavailable", degraded: "Degraded", off: "Not assigned" };
+const shortOf = { missing: "Missing", restricted: "Restricted", unavailable: "Unavailable", degraded: "Degraded" };
+let sel = "ownership";
+
+function renderBays() {
+  const host = document.getElementById("bays");
+  host.innerHTML = BAYS.map((bay, bi) => `
+    <section class="bay" aria-label="${bay.name} bay">
+      <div class="bay__label"><span class="t-engraved">${bay.name}</span></div>
+      <div class="bay__grid" data-select-group data-cols="5" role="group">
+        ${bay.banks.map(b => { const [r, t] = counts(b); const w = worst(b);
+          return `<button class="bank fade-in" aria-pressed="${b.id === sel}" data-bank="${b.id}" aria-label="${b.name} intelligence, ${r} of ${t} ready${w ? ", " + labelOf[w] : ""}">
+            <span class="bank__top">${icon(b.icon, "i--lg")}<span class="dot" data-tone="${w ? toneOf[w] : "positive"}" aria-hidden="true"></span></span>
+            <span class="bank__name">${b.name}</span>
+            <span class="meter" aria-hidden="true">${b.caps.map(c => `<i class="seg" data-state="${c[2] === "none" ? "" : c[1]}"></i>`).join("")}</span>
+            <span class="bank__foot"><span class="num">${r}/${t} ready</span>${w ? `<span class="xs" style="color:var(--tone-${toneOf[w]}-fg)">${shortOf[w]}</span>` : ""}</span>
+          </button>`; }).join("")}
+        ${bi === 2 ? `<div class="card card--white profile-summary">
+            <div class="row row--between"><span class="t-engraved">Assignment summary · 1.4 draft</span><span class="status" data-tone="draft">Draft</span></div>
+            ${[["Required",31,"required"],["Conditional",9,"conditional"],["Optional",6,"optional"]].map(([l,n,k]) => `<div class="row small"><span style="width:90px">${l}</span><div class="bar grow"><span data-kind="${k}" style="width:${n/46*100}%"></span></div><span class="num muted" style="width:24px;text-align:right">${n}</span></div>`).join("")}
+            <span class="xs muted">Policy validation required before publication.</span></div>` : ""}
+      </div>
+    </section>`).join("");
+  host.querySelectorAll(".bank").forEach(b => b.addEventListener("click", () => {
+    sel = b.dataset.bank; host.querySelectorAll(".bank").forEach(x => x.setAttribute("aria-pressed", x === b)); renderInspector(); renderTune();
+  }));
+}
+
+function renderInspector() {
+  const b = ALL.find(x => x.id === sel); const [r, t] = counts(b);
+  document.getElementById("inspector").innerHTML = `
+    <div class="inspector__head">
+      <div class="t-engraved">Intelligence bank</div>
+      <div class="row row--between"><h2>${b.name} intelligence</h2><span class="num muted">${r}/${t}</span></div>
+      <div class="xs mono muted" style="margin-top:4px">${b.types}</div>
+    </div>
+    <div class="inspector__section">
+      <span class="t-engraved">Governed capabilities</span>
+      ${b.caps.map(c => `<div class="cap">
+          <span class="strong">${c[0]}</span>
+          ${c[2] === "none" ? `<span class="binding" data-kind="unassigned">Not assigned</span>` : `<span class="status" data-tone="${toneOf[c[1]] || "positive"}">${c[1]==="ready" ? icon("check") : icon("alert")}${labelOf[c[1]]}</span>`}
+          <span class="cap__types">${c[3].map(x => `<span class="id">${x}</span>`).join("")}${c[2] !== "none" ? `<span class="xs muted" style="margin-left:4px">${c[2]}</span>` : ""}</span>
+        </div>`).join("")}
+    </div>
+    ${b.id === "transactions" ? `<div class="inspector__section"><div class="disclosure" data-tone="blocking">${icon("lock")}<div><strong>Connected, not authorized for this purpose.</strong> Provider <span class="mono">txn-core</span> is healthy, but its entitlement excludes <span class="mono">purpose=onboarding</span>. It remains unavailable regardless of assignment (acceptance §16.5).</div></div></div>` : ""}
+    ${b.id === "ownership" ? `<div class="inspector__section"><div class="disclosure" data-tone="attention">${icon("alert")}<div><strong>Missing mapping:</strong> <span class="mono">OwnershipInterest.voting_interest</span> has no source field. Skills that need voting control will return <span class="mono">NEEDS_EVIDENCE</span>, not a guess.</div></div></div>` : ""}
+    <div class="inspector__section">
+      <span class="t-engraved">Context contract (selected capability)</span>
+      <dl class="kv kv--left"><dt>Output</dt><dd class="mono">ownership.graph</dd><dt>Evidence</dt><dd>Source-linked</dd><dt>Uncertainty</dt><dd>Explicitly captured</dd><dt>Freshness</dt><dd>per requirement · pinned policy</dd><dt>Consumers</dt><dd><a href="agt-04-skillboard.html">12 skills</a> · 2 agents</dd></dl>
+      <div class="row" style="margin-top:var(--space-4)"><button class="btn btn--sm" onclick="document.getElementById('t-eng').click()">Inspect contract</button><a class="btn btn--sm btn--quiet" href="agt-04-skillboard.html">Consumers ${icon("external","i--sm")}</a></div>
+    </div>`;
+}
+
+const TUNE = {};
+function renderTune() {
+  const b = ALL.find(x => x.id === sel);
+  document.getElementById("tune-title").textContent = b.name + " intelligence";
+  document.getElementById("tune-rows").innerHTML = b.caps.map((c, i) => {
+    const key = b.id + i; const cur = TUNE[key] || c[2];
+    return `<div class="tune-row ${TUNE[key] && TUNE[key] !== c[2] ? "is-changed" : ""}">
+      <div><div class="strong">${c[0]}</div><div class="xs mono muted">${c[3].join(" · ")}</div></div>
+      <div class="segmented segmented--sm" role="radiogroup" aria-label="Assignment for ${c[0]}">
+        ${["required","conditional","optional","none"].map(k => `<button role="radio" aria-pressed="${cur === k}" aria-checked="${cur === k}" data-key="${key}" data-val="${k}">${k === "none" ? "Off" : k[0].toUpperCase() + k.slice(1)}</button>`).join("")}
+      </div>
+      <select class="select" aria-label="Max age"><option>policy default</option><option>24 h</option><option>30 d</option><option>365 d</option></select>
+      <div class="xs muted">${c[1] === "restricted" ? '<span style="color:var(--coral-700)">Entitlement blocks purpose</span>' : "registry › party360 › declaration"}</div>
+    </div>`; }).join("");
+  document.querySelectorAll("#tune-rows button[data-key]").forEach(btn => btn.addEventListener("click", () => {
+    TUNE[btn.dataset.key] = btn.dataset.val; renderTune();
+    const n = Object.keys(TUNE).filter(k => { const bb = ALL.find(x => k.startsWith(x.id)); return TUNE[k] !== bb.caps[+k.slice(bb.id.length)][2]; }).length;
+    document.getElementById("draftcount").textContent = n; document.getElementById("draftbar").dataset.show = n > 0;
+  }));
+  document.getElementById("tune-bank-picker").innerHTML = ALL.slice(0, 6).map(x => `<button aria-pressed="${x.id === sel}" data-b="${x.id}">${x.name}</button>`).join("");
+  document.querySelectorAll("#tune-bank-picker button").forEach(x => x.addEventListener("click", () => { sel = x.dataset.b; renderTune(); renderInspector(); renderBays(); }));
+}
+renderBays(); renderInspector(); renderTune();
+</script>
+</body>
+</html>

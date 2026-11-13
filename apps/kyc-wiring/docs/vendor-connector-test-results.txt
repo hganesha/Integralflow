@@ -1,0 +1,153 @@
+........................................................................ [ 14%]
+........................................................................ [ 28%]
+...FF................................................................... [ 42%]
+........................................................................ [ 56%]
+........................................................................ [ 70%]
+........................................................................ [ 84%]
+........................................................................ [ 98%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+_ test_every_documented_operation_serializes_and_uses_transport[companies-house-get_company_companynumber_registered_office_address] _
+
+vendor = 'companies-house'
+operation = 'get_company_companynumber_registered_office_address'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fac6492c130>
+
+    @pytest.mark.parametrize('vendor,operation',ALL)
+    def test_every_documented_operation_serializes_and_uses_transport(vendor,operation,monkeypatch):
+     # This breadth test isolates transport/serialization, not validity of synthetic
+     # native field values. Schema enforcement is independently exercised below.
+     monkeypatch.setattr(vc,'validate_schema',lambda *args:None)
+     d=CONTRACTS[vendor];o=d['operations'][operation];credentials={k:'test-secret'for k in d['auth']['keys']};base=next(iter(d['bases'].values()),'https://customer.example.com');region=o.get('regions',[next(iter(d['bases']),'customer')])[0];seen=[]
+     def upstream(request):
+      seen.append(request);raw=b'<records><record/></records>'if o['response']=='xml'else b'{}';headers={'content-type':'application/xml'if o['response']=='xml'else 'application/json'}
+      if d['auth']['type']=='veriff':headers['X-HMAC-SIGNATURE']=hmac.new(credentials['SHARED_SECRET'].encode(),raw,hashlib.sha256).hexdigest()
+      if d['auth']['type']=='shufti':headers['Signature']=hashlib.sha256(raw+hashlib.sha256(credentials['SECRET_KEY'].encode()).hexdigest().encode()).hexdigest()
+      return httpx.Response(200,content=raw,headers=headers)
+>    c=vc.VendorClient(httpx.Client(transport=httpx.MockTransport(upstream)));r=c.invoke(vendor,operation,inputs_for(vendor,operation),credentials=credentials,base=base,region=region);c.close()
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_vendor_connections.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+vendor_connections/client.py:140: in invoke
+    request,o=prepare(vendor,operation,inputs,credentials,base,region)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+vendor = 'companies-house'
+operation = 'get_company_companynumber_registered_office_address'
+inputs = {'body': None, 'headers': {}, 'path': {'companyNumber': 'test-identifier'}, 'query': {}}
+credentials = {'API_KEY': 'test-secret'}
+base = 'https://api.company-information.service.gov.uk', region = 'default'
+clock = None
+
+    def prepare(vendor,operation,inputs,credentials,base,region=None,clock=None):
+     v=definitions().get(vendor)
+     if not v:raise WiringError('VENDOR_NOT_IMPLEMENTED','Provider has no documented client',409)
+     o=v['operations'].get(operation)
+     if not o:raise WiringError('OPERATION_NOT_IMPLEMENTED','Operation not present in pinned vendor contract',404)
+     if o.get('regions')and region not in o['regions']:raise WiringError('REGION_OPERATION_MISMATCH','Operation path differs by vendor region')
+     path_values=inputs.get('path',{});query=copy.deepcopy(inputs.get('query',{}));body=copy.deepcopy(inputs.get('body'));extra=inputs.get('headers',{})
+     if set(extra)-set(o['allowed_input_headers']):raise WiringError('NATIVE_HEADER_DENIED','Only documented per-call headers allowed')
+     for name in o['allowed_input_headers']:
+      if name not in extra:raise WiringError('NATIVE_INPUT_MISSING','Required per-call header: '+name)
+     def replace(m):
+      key=m[1]
+      if key not in path_values:raise WiringError('NATIVE_INPUT_MISSING','Required path parameter: '+key)
+      value=str(path_values[key]);decoded=unquote(value)
+      if not value or decoded in ['.','..']or any(c in decoded for c in '/\\?#\r\n')or '%'in decoded:raise WiringError('PATH_DENIED','Unsafe native identifier')
+      return quote(value,safe='')
+     path=relative_path(re.sub(r'\{([^}]+)\}',replace,o['path']))
+     expected=set(re.findall(r'\{([^}]+)\}',o['path']))
+     if set(path_values)!=expected:raise WiringError('NATIVE_INPUT_INVALID','Unexpected path parameter')
+     for name in o['required_query']:
+      if name not in query:raise WiringError('NATIVE_INPUT_MISSING','Required query parameter: '+name)
+     for name in o['required_body']:
+      if not isinstance(body,dict)or name not in body:raise WiringError('NATIVE_INPUT_MISSING','Required body field: '+name)
+     if o.get('body_required')and body is None:raise WiringError('NATIVE_INPUT_MISSING','Native request body required')
+     if o['method']in ['GET','HEAD']and body is not None:raise WiringError('NATIVE_INPUT_INVALID','This retrieval operation does not accept a body')
+     spec=spec_for(vendor)
+     if spec:
+      for p in o.get('parameters',[]):
+       p=deref(spec,p);loc=p.get('in');name=p.get('name');values={'path':path_values,'query':query,'header':extra}.get(loc)
+       if values is None:continue
+       # Authentication and version headers are injected, never supplied by caller.
+       if loc=='header'and name not in o['allowed_input_headers']:continue
+>      if p.get('required')and name not in values:raise WiringError('NATIVE_INPUT_MISSING','Required '+loc+' parameter: '+name)
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E      wiring.core.WiringError: ('NATIVE_INPUT_MISSING', 'Required path parameter: company_number')
+
+vendor_connections/client.py:97: WiringError
+_ test_every_documented_operation_serializes_and_uses_transport[companies-house-get_company_companynumber] _
+
+vendor = 'companies-house', operation = 'get_company_companynumber'
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fac649164a0>
+
+    @pytest.mark.parametrize('vendor,operation',ALL)
+    def test_every_documented_operation_serializes_and_uses_transport(vendor,operation,monkeypatch):
+     # This breadth test isolates transport/serialization, not validity of synthetic
+     # native field values. Schema enforcement is independently exercised below.
+     monkeypatch.setattr(vc,'validate_schema',lambda *args:None)
+     d=CONTRACTS[vendor];o=d['operations'][operation];credentials={k:'test-secret'for k in d['auth']['keys']};base=next(iter(d['bases'].values()),'https://customer.example.com');region=o.get('regions',[next(iter(d['bases']),'customer')])[0];seen=[]
+     def upstream(request):
+      seen.append(request);raw=b'<records><record/></records>'if o['response']=='xml'else b'{}';headers={'content-type':'application/xml'if o['response']=='xml'else 'application/json'}
+      if d['auth']['type']=='veriff':headers['X-HMAC-SIGNATURE']=hmac.new(credentials['SHARED_SECRET'].encode(),raw,hashlib.sha256).hexdigest()
+      if d['auth']['type']=='shufti':headers['Signature']=hashlib.sha256(raw+hashlib.sha256(credentials['SECRET_KEY'].encode()).hexdigest().encode()).hexdigest()
+      return httpx.Response(200,content=raw,headers=headers)
+>    c=vc.VendorClient(httpx.Client(transport=httpx.MockTransport(upstream)));r=c.invoke(vendor,operation,inputs_for(vendor,operation),credentials=credentials,base=base,region=region);c.close()
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_vendor_connections.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+vendor_connections/client.py:140: in invoke
+    request,o=prepare(vendor,operation,inputs,credentials,base,region)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+vendor = 'companies-house', operation = 'get_company_companynumber'
+inputs = {'body': None, 'headers': {}, 'path': {'companyNumber': 'test-identifier'}, 'query': {}}
+credentials = {'API_KEY': 'test-secret'}
+base = 'https://api.company-information.service.gov.uk', region = 'default'
+clock = None
+
+    def prepare(vendor,operation,inputs,credentials,base,region=None,clock=None):
+     v=definitions().get(vendor)
+     if not v:raise WiringError('VENDOR_NOT_IMPLEMENTED','Provider has no documented client',409)
+     o=v['operations'].get(operation)
+     if not o:raise WiringError('OPERATION_NOT_IMPLEMENTED','Operation not present in pinned vendor contract',404)
+     if o.get('regions')and region not in o['regions']:raise WiringError('REGION_OPERATION_MISMATCH','Operation path differs by vendor region')
+     path_values=inputs.get('path',{});query=copy.deepcopy(inputs.get('query',{}));body=copy.deepcopy(inputs.get('body'));extra=inputs.get('headers',{})
+     if set(extra)-set(o['allowed_input_headers']):raise WiringError('NATIVE_HEADER_DENIED','Only documented per-call headers allowed')
+     for name in o['allowed_input_headers']:
+      if name not in extra:raise WiringError('NATIVE_INPUT_MISSING','Required per-call header: '+name)
+     def replace(m):
+      key=m[1]
+      if key not in path_values:raise WiringError('NATIVE_INPUT_MISSING','Required path parameter: '+key)
+      value=str(path_values[key]);decoded=unquote(value)
+      if not value or decoded in ['.','..']or any(c in decoded for c in '/\\?#\r\n')or '%'in decoded:raise WiringError('PATH_DENIED','Unsafe native identifier')
+      return quote(value,safe='')
+     path=relative_path(re.sub(r'\{([^}]+)\}',replace,o['path']))
+     expected=set(re.findall(r'\{([^}]+)\}',o['path']))
+     if set(path_values)!=expected:raise WiringError('NATIVE_INPUT_INVALID','Unexpected path parameter')
+     for name in o['required_query']:
+      if name not in query:raise WiringError('NATIVE_INPUT_MISSING','Required query parameter: '+name)
+     for name in o['required_body']:
+      if not isinstance(body,dict)or name not in body:raise WiringError('NATIVE_INPUT_MISSING','Required body field: '+name)
+     if o.get('body_required')and body is None:raise WiringError('NATIVE_INPUT_MISSING','Native request body required')
+     if o['method']in ['GET','HEAD']and body is not None:raise WiringError('NATIVE_INPUT_INVALID','This retrieval operation does not accept a body')
+     spec=spec_for(vendor)
+     if spec:
+      for p in o.get('parameters',[]):
+       p=deref(spec,p);loc=p.get('in');name=p.get('name');values={'path':path_values,'query':query,'header':extra}.get(loc)
+       if values is None:continue
+       # Authentication and version headers are injected, never supplied by caller.
+       if loc=='header'and name not in o['allowed_input_headers']:continue
+>      if p.get('required')and name not in values:raise WiringError('NATIVE_INPUT_MISSING','Required '+loc+' parameter: '+name)
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E      wiring.core.WiringError: ('NATIVE_INPUT_MISSING', 'Required path parameter: company_number')
+
+vendor_connections/client.py:97: WiringError
+=========================== short test summary info ============================
+FAILED tests/test_vendor_connections.py::test_every_documented_operation_serializes_and_uses_transport[companies-house-get_company_companynumber_registered_office_address]
+FAILED tests/test_vendor_connections.py::test_every_documented_operation_serializes_and_uses_transport[companies-house-get_company_companynumber]
+2 failed, 508 passed, 5 warnings in 3.02s

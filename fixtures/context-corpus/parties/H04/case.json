@@ -1,0 +1,70 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h04.entity.thistlewood-fab",
+  "external_ref": "corpus-H04",
+  "party_id": "H04",
+  "record_count": 2627,
+  "relationship_record_id": "h04.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h04.entity.thistlewood-fab",
+      "identifiers": [],
+      "name": "Thistlewood Fabrication Ltd",
+      "ref": "thistlewood_fab",
+      "role": "customer",
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h04.entity.thistlewood-holdings",
+      "identifiers": [],
+      "name": "Thistlewood Holdings Ltd",
+      "ref": "thistlewood_holdings",
+      "role": null,
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h04.entity.gareth",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H04-PP-0001"
+        }
+      ],
+      "name": "Gareth Thistlewood",
+      "ref": "gareth",
+      "role": "beneficial_owner",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h04.entity.priya",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H04-PP-0002"
+        }
+      ],
+      "name": "Priya Nair-Calloway",
+      "ref": "priya",
+      "role": "beneficial_owner",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h04.entity.helen",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H04-PP-0003"
+        }
+      ],
+      "name": "Helen Marsh",
+      "ref": "helen",
+      "role": "director",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

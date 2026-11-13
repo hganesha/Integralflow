@@ -1,0 +1,119 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "CtrDirection": {
+      "enum": [
+        "in",
+        "out"
+      ]
+    },
+    "CtrEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "business_day": {
+          "$ref": "#/$defs/Date"
+        },
+        "currency": {
+          "$ref": "#/$defs/Id"
+        },
+        "direction": {
+          "$ref": "#/$defs/CtrDirection"
+        },
+        "entity_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "threshold_met": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Bool"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "total": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "transaction_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "entity_id",
+        "business_day",
+        "currency",
+        "direction",
+        "total",
+        "transaction_ids",
+        "threshold_met"
+      ],
+      "type": "object"
+    },
+    "Date": {
+      "format": "date",
+      "type": "string"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:regulatory.ctr.prepare:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_basis": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "report_type": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reportable": {
+      "items": {
+        "$ref": "#/$defs/CtrEvaluation"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "time_zone": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "transaction_ids": {
+      "items": {
+        "$ref": "#/$defs/Id"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "report_type",
+    "reportable",
+    "transaction_ids",
+    "time_zone",
+    "calendar_basis",
+    "synthetic"
+  ],
+  "type": "object"
+}

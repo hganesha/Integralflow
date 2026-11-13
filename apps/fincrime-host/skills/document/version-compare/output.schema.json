@@ -1,0 +1,28 @@
+{
+  "$defs": {
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:document.version.compare:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "changed": {
+      "type": "boolean"
+    },
+    "diff": {
+      "items": {
+        "$ref": "#/$defs/Text"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "changed",
+    "diff"
+  ],
+  "type": "object"
+}

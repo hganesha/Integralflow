@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CXT-04 · Context Preview — Context Signal</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<style>
+  .signal { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-lg); padding: var(--space-5); }
+  .sig-svg .stage-line { stroke: var(--porcelain-400); stroke-dasharray: 3 5; }
+  .sig-svg .stage-name { font-size: 13px; fill: var(--ink-1); font-weight: 500; text-anchor: middle; }
+  .sig-svg .area { fill: var(--emerald-50); }
+  .sig-svg .trace { fill: none; stroke: var(--emerald-600); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .sig-svg .ev { fill: var(--emerald-600); stroke: var(--surface-panel); stroke-width: 2.5; }
+  .sig-svg .ev.gap { fill: var(--ochre-500); }
+  .sig-svg .ev.deny { fill: var(--coral-500); }
+  .sig-svg .ev.pending { fill: var(--surface-panel); stroke: var(--porcelain-500); stroke-dasharray: 2 2; }
+  .sig-svg .ev-lbl { font-family: var(--font-mono); font-size: 10.5px; fill: var(--ink-2); text-anchor: middle; }
+  .sig-svg .ev-lbl.bad { fill: var(--coral-700); } .sig-svg .ev-lbl.warn { fill: var(--ochre-700); }
+  .mf { font-family: var(--font-mono); font-size: 12px; line-height: 1.6; }
+  .mf .k { color: var(--ink-2); }
+  .ref-row { display: grid; grid-template-columns: 150px 1fr 70px 90px; gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line-1); font-size: 12.5px; }
+  .ref-row .mono { font-size: 11.5px; }
+</style>
+</head>
+<body data-studio="context" data-role="Context Architect" data-user="M. Lindqvist">
+<div class="app app--no-orient">
+  <header data-shell="chrome"></header>
+  <nav class="orient"></nav>
+  <main class="main">
+    <div class="row row--between" style="margin-bottom:var(--space-4)">
+      <div><a class="small" href="cxt-01-contextboard.html">← Corporate KYC Onboarding 1.4 draft</a><div class="t-engraved" style="margin-top:8px">Context preview · dry run ctx-dry-7f3a · golden case KYB-G-07</div><h1>Context signal — ownership.ubo.resolve</h1></div>
+      <div class="row"><button class="btn btn--sm" id="replay" data-icon="play" data-icon-class="i--sm"> Replay recorded events</button><button class="btn btn--sm btn--primary" data-icon="refresh" data-icon-class="i--sm"> New dry run</button></div>
+    </div>
+
+    <section class="signal" aria-label="Context signal">
+      <div class="row row--between"><div><h3>Context Signal</h3><div class="xs muted">Each point is a recorded event. Height = canonical objects admitted at that stage. Nothing animates without an event.</div></div><span class="status status--lg" data-tone="attention"><svg class="i"><use href="#i-alert"/></svg>Completed with 2 gaps</span></div>
+      <svg class="graph sig-svg" viewBox="0 0 1000 300" role="img" aria-labelledby="sg-t sg-d" id="sig">
+        <title id="sg-t">Context preparation lifecycle</title>
+        <desc id="sg-d">Request: 1 request. Authorization: allowed for purpose onboarding. Source resolution: registry-capture 9 objects, party360 5 objects, txn-core denied. Canonical mapping: 14 mapped, voting_interest unmapped. Assembly: 14 refs, 2 gaps. Validated: manifest hash 9c41…e07b.</desc>
+      </svg>
+      <div class="row" style="justify-content:space-between;margin-top:8px">
+        <span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Authorized for <span class="mono">onboarding</span></span>
+        <span class="strip__step" data-state="blocked"><svg class="i"><use href="#i-lock"/></svg>txn-core denied (purpose)</span>
+        <span class="strip__step" data-state="blocked" style="color:var(--ochre-700)"><svg class="i"><use href="#i-alert"/></svg>1 required field unmapped</span>
+        <span class="strip__step" data-state="done"><svg class="i"><use href="#i-checkcircle"/></svg>Manifest sealed</span>
+      </div>
+    </section>
+
+    <div class="grid" style="grid-template-columns: 1.2fr 1fr; gap: var(--space-4); margin-top: var(--space-4); align-items: start">
+      <section class="panel">
+        <div class="row row--between" style="margin-bottom:var(--space-3)"><h3>Included canonical objects</h3><span class="xs muted">refs · exact versions</span></div>
+        <div class="ref-row t-engraved"><span>Type</span><span>Ref</span><span>Fields</span><span>Status</span></div>
+        <div class="ref-row"><span class="mono">OwnershipInterest</span><span class="mono">harbor→acme@v2 · alice→harbor@v1 · +4</span><span class="num">3/3</span><span class="status" data-tone="positive">Admitted</span></div>
+        <div class="ref-row"><span class="mono">Entity</span><span class="mono">acme@v1 · alice@v1 · +3</span><span class="num">1/1</span><span class="status" data-tone="positive">Admitted</span></div>
+        <div class="ref-row"><span class="mono">ControlRight</span><span class="mono">alice→acme@v1</span><span class="num">4/4</span><span class="status" data-tone="positive">Optional</span></div>
+        <div class="ref-row"><span class="mono">Policy slice</span><span class="mono">synthetic-neutral@0.1.0</span><span class="num">6</span><span class="status" data-tone="positive">Pinned</span></div>
+        <div class="ref-row"><span class="mono">Transaction</span><span class="mono subtle">—</span><span class="num">0</span><span class="status" data-tone="blocking">Restricted</span></div>
+        <h4 style="margin:var(--space-4) 0 6px">Gaps (ContextGap)</h4>
+        <div class="disclosure" data-tone="attention"><div><span class="mono">CONTEXT_MISSING</span> · object_type <span class="mono">OwnershipInterest</span> · fields <span class="mono">[voting_interest]</span> · optional: false<br><span class="xs">Missing data stays explicitly missing. The skill will return NEEDS_EVIDENCE for voting-control tests.</span></div></div>
+        <div class="disclosure" style="margin-top:8px"><div><span class="mono">CONTEXT_STALE</span> · object_type <span class="mono">WatchlistEntry</span> · optional: true · age 371 d &gt; 365 d</div></div>
+        <h4 style="margin:var(--space-4) 0 6px">Excluded / restricted</h4>
+        <p class="small muted">Provider <span class="mono">txn-core</span>: connected &amp; healthy, entitlement excludes <span class="mono">onboarding</span>. Excluded — not hidden. Conflicts: 1 (cf-12, both assertions retained).</p>
+      </section>
+      <section class="panel">
+        <div class="row row--between" style="margin-bottom:var(--space-3)"><h3>ContextManifest</h3><span class="id">schema 2.0.0</span></div>
+        <div class="mf">
+          <div><span class="k">skill_id</span> ownership.ubo.resolve <span class="k">@</span>0.2.0</div>
+          <div><span class="k">tenant_id</span> tenant-synthetic · <span class="k">synthetic</span> true</div>
+          <div><span class="k">actor_ref</span> analyst · <span class="k">purpose</span> onboarding</div>
+          <div><span class="k">as_of_time</span> 2026-11-07T12:00:00Z</div>
+          <div><span class="k">knowledge_cutoff</span> 2026-11-07T12:00:00Z</div>
+          <div><span class="k">scope</span> {subjects:[acme], case_id: KYB-G-07, explicit_refs: false, complete_for_declared_scope: <b style="color:var(--ochre-700)">false</b>}</div>
+          <div><span class="k">model_view</span> structured</div>
+          <div><span class="k">compiler_version</span> 0.2.0</div>
+          <hr class="divider" style="margin:10px 0">
+          <div><span class="k">policy_hash</span>        a17c02…773e</div>
+          <div><span class="k">profile_hash</span>       51e0d9…b2c1</div>
+          <div><span class="k">requirements_hash</span>  0f8a44…19de</div>
+          <div><span class="k">authorization_hash</span> 6b2271…c0a8</div>
+          <div><span class="k">structured_hash</span>    9c41e3…e07b</div>
+        </div>
+        <hr class="divider">
+        <dl class="kv"><dt>Token / char budget</dt><dd class="num">8,412 / 64,000</dd><dt>Objects</dt><dd class="num">14 / 1,000</dd><dt>Evidence refs</dt><dd class="num">9</dd></dl>
+        <div class="row" style="margin-top:var(--space-3)"><button class="btn btn--sm" data-icon="download" data-icon-class="i--sm"> Manifest JSON</button><a class="btn btn--sm btn--quiet" href="asr-02-flight-recorder.html">Open trace</a></div>
+      </section>
+    </div>
+  </main>
+  <aside class="inspector" aria-label="Event detail">
+    <div class="inspector__head"><div class="t-engraved">Recorded events</div><h2>Dry run ctx-dry-7f3a</h2></div>
+    <div class="inspector__section"><ul class="stream" id="evlist"></ul></div>
+    <div class="inspector__section"><div class="disclosure"><svg class="i"><use href="#i-info"/></svg><div>The system never implies a provider responded unless a <span class="mono">provider.called</span> event with a response exists.</div></div></div>
+  </aside>
+  <footer class="rail"><div class="rail__bar"><span class="t-engraved">Lifecycle</span><span class="xs muted">Context request → Authorization → Source resolution → Canonical mapping → Context assembly → Validated output</span></div></footer>
+</div>
+<script src="../assets/shell.js"></script>
+<script>
+const STAGES = ["Request","Authorization","Source resolution","Canonical mapping","Assembly","Validated"];
+// [stage index, offset within stage 0..1, objects, label, kind]
+const EV = [
+  [0,.5,1,"context.requested","ok"],
+  [1,.5,1,"context.authorized","ok"],
+  [2,.2,9,"registry-capture · 9","ok"],
+  [2,.5,5,"party360 · 5","ok",1],
+  [2,.8,0,"txn-core · DENIED","deny"],
+  [3,.4,14,"mapped · 14","ok"],
+  [3,.75,13,"voting_interest ✕","gap",1],
+  [4,.5,14,"refs 14 · gaps 2","gap"],
+  [5,.5,14,"manifest 9c41…e07b","ok"]
+];
+const W = 1000, H = 300, TOP = 30, base = 220, colW = (W - 40) / STAGES.length;
+const x = (s, o) => 20 + colW * s + colW * o, y = n => base - (n / 14) * (base - TOP - 20);
+function render(upto) {
+  const pts = EV.slice(0, upto).map(e => [x(e[0], e[1]), y(e[2]), e]);
+  let d = pts.length ? `M20 ${base} L ${pts[0][0]} ${pts[0][1]}` : "";
+  for (let i = 1; i < pts.length; i++) { const [x0,y0] = pts[i-1], [x1,y1] = pts[i], m = (x0 + x1) / 2; d += ` C ${m} ${y0}, ${m} ${y1}, ${x1} ${y1}`; }
+  const area = pts.length ? d + ` L ${pts[pts.length-1][0]} ${base} Z` : "";
+  document.getElementById("sig").innerHTML = document.getElementById("sig").querySelector("title").outerHTML + document.getElementById("sig").querySelector("desc").outerHTML +
+    STAGES.map((s, i) => `<line class="stage-line" x1="${20+colW*i}" y1="${TOP}" x2="${20+colW*i}" y2="${base}"/><text class="stage-name" x="${20+colW*i+colW/2}" y="${base+40}">${s}</text>`).join("") +
+    `<line class="stage-line" x1="${W-20}" y1="${TOP}" x2="${W-20}" y2="${base}"/><line x1="20" y1="${base}" x2="${W-20}" y2="${base}" stroke="#D6D2CA"/>` +
+    (area ? `<path class="area" d="${area}"/><path class="trace" d="${d}"/>` : "") +
+    pts.map(([px, py, e]) => `<circle class="ev ${e[4]}" cx="${px}" cy="${py}" r="7"><title>${e[3]}</title></circle><text class="ev-lbl ${e[4]==="deny"?"bad":e[4]==="gap"?"warn":""}" x="${px}" y="${e[5] ? py+24 : py-14}">${e[3]}</text>`).join("") +
+    EV.slice(upto).map(e => `<circle class="ev pending" cx="${x(e[0],e[1])}" cy="${base}" r="5"/>`).join("");
+  document.getElementById("evlist").innerHTML = EV.map((e, i) => `<li data-state="${i < upto ? (e[4]==="deny"?"failed":e[4]==="gap"?"interrupted":"completed") : "proposed"}"><span class="stream__mark"></span><span class="mono xs">${e[3]}</span><span class="xs muted num">+${(i*38+12)} ms</span></li>`).join("");
+}
+render(EV.length);
+document.getElementById("replay").addEventListener("click", () => {
+  let i = 0; render(0); const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const step = () => { render(++i); if (i < EV.length) setTimeout(step, reduce ? 0 : 380); }; setTimeout(step, 200);
+});
+</script>
+</body>
+</html>

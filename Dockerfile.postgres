@@ -1,0 +1,36 @@
+# syntax=docker/dockerfile:1.7
+# Local PostgreSQL for the compose stack: pgvector plus Apache AGE.
+#
+# The context store (ehf_context) needs both: pgvector for the retrieval index and AGE for
+# the context provenance graph (docs/implementation/data-stores-plan.md §3.3). AGE is built
+# from a pinned commit of its PostgreSQL 17 release branch. The context migration preloads
+# it for ehf_context only (session_preload_libraries); preloaded server-wide, AGE's drop hook
+# breaks DROP TABLE in databases without the extension.
+ARG PG_IMAGE=pgvector/pgvector:pg17
+
+FROM ${PG_IMAGE} AS postgres-runtime
+# Align the server with the package repository before building AGE. A minor
+# release can add symbols that the newer development headers reference.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends --only-upgrade postgresql-17 \
+    && rm -rf /var/lib/apt/lists/*
+
+FROM postgres-runtime AS age-build
+# apache/age, tag PG17/v1.6.0-rc0 (age.control default_version 1.6.0)
+ARG AGE_COMMIT=54905a09bf8462f22a87c3adfd2ab5752e5c1e71
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential flex bison git ca-certificates \
+       "postgresql-server-dev-17=$(dpkg-query -W -f='${Version}' postgresql-17)" \
+    && git init /src/age \
+    && git -C /src/age fetch --depth 1 https://github.com/apache/age "${AGE_COMMIT}" \
+    && git -C /src/age checkout --detach "${AGE_COMMIT}" \
+    && test "$(git -C /src/age rev-parse HEAD)" = "${AGE_COMMIT}" \
+    && make -C /src/age PG_CONFIG=/usr/lib/postgresql/17/bin/pg_config \
+    && make -C /src/age PG_CONFIG=/usr/lib/postgresql/17/bin/pg_config install DESTDIR=/out
+
+FROM postgres-runtime
+COPY --from=age-build /out/usr/lib/postgresql/17/lib/ /usr/lib/postgresql/17/lib/
+COPY --from=age-build /out/usr/share/postgresql/17/extension/ /usr/share/postgresql/17/extension/
+# Start as postgres rather than root: the image's data and socket directories are already
+# owned by it, so the entrypoint runs the server without needing to drop privileges.
+USER postgres

@@ -1,0 +1,1510 @@
+{
+  "alert.classify": [
+    "alert_types",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.context.assemble": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.correlate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.deduplicate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.disposition.recommend": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.escalation.evaluate": [
+    "escalation_severities",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.false_positive.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.feedback.capture": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.ingest": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "alert.prioritize": [
+    "alert_priority",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.funnel.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.layering.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.mule.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.pass_through.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.roundtrip.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.shell_company.detect": [
+    "business_substance_fields",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.smurfing.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.structuring.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.suspicion.assess": [
+    "freshness_seconds",
+    "investigation_indicator_minimum",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.trade_based.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.typology.match": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "aml.velocity.detect": [
+    "aml_detectors",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.close": [
+    "case_transitions",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "case.context.hydrate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.create": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.dependencies.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.escalate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "role_members",
+    "version"
+  ],
+  "case.sla.monitor": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.state.transition": [
+    "case_transitions",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.summary.generate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "case.tasks.assign": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "role_members",
+    "version"
+  ],
+  "case.tasks.plan": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.approval.route": [
+    "approval_roles",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "role_members",
+    "version"
+  ],
+  "decision.audit.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.controls.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "decision.disposition.record": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "decision.exceptions.evaluate": [
+    "exception_issuers",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.explain": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.gaps.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "decision.human.review": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.policy.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.recommendation.generate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "recommendations",
+    "version"
+  ],
+  "decision.requirements.compile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "decision.risk.acceptance.evaluate": [
+    "acceptable_tiers",
+    "acceptance_role",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "decision.rules.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "rules",
+    "version"
+  ],
+  "document.authenticity.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "document.classify": [
+    "document_types",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.classify.catalog": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.consistency.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.consistency.check": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.entities.extract": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "document.evidence.link": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.fields.adjudicated_extract": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "document.fields.contract_extract": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "document.fields.extract": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.parse": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.parse.artifact": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "document.request.compose": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.request.generate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "required_document_types",
+    "version"
+  ],
+  "document.requirements.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "required_document_types",
+    "version"
+  ],
+  "document.requirements.resolve": [
+    "extensions",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "required_document_types",
+    "version"
+  ],
+  "document.translation.normalize": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "document.validity.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.validity.check": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "document.version.compare": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.business.purpose.validate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.counterparty.analyze": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.findings.synthesize": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.geographic.exposure": [
+    "edd_geographies",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.pep.exposure": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.recommendation.generate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.scope.plan": [
+    "edd_triggers",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.source_of_funds.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.source_of_wealth.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "edd.trigger.evaluate": [
+    "edd_triggers",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.address.normalize": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.alias.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.classify": [
+    "entity_types",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.confidence.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.deduplicate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.disambiguate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.history.reconstruct": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.identifiers.validate": [
+    "freshness_seconds",
+    "identifier_rules",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.identity.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "verification_methods",
+    "version"
+  ],
+  "entity.match": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.relationship.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "entity.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.bundle.compile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.collect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.conflicts.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.facts.extract": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "verification_methods",
+    "version"
+  ],
+  "evidence.integrity.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.lineage.trace": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.normalize": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.provenance.attach": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.retention.enforce": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "evidence.sufficiency.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "fraud.account_takeover.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "fraud.behavior.anomaly": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "fraud.beneficiary.risk": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "fraud.case.assess": [
+    "fraud_thresholds",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "fraud.deepfake.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "fraud.device.fingerprint": [
+    "device_fields",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "synthetic_fingerprint_key",
+    "version"
+  ],
+  "fraud.document.tamper.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "fraud.identity.synthetic.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "fraud.identity.theft.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "fraud.liveness.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "permitted_providers",
+    "version"
+  ],
+  "fraud.network.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "link_attributes",
+    "permissions",
+    "version"
+  ],
+  "fraud.payment.anomaly": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.contradiction.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.evidence.collect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.findings.synthesize": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.fundflow.reconstruct": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.gaps.identify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.hypothesis.generate": [
+    "freshness_seconds",
+    "hypothesis_templates",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.hypothesis.test": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.narrative.generate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.plan": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.recommendation.generate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.relationship.analyze": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "investigation.timeline.build": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.customer.schedule": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "review_interval_seconds",
+    "version"
+  ],
+  "monitor.ownership.change": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.profile.change": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.review.close": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "monitor.review.execute": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.review.scope": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.risk.recalculate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_model_version",
+    "risk_tiers",
+    "risk_weights",
+    "version"
+  ],
+  "monitor.screening.refresh": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.transaction.deviation": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "monitor.trigger.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "monitor_triggers",
+    "permissions",
+    "version"
+  ],
+  "network.beneficiary.trace": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "network.centrality.calculate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "network.community.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "network.cycle.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "network.graph.build": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "network.path.find": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "network.relationship.infer": [
+    "freshness_seconds",
+    "jurisdiction",
+    "link_attributes",
+    "permissions",
+    "version"
+  ],
+  "network.risk.propagate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "network_decay",
+    "permissions",
+    "version"
+  ],
+  "network.shared_attributes.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "link_attributes",
+    "permissions",
+    "version"
+  ],
+  "network.temporal.analyze": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.circular.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.control.resolve": [
+    "control_bases",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.discrepancy.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.graph.build": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.graph.expand": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.history.compare": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.interest.calculate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.nominee.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.structure.complexity": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "ownership.threshold.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "ownership_threshold",
+    "permissions",
+    "version"
+  ],
+  "ownership.ubo.resolve": [
+    "control_bases",
+    "freshness_seconds",
+    "jurisdiction",
+    "ownership_threshold",
+    "permissions",
+    "version"
+  ],
+  "ownership.ubo.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "verification_methods",
+    "version"
+  ],
+  "party.activity.profile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.expected_behavior.model": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.geography.profile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.industry.classify": [
+    "freshness_seconds",
+    "industries",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.product.profile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.profile.build": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.profile.completeness": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "profile_fields",
+    "version"
+  ],
+  "party.profile.refresh": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.role.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "party.type.classify": [
+    "customer_types",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.agent.trace.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.confidence.calibrate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.coverage.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.data.validate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.findings.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.hallucination.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.outcome.reconcile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "quality.policy.compliance": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "requirements",
+    "version"
+  ],
+  "quality.remediation.plan": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "remediation_role",
+    "version"
+  ],
+  "quality.schema.validate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.address.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.company.lookup": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.company.verify": [
+    "active_registry_statuses",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.directors.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.discrepancy.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.filings.retrieve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.jurisdiction.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.licenses.verify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "license_issuers",
+    "permissions",
+    "version"
+  ],
+  "registry.status.monitor": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "registry.taxid.validate": [
+    "freshness_seconds",
+    "identifier_rules",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.ctr.evaluate": [
+    "ctr_business_day",
+    "ctr_thresholds",
+    "ctr_time_zone",
+    "ctr_transaction_types",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.ctr.prepare": [
+    "ctr_business_day",
+    "ctr_thresholds",
+    "ctr_time_zone",
+    "ctr_transaction_types",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.deadline.calculate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "reporting_obligations",
+    "version"
+  ],
+  "regulatory.filing.prepare": [
+    "filing_fields",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.filing.submit": [
+    "filing_fields",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.filing.track": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.obligations.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "reporting_obligations",
+    "version"
+  ],
+  "regulatory.sar.draft": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.sar.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "regulatory.sar.validate": [
+    "filing_fields",
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "risk.behavior.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_factor_maps",
+    "version"
+  ],
+  "risk.change.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "risk.customer.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_model_version",
+    "risk_tiers",
+    "risk_weights",
+    "version"
+  ],
+  "risk.factor.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_factor_maps",
+    "version"
+  ],
+  "risk.factors.derive": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_factor_maps",
+    "risk_weights",
+    "version"
+  ],
+  "risk.geography.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_factor_maps",
+    "version"
+  ],
+  "risk.industry.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_factor_maps",
+    "version"
+  ],
+  "risk.inherent.calculate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_model_version",
+    "risk_weights",
+    "version"
+  ],
+  "risk.product.assess": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_factor_maps",
+    "version"
+  ],
+  "risk.residual.calculate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "risk.score.calibrate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "risk.score.explain": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "risk.tier.assign": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "risk_tiers",
+    "version"
+  ],
+  "screening.adverse_media.classify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "media_categories",
+    "permissions",
+    "version"
+  ],
+  "screening.adverse_media.correlate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.adverse_media.execute": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.alert.disposition": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.match.disambiguate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.match.score": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.name.normalize": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.pep.execute": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "screening_threshold",
+    "version"
+  ],
+  "screening.pep.relationship.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "screening.rescreen.schedule": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "rescreen_interval_seconds",
+    "version"
+  ],
+  "screening.sanctions.control.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "sanctions_control_bases",
+    "version"
+  ],
+  "screening.sanctions.execute": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "screening_threshold",
+    "version"
+  ],
+  "screening.sanctions.ownership.evaluate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "sanctions_ownership",
+    "version"
+  ],
+  "screening.watchlist.execute": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "screening_threshold",
+    "version"
+  ],
+  "transaction.anomaly.detect": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.baseline.compare": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.behavior.profile": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.cashflow.analyze": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.classify": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "transaction_types",
+    "version"
+  ],
+  "transaction.counterparty.resolve": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.enrich": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.exposure.aggregate": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.flow.trace": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.geography.analyze": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.ingest": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ],
+  "transaction.velocity.analyze": [
+    "freshness_seconds",
+    "jurisdiction",
+    "permissions",
+    "version"
+  ]
+}

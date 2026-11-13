@@ -1,0 +1,1972 @@
+{
+  "provider_id": "companies-house",
+  "version": "1.0.0",
+  "bases": {
+    "default": "https://api.company-information.service.gov.uk"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "API_KEY"
+    ],
+    "empty_password": true
+  },
+  "sources": [
+    "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "get_company_companynumber_registered_office_address": {
+      "method": "GET",
+      "path": "/company/{company_number}/registered-office-address",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{companyNumber}/registered-office-address",
+      "openapi_method": "get",
+      "summary": "Registered Office Address",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "Company number for registered office address",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "source_placeholder_correction": {
+        "original_path": "/company/{companyNumber}/registered-office-address",
+        "reason": "Vendor Swagger path placeholder names differ from its parameter declarations; HTTP route unchanged."
+      },
+      "responses": {
+        "200": {
+          "description": "Successful response",
+          "schema": {
+            "$ref": "#/$defs/doc_ddbd7ba75f644ba3/definitions/registeredOfficeAddress"
+          }
+        },
+        "401": {
+          "description": "Not authorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_companynumber": {
+      "method": "GET",
+      "path": "/company/{company_number}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{companyNumber}",
+      "openapi_method": "get",
+      "summary": "Company profile",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the basic information to return.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "source_placeholder_correction": {
+        "original_path": "/company/{companyNumber}",
+        "reason": "Vendor Swagger path placeholder names differ from its parameter declarations; HTTP route unchanged."
+      },
+      "responses": {
+        "200": {
+          "description": "readCompanyProfile",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_64bc4df30766480a/definitions/companyProfile"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_search": {
+      "method": "GET",
+      "path": "/search",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/search",
+      "openapi_method": "get",
+      "summary": "Search All",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "description": "The term being searched for.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of search results to return per page.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The index of the first result item to return.",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Search all",
+          "schema": {
+            "$ref": "#/$defs/doc_31ab60996a2c1e9f/definitions/Search"
+          }
+        },
+        "401": {
+          "description": "Not authorised"
+        }
+      }
+    },
+    "get_search_companies": {
+      "method": "GET",
+      "path": "/search/companies",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/search/companies",
+      "openapi_method": "get",
+      "summary": "Search companies",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "description": "The term being searched for.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of search results to return per page.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The index of the first result item to return.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "restrictions",
+          "in": "query",
+          "description": "Enumerable options to restrict search results. Space separate multiple restriction options to combine functionality. For a \"company name availability\" search use \"active-companies legally-equivalent-company-name\" together.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Search company",
+          "schema": {
+            "$ref": "#/$defs/doc_31ab60996a2c1e9f/definitions/CompanySearch"
+          }
+        },
+        "401": {
+          "description": "Not authorised"
+        }
+      }
+    },
+    "get_search_officers": {
+      "method": "GET",
+      "path": "/search/officers",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/search/officers",
+      "openapi_method": "get",
+      "summary": "Search company officers",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "description": "The term being searched for.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of search results to return per page.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The index of the first result item to return.",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Search officer",
+          "schema": {
+            "$ref": "#/$defs/doc_31ab60996a2c1e9f/definitions/OfficerSearch"
+          }
+        },
+        "401": {
+          "description": "Not authorised"
+        }
+      }
+    },
+    "get_search_disqualified_officers": {
+      "method": "GET",
+      "path": "/search/disqualified-officers",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/search/disqualified-officers",
+      "openapi_method": "get",
+      "summary": "Search disqualified officers",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "description": "The term being searched for.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of search results to return per page.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The index of the first result item to return.",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Search all",
+          "schema": {
+            "$ref": "#/$defs/doc_31ab60996a2c1e9f/definitions/DisqualifiedOfficerSearch"
+          }
+        },
+        "401": {
+          "description": "Not authorised"
+        }
+      }
+    },
+    "get_dissolved_search_companies": {
+      "method": "GET",
+      "path": "/dissolved-search/companies",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/dissolved-search/companies",
+      "openapi_method": "get",
+      "summary": "Search for a dissolved company",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "description": "The company name being searched for",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "search_type",
+          "in": "query",
+          "description": "Determines type of search. Options are alphabetical, best-match, previous-name-dissolved",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "search_above",
+          "in": "query",
+          "description": "The ordered_alpha_key_with_id used for alphabetical paging",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "search_below",
+          "in": "query",
+          "description": "The ordered_alpha_key_with_id used for alphabetical paging",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "description": "The maximum number of results matching the search term(s) to return with a range of 1 to 100",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "Used in best-match and previous-name-dissolved search-type",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A list of dissolved companies",
+          "schema": {
+            "$ref": "#/$defs/doc_bf8178210fcd681a/definitions/dissolvedCompanySearch"
+          }
+        },
+        "404": {
+          "description": "No companies found"
+        },
+        "422": {
+          "description": "Invalid size parameter, size must be greater than zero and not greater than 100"
+        }
+      }
+    },
+    "get_alphabetical_search_companies": {
+      "method": "GET",
+      "path": "/alphabetical-search/companies",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/alphabetical-search/companies",
+      "openapi_method": "get",
+      "summary": "Search for a company",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "q",
+          "in": "query",
+          "description": "The company name being searched for",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "search_above",
+          "in": "query",
+          "description": "The ordered_alpha_key_with_id used for paging",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "search_below",
+          "in": "query",
+          "description": "The ordered_alpha_key_with_id used for paging",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "description": "The maximum number of results matching the search term(s) to return with a range of 1 to 100",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A list of companies",
+          "schema": {
+            "$ref": "#/$defs/doc_bf8178210fcd681a/definitions/alphabeticalCompanySearch"
+          }
+        },
+        "404": {
+          "description": "No companies found"
+        },
+        "422": {
+          "description": "Invalid size parameter, size must be greater than zero and not greater than 100"
+        }
+      }
+    },
+    "get_advanced_search_companies": {
+      "method": "GET",
+      "path": "/advanced-search/companies",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/advanced-search/companies",
+      "openapi_method": "get",
+      "summary": "Advanced search for a company",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_name_includes",
+          "in": "query",
+          "description": "The company name includes advanced search filter",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "company_name_excludes",
+          "in": "query",
+          "description": "The company name excludes advanced search filter",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "company_status",
+          "in": "query",
+          "description": "The company status advanced search filter. To search using multiple values, use a comma delimited list or multiple of the same key i.e. company_status=xxx&company_status=yyy",
+          "required": false,
+          "type": "list"
+        },
+        {
+          "name": "company_subtype",
+          "in": "query",
+          "description": "The company subtype advanced search filter. To search using multiple values, use a comma delimited list or multiple of the same key i.e. company_subtype=xxx&company_subtype=yyy",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "company_type",
+          "in": "query",
+          "description": "The company type advanced search filter. To search using multiple values, use a comma delimited list or multiple of the same key i.e. company_type=xxx&company_type=yyy",
+          "required": false,
+          "type": "list"
+        },
+        {
+          "name": "dissolved_from",
+          "in": "query",
+          "description": "The dissolved from date advanced search filter",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "name": "dissolved_to",
+          "in": "query",
+          "description": "The dissolved to date advanced search filter",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "name": "incorporated_from",
+          "in": "query",
+          "description": "The incorporated from date advanced search filter",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "name": "incorporated_to",
+          "in": "query",
+          "description": "The incorporated to date advanced search filter",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "name": "location",
+          "in": "query",
+          "description": "The location advanced search filter",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "sic_codes",
+          "in": "query",
+          "description": "The SIC codes advanced search filter. To search using multiple values, use a comma delimited list or multiple of the same key i.e. sic_codes=xxx&sic_codes=yyy",
+          "required": false,
+          "type": "list"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "description": "The maximum number of results matching the search term(s) to return with a range of 1 to 5000",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The point at which results will start from i.e show search results from result 20 (used for paging)",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A list of companies",
+          "schema": {
+            "$ref": "#/$defs/doc_bf8178210fcd681a/definitions/advancedCompanySearch"
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "404": {
+          "description": "No companies found"
+        }
+      }
+    },
+    "get_company_company_number_officers": {
+      "method": "GET",
+      "path": "/company/{company_number}/officers",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/officers",
+      "openapi_method": "get",
+      "summary": "Company Officers",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the officer list being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of officers to return per page.",
+          "type": "integer"
+        },
+        {
+          "name": "register_type",
+          "in": "query",
+          "description": "The register_type determines which officer type is returned for the registers view.The register_type field will only work if registers_view is set to true",
+          "type": "string",
+          "enum": [
+            "directors",
+            "secretaries",
+            "llp_members"
+          ]
+        },
+        {
+          "name": "register_view",
+          "in": "query",
+          "description": "Display register specific information. If given register is held at Companies House, registers_view set to true and correct register_type specified, only active officers will be returned. Defaults to false",
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ]
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The offset into the entire result set that this page starts.",
+          "type": "integer"
+        },
+        {
+          "name": "order_by",
+          "in": "query",
+          "description": "The field by which to order the result set.",
+          "type": "string",
+          "enum": [
+            "appointed_on",
+            "resigned_on",
+            "surname"
+          ]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List the company officers",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_08ea12388a7b69f1/definitions/officerList"
+          }
+        },
+        "400": {
+          "description": "Bad request",
+          "schema": {
+            "$ref": "#/$defs/doc_282ef071505caec0/definitions/error"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        }
+      }
+    },
+    "get_company_company_number_appointments_appointment_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/appointments/{appointment_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/appointments/{appointment_id}",
+      "openapi_method": "get",
+      "summary": "Get a company officer appointment",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the officer list being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "appointment_id",
+          "in": "path",
+          "description": "The appointment id of the company officer appointment being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Get a company officer appointment",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_08ea12388a7b69f1/definitions/officerSummary"
+          }
+        },
+        "400": {
+          "description": "Bad request",
+          "schema": {
+            "$ref": "#/$defs/doc_282ef071505caec0/definitions/error"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        }
+      }
+    },
+    "get_company_company_number_registers": {
+      "method": "GET",
+      "path": "/company/{company_number}/registers",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/registers",
+      "openapi_method": "get",
+      "summary": "Company registers",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the register information to return.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "readCompanyRegister",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_60998e3ed608c1a9/definitions/companyRegister"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        }
+      }
+    },
+    "get_company_company_number_filing_history_transaction_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/filing-history/{transaction_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/filing-history/{transaction_id}",
+      "openapi_method": "get",
+      "summary": "filingHistoryItem resource",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number that the single filing is required for.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "transaction_id",
+          "in": "path",
+          "description": "The transaction id that the filing history is required for.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Filing history items resource returned",
+          "schema": {
+            "$ref": "#/$defs/doc_1a9e91170e1e18ea/definitions/filingHistoryItem"
+          }
+        },
+        "401": {
+          "description": "Unauthorised",
+          "schema": {
+            "$ref": "#/$defs/doc_282ef071505caec0/definitions/error"
+          }
+        },
+        "404": {
+          "description": "Filing history not available for this company"
+        }
+      }
+    },
+    "get_company_company_number_filing_history": {
+      "method": "GET",
+      "path": "/company/{company_number}/filing-history",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/filing-history",
+      "openapi_method": "get",
+      "summary": "filingHistoryList resource",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "category",
+          "in": "query",
+          "description": "One or more comma-separated categories to filter by (inclusive).",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number that the filing history is required for.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of filing history items to return per page.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The index into the entire result set that this result page starts.",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Filing history items resource returned",
+          "schema": {
+            "$ref": "#/$defs/doc_1a9e91170e1e18ea/definitions/filingHistoryList"
+          }
+        },
+        "401": {
+          "description": "Unauthorised",
+          "schema": {
+            "$ref": "#/$defs/doc_282ef071505caec0/definitions/error"
+          }
+        },
+        "404": {
+          "description": "Filing history not available for this company"
+        }
+      }
+    },
+    "get_company_company_number_exemptions": {
+      "method": "GET",
+      "path": "/company/{company_number}/exemptions",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/exemptions",
+      "openapi_method": "get",
+      "summary": "",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number that the exemptions list is required for.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful response",
+          "schema": {
+            "$ref": "#/$defs/doc_7cc45c1e5b51bbda/definitions/companyExemptions"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_disqualified_officers_natural_officer_id": {
+      "method": "GET",
+      "path": "/disqualified-officers/natural/{officer_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/disqualified-officers/natural/{officer_id}",
+      "openapi_method": "get",
+      "summary": "Get natural officers disqualifications",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "officer_id",
+          "description": "The disqualified officer's id.",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Natural officer's disqualifications returned",
+          "schema": {
+            "$ref": "#/$defs/doc_4935b37a307ca7d3/definitions/naturalDisqualification"
+          },
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_disqualified_officers_corporate_officer_id": {
+      "method": "GET",
+      "path": "/disqualified-officers/corporate/{officer_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/disqualified-officers/corporate/{officer_id}",
+      "openapi_method": "get",
+      "summary": "Get a corporate officers disqualifications",
+      "body_required": false,
+      "parameters": [
+        {
+          "description": "The disqualified officer id.",
+          "name": "officer_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Corporate officer's disqualifications returned",
+          "schema": {
+            "$ref": "#/$defs/doc_4935b37a307ca7d3/definitions/corporateDisqualification"
+          },
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_officers_officer_id_appointments": {
+      "method": "GET",
+      "path": "/officers/{officer_id}/appointments",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/officers/{officer_id}/appointments",
+      "openapi_method": "get",
+      "summary": "Officer Appointment List",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "officer_id",
+          "in": "path",
+          "description": "The officer id of the appointment list being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "filter",
+          "in": "query",
+          "description": "Use \u201cactive\u201d to return only active appointments.",
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of appointments to return per page.",
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The first row of data to retrieve, starting at 0. Use this parameter as a pagination mechanism along with the items_per_page parameter.",
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List the officer appointments",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_8ec1493428af62aa/definitions/appointmentList"
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorised"
+        }
+      }
+    },
+    "get_company_company_number_charges": {
+      "method": "GET",
+      "path": "/company/{company_number}/charges",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/charges",
+      "openapi_method": "get",
+      "summary": "Charges",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number that the charge list is required for.",
+          "paramType": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "title": "items_per_page",
+          "description": "The number of charges to return per page.",
+          "type": "integer",
+          "paramType": "query",
+          "required": false
+        },
+        {
+          "title": "start_index",
+          "description": "The index into the entire result set that this result page starts.",
+          "type": "integer",
+          "paramType": "query",
+          "required": false
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Resource returned",
+          "schema": {
+            "$ref": "#/$defs/doc_3ab485f45911f73a/definitions/chargeList"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_charges_charge_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/charges/{charge_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/charges/{charge_id}",
+      "openapi_method": "get",
+      "summary": "",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "description": "The company number that the charge is required for.",
+          "paramType": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "charge_id",
+          "description": "The id of the charge details that are required.",
+          "paramType": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Resource returned",
+          "schema": {
+            "$ref": "#/$defs/doc_3ab485f45911f73a/definitions/chargeDetails"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_insolvency": {
+      "method": "GET",
+      "path": "/company/{company_number}/insolvency",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/insolvency",
+      "openapi_method": "get",
+      "summary": "",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the basic information to return.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Company insolvency resource returned",
+          "schema": {
+            "$ref": "#/$defs/doc_c5d93eaebcdee81d/definitions/companyInsolvency"
+          }
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_uk_establishments": {
+      "method": "GET",
+      "path": "/company/{company_number}/uk-establishments",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/uk-establishments",
+      "openapi_method": "get",
+      "summary": "Company UK Establishments",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "Company number",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Resource returned",
+          "schema": {
+            "$ref": "#/$defs/doc_ca3541241dae5506/definitions/companyUKEstablishments"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control",
+      "openapi_method": "get",
+      "summary": "List the company persons with significant control",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the persons with significant control list being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of persons with significant control to return per page.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The offset into the entire result set that this page starts.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "register_view",
+          "in": "query",
+          "description": "Display register specific information. If register is held at Companies House and register_view is set to true, only PSCs which are active or were terminated during election period are shown. Accepted values are: -`true`  \n -`false`  \n Defaults to false.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "readCompanyProfile",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/list"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_individual_notification_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/individual/{notification_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/individual/{notification_id}",
+      "openapi_method": "get",
+      "summary": "Get the individual person with significant control notification",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the person with significant control details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "notification_id",
+          "in": "path",
+          "description": "The notification id of the person with significant control notification being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "IndividualPSC resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/individual"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_individual_beneficial_owner_notification_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/individual-beneficial-owner/{notification_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/individual-beneficial-owner/{notification_id}",
+      "openapi_method": "get",
+      "summary": "Get the individual beneficial owner notification",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the individual beneficial owner details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "notification_id",
+          "in": "path",
+          "description": "The notification id of the individual beneficial owner notification being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "IndividualBO resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/individualBeneficialOwner"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_corporate_entity_notification_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/corporate-entity/{notification_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/corporate-entity/{notification_id}",
+      "openapi_method": "get",
+      "summary": "Get the corporate entity with significant control notification",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the corporate entity with significant control details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "notification_id",
+          "in": "path",
+          "description": "The notification id of the corporate entity with significant control notification being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "CorporateEntityPSC resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/corporateEntity"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_corporate_entity_beneficial_owner_notification_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/corporate-entity-beneficial-owner/{notification_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/corporate-entity-beneficial-owner/{notification_id}",
+      "openapi_method": "get",
+      "summary": "Get the corporate entity beneficial owner notification",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the corporate entity beneficial owner details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "notification_id",
+          "in": "path",
+          "description": "The notification id of the corporate entity beneficial owner notification being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "CorporateEntityBO resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/corporateEntityBeneficialOwner"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_legal_person_notification_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/legal-person/{notification_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/legal-person/{notification_id}",
+      "openapi_method": "get",
+      "summary": "Get the legal person with significant control notification",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the legal person with significant control details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "notification_id",
+          "in": "path",
+          "description": "The notification id of the legal person with significant control notification being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "LegalPersonPSC resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/legalPerson"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_legal_person_beneficial_owner_notification_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/legal-person-beneficial-owner/{notification_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/legal-person-beneficial-owner/{notification_id}",
+      "openapi_method": "get",
+      "summary": "Get the legal person beneficial owner notification",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the legal person beneficial owner details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "notification_id",
+          "in": "path",
+          "description": "The notification id of the legal person beneficial owner notification being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "LegalPersonBO resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/legalPersonBeneficialOwner"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_statements": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control-statements",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control-statements",
+      "openapi_method": "get",
+      "summary": "List the company persons with significant control statements",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the persons with significant control statements list being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The id of the legal person with significant control details being requested.",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The offset into the entire result set that this page starts.",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "register_view",
+          "in": "query",
+          "description": "Display register specific information. If register is held at Companies House and register_view is set to true, only statements which are active or were withdrawn during election period are shown. Accepted values are: -`true`  \n -`false`  \n Defaults to false.",
+          "required": true,
+          "type": "query"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "CompanyPSCStatements resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/statementList"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_statements_statement_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control-statements/{statement_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control-statements/{statement_id}",
+      "openapi_method": "get",
+      "summary": "Get the person with significant control statement",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the persons with significant control statements list being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "statement_id",
+          "in": "path",
+          "description": "The id of the person with significant control statement details being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "PSCStatement resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/statement"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_super_secure_super_secure_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/super-secure/{super_secure_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/super-secure/{super_secure_id}",
+      "openapi_method": "get",
+      "summary": "Get the super secure person with significant control",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the super secure person with significant control details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "super_secure_id",
+          "in": "path",
+          "description": "The id of the super secure person with significant control details being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "SuperSecurePSC resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/superSecure"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_company_company_number_persons_with_significant_control_super_secure_beneficial_owner_super_secure_id": {
+      "method": "GET",
+      "path": "/company/{company_number}/persons-with-significant-control/super-secure-beneficial-owner/{super_secure_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/company/{company_number}/persons-with-significant-control/super-secure-beneficial-owner/{super_secure_id}",
+      "openapi_method": "get",
+      "summary": "Get the super secure beneficial owner",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "company_number",
+          "in": "path",
+          "description": "The company number of the super secure beneficial owner details being requested.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "super_secure_id",
+          "in": "path",
+          "description": "The id of the super secure beneficial owner details being requested.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "SuperSecureBO resource returned",
+          "headers": {
+            "ETag": {
+              "description": "The ETag of the resource.",
+              "type": "string"
+            }
+          },
+          "schema": {
+            "$ref": "#/$defs/doc_d6f4cb63bbfb1550/definitions/superSecureBeneficialOwner"
+          }
+        },
+        "401": {
+          "description": "Unauthorised"
+        },
+        "404": {
+          "description": "Resource not found"
+        }
+      }
+    },
+    "get_persons_with_significant_control_psc_id_notifications": {
+      "method": "GET",
+      "path": "/persons-with-significant-control/{psc_id}/notifications",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/persons-with-significant-control/{psc_id}/notifications",
+      "openapi_method": "get",
+      "summary": "Persons with significant control Notification List",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "psc_id",
+          "in": "path",
+          "description": "The person with significant control id of the notification list being requested",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "filter",
+          "in": "query",
+          "description": "Use \u201cactive\u201d to return only active notifications.",
+          "type": "string"
+        },
+        {
+          "name": "items_per_page",
+          "in": "query",
+          "description": "The number of notifications to return per page.",
+          "type": "integer"
+        },
+        {
+          "name": "start_index",
+          "in": "query",
+          "description": "The first row of data to retrieve, starting at 0. Use this parameter as a pagination mechanism along with the items_per_page parameter.",
+          "type": "integer"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List the person with significant control notifications",
+          "schema": {
+            "$ref": "#/$defs/doc_2b1cc731cbc7cb36/definitions/notificationList"
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "401": {
+          "description": "Unauthorised"
+        }
+      }
+    }
+  },
+  "openapi_file": "schemas/companies-house.json"
+}

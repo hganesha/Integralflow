@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "AgentProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_skills": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Allowed Skills",
+          "type": "object",
+          "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+        },
+        "capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Capabilities",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "context_fields": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "type": "object",
+              "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Context Fields"
+        },
+        "id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "instructions": {
+          "title": "Instructions",
+          "type": "string"
+        },
+        "max_agent_steps": {
+          "default": 8,
+          "maximum": 32,
+          "minimum": 1,
+          "title": "Max Agent Steps",
+          "type": "integer"
+        },
+        "max_objects": {
+          "default": 1000,
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Max Objects",
+          "type": "integer"
+        },
+        "model_char_budget": {
+          "default": 64000,
+          "minimum": 1,
+          "title": "Model Char Budget",
+          "type": "integer"
+        },
+        "model_config_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Config Ref"
+        },
+        "permissions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Permissions",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "policy_fields": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Fields"
+        },
+        "purposes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Purposes",
+          "type": "array",
+          "uniqueItems": true
+        },
+        "timeout_seconds": {
+          "default": 30,
+          "exclusiveMinimum": 0,
+          "maximum": 300,
+          "title": "Timeout Seconds",
+          "type": "number"
+        },
+        "version": {
+          "default": "0.5.0",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "instructions",
+        "allowed_skills",
+        "permissions",
+        "purposes"
+      ],
+      "title": "AgentProfile",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "context_products": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Context Products",
+      "type": "array"
+    },
+    "execution": {
+      "$ref": "#/$defs/AgentProfile"
+    },
+    "human_gates": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Human Gates",
+      "type": "array"
+    },
+    "id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "mandate": {
+      "title": "Mandate",
+      "type": "string"
+    },
+    "personas": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Personas",
+      "type": "array"
+    },
+    "task_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Task Ids",
+      "type": "array"
+    },
+    "version": {
+      "default": "1.0.0",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "mandate",
+    "personas",
+    "task_ids",
+    "context_products",
+    "human_gates",
+    "execution"
+  ],
+  "title": "BusinessAgent",
+  "type": "object"
+}

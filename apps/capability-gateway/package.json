@@ -1,0 +1,42 @@
+{
+  "name": "@ehf/capability-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "4.1.1",
+    "@ehf/adapters": "workspace:*",
+    "@ehf/context-corpus": "workspace:*",
+    "@ehf/context-store": "workspace:*",
+    "@ehf/contracts": "workspace:*",
+    "@ehf/execution-auth": "workspace:*",
+    "@ehf/fincrime-integration": "workspace:*",
+    "@ehf/identity": "workspace:*",
+    "@ehf/library-contracts": "workspace:*",
+    "@ehf/persistence": "workspace:*",
+    "@ehf/telemetry": "workspace:*",
+    "@fastify/rate-limit": "11.2.0",
+    "@opentelemetry/api": "1.9.1",
+    "fastify": "5.12.5",
+    "pg": "8.23.0",
+    "tsx": "4.23.1",
+    "@ehf/policy-engine": "workspace:*",
+    "zod": "4.6.6",
+    "@ehf/context-postgres": "workspace:*",
+    "@ehf/context-mapping": "workspace:*",
+    "@ehf/context-connectors": "workspace:*",
+    "@ehf/context-bank-connectors": "workspace:*",
+    "@azure/identity": "4.14.1"
+  },
+  "devDependencies": {
+    "@ehf/skill-host-reference": "workspace:*",
+    "@types/pg": "8.16.0"
+  }
+}

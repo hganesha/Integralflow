@@ -1,0 +1,142 @@
+apiVersion: harness.factory/decision-table-v1
+kind: DecisionTable
+metadata:
+  id: table.kyc.screening-ready.v1
+  gate: screening-ready
+  domain: kyc
+  version: 1.0.0
+  owner: kyc-policy-operations
+  description: >-
+    May a case leave intake and begin screening? The gate asks only whether authoritative
+    policy context is pinned, verified and current, and whether the customer identification
+    attributes screening depends on are present.
+spec:
+  transition:
+    from: [INTAKE, VALIDATING]
+    onAllow: SCREENING
+  hitPolicy: first
+  # Every condition resolves to exactly one token. A condition that cannot be determined
+  # resolves to UNKNOWN, and an UNKNOWN row routes the case to a human. Absence is never
+  # read as satisfaction.
+  conditions:
+    - id: evaluation
+      description: Did the policy engine complete without error?
+      extractor: { kind: evaluationStatus }
+      tokens: [OK, ERROR]
+    - id: snapshot
+      description: Is the evaluated case snapshot still the current one?
+      extractor: { kind: snapshotFreshness }
+      tokens: [CURRENT, STALE, UNKNOWN]
+    - id: policyAuthorityEvidence
+      description: Is authoritative policy evidence linked to the case?
+      extractor:
+        kind: presence
+        collection: evidence
+        where: { purpose: KYC_POLICY_AUTHORITY }
+      tokens: [PRESENT, ABSENT]
+    - id: policyClaim
+      description: Does an applicable_kyc_policy claim exist?
+      extractor:
+        kind: presence
+        collection: claims
+        where: { predicate: applicable_kyc_policy }
+      tokens: [PRESENT, ABSENT]
+    - id: policyDigest
+      description: Does the policy claim's snapshot digest match the case policy authority?
+      extractor:
+        kind: digestMatch
+        left:
+          collection: claims
+          where: { predicate: applicable_kyc_policy }
+          valuePath: value.policySnapshotDigest
+        right:
+          path: policyAuthority.policySnapshotDigest
+      tokens: [MATCH, MISMATCH, UNKNOWN]
+    - id: policyEvidenceFreshness
+      description: Is the pinned policy evidence inside its freshness window?
+      extractor:
+        kind: obligationFreshness
+        obligation: EVD-POLICY-AUTHORITY
+      tokens: [FRESH, STALE, UNKNOWN]
+    - id: cipAttributes
+      description: Are the core customer identification attributes present?
+      extractor:
+        kind: attributesComplete
+        path: subject
+        required: [legalName, dateOfBirth, address, taxpayerIdentificationNumber]
+      tokens: [COMPLETE, INCOMPLETE, UNKNOWN]
+
+  rows:
+    - id: SR-001
+      rules: [KYC-OPS-004]
+      when: { evaluation: ERROR }
+      outcome: ERROR
+      reasonCode: POLICY_EVALUATION_ERROR
+    - id: SR-002
+      rules: [KYC-OPS-003]
+      when: { snapshot: STALE }
+      outcome: ERROR
+      reasonCode: CASE_SNAPSHOT_STALE
+    - id: SR-003
+      rules: [KYC-OPS-002]
+      when: { snapshot: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: SR-004
+      rules: [KYC-OPS-001]
+      when: { policyAuthorityEvidence: ABSENT }
+      outcome: BLOCK
+      reasonCode: POLICY_AUTHORITY_MISSING
+    - id: SR-005
+      rules: [KYC-OPS-001]
+      when: { policyClaim: ABSENT }
+      outcome: BLOCK
+      reasonCode: POLICY_CLAIM_MISSING
+    - id: SR-006
+      rules: [KYC-OPS-001]
+      when: { policyDigest: MISMATCH }
+      outcome: BLOCK
+      reasonCode: POLICY_SNAPSHOT_MISMATCH
+    - id: SR-007
+      rules: [KYC-OPS-002]
+      when: { policyDigest: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: SR-008
+      rules: [KYC-OPS-001]
+      when: { policyEvidenceFreshness: STALE }
+      outcome: REVIEW
+      reasonCode: POLICY_SNAPSHOT_STALE
+    - id: SR-009
+      rules: [KYC-OPS-002]
+      when: { policyEvidenceFreshness: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: SR-010
+      rules: [KYC-CIP-001]
+      when: { cipAttributes: INCOMPLETE }
+      outcome: BLOCK
+      reasonCode: CIP_CORE_ATTRIBUTES_INCOMPLETE
+    - id: SR-011
+      rules: [KYC-OPS-002]
+      when: { cipAttributes: UNKNOWN }
+      outcome: REVIEW
+      reasonCode: POLICY_UNKNOWN_INPUT
+    - id: SR-012
+      rules: [KYC-CIP-001]
+      when:
+        evaluation: OK
+        snapshot: CURRENT
+        policyAuthorityEvidence: PRESENT
+        policyClaim: PRESENT
+        policyDigest: MATCH
+        policyEvidenceFreshness: FRESH
+        cipAttributes: COMPLETE
+      outcome: ALLOW
+      reasonCode: SCREENING_PRECONDITIONS_SATISFIED
+      transitionTo: SCREENING
+
+  default:
+    rules: [KYC-DEC-006]
+    outcome: REVIEW
+    reasonCode: NO_AUTOMATIC_DISPOSITION_RULE

@@ -1,0 +1,164 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:quality.data.validate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Validate required-field missingness and duplicate row identities.
+code_hash: c4073cd7c3c991fe0d327ff0662b1e56ed7b6ec93e8e058cfaacde40361885a9
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Validate required-field missingness and duplicate row identities.
+effects: read_only
+entrypoint: financial_crime.skills.governance:data_validate
+evaluation_profile: quality.data.validate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EVIDENCE_INSUFFICIENT
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: quality-data-validate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: quality.data.validate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    JsonObject:
+      additionalProperties:
+        $ref: '#/$defs/JsonValue'
+      type: object
+      x-dynamic-map-reason: schema-selected or source-domain JSON values
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+  $id: urn:financial-crime:skill:quality.data.validate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    required_fields:
+      items:
+        maxLength: 4000
+        minLength: 1
+        type: string
+      maxItems: 10000
+      minItems: 0
+      type: array
+    rows:
+      items:
+        $ref: '#/$defs/JsonObject'
+      maxItems: 10000
+      minItems: 0
+      type: array
+  required:
+  - rows
+  - required_fields
+  type: object
+instruction_hash: 05243ec62c98574f77c25065c7af20251bab4ffff20ac0c99e91c27a3bba2cf1
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Count:
+      minimum: 0
+      type: integer
+    DataIssue:
+      additionalProperties: false
+      properties:
+        code:
+          $ref: '#/$defs/DataIssueCode'
+        field:
+          $ref: '#/$defs/Id'
+        row:
+          $ref: '#/$defs/Count'
+      required:
+      - row
+      - code
+      type: object
+    DataIssueCode:
+      enum:
+      - MISSING
+      - DUPLICATE_ID
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+  $id: urn:financial-crime:skill:quality.data.validate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    issues:
+      items:
+        $ref: '#/$defs/DataIssue'
+      maxItems: 10000
+      type: array
+    valid:
+      type: boolean
+  required:
+  - issues
+  - valid
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

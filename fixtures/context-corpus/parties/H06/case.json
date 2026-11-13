@@ -1,0 +1,136 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h06.entity.bellmont-us",
+  "external_ref": "corpus-H06",
+  "party_id": "H06",
+  "record_count": 184,
+  "relationship_record_id": "h06.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h06.entity.bellmont-us",
+      "identifiers": [],
+      "name": "Bellmont Atlantic Holdings Inc.",
+      "ref": "bellmont_us",
+      "role": "customer",
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h06.entity.bellmont-lux",
+      "identifiers": [],
+      "name": "Bellmont Luxembourg S.à r.l.",
+      "ref": "bellmont_lux",
+      "role": null,
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h06.entity.atlantic-meridian",
+      "identifiers": [],
+      "name": "Atlantic Meridian Holdings Ltd",
+      "ref": "atlantic_meridian",
+      "role": null,
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h06.entity.seabright",
+      "identifiers": [],
+      "name": "Seabright Capital Ltd",
+      "ref": "seabright",
+      "role": null,
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h06.entity.tortuga",
+      "identifiers": [],
+      "name": "Tortuga Nominees Ltd",
+      "ref": "tortuga",
+      "role": null,
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h06.entity.b1",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "BG-SPECIMEN",
+          "value": "SPECIMEN-SD-0001"
+        }
+      ],
+      "name": "Radomir Veselin Kostadinov",
+      "ref": "b1",
+      "role": "control_person",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h06.entity.b2",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "DE-SPECIMEN",
+          "value": "SPECIMEN-SD-0002"
+        }
+      ],
+      "name": "Anselm Drakon Voss",
+      "ref": "b2",
+      "role": "control_person",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h06.entity.c",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H06-PP-0001"
+        }
+      ],
+      "name": "Leontine Maribel Aldous-Frye",
+      "ref": "c",
+      "role": "beneficial_owner",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h06.entity.nd1",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "CY-SPECIMEN",
+          "value": "SPECIMEN-H06-PP-0002"
+        }
+      ],
+      "name": "Perrin Whitlock",
+      "ref": "nd1",
+      "role": null,
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h06.entity.nd2",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "LU-SPECIMEN",
+          "value": "SPECIMEN-H06-PP-0003"
+        }
+      ],
+      "name": "Marit Stannard-Cole",
+      "ref": "nd2",
+      "role": null,
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h06.entity.soren",
+      "identifiers": [
+        {
+          "identifier_type": "drivers_licence",
+          "source": "US-DE-SPECIMEN",
+          "value": "SPECIMEN-H06-DL-0001"
+        }
+      ],
+      "name": "Soren Yardley",
+      "ref": "soren",
+      "role": "director",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

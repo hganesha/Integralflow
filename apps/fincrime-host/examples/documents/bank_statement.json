@@ -1,0 +1,239 @@
+{
+  "expected": {
+    "issues": [],
+    "promotion_allowed": false,
+    "review_required": true,
+    "valid": true
+  },
+  "pages": [
+    {
+      "document_version": "synthetic-version-1",
+      "page_id": "synthetic-page-1",
+      "text": "SYNTHETIC BANK STATEMENT\nCustomer: Example Trading\nAccount: ****0042\nInstitution: Synthetic Bank\nCurrency: XTS\nOpening: 1000.00\nClosing: 1250.00\nPeriod: 2026-09-01 to 2026-09-30\n"
+    }
+  ],
+  "qualification": "contract_and_source_span_example_not_extractor_evaluation",
+  "result": {
+    "contract_hash": "08aa701fea0537cb89da8c868fb4e5bb288954dc5986024c5d5067ed31b2ce5b",
+    "document_type": "bank_statement",
+    "document_version": "synthetic-version-1",
+    "extracted_fields": {
+      "accounts": [
+        {
+          "account_identifier": "****0042",
+          "account_type": null,
+          "closing_balance": "1250.00",
+          "currency": "XTS",
+          "holder_name": "Example Trading",
+          "identifier_masked": null,
+          "institution_identifier": null,
+          "institution_name": "Synthetic Bank",
+          "opening_balance": "1000.00"
+        }
+      ],
+      "document_number": null,
+      "document_title": null,
+      "issue_date": null,
+      "issuer_name": null,
+      "period_end": "2026-09-30",
+      "period_start": "2026-09-01",
+      "subject_address": null,
+      "subject_name": "Example Trading",
+      "transactions": null
+    },
+    "observations": [
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_title",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuer_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issue_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/subject_name",
+        "spans": [
+          {
+            "end": 50,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 35
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/subject_address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/period_start",
+        "spans": [
+          {
+            "end": 163,
+            "page_id": "synthetic-page-1",
+            "quote": "2026-09-01",
+            "start": 153
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/period_end",
+        "spans": [
+          {
+            "end": 177,
+            "page_id": "synthetic-page-1",
+            "quote": "2026-09-30",
+            "start": 167
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/holder_name",
+        "spans": [
+          {
+            "end": 50,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 35
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/account_identifier",
+        "spans": [
+          {
+            "end": 68,
+            "page_id": "synthetic-page-1",
+            "quote": "****0042",
+            "start": 60
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/identifier_masked",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/institution_name",
+        "spans": [
+          {
+            "end": 96,
+            "page_id": "synthetic-page-1",
+            "quote": "Synthetic Bank",
+            "start": 82
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/institution_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/account_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/currency",
+        "spans": [
+          {
+            "end": 110,
+            "page_id": "synthetic-page-1",
+            "quote": "XTS",
+            "start": 107
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/opening_balance",
+        "spans": [
+          {
+            "end": 127,
+            "page_id": "synthetic-page-1",
+            "quote": "1000.00",
+            "start": 120
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/accounts/0/closing_balance",
+        "spans": [
+          {
+            "end": 144,
+            "page_id": "synthetic-page-1",
+            "quote": "1250.00",
+            "start": 137
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/transactions",
+        "spans": [],
+        "status": "not_present"
+      }
+    ],
+    "profile_version": "0.1.0",
+    "source_digest": "599ce62c86a05c407c4c813bf48c81e44dc60fa851d06a2b81890de485cdeac2"
+  },
+  "synthetic": true
+}

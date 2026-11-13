@@ -1,0 +1,28 @@
+{
+  "$id": "urn:financial-crime:skill:network.path.find:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_hops": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "target": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "source",
+    "target",
+    "max_hops"
+  ],
+  "type": "object"
+}

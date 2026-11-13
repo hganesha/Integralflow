@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "harness.fixtures.screening.v1",
+  "capability": "screening.sanctions",
+  "description": "Provider-neutral sanctions screening results. Scores are on a 0-1 scale; the thresholds that turn a score into a finding are owner input D01, not a property of these fixtures.",
+  "thresholdsOwnerInput": "D01",
+  "fixtures": [
+    {
+      "id": "SANC-CLEAR-001",
+      "summary": "No match against any list entry.",
+      "subject": { "name": "FIXTURE Alice Nakamura", "dateOfBirth": "1984-06-11", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-consolidated-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": []
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "SANC-POSSIBLE-001",
+      "summary": "Strong name match with a different date of birth: a possible match an analyst must adjudicate.",
+      "subject": { "name": "FIXTURE Dmitri Volkov", "dateOfBirth": "1979-02-14", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-consolidated-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_sanc_possible_001",
+            "listRecordId": "FIXTURE-OFAC-SDN-40012",
+            "listName": "FIXTURE Consolidated Sanctions",
+            "matchedName": "FIXTURE Dmitriy Volkov",
+            "score": 0.91,
+            "matchedFields": ["name"],
+            "conflictingFields": ["dateOfBirth"],
+            "programs": ["FIXTURE-PROGRAM-A"]
+          }
+        ]
+      },
+      "expected": { "findingType": "POSSIBLE_SANCTIONS_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "SANC-POSSIBLE-002",
+      "summary": "Alias hit only. Weaker than a primary-name match but still above the possible-match threshold.",
+      "subject": { "name": "FIXTURE Maria Santos", "dateOfBirth": "1990-09-03", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-consolidated-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_sanc_possible_002",
+            "listRecordId": "FIXTURE-OFAC-SDN-40088",
+            "listName": "FIXTURE Consolidated Sanctions",
+            "matchedName": "FIXTURE M. Santos",
+            "matchedAlias": true,
+            "score": 0.87,
+            "matchedFields": ["alias"],
+            "conflictingFields": [],
+            "programs": ["FIXTURE-PROGRAM-B"]
+          }
+        ]
+      },
+      "expected": { "findingType": "POSSIBLE_SANCTIONS_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "SANC-NEAR-MISS-001",
+      "summary": "Score below the possible-match threshold. Must not become a finding, and must not be discarded silently either: the score is recorded.",
+      "subject": { "name": "FIXTURE John Smith", "dateOfBirth": "1972-11-30", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-consolidated-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_sanc_near_001",
+            "listRecordId": "FIXTURE-OFAC-SDN-40155",
+            "listName": "FIXTURE Consolidated Sanctions",
+            "matchedName": "FIXTURE Jon Smyth",
+            "score": 0.72,
+            "matchedFields": ["name"],
+            "conflictingFields": ["dateOfBirth", "country"],
+            "programs": ["FIXTURE-PROGRAM-A"]
+          }
+        ]
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "SANC-CONFIRMED-001",
+      "summary": "Exact match on name, date of birth and national identifier. Escalated to sanctions authority; the platform still does not decline.",
+      "subject": { "name": "FIXTURE Viktor Almeida", "dateOfBirth": "1968-04-22", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-consolidated-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": [
+          {
+            "alertId": "alert_sanc_confirmed_001",
+            "listRecordId": "FIXTURE-OFAC-SDN-40201",
+            "listName": "FIXTURE Consolidated Sanctions",
+            "matchedName": "FIXTURE Viktor Almeida",
+            "score": 0.99,
+            "matchedFields": ["name", "dateOfBirth", "nationalIdentifier"],
+            "conflictingFields": [],
+            "programs": ["FIXTURE-PROGRAM-C"]
+          }
+        ]
+      },
+      "expected": { "findingType": "CONFIRMED_SANCTIONS_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "SANC-STALE-LIST-001",
+      "summary": "A clean screen against a list version older than the permitted window. Clean is not enough if the list was out of date.",
+      "subject": { "name": "FIXTURE Priya Raman", "dateOfBirth": "1988-01-19", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-consolidated-2026-02-10",
+        "listPublishedAt": "2026-02-10T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "alerts": []
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK", "gateReasonCode": "SANCTIONS_LIST_STALE" }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "verifiedAt": "2026-11-09T22:35:28.143954+00:00",
+  "node": "26.5.0",
+  "unit": {
+    "files": 45,
+    "passed": 213,
+    "failed": 0,
+    "packages": [
+      {
+        "name": "ui-contracts",
+        "files": 1,
+        "passed": 7
+      },
+      {
+        "name": "ui-client",
+        "files": 3,
+        "passed": 20
+      },
+      {
+        "name": "ui-mock",
+        "files": 7,
+        "passed": 56
+      },
+      {
+        "name": "ui-tokens",
+        "files": 1,
+        "passed": 11
+      },
+      {
+        "name": "ui-kit",
+        "files": 1,
+        "passed": 14
+      },
+      {
+        "name": "ui-shell",
+        "files": 1,
+        "passed": 9
+      },
+      {
+        "name": "web",
+        "files": 18,
+        "passed": 63
+      },
+      {
+        "name": "experience-bff",
+        "files": 13,
+        "passed": 33
+      }
+    ]
+  },
+  "browser": {
+    "uniquePassed": 147,
+    "environmentGatedSkipped": 2,
+    "unresolvedFailures": 0,
+    "fullRun": {
+      "startTime": "2026-11-09T22:23:19.843Z",
+      "duration": 528819.9439999999,
+      "expected": 146,
+      "skipped": 2,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "focusedRerun": {
+      "startTime": "2026-11-09T22:33:05.584Z",
+      "duration": 9242.435,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "fullRunFailure": "Outdated expected jurisdiction wording in PLT-09 AC1. Updated to current explanatory copy and added readonly case-type and submitted kyc_onboarding assertions; rerun passed.",
+    "previewOrigin": "http://127.0.0.1:5302",
+    "mode": "fixed mock build",
+    "manualProviderReview": "Capability mapping and review preserve category/icon structure including unknown IDs under Other. Temporary draft cancelled, no save."
+  },
+  "contracts": {
+    "checks": 1086,
+    "failures": 0,
+    "redocly": "clean",
+    "sync": "up to date",
+    "acknowledgedDrift": "GAP-015; historical source groups retained"
+  },
+  "typechecks": {
+    "web": "passed",
+    "experience-bff": "passed",
+    "control-api": "passed",
+    "case-api": "passed"
+  },
+  "builds": {
+    "httpWeb": {
+      "result": "passed",
+      "output": "/tmp/ehf-ui-polished-build",
+      "mockCodeScan": "111 files; no mock code"
+    },
+    "experienceBff": "passed",
+    "mockPreview": {
+      "result": "passed",
+      "output": "/tmp/ehf-ui-polished-preview",
+      "worker": "Copied to this temporary mock artifact only"
+    }
+  },
+  "limits": [
+    "18 reviewed unavailable HTTP operations; exact ownership in verification.json",
+    "Live SSO, production provider health and production tenant behavior not certified",
+    "Two dedicated live-context browser tests require a separate environment",
+    "200% equivalent reflow tested; no blanket WCAG/native-browser-zoom claim"
+  ]
+}

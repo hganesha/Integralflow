@@ -1,0 +1,2259 @@
+{
+  "note": "String-literal references include typed presentation maps and generated state maps, not only JSX. No-reference candidates are not proven unused when names may arrive dynamically.",
+  "icons": [
+    {
+      "name": "sliders",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Tune.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "layers",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/catalogs/copy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/models-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/module.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "stack",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/router.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "fingerprint",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "sitemap",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/copy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/controls.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "shield",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "shieldcheck",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/case-detail.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "swap",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "branch",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CanvasSteps.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/assurance/case-nav.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "check",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/ExtractionPanel.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/overview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/models-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/providers-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/trace-waterfall.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/decision-desk.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/controls.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "checkcircle",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/case-detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/model.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/ownership-graph.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 5
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/policies/PolicyTree.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 5
+        },
+        {
+          "file": "apps/web/src/catalogs/binding-editor.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/PdfPage.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/ExtractionPanel.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/case-documents-page.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/documents/DocumentWorkspace.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/overview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/editor.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ContextRefreshPanel.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Engineer.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/model.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/lineage.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "packages/ui-kit/src/components/form.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 3
+        }
+      ]
+    },
+    {
+      "name": "block",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/risk.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 9
+        }
+      ]
+    },
+    {
+      "name": "xcircle",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/case-detail.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/trace-waterfall.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/assurance/ledger.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/model.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 3
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/shell/forbidden.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/shell/surface-placeholder.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/overview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 6
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/changes-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Tune.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/risk.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-kit/src/stories/Feedback.stories.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 6
+        },
+        {
+          "file": "packages/ui-tokens/src/generated/tokens.ts",
+          "literalOccurrences": 18
+        }
+      ]
+    },
+    {
+      "name": "lock",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/shell/forbidden.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/overview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/shared.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/shell/trusted/TrustedDecisionSheet.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Engineer.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/trusted/TrustedButton.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 6
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/shell/chrome.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/shell/not-found.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/plans.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/human-work.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/trace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/cases.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/run-detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "searchcheck",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "chevr",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/trace-waterfall.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "chevd",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/runs/trace-waterfall.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "chevl",
+      "literalReferences": []
+    },
+    {
+      "name": "arrowr",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/SourceViewer.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/my-workspace.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "arrowl",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/SourceViewer.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/DocumentWorkspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "arrowd",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "clock",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/operations/HumanWorkCard.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/my-workspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 6
+        }
+      ]
+    },
+    {
+      "name": "file",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/case-documents-page.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/drafts.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/panels.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 8
+        },
+        {
+          "file": "packages/ui-tokens/src/generated/tokens.ts",
+          "literalOccurrences": 8
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/catalogs/copy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/DocumentWorkspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/providers-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/assurance/ledger.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "eye",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/policies/PolicyTree.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/ExtractionPanel.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/case-documents-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/DocumentWorkspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/command-sheet.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/ownership-graph.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/context/context-preview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "play",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/plan-detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/start-run.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx",
+          "literalOccurrences": 5
+        },
+        {
+          "file": "packages/ui-kit/src/stories/Controls.stories.tsx",
+          "literalOccurrences": 3
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "grid",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/copy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Play.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/stories/Data.stories.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/stories/Feedback.stories.tsx",
+          "literalOccurrences": 6
+        },
+        {
+          "file": "packages/ui-kit/src/stories/Overlay.stories.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "flag",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/operations/HumanWorkCard.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/my-workspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 3
+        }
+      ]
+    },
+    {
+      "name": "gauge",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "scale",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/operations/HumanWorkCard.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/human-step.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/decision-desk.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "bot",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/copy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/module.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "workflow",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/draft-workspace.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/SourcesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/model.ts",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/context.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "database",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "globe",
+      "literalReferences": []
+    },
+    {
+      "name": "filter",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/plans.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "more",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/shell/chrome.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "external",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/mcp-parameters.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "refresh",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/documents/DocumentWorkspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/system.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/settings-tab.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/changes-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/start-run.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/assurance/ledger.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-kit/src/stories/Controls.stories.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "history",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/detail.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/models-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/changes-tab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/paths.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 3
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/policy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/paths.ts",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/case-room.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "panelr",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-shell/src/layouts/WorkspaceLayout.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "panell",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-shell/src/layouts/WorkspaceLayout.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-shell/src/layouts/ConsoleLayout.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "plus",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/plans.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/drafts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/releases.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/cases.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/mcp-parameters.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/models-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/changes-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/providers-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/panels.tsx",
+          "literalOccurrences": 5
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CanvasSteps.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Tune.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ontology/OntologyCanvas.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "x",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/run-detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/admin/capabilities-tab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/panels.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/AgentsTab.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/WorkflowTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/run-parts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/shell/trusted/TrustedDecisionSheet.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Tune.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-kit/src/components/controls.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/overlay.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 5
+        }
+      ]
+    },
+    {
+      "name": "hash",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/panels.tsx",
+          "literalOccurrences": 6
+        }
+      ]
+    },
+    {
+      "name": "book",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/copy.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "cpu",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/router.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "signal",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/detail.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 6
+        },
+        {
+          "file": "apps/web/src/catalogs/model.ts",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/components.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Engineer.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "graph",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/runs/components.tsx",
+          "literalOccurrences": 8
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 8
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/context/contextboard.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/context/context-setup.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ontology/OntologyInspector.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ontology/OntologyBoard.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "target",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/policies/PolicyGraph.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/panels.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ontology/MappingGraph.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ontology/OntologyCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "scan",
+      "literalReferences": []
+    },
+    {
+      "name": "compass",
+      "literalReferences": []
+    },
+    {
+      "name": "inbox",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/module.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/my-workspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/feedback.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "building",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/domains/fincrime/context/model.ts",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "bell",
+      "literalReferences": []
+    },
+    {
+      "name": "send",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/releases.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/command-sheet.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "download",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/documents/ExtractionPanel.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/documents/DocumentWorkspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/onboarding/Onboarding.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/drafts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/case-detail.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "package",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/drafts.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/draft-workspace.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/plan-detail.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/policy-studio.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/SourcesTab.tsx",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/model.ts",
+          "literalOccurrences": 3
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/context.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/packages.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "gavel",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/operations/HumanWorkCard.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/human-step.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/lineage.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/decision-desk.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "flight",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/domains/fincrime/module.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/assurance/case-nav.tsx",
+          "literalOccurrences": 1
+        }
+      ]
+    },
+    {
+      "name": "beaker",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/overview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/ReleaseTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "pin",
+      "literalReferences": []
+    },
+    {
+      "name": "split",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/intelligence/specialized-parameters.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ExpressionEditor.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/ownership-graph.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/claims.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/ownership.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 2
+        }
+      ]
+    },
+    {
+      "name": "keyboard",
+      "literalReferences": []
+    },
+    {
+      "name": "mic",
+      "literalReferences": []
+    },
+    {
+      "name": "phone",
+      "literalReferences": []
+    },
+    {
+      "name": "watch",
+      "literalReferences": []
+    },
+    {
+      "name": "monitor",
+      "literalReferences": []
+    },
+    {
+      "name": "hand",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/routes.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/human-work.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/integrations.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/GraphCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/assurance/recorder.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 5
+        }
+      ]
+    },
+    {
+      "name": "minus",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/catalogs/catalog-page.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/catalogs/external-providers.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/overview.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/authoring/CapabilitiesTab.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/Engineer.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/case-frame.tsx",
+          "literalOccurrences": 2
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/context/ontology/OntologyCanvas.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 4
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "literalReferences": [
+        {
+          "file": "apps/web/src/platform/surfaces/admin/tones.ts",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/platform/surfaces/runs/RunWorkflow.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/agents/components.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/work/ownership-graph.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/decision-desk.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "apps/web/src/domains/fincrime/surfaces/work/screening.tsx",
+          "literalOccurrences": 4
+        },
+        {
+          "file": "packages/ui-kit/src/components/status.tsx",
+          "literalOccurrences": 1
+        },
+        {
+          "file": "packages/ui-tokens/src/state.ts",
+          "literalOccurrences": 10
+        }
+      ]
+    }
+  ],
+  "noLiteralReferenceCandidates": [
+    "chevl",
+    "globe",
+    "scan",
+    "compass",
+    "bell",
+    "pin",
+    "keyboard",
+    "mic",
+    "phone",
+    "watch",
+    "monitor"
+  ],
+  "duplicatePathNames": []
+}

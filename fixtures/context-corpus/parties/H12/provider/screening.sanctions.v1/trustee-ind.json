@@ -1,0 +1,64 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "birth_date": {
+        "precision": "day",
+        "value": "1968-12-12"
+      },
+      "entity_id": "e-trustee-ind",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "passport",
+          "value": "SPECIMEN-H12-PP-0002"
+        }
+      ],
+      "names": [
+        {
+          "full": "Marit Lindqvist",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h12.entity.trustee-ind"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [],
+  "result": {
+    "dataset_versions": [
+      "corpus-synthetic-designations-2026-09-29",
+      "ofac-sdn@2026-11-09",
+      "uk-sanctions@2026-11-09",
+      "un-consolidated@2026-11-09"
+    ],
+    "kind": "screening",
+    "list_published_at": "2026-09-29T00:00:00Z",
+    "matches": [],
+    "scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "total_candidates": 0,
+    "truncated": false
+  },
+  "result_id": "corpus-screening-h12-trustee-ind-sanctions",
+  "subject_entity_id": "e-trustee-ind"
+}

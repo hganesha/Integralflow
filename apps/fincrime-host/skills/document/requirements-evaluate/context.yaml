@@ -1,0 +1,14 @@
+dynamic_target: null
+requirements:
+- fields:
+  - document_type
+  - issued_at
+  - expires_at
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Document
+  optional: false
+schema_version: 2.0.0
+skill_id: document.requirements.evaluate

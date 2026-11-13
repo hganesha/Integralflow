@@ -1,0 +1,18 @@
+{
+  "$id": "urn:financial-crime:skill:transaction.exposure.aggregate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dimension": {
+      "enum": [
+        "source",
+        "target",
+        "currency"
+      ]
+    }
+  },
+  "required": [
+    "dimension"
+  ],
+  "type": "object"
+}

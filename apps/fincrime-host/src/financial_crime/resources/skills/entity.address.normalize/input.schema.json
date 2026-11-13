@@ -1,0 +1,16 @@
+{
+  "$id": "urn:financial-crime:skill:entity.address.normalize:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "address": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "address"
+  ],
+  "type": "object"
+}

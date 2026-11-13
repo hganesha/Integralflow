@@ -1,0 +1,329 @@
+{
+  "expected": {
+    "issues": [],
+    "promotion_allowed": false,
+    "review_required": true,
+    "valid": true
+  },
+  "pages": [
+    {
+      "document_version": "synthetic-version-1",
+      "page_id": "synthetic-page-1",
+      "text": "SYNTHETIC W-8BEN-E EXCERPT\nName: Example Trading\nForm: W-8BEN-E\nChapter 3: Corporation\nChapter 4: Active NFFE\nRevision: Synthetic fixture, not an IRS edition\nSigned by: Alex Example\nCapacity: Director\n"
+    }
+  ],
+  "qualification": "contract_and_source_span_example_not_extractor_evaluation",
+  "result": {
+    "contract_hash": "a206c56e3e6a7c368cef0ef66fa63a4c1bac3ac6cd3c1193bea75119d4737399",
+    "document_type": "w8bene",
+    "document_version": "synthetic-version-1",
+    "extracted_fields": {
+      "certification_text": null,
+      "chapter3_status": "Corporation",
+      "chapter4_status": "Active NFFE",
+      "controlling_persons_tax": null,
+      "disregarded_entity_name": null,
+      "document_number": null,
+      "document_title": null,
+      "entity_name": null,
+      "foreign_tax_identifier": null,
+      "form_revision": "Synthetic fixture, not an IRS edition",
+      "giin": null,
+      "income_description": null,
+      "issue_date": null,
+      "issuer_name": null,
+      "mailing_address": null,
+      "permanent_residence_address": null,
+      "signatures": [
+        {
+          "capacity": "Director",
+          "represented_party": null,
+          "signature_method": null,
+          "signature_text": null,
+          "signed_at": null,
+          "signer_name": "Alex Example"
+        }
+      ],
+      "subject_address": null,
+      "subject_name": "Example Trading",
+      "tax_entity_classification": null,
+      "tax_form_type": "W-8BEN-E",
+      "tax_identifier": null,
+      "tax_residences": null,
+      "treaty_claim": null,
+      "us_tax_identifier": null,
+      "withholding_exemption_codes": null
+    },
+    "observations": [
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_title",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuer_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issue_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/subject_name",
+        "spans": [
+          {
+            "end": 48,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 33
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/entity_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/subject_address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/tax_form_type",
+        "spans": [
+          {
+            "end": 18,
+            "page_id": "synthetic-page-1",
+            "quote": "W-8BEN-E",
+            "start": 10
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/form_revision",
+        "spans": [
+          {
+            "end": 157,
+            "page_id": "synthetic-page-1",
+            "quote": "Synthetic fixture, not an IRS edition",
+            "start": 120
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/tax_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/tax_entity_classification",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/certification_text",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures/0/signer_name",
+        "spans": [
+          {
+            "end": 181,
+            "page_id": "synthetic-page-1",
+            "quote": "Alex Example",
+            "start": 169
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures/0/capacity",
+        "spans": [
+          {
+            "end": 200,
+            "page_id": "synthetic-page-1",
+            "quote": "Director",
+            "start": 192
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures/0/signed_at",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures/0/signature_text",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures/0/signature_method",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures/0/represented_party",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/tax_residences",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/chapter3_status",
+        "spans": [
+          {
+            "end": 86,
+            "page_id": "synthetic-page-1",
+            "quote": "Corporation",
+            "start": 75
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/chapter4_status",
+        "spans": [
+          {
+            "end": 109,
+            "page_id": "synthetic-page-1",
+            "quote": "Active NFFE",
+            "start": 98
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/giin",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/treaty_claim",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/controlling_persons_tax",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/permanent_residence_address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/mailing_address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/us_tax_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/foreign_tax_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/income_description",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/disregarded_entity_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/withholding_exemption_codes",
+        "spans": [],
+        "status": "not_present"
+      }
+    ],
+    "profile_version": "0.1.0",
+    "source_digest": "fb38d5fb965cdda48b847696935ff6c821a591dfa54b13afc5db0b3164a7686a"
+  },
+  "synthetic": true
+}

@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "PlannedStep": {
+      "additionalProperties": false,
+      "properties": {
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Parameters",
+          "type": "object",
+          "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+        },
+        "requirements_hash": {
+          "title": "Requirements Hash",
+          "type": "string"
+        },
+        "skill_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Skill Id",
+          "type": "string"
+        },
+        "skill_version": {
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Skill Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "skill_id",
+        "skill_version",
+        "parameters",
+        "dependencies",
+        "requirements_hash"
+      ],
+      "title": "PlannedStep",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "input_hash": {
+      "title": "Input Hash",
+      "type": "string"
+    },
+    "profile_hash": {
+      "title": "Profile Hash",
+      "type": "string"
+    },
+    "profile_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Profile Id",
+      "type": "string"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/PlannedStep"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "task_hash": {
+      "title": "Task Hash",
+      "type": "string"
+    },
+    "task_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Task Id",
+      "type": "string"
+    },
+    "task_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "title": "Task Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "task_version",
+    "profile_id",
+    "profile_hash",
+    "task_hash",
+    "input_hash",
+    "steps"
+  ],
+  "title": "TaskPlan",
+  "type": "object"
+}

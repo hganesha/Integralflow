@@ -1,0 +1,66 @@
+{
+  "provider_id": "telesign",
+  "version": "documented-public",
+  "bases": {
+    "standard": "https://rest-api.telesign.com",
+    "enterprise": "https://rest-ww.telesign.com"
+  },
+  "auth": {
+    "type": "basic",
+    "keys": [
+      "CUSTOMER_ID",
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://developer.telesign.com/standard/reference/score-api-get-started",
+    "https://developer.telesign.com/enterprise/docs/phone-id-tutorial-use-identity-attributes"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "phone_score": {
+      "method": "POST",
+      "path": "/v1/score/{phone}",
+      "required_body": [
+        "account_lifecycle_event"
+      ],
+      "required_query": [],
+      "body_example": {
+        "account_lifecycle_event": "create"
+      },
+      "content": "form",
+      "semantics": "risk",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer.telesign.com/standard/reference/score-api-get-started",
+      "allowed_input_headers": [],
+      "response": "json",
+      "regions": [
+        "standard"
+      ]
+    },
+    "phone_id": {
+      "method": "POST",
+      "path": "/v1/phoneid/{phone}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": {
+        "addons": {
+          "contact": {}
+        }
+      },
+      "content": "json",
+      "semantics": "identity_data",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://developer.telesign.com/enterprise/docs/phone-id-tutorial-use-identity-attributes",
+      "allowed_input_headers": [],
+      "response": "json",
+      "regions": [
+        "enterprise"
+      ]
+    }
+  }
+}

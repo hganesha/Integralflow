@@ -1,0 +1,25 @@
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners: []
+effective_ownership: {}
+notes: 'The customer is not on any list; her brother is on the fictional PEP list.
+  EDD is required by the relationship, not by a hit on the customer.
+
+  '
+party_id: H03
+screening:
+  customer_listed: false
+  pep_relative_listed: chidi
+screening_result:
+  hits:
+  - entry: synthetic-peps:SYN-P-0001
+    identifier_conflict: false
+    list_type: pep
+    record: h03.screeninghit.chidi-synthetic-peps-syn-p-0001
+    subject: chidi
+    verified_match: true
+seed: 1003
+signals: []
+spec_digest: b839f4b8fbc3f6f0e6153391d92af40e43b705ea25aeaa14051cc76aa8e68567
+workflow:
+  kyc_v2: EDD_REQUIRED

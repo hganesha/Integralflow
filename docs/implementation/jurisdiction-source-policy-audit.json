@@ -1,0 +1,122 @@
+{
+  "review_date": "2026-11-08",
+  "status": "planning_evidence_not_runtime_authority",
+  "git_head": "4022a144c086458118ee3f2b1ee83b14f004633f",
+  "basis": "Current working tree, including pre-existing uncommitted changes; JSON counts are not live provider qualifications.",
+  "source_files": [
+    {
+      "role": "platform_catalog",
+      "path": "config/connector-catalog.json",
+      "sha256": "cfbd23e0bd6b22a295138ca8fa2232d049dfb99209379b53d90780c953f75d45"
+    },
+    {
+      "role": "provider_records",
+      "path": "apps/kyc-wiring/vendor/atlas/catalog/providers.json",
+      "sha256": "41dbe111cf70b80b7945d5d78be6a4c3e5d8d06ab55bdcc8d753051f0d10a8b8"
+    },
+    {
+      "role": "legacy_bindings",
+      "path": "apps/kyc-wiring/vendor/atlas/catalog/provider-capabilities.json",
+      "sha256": "975677a4c6f5e03aeeca9aaeb36ef2280b62c151d5e30bca3a5edb866deca089"
+    },
+    {
+      "role": "canonical_definitions",
+      "path": "apps/kyc-wiring/vendor/atlas/capability-model/capability-definitions.json",
+      "sha256": "6ba72cc3c500619f66a6ea967f12965d7772b10eedf5c747e6cccc8a2d506a37"
+    },
+    {
+      "role": "canonical_bindings",
+      "path": "apps/kyc-wiring/vendor/atlas/capability-model/capability-bindings.json",
+      "sha256": "0a4e0916bcdef385303b33e677b597d80cc7c1d997bb85f127a2cca7df93e686"
+    },
+    {
+      "role": "jurisdictions",
+      "path": "apps/kyc-wiring/vendor/atlas/capability-model/jurisdictions.json",
+      "sha256": "2339503ac34782d805c3f389d58c2d9a36ae5be372adcf76f3937c66375fcd70"
+    }
+  ],
+  "counts": {
+    "platform_capabilities": 83,
+    "canonical_families": 56,
+    "connectors": 853,
+    "connector_templates": 8,
+    "connector_status": {
+      "available": 835,
+      "live_ready": 16,
+      "quarantined": 2
+    },
+    "connector_canonical_disposition": {
+      "alias_pending_approval": 809,
+      "migration_required": 13,
+      "no_canonical_binding": 29,
+      "quarantined": 2
+    },
+    "provider_catalog_records": 376,
+    "legacy_bindings": 824,
+    "canonical_bindings": 825,
+    "registered_jurisdiction_tokens": 44,
+    "enabled_canonical_bindings": 0,
+    "jurisdiction_status": {
+      "proposed": 825
+    },
+    "unresolved_jurisdiction_bindings": 748,
+    "concrete_proposed_jurisdiction_bindings": 77,
+    "coverage_status": {
+      "unknown": 825
+    },
+    "canonical_bindings_with_entitlement_reference": 0,
+    "canonical_bindings_by_jurisdiction_basis": {
+      "account_servicing": 46,
+      "dataset_authority": 38,
+      "issuer_authority": 318,
+      "policy_jurisdiction": 284,
+      "registry_authority": 139
+    }
+  },
+  "live_ready_connector_ids": [
+    "evidence:ingest",
+    "evidence:ownership",
+    "evidence:package",
+    "evidence:pages",
+    "evidence:resume",
+    "openrouter:document_fields.model.deep.v1",
+    "openrouter:document_fields.model.fast.v1",
+    "openrouter:document_fields.model.judge.v1",
+    "openrouter:document_fields.model.standard.v1",
+    "openrouter:model.deep.v1",
+    "openrouter:model.fast.v1",
+    "openrouter:model.judge.v1",
+    "openrouter:model.standard.v1",
+    "opensanctions:pep",
+    "opensanctions:sanctions",
+    "pgvector:knowledge.search"
+  ],
+  "live_ready_connectors_with_canonical_binding": 0,
+  "source_vendor_comparisons": [
+    {
+      "source": "tools/kyc-provider-atlas/catalog/providers.json",
+      "vendored": "apps/kyc-wiring/vendor/atlas/catalog/providers.json",
+      "byte_equal": true
+    },
+    {
+      "source": "tools/kyc-provider-atlas/catalog/provider-capabilities.json",
+      "vendored": "apps/kyc-wiring/vendor/atlas/catalog/provider-capabilities.json",
+      "byte_equal": true
+    },
+    {
+      "source": "tools/kyc-provider-atlas/capability-model/registry/capability-definitions.json",
+      "vendored": "apps/kyc-wiring/vendor/atlas/capability-model/capability-definitions.json",
+      "byte_equal": true
+    },
+    {
+      "source": "tools/kyc-provider-atlas/capability-model/registry/capability-bindings.json",
+      "vendored": "apps/kyc-wiring/vendor/atlas/capability-model/capability-bindings.json",
+      "byte_equal": true
+    },
+    {
+      "source": "tools/kyc-provider-atlas/capability-model/registry/jurisdictions.json",
+      "vendored": "apps/kyc-wiring/vendor/atlas/capability-model/jurisdictions.json",
+      "byte_equal": true
+    }
+  ]
+}

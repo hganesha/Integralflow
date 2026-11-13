@@ -1,0 +1,105 @@
+{
+  "id": "policy.banking.relationship.us.v1",
+  "version": "1.0.0",
+  "jurisdiction": "US",
+  "effectiveFrom": "2026-11-08T00:00:00Z",
+  "status": "CANDIDATE",
+  "accountOpeningReliefAdopted": null,
+  "screeningRoles": [
+    "customer",
+    "joint_holder",
+    "beneficial_owner",
+    "control_person",
+    "director",
+    "signatory",
+    "attorney",
+    "guardian",
+    "settlor",
+    "trustee",
+    "protector",
+    "beneficiary",
+    "executor",
+    "intermediary",
+    "underlying_client",
+    "guarantor"
+  ],
+  "productControls": {
+    "deposit": [
+      "expected_activity",
+      "funding_source"
+    ],
+    "card": [
+      "expected_activity",
+      "funding_source"
+    ],
+    "payments": [
+      "expected_activity",
+      "payment_geographies",
+      "counterparties"
+    ],
+    "lending": [
+      "repayment_source",
+      "borrower_guarantor_authority"
+    ],
+    "trade_finance": [
+      "business_purpose",
+      "trade_parties_goods_routes",
+      "trade_document_consistency"
+    ],
+    "merchant_acquiring": [
+      "merchant_business_model",
+      "settlement_beneficiary",
+      "processing_profile"
+    ],
+    "private_banking": [
+      "source_of_wealth",
+      "source_of_funds",
+      "private_banking_applicability"
+    ],
+    "correspondent": [
+      "respondent_due_diligence",
+      "nested_access",
+      "shell_bank_controls"
+    ],
+    "fbo": [
+      "program_due_diligence",
+      "underlying_client_scope",
+      "reliance_responsibility"
+    ],
+    "digital_assets": [
+      "asset_service_model",
+      "wallet_exposure",
+      "licensing"
+    ],
+    "custody": [
+      "asset_ownership",
+      "authorized_instructions"
+    ]
+  },
+  "documentAlternatives": {
+    "identity": [
+      "passport",
+      "national_identity_card",
+      "driving_licence"
+    ],
+    "authority": [
+      "account_mandate",
+      "delegated_authority_letter"
+    ],
+    "beneficial_ownership": [
+      "shareholder_register",
+      "ownership_structure_chart"
+    ],
+    "structure_and_capacity": [
+      "trust_deed",
+      "grant_of_probate",
+      "association_constitution"
+    ]
+  },
+  "legalSources": [
+    "https://www.fincen.gov/resources/statutes-and-regulations/cdd-rule-faqs",
+    "https://www.fincen.gov/system/files/2026-02/FinCEN-Order-CCDExceptiveRelief.pdf",
+    "https://bsaaml.ffiec.gov/manual/AssessingComplianceWithBSARegulatoryRequirements/01",
+    "https://ofac.treasury.gov/faqs/401"
+  ]
+}

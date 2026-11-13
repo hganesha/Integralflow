@@ -1,0 +1,196 @@
+{
+  "$defs": {
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Object Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "2.0.0",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "tenant_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "version_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Version Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "title": "Ref",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actor_ref": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Actor Ref",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "case_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Case Id"
+    },
+    "execution_id": {
+      "title": "Execution Id",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "minLength": 1,
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "knowledge_cutoff": {
+      "format": "date-time",
+      "title": "Knowledge Cutoff",
+      "type": "string"
+    },
+    "object_refs": {
+      "items": {
+        "$ref": "#/$defs/Ref"
+      },
+      "title": "Object Refs",
+      "type": "array"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Parameters",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "policy_snapshot_ref": {
+      "title": "Policy Snapshot Ref",
+      "type": "string"
+    },
+    "profile_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Profile Id",
+      "type": "string"
+    },
+    "purpose": {
+      "enum": [
+        "onboarding",
+        "review",
+        "monitoring",
+        "investigation",
+        "fraud",
+        "reporting"
+      ],
+      "title": "Purpose",
+      "type": "string"
+    },
+    "skill_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Skill Id",
+      "type": "string"
+    },
+    "skill_version": {
+      "default": "0.3.0",
+      "title": "Skill Version",
+      "type": "string"
+    },
+    "subject_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Subject Ids",
+      "type": "array"
+    },
+    "tenant_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Tenant Id",
+      "type": "string"
+    },
+    "trace_id": {
+      "title": "Trace Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "skill_id",
+    "tenant_id",
+    "actor_ref",
+    "profile_id",
+    "purpose",
+    "policy_snapshot_ref",
+    "as_of_time",
+    "knowledge_cutoff",
+    "idempotency_key"
+  ],
+  "title": "Invocation",
+  "type": "object"
+}

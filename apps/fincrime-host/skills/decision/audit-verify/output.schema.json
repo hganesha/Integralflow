@@ -1,0 +1,18 @@
+{
+  "$id": "urn:financial-crime:skill:decision.audit.verify:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "events": {
+      "type": "integer"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "valid",
+    "events"
+  ],
+  "type": "object"
+}

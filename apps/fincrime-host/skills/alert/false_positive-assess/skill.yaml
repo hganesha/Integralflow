@@ -1,0 +1,193 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:alert.false_positive.assess
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Expose supported exculpatory evidence alongside unresolved adverse
+  indicators.
+code_hash: f3039bb9d80ff0d37e8ce0775e8b6a7722100a163755ea3cf984a77fd44aa9ca
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Expose supported exculpatory evidence alongside unresolved adverse indicators.
+effects: read_only
+entrypoint: financial_crime.skills.alerts_investigations:false_positive
+evaluation_profile: alert.false_positive.assess-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: alert-false-positive-assess
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: alert.false_positive.assess
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:alert.false_positive.assess:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 8dcd1c20b884301ffa7eaaadaa42147d1ec307c475d03751a3e600f84ad69648
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - content
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Evidence
+  optional: true
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    FindingRow_claim_evidence_ids_status:
+      additionalProperties: false
+      properties:
+        _ref:
+          $ref: '#/$defs/Ref'
+        _synthetic:
+          $ref: '#/$defs/Bool'
+        claim:
+          $ref: '#/$defs/Text'
+        evidence_ids:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        id:
+          $ref: '#/$defs/Id'
+        status:
+          $ref: '#/$defs/FindingStatus'
+      required:
+      - id
+      - claim
+      - status
+      - evidence_ids
+      - _ref
+      - _synthetic
+      type: object
+    FindingStatus:
+      enum:
+      - RESOLVED
+      - UNRESOLVED
+      - INDICATOR
+      - EXCULPATORY
+      - UNVERIFIED
+      - DISPUTED
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:alert.false_positive.assess:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    contradictory:
+      items:
+        $ref: '#/$defs/FindingRow_claim_evidence_ids_status'
+      maxItems: 10000
+      type: array
+    exculpatory:
+      items:
+        $ref: '#/$defs/FindingRow_claim_evidence_ids_status'
+      maxItems: 10000
+      type: array
+    final_clearance:
+      type: boolean
+  required:
+  - exculpatory
+  - contradictory
+  - final_clearance
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - status
+  - evidence_ids
+  - claim
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Finding
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

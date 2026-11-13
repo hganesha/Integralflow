@@ -1,0 +1,3277 @@
+[
+  {
+    "url": "https://authenteq.com/",
+    "status": null,
+    "error": "ConnectionError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://ciphertrace.com/",
+    "status": null,
+    "error": "ConnectionError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://datacvr.virk.dk/",
+    "final_url": "https://datacvr.virk.dk/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "59061555428e635a40390390682a1aab440aa2333a93af6fe5f3f9edf2f4e54c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://belvo.com/",
+    "final_url": "https://belvo.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "b8a1e3d995b2930d077f618733f2e6e0c4af3b507f8708949eea54b910976a18",
+    "documentation_links": []
+  },
+  {
+    "url": "https://complyadvantage.com/",
+    "final_url": "https://complyadvantage.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "aae945e474a1a1ad4e3da55bb49a735b78ef31f020c6688fcb1c6e9ed6ac903d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://benefit.bh/",
+    "final_url": "https://benefit.bh/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "02696aec2f0ba36db183c575c29446c8fbab4c1be08abc4edc2529081aec0d99",
+    "documentation_links": []
+  },
+  {
+    "url": "https://data.inpi.fr/",
+    "final_url": "https://data.inpi.fr/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "8502594cd3fa28f2a109d69717d645fda22471b1948bfd49d142cf914898bd30",
+    "documentation_links": []
+  },
+  {
+    "url": "https://compliancely.com/",
+    "final_url": "https://compliancely.com/",
+    "status": 200,
+    "title": "Business Verification, KYB & Credit Risk Platform | Compliancely",
+    "sha256": "fdd390b2a8133ec448030c909f7b0bac999ef1ab4046533eb2e920444f4c2e02",
+    "documentation_links": [
+      "https://apideveloper.compliancely.com/docs/getting-started",
+      "https://apideveloper.compliancely.com/reference/api_v2_token_create"
+    ]
+  },
+  {
+    "url": "https://arya.ai/",
+    "final_url": "https://arya.ai/",
+    "status": 200,
+    "title": "Arya.ai: Enterprise-Grade AI Solutions",
+    "sha256": "3a5f2b0c93cd50df48abed5e1e673978547089270267e3c6e6c8a399f4f8cfb9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://akoya.com/",
+    "final_url": "https://akoya.com/",
+    "status": 200,
+    "title": "Open Finance Solutions | Akoya - Secure, Reliable Data Sharing",
+    "sha256": "8faf509a2724fd73283094b42244b4327fd9552ce39d2aaf3164113c78f6e47f",
+    "documentation_links": [
+      "https://docs.akoya.com/"
+    ]
+  },
+  {
+    "url": "https://connectid.com.au/",
+    "final_url": "https://www.auspayplus.com.au/solutions/connectid",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "8266243e8472069a7c9bd47eebe04fb83df77d4891d5c8a4b12fe41a1f7c63c7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://cro.ie/",
+    "final_url": "https://cro.ie/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "41cac2fac9cd3bcc3750ac1d43601639fbc7f2fb6a2a4ce0e935db2fa45502be",
+    "documentation_links": []
+  },
+  {
+    "url": "https://e-justice.europa.eu/",
+    "final_url": "https://e-justice.europa.eu/",
+    "status": 403,
+    "title": "ERROR: The request could not be satisfied",
+    "sha256": "044ce4d47d3d6a13954649b983409a99ba130fb4208847f5b2fd81d9929fb34a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://camunda.com/",
+    "final_url": "https://camunda.com/",
+    "status": 200,
+    "title": "Agentic Orchestration Platform | Camunda",
+    "sha256": "29442ba976d92136db15ecb6a1a6862e2d7daa630a3578b2c8d8c351a7daae63",
+    "documentation_links": [
+      "https://camunda.com/developer-hub/",
+      "https://docs.camunda.io/",
+      "https://docs.camunda.io/build-with-camunda/",
+      "https://docs.camunda.io/docs/components/best-practices/best-practices-overview/",
+      "https://docs.camunda.io/docs/reference/announcements-release-notes/overview/",
+      "https://docs.camunda.io/downloads/"
+    ]
+  },
+  {
+    "url": "https://ekata.com/",
+    "final_url": "https://ekata.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "e1294d183bdebb38f969bab289a1cd2ab804271c5a0724ac58069d86a2b8067a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://data.europa.eu/",
+    "final_url": "https://data.europa.eu/",
+    "status": 200,
+    "title": "The European Data Portal",
+    "sha256": "629e122946db949759a73118b984cb6a46db83aba988168663fa561d0cd38acb",
+    "documentation_links": [
+      "https://dataeuropa.gitlab.io/data-provider-manual/"
+    ]
+  },
+  {
+    "url": "https://detected.co/",
+    "final_url": "https://detected.co/",
+    "status": 200,
+    "title": "KYB & KYC Trust Platform | Detected",
+    "sha256": "3c384f52d41e036d6ea722d5b59721bc89e3f0aa020ba4e09180f4576386ad80",
+    "documentation_links": []
+  },
+  {
+    "url": "https://dojah.io/",
+    "final_url": "https://dojah.io/",
+    "status": 200,
+    "title": "Dojah | KYC & AML Compliance with Secure Identity Verification",
+    "sha256": "6e3e22750041d9d3eb77d4e6af8c61d87a7bbfc01327beb428775abeb8a74ef4",
+    "documentation_links": [
+      "https://docs.dojah.io/overview/quickstart"
+    ]
+  },
+  {
+    "url": "https://amlbot.com/",
+    "final_url": "https://amlbot.com/",
+    "status": 200,
+    "title": "Crypto Compliance Solutions for AML Monitoring and Risk Detection",
+    "sha256": "c8557e9182a6b0bb477e29ca910cb8138cb3430ce2e71d430c75d64a25aeb2c0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://developer.company-information.service.gov.uk/",
+    "final_url": "https://developer.company-information.service.gov.uk/",
+    "status": 200,
+    "title": "Developer Hub Home",
+    "sha256": "cabe057f0a3fea2c2dbe8155cf51e0a3ea21d2220945c310f096e2a3954bc101",
+    "documentation_links": [
+      "https://developer-specs.company-information.service.gov.uk",
+      "https://developer.company-information.service.gov.uk/",
+      "https://developer.company-information.service.gov.uk/api-testing",
+      "https://developer.company-information.service.gov.uk/authentication",
+      "https://developer.company-information.service.gov.uk/developer-guidelines",
+      "https://developer.company-information.service.gov.uk/get-started",
+      "https://developer.company-information.service.gov.uk/get-started/",
+      "https://developer.company-information.service.gov.uk/how-to-create-an-application",
+      "https://developer.company-information.service.gov.uk/overview",
+      "https://developer.company-information.service.gov.uk/{chsUrl}/help/cookies",
+      "https://forum.aws.chdev.org/"
+    ]
+  },
+  {
+    "url": "https://bolagsverket.se/",
+    "status": null,
+    "error": "ConnectionError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://idscan.net/",
+    "final_url": "https://idscan.net/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "87ece34afd9cc787a95615fc1462459a64aca49e6c4a758d1a12427eddc3d898",
+    "documentation_links": []
+  },
+  {
+    "url": "https://authbridge.com/",
+    "final_url": "https://authbridge.com/",
+    "status": 403,
+    "title": "403 Forbidden",
+    "sha256": "58bf2215b395dcac74c009aa98701854e43cbe54a1cd3a95fee6a647ca9910d4",
+    "documentation_links": []
+  },
+  {
+    "url": "https://companydata.com/",
+    "final_url": "https://companydata.com/",
+    "status": 200,
+    "title": "Company Data API from Public Registries | CompanyData",
+    "sha256": "6e4d7cd45bd2db986fe916749f306061b3f2213436fe9b3bb31b9586a922afbb",
+    "documentation_links": [
+      "https://companydata.com/api-docs/",
+      "https://docs.companydata.com"
+    ]
+  },
+  {
+    "url": "https://altana.ai/",
+    "final_url": "https://altana.ai/",
+    "status": 200,
+    "title": "Altana | The AI-Powered Network for Trusted Trade",
+    "sha256": "48276ba544e58c1600c51cd3e18b9c8dcfb819ba038ef4da3ab96fc775386b97",
+    "documentation_links": []
+  },
+  {
+    "url": "https://idwall.co/",
+    "final_url": "https://idwall.co/",
+    "status": 200,
+    "title": "Verifica\u00e7\u00e3o de documentos & Background Check",
+    "sha256": "8fb0d69eb275fe32d932d945653fb84159a942cf4ab3354f7507df475f1536e1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://bankid.no/",
+    "final_url": "https://bankid.no/",
+    "status": 200,
+    "title": "BankID",
+    "sha256": "6013e4dca2d4923063b70bca1f2678d64179a67cb39a8a7c1e89a57afe59614d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://fingerprint.com/",
+    "final_url": "https://fingerprint.com/",
+    "status": 200,
+    "title": "Fingerprint | Identify Every Web Visitor & Mobile Device",
+    "sha256": "ff485fc5e95ae3c472495f64c6f6b78118c27ed51da818fb26b41b9c45187f88",
+    "documentation_links": [
+      "https://docs.fingerprint.com",
+      "https://docs.fingerprint.com/docs/android-quickstart",
+      "https://docs.fingerprint.com/docs/angular-quickstart",
+      "https://docs.fingerprint.com/docs/flutter-quickstart",
+      "https://docs.fingerprint.com/docs/go-server-quickstart",
+      "https://docs.fingerprint.com/docs/ios-quickstart",
+      "https://docs.fingerprint.com/docs/java-server-quickstart",
+      "https://docs.fingerprint.com/docs/javascript-quickstart",
+      "https://docs.fingerprint.com/docs/mcp-server",
+      "https://docs.fingerprint.com/docs/nextjs-quickstart",
+      "https://docs.fingerprint.com/docs/node-server-quickstart",
+      "https://docs.fingerprint.com/docs/privacy-policy"
+    ]
+  },
+  {
+    "url": "https://facephi.com/",
+    "final_url": "https://facephi.com/",
+    "status": 200,
+    "title": "Facephi: Expertos en verificaci\u00f3n biom\u00e9trica de la identidad digital",
+    "sha256": "fe7cbd16bbfd999281d7d91f6b00d295d174d2e36bdfb76578ffcb1fa4c136fa",
+    "documentation_links": [
+      "https://docs.facephi.com/"
+    ]
+  },
+  {
+    "url": "https://ahu.go.id/",
+    "final_url": "https://ahu.go.id/",
+    "status": 200,
+    "title": "DITJEN AHU ONLINE",
+    "sha256": "da26e736b24ff28ab73eec316f64171cf820ad2a5ab44211777074091554dd9e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://economie.fgov.be/",
+    "final_url": "https://economie.fgov.be/",
+    "status": 200,
+    "title": "",
+    "sha256": "68a95bb8fb9f6cba08b2c2ec9d920facd7e041acc290124f647fe7fa0eb13c68",
+    "documentation_links": []
+  },
+  {
+    "url": "https://dilisense.com/",
+    "final_url": "https://dilisense.com/en",
+    "status": 200,
+    "title": "Sanctions Screening & PEP Checks - Free | dilisense",
+    "sha256": "3da1491c3dff657370da580e50779426e50c4e5e8dbf2a8fb021c84db3dda3e0",
+    "documentation_links": [
+      "https://developers.dilisense.com",
+      "https://developers.dilisense.com/",
+      "https://dilisense.com/en/products/batch-screening"
+    ]
+  },
+  {
+    "url": "https://bigdatacorp.com.br/",
+    "final_url": "https://bigdatacorp.com.br/",
+    "status": 200,
+    "title": "BigDataCorp | Dados confi\u00e1veis te levam mais longe",
+    "sha256": "57f446010a952977d75f2200677eb1e1bf1d615100c1224873d6095f8248d5e7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://ctosdigital.com/",
+    "final_url": "https://ctosdigital.com/",
+    "status": 200,
+    "title": "Home - CTOS Digital Berhad",
+    "sha256": "bb4ad4ccbe1974e14b525a0957397657ef2a13905e192a2d31a4099aee552ca1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://decentro.tech/",
+    "final_url": "https://decentro.tech/global",
+    "status": 200,
+    "title": "Decentro \u2013 APIs & SDKs to Build, Launch, and Scale Fintech",
+    "sha256": "3bcc201c3edb3c13f45bd7206b936ed2a8e256de190696ec6084d6a7d48ac3c2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://alessa.com/",
+    "final_url": "https://alessa.com/",
+    "status": 200,
+    "title": "Alessa - AML Compliance Software",
+    "sha256": "94bfe77699fe7c701870cd423ee3669853204360eaf9a4ef361ceb39f2dda97e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://hawk.ai/",
+    "final_url": "https://hawk.ai/",
+    "status": 200,
+    "title": "Hawk \u2013 Increase Your Risk Coverage. Improve Efficiency.",
+    "sha256": "0323399eb814479a28ce96d5cebd446713dadfa1a4196b9646279b378e8d373d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://knowyourcustomer.com/",
+    "final_url": "https://knowyourcustomer.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "bed586ded92c6ce5446af7bf866dd2a567d744fe9d5b5df5307cde274a3a71cb",
+    "documentation_links": []
+  },
+  {
+    "url": "https://fintoc.com/",
+    "final_url": "https://www.fintoc.com/cl",
+    "status": 200,
+    "title": "Fintoc | Plataforma de Pagos y API para Empresas en Chile",
+    "sha256": "6ad82fe3390d8f82fa7717d1c4c147bdff735309a3002588897cfc32c3149eda",
+    "documentation_links": [
+      "https://chatgpt.com/?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.&hints=search",
+      "https://claude.ai/new?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.",
+      "https://docs.fintoc.com/",
+      "https://docs.fintoc.com/docs/welcome",
+      "https://www.google.com/search?q=%C2%BFC%C3%B3mo%20puede%20Fintoc%20ayudar%20a%20mi%20empresa%20en%20Chile%3F%20Resume%20sus%20soluciones%20de%20pagos%20y%20cobranza%2C%20casos%20de%20uso%20y%20c%C3%B3mo%20empezar.%20Usa%20https%3A%2F%2Fwww.fintoc.com%2Fcl%20y%20https%3A%2F%2Fdocs.fintoc.com%20como%20fuentes.&udm=50&aep=11"
+    ]
+  },
+  {
+    "url": "https://dart.fss.or.kr/",
+    "final_url": "https://dart.fss.or.kr/",
+    "status": 200,
+    "title": "\uc804\uc790\uacf5\uc2dc\uc2dc\uc2a4\ud15c",
+    "sha256": "9fe18ba591ea68951a37f809a28cda40cf037b0677e4f777a4ba5da75be2bb73",
+    "documentation_links": []
+  },
+  {
+    "url": "https://flinks.com/",
+    "final_url": "https://www.flinks.com/",
+    "status": 200,
+    "title": "Flinks | Embedded Finance Platform",
+    "sha256": "e63a180ac42597a73a70ff24ed9745267163f40706490ca99276ee913a3288d1",
+    "documentation_links": [
+      "https://docs.flinks.com/docs/welcome"
+    ]
+  },
+  {
+    "url": "https://crystalintelligence.com/",
+    "final_url": "https://crystalintelligence.com/",
+    "status": 200,
+    "title": "Decision Intelligence for Digital Assets | Crystal Intelligence",
+    "sha256": "d69c58964b7a3e4dc7a7ba48719cf0a22116fd901247f964e30846518e53d686",
+    "documentation_links": []
+  },
+  {
+    "url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "final_url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "status": 202,
+    "title": "",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "documentation_links": []
+  },
+  {
+    "url": "https://abr.business.gov.au/",
+    "final_url": "https://abr.business.gov.au/",
+    "status": 200,
+    "title": "ABN Lookup",
+    "sha256": "913056e3b335972c0728f877512e56466bc289d489105d2be91fe965d22e704f",
+    "documentation_links": []
+  },
+  {
+    "url": "https://index.baselgovernance.org/",
+    "final_url": "https://index.baselgovernance.org/",
+    "status": 200,
+    "title": "Assessing money laundering risks around the world | Basel AML Index",
+    "sha256": "1376e8e248044d51b9bb72d0eb559f790b33db4a65e678e5931bd9e27f2e5c32",
+    "documentation_links": []
+  },
+  {
+    "url": "https://imtf.com/",
+    "final_url": "https://imtf.com/",
+    "status": 200,
+    "title": "AML & Financial Crime Compliance Software | IMTF",
+    "sha256": "53a27754911df2429cf4faa57c90fa8ed48ca813652e56c40fbfd6565666b2a4",
+    "documentation_links": []
+  },
+  {
+    "url": "https://asic.gov.au/",
+    "final_url": "https://www.asic.gov.au/",
+    "status": 200,
+    "title": "ASIC Home | ASIC",
+    "sha256": "4cb90bbd78c730a79615ab2b92c396a17c85e734774469ae15c1ed4fa16b825e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://ondato.com/",
+    "final_url": "https://ondato.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "72c0e82c825e1b535d099609ada5f8cbb7e066f82919db6a6a5143812672d82c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://liquidinc.asia/",
+    "final_url": "https://liquidinc.asia/",
+    "status": 200,
+    "title": "\u682a\u5f0f\u4f1a\u793eLiquid",
+    "sha256": "dc0429c1db299bac52021d5d9237081fb706f0d4275570840e5b768f28cf189f",
+    "documentation_links": []
+  },
+  {
+    "url": "https://getid.com/",
+    "final_url": "https://getid.com/",
+    "status": 200,
+    "title": "Identity Verification Service and Online KYC - GetID",
+    "sha256": "8555524e113e1979306263c1f8c3131798a85964c66b7826b037cd8689339cc3",
+    "documentation_links": [
+      "https://dev.checkin.com/docs/ocr"
+    ]
+  },
+  {
+    "url": "https://amlwatcher.com/",
+    "final_url": "https://amlwatcher.com/",
+    "status": 200,
+    "title": "AI-Powered AML Compliance Software\u202f| AML Watcher",
+    "sha256": "be97573e390303615fef779d5e4396c1248102535fc72f1e3511b97f50506415",
+    "documentation_links": []
+  },
+  {
+    "url": "https://iidentifii.com/",
+    "final_url": "https://iidentifii.com/",
+    "status": 200,
+    "title": "iiDENTIFii: Leading Biometric Identity Solutions for Fraud Prevention",
+    "sha256": "ee5f395494905a9f50d7259998fd23a08770b778831aab1adef1e44e1150b601",
+    "documentation_links": []
+  },
+  {
+    "url": "https://nimc.gov.ng/",
+    "final_url": "https://nimc.gov.ng/",
+    "status": 200,
+    "title": "National Identity Management Commission",
+    "sha256": "89f4393cb7280fed40364828833af2b33792cd20670a5bd2545ae6049590d1a5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://lucinity.com/",
+    "final_url": "https://lucinity.com/",
+    "status": 200,
+    "title": "Lucinity - Human AI Operations for Modern FinCrime Teams",
+    "sha256": "41ba5c3c92be738244f2d08315ba7de56a50c4ec4dfea7e096753e8659ad6311",
+    "documentation_links": [
+      "https://docs.lucinity.com",
+      "https://lucinity.com/regulatory-reporting"
+    ]
+  },
+  {
+    "url": "https://ipinfo.io/",
+    "final_url": "https://ipinfo.io/",
+    "status": 200,
+    "title": "IP Data Intelligence for Developers & Enterprises | IPinfo",
+    "sha256": "87a321ad894f3673e21ba7bc8398dd48c338d6ec3f700d46081395f04f00a290",
+    "documentation_links": [
+      "https://ipinfo.io/developers"
+    ]
+  },
+  {
+    "url": "https://notabene.id/",
+    "final_url": "https://notabene.id/",
+    "status": 200,
+    "title": "Notabene - The open trust layer for global payments",
+    "sha256": "7163425ffe25a5b2b1ef885984ffb1f8824be704c63f288663f947730f7cce48",
+    "documentation_links": [
+      "https://devx.notabene.id/"
+    ]
+  },
+  {
+    "url": "https://ofac.treasury.gov/sanctions-list-service",
+    "final_url": "https://ofac.treasury.gov/sanctions-list-service",
+    "status": 200,
+    "title": "Sanctions List Service | Office of Foreign Assets Control",
+    "sha256": "8cd7ca9c29ed6d39c4e98c54b517818e45a06171c1f5bd0b887f252d5bf7ce5b",
+    "documentation_links": [
+      "https://ofac.treasury.gov/media/10391/download?inline"
+    ]
+  },
+  {
+    "url": "https://ised-isde.canada.ca/site/corporations-canada/en",
+    "final_url": "https://ised-isde.canada.ca/site/corporations-canada/en",
+    "status": 200,
+    "title": "Corporations Canada",
+    "sha256": "ba6e6782c891c0c51fbea0d5b0aacca7d1eee86bff6b06f10e849bb545815dc4",
+    "documentation_links": []
+  },
+  {
+    "url": "https://lukka.tech/",
+    "final_url": "https://lukka.tech/",
+    "status": 200,
+    "title": "Digital Asset Data Solutions | Lukka Global Platform",
+    "sha256": "8150080a1d46e749849cd17a1470fa8d39e51259df1933630f0599b8a29d70a7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://globalledger.io/",
+    "final_url": "https://globalledger.io/",
+    "status": 200,
+    "title": "Global Ledger: the Blockchain Analytics Company",
+    "sha256": "f21ff479b9cd66b073b9cc9f3712bcb316220af6348a245b1e68922b6f616602",
+    "documentation_links": []
+  },
+  {
+    "url": "https://prembly.com/",
+    "final_url": "https://prembly.com/",
+    "status": 200,
+    "title": "Prembly - Identity Verification, KYC, AML & Fraud Prevention Solutions",
+    "sha256": "96a24b43ee8003e8d79ecf2c85cff491b18d57a5bedf7ded58d7441530409e81",
+    "documentation_links": []
+  },
+  {
+    "url": "https://incode.com/",
+    "final_url": "https://incode.com/",
+    "status": 200,
+    "title": "AI Identity Verification Software & KYC Platform | Incode",
+    "sha256": "6429506a1b55cc3832cc97ca47406e9f481dea83a3314f4ec0dbd7d7baf3cea7",
+    "documentation_links": [
+      "https://developer.incode.com/",
+      "https://developer.incode.com/ecosystem-workforce/integrations-ecosystem-overview/",
+      "https://developer.incode.com/get-started-with-incode/",
+      "https://developer.incode.com/get-started-with-incode/welcome-to-incode/",
+      "https://developer.incode.com/reference/introduction/"
+    ]
+  },
+  {
+    "url": "https://intellicheck.com/",
+    "final_url": "https://www.intellicheck.com/",
+    "status": 200,
+    "title": "Intellicheck Identity Verification | Intellicheck",
+    "sha256": "8e2dc7664985e543875d496e50ac6bd08891580a6f3fb9cf87752e45c35862b1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://membercheck.com/",
+    "final_url": "https://membercheck.com/",
+    "status": 200,
+    "title": "MemberCheck | Risk Management for Regulated Business",
+    "sha256": "d3d1a10b10d7a8e94ae9e6879ffc0230c1b63213fb6f1bcfd363c33cd88569e9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://reconoserid.com/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://sam.gov/",
+    "final_url": "https://sam.gov/",
+    "status": 200,
+    "title": "Home | SAM.gov",
+    "sha256": "68e14f6fac60a96086e2637826c4f7f3b6b7b2ba741781a971fdb467c3b303a1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://hyperverge.co/",
+    "final_url": "https://hyperverge.co/",
+    "status": 200,
+    "title": "Passive Liveness & Face Authentication | Digital KYC",
+    "sha256": "f625658a4086a1cdaa18be23e728cfdd9577488d03a16a5fb81127923f29fe80",
+    "documentation_links": []
+  },
+  {
+    "url": "https://okra.ng/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://seon.io/",
+    "final_url": "https://seon.io/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "33dc9cf17ce0ec73cbd23a6461cc7ad0b7a33abce8b936087ae09af8d6b3b735",
+    "documentation_links": []
+  },
+  {
+    "url": "https://sayari.com/",
+    "final_url": "https://sayari.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "26307a0191d4aad19e30e67617aa2ec70d80a2323b80acfe11ad255104b682ab",
+    "documentation_links": []
+  },
+  {
+    "url": "https://namescan.io/",
+    "final_url": "https://namescan.io/",
+    "status": 200,
+    "title": "NameScan | Free PEP and Sanctions Checks | Simple KYC Tools",
+    "sha256": "94ec55eadc432db30db41bcd8b2aa39a56a27d242521c00af6fc30c8724e7324",
+    "documentation_links": [
+      "https://namescan.io/industries/realestate",
+      "https://namescan.io/pepandsanctionapi"
+    ]
+  },
+  {
+    "url": "https://mono.co/",
+    "final_url": "https://mono.co/",
+    "status": 200,
+    "title": "Powering African businesses with Open Banking",
+    "sha256": "5dfe3861b7b7126df883a9d12d66f0861d10e63217b429ea4afd11de4a5a050d",
+    "documentation_links": [
+      "https://docs.mono.co/api",
+      "https://docs.mono.co/docs",
+      "https://docs.mono.co/docs/changelog",
+      "https://docs.mono.co/docs/sdks",
+      "https://mono.co/developers",
+      "https://mono.co/legal"
+    ]
+  },
+  {
+    "url": "https://innov8tif.com/",
+    "final_url": "https://innov8tif.com/",
+    "status": 200,
+    "title": "Innov8tif \u2014 ASEAN's eKYC and identity assurance experts",
+    "sha256": "6c8025a340a8cc355338fe94ca24007ed594b995f9db8385a093953ab5180863",
+    "documentation_links": [
+      "https://ekycondemand.com",
+      "https://ekycondemand.com/"
+    ]
+  },
+  {
+    "url": "https://seamfix.com/",
+    "final_url": "https://seamfix.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "bc1e132912bebbc95755bb541ce9de9a7b5ff2a72d4b9443acfb6445fc7dcce0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://prometeoapi.com/",
+    "final_url": "https://prometeoapi.com/",
+    "status": 200,
+    "title": "La API financiera para una banca sin fronteras| Prometeo",
+    "sha256": "2b80345edac1299ef3b4ab0d928e52c3cbaf727b387e4a11fe210ac1cff7e53e",
+    "documentation_links": [
+      "https://docs.prometeoapi.com/"
+    ]
+  },
+  {
+    "url": "https://ai.baidu.com/",
+    "final_url": "https://ai.baidu.com/",
+    "status": 200,
+    "title": "\u767e\u5ea6AI\u5f00\u653e\u5e73\u53f0-\u5168\u7403\u9886\u5148\u7684\u4eba\u5de5\u667a\u80fd\u670d\u52a1\u5e73\u53f0",
+    "sha256": "80fc69379bf86312eda7d35286f44a0f0ab556366b70487b4297cedb23e1b87e",
+    "documentation_links": [
+      "https://developer.baidu.com/",
+      "https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html"
+    ]
+  },
+  {
+    "url": "https://nect.com/",
+    "final_url": "https://nect.com/",
+    "status": 200,
+    "title": "Nect \u2013 digitale Identit\u00e4t f\u00fcr Verifizierung, Signatur & Kommunikation",
+    "sha256": "7f6180b7e63bb9d6bdcf6439981ba4b04a452299b07dc0ad1e986f2f5a6be7ac",
+    "documentation_links": []
+  },
+  {
+    "url": "https://ripjar.com/",
+    "final_url": "https://ripjar.com/",
+    "status": 200,
+    "title": "Ripjar | Financial Crime & Risk Screening Platform",
+    "sha256": "d30431d65329013ee95c0a7ccddc473a4f39e0294958f5c705107a5503fb8dff",
+    "documentation_links": []
+  },
+  {
+    "url": "https://sift.com/",
+    "final_url": "https://sift.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "51fa031a5903f6df9e7be9c2f9ee8a3e2a3d6636c5b0ca99f97e849c6eee4b86",
+    "documentation_links": []
+  },
+  {
+    "url": "https://ongrid.in/",
+    "final_url": "https://ongrid.in/",
+    "status": 200,
+    "title": "OnGrid | India\u2019s No. 1 BGV Platform | KYC | KYB | Due Diligence",
+    "sha256": "2d5811dbcde6b55f132db3b98e4b18e92251f4491623b6858f402ccd976ed77d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://token.io/",
+    "final_url": "https://token.io/",
+    "status": 202,
+    "title": "",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "documentation_links": []
+  },
+  {
+    "url": "https://sprintverify.com/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://plaid.com/",
+    "final_url": "https://plaid.com/",
+    "status": 200,
+    "title": "Plaid: Enabling all companies to build fintech solutions",
+    "sha256": "bccc2fef7a1de377a68b6ef35a74221610e8ae9d48ee003970ab1321003b9eb7",
+    "documentation_links": [
+      "https://plaid.com/docs/"
+    ]
+  },
+  {
+    "url": "https://brs.go.ke/",
+    "final_url": "https://brs.go.ke/",
+    "status": 200,
+    "title": "Business Registration Service | Doing Business Made Easier",
+    "sha256": "c3cf4c89c8aae8e1a1a03be902b23824bb6edda000c714d58c99690d58e87e62",
+    "documentation_links": []
+  },
+  {
+    "url": "https://qoreid.com/",
+    "final_url": "https://qoreid.com/",
+    "status": 200,
+    "title": "QoreID - Trusted Onboarding and Customer Analytics",
+    "sha256": "194822cc260d7ae68f85fc59cec90e0b1db677c64a5682b44a140a6e8048b387",
+    "documentation_links": [
+      "https://docs.qoreid.com/docs/introduction",
+      "https://qoreid.com/"
+    ]
+  },
+  {
+    "url": "https://opensupplyhub.org/",
+    "final_url": "https://opensupplyhub.org/",
+    "status": 200,
+    "title": "Open Supply Hub: Map the World's Supply Chains, Together",
+    "sha256": "ccb148075ccbb847ad7199521928088378e682fb767c39cfab226e77d9d2d6f9",
+    "documentation_links": [
+      "https://info.opensupplyhub.org/developer-resources"
+    ]
+  },
+  {
+    "url": "https://opencorporates.com/",
+    "final_url": "https://opencorporates.com/",
+    "status": 200,
+    "title": "OpenCorporates",
+    "sha256": "2fe650046e961dc1c02ac2eea971e29cab2cc4adc8096166c5894aa06418d6ba",
+    "documentation_links": [
+      "https://knowledge.opencorporates.com/knowledge-base/api-documentation/",
+      "https://opencorporates.com/uses-cases/application-developers"
+    ]
+  },
+  {
+    "url": "https://invoid.co/",
+    "final_url": "https://bureau.id/",
+    "status": 200,
+    "title": "Real-Time Fraud Prevention & Identity Decisioning | Bureau",
+    "sha256": "fa6df65b18cf49af3b0d56c17059a35ee0bcc4d729d33d82d24617db6479de80",
+    "documentation_links": []
+  },
+  {
+    "url": "https://orc.gov.gh/",
+    "final_url": "https://orc.gov.gh/",
+    "status": 200,
+    "title": "Office of the Registrar of Companies - Ghana",
+    "sha256": "7fbbb636ee5ea5f49b15fd470cca5ef17ad150ac224ad791474a0fd70126f273",
+    "documentation_links": []
+  },
+  {
+    "url": "https://trustcloud.tech/",
+    "final_url": "https://trustcloud.tech/",
+    "status": 200,
+    "title": "TrustCloud | We build Trust in Secure Digital Transactions",
+    "sha256": "b70fcff6dca524894260fcc4ee1d409ff37c62c244361cac4e56c1070da8c526",
+    "documentation_links": [
+      "https://developers.trustcloud.tech"
+    ]
+  },
+  {
+    "url": "https://privy.id/",
+    "final_url": "https://privy.id/",
+    "status": 200,
+    "title": "Digital Identity & e-Signature Platform Indonesia | Privy",
+    "sha256": "c08b9ec00d6ed2d4af0f9c506311f88920260ad62de98d844d52fd6b32e8c5bf",
+    "documentation_links": []
+  },
+  {
+    "url": "https://unico.io/",
+    "final_url": "https://unico.io/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "681d7bd184df3ac5ea8e62a64d8e92110121a0664d00eaa920807e1e6ba76c42",
+    "documentation_links": []
+  },
+  {
+    "url": "https://truelayer.com/",
+    "final_url": "https://truelayer.com/",
+    "status": 200,
+    "title": "TrueLayer - Europe's leading open banking platform",
+    "sha256": "6b26c1f376af6538f1b642eedad2d14221589713ed56e2640e3b55ae79cd9476",
+    "documentation_links": [
+      "https://docs.truelayer.com/docs/",
+      "https://docs.truelayer.com/reference/"
+    ]
+  },
+  {
+    "url": "https://oscilar.com/",
+    "final_url": "https://oscilar.com/",
+    "status": 200,
+    "title": "AI Risk Decisioning Platform for Fintechs & Banks - Oscilar",
+    "sha256": "a70fe002fd69f1cf840d4744c9980673b8ca3610569ef2e05f1283fc9a4731d0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://regulaforensics.com/",
+    "final_url": "https://regulaforensics.com/",
+    "status": 200,
+    "title": "Identity Verification Solutions & Forensic Devices by Regula",
+    "sha256": "565d0c50a2f8034cffb892b693440ae3a5dda4dd27714a0b0e48081b0cdc8fd7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://truststamp.ai/",
+    "final_url": "https://truststamp.ai/",
+    "status": 200,
+    "title": "Privacy-First AI Infrastructure | Trust Stamp",
+    "sha256": "37dfb99c49fdc26227fd9f6f2473c2b883bb68f08359c32008b297721905a134",
+    "documentation_links": []
+  },
+  {
+    "url": "https://uqudo.com/",
+    "final_url": "https://uqudo.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "5803b1bfc72183be2670bb18f32118e0dfeaa0f0e21c4110f8e2ca284c67f221",
+    "documentation_links": []
+  },
+  {
+    "url": "https://trustfull.com/",
+    "final_url": "https://trustfull.com/",
+    "status": 200,
+    "title": "Trustfull - Stop Fraud, Not Customers",
+    "sha256": "7619e45acfb935ad413a035b6a06b9954169f482758e64b3654e74de675313c8",
+    "documentation_links": [
+      "https://docs.trustfull.com/"
+    ]
+  },
+  {
+    "url": "https://veridas.com/",
+    "final_url": "https://veridas.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "cb9f7cefde54e23a1a4f8db6b403f40308da36a33a75760352d5bc5c0c4442e4",
+    "documentation_links": []
+  },
+  {
+    "url": "https://tink.com/",
+    "final_url": "https://tink.com/",
+    "status": 200,
+    "title": "Tink | European open banking platform | 6000 connections",
+    "sha256": "43dc6c258238fa0d953c9e410df8dcd553358f48a1b71a412a2080b6a4ae605f",
+    "documentation_links": [
+      "https://docs.tink.com/",
+      "https://docs.tink.com/api",
+      "https://docs.tink.com/market-capabilities/aggregation",
+      "https://docs.tink.com/resources/landing/introduction-to-the-tink-platform",
+      "https://docs.tink.com/resources/landing/make-your-first-api-call",
+      "https://docs.tink.com/resources/landing/set-up-your-tink-account"
+    ]
+  },
+  {
+    "url": "https://silenteight.com/",
+    "final_url": "https://www.silenteight.com/",
+    "status": 200,
+    "title": "Iris 7 | Policy-Bound Agentic AI for Financial Crime Compliance",
+    "sha256": "7ef03c0b4e514cb8e9efab5962026f6a081814cdf6423122caff44d33e2f49c2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://risk.lexisnexis.com/",
+    "final_url": "https://risk.lexisnexis.com/",
+    "status": 200,
+    "title": "LexisNexis Risk Solutions | Transform Your Risk Decision Making",
+    "sha256": "32ac8173ce2b100b099d8e5bea1c9bee8537c8b5db6080506313e5ee1c5ba76d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://withpersona.com/",
+    "final_url": "https://withpersona.com/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "1508194044d308155fc9677804c5bd73342711805b28ea96886bd88f4f1bdd38",
+    "documentation_links": []
+  },
+  {
+    "url": "https://shuftipro.com/",
+    "final_url": "https://shuftipro.com/",
+    "status": 200,
+    "title": "Global Identity Verification Platform for KYC and AML | G2 Leader - Shufti",
+    "sha256": "7803c9187de447924e1e33ec249312df3888214a86395581c9c3fb5760c50476",
+    "documentation_links": [
+      "https://developers.shuftipro.com/",
+      "https://developers.shuftipro.com/docs/backoffice/features/idv_modes",
+      "https://developers.shuftipro.com/docs/backoffice/plug_and_play_integration/iframe_branding",
+      "https://developers.shuftipro.com/docs/get_started",
+      "https://developers.shuftipro.com/docs/mobile/intro",
+      "https://shuftipro.com/developers/"
+    ]
+  },
+  {
+    "url": "https://verafin.com/",
+    "final_url": "https://verafin.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "d9e7664214f78c1a36768c3a6c1111fe7c41d6603440b0cd6498552367d15633",
+    "documentation_links": []
+  },
+  {
+    "url": "https://windward.ai/",
+    "final_url": "https://windward.ai/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "8fb5af2ce4f05bad3e7171daa3467bbfe269f71540151c51a1c29f07a9e8be12",
+    "documentation_links": []
+  },
+  {
+    "url": "https://sanctionscanner.com/",
+    "final_url": "https://www.sanctionscanner.com/",
+    "status": 200,
+    "title": "Sanction Scanner: Anti-Money Laundering Solutions - Sanction Scanner",
+    "sha256": "4d600b6e9c87c02158a206a63287c9be11892442f6c6bcdaced755a8e7188eca",
+    "documentation_links": [
+      "https://developer.sanctionscanner.com/en/home-page",
+      "https://developer.sanctionscanner.com/en/webhooks"
+    ]
+  },
+  {
+    "url": "https://uppsalasecurity.com/",
+    "final_url": "https://uppsalasecurity.com/",
+    "status": 200,
+    "title": "Blockchain Threat Intelligence & Crypto Investigations - Uppsala Security",
+    "sha256": "b9b6fc640a025b00786c1a5457d5486c178d93d6c452c01c2b6d6995acf10ede",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.aciworldwide.com/",
+    "final_url": "https://www.aciworldwide.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "f78261cfd8871ef167ec087f454030121c3befd58facb122d9ad2ae26de69e73",
+    "documentation_links": []
+  },
+  {
+    "url": "https://tech5.ai/",
+    "final_url": "https://tech5.ai/",
+    "status": 200,
+    "title": "Tech5: Leading Solutions in Digital Identity & Biometrics",
+    "sha256": "454433434d4627f65eac1f707ece3a656fc5db4432bad3a4df62cad86f9f4cbe",
+    "documentation_links": []
+  },
+  {
+    "url": "https://uaepass.ae/",
+    "final_url": "https://uaepass.ae/",
+    "status": 200,
+    "title": "",
+    "sha256": "38698483b46a9132775c4060eb9275f1b9462dcca076677269f974dfd7ff9161",
+    "documentation_links": []
+  },
+  {
+    "url": "https://trustdock.io/",
+    "final_url": "https://biz.trustdock.io:443/",
+    "status": 200,
+    "title": "eKYC\u30fb\u30c7\u30b8\u30bf\u30eb\u672c\u4eba\u78ba\u8a8d\u306eTRUSTDOCK\uff5c\u5c0e\u5165\u793e\u6570No.1\u306eeKYC\u30b5\u30fc\u30d3\u30b9",
+    "sha256": "9771f5cb828cd24f261147606b4a8875bb4930efc1d7ed3b42789cbfb53a9cff",
+    "documentation_links": []
+  },
+  {
+    "url": "https://thisisme.com/",
+    "final_url": "https://thisisme.com/",
+    "status": 200,
+    "title": "ThisIsMe | Homepage",
+    "sha256": "3d9f3edd7c4d19b2f0b49d23c32d4c7d8acdac7b560576f6cb8844b47ef532f2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://sumsub.com/",
+    "final_url": "https://sumsub.com/",
+    "status": 200,
+    "title": "Leading Identity Verification Service - 2025 G2\u2019s Top Pick | Sumsub",
+    "sha256": "059c7db8d8eab1a4c8529be353b8b94f466b890200025c68fb77c9337f890ae1",
+    "documentation_links": [
+      "https://docs.sumsub.com/",
+      "https://docs.sumsub.com/changelog",
+      "https://docs.sumsub.com/reference/about-sumsub-api"
+    ]
+  },
+  {
+    "url": "https://vidos.id/",
+    "final_url": "https://vidos.id/",
+    "status": 200,
+    "title": "Vidos | Revolutionizing Verified Digital Identity",
+    "sha256": "5cc91b70010ef8b757c5b3f22629209b4110251fae4d1ad8c37ed2184db257eb",
+    "documentation_links": [
+      "https://vidos.id/docs"
+    ]
+  },
+  {
+    "url": "https://nibss-plc.com.ng/",
+    "final_url": "https://nibss-plc.com.ng/",
+    "status": 200,
+    "title": "Home - NIBSS",
+    "sha256": "80d0f3522e24ab3d2af1d7ad1502a5a82bb28afbacc9fb4576a60e29570f9302",
+    "documentation_links": []
+  },
+  {
+    "url": "https://vyntra.com/",
+    "final_url": "https://vyntra.com/",
+    "status": 200,
+    "title": "Vyntra - Transaction Intelligence for Financial Institutions.",
+    "sha256": "7a3708a685218b1bd6168965ed64e22b48f401aa914dd2238252a9fa23e1fe58",
+    "documentation_links": []
+  },
+  {
+    "url": "https://vespia.io/",
+    "final_url": "https://vespia.io/",
+    "status": 200,
+    "title": "AI-powered Business Verification Solution | Vespia",
+    "sha256": "3f89583ed0662bfbf83c4fdfc19e5c609817108c3386e54d446a199ac8243404",
+    "documentation_links": [
+      "https://vespia.io/developers"
+    ]
+  },
+  {
+    "url": "https://www.baesystems.com/en/cybersecurity",
+    "final_url": "https://www.baesystems.com/en/cybersecurity",
+    "status": 403,
+    "title": "",
+    "sha256": "0ebf05f8698f20b980375b31612efabdc7562c9915b06023c7b9d0996157da44",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.acurisriskintelligence.com/",
+    "final_url": "https://info.acurisriskintelligence.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "5dbc439c0817650f014057da49ae9a77f6872ea06bb5cbff0764e63381899fe3",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.atfinity.swiss/",
+    "final_url": "https://www.atfinity.swiss/",
+    "status": 200,
+    "title": "AI-Powered No-Code Process Automation Platform for Banks | Atfinity",
+    "sha256": "7ebe3f0e71a17cdc8a6d9ca243199802d905f5934d0c81628aff46bb4d46f5b8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.anchain.ai/",
+    "final_url": "https://www.anchain.ai/",
+    "status": 200,
+    "title": "AnChainAI - Crypto Investigations, AML, Payment risk screening API, Agentic AI advisory",
+    "sha256": "614de26863f8c1caafefc11c39fe26d2a8d58771444e59bfdbdaa02af091652e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://trustpair.com/",
+    "final_url": "https://trustpair.com/",
+    "status": 200,
+    "title": "Best-in-Class Fraud Prevention and Account Validation Platform - Trustpair",
+    "sha256": "df64e046d4477afb1f94b3e9419099034dfca6a2eef0be056c51b6d33c836d8a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://whoyou.co.za/",
+    "final_url": "https://www.whoyou.co.za",
+    "status": 200,
+    "title": "WhoYou - Leading & Trusted Digital Identity Partner",
+    "sha256": "1b268c7791aa6be4550e214df26ed92f0f8bf8a29e1e2f8e51e370b3f703297b",
+    "documentation_links": [
+      "https://docs.whoyou.co.za/",
+      "https://www.whoyou.co.za"
+    ]
+  },
+  {
+    "url": "https://www.acra.gov.sg/",
+    "final_url": "https://www.acra.gov.sg/",
+    "status": 200,
+    "title": "Home | Accounting and Corporate Regulatory Authority",
+    "sha256": "a1a1097dcbf2cddc26ab128ed1e16177ff70974330871dc1a89aaa5c98885623",
+    "documentation_links": []
+  },
+  {
+    "url": "https://wathq.sa/",
+    "final_url": "https://wathq.sa/",
+    "status": 400,
+    "title": "",
+    "sha256": "65430b6b1e6f8401abb805877539d59c7c1745f6d7104f714ae1d6414e32f6f7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.arca.gob.ar/",
+    "final_url": "https://www.arca.gob.ar/",
+    "status": 200,
+    "title": "",
+    "sha256": "150d3bdba5ffa3028f9c303c1493af247b9f153bfa7fbc5de7e62510b3dd5373",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.authenticid.com/",
+    "final_url": "https://www.authenticid.com/",
+    "status": 200,
+    "title": "AuthenticID is now part of Incode",
+    "sha256": "3ae24342f5e29d085863b1295a1c45d114d5587d4596c79a0fedb1de40666747",
+    "documentation_links": []
+  },
+  {
+    "url": "https://vida.id/",
+    "final_url": "https://vida.id/id/",
+    "status": 200,
+    "title": "HOME | VIDA DIGITAL IDENTITY",
+    "sha256": "77b4871c6d4d051ad4ef1e5e5dd6447491716a227cbdbb42e75e7214b9ca1437",
+    "documentation_links": [
+      "https://vida.id/en/developer"
+    ]
+  },
+  {
+    "url": "https://trisa.io/",
+    "status": null,
+    "error": "ReadTimeout",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.amlrightsource.com/",
+    "final_url": "https://www.amlrightsource.com/",
+    "status": 200,
+    "title": "AML RightSource | Experts in Financial Crime Compliance",
+    "sha256": "166f0b71d3929cf9bc988f43a8968cd2213e0bf1ed0bcdbb9a3c15d80555a4c2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://wolfsberg-group.org/",
+    "final_url": "https://wolfsberg-group.org/",
+    "status": 200,
+    "title": "Home - Wolfsberg Group",
+    "sha256": "726ea57db44d8ccc3c287dd430414bfed029da8f5ffc3fc6559246532f1214b0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.bankid.com/",
+    "final_url": "https://www.bankid.com/",
+    "status": 200,
+    "title": "BankID",
+    "sha256": "cdbc21f1af3c8b4f00123accc887a02f1c64b3f543d5fee1ca3ab88a04c2dc27",
+    "documentation_links": []
+  },
+  {
+    "url": "https://webid-solutions.com/",
+    "final_url": "https://webid-solutions.com/de/",
+    "status": 200,
+    "title": "WebID \u25ba Dein Partner f\u00fcr sichere Online-Identifikation",
+    "sha256": "ce97eab1d837a4c05f8bb1d0b145a0e15bc1d6797de4733c2e7f6e8f7a9769f7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.aamva.org/",
+    "final_url": "https://www.aamva.org/",
+    "status": 200,
+    "title": "Home - American Association of Motor Vehicle Administrators - AAMVA",
+    "sha256": "eea0733d420f40aeaec18b39e47f09189901deb6defe69b5d3978764b2901d0c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.advance.ai/",
+    "final_url": "https://advance.ai/",
+    "status": 200,
+    "title": "Digital, Anti-fraud, Automated with AI - ADVANCE AI",
+    "sha256": "15896300080529b83635706ee0b25ed2b8a761095f2a687090a97d71f0499132",
+    "documentation_links": []
+  },
+  {
+    "url": "https://verifyvasp.com/",
+    "final_url": "https://www.verifyvasp.com/en/",
+    "status": 200,
+    "title": "VerifyVASP - The Travel Rule Solution for Digital Assets",
+    "sha256": "a35736143cb901a73b0122105594ec9b4f29f13a9071869aebc4b14984a84613",
+    "documentation_links": [
+      "https://docs.verifyvasp.com/"
+    ]
+  },
+  {
+    "url": "https://www.au10tix.com/",
+    "final_url": "https://www.au10tix.com/",
+    "status": 200,
+    "title": "Identity Verification Service - AI-based ID verification | AU10TIX",
+    "sha256": "63decd31caab7a2570e057aacdbfef892b879cfe7e803a4feea4fc91e50b0407",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.cac.gov.ng/",
+    "final_url": "https://www.cac.gov.ng/",
+    "status": 200,
+    "title": "Corporate Affairs Commission",
+    "sha256": "a0a04736caed46112663b12701128c79775d5c225e010d0770f66d1055c622f0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.aware.com/",
+    "final_url": "https://www.aware.com/",
+    "status": 200,
+    "title": "Trusted Biometric Intelligence for Enterprise and Government",
+    "sha256": "1a2c8a29c1bd6b32eb92431fca60034dbbbf83133f7756afa7533a41705158e1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://surepass.io/",
+    "final_url": "https://surepass.io/",
+    "status": 200,
+    "title": "Digital Identity Verification & Income Verification - Surepass",
+    "sha256": "9d5c274d93600767d2b51105ea94fb8bbaabca66988387eb0a6bdfe5a77ea4d8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://thekyb.com/",
+    "final_url": "https://thekyb.com/",
+    "status": 200,
+    "title": "Building Trust Among Businesses Through KYB Verification",
+    "sha256": "129294498954530c83b612820a004f19ae304ce046a8304301c44039212411a5",
+    "documentation_links": [
+      "https://developers.thekyb.com/"
+    ]
+  },
+  {
+    "url": "https://digified.io/",
+    "status": null,
+    "error": "ReadTimeout",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.coinbase.com/travelrule",
+    "final_url": "https://www.coinbase.com/travelrule",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "b704c0c8668b4bad70ed7ab3368415d81bf031e81c22831d8b66ed9ea499316a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.amlintelligence.com/",
+    "final_url": "https://www.amlintelligence.com/",
+    "status": 200,
+    "title": "AML Intelligence - Business Intelligence on AML and Financial Crime for Executive Leaders",
+    "sha256": "1faaf71cd65694f1a956143993972e542a67bf11596150f75f87eb53a0045f52",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.coinfirm.com/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.ckycindia.in/",
+    "final_url": "https://www.ckycindia.in/",
+    "status": 403,
+    "title": "Access Denied",
+    "sha256": "ccce1b631fc23cc40d264e0f7ab924b231368b3e6c24dfcec2a488f344ce81e1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://perfios.com/",
+    "final_url": "https://perfios.ai/",
+    "status": 200,
+    "title": "Best FinTech Software Company -Digital Onboarding, Underwriting, Risk & Fraud Assessment",
+    "sha256": "8993ce51918c97671a13ac2255845e08053b852ce9d2911e50baaaea5446a928",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.chainalysis.com/",
+    "final_url": "https://www.chainalysis.com/",
+    "status": 200,
+    "title": "The Blockchain Data Platform - Chainalysis",
+    "sha256": "23082104756b9faf3b4b3df6cdf2c44edf667070c274b5f67ad7b3ce664311cf",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.alibabacloud.com/",
+    "final_url": "https://www.alibabacloud.com/en?_p_lc=5",
+    "status": 200,
+    "title": "Empower Your Business in USA & Canada with Alibaba Cloud's Cloud Products & Services",
+    "sha256": "4c4a68fee99b1810bde7177bf70f4291295dd1b4a3bda6cf34086abb74e4e31a",
+    "documentation_links": [
+      "https://www.alibabacloud.com/developer",
+      "https://www.alibabacloud.com/help"
+    ]
+  },
+  {
+    "url": "https://www.amlpartners.com/",
+    "final_url": "https://amlpartners.com/",
+    "status": 200,
+    "title": "Anti-Money Laundering (AML) Software | RegTechONE",
+    "sha256": "daf7ef504fe45e5710bd6cb99670842ca36c920ce5be59aa255e6e1650acf2da",
+    "documentation_links": [
+      "https://amlpartners.com/insights/no-code-business-application-platform-for-developers/"
+    ]
+  },
+  {
+    "url": "https://www.alloy.com/",
+    "final_url": "https://www.alloy.com/",
+    "status": 200,
+    "title": "AI-Powered Financial Crime and Customer Risk Management\u2026 | Alloy",
+    "sha256": "e17da1579b2c96f4aec1d8c93b94942570c63167449fbdbdd33b67a59779aa2d",
+    "documentation_links": [
+      "https://developer.alloy.com",
+      "https://developer.alloy.com/"
+    ]
+  },
+  {
+    "url": "https://www.caf.io/",
+    "final_url": "https://www.certta.ai/",
+    "status": 200,
+    "title": "Caf is now Certta | Your Intelligent Verification Hub",
+    "sha256": "ca2089ec6620ba5dba3efdfe91571e5c61b5702af4fe5a45c78d3d2724723846",
+    "documentation_links": [
+      "https://www.certta.ai/developers"
+    ]
+  },
+  {
+    "url": "https://www.developer.tech.gov.sg/",
+    "final_url": "https://www.developer.tech.gov.sg/",
+    "status": 403,
+    "title": "ERROR: The request could not be satisfied",
+    "sha256": "1f13401dda240de1b5c7e3ab4b67735eb6f0121fc33589482a1564ecadc57169",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.biocatch.com/",
+    "final_url": "https://www.biocatch.com/",
+    "status": 200,
+    "title": "BioCatch - Behavioral Intelligence to Prevent Fraud & Build Trust",
+    "sha256": "7c69f6199caae60fd11e04674d03b60a8d92b8a9ee52ef3b6b0190bf60e48ee5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.asiaverify.com/",
+    "final_url": "https://asiaverify.com/",
+    "status": 200,
+    "title": "Your Partner for APAC Company Registry Data | AsiaVerify",
+    "sha256": "3a6d67f7f485b3ef0e8ba69496bf8bf7d6073a9d5396b8e5d65e57d2524148bd",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.daon.com/",
+    "final_url": "https://www.daon.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "6968857136e702b25a5dc9b44541ea5bcd4b023053a2f64c50cd24f74bb30081",
+    "documentation_links": []
+  },
+  {
+    "url": "https://verifik.co/",
+    "final_url": "https://verifik.co/",
+    "status": 200,
+    "title": "Mejor Plataforma de Verificaci\u00f3n de Identidad para Am\u00e9rica Latina | Verifik",
+    "sha256": "8345590078775829a5afb09deec72dabddd541ef3cf722309be5aabf607783aa",
+    "documentation_links": [
+      "https://docs.verifik.co",
+      "https://docs.verifik.co/docs-es/acuerdo-de-niveles-de-servicio",
+      "https://docs.verifik.co/docs-es/legal/politica-privacidad",
+      "https://docs.verifik.co/docs-es/terminos-y-condiciones",
+      "https://docs.verifik.co/identity/identity-verification/",
+      "https://docs.verifik.co/intro",
+      "https://docs.verifik.co/intro/",
+      "https://docs.verifik.co/verifik-es/acuerdo-de-niveles-de-servicio/",
+      "https://docs.verifik.co/verifik-es/intro/",
+      "https://docs.verifik.co/verifik-es/legal/politica-privacidad/",
+      "https://docs.verifik.co/verifik-es/terminos-y-condiciones/"
+    ]
+  },
+  {
+    "url": "https://www.blockaid.io/",
+    "final_url": "https://blockaid.io",
+    "status": 200,
+    "title": "Blockaid: Securing the Largest Companies Operating Onchain",
+    "sha256": "e8bba99190ccd2b907108738405ead45562c9caa60da99e962ede7859b913535",
+    "documentation_links": [
+      "https://docs.blockaid.io/changelog",
+      "https://docs.blockaid.io/docs/blockaid-client",
+      "https://docs.blockaid.io/docs/introduction",
+      "https://docs.blockaid.io/reference/openapi-schema"
+    ]
+  },
+  {
+    "url": "https://www.21analytics.ch/",
+    "final_url": "https://www.21analytics.co/",
+    "status": 200,
+    "title": "FATF Travel Rule Solution for Crypto Compliance | 21 Analytics",
+    "sha256": "39551f263ca0e2d88e4c08e01fc766816ef903ea7ddbb35ea2a7c1ba91f696d0",
+    "documentation_links": [
+      "https://docs.21analytics.ch/"
+    ]
+  },
+  {
+    "url": "https://www.coface.com/",
+    "final_url": "https://www.coface.com/",
+    "status": 200,
+    "title": "Coface: Global Credit Insurance Solutions To Protect Your Business | Coface",
+    "sha256": "bb689e876b9ec7b2b2ac8e06fea6c5ff3c40282534bdf5f9837a0d00c3c914a4",
+    "documentation_links": [
+      "https://developers.coface.com/"
+    ]
+  },
+  {
+    "url": "https://www.brreg.no/",
+    "final_url": "https://www.brreg.no/",
+    "status": 200,
+    "title": "Forsiden - Br\u00f8nn\u00f8ysundregistrene",
+    "sha256": "30351c5cedaac67fbf8f5e45d36e796c9973274baa87b151ccba34cec345bbb9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.cr.gov.hk/",
+    "final_url": "https://www.cr.gov.hk/",
+    "status": 200,
+    "title": "Companies Registry \u516c\u53f8\u8a3b\u518a\u8655",
+    "sha256": "306d3949c3ffbe294a298f2a62d9461b63eca0076cca6795cef706a9a9f52ca2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.brankas.com/",
+    "final_url": "https://www.brankas.com/",
+    "status": 200,
+    "title": "Unlock Modern Financial Services with Robust APIs | Brankas",
+    "sha256": "79869edd28818b46bb6d3d84128fcce82dfdb941a117f182a97d650765285d67",
+    "documentation_links": [
+      "https://api-reference.brankas.com",
+      "https://api-reference.brankas.com/",
+      "https://docs.brankas.com/docs/product-overview"
+    ]
+  },
+  {
+    "url": "https://www.castellum.ai/",
+    "final_url": "https://www.castellum.ai/",
+    "status": 200,
+    "title": "Castellum.AI - Agentic Screening for AML",
+    "sha256": "cb48ee41793a1e27ae938f0d00f6a965a024386cba4fe4b7cc4fc34aa7abd669",
+    "documentation_links": [
+      "https://app.swaggerhub.com/apis-docs/castellum.ai/Search/1.0.0",
+      "https://www.castellum.ai/developers"
+    ]
+  },
+  {
+    "url": "https://www.digilocker.gov.in/",
+    "final_url": "https://www.digilocker.gov.in/",
+    "status": 200,
+    "title": "DigiLocker | Access, Share & Verify Digital Documents",
+    "sha256": "58c59378fa7f88ff41ef5bfc716ca253050bd3e6a1dad9d637e27d32ae6fc347",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.bureau.id/",
+    "final_url": "https://bureau.id/",
+    "status": 200,
+    "title": "Real-Time Fraud Prevention & Identity Decisioning | Bureau",
+    "sha256": "fa6df65b18cf49af3b0d56c17059a35ee0bcc4d729d33d82d24617db6479de80",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.deduce.com/",
+    "final_url": "https://www.deduce.com/",
+    "status": 200,
+    "title": "Home - Deduce",
+    "sha256": "7d6d5eb2adb234d1e62f1862b2995424224961e7526bf46bcef9090f0da2816c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.dnb.com/",
+    "final_url": "https://www.dnb.com/en-us/",
+    "status": 200,
+    "title": "Power Confident Business Decisions | Dun & Bradstreet",
+    "sha256": "36e9b22da9b89f173d25d15d79f0cd82629509baf5c743e067b9bd416e177d8f",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.chexsystems.com/",
+    "final_url": "https://www.chexsystems.com/",
+    "status": 200,
+    "title": "ChexSystems.com Home Page",
+    "sha256": "f890cf545eb83cd3fefb4d86870c1db59b0ce3c3759df872cc26530d4c1ae146",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.cfca.com.cn/",
+    "final_url": "https://www.cfca.com.cn/",
+    "status": 200,
+    "title": "\u4e2d\u91d1\u91d1\u878d\u8ba4\u8bc1\u4e2d\u5fc3\uff08CFCA\uff09-\u5168\u7403\u670d\u52a1\u5668\u8bc1\u4e66\u3001SSL\u8bc1\u4e66\u3001\u5168\u7403\u4fe1\u4efb\u4f53\u7cfb\u8bc1\u4e66\u3001\u7535\u5b50\u7b7e\u540d\u3001\u8eab\u4efd\u8ba4\u8bc1\u3001\u79fb\u52a8\u5b89\u5168\u884c\u4e1a\u9886\u519b\u8005\uff0c\u4fdd\u969c\u4fe1\u606f\u5b89\u5168\u9632\u6b3a\u8bc8\u4e13\u5bb6\u3002",
+    "sha256": "dafe57f008ec69aa3060664f9f211a6985950093604144f70a1b4de4e9fab805",
+    "documentation_links": []
+  },
+  {
+    "url": "https://uidai.gov.in/",
+    "final_url": "https://uidai.gov.in/hi",
+    "status": 200,
+    "title": "Home - Unique Identification Authority of India | Government of India - Unique Identification Authority of India | Government of India",
+    "sha256": "46cb077cde5960852fa88b53ffca67af4ffaf6da2c0ac5bafca775f5aa659edc",
+    "documentation_links": [
+      "https://uidai.gov.in/hi/developer-section"
+    ]
+  },
+  {
+    "url": "https://www.controlrisks.com/",
+    "final_url": "https://www.controlrisks.com/",
+    "status": 200,
+    "title": "Control Risks | Global Risk Consultancy",
+    "sha256": "104cee0c1d40bef92af957941b2d7318d4783aaef499bde0f2d485fb0a151243",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.crif.com/",
+    "final_url": "https://www.crif.com/",
+    "status": 200,
+    "title": "CRIF | Credit Bureau Reporting and Business Information - CRIF.com",
+    "sha256": "d4b0433510de174b8d7cc796dba9786484357b9d14960d447f75536b2037d4a9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.creditsafe.com/",
+    "final_url": "https://www.creditsafe.com/cs/en.html",
+    "status": 200,
+    "title": "Creditsafe - The Global Business Intelligence Experts",
+    "sha256": "d548fb9d6bed54b38c4bc2d6092f450afc682dc5d16bd5298a586c52794853bb",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.entrust.com/",
+    "final_url": "https://www.entrust.com/",
+    "status": 403,
+    "title": "Access Restricted",
+    "sha256": "502327029fefb99ab6cd6367c7b2c4dd5663ca1ce68d5dd6442842e277ecaae2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.earlywarning.com/",
+    "final_url": "https://www.earlywarning.com/",
+    "status": 200,
+    "title": "Early Warning\u00ae | Powering Zelle\u00ae, Paze\u00ae and Certos\u2120",
+    "sha256": "a1b850d08748ecccdcf98c294b9c8837ed45558a9efe311b69d7cbaa8d668e7b",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.darwinium.com/",
+    "final_url": "https://www.darwinium.com/",
+    "status": 200,
+    "title": "Digital Security and Fraud Prevention | Darwinium",
+    "sha256": "1798f02e74b4762d0db6028c3b2b7716517a9ee73cbff0a909ca1f0daf91441f",
+    "documentation_links": [
+      "https://docs.darwinium.com/docs/introduction-to-darwinium",
+      "https://docs.darwinium.com/docs/quick-start"
+    ]
+  },
+  {
+    "url": "https://www.companiesoffice.govt.nz/",
+    "final_url": "https://www.companiesoffice.govt.nz/",
+    "status": 200,
+    "title": "New Zealand Companies Office",
+    "sha256": "a1d9f8693c27886f3b44d791ed6c30901bd50bda63fb186390e18592f7e26aa2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fico.com/",
+    "final_url": "https://www.fico.com/",
+    "status": 200,
+    "title": "",
+    "sha256": "509fa8ed2b0870ac503f6a82f41e61d2efbafaf37f324ac8e8cf1cfd57daac07",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.facetec.com/",
+    "final_url": "https://www.facetec.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "c73d382c2bcf7d8745b0e32fda5ec1be6415fa85284a7335b4d0cae3aab758c0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.creditreform.com/",
+    "final_url": "https://www.creditreform.com/",
+    "status": 200,
+    "title": "creditreform.com | Creditreform",
+    "sha256": "d9973f46349653daf71d4fdc65b8f6697bacde7e7d6aa9a1bc5665284643a995",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.feedzai.com/",
+    "final_url": "https://www.feedzai.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "29a8756a7230563fcc59c290f206108a307ea6fbdf98d0b9e4eec133073e0a21",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fatf-gafi.org/",
+    "final_url": "https://www.fatf-gafi.org/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "cafc90b5987ae79af16b378438f398f7c69cc3ebb74b00d20492d0f8a5b25ab1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.elm.sa/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.datactics.com/",
+    "final_url": "https://www.datactics.com/",
+    "status": 200,
+    "title": "Datactics Home - Datactics",
+    "sha256": "bce289f3902eca4af8516f8d364c5afb160fd37d8bf2835d805eb13335ec5100",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fisglobal.com/",
+    "final_url": "https://www.fisglobal.com/",
+    "status": 403,
+    "title": "Access Denied",
+    "sha256": "46e82ee96a4536900ad936dfda4257258ddf46d49def960e34496a6b176a9464",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.datavisor.com/",
+    "final_url": "https://www.datavisor.com/",
+    "status": 200,
+    "title": "AI Powered Fraud Platform for Enterprise",
+    "sha256": "4df006ef1475e96f2539c6416b9a48721a7e2d7f76934a11e5a27adb9deb74d3",
+    "documentation_links": [
+      "https://www.datavisor.com/datavisor-api-guide"
+    ]
+  },
+  {
+    "url": "https://www.elliptic.co/",
+    "final_url": "https://www.elliptic.co/",
+    "status": 200,
+    "title": "Blockchain Analytics & Crypto Compliance | Elliptic",
+    "sha256": "c1dcd64877575eab8a5ee78c53c79b81eff8c9393204c5ce2fdf56a31ad94b81",
+    "documentation_links": [
+      "https://developers.elliptic.co/reference/getting-started"
+    ]
+  },
+  {
+    "url": "https://www.encompasscorporation.com/",
+    "final_url": "https://www.encompasscorporation.com/",
+    "status": 200,
+    "title": "Corporate Digital Identity | CDI & KYC | Encompass Corporation",
+    "sha256": "b287dfbf1bfa87e293cd8fcdd5fda4eeabda92e7cc03bad70c207fec6e24e8b5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.forter.com/",
+    "final_url": "https://www.forter.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "fa61caa5173d810d78112148238af46c265e5726c8149b67605d842e2223a7b4",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.digitap.ai/",
+    "final_url": "https://www.digitap.ai/",
+    "status": 200,
+    "title": "AI Powered End to End API Platform for Banking and FinTech",
+    "sha256": "d19d9f54a8bc663f1e2c38065a87f783033f68ab22f4ee40f808448e738691ce",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fincen.gov/boi",
+    "final_url": "https://www.fincen.gov/boi",
+    "status": 200,
+    "title": "Beneficial Ownership Information Reporting | FinCEN.gov",
+    "sha256": "df799d8272b5c012ac283da32fbb28a469b89d7e85df5d6335ad70c9d80e1d0a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.finicity.com/",
+    "final_url": "https://www.mastercard.com/us/en/business/open-finance.html",
+    "status": 403,
+    "title": "Access Denied",
+    "sha256": "b2753e814f66affc513055d726c3d4e2c48c671b26c60d4853a876ad294db3b0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fiserv.com/",
+    "final_url": "https://www.fiserv.com/",
+    "status": 200,
+    "title": "Financial Services Technology, Mobile Banking, Payments | Fiserv",
+    "sha256": "0c827840206b774cdb0641e558f7d16ddb033a142bdba85c49b863cdbd1b1ae4",
+    "documentation_links": [
+      "https://developer.fiserv.com",
+      "https://developer.fiserv.com/"
+    ]
+  },
+  {
+    "url": "https://www.diligent.com/",
+    "final_url": "https://www.diligent.com/",
+    "status": 200,
+    "title": "The leading AI platform for GRC | Diligent",
+    "sha256": "9fabc4cda4bafd7de2fc15b096a2d82a769cde29167259db725314ef799463c9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.equifax.com/",
+    "final_url": "https://www.equifax.com/",
+    "status": 200,
+    "title": "Equifax | Credit Bureau | Check Your Credit",
+    "sha256": "7e24a29a338c4b1c83e1c9fd064a852aeeb4a20abc26ca4c014081bd0a22df84",
+    "documentation_links": [
+      "https://developer.equifax.com/"
+    ]
+  },
+  {
+    "url": "https://www.fenergo.com/",
+    "final_url": "https://www.fenergo.com/",
+    "status": 200,
+    "title": "Financial Compliance Software | CLM and KYC | Fenergo",
+    "sha256": "166ab46367ab8e9b50f847cac4659c4c39013f86e399ad45eeb2fad7f7ba6b0f",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gob.mx/segob/renapo",
+    "final_url": "https://www.gob.mx/segob/renapo",
+    "status": 200,
+    "title": "Challenge Validation",
+    "sha256": "c7c16b8c555a3229818f740472528637fe2dba456cd3b8814904f52a57bbd5ee",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.dowjones.com/professional/factiva/",
+    "final_url": "https://www.dowjones.com/business-intelligence/factiva/",
+    "status": 200,
+    "title": "Dow Jones Factiva - News, Data & Media Monitoring Solutions",
+    "sha256": "5613ef05c68c313e69aa7485fe83cd0a2882abe71c1df833787327c06902042f",
+    "documentation_links": [
+      "https://developer.dowjones.com/"
+    ]
+  },
+  {
+    "url": "https://www.giact.com/",
+    "final_url": "https://giact.com/",
+    "status": 200,
+    "title": "GIACT Now Part of LSEG - GIACT",
+    "sha256": "f5e034260c7446649fe49757a214072a483c4402e49cbb14c257f311432d4e3b",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.exiger.com/",
+    "final_url": "https://www.exiger.com/",
+    "status": 200,
+    "title": "One platform for end-to-end visibility into your entire supply chain and risk - Exiger",
+    "sha256": "03f18d3406d4bc9d3497922c1ff024144d92537a289a82a78bccfef58300bf86",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fnz.com/",
+    "final_url": "https://www.fnz.com/",
+    "status": 200,
+    "title": "FNZ - End-to-end wealth management platform | FNZ",
+    "sha256": "1a36f361eb54f18d4d1feeb5fca55ed20c7ca7efc0893a8cb04b1dbe5dc075fb",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fincen.gov/section-314a",
+    "final_url": "https://www.fincen.gov/resources/section-314a",
+    "status": 200,
+    "title": "Section 314(a) | FinCEN.gov",
+    "sha256": "3e41275058397c7f57ab369455a08e7f35be6fd3a9f9f66d4a0836a3231b76d7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.experian.com/",
+    "final_url": "https://www.experian.com/",
+    "status": 200,
+    "title": "Experian: Credit Report, FICO\u00ae Score & Financial Tools",
+    "sha256": "95a8f5be55f0cf128e546690c8d4982c0418193a10067de5e2d24f965142b7cf",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.complycube.com/",
+    "final_url": "https://www.complycube.com/en/",
+    "status": 200,
+    "title": "Identity Verification, KYC & AML Platform | ComplyCube",
+    "sha256": "0e831814803eff7ca2af0073b0bcd4f04c58892b7e5ba8e434a75a758dbcbc1c",
+    "documentation_links": [
+      "https://docs.complycube.com/",
+      "https://docs.complycube.com/api-reference/",
+      "https://docs.complycube.com/api-reference/versioning",
+      "https://docs.complycube.com/documentation",
+      "https://docs.complycube.com/documentation/api-reference",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/perform-multi-bureau-check/",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/perform-proof-of-address-check/",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/run-a-document-check",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/run-an-aml-screening-check/",
+      "https://docs.complycube.com/documentation/guides/api-quick-guide/run-an-identity-check",
+      "https://docs.complycube.com/documentation/guides/hosted-solution-quick-guide/",
+      "https://docs.complycube.com/documentation/guides/integration-checklist"
+    ]
+  },
+  {
+    "url": "https://www.fourthline.com/",
+    "final_url": "https://www.fourthline.com/",
+    "status": 200,
+    "title": "Fourthline | Raising the Standard of Identity Verification",
+    "sha256": "920263416fefba65aa89a7b6effb7eeb19e6fa65b46bf1c99f088e1f71fcc495",
+    "documentation_links": [
+      "https://docs.fourthline.com/"
+    ]
+  },
+  {
+    "url": "https://www.clari5.com/",
+    "final_url": "https://www.clari5.com/",
+    "status": 200,
+    "title": "AI Fraud Detection & AML Software for Banks | Clari5",
+    "sha256": "a8553b9f7d5979e69bb345f676d68ded8bab57473d13b0ae10772a70a8f98e6e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gsma.com/solutions-and-impact/gsma-open-gateway/",
+    "final_url": "https://www.gsma.com/solutions-and-impact/gsma-open-gateway/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "3074ca87b50b4d9d4e9d9ae4438534c5f845c2f74801d7e795e0ca12bfb5c7d5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.dowjones.com/professional/risk/",
+    "final_url": "https://www.dowjones.com/business-intelligence/risk/",
+    "status": 200,
+    "title": "Dow Jones Risk & Compliance",
+    "sha256": "5e667ad6768cea650ec95e46eef5c20edcb3901147cdd264246afdbfe1df95f8",
+    "documentation_links": [
+      "https://developer.dowjones.com/"
+    ]
+  },
+  {
+    "url": "https://www.finverse.com/",
+    "final_url": "https://www.finverse.com/",
+    "status": 200,
+    "title": "Finverse Home",
+    "sha256": "78a0c58a078a4d78998d13ace4e30859763ed716049d11d0d8763fc3e2dd8120",
+    "documentation_links": [
+      "https://dashboard.finverse.com/login",
+      "https://docs.finverse.com",
+      "https://docs.finverse.com/"
+    ]
+  },
+  {
+    "url": "https://www.id-pal.com/",
+    "final_url": "https://www.id-pal.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "8ddfb3005f1000eed435f5534b8ad62aae3a7d6cef79b0e3795b67a9762a40ba",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.ganintegrity.com/",
+    "final_url": "https://www.ganintegrity.com/",
+    "status": 200,
+    "title": "GAN Integrity | Third-Party and Compliance Platform",
+    "sha256": "566de9f7749e4b98f618fc2377951b4c32d1d13c179996dd49ca682a6584d12c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.infobelpro.com/",
+    "final_url": "https://www.infobelpro.com/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "2f306ce3831ebd9cf79fe042412af3005a42d5d990551e298580610866801e4d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.finscan.com/",
+    "final_url": "https://www.finscan.com/",
+    "status": 200,
+    "title": "KYC & AML Compliance Solutions | FinScan",
+    "sha256": "70609621f84399eef529431389dcfbd5fe7df52f56602a2428671936131e2cc6",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.globaldatabase.com/",
+    "final_url": "https://www.globaldatabase.com/",
+    "status": 200,
+    "title": "Global Database - Company Intelligence platform On Global Markets. Company Information for Sales - globaldatabase.com",
+    "sha256": "8f29fe8bc8d9462f4992a22f4deeebf6f5b0c21462bf825cb30955fef6f9bddc",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.hummingbird.co/",
+    "final_url": "https://www.hummingbird.co/",
+    "status": 200,
+    "title": "Hummingbird | Unified Risk & Compliance Operations",
+    "sha256": "050843a98252f7e229e80a1c74559b8248ea52056aa9d3124dc40384b9ff5d2a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.fullcircl.com/",
+    "final_url": "https://legal.ncino.com/",
+    "status": 200,
+    "title": "nCino Legal Center",
+    "sha256": "999fa07d71077451527b48d820ba21fe3f3365b77c9e906319d1db99df8a46e8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "final_url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "status": 200,
+    "title": "The UK Sanctions List - GOV.UK",
+    "sha256": "835ef9813fca14ae742606ae66e70f3d1a69d1bf713f4f60f0c8498ea537b9cc",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.globalsign.com/",
+    "final_url": "https://www.globalsign.com/en",
+    "status": 200,
+    "title": "Digital Certificates - PKI - SSL/TLS \ud83c\udf0e GlobalSign GMO",
+    "sha256": "5d65c051a1b5fa6d04214ae2820af203f255abd8d03fbee0f2b8485aedb63a09",
+    "documentation_links": [
+      "https://www.globalsign.com/en/resources/apis/api-documentation"
+    ]
+  },
+  {
+    "url": "https://www.gstn.org.in/",
+    "final_url": "https://www.gstn.org.in/",
+    "status": 200,
+    "title": "GSTN - Goods and Services Tax Network",
+    "sha256": "5ec7efaa76d3a11cb7eee72c0bebc1b953859ae9d2e0a9faa2f1111ac429cb28",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.flagright.com/",
+    "final_url": "https://www.flagright.com/",
+    "status": 200,
+    "title": "The modern standard in fincrime compliance | Flagright",
+    "sha256": "739a232da621b445986fd8d2d926f1f39a290ed2326ca54a8fa981caee5eb04e",
+    "documentation_links": [
+      "https://docs.flagright.com/"
+    ]
+  },
+  {
+    "url": "https://www.handelsregister.de/",
+    "final_url": "https://www.handelsregister.de/rp_web/welcome.xhtml",
+    "status": 200,
+    "title": "Registerportal | Startseite",
+    "sha256": "7c039d238ef2f29d7aab1ec364cdb732a10155d3a3c965144150639121b043b8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gbg.com/",
+    "final_url": "https://www.gbg.com/en-us/",
+    "status": 200,
+    "title": "GBG | Global identity verification leaders",
+    "sha256": "b7e3f52b0b922f456f8d1bb0c3b8ec453d8df795373174ab0bec3e44a4ac7a5e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.innovis.com/",
+    "final_url": "https://www.innovis.com/",
+    "status": 200,
+    "title": "Identity and Credit Information Solutions | Innovis",
+    "sha256": "50b99d893b184026532993772caca35433362f110c2dcd5dc29b4f65091acfe1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.iproov.com/",
+    "final_url": "https://www.iproov.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "957a8689962dbba140fb7d0e2fb2da3a1f4cc99323de92b6a000285c2fba2bd5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.idfy.com/",
+    "final_url": "https://www.idfy.com/",
+    "status": 200,
+    "title": "IDfy | Asia's Leading TrustStack",
+    "sha256": "920886533c6e5516b1b1cf64fb86eaee6c22d722cc414af1f3233dfbbd2b9672",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.international.gc.ca/",
+    "final_url": "https://www.international.gc.ca/",
+    "status": 200,
+    "title": "Global Affairs Canada \u2013 Splash page / Affaires mondiales Canada \u2013 Page de garde",
+    "sha256": "a43e855ab8826d50aed29f81b555815990b7db59109b53d79da00783cca907c5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.idenfy.com/",
+    "final_url": "https://idenfy.com/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "7e6420f342c42fe4759c50e661c09c22d776ef564274b87bffeb6c0cc7ca4673",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gsxt.gov.cn/",
+    "final_url": "https://www.gsxt.gov.cn/",
+    "status": 403,
+    "title": "\u8bf7\u6c42\u5f02\u5e38",
+    "sha256": "eba5a90eaa1d2f7c5e044fb0af20164b87ddf925207a0095b8467bdce7b4464c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.karza.in/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.eastnets.com/",
+    "final_url": "https://www.eastnets.com/",
+    "status": 200,
+    "title": "Eastnets | Leading Provider of AML , SWIFT and Payments Solutions",
+    "sha256": "cc4215e5721bf8c71454a8987db79254c41b1b08e4b2b26508eeec2f7f20e8c1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.houjin-bangou.nta.go.jp/",
+    "final_url": "https://www.houjin-bangou.nta.go.jp/",
+    "status": 200,
+    "title": "\u56fd\u7a0e\u5e81\u6cd5\u4eba\u756a\u53f7\u516c\u8868\u30b5\u30a4\u30c8",
+    "sha256": "20291f388e2e3d30157110829cf2d944e1285b37244e46f2c77b529cd73bbdb6",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gov.br/receitafederal/",
+    "final_url": "https://www.gov.br/receitafederal/pt-br",
+    "status": 200,
+    "title": "Receita Federal \u2014 Receita Federal",
+    "sha256": "73ce35c890948fa1e5f2d9270c13fec0f62ef388065548f460bb4ff8efb36663",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.inscribe.ai/",
+    "final_url": "https://www.inscribe.ai/",
+    "status": 200,
+    "title": "AI Document Fraud Detection Software for Financial Services | Inscribe",
+    "sha256": "558ebc254b98b3c6521a322c027fbc51e99f3c57e468a18a01465577cad49638",
+    "documentation_links": [
+      "https://docs.inscribe.ai/reference/overview"
+    ]
+  },
+  {
+    "url": "https://www.jumio.com/",
+    "final_url": "https://www.jumio.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "d28f3d95c7239f6e54dcd903a27c093cd9bed4a2b8cd750729c136054fe69c36",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.incognia.com/",
+    "final_url": "https://www.incognia.com/",
+    "status": 200,
+    "title": "Incognia | Identify Users vs. Fraudsters. Across devices.",
+    "sha256": "d705cd2d97e678d9618af4d4392e1b800cb9a7e12c27736d93918138648ffde9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.kontomatik.com/",
+    "final_url": "https://www.kontomatik.com/",
+    "status": 200,
+    "title": "Kontomatik - open banking provider in CEE region",
+    "sha256": "dfa9396c6dce87b6c2dcbfc44838c3a040203c32a75c9a1bdf8b37b41b3f55f4",
+    "documentation_links": [
+      "https://developer.kontomatik.com/"
+    ]
+  },
+  {
+    "url": "https://www.idnow.io/",
+    "final_url": "https://idnow.io/",
+    "status": 200,
+    "title": "IDnow: Transforming KYC to TYC",
+    "sha256": "c21f13f063154d3e4e65f3add1af3119b594fc14a81da60a82f310be0f807edc",
+    "documentation_links": [
+      "https://idnow.io/developers/"
+    ]
+  },
+  {
+    "url": "https://www.identomat.com/",
+    "final_url": "https://www.identomat.com/",
+    "status": 200,
+    "title": "Identomat | AI-Powered KYC & Identity Verification",
+    "sha256": "1d81fada9c8090ae5e0772933e5dc547db1ca6a4395acb5b85a43bfca006ea9d",
+    "documentation_links": [
+      "https://docs.identomat.com/",
+      "https://identomat.gitbook.io/identomat-documentation"
+    ]
+  },
+  {
+    "url": "https://www.insee.fr/",
+    "final_url": "https://www.insee.fr/fr/accueil",
+    "status": 200,
+    "title": "Accueil \u2212 Insee \u2212 Institut national de la statistique et des \u00e9tudes \u00e9conomiques | Insee",
+    "sha256": "bd695ce9c6721670ca3657995b29aadbd8b6046a7f9bc4e677b62ec748c12ae9",
+    "documentation_links": [
+      "https://www.insee.fr/fr/information/2383410"
+    ]
+  },
+  {
+    "url": "https://www.handshakes.ai/",
+    "final_url": "https://www.handshakes.ai/",
+    "status": 200,
+    "title": "Data Analytics Company Singapore | Singapore Entity Search",
+    "sha256": "2c597942a4fbfad89d6daa56143fd9686a7c7e848888797a22f349862cb5bdb0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.irs.gov/tax-professionals/taxpayer-identification-number-tin-matching",
+    "final_url": "https://www.irs.gov/tax-professionals/taxpayer-identification-number-tin-matching",
+    "status": 200,
+    "title": "Taxpayer Identification Number (TIN) Matching | Internal Revenue Service",
+    "sha256": "f6b67ea2d98c5de04607c99ddfa19997a32402b9e794b8963d3de11622c9531c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.kompany.com/",
+    "final_url": "https://www.kompany.com/",
+    "status": 200,
+    "title": "kompany - KYC KYB AML UBO \u2714 Register Report, Company Check, Credit Report \u2013 Instant Online Access",
+    "sha256": "f70edc80bb5b26286ad986228afeb1095da9cda7644b9444e0fd83a2a9b03450",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.innovatrics.com/",
+    "final_url": "https://www.innovatrics.com/",
+    "status": 200,
+    "title": "Innovatrics: Biometric Solutions for Government & Enterprise",
+    "sha256": "c795d1b5014ee4170eb7cacffc286a08aae508c7bdf9f7147d9dc1ec767b0ee6",
+    "documentation_links": [
+      "https://developers.innovatrics.com/"
+    ]
+  },
+  {
+    "url": "https://www.lexisnexis.com/",
+    "final_url": "https://www.lexisnexis.com/en-us/gateway.page",
+    "status": 200,
+    "title": "Welcome to LexisNexis - Choose Your Path",
+    "sha256": "2f2fa4729e5252acdc0eee9c1d73bcec064b7ea24b8192f48a185e138cc2a28e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.kharon.com/",
+    "final_url": "https://www.kharon.com/",
+    "status": 200,
+    "title": "The premier global risk analytics platform | Kharon",
+    "sha256": "a95440a27a80347d718c26b74060493127d60d80ceb61c749400709cd35f1c04",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.merklescience.com/",
+    "final_url": "https://www.merklescience.com/",
+    "status": 200,
+    "title": "The Predictive Crypto Risk & Intelligence Platform | Merkle Science",
+    "sha256": "fef20420121249f1500d58e3be5eeee4f045d4ad6923c5733b51f2971ce52ea8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.intix.eu/",
+    "final_url": "https://vyntra.com/transaction-observability/",
+    "status": 403,
+    "title": "Forbidden",
+    "sha256": "7c02a4d47777f0171d901d71f74faa053533560ae96ac60b1689e0eb30696a1a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.moea.gov.tw/",
+    "final_url": "https://www.moea.gov.tw/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "2427ec56b2b9e8b1e848db601daa8b9446157ce8ab360668474f8981284fb8ad",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.ipid.tech/",
+    "final_url": "https://ipid.tech/",
+    "status": 200,
+    "title": "IPID | Know Your Payee (KYP) Globally",
+    "sha256": "b0695a2c4d46918a30294b27bf6ae904f03a0c62ffd5589b5bd1fe65d88a21de",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.mca.gov.in/",
+    "final_url": "https://www.mca.gov.in/",
+    "status": 403,
+    "title": "Access Denied",
+    "sha256": "3ee639f5ac3bb567b30807047d0efff776fdd753034e76d0136f679874e044d1",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.lseg.com/en/risk-intelligence",
+    "final_url": "https://www.lseg.com/en/risk-intelligence",
+    "status": 200,
+    "title": "LSEG Risk Intelligence | Screening and Verification Solutions  | LSEG",
+    "sha256": "7d5c5be28ec26d9097f2c2f5df91e3c0dcc3c07c7669039e14ff210bdf01bae8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.lbr.lu/",
+    "final_url": "https://www.lbr.lu/",
+    "status": 200,
+    "title": "Luxembourg Business Registers",
+    "sha256": "0af05ff5d6f867d477747b9a3635cf1097414ac25e6b7fd32883f15b91bf1386",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.mas.gov.sg/",
+    "final_url": "https://www.mas.gov.sg/",
+    "status": 200,
+    "title": "Maintenance",
+    "sha256": "ad49c409265cb12b9e7f22e6d97f0d37f4dbed5001c4fff266499c079a7258cc",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.kyckr.com/",
+    "final_url": "https://kyckr.com/",
+    "status": 200,
+    "title": "Kyckr | The Global Business Register | KYB & AML Compliance Solution",
+    "sha256": "82e1775fce3c1218e04c1c5d63664aed9e94d477d7251bf38b67fd88c0e3b6cf",
+    "documentation_links": [
+      "https://developer.kyckr.com/Introduction"
+    ]
+  },
+  {
+    "url": "https://www.kompli-global.com/",
+    "final_url": "https://www.kompli-global.com/",
+    "status": 200,
+    "title": "Kompli-Global\u00a0\u00bb\u00a0Kompli-Global - Safe in the knowledge",
+    "sha256": "d367fe29397f2c5ea4ae78b0bdf6b9baadd213379cf91a144b293b76968e6cd7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.maxmind.com/",
+    "final_url": "https://www.maxmind.com/en/home",
+    "status": 200,
+    "title": "Industry leading IP Geolocation and Online Fraud Prevention | MaxMind",
+    "sha256": "1dc2f9d364b0fdf046e4021e0390d3357a2680f88e39c32a1a15b47d606b9279",
+    "documentation_links": [
+      "https://dev.maxmind.com",
+      "https://dev.maxmind.com/"
+    ]
+  },
+  {
+    "url": "https://www.miteksystems.com/",
+    "final_url": "https://www.miteksystems.com/",
+    "status": 200,
+    "title": "The Trusted Leader in Digital Fraud Defense | Mitek",
+    "sha256": "0ca98e35feb8fb9514341cbe2ab7af4c0a9b8c6257b5577468587baf462654c9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.lloydslistintelligence.com/",
+    "final_url": "https://www.lloydslistintelligence.com/",
+    "status": 200,
+    "title": "Lloyd's List Intelligence | The Authority in Maritime Intelligence",
+    "sha256": "9e99f59e1deb0297d85faecce395c5fe5417e206bf9d885611e30e43661a6286",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gleif.org/en/vlei",
+    "final_url": "https://www.gleif.org/en/vlei",
+    "status": 404,
+    "title": "Error \u2013 Page not found \u2013 GLEIF",
+    "sha256": "6f370a669d556b57473c6ba405f4723ed7b98b7048277f766595759036622289",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.itsme-id.com/",
+    "final_url": "https://www.itsme-id.com/",
+    "status": 200,
+    "title": "itsme\u00ae Home",
+    "sha256": "4d7ff472003f9935cfce6f601e23ee5f5835163dd0c4804a88edc8a7cabddc69",
+    "documentation_links": [
+      "https://developers.hubspot.com/slack"
+    ]
+  },
+  {
+    "url": "https://www.mof.go.jp/english/",
+    "final_url": "https://www.mof.go.jp/english/",
+    "status": 200,
+    "title": "Ministry of Finance Japan",
+    "sha256": "8d079712ec033e06bb9f3198790649b014eaaa73ba308cacbfc3e68693a923a2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.napier.ai/",
+    "final_url": "https://www.napier.ai/",
+    "status": 200,
+    "title": "Napier AI: AI powered Anti-Money Laundering platform to combat evolving threats",
+    "sha256": "309742eff6173e50a50a25a33bcbf34c089044fca347eb6656cef5769372f337",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.kvk.nl/",
+    "final_url": "https://www.kvk.nl/",
+    "status": 200,
+    "title": "KVK - Kamer van Koophandel | KVK",
+    "sha256": "f57cec228d52cb375f22981cf54b0ac637aeccdc5fbacd698b170e4a16e24756",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.neterium.io/",
+    "final_url": "https://www.neterium.io/",
+    "status": 200,
+    "title": "Neterium | Watchlist screening API",
+    "sha256": "59627b5897673eac8746a31c25e08916074129d134de780baf01db3378188d83",
+    "documentation_links": [
+      "https://portal.neterium.io/"
+    ]
+  },
+  {
+    "url": "https://www.moodys.com/",
+    "final_url": "https://www.moodys.com/",
+    "status": 200,
+    "title": "Moody's - credit ratings, research, and data for global capital markets",
+    "sha256": "a644ff38443e7db75dc99ac4bb0ddaef3bece6467e3df179af720260aa33c108",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.mx.com/",
+    "final_url": "https://www.mx.com/",
+    "status": 200,
+    "title": "#1 Financial Data Platform | MX",
+    "sha256": "5852b052f16a26854a052a36351179c09f124f924ab260eeceea93c83dbfb5ab",
+    "documentation_links": [
+      "https://docs.mx.com/"
+    ]
+  },
+  {
+    "url": "https://www.mintzgroup.com/",
+    "final_url": "https://www.mintzgroup.com/",
+    "status": 200,
+    "title": "Home",
+    "sha256": "a579e061cb7a44c95505af205366495fc4163f2f382a58bd1083caf6a0500327",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.polestarglobal.com/",
+    "final_url": "https://www.polestarglobal.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "ab8eee7ab8245f8f654863fa3bb7cd9dff40f373d5835aad6bc9937c544849e0",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.gleif.org/",
+    "final_url": "https://www.gleif.org/en",
+    "status": 200,
+    "title": "Home \u2013 GLEIF",
+    "sha256": "a3b01207d53f41d3877c1a25fa8b9ccfae93bcb0b82c0a9b8603ef8e85899e3c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.oracle.com/financial-services/",
+    "final_url": "https://www.oracle.com/financial-services/",
+    "status": 200,
+    "title": "Financial Services Solutions | Oracle",
+    "sha256": "029711073726db4e4411bf981b1de930f521f7a10eb2d593e306bc080e9b182b",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.leantech.me/",
+    "final_url": "https://www.leantech.me/uae/en",
+    "status": 200,
+    "title": "Deliver seamless payments and data experiences in MENA | Lean Technologies",
+    "sha256": "c16c3c535a334d1ee88c51969f45b2611695a336122138ea23596896a00b3f15",
+    "documentation_links": [
+      "https://docs.leantech.me",
+      "https://docs.leantech.me/reference"
+    ]
+  },
+  {
+    "url": "https://www.opensanctions.org/",
+    "final_url": "https://www.opensanctions.org/",
+    "status": 200,
+    "title": "OpenSanctions: The open database of sanctions, PEPs and watchlists",
+    "sha256": "30ba505a43743f638f103fbb006dd004067565f319c36a001f69ddb7d7543891",
+    "documentation_links": [
+      "https://www.opensanctions.org/docs/"
+    ]
+  },
+  {
+    "url": "https://www.northrow.com/",
+    "final_url": "https://www.northrow.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "46e7d22095bc0ee46a76bed6f1e1d62d968e1569f70b21589d6ad6e09f49066a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.niceactimize.com/",
+    "final_url": "https://www.niceactimize.com/",
+    "status": 200,
+    "title": "Combat Financial Crime with AI-Driven AML and Fraud Solutions | NICE Actimize",
+    "sha256": "85c07964710eb27ddf3fd2cdca5f6a0feca97cd1cb5a68bf6a3149fd67f54b1a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.polarify.co.jp/",
+    "final_url": "https://www.polarify.co.jp/",
+    "status": 200,
+    "title": "\u3010\u30d9\u30f3\u30c0\u30fc\u30b7\u30a7\u30a2No.1\u3011eKYC\u30fb\u751f\u4f53\u8a8d\u8a3c\u306a\u3089\u30dd\u30e9\u30ea\u30d5\u30a1\u30a4",
+    "sha256": "d06ad94a4c6149f2e129ef582ae2ad30c82155f837b7dee93d617096094fec8a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.provenir.com/",
+    "final_url": "https://www.provenir.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "4d30b3613d56cc34de8b038e6f8f5033be66b434a720d5e164584f9136a7701e",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.cipc.co.za/",
+    "final_url": "https://www.cipc.co.za/",
+    "status": 200,
+    "title": "CIPC | Your business, our focus",
+    "sha256": "ad656297ad8520753fc61a0d050fc063cbaffb77937d821922da1b3edc50e16f",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.nass.org/business-services/corporate-registration",
+    "final_url": "https://www.nass.org/business-services/corporate-registration",
+    "status": 200,
+    "title": "Corporate Registration | NASS",
+    "sha256": "3d4b409d9b381800784189b9abc30b63fb909435f959e22d5469c36f74fdebca",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.neoway.com.br/",
+    "final_url": "https://www.neoway.com.br/",
+    "status": 200,
+    "title": "Neoway: maior empresa de Dados e Analytics do Brasil",
+    "sha256": "63ee15f01ec6d1cc6e3d1e16920e7453136a2ce96afe44f55ddfc8f7cc3ca244",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.pega.com/",
+    "final_url": "https://www.pega.com/",
+    "status": 200,
+    "title": "The leading AI-powered platform for enterprise transformation | Pega",
+    "sha256": "7e546dd29786c314c8e6cf6334766e15f24814418eaa121dcdec1b6ff106c2a3",
+    "documentation_links": [
+      "https://docs.pega.com",
+      "https://docs.pega.com/bundle/keeping-current/page/keeping-current/kc/keeping-current-with-pega.html"
+    ]
+  },
+  {
+    "url": "https://www.kroll.com/",
+    "final_url": "https://www.kroll.com/en",
+    "status": 200,
+    "title": "Kroll | Financial and Risk Advisory Solutions",
+    "sha256": "cba87519876df3672468f00294eb84be9d8690b740db7f4a62f0bc19202bacf6",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.idcentral.io/",
+    "final_url": "https://www.idcentral.io/",
+    "status": 200,
+    "title": "IDcentral \u2013 Digital Identity Management | Identification | Verification \u2013 IDcentral",
+    "sha256": "b01a1fc20630b84f4c96d2d1ff8b08617c21ac8a3872df5e1b938570481e94e3",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.quantifind.com/",
+    "final_url": "https://www.quantifind.com/",
+    "status": 200,
+    "title": "Intelligent Financial Crimes Automation for AML and KYC | Quantifind",
+    "sha256": "2cd741d2c1d29ddbf282199c99777f133710d2467e75e23f9698e4fb3dbc7d58",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.ipqualityscore.com/",
+    "final_url": "https://www.ipqualityscore.com/",
+    "status": 200,
+    "title": "Fraud Detection & IP Intelligence Platform | IPQS",
+    "sha256": "a475ac96bf9ed5c383550bc1cf4c01c2bd1d42c26cf1428b04e6b6b136f69db9",
+    "documentation_links": [
+      "https://www.ipqualityscore.com/documentation/device-fingerprint-api/overview",
+      "https://www.ipqualityscore.com/documentation/email-validation-api/overview",
+      "https://www.ipqualityscore.com/documentation/malicious-url-scanner-api/overview",
+      "https://www.ipqualityscore.com/documentation/malware-file-scanner-api/overview",
+      "https://www.ipqualityscore.com/documentation/overview",
+      "https://www.ipqualityscore.com/documentation/phone-number-validation-api/overview",
+      "https://www.ipqualityscore.com/documentation/proxy-detection-api/overview",
+      "https://www.ipqualityscore.com/documentation/proxy-detection-api/transaction-scoring"
+    ]
+  },
+  {
+    "url": "https://www.ravenpack.com/",
+    "final_url": "https://www.ravenpack.com/",
+    "status": 200,
+    "title": "Technology and insights for data-driven companies | RavenPack",
+    "sha256": "13abbde6b5b60bce35d1803299ab42d6aae2fc2c5290daebdfedc836c16c1767",
+    "documentation_links": [
+      "https://docs.bigdata.com/"
+    ]
+  },
+  {
+    "url": "https://www.mobbeel.com/",
+    "final_url": "https://www.mobbeel.com/",
+    "status": 200,
+    "title": "Mobbeel: Verificaci\u00f3n de Identidad Digital | KYC | Firma digital | Biometr\u00eda",
+    "sha256": "1bdd293642b70deb30b09fe14016e0e2e7d6b54374fd29b02a34cb775e5c52f2",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.sat.gob.mx/",
+    "final_url": "https://www.sat.gob.mx/",
+    "status": 200,
+    "title": "",
+    "sha256": "f8749808abc6c6202144790279780e96051c75788c5ade149090a8225fd93190",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.metamap.com/",
+    "final_url": "https://www.metamap.com/",
+    "status": 200,
+    "title": "Identity Verification Platform for Global Companies \u2022 MetaMap",
+    "sha256": "8558b0d3cd7a0fb82fd11325c971aae3c934589403ca2739db668cced1012550",
+    "documentation_links": [
+      "https://docs.metamap.com/"
+    ]
+  },
+  {
+    "url": "https://www.sas.com/",
+    "final_url": "https://www.sas.com/en_us/home.geo.html",
+    "status": 200,
+    "title": "",
+    "sha256": "49c96ad613dd331a0e6fbb190d554ea03b13e0c1cf5ad6e252cfa8c0e4b94647",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.rues.org.co/",
+    "final_url": "https://www.rues.org.co/",
+    "status": 200,
+    "title": "RUES Registro Unico Empresarial y Social",
+    "sha256": "0dc768a6a5ebb6ff01acf11583307f1aa566d9fabc6e3e8a5c05e166a29818f5",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.sec.gov.ph/",
+    "final_url": "https://www.sec.gov.ph/",
+    "status": 403,
+    "title": "Just a moment...",
+    "sha256": "f8073e1cd5bfd5d6daf7f6724078cb008eed65b6eb3cc9c1316910b2db7346d3",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.sec.gov/edgar",
+    "final_url": "https://www.sec.gov/edgar",
+    "status": 403,
+    "title": "SEC.gov | Request Rate Threshold Exceeded",
+    "sha256": "305943f77caa3754efc40b070f68718ea45e2aacf9c57fc7d156f095178f6ccf",
+    "documentation_links": [
+      "https://www.sec.gov/developer"
+    ]
+  },
+  {
+    "url": "https://www.moneyhub.com/",
+    "final_url": "https://moneyhub.com/",
+    "status": 200,
+    "title": "Home - Moneyhub",
+    "sha256": "3b337fdeced7a106395958e6e8fc62a55c298813822271c10b7fac14d9622fd0",
+    "documentation_links": [
+      "https://docs.moneyhubenterprise.com/",
+      "https://docs.moneyhubenterprise.com/docs/admin-portal-sign-up",
+      "https://moneyhub.com/"
+    ]
+  },
+  {
+    "url": "https://www.proteantech.in/",
+    "final_url": "https://www.proteantech.in/",
+    "status": 200,
+    "title": "Best in Building Digital Public Infrastructure | Protean eGov Technologies",
+    "sha256": "d71da0a15f2356b2842c65e3d5b194c2352275047fb24348746e07cd45b51bd3",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.sprinque.com/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.prove.com/",
+    "final_url": "https://www.prove.com/",
+    "status": 200,
+    "title": "Prove - Most accurate digital identity verification platform",
+    "sha256": "bda27250a71d260956db73c951da7c53f271f0e92ba6627434a09ad852515b16",
+    "documentation_links": [
+      "https://developer.prove.com/docs/prove-pre-fill-flow",
+      "https://portal.prove.com/register",
+      "https://portal.prove.com/register?utm_source=...&utm_medium=...&utm_campaign=",
+      "https://www.prove.com/"
+    ]
+  },
+  {
+    "url": "https://www.shyft.network/",
+    "final_url": "https://www.shyft.network/",
+    "status": 200,
+    "title": "Shyft Network | Trusted Blockchain Compliance",
+    "sha256": "097ad4e0c3e56dd4a437bca775b725da435b3841f95333992c55627803d19845",
+    "documentation_links": [
+      "https://www.shyft.network/"
+    ]
+  },
+  {
+    "url": "https://www.sentilink.com/",
+    "final_url": "https://www.sentilink.com/",
+    "status": 200,
+    "title": "SentiLink: The fraud experts",
+    "sha256": "1e396be6a53cef6bcc9c42a4ec9354e19ff50908fc3574d343fee951b9828492",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.scorechain.com/",
+    "final_url": "https://www.scorechain.com/",
+    "status": 200,
+    "title": "Crypto AML Compliance & Blockchain Analytics Platform | Scorechain",
+    "sha256": "36e83409325c2b2949bfe0bb09dd9243593b196dbe67bdc459d1cf665e6133c6",
+    "documentation_links": [
+      "https://www.scorechain.com/developers/api",
+      "https://www.scorechain.com/developers/free-sanction-api",
+      "https://www.scorechain.com/developers/sdk",
+      "https://www.scorechain.com/developers/travel-rule-api"
+    ]
+  },
+  {
+    "url": "https://www.dfat.gov.au/international-relations/security/sanctions/consolidated-list",
+    "status": null,
+    "error": "ReadTimeout",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.spglobal.com/marketintelligence/",
+    "final_url": "https://www.spglobal.com/marketintelligence/",
+    "status": 403,
+    "title": "Error | S&",
+    "sha256": "b351c3c155c82229d85ae7c7eff77e5c5d9de1c5bc20573ca1ba79895bd6b58d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.sedarplus.ca/",
+    "final_url": "http://validate.perfdrive.com/?ssa=51faff56-a536-42df-a4a8-cee8df41521a&ssb=78366238955&ssc=https%3A%2F%2Fwww.sedarplus.ca%2F&ssi=86246ec6-brc7-403d-87cc-fc310ff133cd&ssk=support@shieldsquare.com&ssm=46147290391866947101099065669135&ssn=45ffe27953de23f4ef6b23c639145a85cae880143dc6-e36e-42eb-9886f6&sso=0fac9672-5cca5ab07d91d6a1376aff57bd6f0cb0edcf8cc3bc1ceed8&ssp=48203809251792032504179209312321439&ssq=59859458543154120464785431709093673133266&ssr=MzUuMjAzLjE3OS4xMTA=&sst=Mozilla/5.0&ssu=&ssv=&ssw=&ssx=eyJyZCI6InNlZGFycGx1cy5jYSIsIl9fdXptZiI6IjdmOTAwMDgwMTQzZGM2LWUzNmUtNDJlYi05NjcyLTVjY2E1YWIwN2Q5MTEtMTc5MjA4NTQzMTAzMDAtMDA1ZWMwOTU5MzcwZDdhODMzNTEwIiwidXpteCI6IjdmYzAwMGYxOWFjMGI2LTEwYmQtNDM2OS05MDQwLWFkYTg1YmNiYTI0MzEtMTc5MjA4NTQzMTAzMDAtMDA5ZWZjMDExZDllNjlmYTE2MjEwIn0=",
+    "status": 200,
+    "title": "Radware Captcha Page",
+    "sha256": "4efa2c0746ce141b74328cb41f7d590ea4cb6af2bf2da2b4e00b7e8fe13ef22c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.sanctions.io/",
+    "final_url": "https://www.sanctions.io/",
+    "status": 200,
+    "title": "Sanctions Lists & PEP Screening for AML Compliance",
+    "sha256": "32bbec4cf9014b7c0020d4d02c91565667b887e344ca1999ab5fbe56fca10535",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.openownership.org/",
+    "final_url": "https://www.openownership.org/en/",
+    "status": 200,
+    "title": "Open Ownership",
+    "sha256": "c4a496773235d27c1b0a858d9b8916355debf5e35798ef541d3d477eeec168ef",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.prh.fi/",
+    "final_url": "https://www.prh.fi/fi/index.html",
+    "status": 200,
+    "title": "PRH - Etusivu | PRH",
+    "sha256": "a4dce26fad73224f13ed7b1fa6e65b90876954544aa35b39f3494ca32b6394fe",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.middesk.com/",
+    "final_url": "https://www.middesk.com/",
+    "status": 200,
+    "title": "Business Verification & KYB Platform",
+    "sha256": "7b2d639130655cfecc7735d5c7ebcf6b96fc956e9cc90f1f51d301a48b82050e",
+    "documentation_links": [
+      "https://docs.middesk.com/",
+      "https://docs.middesk.com/api-reference/business-verification/businesses/list-businesses"
+    ]
+  },
+  {
+    "url": "https://www.registrodeempresasysociedades.cl/",
+    "final_url": "https://www.registrodeempresasysociedades.cl/",
+    "status": 200,
+    "title": "Tu Empresa en un D\u00eda | Registro de Empresas y Sociedades",
+    "sha256": "ab2799d0483156bf61b17bd09cc3a126f00a9087bfccef28c2161ca6f491bdf4",
+    "documentation_links": [
+      "https://docs.google.com/forms/d/e/1FAIpQLSfnACxhuEp03jtjycYwm-0SvVnchCWIKq9PWNSyhamQ0jh1-A/viewform"
+    ]
+  },
+  {
+    "url": "https://www.ssa.gov/dataexchange/eCBSV/",
+    "final_url": "https://www.ssa.gov/dataexchange/eCBSV/",
+    "status": 403,
+    "title": "Access Denied",
+    "sha256": "32bea0191dca3c6001f0773fd063c70a5603c9ac27e32dd2912e347f98891825",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.registradores.org/",
+    "final_url": "https://www.registradores.org/",
+    "status": 200,
+    "title": "Registradores de Espa\u00f1a",
+    "sha256": "877c5838af02b3e93a0337c4519d40889e8f632b46e1374480ee4526644a067c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.reprisk.com/",
+    "final_url": "https://www.reprisk.com/",
+    "status": 200,
+    "title": "RepRisk | World\u2019s most respected DaaS company for reputational risks and responsible business conduct",
+    "sha256": "44d13912cc3b7884fb71f2c99c4bc9007ca6a5726cae1ac95d9f1fd8d6dd3774",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.swift.com/",
+    "final_url": "https://www.swift.com/",
+    "status": 403,
+    "title": "SWIFT site off-line",
+    "sha256": "31af8907527a9e3553d8885af454897ed51b922ce144f00104652d1c22c5eac6",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.saltedge.com/",
+    "final_url": "https://www.saltedge.com/",
+    "status": 200,
+    "title": "Salt Edge | Global Open Banking and Open Finance Platform",
+    "sha256": "efcbecad3457c72fccd9af713c9b67f8ac26a337031c385dee0a49e4727c4ac6",
+    "documentation_links": [
+      "https://docs.saltedge.com/v6/api_reference",
+      "https://priora.saltedge.com/docs/"
+    ]
+  },
+  {
+    "url": "https://www.signzy.com/",
+    "final_url": "https://www.signzy.com/",
+    "status": 200,
+    "title": "Signzy \u2013 Global Identity Verification and Compliance Platform",
+    "sha256": "8df5b3f2228c4355aa87b74283e48dfc37345e05696d6d4e5b4cc16ba4a8b6e7",
+    "documentation_links": [
+      "https://docs.signzy.com/"
+    ]
+  },
+  {
+    "url": "https://www.telesign.com/",
+    "final_url": "https://www.telesign.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "f780aec2f0f44a5e3507a83e8d0cd65163aa61012d378b6ea659540b48da845b",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.socure.com/",
+    "final_url": "https://www.socure.com/",
+    "status": 200,
+    "title": "Identity Verification Platform for AI Risk Decisioning | Socure",
+    "sha256": "bba85b2dffd70b03d3d6563c5dd693dcefeb30a1e0103113251ad1a399724561",
+    "documentation_links": [
+      "https://developer.socure.com",
+      "https://developer.socure.us/",
+      "https://riskos.docs.socure.us/govcloud/reference/get-started"
+    ]
+  },
+  {
+    "url": "https://www.thetaray.com/",
+    "final_url": "https://www.thetaray.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "6f8a64927d0cd6eedc8112111f4efe6831e74309f1cf94ae5881f0d182222163",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.soliduslabs.com/",
+    "final_url": "https://www.soliduslabs.com/",
+    "status": 200,
+    "title": "Solidus Labs | Multidimensional Market Integrity for Modern Markets",
+    "sha256": "b25ee7d4aa9be4c159ee73015ec336ad860df28043d5f99e03f25d44290ab269",
+    "documentation_links": [
+      "https://api-developers.soliduslabs.com/"
+    ]
+  },
+  {
+    "url": "https://www.sardine.ai/",
+    "final_url": "https://www.sardine.ai/",
+    "status": 200,
+    "title": "Agentic Financial Crime Platform for Fraud Prevention & AML",
+    "sha256": "b6aa139c99d85ed7f3aa6e509c44011c31758ead7c813adb9476accd862e89d7",
+    "documentation_links": [
+      "https://docs.sardine.ai/"
+    ]
+  },
+  {
+    "url": "https://www.transmitsecurity.com/",
+    "final_url": "https://www.transmitsecurity.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "2d41754ffa98a4fff24aad81d512bf2ac0d3fb436ed858b06688b639585d99d6",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.s-rminform.com/",
+    "final_url": "https://www.s-rminform.com/",
+    "status": 200,
+    "title": "S-RM | Your first call for corporate intelligence and cyber security",
+    "sha256": "3ba79e6e93151826b8dfec38da2ecb1846b70f51bbe3013b6efa8ff05cb9fcb8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.trulioo.com/",
+    "final_url": "https://www.trulioo.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "3320f033744aa73fdb5569bdb86da1ac931f0bfc37f9b326c2fa0898ed1288c3",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.swift.com/our-solutions/compliance-and-shared-services/swiftref",
+    "final_url": "https://www.swift.com/our-solutions/compliance-and-shared-services/swiftref",
+    "status": 403,
+    "title": "SWIFT site off-line",
+    "sha256": "8cb0cc218ec1617122f2715d8860714912ef3f6137f47765413f52fed706bb35",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.transunion.com/",
+    "final_url": "https://www.transunion.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "1ceb46b44aa60d23c0f1d0cd33f124b85e8c83103f463855f637106e41cbe3a7",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.ubisecure.com/",
+    "final_url": "https://www.ubisecure.com/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "90cdca3eda7a644adfb5a2eb7f2d01a4fe6e3904b4c8f2e4821203ee6655a09d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.tookitaki.com/",
+    "final_url": "https://www.tookitaki.com/",
+    "status": 200,
+    "title": "Tookitaki | AML & Fraud Prevention Platform for APAC",
+    "sha256": "9b610b0e76ae3977a1307d042d08cd42b59813b659cf4a1ed9fe6e9d0cc38d79",
+    "documentation_links": [
+      "https://identity.document360.io/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DKbSiteAngular%26scope%3Dopenid%2520email%2520profile%2520kbSiteAdmin%2520offline_access%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fdocs.tookitaki.com%252Fsignin-oidc%26state%3Dreturn_to%253D%25252F%26session%3Dtrue%26property%3Duser%26defaultStrategy%3Doidc%26code_challenge%3D-AarA2oBo8cwry0XDFMauyEv3BrBZ2KUvHb6BL5mv9A%26code_challenge_method%3DS256",
+      "https://identity.document360.io/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Ddocument360MVC%26redirect_uri%3Dhttps%253A%252F%252Fdocs.tookitaki.com%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520email%2520profile%26code_challenge%3DA2XSjdcUhcZbnzj82rXt4mTpuvp6a7-OzDQNfsdxscE%26code_challenge_method%3DS256%26nonce%3D638830089879372304.MzJiZTRiYjEtMjQ1MS00ZDE0LWJjZjEtMTUwOTg3MjNjZDM4N2ViNzk3MzctZWE1NC00MmM2LWFlNGEtMmY0MzAyNWIyYTUx%26state%3DCfDJ8FUW5NWuT-lMl4eXLIjxn16v83MVqWBIHcPGAzfu2h5gIQoSKg9trEJWOuyIRqq4DU42A0OYZSGgIwJQodzH-CU-C8d9u1ItwQryj-ZrGFyzdOYTjLSbUVHslhjFa_hiKiOMh0o5aWLTRrINtCyI0l-_8zZBwUF0KVsa9JNk-X7SHzBEOt1OQNrHsN0p9u5CK9SfP4hDGOsHsTVLGUTYAYDkD-XT82z45qgBgVFOscDq8LMJxXKy7D03GCH7-kd3H9ck7oZMN8XDxHZ6lpqdu6bbafA478ONFqFcmBTSJm3b-LZY7zv1nusk0TyEiwR0YLju2LB96LoWYaX3FPr3zeVaY8L3gjCS1i8k4figUq7Ndopd6UyCa7bumOeaAcdwBA%26x-client-SKU%3DID_NETSTANDARD2_0%26x-client-ver%3D5.5.0.0"
+    ]
+  },
+  {
+    "url": "https://www.swift.com/our-solutions/compliance-and-shared-services/kyc-registry",
+    "final_url": "https://www.swift.com/our-solutions/compliance-and-shared-services/kyc-registry",
+    "status": 403,
+    "title": "SWIFT site off-line",
+    "sha256": "d65dc122aff21572c993014aec4ccc1d152486f31fcf8809d5354a2bf999f579",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.quantexa.com/",
+    "final_url": "https://www.quantexa.com/",
+    "status": 200,
+    "title": "Quantexa - Context Behind Every Decision",
+    "sha256": "b83ca17618718463a892327a61f070baec2bf8012208f259504355758cd223c9",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.serpro.gov.br/",
+    "final_url": "https://www.serpro.gov.br/",
+    "status": 200,
+    "title": "Serpro",
+    "sha256": "0d19769d94b6beec10e4c032f148c21041e8e90052f976b46f56ff86548f4fae",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.seco.admin.ch/",
+    "final_url": "https://www.seco.admin.ch/de",
+    "status": 200,
+    "title": "Staatssekretariat f\u00fcr Wirtschaft SECO",
+    "sha256": "623cab73be5250d8ad24b944bee4388320cd88d07a701eb93b0428a0e376cb72",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.signicat.com/",
+    "final_url": "https://www.signicat.com/",
+    "status": 200,
+    "title": "Identity solutions for a trusted digital world - Signicat",
+    "sha256": "b0384c4cea93b13e85083b669d119d5f0b1be2b35d587b5fbefbcf55f85fe65a",
+    "documentation_links": [
+      "https://developer.signicat.com/apis/",
+      "https://developer.signicat.com/docs/",
+      "https://developer.signicat.com/docs/dashboard-setup.html",
+      "https://developer.signicat.com/docs/eid-hub/",
+      "https://developer.signicat.com/identity-methods/",
+      "https://www.signicat.com/products/dashboard"
+    ]
+  },
+  {
+    "url": "https://www.valid8me.com/",
+    "status": null,
+    "error": "SSLError",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.smartsearch.com/",
+    "final_url": "https://www.smartsearch.com/",
+    "status": 200,
+    "title": "AML Checks | Anti Money Laundering Solution | SmartSearch",
+    "sha256": "98cb8d3d54ae9954c19702613f8ecc2be3030eee93873e53c6f57524f1dd13be",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.stitch.money/",
+    "final_url": "https://stitch.money/",
+    "status": 200,
+    "title": "One Platform for Online + In-Person Payments in South Africa | Stitch",
+    "sha256": "55a79129e5c94b266059ec340b16a2285a19a0943a5d23ec44f8ec44a679153c",
+    "documentation_links": [
+      "https://docs.stitch.money/",
+      "https://docs.stitch.money/payment-products",
+      "https://docs.stitch.money/payment-products/"
+    ]
+  },
+  {
+    "url": "https://www.temenos.com/",
+    "final_url": "https://www.temenos.com/",
+    "status": 200,
+    "title": "Temenos | Core, Digital & AI Banking Software Leader",
+    "sha256": "8047f3b5891cbb844823464a13cb7c9dde5c8eda6b397d8879fd9ae237a63086",
+    "documentation_links": [
+      "https://www.temenos.com/partners/developer-community/"
+    ]
+  },
+  {
+    "url": "https://www.symphonyai.com/financial-services/",
+    "final_url": "https://www.symphonyai.com/financial-services",
+    "status": 200,
+    "title": "Financial Crime Prevention AI-powered AML Software - SymphonyAI",
+    "sha256": "ee1db52054b3bb4d0d867d08bf902976896ec189c894223bd7707a86ef7a3c77",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.trade.gov/consolidated-screening-list",
+    "final_url": "https://www.trade.gov/consolidated-screening-list",
+    "status": 200,
+    "title": "Consolidated Screening List",
+    "sha256": "d28e4165d856233356241ad9cd14005a6855f47b79980fe596eb068e61e71aa8",
+    "documentation_links": [
+      "https://developer.trade.gov/",
+      "https://developer.trade.gov/api-details",
+      "https://www.trade.gov/selectusa-find-economic-developers"
+    ]
+  },
+  {
+    "url": "https://www.kycportal.com/",
+    "final_url": "https://kycp.com/",
+    "status": 200,
+    "title": "Client Lifecycle Management Platform for KYC, KYB & AML - KYCP",
+    "sha256": "e01850b5c0c8c59ffd602a35d98625090ba550e60f1db97f759e6ed3e6b955dc",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.trmlabs.com/",
+    "final_url": "https://www.trmlabs.com/",
+    "status": 200,
+    "title": "TRM Labs | AI Investigations and Blockchain Intelligence",
+    "sha256": "40d684b8d391a95f26b3ada1a74aba681e13b17ed0a64b010240476824fab22d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.usesmileid.com/",
+    "final_url": "https://smile.id/",
+    "status": 200,
+    "title": "AI-powered Identity Verification for the Next Billion Users",
+    "sha256": "69b5db8c8926a7dc95f5f611e0890dc4002b3b7a69bfefcf96502c81f003baa8",
+    "documentation_links": [
+      "https://docs.usesmileid.com/"
+    ]
+  },
+  {
+    "url": "https://www.yodlee.com/",
+    "final_url": "https://www.yodlee.com/",
+    "status": 403,
+    "title": "Error 403 Forbidden",
+    "sha256": "e1924cabb3986c24200867023b0fb029a2902f8455fdc773cced0352762aea9d",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.registroimprese.it/",
+    "final_url": "https://www.registroimprese.it/",
+    "status": 200,
+    "title": "Registro Imprese | I dati Ufficiali della Camera di Commercio",
+    "sha256": "a955749f73f56f4d50bc9a29877e9718ae55c2aca5173980124120256e454b3c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.swissid.ch/",
+    "final_url": "https://www.swisssign.com/identitaeten/swissid",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "sha256": "f0bd831d822bf956579fc20b6e6bad3f4c26175ac43aa376c2bf85b4ef05071a",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.unit21.ai/",
+    "final_url": "https://www.unit21.ai/",
+    "status": 200,
+    "title": "Agentic AI Platform for Fraud & AML Operations | Unit21",
+    "sha256": "5270f8fcc53d9bc49d4c1422dc423114017ac6a00d7ad95c9194a44c86e6fa65",
+    "documentation_links": [
+      "https://docs.unit21.ai/password?redirect=/docs/overview?_gl=1*6gi0ru*_up*MQ..*_ga*MTgwNDg0MjM1OS4xNzUyOTE0MTU5*_ga_YKWL0RRH7P*czE3NTI5MTQxNTgkbzEkZzEkdDE3NTI5MTQ1MTkkajQwJGwwJGg5MDQ3MDg0ODc.",
+      "https://docs.unit21.ai/password?redirect=/docs/overview?_gl=1*6gi0ru*_up*MQ..*_ga*MTgwNDg0MjM1OS4xNzUyOTE0MTU5*_ga_YKWL0RRH7P*czE3NTI5MTQxNTgkbzEkZzEkdDE3NTI5MTQ1MTkkajQwJGwwJGg5MDQ3MDg0ODc.&__hstc=17958374.f8f437118bd83d0c1059e1f312aa07b7.1772928552226.1772928552226.1772928552226.1&__hssc=17958374.1.1772928552226&__hsfp=4c710a6ab75f8554ab88bcc1d2e8e401"
+    ]
+  },
+  {
+    "url": "https://www.veriff.com/",
+    "final_url": "https://www.veriff.com/",
+    "status": 200,
+    "title": "The Global Leader in Identity Verification Software - Veriff",
+    "sha256": "bc5f4365936d69a66f81cc09f53b416ab9c21c2cb298d3d85c71391cb3ee729a",
+    "documentation_links": [
+      "https://devdocs.veriff.com/",
+      "https://www.veriff.com/for-developers"
+    ]
+  },
+  {
+    "url": "https://www.sygna.io/",
+    "final_url": "https://www.sygna.io/",
+    "status": 200,
+    "title": "Sygna - A Travel Rule Solution For VASP",
+    "sha256": "d26df1929cec7bc9fe0827f3c72b5d0fae02d833af8880216f04ecaaf3c9b093",
+    "documentation_links": [
+      "https://developers.sygna.io/"
+    ]
+  },
+  {
+    "url": "https://www.worldbank.org/en/projects-operations/procurement/debarred-firms",
+    "final_url": "https://www.worldbank.org/en/projects-operations/procurement/debarred-firms",
+    "status": 200,
+    "title": "World Bank Listing of Ineligible Firms and Individuals",
+    "sha256": "07c49dbd945bb82ab8468db49a604822337029e3d8e064471891ff20eb474a02",
+    "documentation_links": [
+      "https://pubdocs.worldbank.org/en/712591554318028093/Sanctions-Committee-Procedures-August-2001.pdf",
+      "https://thedocs.worldbank.org/en/doc/387181466627871302-0290022021/original/WorldBankNotesonDebarredFirmsandIndividuals.pdf",
+      "https://thedocs.worldbank.org/en/doc/45f3a37d7c5a7c76e54ddf5dcbf058cc-0290012023/original/8fcd8932ee2247959dd4e6e6b02db57b.pdf",
+      "https://thedocs.worldbank.org/en/doc/c84273d1b230aeb2b0b8134de5dc8cd7-0290012025/original/Procurement-Regulations-7th-Edition-Sep-2025.pdf"
+    ]
+  },
+  {
+    "url": "https://www.surepay.eu/",
+    "final_url": "https://www.surepay.eu/",
+    "status": 200,
+    "title": "SurePay - Verification Of Payee: for European Banks & PSPs",
+    "sha256": "ed1b86acbf42b7365a150c5eb5beddb5c8a3c6e76ddf4afdcc5cf6214bbc3eaa",
+    "documentation_links": [
+      "https://developer.surepay.nl/dataprovisioning/introduction",
+      "https://developer.surepay.nl/introduction",
+      "https://developer.surepay.nl/vop-bulk-for-banks/introduction",
+      "https://developer.surepay.nl/vop-for-banks/introduction"
+    ]
+  },
+  {
+    "url": "https://www.w2globaldata.com/",
+    "final_url": "https://www.identitysolutions.ncino.com/",
+    "status": 200,
+    "title": "nCino Identity Solutions",
+    "sha256": "0480362f24d237ae85d90a1e0799d9fa8a87d05667b47388a69f8f206a09acc1",
+    "documentation_links": [
+      "https://docs.w2globaldata.com/"
+    ]
+  },
+  {
+    "url": "https://www.twilio.com/",
+    "final_url": "https://www.twilio.com/en-us",
+    "status": 200,
+    "title": "Conversational AI and APIs for SMS, Email, Voice | Twilio",
+    "sha256": "a78cb748beb96451ee570bb76be3af080fa64235ff13cc1d6da382b42f3101bf",
+    "documentation_links": [
+      "https://www.twilio.com/docs",
+      "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/getting-started-smtp",
+      "https://www.twilio.com/en-us/developers"
+    ]
+  },
+  {
+    "url": "https://www.tocbiometrics.com/",
+    "final_url": "https://sovos.com/es/iva/servicios-de-confianza/",
+    "status": 200,
+    "title": "Servicios de confianza - Sovos LATAM",
+    "sha256": "ffc7fd1a5f0a5c07768e75b245b8001bc0832c5cf8897a45d3afb51a5b4446c6",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.zefix.ch/",
+    "final_url": "https://www.zefix.ch/",
+    "status": 200,
+    "title": "ZefixWebApp",
+    "sha256": "c67c63526b4afe653ffbac868518b12e3672d546bf1dfe6a0e39f5cd866d890c",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.vusecurity.com/",
+    "final_url": "https://www.vusecurity.com/",
+    "status": 200,
+    "title": "VU - Plataforma de seguridad digital r\u00e1pida y flexible",
+    "sha256": "c27842f87d432b0106e10d29bcc5b17dd06fb7946b69dadac2d55e03f8871a35",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.vixio.com/",
+    "final_url": "https://www.vixio.com/",
+    "status": 200,
+    "title": "Vixio | RegTech for Financial Services & Gambling",
+    "sha256": "6bc6a83e049592ebe5697d5c5e46c34a5f4df8241b7e37377c920a1ca14ea4a8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.yoti.com/",
+    "final_url": "https://www.yoti.com/",
+    "status": 200,
+    "title": "Building the world's trusted identity platform \u2022 Yoti",
+    "sha256": "e46195da3ff15337ef40e9d717ed855a31b8f53c83313f06df3d3bea62773915",
+    "documentation_links": [
+      "https://developers.yoti.com/"
+    ]
+  },
+  {
+    "url": "https://www.ssm.com.my/",
+    "final_url": "https://www.ssm.com.my/Pages/Home.aspx",
+    "status": 200,
+    "title": "Suruhanjaya Syarikat Malaysia (SSM)\r\n\tPages - \r\n\tHome2",
+    "sha256": "cc0bd0bcfe256bb215e43dcb05ecdd7bd11c7d49ec25825d1eb8734d3d9d76c8",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.vonage.com/",
+    "final_url": "https://www.vonage.com/",
+    "status": 200,
+    "title": "Business Phone, VoIP, Communication APIs, Contact Center | Vonage",
+    "sha256": "fc92f7535c4e560cd65a0ce5a61fbbcd353a63d8107b0d08f7c8b3a606b77c8c",
+    "documentation_links": [
+      "https://developer.vonage.com/",
+      "https://developer.vonage.com/en/documentation",
+      "https://developer.vonage.com/en/home",
+      "https://developer.vonage.com/en/learning-center",
+      "https://www.vonage.com/developer-center/"
+    ]
+  },
+  {
+    "url": "https://www.taktile.com/",
+    "final_url": "https://www.taktile.com/",
+    "status": 200,
+    "title": "Taktile - The Agentic Decision Platform for Financial Institutions",
+    "sha256": "661d4a501683b170f064f07f3f66e074ebdd7e4548303fbc7349e88e6e24868c",
+    "documentation_links": [
+      "https://docs.taktile.com/",
+      "https://docs.taktile.com/changelog",
+      "https://docs.taktile.com/integrations"
+    ]
+  },
+  {
+    "url": "https://www.truora.com/",
+    "final_url": "https://www.truora.com/",
+    "status": 200,
+    "title": "Truora | Plataforma de confianza digital l\u00edder en LATAM",
+    "sha256": "38d2e6297363ab678bd523282c38524ba6e379cbce132e520c6d4628e2ae4221",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.tencentcloud.com/",
+    "final_url": "https://www.tencentcloud.com/",
+    "status": 200,
+    "title": "Tencent Cloud",
+    "sha256": "6450b354752dfa6f9f3a280d8519128c636613b86a5ff22feb8a2cfa8bd69a81",
+    "documentation_links": [
+      "https://intl.cloud.tencent.com/products/lighthouse"
+    ]
+  },
+  {
+    "url": "https://www.vesselbot.com/",
+    "final_url": "https://www.vesselbot.com/",
+    "status": 200,
+    "title": "Enabling Sustainable Supply Chains | VesselBot",
+    "sha256": "ea196bd6aca9ee3a110c9645528a0bc93728ba2720dacca468f62e5931cfe325",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.yapily.com/",
+    "final_url": "https://www.yapily.com/",
+    "status": 200,
+    "title": "Yapily | Open Banking API Infrastructure Platform",
+    "sha256": "d9f42f9191727e4610aedab533f493a2cf110deb1851ffe2550be222fcc676ef",
+    "documentation_links": [
+      "https://docs.yapily.com/",
+      "https://docs.yapily.com/pages/resources/support/"
+    ]
+  },
+  {
+    "url": "https://youverify.co/",
+    "final_url": "https://youverify.co/en",
+    "status": 200,
+    "title": "Global AML & Fraud Compliance Automation | Youverify",
+    "sha256": "a68eefac77566a80a64d1e18d2a194dd75727c1503ddeebfcedc8902c110210f",
+    "documentation_links": [
+      "https://youverify.co/en/developers"
+    ]
+  },
+  {
+    "url": "https://www.unternehmensregister.de/",
+    "final_url": "https://www.unternehmensregister.de/access-denied",
+    "status": 403,
+    "title": "Forbidden",
+    "sha256": "20ebd24f923c7a47a4911e5396c2b8e003ef157d791e88f13511ae7739a540ee",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.vneuron.com/",
+    "final_url": "https://www.vneuron.com/",
+    "status": 200,
+    "title": "Vneuron - Advanced AML Compliance Software",
+    "sha256": "5ce5d352e6713ee2f2c1647728a92102f87ba1363dd846780fa21e6774000123",
+    "documentation_links": []
+  },
+  {
+    "url": "https://www.valify.me/",
+    "status": null,
+    "error": "ReadTimeout",
+    "documentation_links": []
+  }
+]

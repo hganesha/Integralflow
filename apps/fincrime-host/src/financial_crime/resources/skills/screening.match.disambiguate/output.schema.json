@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "DispositionCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "final": {
+          "$ref": "#/$defs/Bool"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "recommendation": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "recommendation",
+        "final"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:screening.match.disambiguate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dispositions": {
+      "items": {
+        "$ref": "#/$defs/DispositionCandidate"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "dispositions"
+  ],
+  "type": "object"
+}

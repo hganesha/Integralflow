@@ -1,0 +1,27 @@
+{
+  "synthetic": true,
+  "libraryRelease": "0.3.0",
+  "ehfBaseline": "63874109c2ad9c4405e9337c66ec3c87886ddce7",
+  "catalogDigest": "67bf9e6d90a93a87360e8d54da7ae2f7f5c54117cd64616cde65c414b72e7ffe",
+  "bundleCodeHash": "4aa1dd5e61645a23d88ab7cc7210f97e1305250c20e9d1425afd4f0e801271ba",
+  "tasks": {
+    "task.intake_profile": "COMPLETED",
+    "task.identity_ownership": "COMPLETED",
+    "task.screening": "COMPLETED",
+    "task.risk_edd": "COMPLETED",
+    "task.decision_support": "COMPLETED_AFTER_INDEPENDENT_REVIEW",
+    "task.qa_assurance": "COMPLETED"
+  },
+  "checks": [
+    "fresh Postgres persistence migrations and case-store migrations (vector extension excluded)",
+    "lossless 222-skill catalog, six profiles/tasks, immutable tenant-scoped draft import",
+    "all six tasks execute through real HTTP and EHF/Postgres; completed work resumes under a new worker",
+    "independent two-reviewer human suspension and durable resume",
+    "HTTP success with unavailable evidence suspends work under the task failure policy",
+    "authorized outcome writeback, idempotent receipt and hash-chained case ledger; proposed actions stay uncommitted",
+    "expired leases cannot renew or complete before reconciliation",
+    "two runtime replicas execute one logical invocation; SQL status/result replay is tenant-scoped"
+  ],
+  "cloudDeployment": false,
+  "liveProviders": false
+}

@@ -1,0 +1,78 @@
+.page, .stack, .center { display: grid; gap: var(--space-4); min-width: 0; }
+.page { container: sandbox-run / inline-size; }
+.page h2, .page h3, .page p { margin: 0; }
+.panel { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); padding: var(--space-4); display: grid; align-content: start; gap: var(--space-3); min-width: 0; }
+.row, .runFacts, .heading { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3); }
+.heading { justify-content: space-between; }
+.historyFilters > summary { cursor: pointer; }
+.historyFilters > .row { margin-block-start: var(--space-3); }
+.runFacts { padding: var(--space-3); border-block: 1px solid var(--line-1); font-size: .875rem; }
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(11rem, .8fr) minmax(0, 2.7fr) minmax(17rem, 1.1fr);
+  grid-template-areas:
+    "details details details"
+    "tree workflow inspector";
+  gap: var(--space-3);
+  align-items: start;
+}
+.workspace > .runDetails { grid-area: details; }
+.runDetails { display: grid; gap: var(--space-3); min-width: 0; overflow-wrap: anywhere; }
+.tree { grid-area: tree; }
+.center { grid-area: workflow; }
+.inspector { grid-area: inspector; }
+.graphInspectorLink { display: none; }
+.inspector h2 { scroll-margin-block-start: 4rem; }
+.sandboxBadge { padding: var(--space-1) var(--space-2); border: 1px solid var(--line-2); border-radius: var(--radius-md); text-transform: uppercase; letter-spacing: .06em; font-size: .75rem; }
+.status { text-transform: capitalize; overflow-wrap: anywhere; }
+.steps, .events { list-style: none; margin: 0; padding: 0; overflow: auto; max-height: 34rem; }
+.events { max-height: 24rem; }
+.step, .event { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); text-align: left; width: 100%; border: 0; border-bottom: 1px solid var(--line-1); padding: var(--space-2); background: transparent; color: inherit; font: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.step:hover, .event:hover, .step[aria-pressed="true"], .event[aria-pressed="true"] { background: var(--surface-raised, var(--line-1)); }
+.step[aria-pressed="true"], .event[aria-pressed="true"] { box-shadow: inset 3px 0 currentColor; }
+.facts { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-2); font-size: .875rem; }
+.facts dt { font-weight: 600; }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+@container sandbox-run (width < 64rem) {
+  .workspace {
+    grid-template-columns: minmax(9rem, .8fr) minmax(0, 2fr);
+    grid-template-areas:
+      "inspector inspector"
+      "details details"
+      "tree workflow";
+  }
+  .graphInspectorLink { display: inline; }
+}
+@container sandbox-run (width < 38rem) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "inspector" "details" "tree" "workflow";
+  }
+  .steps { max-height: 12rem; }
+}
+
+.inspector [role="tablist"] { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.inspector [role="tab"] { white-space: normal; text-align: start; }
+.inspectorStack, .detailCard { display: grid; gap: var(--space-2); min-width: 0; overflow-wrap: anywhere; }
+.detailCard { border: 1px solid var(--line-1); border-radius: var(--radius-md); padding: var(--space-2); font-size: .875rem; }
+.textButton { border: 0; background: none; color: inherit; text-align: start; text-decoration: underline; padding: 0; font: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.evidenceList { margin: 0; padding-inline-start: var(--space-4); display: grid; gap: var(--space-2); }
+.eventSelection { font-size: .8125rem; overflow-wrap: anywhere; }
+.observationRef { display: block; overflow-wrap: anywhere; }
+.detailCard > summary { cursor: pointer; font-weight: 600; }
+.detailCard[open] > summary { margin-block-end: var(--space-2); }
+
+.advanced > summary { cursor: pointer; color: var(--text-2); font-size: .875rem; }
+.advanced[open] > summary { margin-block-end: var(--space-2); }
+.compactList { margin: 0; padding-inline-start: var(--space-4); display: grid; gap: var(--space-1); }
+.boundedList { max-height: 14rem; overflow: auto; }
+
+.factPair { display: contents; }
+
+.testWorkspace { display: grid; grid-template-columns: minmax(10rem, .75fr) minmax(0, 2fr); align-items: start; gap: var(--space-3); }
+.testWorkspace > :only-child { grid-column: 1 / -1; }
+.testWorkspace [role="tablist"] { flex-wrap: wrap; }
+@container sandbox-run (width < 38rem) {
+  .testWorkspace { grid-template-columns: minmax(0, 1fr); }
+  .testWorkspace .steps { max-height: 12rem; }
+}

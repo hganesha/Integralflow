@@ -1,0 +1,168 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:decision.recommendation.generate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Map control outcomes to a policy-defined review recommendation.
+code_hash: a213a60112e376dbf5dfd63894f30ae7941a702c74d489eecddd9a888d3d6402
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Map control outcomes to a policy-defined review recommendation.
+effects: read_only
+entrypoint: financial_crime.skills.governance:decision_recommend
+evaluation_profile: decision.recommendation.generate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: decision-recommendation-generate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: decision.recommendation.generate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:decision.recommendation.generate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: e379bbc537a82db52790a8d9e7d95b03e611d1fb128a0f06555a4e05266911da
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- Bounded mapping over admitted controls, not complete applicability/requirement evaluation
+  or final disposition. Parent gates must establish completeness and current control
+  basis. Current maturity remains implemented_synthetic. Independent evaluation, policy/source
+  approvals and operating qualification are required before production.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    ControlRow_outcome_requirement_id:
+      additionalProperties: false
+      properties:
+        _ref:
+          $ref: '#/$defs/Ref'
+        _synthetic:
+          $ref: '#/$defs/Bool'
+        id:
+          $ref: '#/$defs/Id'
+        outcome:
+          $ref: '#/$defs/Outcome'
+        requirement_id:
+          $ref: '#/$defs/Id'
+      required:
+      - id
+      - outcome
+      - requirement_id
+      - _ref
+      - _synthetic
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Outcome:
+      enum:
+      - PASS
+      - FAIL
+      - UNKNOWN
+      - NOT_APPLICABLE
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+  $id: urn:financial-crime:skill:decision.recommendation.generate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    reasons:
+      items:
+        $ref: '#/$defs/ControlRow_outcome_requirement_id'
+      maxItems: 10000
+      type: array
+    recommendation:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - recommendation
+  - reasons
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- recommendations
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - outcome
+  - requirement_id
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Control
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

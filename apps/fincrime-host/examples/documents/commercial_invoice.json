@@ -1,0 +1,483 @@
+{
+  "expected": {
+    "issues": [],
+    "promotion_allowed": false,
+    "review_required": true,
+    "valid": true
+  },
+  "pages": [
+    {
+      "document_version": "synthetic-version-1",
+      "page_id": "synthetic-page-1",
+      "text": "SYNTHETIC INVOICE\nInvoice: SYN-INV-42\nSupplier: Example Trading\nBuyer: Example Customer\nTotal: 1250.00 XTS\nItem: Test components; quantity 10; unit price 125.00; amount 1250.00\n"
+    }
+  ],
+  "qualification": "contract_and_source_span_example_not_extractor_evaluation",
+  "result": {
+    "contract_hash": "3c44f7c802061e9381d5940d7279bdd35f5c1c16d13e896d703a85f36ceec493",
+    "document_type": "commercial_invoice",
+    "document_version": "synthetic-version-1",
+    "extracted_fields": {
+      "contract_reference": null,
+      "currency": "XTS",
+      "document_number": null,
+      "document_title": null,
+      "due_date": null,
+      "incoterms": null,
+      "invoice_number": "SYN-INV-42",
+      "issue_date": null,
+      "issuer_name": null,
+      "line_items": [
+        {
+          "amount": "1250.00",
+          "currency": null,
+          "description": "Test components",
+          "line_number": null,
+          "product_code": null,
+          "quantity": "10",
+          "unit": null,
+          "unit_price": "125.00"
+        }
+      ],
+      "parties": [
+        {
+          "address": null,
+          "date_of_birth": null,
+          "effective_from": null,
+          "effective_to": null,
+          "identifier": null,
+          "identifier_issuer": null,
+          "identifier_type": null,
+          "jurisdiction": null,
+          "name": "Example Trading",
+          "party_kind": null,
+          "role": "Supplier"
+        },
+        {
+          "address": null,
+          "date_of_birth": null,
+          "effective_from": null,
+          "effective_to": null,
+          "identifier": null,
+          "identifier_issuer": null,
+          "identifier_type": null,
+          "jurisdiction": null,
+          "name": "Example Customer",
+          "party_kind": null,
+          "role": "Buyer"
+        }
+      ],
+      "payment_terms": null,
+      "purchase_order_number": null,
+      "shipment_reference": null,
+      "signatures": null,
+      "subtotal": null,
+      "tax_amount": null,
+      "total_amount": "1250.00"
+    },
+    "observations": [
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_title",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuer_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issue_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/name",
+        "spans": [
+          {
+            "end": 63,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 48
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/role",
+        "spans": [
+          {
+            "end": 46,
+            "page_id": "synthetic-page-1",
+            "quote": "Supplier",
+            "start": 38
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/party_kind",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/identifier_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/identifier_issuer",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/date_of_birth",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/jurisdiction",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/0/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/name",
+        "spans": [
+          {
+            "end": 87,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Customer",
+            "start": 71
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/role",
+        "spans": [
+          {
+            "end": 69,
+            "page_id": "synthetic-page-1",
+            "quote": "Buyer",
+            "start": 64
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/party_kind",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/identifier_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/identifier_issuer",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/address",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/date_of_birth",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/jurisdiction",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/parties/1/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/contract_reference",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/invoice_number",
+        "spans": [
+          {
+            "end": 37,
+            "page_id": "synthetic-page-1",
+            "quote": "SYN-INV-42",
+            "start": 27
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/purchase_order_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/line_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/description",
+        "spans": [
+          {
+            "end": 128,
+            "page_id": "synthetic-page-1",
+            "quote": "Test components",
+            "start": 113
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/product_code",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/quantity",
+        "spans": [
+          {
+            "end": 141,
+            "page_id": "synthetic-page-1",
+            "quote": "10",
+            "start": 139
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/unit",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/unit_price",
+        "spans": [
+          {
+            "end": 160,
+            "page_id": "synthetic-page-1",
+            "quote": "125.00",
+            "start": 154
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/amount",
+        "spans": [
+          {
+            "end": 102,
+            "page_id": "synthetic-page-1",
+            "quote": "1250.00",
+            "start": 95
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/line_items/0/currency",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/currency",
+        "spans": [
+          {
+            "end": 106,
+            "page_id": "synthetic-page-1",
+            "quote": "XTS",
+            "start": 103
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/subtotal",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/tax_amount",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/total_amount",
+        "spans": [
+          {
+            "end": 102,
+            "page_id": "synthetic-page-1",
+            "quote": "1250.00",
+            "start": 95
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/due_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/payment_terms",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/shipment_reference",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/incoterms",
+        "spans": [],
+        "status": "not_present"
+      }
+    ],
+    "profile_version": "0.1.0",
+    "source_digest": "cc15222550e917d3f95235b44f7a46b4659713c96eaf186387e2f6f2fa1129ba"
+  },
+  "synthetic": true
+}

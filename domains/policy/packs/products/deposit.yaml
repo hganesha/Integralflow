@@ -1,0 +1,11 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.product.deposit
+  version: 1.0.0
+  layer: product
+  appliesTo: { products: [deposit] }
+  status: CANDIDATE
+  ownerRole: kyb-policy-owner
+  description: Deposit accounts; no controls beyond the institution's.
+values: {}

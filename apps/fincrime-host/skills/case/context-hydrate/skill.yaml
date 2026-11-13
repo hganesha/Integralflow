@@ -1,0 +1,289 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:case.context.hydrate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Return the admitted context manifest without recursive compilation.
+code_hash: aa5f06380496e56493da9b2d7ab19efd46d4978ce4bdfd67e94f8387b5f4be41
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Return the admitted context manifest without recursive compilation.
+effects: read_only
+entrypoint: financial_crime.skills.governance:case_context
+evaluation_profile: case.context.hydrate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: case-context-hydrate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: case.context.hydrate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:case.context.hydrate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    target_skill:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - target_skill
+  type: object
+instruction_hash: 7bfd9bbaa3c50131fa99201a41791b502ba4794510eee093c72b095b37680b99
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Bool:
+      type: boolean
+    ContextGap:
+      additionalProperties: false
+      properties:
+        code:
+          $ref: '#/$defs/Id'
+        fields:
+          anyOf:
+          - items:
+              $ref: '#/$defs/Id'
+            maxItems: 10000
+            type: array
+          - type: 'null'
+        minimum:
+          anyOf:
+          - $ref: '#/$defs/Count'
+          - type: 'null'
+        object:
+          anyOf:
+          - $ref: '#/$defs/Id'
+          - type: 'null'
+        object_type:
+          anyOf:
+          - $ref: '#/$defs/Id'
+          - type: 'null'
+        optional:
+          $ref: '#/$defs/Bool'
+      required:
+      - code
+      - optional
+      type: object
+    ContextManifest:
+      additionalProperties: false
+      properties:
+        actor_ref:
+          $ref: '#/$defs/Id'
+        as_of_time:
+          $ref: '#/$defs/Timestamp'
+        authorization_hash:
+          $ref: '#/$defs/Hash'
+        compiler_version:
+          $ref: '#/$defs/Semver'
+        content_hashes:
+          additionalProperties:
+            $ref: '#/$defs/Hash'
+          type: object
+          x-dynamic-map-reason: keyed collection
+        gaps:
+          items:
+            $ref: '#/$defs/ContextGap'
+          maxItems: 10000
+          type: array
+        knowledge_cutoff:
+          $ref: '#/$defs/Timestamp'
+        model_view:
+          $ref: '#/$defs/Text'
+        policy_fields:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        policy_hash:
+          $ref: '#/$defs/Hash'
+        policy_ref:
+          $ref: '#/$defs/Ref'
+        profile_hash:
+          $ref: '#/$defs/Hash'
+        purpose:
+          $ref: '#/$defs/Id'
+        refs:
+          items:
+            $ref: '#/$defs/Ref'
+          maxItems: 10000
+          type: array
+        requirements_hash:
+          $ref: '#/$defs/Hash'
+        schema_version:
+          $ref: '#/$defs/Semver'
+        scope:
+          $ref: '#/$defs/ContextScope'
+        selected_fields:
+          additionalProperties:
+            items:
+              $ref: '#/$defs/Id'
+            maxItems: 10000
+            type: array
+          type: object
+          x-dynamic-map-reason: keyed collection
+        skill_id:
+          $ref: '#/$defs/Id'
+        skill_version:
+          $ref: '#/$defs/Semver'
+        structured_hash:
+          $ref: '#/$defs/Hash'
+        synthetic:
+          $ref: '#/$defs/Bool'
+        tenant_id:
+          $ref: '#/$defs/Id'
+      required:
+      - schema_version
+      - tenant_id
+      - actor_ref
+      - purpose
+      - skill_id
+      - skill_version
+      - profile_hash
+      - policy_hash
+      - policy_ref
+      - policy_fields
+      - requirements_hash
+      - authorization_hash
+      - as_of_time
+      - knowledge_cutoff
+      - refs
+      - content_hashes
+      - selected_fields
+      - gaps
+      - scope
+      - model_view
+      - structured_hash
+      - synthetic
+      - compiler_version
+      type: object
+    ContextScope:
+      additionalProperties: false
+      properties:
+        case_id:
+          anyOf:
+          - $ref: '#/$defs/Id'
+          - type: 'null'
+        complete_for_declared_scope:
+          $ref: '#/$defs/Bool'
+        explicit_refs:
+          $ref: '#/$defs/Bool'
+        subjects:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - subjects
+      - case_id
+      - explicit_refs
+      - complete_for_declared_scope
+      type: object
+    Count:
+      minimum: 0
+      type: integer
+    Hash:
+      pattern: ^[a-f0-9]{64}$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Ref:
+      additionalProperties: false
+      properties:
+        object_id:
+          $ref: '#/$defs/Id'
+        object_type:
+          $ref: '#/$defs/Id'
+        schema_version:
+          $ref: '#/$defs/Semver'
+          default: 2.0.0
+        tenant_id:
+          $ref: '#/$defs/Id'
+        version_id:
+          $ref: '#/$defs/Id'
+      required:
+      - tenant_id
+      - object_type
+      - object_id
+      - version_id
+      type: object
+    Semver:
+      pattern: ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+    Timestamp:
+      format: date-time
+      type: string
+  $id: urn:financial-crime:skill:case.context.hydrate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    context_hash:
+      $ref: '#/$defs/Hash'
+    manifest:
+      $ref: '#/$defs/ContextManifest'
+  required:
+  - manifest
+  - context_hash
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

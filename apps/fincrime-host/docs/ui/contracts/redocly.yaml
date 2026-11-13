@@ -1,0 +1,7 @@
+# Lint config for the Experience API. The one rule switched off fires only inside
+# upstream-owned schemas (kyc ContextPacket oneOf, frozen control-ui views); we do
+# not edit upstream files to silence a linter. Everything else is the recommended set.
+extends:
+  - recommended
+rules:
+  no-illogical-composition-keywords: off

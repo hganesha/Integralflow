@@ -1,0 +1,10 @@
+{
+  "revision": "2026-11-10.1",
+  "models": [
+    { "id": "openai.gpt-4.1", "name": "GPT-4.1", "publisher": "OpenAI", "family": "frontier", "providers": { "openai": "gpt-4.1", "azure_foundry": "gpt-4.1", "openrouter": "openai/gpt-4.1" } },
+    { "id": "openai.gpt-4.1-mini", "name": "GPT-4.1 mini", "publisher": "OpenAI", "family": "frontier", "providers": { "openai": "gpt-4.1-mini", "azure_foundry": "gpt-4.1-mini", "openrouter": "openai/gpt-4.1-mini" } },
+    { "id": "anthropic.claude-sonnet-4.5", "name": "Claude Sonnet 4.5", "publisher": "Anthropic", "family": "frontier", "providers": { "openrouter": "anthropic/claude-sonnet-4.5" } },
+    { "id": "meta.llama-3.3-70b", "name": "Llama 3.3 70B Instruct", "publisher": "Meta", "family": "open-weight", "providers": { "openrouter": "meta-llama/llama-3.3-70b-instruct", "openai_compatible": "meta-llama/Llama-3.3-70B-Instruct" } },
+    { "id": "qwen.qwen3-32b", "name": "Qwen3 32B", "publisher": "Qwen", "family": "open-weight", "providers": { "openrouter": "qwen/qwen3-32b", "openai_compatible": "Qwen/Qwen3-32B" } }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$defs": {
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:regulatory.deadline.calculate:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_at": {
+      "$ref": "#/$defs/Timestamp"
+    },
+    "report_type": {
+      "enum": [
+        "SAR",
+        "CTR"
+      ]
+    }
+  },
+  "required": [
+    "event_at",
+    "report_type"
+  ],
+  "type": "object"
+}

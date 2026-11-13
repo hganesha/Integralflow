@@ -1,0 +1,42 @@
+# Insurance & reinsurance. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: INS
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - INSURANCE
+  name: Insurance & reinsurance
+  definition: Contracts transferring risk to an insurer for a premium, some with investment value.
+  regulatedActivities:
+  - INSURANCE_UNDERWRITING
+  riskDimensions:
+  - THIRD_PARTY_FUNDING
+  classes:
+  - code: LIFE
+    name: Life insurance
+    definition: Protection paying on death, with or without a savings element.
+  - code: ANNUITIES
+    name: Annuities
+    definition: Contracts converting a premium into a stream of income.
+  - code: INVESTMENT_LINKED
+    name: Investment-linked insurance
+    definition: Policies whose value follows underlying funds, including private placement life insurance.
+  - code: PROPERTY_CASUALTY
+    name: Property & casualty
+    definition: Insurance of property, liability and other non-life risks.
+  - code: HEALTH
+    name: Health & accident
+    definition: Insurance of medical costs, disability and accident.
+  - code: SPECIALTY
+    name: Specialty & marine
+    definition: Marine, aviation, political risk, trade credit and other specialty lines.
+  - code: REINSURANCE
+    name: Reinsurance
+    definition: Insurance of insurers' portfolios.
+  - code: DISTRIBUTION
+    name: Insurance distribution
+    definition: Broking and agency arrangements that sell insurance.

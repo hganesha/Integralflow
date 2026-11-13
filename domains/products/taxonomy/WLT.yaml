@@ -1,0 +1,60 @@
+# Wealth & private banking. Candidate canonical content, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata: { code: WLT, version: 1.0.0, status: CANDIDATE, owner: platform.product-taxonomy }
+spec:
+  sectors: [WEALTH, BANKING]
+  name: Wealth & private banking
+  definition: Relationships that bundle banking, investment, credit and fiduciary services for wealthy clients and families.
+  eligiblePartyTypes: [INDIVIDUAL, TRUST, LEGAL_ENTITY, INVESTMENT_FUND, NONPROFIT]
+  riskDimensions: [OWNERSHIP_COMPLEXITY, GEOGRAPHIC_EXPOSURE, VALUE_CONCENTRATION]
+  classes:
+    - code: PRIVATE_BANKING
+      name: Private banking
+      definition: A relationship bundling deposits, credit, investments and custody for a high-net-worth client.
+      bundle: [DEP.TRANSACTION, LND.CONSUMER, BRK.RETAIL, CUS.SAFEKEEPING]
+      types:
+        - { code: DOMESTIC_PRIVATE_BANKING, name: Domestic private banking, definition: "Private banking for a resident client." }
+        - { code: INTERNATIONAL_PRIVATE_BANKING, name: International private banking, definition: "Private banking for a nonresident client.", riskDimensions: [CROSS_BORDER] }
+    - code: WEALTH_MANAGEMENT
+      name: Wealth management
+      definition: Advice and discretionary management of a client's investments.
+      regulatedActivities: [INVESTMENT_ADVICE, PORTFOLIO_MANAGEMENT]
+      types:
+        - { code: DISCRETIONARY, name: Discretionary portfolio management, definition: "The manager decides trades within an agreed mandate." }
+        - { code: ADVISORY, name: Advisory portfolio, definition: "The client decides trades on the adviser's recommendations." }
+    - code: FAMILY_OFFICE
+      name: Family office services
+      definition: Services to family offices managing a family's wealth.
+      eligiblePartyTypes: [LEGAL_ENTITY, TRUST]
+      types:
+        - { code: SINGLE_FAMILY_OFFICE, name: Single family office, definition: "A family office serving one family." }
+        - { code: MULTI_FAMILY_OFFICE, name: Multi-family office, definition: "A family office serving several families.", riskDimensions: [NESTED_ACCESS] }
+    - code: TRUST_FIDUCIARY
+      name: Trust & fiduciary services
+      definition: Acting as trustee, executor or fiduciary for clients' assets.
+      regulatedActivities: [TRUST_AND_FIDUCIARY]
+      types:
+        - { code: PERSONAL_TRUST, name: Personal trust services, definition: "Acting as trustee of a family trust." }
+        - { code: ESTATE_SERVICES, name: Estate settlement, definition: "Administering a deceased client's estate." }
+    - code: LOMBARD
+      name: Lombard & wealth lending
+      definition: Credit secured on a client's investment portfolio or other assets.
+      regulatedActivities: [LENDING]
+      riskDimensions: [LEVERAGE]
+      types:
+        - { code: LOMBARD_LOAN, name: Lombard loan, definition: "A loan secured on a portfolio of securities." }
+        - { code: ART_FINANCE, name: Art and collectibles finance, definition: "A loan secured on artworks or collectibles.", riskDimensions: [VALUE_CONCENTRATION] }
+    - code: PHILANTHROPY
+      name: Philanthropy services
+      definition: Structuring and managing charitable giving.
+      eligiblePartyTypes: [NONPROFIT, TRUST, INDIVIDUAL]
+      types:
+        - { code: DONOR_ADVISED_FUND, name: Donor-advised fund, definition: "A giving account sponsored by a public charity." }
+        - { code: PRIVATE_FOUNDATION, name: Private foundation services, definition: "Administration of a private grant-making foundation." }
+    - code: CONCIERGE
+      name: Concierge & lifestyle banking
+      definition: Non-investment services bundled with a wealth relationship.
+      types:
+        - { code: PRECIOUS_METALS, name: Precious metals accounts, definition: "Allocated or unallocated holdings of bullion.", regulatedActivities: [PRECIOUS_METALS_DEALING], riskDimensions: [VALUE_CONCENTRATION, TRANSFERABILITY] }
+        - { code: CORPORATE_SERVICES, name: Corporate structuring services, definition: "Setting up holding companies and vehicles for a family.", riskDimensions: [OWNERSHIP_COMPLEXITY] }

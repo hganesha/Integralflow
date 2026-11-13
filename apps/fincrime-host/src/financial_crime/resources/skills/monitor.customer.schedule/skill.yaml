@@ -1,0 +1,107 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:monitor.customer.schedule
+- effect:internal_write
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Persist an idempotent next-review schedule using the configured
+  interval.
+code_hash: 13bd71168d73eac8f9d292a5143076f4b43fcb2f725c17fd0587ea14bafb51b5
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Persist an idempotent next-review schedule using the configured interval.
+effects: internal_write
+entrypoint: financial_crime.skills.monitoring_reporting:schedule
+evaluation_profile: monitor.customer.schedule-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: monitor-customer-schedule
+human_interrupt_conditions:
+- before the effect when the parent workflow holds it for approval; otherwise the
+  effect commits only through the node's grant
+id: monitor.customer.schedule
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:monitor.customer.schedule:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 23de4316f4edd185312ea5db147a5667c70fffba980403e2972fb89dde1d6c83
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- No external worker execution or monitoring acknowledgment in the schedule calculation.
+  Consequential effects remain synthetic-only in the current library executor. No
+  business-calendar or regulator-approved interval is implied. Current maturity remains
+  implemented_synthetic. Independent evaluation, policy/source approvals and operating
+  qualification are required before production.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Timestamp:
+      format: date-time
+      type: string
+  $id: urn:financial-crime:skill:monitor.customer.schedule:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    due_at:
+      $ref: '#/$defs/Timestamp'
+    schedule_id:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - schedule_id
+  - due_at
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- review_interval_seconds
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

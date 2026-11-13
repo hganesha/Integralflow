@@ -1,0 +1,2322 @@
+{
+  "agentProfiles": [],
+  "apiVersion": "harness.factory/plan-v2",
+  "budgets": {
+    "maxCapabilityCalls": 8,
+    "maxCostUsd": 1,
+    "maxDurationMs": 300000,
+    "maxModelCalls": 1
+  },
+  "buildProvenanceDigest": "22c8deb7f2606c591d366e3a8436cc4897518d646d6c10f0d44f749bc5dc41ec",
+  "capabilities": [
+    {
+      "adapterBindingId": "skills:document.classify.catalog",
+      "effect": "read",
+      "id": "skill.document.classify.catalog.v0",
+      "idempotent": true,
+      "inputSchema": {
+        "properties": {
+          "context": {
+            "type": "object"
+          },
+          "input": {
+            "properties": {
+              "parameters": {
+                "$id": "urn:financial-crime:skill:document.classify.catalog:input:0.3.0",
+                "additionalProperties": false,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              }
+            },
+            "required": [
+              "parameters"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "input",
+          "context"
+        ],
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "properties": {
+          "computation": {
+            "properties": {
+              "payload": {
+                "$defs": {
+                  "CatalogCandidate": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "display_name": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "matches": {
+                        "items": {
+                          "$ref": "#/$defs/CatalogMatch"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "document_type",
+                      "display_name",
+                      "matches"
+                    ],
+                    "type": "object"
+                  },
+                  "CatalogClassification": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "basis": {
+                        "$ref": "#/$defs/ClassificationBasis"
+                      },
+                      "candidates": {
+                        "items": {
+                          "$ref": "#/$defs/CatalogCandidate"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "document_version",
+                      "document_type",
+                      "basis",
+                      "candidates"
+                    ],
+                    "type": "object"
+                  },
+                  "CatalogMatch": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "page": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "quote": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "start": {
+                        "$ref": "#/$defs/Count"
+                      }
+                    },
+                    "required": [
+                      "page",
+                      "start",
+                      "end",
+                      "quote"
+                    ],
+                    "type": "object"
+                  },
+                  "ClassificationBasis": {
+                    "enum": [
+                      "title",
+                      "unique_mention",
+                      "ambiguous_or_unmatched"
+                    ]
+                  },
+                  "Count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "Hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "Id": {
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "PositiveCount": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "Text": {
+                    "maxLength": 200000,
+                    "type": "string"
+                  }
+                },
+                "$id": "urn:financial-crime:skill:document.classify.catalog:output:0.3.0",
+                "additionalProperties": false,
+                "properties": {
+                  "catalog_hash": {
+                    "$ref": "#/$defs/Hash"
+                  },
+                  "classifications": {
+                    "items": {
+                      "$ref": "#/$defs/CatalogClassification"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "classifications",
+                  "catalog_hash"
+                ],
+                "type": "object"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "lifecycle": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_version",
+          "skill_id",
+          "skill_version",
+          "lifecycle"
+        ],
+        "type": "object"
+      },
+      "timeoutMs": 30000
+    },
+    {
+      "adapterBindingId": "skills:document.fields.contract_extract",
+      "effect": "reversible",
+      "id": "skill.document.fields.contract_extract.v0",
+      "idempotent": true,
+      "inputSchema": {
+        "properties": {
+          "context": {
+            "type": "object"
+          },
+          "input": {
+            "properties": {
+              "parameters": {
+                "$defs": {
+                  "CatalogCandidate": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "display_name": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "matches": {
+                        "items": {
+                          "$ref": "#/$defs/CatalogMatch"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "document_type",
+                      "display_name",
+                      "matches"
+                    ],
+                    "type": "object"
+                  },
+                  "CatalogClassification": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "basis": {
+                        "$ref": "#/$defs/ClassificationBasis"
+                      },
+                      "candidates": {
+                        "items": {
+                          "$ref": "#/$defs/CatalogCandidate"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "document_version",
+                      "document_type",
+                      "basis",
+                      "candidates"
+                    ],
+                    "type": "object"
+                  },
+                  "CatalogMatch": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "page": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "quote": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "start": {
+                        "$ref": "#/$defs/Count"
+                      }
+                    },
+                    "required": [
+                      "page",
+                      "start",
+                      "end",
+                      "quote"
+                    ],
+                    "type": "object"
+                  },
+                  "ClassificationBasis": {
+                    "enum": [
+                      "title",
+                      "unique_mention",
+                      "ambiguous_or_unmatched"
+                    ]
+                  },
+                  "Count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "Id": {
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "PositiveCount": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "Text": {
+                    "maxLength": 200000,
+                    "type": "string"
+                  }
+                },
+                "$id": "urn:financial-crime:skill:document.fields.contract_extract:input:0.3.0",
+                "additionalProperties": false,
+                "properties": {
+                  "classifications": {
+                    "items": {
+                      "$ref": "#/$defs/CatalogClassification"
+                    },
+                    "maxItems": 10000,
+                    "minItems": 0,
+                    "type": "array"
+                  },
+                  "subject": {
+                    "maxLength": 4000,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "classifications",
+                  "subject"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "parameters"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "input",
+          "context"
+        ],
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "properties": {
+          "computation": {
+            "properties": {
+              "payload": {
+                "$defs": {
+                  "Bool": {
+                    "type": "boolean"
+                  },
+                  "CandidateAssertion": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "context_targets": {
+                        "items": {
+                          "$ref": "#/$defs/ContextTargetDecl"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "contract_hash": {
+                        "$ref": "#/$defs/Hash"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "epistemic_status": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "path": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "source_digest": {
+                        "$ref": "#/$defs/Hash"
+                      },
+                      "source_spans": {
+                        "items": {
+                          "$ref": "#/$defs/ExtractionSpan"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "value": {
+                        "$ref": "#/$defs/JsonValue"
+                      },
+                      "verification": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "value",
+                      "document_version",
+                      "source_digest",
+                      "contract_hash",
+                      "source_spans",
+                      "epistemic_status",
+                      "verification",
+                      "context_targets"
+                    ],
+                    "type": "object"
+                  },
+                  "ContextTargetDecl": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "condition": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "field_path": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "mode": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "object_type": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "object_type",
+                      "field_path",
+                      "condition",
+                      "mode"
+                    ],
+                    "type": "object"
+                  },
+                  "Count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "DocumentExtraction": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_assertions": {
+                        "items": {
+                          "$ref": "#/$defs/CandidateAssertion"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "contract_hash": {
+                        "$ref": "#/$defs/Hash"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "extraction_status": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "issues": {
+                        "items": {
+                          "$ref": "#/$defs/ExtractionIssue"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "mapping_candidates": {
+                        "items": {
+                          "$ref": "#/$defs/MappingCandidate"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "profile_version": {
+                        "$ref": "#/$defs/Semver"
+                      },
+                      "source_digest": {
+                        "$ref": "#/$defs/Hash"
+                      }
+                    },
+                    "required": [
+                      "document_type",
+                      "profile_version",
+                      "contract_hash",
+                      "document_version",
+                      "source_digest",
+                      "extraction_status",
+                      "candidate_assertions",
+                      "mapping_candidates",
+                      "issues"
+                    ],
+                    "type": "object"
+                  },
+                  "ExtractionIssue": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "message": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "path": {
+                        "$ref": "#/$defs/Text"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "path",
+                      "message"
+                    ],
+                    "type": "object"
+                  },
+                  "ExtractionSpan": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "page_id": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "quote": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "start": {
+                        "$ref": "#/$defs/Count"
+                      }
+                    },
+                    "required": [
+                      "page_id",
+                      "start",
+                      "end",
+                      "quote"
+                    ],
+                    "type": "object"
+                  },
+                  "Hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "Id": {
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "JsonObject": {
+                    "additionalProperties": {
+                      "$ref": "#/$defs/JsonValue"
+                    },
+                    "type": "object",
+                    "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+                  },
+                  "JsonValue": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "maxLength": 200000,
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "items": {
+                          "$ref": "#/$defs/JsonValue"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      {
+                        "additionalProperties": {
+                          "$ref": "#/$defs/JsonValue"
+                        },
+                        "type": "object",
+                        "x-dynamic-map-reason": "raw JSON source value"
+                      }
+                    ]
+                  },
+                  "MappingCandidate": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "requires_subject_resolution_and_transform": {
+                        "$ref": "#/$defs/Bool"
+                      },
+                      "source_path": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "source_value": {
+                        "$ref": "#/$defs/JsonValue"
+                      },
+                      "targets": {
+                        "items": {
+                          "$ref": "#/$defs/ContextTargetDecl"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "source_path",
+                      "source_value",
+                      "targets",
+                      "requires_subject_resolution_and_transform"
+                    ],
+                    "type": "object"
+                  },
+                  "PositiveCount": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "ProposedRecord": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "body": {
+                        "$ref": "#/$defs/JsonObject"
+                      },
+                      "evidence": {
+                        "items": {
+                          "$ref": "#/$defs/JsonObject"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "local_ref": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "record_type": {
+                        "$ref": "#/$defs/ProposedRecordType"
+                      }
+                    },
+                    "required": [
+                      "record_type",
+                      "local_ref",
+                      "body",
+                      "evidence"
+                    ],
+                    "type": "object"
+                  },
+                  "ProposedRecordType": {
+                    "enum": [
+                      "CanonicalRecord",
+                      "UnresolvedQuestion"
+                    ]
+                  },
+                  "Semver": {
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+                    "type": "string"
+                  },
+                  "Text": {
+                    "maxLength": 200000,
+                    "type": "string"
+                  }
+                },
+                "$id": "urn:financial-crime:skill:document.fields.contract_extract:output:0.3.0",
+                "additionalProperties": false,
+                "properties": {
+                  "catalog_hash": {
+                    "$ref": "#/$defs/Hash"
+                  },
+                  "extractions": {
+                    "items": {
+                      "$ref": "#/$defs/DocumentExtraction"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  },
+                  "promotion_allowed": {
+                    "type": "boolean"
+                  },
+                  "proposed_records": {
+                    "items": {
+                      "$ref": "#/$defs/ProposedRecord"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  },
+                  "review_required": {
+                    "type": "boolean"
+                  },
+                  "semantic_verification": {
+                    "maxLength": 4000,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "subject": {
+                    "maxLength": 4000,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "unclassified": {
+                    "items": {
+                      "$ref": "#/$defs/Id"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "subject",
+                  "catalog_hash",
+                  "review_required",
+                  "promotion_allowed",
+                  "semantic_verification",
+                  "extractions",
+                  "unclassified",
+                  "proposed_records"
+                ],
+                "type": "object"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "lifecycle": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_version",
+          "skill_id",
+          "skill_version",
+          "lifecycle"
+        ],
+        "type": "object"
+      },
+      "timeoutMs": 30000
+    },
+    {
+      "adapterBindingId": "skills:document.fields.contract_extract",
+      "effect": "reversible",
+      "id": "skill.document.fields.contract_extract.v0",
+      "idempotent": true,
+      "inputSchema": {
+        "properties": {
+          "context": {
+            "type": "object"
+          },
+          "input": {
+            "properties": {
+              "parameters": {
+                "$defs": {
+                  "CatalogCandidate": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "display_name": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "matches": {
+                        "items": {
+                          "$ref": "#/$defs/CatalogMatch"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "document_type",
+                      "display_name",
+                      "matches"
+                    ],
+                    "type": "object"
+                  },
+                  "CatalogClassification": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "basis": {
+                        "$ref": "#/$defs/ClassificationBasis"
+                      },
+                      "candidates": {
+                        "items": {
+                          "$ref": "#/$defs/CatalogCandidate"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "document_version",
+                      "document_type",
+                      "basis",
+                      "candidates"
+                    ],
+                    "type": "object"
+                  },
+                  "CatalogMatch": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "page": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "quote": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "start": {
+                        "$ref": "#/$defs/Count"
+                      }
+                    },
+                    "required": [
+                      "page",
+                      "start",
+                      "end",
+                      "quote"
+                    ],
+                    "type": "object"
+                  },
+                  "ClassificationBasis": {
+                    "enum": [
+                      "title",
+                      "unique_mention",
+                      "ambiguous_or_unmatched"
+                    ]
+                  },
+                  "Count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "Id": {
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "PositiveCount": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "Text": {
+                    "maxLength": 200000,
+                    "type": "string"
+                  }
+                },
+                "$id": "urn:financial-crime:skill:document.fields.contract_extract:input:0.3.0",
+                "additionalProperties": false,
+                "properties": {
+                  "classifications": {
+                    "items": {
+                      "$ref": "#/$defs/CatalogClassification"
+                    },
+                    "maxItems": 10000,
+                    "minItems": 0,
+                    "type": "array"
+                  },
+                  "subject": {
+                    "maxLength": 4000,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "classifications",
+                  "subject"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "parameters"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "input",
+          "context"
+        ],
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "properties": {
+          "computation": {
+            "properties": {
+              "payload": {
+                "$defs": {
+                  "Bool": {
+                    "type": "boolean"
+                  },
+                  "CandidateAssertion": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "context_targets": {
+                        "items": {
+                          "$ref": "#/$defs/ContextTargetDecl"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "contract_hash": {
+                        "$ref": "#/$defs/Hash"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "epistemic_status": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "path": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "source_digest": {
+                        "$ref": "#/$defs/Hash"
+                      },
+                      "source_spans": {
+                        "items": {
+                          "$ref": "#/$defs/ExtractionSpan"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "value": {
+                        "$ref": "#/$defs/JsonValue"
+                      },
+                      "verification": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "path",
+                      "value",
+                      "document_version",
+                      "source_digest",
+                      "contract_hash",
+                      "source_spans",
+                      "epistemic_status",
+                      "verification",
+                      "context_targets"
+                    ],
+                    "type": "object"
+                  },
+                  "ContextTargetDecl": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "condition": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "field_path": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "mode": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "object_type": {
+                        "$ref": "#/$defs/Id"
+                      }
+                    },
+                    "required": [
+                      "object_type",
+                      "field_path",
+                      "condition",
+                      "mode"
+                    ],
+                    "type": "object"
+                  },
+                  "Count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "DocumentExtraction": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_assertions": {
+                        "items": {
+                          "$ref": "#/$defs/CandidateAssertion"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "contract_hash": {
+                        "$ref": "#/$defs/Hash"
+                      },
+                      "document_type": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "document_version": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "extraction_status": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "issues": {
+                        "items": {
+                          "$ref": "#/$defs/ExtractionIssue"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "mapping_candidates": {
+                        "items": {
+                          "$ref": "#/$defs/MappingCandidate"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "profile_version": {
+                        "$ref": "#/$defs/Semver"
+                      },
+                      "source_digest": {
+                        "$ref": "#/$defs/Hash"
+                      }
+                    },
+                    "required": [
+                      "document_type",
+                      "profile_version",
+                      "contract_hash",
+                      "document_version",
+                      "source_digest",
+                      "extraction_status",
+                      "candidate_assertions",
+                      "mapping_candidates",
+                      "issues"
+                    ],
+                    "type": "object"
+                  },
+                  "ExtractionIssue": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "code": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "message": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "path": {
+                        "$ref": "#/$defs/Text"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "path",
+                      "message"
+                    ],
+                    "type": "object"
+                  },
+                  "ExtractionSpan": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end": {
+                        "$ref": "#/$defs/PositiveCount"
+                      },
+                      "page_id": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "quote": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "start": {
+                        "$ref": "#/$defs/Count"
+                      }
+                    },
+                    "required": [
+                      "page_id",
+                      "start",
+                      "end",
+                      "quote"
+                    ],
+                    "type": "object"
+                  },
+                  "Hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "Id": {
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "JsonObject": {
+                    "additionalProperties": {
+                      "$ref": "#/$defs/JsonValue"
+                    },
+                    "type": "object",
+                    "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+                  },
+                  "JsonValue": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "maxLength": 200000,
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "items": {
+                          "$ref": "#/$defs/JsonValue"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      {
+                        "additionalProperties": {
+                          "$ref": "#/$defs/JsonValue"
+                        },
+                        "type": "object",
+                        "x-dynamic-map-reason": "raw JSON source value"
+                      }
+                    ]
+                  },
+                  "MappingCandidate": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "requires_subject_resolution_and_transform": {
+                        "$ref": "#/$defs/Bool"
+                      },
+                      "source_path": {
+                        "$ref": "#/$defs/Text"
+                      },
+                      "source_value": {
+                        "$ref": "#/$defs/JsonValue"
+                      },
+                      "targets": {
+                        "items": {
+                          "$ref": "#/$defs/ContextTargetDecl"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "source_path",
+                      "source_value",
+                      "targets",
+                      "requires_subject_resolution_and_transform"
+                    ],
+                    "type": "object"
+                  },
+                  "PositiveCount": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "ProposedRecord": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "body": {
+                        "$ref": "#/$defs/JsonObject"
+                      },
+                      "evidence": {
+                        "items": {
+                          "$ref": "#/$defs/JsonObject"
+                        },
+                        "maxItems": 10000,
+                        "type": "array"
+                      },
+                      "local_ref": {
+                        "$ref": "#/$defs/Id"
+                      },
+                      "record_type": {
+                        "$ref": "#/$defs/ProposedRecordType"
+                      }
+                    },
+                    "required": [
+                      "record_type",
+                      "local_ref",
+                      "body",
+                      "evidence"
+                    ],
+                    "type": "object"
+                  },
+                  "ProposedRecordType": {
+                    "enum": [
+                      "CanonicalRecord",
+                      "UnresolvedQuestion"
+                    ]
+                  },
+                  "Semver": {
+                    "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+                    "type": "string"
+                  },
+                  "Text": {
+                    "maxLength": 200000,
+                    "type": "string"
+                  }
+                },
+                "$id": "urn:financial-crime:skill:document.fields.contract_extract:output:0.3.0",
+                "additionalProperties": false,
+                "properties": {
+                  "catalog_hash": {
+                    "$ref": "#/$defs/Hash"
+                  },
+                  "extractions": {
+                    "items": {
+                      "$ref": "#/$defs/DocumentExtraction"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  },
+                  "promotion_allowed": {
+                    "type": "boolean"
+                  },
+                  "proposed_records": {
+                    "items": {
+                      "$ref": "#/$defs/ProposedRecord"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  },
+                  "review_required": {
+                    "type": "boolean"
+                  },
+                  "semantic_verification": {
+                    "maxLength": 4000,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "subject": {
+                    "maxLength": 4000,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "unclassified": {
+                    "items": {
+                      "$ref": "#/$defs/Id"
+                    },
+                    "maxItems": 10000,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "subject",
+                  "catalog_hash",
+                  "review_required",
+                  "promotion_allowed",
+                  "semantic_verification",
+                  "extractions",
+                  "unclassified",
+                  "proposed_records"
+                ],
+                "type": "object"
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "lifecycle": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_version",
+          "skill_id",
+          "skill_version",
+          "lifecycle"
+        ],
+        "type": "object"
+      },
+      "timeoutMs": 180000
+    },
+    {
+      "adapterBindingId": "evidence:prepare",
+      "effect": "read",
+      "id": "document.evidence.prepare.v1",
+      "idempotent": true,
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "caseId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "contentBase64": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "documentId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "documentVersion": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "evidenceId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "filename": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "tenantId": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "tenantId",
+          "caseId",
+          "documentId",
+          "documentVersion",
+          "evidenceId",
+          "filename",
+          "contentBase64"
+        ],
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 120000
+    },
+    {
+      "adapterBindingId": "openrouter:document_fields.model.document.v1",
+      "effect": "read",
+      "id": "document.fields.extract.v1",
+      "idempotent": true,
+      "inputSchema": {
+        "$defs": {
+          "Hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "JsonObject": {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+          },
+          "JsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "maxLength": 200000,
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "items": {
+                  "$ref": "#/$defs/JsonValue"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              {
+                "additionalProperties": {
+                  "$ref": "#/$defs/JsonValue"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "raw JSON source value"
+              }
+            ]
+          },
+          "SourcePageText": {
+            "additionalProperties": false,
+            "properties": {
+              "document_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "page_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "text": {
+                "$ref": "#/$defs/Text"
+              }
+            },
+            "required": [
+              "page_id",
+              "document_version",
+              "text"
+            ],
+            "type": "object"
+          },
+          "Text": {
+            "maxLength": 200000,
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:provider:document.fields:request:2.0.0",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "contract_hash": {
+            "$ref": "#/$defs/Hash"
+          },
+          "document_type": {
+            "$ref": "#/$defs/Id"
+          },
+          "extraction_schema": {
+            "$ref": "#/$defs/JsonObject"
+          },
+          "instructions": {
+            "$ref": "#/$defs/Text"
+          },
+          "pages": {
+            "items": {
+              "$ref": "#/$defs/SourcePageText"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          "source_digest": {
+            "$ref": "#/$defs/Hash"
+          }
+        },
+        "required": [
+          "document_type",
+          "contract_hash",
+          "instructions",
+          "extraction_schema",
+          "pages",
+          "source_digest"
+        ],
+        "type": "object"
+      },
+      "kind": "model",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "$defs": {
+          "Count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "ExtractionObservation": {
+            "additionalProperties": false,
+            "properties": {
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Probability"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "note": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/Text"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "path": {
+                "$ref": "#/$defs/Text"
+              },
+              "spans": {
+                "items": {
+                  "$ref": "#/$defs/ExtractionSpan"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "status": {
+                "$ref": "#/$defs/ObservationStatus"
+              }
+            },
+            "required": [
+              "path",
+              "status",
+              "confidence",
+              "spans",
+              "note"
+            ],
+            "type": "object"
+          },
+          "ExtractionResponse": {
+            "additionalProperties": false,
+            "properties": {
+              "contract_hash": {
+                "$ref": "#/$defs/Hash"
+              },
+              "document_type": {
+                "$ref": "#/$defs/Id"
+              },
+              "document_version": {
+                "$ref": "#/$defs/Id"
+              },
+              "extracted_fields": {
+                "$ref": "#/$defs/JsonObject"
+              },
+              "observations": {
+                "items": {
+                  "$ref": "#/$defs/ExtractionObservation"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              "profile_version": {
+                "$ref": "#/$defs/Semver"
+              },
+              "source_digest": {
+                "$ref": "#/$defs/Hash"
+              }
+            },
+            "required": [
+              "document_type",
+              "profile_version",
+              "contract_hash",
+              "document_version",
+              "source_digest",
+              "extracted_fields",
+              "observations"
+            ],
+            "type": "object"
+          },
+          "ExtractionSpan": {
+            "additionalProperties": false,
+            "properties": {
+              "end": {
+                "$ref": "#/$defs/PositiveCount"
+              },
+              "page_id": {
+                "$ref": "#/$defs/Id"
+              },
+              "quote": {
+                "$ref": "#/$defs/Text"
+              },
+              "start": {
+                "$ref": "#/$defs/Count"
+              }
+            },
+            "required": [
+              "page_id",
+              "start",
+              "end",
+              "quote"
+            ],
+            "type": "object"
+          },
+          "Hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "Id": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "JsonObject": {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+          },
+          "JsonValue": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "maxLength": 200000,
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "items": {
+                  "$ref": "#/$defs/JsonValue"
+                },
+                "maxItems": 10000,
+                "type": "array"
+              },
+              {
+                "additionalProperties": {
+                  "$ref": "#/$defs/JsonValue"
+                },
+                "type": "object",
+                "x-dynamic-map-reason": "raw JSON source value"
+              }
+            ]
+          },
+          "ObservationStatus": {
+            "enum": [
+              "present",
+              "not_present",
+              "illegible",
+              "redacted",
+              "ambiguous",
+              "not_applicable"
+            ]
+          },
+          "PositiveCount": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "Probability": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "Semver": {
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+            "type": "string"
+          },
+          "Text": {
+            "maxLength": 200000,
+            "type": "string"
+          }
+        },
+        "$id": "urn:financial-crime:provider:document.fields:response:2.0.0",
+        "$ref": "#/$defs/ExtractionResponse",
+        "$schema": "https://json-schema.org/draft/2020-12/schema"
+      },
+      "timeoutMs": 150000
+    }
+  ],
+  "compiler": {
+    "compatibilityVersion": "4",
+    "digest": "92eafe9b5c2489a4b75c107d949aa3a1ecf17345ee2b8aad720f9991ab551a1d",
+    "lgirCoreRevision": "fec01bf0fa5ff259c071439d63ad71c9979668f9",
+    "name": "harnessc",
+    "version": "1.0.0"
+  },
+  "contextClassificationPolicies": [
+    {
+      "action": "allow",
+      "classification": "PII"
+    },
+    {
+      "action": "allow",
+      "classification": "CONFIDENTIAL"
+    }
+  ],
+  "contextSelectors": [
+    {
+      "classification": "PII",
+      "id": "kycSubjects",
+      "path": "subjects",
+      "purpose": "KYC_ONBOARDING",
+      "required": true,
+      "source": "case"
+    },
+    {
+      "classification": "CONFIDENTIAL",
+      "id": "subjectId",
+      "path": "subjects.0.subject_id",
+      "purpose": "KYC_ONBOARDING",
+      "required": true,
+      "source": "case"
+    },
+    {
+      "classification": "CONFIDENTIAL",
+      "id": "caseId",
+      "path": "case.caseId",
+      "purpose": "KYC_SCREENING",
+      "required": true,
+      "source": "case"
+    },
+    {
+      "classification": "CONFIDENTIAL",
+      "id": "recDocumentPage-document-classify-catalog",
+      "path": "records.DocumentPage",
+      "purpose": "KYC_ONBOARDING",
+      "record": {
+        "fields": [
+          "text",
+          "page",
+          "document_version"
+        ],
+        "maxAgeSeconds": null,
+        "minCount": 1,
+        "objectType": "DocumentPage"
+      },
+      "required": true,
+      "source": "case"
+    },
+    {
+      "classification": "CONFIDENTIAL",
+      "id": "recDocumentPage-document-fields-contract-extract",
+      "path": "records.DocumentPage",
+      "purpose": "KYC_ONBOARDING",
+      "record": {
+        "fields": [
+          "text",
+          "page",
+          "document_version"
+        ],
+        "maxAgeSeconds": null,
+        "minCount": 1,
+        "objectType": "DocumentPage"
+      },
+      "required": true,
+      "source": "case"
+    }
+  ],
+  "createdAt": "1970-01-01T00:00:00Z",
+  "dependencyManifest": [
+    {
+      "digest": "804685085f45792e69357e2b0c70a683fa3f7bb45558a027dde4d3778f1568cf",
+      "id": "README.md",
+      "kind": "source"
+    },
+    {
+      "digest": "92f6dfd7f8227dd4955f6f9d3defc0256eb117246b77bf3e133d4fb85b93476e",
+      "id": "library/skills.json",
+      "kind": "source"
+    },
+    {
+      "digest": "cca33c1c37e4fede996b38a9323801445ba12a4537708863fe2252d7801499e7",
+      "id": "package.yaml",
+      "kind": "source"
+    },
+    {
+      "digest": "d8dc88e24d6dc3571a1744bc9b04ce917dfb62329d13e7583c3e94b1392eb885",
+      "id": "policy-binding.yaml",
+      "kind": "source"
+    },
+    {
+      "digest": "b043a112cb3327c62e5ee37c1f49de981b7697ff033278fae1189b1fd2404a5c",
+      "id": "source/kyc-workflow.json",
+      "kind": "source"
+    },
+    {
+      "digest": "55e426f97842491204d54db65eb38ce5b2627731df7fd3e4889fd40ef82744b6",
+      "id": "workflow.yaml",
+      "kind": "source"
+    }
+  ],
+  "dependencyManifestDigest": "c6aa279565f9f0bffa72e4706c8f8295a0944b6f5a786670bfc5c940281a104a",
+  "execution": {
+    "coordinationMode": "caseStore",
+    "durability": "durable",
+    "engine": {
+      "adapterVersion": "harness-runtime-v2",
+      "kind": "harness-runtime",
+      "profile": "production-v2"
+    },
+    "maxConcurrency": 1,
+    "maxTransitions": 10000
+  },
+  "graph": {
+    "apiVersion": "ladder.dev/v1alpha1",
+    "edges": [
+      {
+        "condition": "",
+        "from": "input",
+        "id": "document-0",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "prepare-document"
+      },
+      {
+        "condition": "",
+        "from": "prepare-document",
+        "id": "document-1",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "document-classify-catalog"
+      },
+      {
+        "condition": "",
+        "from": "document-classify-catalog",
+        "id": "document-2",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "document-fields-contract-extract"
+      },
+      {
+        "condition": "",
+        "from": "document-fields-contract-extract",
+        "id": "document-3",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "output"
+      }
+    ],
+    "name": "document-reextraction",
+    "nodeOrder": [
+      "input",
+      "prepare-document",
+      "document-classify-catalog",
+      "document-fields-contract-extract",
+      "output"
+    ],
+    "nodes": [
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "input",
+        "inputSchema": null,
+        "kind": "input",
+        "name": "Selected immutable document",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "document.evidence.prepare.v1",
+          "carry": {},
+          "caseWriteActor": "system",
+          "caseWritePrincipalId": "kyc-connector-normalizer",
+          "caseWrites": [
+            {
+              "commandType": "LinkEvidence",
+              "payload": {
+                "evidenceId": "{{ evidence.evidenceId }}",
+                "purpose": "KYC_DOCUMENT_EVIDENCE"
+              },
+              "payloadSchema": {
+                "required": [
+                  "evidenceId",
+                  "purpose"
+                ],
+                "type": "object"
+              }
+            },
+            {
+              "commandType": "RecordCanonicalRecords",
+              "payload": {
+                "evidenceRefs": [
+                  "{{ evidence.evidenceId }}"
+                ],
+                "records": "{{ output.records }}"
+              },
+              "payloadSchema": {
+                "required": [
+                  "records",
+                  "evidenceRefs"
+                ],
+                "type": "object"
+              },
+              "when": "output.records.0"
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "evidenceCapture": {
+            "instructionTrust": "UNTRUSTED_EXTERNAL",
+            "sourceType": "TOOL",
+            "trustTier": "VERIFIED_PROVIDER",
+            "type": "kyc_acquire_documents"
+          },
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "usePredecessorInput": true,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "caseId"
+        ],
+        "id": "prepare-document",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Prepare selected document",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": "Parse the verified original bytes into pages for this immutable document version."
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "skill.document.classify.catalog.v0",
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "libraryEffects": "read_only",
+          "libraryStep": "document_classify_catalog",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "requireBoundParameters": true,
+          "router": "",
+          "skillId": "document.classify.catalog",
+          "skillParameters": {},
+          "skillPolicy": {
+            "bundleDigest": "8735e35193f31c561260d22eb95b10546ccb55da84ef24f6810dcb2e782febb3",
+            "fields": [
+              "freshness_seconds",
+              "jurisdiction",
+              "permissions",
+              "version"
+            ],
+            "policyRef": "policy.kyc.customer-acceptance.v1",
+            "policyVersion": "1.0.0",
+            "sources": {
+              "freshness_seconds": "owner_inputs.D01.listFreshnessDays, owner_inputs.D05.identityVerificationDays (days to seconds)",
+              "jurisdiction": "policy.yaml metadata.jurisdiction",
+              "permissions": "plan.skillBindings",
+              "version": "catalog.policy_version"
+            },
+            "unresolved": [],
+            "values": {
+              "freshness_seconds": {
+                "VerificationRecord": 7776000,
+                "WatchlistEntry": 86400
+              },
+              "jurisdiction": "US",
+              "permissions": [
+                "skill:document.classify.catalog",
+                "skill:document.fields.contract_extract",
+                "effect:proposal"
+              ],
+              "version": "1.0.0"
+            }
+          },
+          "skillPurpose": "document_review",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "kycSubjects",
+          "recDocumentPage-document-classify-catalog"
+        ],
+        "id": "document-classify-catalog",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "document.classify.catalog",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": "Classify each document version into the document field catalog by exact title, name and alias matches with spans; ambiguity stays UNKNOWN."
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "skill.document.fields.contract_extract.v0",
+          "carry": {},
+          "caseWrites": [
+            {
+              "commandType": "LinkEvidence",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeWorkItem",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordCanonicalRecords",
+              "skillGrant": "proposal"
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "libraryEffects": "proposal",
+          "libraryStep": "document_fields_contract_extract",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "requireBoundParameters": true,
+          "router": "",
+          "skillContextBindings": {
+            "subject": "subjectId"
+          },
+          "skillId": "document.fields.contract_extract",
+          "skillParameterBindings": {
+            "classifications": "document-classify-catalog.payload.classifications"
+          },
+          "skillParameters": {
+            "classifications": [],
+            "subject": "case-subject"
+          },
+          "skillPolicy": {
+            "bundleDigest": "8735e35193f31c561260d22eb95b10546ccb55da84ef24f6810dcb2e782febb3",
+            "fields": [
+              "freshness_seconds",
+              "jurisdiction",
+              "permissions",
+              "permitted_providers",
+              "version"
+            ],
+            "policyRef": "policy.kyc.customer-acceptance.v1",
+            "policyVersion": "1.0.0",
+            "sources": {
+              "freshness_seconds": "owner_inputs.D01.listFreshnessDays, owner_inputs.D05.identityVerificationDays (days to seconds)",
+              "jurisdiction": "policy.yaml metadata.jurisdiction",
+              "permissions": "plan.skillBindings",
+              "permitted_providers": "admitted document.fields.extract.v1 callback capability",
+              "version": "catalog.policy_version"
+            },
+            "unresolved": [],
+            "values": {
+              "freshness_seconds": {
+                "VerificationRecord": 7776000,
+                "WatchlistEntry": 86400
+              },
+              "jurisdiction": "US",
+              "permissions": [
+                "skill:document.classify.catalog",
+                "skill:document.fields.contract_extract",
+                "effect:proposal"
+              ],
+              "permitted_providers": {
+                "document.fields": [
+                  "ehf-gateway"
+                ]
+              },
+              "version": "1.0.0"
+            }
+          },
+          "skillPurpose": "document_review",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "kycSubjects",
+          "recDocumentPage-document-fields-contract-extract",
+          "subjectId"
+        ],
+        "id": "document-fields-contract-extract",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "document.fields.contract_extract",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": "Extract every field of each classified document's catalog contract through an admitted provider, then validate schema, spans and source binding deterministically."
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "usePredecessorInput": true,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "output",
+        "inputSchema": null,
+        "kind": "output",
+        "name": "Unverified extraction result",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      }
+    ]
+  },
+  "kind": "HarnessPlan",
+  "metadata": {
+    "domain": "documents",
+    "name": "document-reextraction",
+    "objective": "Extract catalog fields from one original document; preserve assertions for human review.",
+    "version": "1.0.0"
+  },
+  "modelProfiles": [
+    {
+      "digest": "449882c7edc6ecf64a4afce5bddaa36e4e042bbdd53513635887789646b94f93",
+      "id": "model.document.v1"
+    }
+  ],
+  "packageDigest": "c6aa279565f9f0bffa72e4706c8f8295a0944b6f5a786670bfc5c940281a104a",
+  "permissionEnvelopes": [
+    {
+      "capabilities": [
+        "document.evidence.prepare.v1"
+      ],
+      "digest": "d5fe2468e1aab8f870b63c9bd19eb12f57ff2eb4fd5331493ce6994743a0df6b",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "prepare-document"
+    },
+    {
+      "capabilities": [
+        "skill.document.classify.catalog.v0"
+      ],
+      "digest": "174f44fe3ff2790a6ed526b5dd27ee87c6acaa20c9c2b3e47f705b8bfe9bca2e",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "document-classify-catalog"
+    },
+    {
+      "capabilities": [
+        "skill.document.fields.contract_extract.v0",
+        "document.fields.extract.v1"
+      ],
+      "digest": "ffe86a253a4c643d49488ffbb692ebdde26516a3a0f76d0823060dc4cbc2b146",
+      "effects": [
+        "reversible",
+        "read"
+      ],
+      "nodeId": "document-fields-contract-extract"
+    }
+  ],
+  "planDigest": "1183871e15b06f06222e5551972ebd9d8518b9c2430b819e43b32d835ccf809d",
+  "planId": "document-reextraction@1.0.0:1183871e15b0",
+  "policyBundles": [],
+  "releaseConstraints": {
+    "dataClasses": [
+      "PII",
+      "CONFIDENTIAL",
+      "PUBLIC_SOURCE"
+    ],
+    "evaluationRequirementIds": [
+      "document-source-integrity",
+      "document-scope-authority",
+      "document-review-ui"
+    ],
+    "regions": [
+      "US"
+    ]
+  },
+  "schemas": {
+    "input": {
+      "additionalProperties": false,
+      "properties": {
+        "caseId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "contentBase64": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "documentId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "documentVersion": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidenceId": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "filename": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "tenantId": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenantId",
+        "caseId",
+        "documentId",
+        "documentVersion",
+        "evidenceId",
+        "filename",
+        "contentBase64"
+      ],
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "schemaSetDigest": "2640e3799f19467429cfede9e743cf18169900b0eac8d765f30c2422c91904e3"
+  },
+  "skillBindings": [
+    {
+      "bundleDigest": "sha256:fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "candidates": [
+        {
+          "capabilityId": "skill.document.classify.catalog.v0",
+          "connectorId": "skills:document.classify.catalog",
+          "equivalentCoverageGroup": null
+        }
+      ],
+      "effects": {
+        "approval": "none",
+        "caseCommands": [],
+        "mode": "read_only"
+      },
+      "manifestDigest": "cf5fa8617e366b840222b7fc549692affaafc8bd9ca7dc603e60dee7290e120c",
+      "policy": {
+        "allow_fallback": false,
+        "log_selected_implementation": true,
+        "require_entitlement": false,
+        "require_jurisdiction_coverage": false,
+        "require_list_freshness": false
+      },
+      "semver": "0.3.0",
+      "skillId": "document.classify.catalog"
+    },
+    {
+      "bundleDigest": "sha256:fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+      "candidates": [
+        {
+          "capabilityId": "skill.document.fields.contract_extract.v0",
+          "connectorId": "skills:document.fields.contract_extract",
+          "equivalentCoverageGroup": null
+        }
+      ],
+      "dependencyCapabilities": [
+        "document.fields.extract.v1"
+      ],
+      "effects": {
+        "approval": "none",
+        "caseCommands": [],
+        "mode": "proposal"
+      },
+      "manifestDigest": "34a7eb6216f2b2986c0103efd3632b643e7021477ce0e9a439a7ca14bc382674",
+      "policy": {
+        "allow_fallback": false,
+        "log_selected_implementation": true,
+        "require_entitlement": false,
+        "require_jurisdiction_coverage": false,
+        "require_list_freshness": false
+      },
+      "semver": "0.3.0",
+      "skillId": "document.fields.contract_extract"
+    }
+  ]
+}

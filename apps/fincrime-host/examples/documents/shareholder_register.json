@@ -1,0 +1,454 @@
+{
+  "expected": {
+    "issues": [],
+    "promotion_allowed": false,
+    "review_required": true,
+    "valid": true
+  },
+  "pages": [
+    {
+      "document_version": "synthetic-version-1",
+      "page_id": "synthetic-page-1",
+      "text": "SYNTHETIC SHAREHOLDER REGISTER\nCompany: Example Trading\nOwner: Alex Example; owned entity: Example Trading; ordinary; 60%; direct\nOwner: Morgan Example; owned entity: Example Trading; ordinary; 40%; direct\nAs of: 2026-10-01\n"
+    }
+  ],
+  "qualification": "contract_and_source_span_example_not_extractor_evaluation",
+  "result": {
+    "contract_hash": "b4cb8ae366982e5994df973cd8c4ea93a84a1719a34e126d3791c7b02964d70a",
+    "document_type": "shareholder_register",
+    "document_version": "synthetic-version-1",
+    "extracted_fields": {
+      "control_rights": null,
+      "document_number": null,
+      "document_title": null,
+      "entity_name": "Example Trading",
+      "issue_date": null,
+      "issuer_name": null,
+      "ownership_interests": [
+        {
+          "direct_or_indirect": "direct",
+          "effective_from": null,
+          "effective_to": null,
+          "interest_type": null,
+          "nominee_capacity": null,
+          "owned_entity_identifier": null,
+          "owned_entity_name": "Example Trading",
+          "owner_identifier": null,
+          "owner_name": "Alex Example",
+          "percentage": "60",
+          "percentage_basis": null,
+          "share_class": "ordinary",
+          "total_units": null,
+          "units_held": null,
+          "voting_percentage": null
+        },
+        {
+          "direct_or_indirect": "direct",
+          "effective_from": null,
+          "effective_to": null,
+          "interest_type": null,
+          "nominee_capacity": null,
+          "owned_entity_identifier": null,
+          "owned_entity_name": "Example Trading",
+          "owner_identifier": null,
+          "owner_name": "Morgan Example",
+          "percentage": "40",
+          "percentage_basis": null,
+          "share_class": "ordinary",
+          "total_units": null,
+          "units_held": null,
+          "voting_percentage": null
+        }
+      ],
+      "ownership_scope": null,
+      "record_as_of_date": "2026-10-01",
+      "registration_number": null,
+      "share_classes": null,
+      "signatures": null,
+      "total_units": null
+    },
+    "observations": [
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_title",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/document_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issuer_name",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/issue_date",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/entity_name",
+        "spans": [
+          {
+            "end": 55,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 40
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/registration_number",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/record_as_of_date",
+        "spans": [
+          {
+            "end": 223,
+            "page_id": "synthetic-page-1",
+            "quote": "2026-10-01",
+            "start": 213
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/owner_name",
+        "spans": [
+          {
+            "end": 75,
+            "page_id": "synthetic-page-1",
+            "quote": "Alex Example",
+            "start": 63
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/owned_entity_name",
+        "spans": [
+          {
+            "end": 55,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 40
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/owner_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/owned_entity_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/interest_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/share_class",
+        "spans": [
+          {
+            "end": 116,
+            "page_id": "synthetic-page-1",
+            "quote": "ordinary",
+            "start": 108
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/units_held",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/total_units",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/percentage",
+        "spans": [
+          {
+            "end": 120,
+            "page_id": "synthetic-page-1",
+            "quote": "60",
+            "start": 118
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/percentage_basis",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/voting_percentage",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/direct_or_indirect",
+        "spans": [
+          {
+            "end": 129,
+            "page_id": "synthetic-page-1",
+            "quote": "direct",
+            "start": 123
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/nominee_capacity",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/0/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/owner_name",
+        "spans": [
+          {
+            "end": 151,
+            "page_id": "synthetic-page-1",
+            "quote": "Morgan Example",
+            "start": 137
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/owned_entity_name",
+        "spans": [
+          {
+            "end": 55,
+            "page_id": "synthetic-page-1",
+            "quote": "Example Trading",
+            "start": 40
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/owner_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/owned_entity_identifier",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/interest_type",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/share_class",
+        "spans": [
+          {
+            "end": 116,
+            "page_id": "synthetic-page-1",
+            "quote": "ordinary",
+            "start": 108
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/units_held",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/total_units",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/percentage",
+        "spans": [
+          {
+            "end": 196,
+            "page_id": "synthetic-page-1",
+            "quote": "40",
+            "start": 194
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/percentage_basis",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/voting_percentage",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/direct_or_indirect",
+        "spans": [
+          {
+            "end": 129,
+            "page_id": "synthetic-page-1",
+            "quote": "direct",
+            "start": 123
+          }
+        ],
+        "status": "present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/nominee_capacity",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/effective_from",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_interests/1/effective_to",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/share_classes",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/total_units",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/ownership_scope",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/signatures",
+        "spans": [],
+        "status": "not_present"
+      },
+      {
+        "confidence": null,
+        "note": null,
+        "path": "/extracted_fields/control_rights",
+        "spans": [],
+        "status": "not_present"
+      }
+    ],
+    "profile_version": "0.1.0",
+    "source_digest": "86dd93d778305667567556cbc4a45d736f392af4752aae9538cb2dbd691f3ab0"
+  },
+  "synthetic": true
+}

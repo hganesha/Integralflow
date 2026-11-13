@@ -1,0 +1,443 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Composition": {
+      "enum": [
+        "atomic",
+        "composite"
+      ]
+    },
+    "ContextRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "max_age_seconds": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Count"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "min_count": {
+          "$ref": "#/$defs/Count"
+        },
+        "model_visible": {
+          "$ref": "#/$defs/Bool"
+        },
+        "nullable_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "optional": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "object_type",
+        "fields",
+        "nullable_fields",
+        "min_count",
+        "max_age_seconds",
+        "optional",
+        "model_visible"
+      ],
+      "type": "object"
+    },
+    "CostLatencyBudget": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_currency": {
+          "$ref": "#/$defs/Id"
+        },
+        "cost_limit": {
+          "$ref": "#/$defs/Decimal"
+        },
+        "timeout_seconds": {
+          "$ref": "#/$defs/PositiveCount"
+        }
+      },
+      "required": [
+        "timeout_seconds"
+      ],
+      "type": "object"
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Dependencies": {
+      "additionalProperties": false,
+      "properties": {
+        "capabilities": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "libraries": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "skills": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "skills",
+        "capabilities",
+        "libraries"
+      ],
+      "type": "object"
+    },
+    "EffectMode": {
+      "enum": [
+        "read_only",
+        "proposal",
+        "internal_write",
+        "external_write",
+        "human_gated"
+      ]
+    },
+    "ExecutionMode": {
+      "enum": [
+        "code",
+        "model",
+        "provider",
+        "composite",
+        "human_task"
+      ]
+    },
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "Maturity": {
+      "enum": [
+        "implemented_synthetic",
+        "integration_verified",
+        "production_qualified"
+      ]
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Reconciliation": {
+      "const": "reconcile"
+    },
+    "RetryPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "external_uncertain": {
+          "$ref": "#/$defs/Reconciliation"
+        },
+        "max_attempts": {
+          "$ref": "#/$defs/PositiveCount"
+        }
+      },
+      "required": [
+        "max_attempts",
+        "external_uncertain"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "SkillManifest": {
+      "additionalProperties": false,
+      "properties": {
+        "audit_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "authorization": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "bundle_code_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "business_outcome": {
+          "$ref": "#/$defs/Text"
+        },
+        "code_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "composition_type": {
+          "$ref": "#/$defs/Composition"
+        },
+        "context_freshness": {
+          "$ref": "#/$defs/Text"
+        },
+        "cost_latency_budget": {
+          "$ref": "#/$defs/CostLatencyBudget"
+        },
+        "data_classification": {
+          "$ref": "#/$defs/Id"
+        },
+        "dependencies": {
+          "$ref": "#/$defs/Dependencies"
+        },
+        "deprecation_policy": {
+          "$ref": "#/$defs/Text"
+        },
+        "description": {
+          "$ref": "#/$defs/Text"
+        },
+        "effects": {
+          "$ref": "#/$defs/EffectMode"
+        },
+        "entrypoint": {
+          "$ref": "#/$defs/Id"
+        },
+        "evaluation_profile": {
+          "$ref": "#/$defs/Id"
+        },
+        "evidence_requirements": {
+          "$ref": "#/$defs/Text"
+        },
+        "execution_mode": {
+          "$ref": "#/$defs/ExecutionMode"
+        },
+        "failure_codes": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "harness_name": {
+          "$ref": "#/$defs/Id"
+        },
+        "human_interrupt_conditions": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "idempotency": {
+          "$ref": "#/$defs/Text"
+        },
+        "input_schema": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "instruction_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "instructions": {
+          "$ref": "#/$defs/Id"
+        },
+        "jurisdiction_scope": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "maturity": {
+          "$ref": "#/$defs/Maturity"
+        },
+        "optional_context": {
+          "items": {
+            "$ref": "#/$defs/ContextRequirement"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "output_schema": {
+          "$ref": "#/$defs/JsonObject"
+        },
+        "owner": {
+          "$ref": "#/$defs/Id"
+        },
+        "permitted_capabilities": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "policy_context_fields": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "policy_gates": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "preconditions": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "provider_policy": {
+          "$ref": "#/$defs/Text"
+        },
+        "required_context": {
+          "items": {
+            "$ref": "#/$defs/ContextRequirement"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "retry_policy": {
+          "$ref": "#/$defs/RetryPolicy"
+        },
+        "semver": {
+          "$ref": "#/$defs/Semver"
+        },
+        "timeout": {
+          "$ref": "#/$defs/PositiveCount"
+        }
+      },
+      "required": [
+        "id",
+        "semver",
+        "description",
+        "business_outcome",
+        "input_schema",
+        "output_schema",
+        "required_context",
+        "optional_context",
+        "context_freshness",
+        "policy_context_fields",
+        "preconditions",
+        "dependencies",
+        "composition_type",
+        "execution_mode",
+        "entrypoint",
+        "permitted_capabilities",
+        "provider_policy",
+        "policy_gates",
+        "authorization",
+        "effects",
+        "idempotency",
+        "timeout",
+        "retry_policy",
+        "human_interrupt_conditions",
+        "failure_codes",
+        "evidence_requirements",
+        "audit_fields",
+        "evaluation_profile",
+        "cost_latency_budget",
+        "data_classification",
+        "jurisdiction_scope",
+        "owner",
+        "deprecation_policy",
+        "maturity",
+        "limitations",
+        "code_hash",
+        "harness_name",
+        "instructions",
+        "instruction_hash",
+        "bundle_code_hash"
+      ],
+      "type": "object"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$ref": "#/$defs/SkillManifest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

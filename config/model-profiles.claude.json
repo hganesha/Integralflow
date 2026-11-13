@@ -1,0 +1,45 @@
+{
+  "apiVersion": "harness.factory/model-profiles-v1",
+  "profiles": [
+    {
+      "id": "model.fast.v1",
+      "provider": "anthropic",
+      "model": "claude-haiku-5-5",
+      "maxOutputTokens": 8000,
+      "timeoutMs": 60000,
+      "maxConcurrency": 8
+    },
+    {
+      "id": "model.standard.v1",
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5",
+      "maxOutputTokens": 16000,
+      "timeoutMs": 180000,
+      "maxConcurrency": 4
+    },
+    {
+      "id": "model.deep.v1",
+      "provider": "anthropic",
+      "model": "claude-opus-5-5",
+      "maxOutputTokens": 32000,
+      "timeoutMs": 300000,
+      "maxConcurrency": 2
+    },
+    {
+      "id": "model.judge.v1",
+      "provider": "anthropic",
+      "model": "claude-fable-5-1",
+      "maxOutputTokens": 32000,
+      "timeoutMs": 300000,
+      "maxConcurrency": 2
+    },
+    {
+      "id": "model.document.v1",
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5",
+      "maxOutputTokens": 16000,
+      "timeoutMs": 150000,
+      "maxConcurrency": 4
+    }
+  ]
+}

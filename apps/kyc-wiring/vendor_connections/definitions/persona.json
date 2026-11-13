@@ -1,0 +1,63 @@
+{
+  "provider_id": "persona",
+  "version": "2023-01-05",
+  "bases": {
+    "default": "https://api.withpersona.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "prefix": "Bearer ",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.withpersona.com/reference/introduction"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "get_inquiry": {
+      "method": "GET",
+      "path": "/api/v1/inquiries/{id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "identity_result",
+      "status_pointer": "/data/attributes/status",
+      "resource_pointer": "/data/id",
+      "source": "https://docs.withpersona.com/reference/introduction",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "create_inquiry": {
+      "method": "POST",
+      "path": "/api/v1/inquiries",
+      "required_body": [
+        "data"
+      ],
+      "required_query": [],
+      "body_example": {
+        "data": {
+          "attributes": {
+            "inquiry-template-id": "YOUR_TEMPLATE_ID",
+            "reference-id": "YOUR_REFERENCE"
+          }
+        }
+      },
+      "content": "json",
+      "semantics": "session",
+      "status_pointer": null,
+      "resource_pointer": "/data/id",
+      "source": "https://docs.withpersona.com/reference/introduction",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  },
+  "headers": {
+    "Persona-Version": "2023-01-05"
+  }
+}

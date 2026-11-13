@@ -1,0 +1,168 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:risk.factors.derive
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Score each weighted risk dimension from the case's recorded values
+  through the pinned factor maps (highest value wins).
+code_hash: 5f5900b7f21fcc806c4dcca7c0757c0d692cf0fe5a64560d6180c629214b9040
+composition_type: composite
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills:
+  - risk.factor.evaluate
+deprecation_policy: new version for contract changes
+description: Score each weighted risk dimension from the case's recorded values through
+  the pinned factor maps (highest value wins).
+effects: read_only
+entrypoint: financial_crime.skills.risk_edd:factors_derive
+evaluation_profile: risk.factors.derive-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: risk-factors-derive
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: risk.factors.derive
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:risk.factors.derive:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 0317bce12d38359c2c5eaa1f28ee2051a83f28b69f322d27145dcfd6fd676ede
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented reference over pinned placeholder maps, not a qualified
+  risk model. It scores recorded values only; it does not establish exposures, weigh
+  factors or assign a tier, which `risk.customer.assess` and `risk.tier.assign` do.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - country
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: GeographyExposure
+  optional: true
+- fields:
+  - customer_type
+  - industry
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields:
+  - industry
+  object_type: Party
+  optional: true
+- fields:
+  - product_type
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: Product
+  optional: true
+- fields:
+  - behavior_category
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: ExpectedActivity
+  optional: true
+output_schema:
+  $defs:
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    DerivedRiskFactor:
+      additionalProperties: false
+      properties:
+        basis:
+          $ref: '#/$defs/Text'
+        name:
+          $ref: '#/$defs/Id'
+        score:
+          anyOf:
+          - $ref: '#/$defs/Decimal'
+          - type: 'null'
+        values:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - name
+      - score
+      - values
+      - basis
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:risk.factors.derive:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    factors:
+      items:
+        $ref: '#/$defs/DerivedRiskFactor'
+      maxItems: 10000
+      type: array
+  required:
+  - factors
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- risk_factor_maps
+- risk_weights
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

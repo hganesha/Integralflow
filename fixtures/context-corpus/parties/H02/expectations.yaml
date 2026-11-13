@@ -1,0 +1,28 @@
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners: []
+effective_ownership: {}
+intended_near_misses:
+- ofac-sdn:38296
+notes: 'Published entry CALDERON RIJO, Jose (DOB 4 Dec 1969, Dominican cedula) against
+  a customer born 1983 with Spanish and Mexican identifiers: the identifiers conflict.
+  A reviewer, not the skill, clears it.
+
+  '
+party_id: H02
+screening:
+  candidate: ofac-sdn:38296
+  disposition: FALSE_MATCH_CANDIDATE
+screening_result:
+  hits:
+  - entry: ofac-sdn:38296
+    identifier_conflict: true
+    list_type: sanctions
+    record: h02.screeninghit.mateo-ofac-sdn-38296
+    subject: mateo
+    verified_match: false
+seed: 1002
+signals: []
+spec_digest: 50ee42f8ab3f674b797164eecde73b4c932975d1364ad7370a3dfce1ed8af738
+workflow:
+  kyc_v2: REVIEW_THEN_CLEAR

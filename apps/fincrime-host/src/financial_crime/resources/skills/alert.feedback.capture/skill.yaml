@@ -1,0 +1,118 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:alert.feedback.capture
+- effect:internal_write
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Persist attributed analyst feedback without changing models or active
+  policy.
+code_hash: 310f728497c87fce52580723cb3a6aac39d9cf314884a936b15382de4ab6f6de
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Persist attributed analyst feedback without changing models or active
+  policy.
+effects: internal_write
+entrypoint: financial_crime.skills.alerts_investigations:feedback
+evaluation_profile: alert.feedback.capture-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: alert-feedback-capture
+human_interrupt_conditions:
+- before the effect when the parent workflow holds it for approval; otherwise the
+  effect commits only through the node's grant
+id: alert.feedback.capture
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:alert.feedback.capture:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    alert_id:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    label:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    reason:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - alert_id
+  - label
+  - reason
+  type: object
+instruction_hash: 28e81a258eb64ce696f90048c3c96991a0a9b27738990c6bb5d042c23058b4a1
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $id: urn:financial-crime:skill:alert.feedback.capture:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    feedback_id:
+      maxLength: 4000
+      minLength: 1
+      type: string
+    model_changed:
+      type: boolean
+  required:
+  - feedback_id
+  - model_changed
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

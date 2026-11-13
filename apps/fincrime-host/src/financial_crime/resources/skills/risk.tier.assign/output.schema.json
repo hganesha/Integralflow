@@ -1,0 +1,20 @@
+{
+  "$id": "urn:financial-crime:skill:risk.tier.assign:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "final_acceptance": {
+      "type": "boolean"
+    },
+    "tier": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "tier",
+    "final_acceptance"
+  ],
+  "type": "object"
+}

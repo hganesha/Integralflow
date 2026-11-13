@@ -1,0 +1,28 @@
+{
+  "$defs": {
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:quality.schema.validate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "errors": {
+      "items": {
+        "$ref": "#/$defs/Text"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "valid",
+    "errors"
+  ],
+  "type": "object"
+}

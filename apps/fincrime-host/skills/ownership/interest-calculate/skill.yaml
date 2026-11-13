@@ -1,0 +1,192 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:ownership.interest.calculate
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Calculate exact path products; cyclic/unaccounted interests remain
+  unresolved.
+code_hash: 31eb504851f85460b6283b8e99b13e2b50f7b19a17237d576fac2d212c6e25fc
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Calculate exact path products; cyclic/unaccounted interests remain unresolved.
+effects: read_only
+entrypoint: financial_crime.skills.ownership:interest_calculate
+evaluation_profile: ownership.interest.calculate-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- SOURCE_CONFLICT
+- TIMEOUT
+harness_name: ownership-interest-calculate
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: ownership.interest.calculate
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:ownership.interest.calculate:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    target:
+      maxLength: 4000
+      minLength: 1
+      type: string
+  required:
+  - target
+  type: object
+instruction_hash: ff2d8718d76f199bcdd7e4a7b6a5cb018f79f03416103e994edc3789fa42ef61
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context:
+- fields:
+  - owner
+  - owned
+  - lower
+  - upper
+  - lower_inclusive
+  - upper_inclusive
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: OwnershipRange
+  optional: true
+output_schema:
+  $defs:
+    Decimal:
+      pattern: ^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$
+      type: string
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    OwnershipGap:
+      additionalProperties: false
+      properties:
+        interest:
+          $ref: '#/$defs/Decimal'
+        node:
+          $ref: '#/$defs/Id'
+        path:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        reason:
+          $ref: '#/$defs/Id'
+      required:
+      - node
+      - reason
+      type: object
+    OwnershipPath:
+      additionalProperties: false
+      properties:
+        interest:
+          $ref: '#/$defs/Decimal'
+        owner:
+          $ref: '#/$defs/Id'
+        path:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+      required:
+      - owner
+      - path
+      - interest
+      type: object
+  $id: urn:financial-crime:skill:ownership.interest.calculate:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    cycles:
+      items:
+        items:
+          $ref: '#/$defs/Id'
+        maxItems: 10000
+        type: array
+      maxItems: 10000
+      type: array
+    interests:
+      additionalProperties:
+        $ref: '#/$defs/Decimal'
+      type: object
+      x-dynamic-map-reason: keyed collection
+    paths:
+      items:
+        $ref: '#/$defs/OwnershipPath'
+      maxItems: 10000
+      type: array
+    unresolved:
+      items:
+        $ref: '#/$defs/OwnershipGap'
+      maxItems: 10000
+      type: array
+  required:
+  - interests
+  - paths
+  - cycles
+  - unresolved
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - owner
+  - owned
+  - interest
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: OwnershipInterest
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

@@ -1,0 +1,39 @@
+alert_rules: []
+alerts: 0
+as_of: '2026-09-30T00:00:00Z'
+beneficial_owners:
+- gareth
+- priya
+effective_ownership:
+  gareth: '0.6'
+  priya: '0.4'
+  thistlewood_holdings: '1'
+hard_negative: true
+ledger:
+  hero_accounts:
+  - h04.account.deposit
+  - h04.account.lending
+  - h04.account.merchant-acquiring
+  - h04.account.payments
+  ring_entities: []
+  trades: {}
+  tx_count: 2297
+  window:
+  - '2024-09-30T00:00:00Z'
+  - '2026-09-30T00:00:00Z'
+non_findings:
+- screening.sanctions.ownership.evaluate
+- ownership.nominee.detect
+- aml.structuring.detect
+notes: 'Gareth holds 60% of Holdings, which owns 100% of the company (effective 0.6).
+  Priya 0.4. Both cross the 25% threshold; Helen is a director with no ownership.
+
+  '
+party_id: H04
+screening_result:
+  hits: []
+seed: 1004
+signals: []
+spec_digest: 3a4f8abed2554c5d28dcabe3ae361b9a96655803033125b0af804cc1e8e1ebd5
+workflow:
+  kyb: APPROVE

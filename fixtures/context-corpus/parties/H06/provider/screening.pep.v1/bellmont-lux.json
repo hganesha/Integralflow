@@ -1,0 +1,52 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "status": "complete_for_requested_scope"
+  },
+  "entities": [
+    {
+      "entity_id": "e-bellmont-lux",
+      "entity_type": "organization",
+      "identifiers": [],
+      "names": [
+        {
+          "full": "Bellmont Luxembourg S.\u00e0 r.l.",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.bellmont-lux"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [],
+  "result": {
+    "dataset_versions": [
+      "corpus-synthetic-peps-2026-09-29"
+    ],
+    "kind": "screening",
+    "list_published_at": "2026-09-29T00:00:00Z",
+    "matches": [],
+    "scope": [
+      "ofac-sdn",
+      "un-consolidated",
+      "uk-sanctions",
+      "synthetic-designations"
+    ],
+    "total_candidates": 0,
+    "truncated": false
+  },
+  "result_id": "corpus-screening-h06-bellmont-lux-pep",
+  "subject_entity_id": "e-bellmont-lux"
+}

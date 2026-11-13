@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "HypothesisResult": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "status": {
+          "$ref": "#/$defs/HypothesisStatus"
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "HypothesisStatus": {
+      "enum": [
+        "SUPPORTED",
+        "REFUTED",
+        "UNRESOLVED"
+      ]
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:investigation.hypothesis.test:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "results": {
+      "items": {
+        "$ref": "#/$defs/HypothesisResult"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "results"
+  ],
+  "type": "object"
+}

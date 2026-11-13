@@ -1,0 +1,147 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:document.authenticity.assess
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Assess captured specialist forensic indicators without asserting
+  authenticity certainty.
+code_hash: fbfc704065363153d5a69d4ae162e73e4b9e27606899239bfe6708a9f211c7b7
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities:
+  - document.forensics
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Assess captured specialist forensic indicators without asserting authenticity
+  certainty.
+effects: read_only
+entrypoint: financial_crime.skills.documents:authenticity
+evaluation_profile: document.authenticity.assess-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: provider
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- EXTERNAL_ACTION_UNCONFIRMED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- LOW_CONFIDENCE
+- POLICY_UNRESOLVED
+- RATE_LIMITED
+- SOURCE_CONFLICT
+- SOURCE_UNAVAILABLE
+- TIMEOUT
+harness_name: document-authenticity-assess
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: document.authenticity.assess
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $id: urn:financial-crime:skill:document.authenticity.assess:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties: {}
+  required: []
+  type: object
+instruction_hash: 4564a4568413d7c581f18b887ba22bd9c3313d6c6469e55ee134f8d8f54a0017
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    ForensicsAssessment:
+      additionalProperties: false
+      properties:
+        assessment:
+          $ref: '#/$defs/Id'
+        indicators:
+          items:
+            $ref: '#/$defs/Id'
+          maxItems: 10000
+          type: array
+        limitations:
+          items:
+            $ref: '#/$defs/Text'
+          maxItems: 10000
+          type: array
+        model_version:
+          $ref: '#/$defs/Id'
+      required:
+      - assessment
+      - limitations
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    Text:
+      maxLength: 200000
+      type: string
+  $id: urn:financial-crime:skill:document.authenticity.assess:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    assessment:
+      $ref: '#/$defs/ForensicsAssessment'
+    verified_authentic:
+      type: boolean
+  required:
+  - assessment
+  - verified_authentic
+  type: object
+owner: financial-crime-skills
+permitted_capabilities:
+- document.forensics
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- permitted_providers
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context:
+- fields:
+  - text
+  - page
+  - document_version
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: DocumentPage
+  optional: false
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

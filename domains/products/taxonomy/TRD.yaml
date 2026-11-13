@@ -1,0 +1,41 @@
+# Trade & supply-chain finance. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: TRD
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - BANKING
+  name: Trade & supply-chain finance
+  definition: Financing and risk mitigation for the movement of goods and services between buyers and sellers.
+  regulatedActivities:
+  - TRADE_FINANCE
+  riskDimensions:
+  - TRADE_BASED_RISK
+  - CROSS_BORDER
+  - GEOGRAPHIC_EXPOSURE
+  classes:
+  - code: LETTERS_OF_CREDIT
+    name: Documentary letters of credit
+    definition: Bank undertakings to pay against compliant shipping documents.
+  - code: DOCUMENTARY_COLLECTIONS
+    name: Documentary collections
+    definition: Banks exchanging shipping documents for payment or acceptance.
+  - code: GUARANTEES
+    name: Guarantees & standby letters of credit
+    definition: Bank undertakings to pay if a customer fails to perform.
+  - code: RECEIVABLES
+    name: Receivables finance
+    definition: Advances against or purchase of a seller's invoices, including factoring.
+  - code: SUPPLY_CHAIN
+    name: Supply-chain finance
+    definition: Buyer-led programmes paying suppliers early against approved invoices.
+  - code: PRE_EXPORT
+    name: Pre-export & commodity finance
+    definition: Credit secured on future export flows or commodity inventories.
+  - code: FORFAITING
+    name: Forfaiting
+    definition: Purchase without recourse of trade receivables, often guaranteed.

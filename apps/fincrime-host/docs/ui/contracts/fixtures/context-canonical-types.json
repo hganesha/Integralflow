@@ -1,0 +1,4002 @@
+[
+  {
+    "name": "Account",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "account_type"
+    ],
+    "fields": [
+      {
+        "name": "account_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "currency",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "status",
+        "type": "Id",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Actor",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "actor_id",
+      "roles",
+      "permissions",
+      "active"
+    ],
+    "fields": [
+      {
+        "name": "active",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "actor_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "permissions",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "roles",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Address",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "lines",
+      "country"
+    ],
+    "fields": [
+      {
+        "name": "country",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "lines",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "locality",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "normalized",
+        "type": "Text",
+        "required": false
+      },
+      {
+        "name": "postal_code",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "region",
+        "type": "Id",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "AdverseMediaEvent",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "subjects",
+      "title",
+      "source",
+      "status",
+      "coverage",
+      "event_key"
+    ],
+    "fields": [
+      {
+        "name": "coverage",
+        "type": "Coverage",
+        "required": true
+      },
+      {
+        "name": "event_key",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "source",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "MediaStatus",
+        "required": true
+      },
+      {
+        "name": "subjects",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "Text",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Alert",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "source_id",
+      "rule_id",
+      "subject",
+      "severity",
+      "event_ids"
+    ],
+    "fields": [
+      {
+        "name": "event_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "rule_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "severity",
+        "type": "Severity",
+        "required": true
+      },
+      {
+        "name": "source_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Alias",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "entity_id"
+    ],
+    "fields": [
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "language",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "script",
+        "type": "Id",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Application",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "contract_version",
+      "source_application_id",
+      "applicants",
+      "requested_products",
+      "channel",
+      "status",
+      "submitted_at",
+      "effective_from",
+      "effective_to",
+      "evidence_refs",
+      "historical_decisions"
+    ],
+    "fields": [
+      {
+        "name": "contract_version",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "source_application_id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "applicants",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "requested_products",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "channel",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "submitted_at",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "effective_from",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "effective_to",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "previous_application_ref",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "evidence_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "historical_decisions",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ApplicationAccountLink",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "contract_version",
+      "application_ref",
+      "account_ref",
+      "relation",
+      "linked_at",
+      "evidence_refs"
+    ],
+    "fields": [
+      {
+        "name": "contract_version",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "application_ref",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "account_ref",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "relation",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "linked_at",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "evidence_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Approval",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "action",
+      "requester_ref",
+      "approver_ref",
+      "request_hash",
+      "context_hash",
+      "execution_lock_hash",
+      "status",
+      "expires_at"
+    ],
+    "fields": [
+      {
+        "name": "action",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "approver_ref",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "context_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "execution_lock_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "expires_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "request_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "requester_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "ApprovalStatus",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Assertion",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "claim",
+      "subject",
+      "field",
+      "value",
+      "evidence_ids",
+      "verification"
+    ],
+    "fields": [
+      {
+        "name": "claim",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "field",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "JsonValue",
+        "required": true
+      },
+      {
+        "name": "verification",
+        "type": "Verification",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "AuditEvent",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "event",
+      "execution_id",
+      "actor_ref",
+      "occurred_at",
+      "previous_hash",
+      "event_hash"
+    ],
+    "fields": [
+      {
+        "name": "actor_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "event",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "event_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "execution_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "occurred_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "previous_hash",
+        "type": "value",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "AuthenticationEvent",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "session_id",
+      "signals"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "session_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "signals",
+        "type": "AuthenticationSignals",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "BankingRelationship",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "relationshipId",
+      "institutionId",
+      "bookingJurisdiction",
+      "policyJurisdiction",
+      "customerEntityId",
+      "event",
+      "asOf",
+      "entities",
+      "parties",
+      "products",
+      "riskTier",
+      "ownershipComplete",
+      "boTreatment",
+      "priorBo"
+    ],
+    "fields": [
+      {
+        "name": "relationshipId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "institutionId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "bookingJurisdiction",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "policyJurisdiction",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "customerEntityId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "event",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "asOf",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "entities",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "parties",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "products",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "productRoles",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "riskTier",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "ownershipComplete",
+        "type": "boolean,null",
+        "required": true
+      },
+      {
+        "name": "boTreatment",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "priorBo",
+        "type": "value",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "BeneficialOwner",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "evidence_ids"
+    ],
+    "fields": [
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "interest",
+        "type": "Fraction",
+        "required": false
+      },
+      {
+        "name": "verification_ref",
+        "type": "Ref",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "BusinessCalendar",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "holidays",
+      "working_weekdays"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "holidays",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "working_weekdays",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Case",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "state",
+      "case_type",
+      "subject_refs",
+      "revision"
+    ],
+    "fields": [
+      {
+        "name": "case_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "disposition",
+        "type": "Disposition",
+        "required": false
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "revision",
+        "type": "Count",
+        "required": true
+      },
+      {
+        "name": "state",
+        "type": "CaseState",
+        "required": true
+      },
+      {
+        "name": "subject_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Checkpoint",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "workflow_ref",
+      "execution_id",
+      "completed_step_ids",
+      "pending_step_ids",
+      "state_ref"
+    ],
+    "fields": [
+      {
+        "name": "completed_step_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "execution_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "pending_step_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "state_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "workflow_ref",
+        "type": "Ref",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Conflict",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "subject_ref",
+      "field",
+      "assertion_refs",
+      "status"
+    ],
+    "fields": [
+      {
+        "name": "assertion_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "field",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "resolution_ref",
+        "type": "Ref",
+        "required": false
+      },
+      {
+        "name": "status",
+        "type": "ConflictStatus",
+        "required": true
+      },
+      {
+        "name": "subject_ref",
+        "type": "Ref",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Control",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "requirement_id",
+      "outcome"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "outcome",
+        "type": "Outcome",
+        "required": true
+      },
+      {
+        "name": "requirement_id",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ControlAssessment",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "assessmentId",
+      "requirementId",
+      "subjectId",
+      "productId",
+      "policyId",
+      "policyVersion",
+      "policyDigest",
+      "relationshipDigest",
+      "outcome",
+      "evidenceRefs",
+      "assessedBy",
+      "authority",
+      "assessedAt",
+      "validUntil"
+    ],
+    "fields": [
+      {
+        "name": "assessmentId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "requirementId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "subjectId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "productId",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "policyId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "policyVersion",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "policyDigest",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "relationshipDigest",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "outcome",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "evidenceRefs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "assessedBy",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "authority",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "assessedAt",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "validUntil",
+        "type": "string",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ControlRight",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "controller",
+      "controlled",
+      "basis",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "basis",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "controlled",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "controller",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Counterparty",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "risk_indicators",
+      "evidence_ids"
+    ],
+    "fields": [
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "risk_indicators",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "CustomerRelationship",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "party_id",
+      "institution_id",
+      "relationship_type",
+      "status",
+      "started_at"
+    ],
+    "fields": [
+      {
+        "name": "ended_at",
+        "type": "value",
+        "required": false
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "institution_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "party_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "relationship_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "started_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "DatasetScope",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "start",
+      "end",
+      "complete",
+      "expected_count",
+      "watermark"
+    ],
+    "fields": [
+      {
+        "name": "complete",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "end",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "expected_count",
+        "type": "Count",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "start",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "watermark",
+        "type": "Timestamp",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Decision",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "disposition",
+      "actor_ref",
+      "approval_refs",
+      "finding_refs",
+      "policy_ref",
+      "context_hash"
+    ],
+    "fields": [
+      {
+        "name": "actor_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "approval_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "context_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "disposition",
+        "type": "Disposition",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "finding_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "policy_ref",
+        "type": "Ref",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "DetectionRule",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "predicate",
+      "typology_ref"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "model_version",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "predicate",
+        "type": "Predicate",
+        "required": true
+      },
+      {
+        "name": "typology_ref",
+        "type": "Ref",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Device",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "attributes",
+      "permitted"
+    ],
+    "fields": [
+      {
+        "name": "attributes",
+        "type": "DeviceAttributes",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "permitted",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Document",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "document_type",
+      "issued_at",
+      "expires_at"
+    ],
+    "fields": [
+      {
+        "name": "document_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "expires_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "issued_at",
+        "type": "Timestamp",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "DocumentPage",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "text",
+      "page",
+      "document_version"
+    ],
+    "fields": [
+      {
+        "name": "document_version",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "page",
+        "type": "PositiveCount",
+        "required": true
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "DocumentVersion",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "document_id",
+      "artifact_hash",
+      "media_type",
+      "artifact_ref",
+      "page_count"
+    ],
+    "fields": [
+      {
+        "name": "artifact_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "artifact_ref",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "document_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "media_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "page_count",
+        "type": "Count",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Entity",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "identifiers",
+      "entity_type"
+    ],
+    "fields": [
+      {
+        "name": "attributes",
+        "type": "EntityAttributes",
+        "required": false
+      },
+      {
+        "name": "entity_type",
+        "type": "EntityKind",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "identifiers",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "EntityCandidate",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "identifiers"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "identifiers",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "EvaluationCase",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "skill_id",
+      "dataset_split",
+      "input_ref",
+      "expected_outcome_ref",
+      "synthetic"
+    ],
+    "fields": [
+      {
+        "name": "dataset_split",
+        "type": "DatasetSplit",
+        "required": true
+      },
+      {
+        "name": "expected_outcome_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "input_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "skill_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "synthetic",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Event",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "event_type",
+      "facts",
+      "event_key"
+    ],
+    "fields": [
+      {
+        "name": "event_key",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "event_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "facts",
+        "type": "JsonObject",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Evidence",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "content",
+      "content_hash",
+      "source_id",
+      "requirement_ids",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "content",
+        "type": "SourceContent",
+        "required": true
+      },
+      {
+        "name": "content_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "requirement_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "source_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Exception",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "scope",
+      "expires_at",
+      "issuer",
+      "approved"
+    ],
+    "fields": [
+      {
+        "name": "approved",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "expires_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "issuer",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ExpectedActivity",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "declared",
+      "window"
+    ],
+    "fields": [
+      {
+        "name": "behavior_category",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "declared",
+        "type": "Activity",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "observed",
+        "type": "Activity",
+        "required": false
+      },
+      {
+        "name": "window",
+        "type": "Window",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ExpectedOutcome",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "status",
+      "payload",
+      "tolerances"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "payload",
+        "type": "JsonObject",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "SkillStatus",
+        "required": true
+      },
+      {
+        "name": "tolerances",
+        "type": "object",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ExtractedAssertion",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "subject",
+      "field",
+      "value",
+      "document_version"
+    ],
+    "fields": [
+      {
+        "name": "document_version",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "field",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "JsonValue",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Fact",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "subject",
+      "field",
+      "value",
+      "assertion_refs",
+      "verification_ref",
+      "evidence_refs"
+    ],
+    "fields": [
+      {
+        "name": "assertion_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "evidence_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "field",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "JsonValue",
+        "required": true
+      },
+      {
+        "name": "verification_ref",
+        "type": "Ref",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Filing",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "filing_kind",
+      "authority",
+      "content_hash",
+      "artifact_ref"
+    ],
+    "fields": [
+      {
+        "name": "artifact_ref",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "authority",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "content_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "filing_kind",
+        "type": "FilingKind",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Finding",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "claim",
+      "evidence_ids",
+      "status"
+    ],
+    "fields": [
+      {
+        "name": "claim",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "question",
+        "type": "Text",
+        "required": false
+      },
+      {
+        "name": "status",
+        "type": "FindingStatus",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "FraudSignal",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "score",
+      "kind",
+      "model_version",
+      "evidence_ids"
+    ],
+    "fields": [
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "kind",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "model_version",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "score",
+        "type": "Fraction",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "GeographyExposure",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "country",
+      "basis",
+      "value"
+    ],
+    "fields": [
+      {
+        "name": "basis",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "country",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "value",
+        "type": "Decimal",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Hypothesis",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "predicate",
+      "facts"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "facts",
+        "type": "JsonObject",
+        "required": true
+      },
+      {
+        "name": "predicate",
+        "type": "Predicate",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Identity",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "attributes"
+    ],
+    "fields": [
+      {
+        "name": "attributes",
+        "type": "IdentityAttributes",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "IdentityIdentifier",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "issuer",
+      "value",
+      "identifier_type",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "identifier_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "issuer",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Investigation",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "questions"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "questions",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Invoice",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "unit_price",
+      "quantity",
+      "currency"
+    ],
+    "fields": [
+      {
+        "name": "currency",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "quantity",
+        "type": "Decimal",
+        "required": true
+      },
+      {
+        "name": "unit_price",
+        "type": "Decimal",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Jurisdiction",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "code",
+      "name",
+      "policy_pack_refs"
+    ],
+    "fields": [
+      {
+        "name": "calendar_ref",
+        "type": "Ref",
+        "required": false
+      },
+      {
+        "name": "code",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "policy_pack_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "License",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "issuer",
+      "status",
+      "expires_at",
+      "scope"
+    ],
+    "fields": [
+      {
+        "name": "expires_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "issuer",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ModelVersion",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "model_id",
+      "version",
+      "artifact_hash",
+      "configuration_ref",
+      "evaluation_refs"
+    ],
+    "fields": [
+      {
+        "name": "artifact_hash",
+        "type": "Hash",
+        "required": true
+      },
+      {
+        "name": "configuration_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "evaluation_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "model_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "version",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "MonitoringPlan",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "party_ref",
+      "trigger_refs",
+      "next_review_at"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "next_review_at",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "party_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "schedule_ref",
+        "type": "Ref",
+        "required": false
+      },
+      {
+        "name": "trigger_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "NegativeSearchEvidence",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "capability",
+      "provider",
+      "subject",
+      "dataset_versions",
+      "scope",
+      "truncated",
+      "total_candidates",
+      "coverage",
+      "query_time",
+      "limitations"
+    ],
+    "fields": [
+      {
+        "name": "capability",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "provider",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "dataset_versions",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "truncated",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "total_candidates",
+        "type": "Count",
+        "required": true
+      },
+      {
+        "name": "coverage",
+        "type": "Coverage",
+        "required": true
+      },
+      {
+        "name": "query_time",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "limitations",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "NetworkGraph",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "nodes",
+      "edge_refs",
+      "scope",
+      "complete"
+    ],
+    "fields": [
+      {
+        "name": "complete",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "edge_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "nodes",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "type": "GraphScope",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Obligation",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "jurisdiction",
+      "obligation_type",
+      "requirement_refs"
+    ],
+    "fields": [
+      {
+        "name": "due_at",
+        "type": "Timestamp",
+        "required": false
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "jurisdiction",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "obligation_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "requirement_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "OfficerRole",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "organization_id",
+      "role"
+    ],
+    "fields": [
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "organization_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "role",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "OwnershipGraph",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "root_entity_id",
+      "nodes",
+      "edge_refs",
+      "complete",
+      "unresolved"
+    ],
+    "fields": [
+      {
+        "name": "complete",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "edge_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "nodes",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "root_entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "unresolved",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "OwnershipInterest",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "owner",
+      "owned",
+      "interest"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "interest",
+        "type": "Fraction",
+        "required": true
+      },
+      {
+        "name": "owned",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "owner",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "share_class",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "voting_interest",
+        "type": "Fraction",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "OwnershipRange",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "owner",
+      "owned",
+      "lower",
+      "upper",
+      "lower_inclusive",
+      "upper_inclusive"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "lower",
+        "type": "Fraction",
+        "required": true
+      },
+      {
+        "name": "lower_inclusive",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "owned",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "owner",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "upper",
+        "type": "Fraction",
+        "required": true
+      },
+      {
+        "name": "upper_inclusive",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "PEPRelationship",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "source",
+      "target",
+      "relation",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "relation",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "source",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "target",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Party",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "role",
+      "customer_type",
+      "profile"
+    ],
+    "fields": [
+      {
+        "name": "customer_type",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "industry",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "profile",
+        "type": "Profile",
+        "required": true
+      },
+      {
+        "name": "role",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Payment",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "amount",
+      "currency",
+      "baseline_maximum"
+    ],
+    "fields": [
+      {
+        "name": "amount",
+        "type": "Decimal",
+        "required": true
+      },
+      {
+        "name": "baseline_maximum",
+        "type": "Decimal",
+        "required": true
+      },
+      {
+        "name": "currency",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "PaymentRail",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "rail_id",
+      "name",
+      "settlement_currency_codes",
+      "supports_reversal"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "rail_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "settlement_currency_codes",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "supports_reversal",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Policy",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "version",
+      "jurisdiction",
+      "permissions"
+    ],
+    "fields": [
+      {
+        "name": "acceptable_tiers",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "acceptance_role",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "active_registry_statuses",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "alert_priority",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "alert_types",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "aml_detectors",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "approval_roles",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "business_substance_fields",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "case_transitions",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "control_bases",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "ctr_business_day",
+        "type": "CtrBusinessDay",
+        "required": false
+      },
+      {
+        "name": "ctr_thresholds",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "ctr_time_zone",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "ctr_transaction_types",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "customer_types",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "device_fields",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "document_types",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "edd_geographies",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "edd_triggers",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "entity_types",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "escalation_severities",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "exception_issuers",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "filing_fields",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "fraud_thresholds",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "freshness_seconds",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "hypothesis_templates",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "identifier_rules",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "industries",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "investigation_indicator_minimum",
+        "type": "PositiveCount",
+        "required": false
+      },
+      {
+        "name": "jurisdiction",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "license_issuers",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "link_attributes",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "media_categories",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "monitor_triggers",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "network_decay",
+        "type": "Fraction",
+        "required": false
+      },
+      {
+        "name": "ownership_threshold",
+        "type": "Fraction",
+        "required": false
+      },
+      {
+        "name": "permissions",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "permitted_providers",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "profile_fields",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "recommendations",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "remediation_role",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "reporting_obligations",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "required_document_types",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "requirements",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "rescreen_interval_seconds",
+        "type": "PositiveCount",
+        "required": false
+      },
+      {
+        "name": "review_interval_seconds",
+        "type": "PositiveCount",
+        "required": false
+      },
+      {
+        "name": "risk_factor_maps",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "risk_model_version",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "risk_tiers",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "risk_weights",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "role_members",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "rules",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "sanctions_control_bases",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "sanctions_ownership",
+        "type": "SanctionsAggregation",
+        "required": false
+      },
+      {
+        "name": "screening_threshold",
+        "type": "Probability",
+        "required": false
+      },
+      {
+        "name": "synthetic",
+        "type": "Bool",
+        "required": false
+      },
+      {
+        "name": "synthetic_fingerprint_key",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "transaction_types",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "verification_methods",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "version",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "product_type",
+      "channel",
+      "active"
+    ],
+    "fields": [
+      {
+        "name": "active",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "channel",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "product_type",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ProductHolding",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "contract_version",
+      "party_ref",
+      "product_ref",
+      "account_ref",
+      "role",
+      "status",
+      "effective_from",
+      "effective_to",
+      "evidence_refs"
+    ],
+    "fields": [
+      {
+        "name": "contract_version",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "party_ref",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "product_ref",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "account_ref",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "effective_from",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "effective_to",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "evidence_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Provenance",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "target",
+      "sources"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "method",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "sources",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "target",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Registration",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "jurisdiction",
+      "authority",
+      "registration_id"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "jurisdiction",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "registration_id",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "RegistryRecord",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "registration_id",
+      "status",
+      "coverage"
+    ],
+    "fields": [
+      {
+        "name": "address",
+        "type": "Text",
+        "required": false
+      },
+      {
+        "name": "attributes",
+        "type": "RegistryAttributes",
+        "required": false
+      },
+      {
+        "name": "coverage",
+        "type": "Coverage",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "registration_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Relationship",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "source",
+      "target",
+      "relation",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "relation",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "source",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "target",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Requirement",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "description",
+      "applicability",
+      "evidence_types",
+      "mandatory"
+    ],
+    "fields": [
+      {
+        "name": "applicability",
+        "type": "Predicate",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "evidence_types",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "mandatory",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "RetentionRule",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "retain_until",
+      "legal_hold",
+      "object_id"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "legal_hold",
+        "type": "Bool",
+        "required": true
+      },
+      {
+        "name": "object_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "object_type",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "retain_until",
+        "type": "Timestamp",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ReviewTrigger",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "requirement_ids",
+      "reason"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "reason",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "requirement_ids",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "RiskAssessment",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "tier",
+      "score",
+      "contributions",
+      "model_version"
+    ],
+    "fields": [
+      {
+        "name": "contributions",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "model_version",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "score",
+        "type": "Decimal",
+        "required": true
+      },
+      {
+        "name": "tier",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "RiskFactor",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "score"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "score",
+        "type": "Decimal",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "RiskModel",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "model_version",
+      "factor_weights",
+      "tiers",
+      "missing_factor_behavior"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "factor_weights",
+        "type": "object",
+        "required": true
+      },
+      {
+        "name": "missing_factor_behavior",
+        "type": "MissingBehavior",
+        "required": true
+      },
+      {
+        "name": "model_version",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "tiers",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "SLA",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "deadline",
+      "task_id"
+    ],
+    "fields": [
+      {
+        "name": "deadline",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "task_id",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "SanctionsRegime",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "regime_id",
+      "jurisdiction",
+      "policy_ref",
+      "list_snapshot_refs"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "jurisdiction",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "list_snapshot_refs",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "policy_ref",
+        "type": "Ref",
+        "required": true
+      },
+      {
+        "name": "regime_id",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ScreeningExecution",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "subject",
+      "screening_type",
+      "provider",
+      "query",
+      "query_time",
+      "status",
+      "dataset_versions",
+      "scope",
+      "list_published_at",
+      "candidate_count",
+      "truncated",
+      "limitations"
+    ],
+    "fields": [
+      {
+        "name": "candidate_count",
+        "type": "Count",
+        "required": true
+      },
+      {
+        "name": "dataset_versions",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "limitations",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "list_published_at",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "provider",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "query",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "query_time",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "screening_type",
+        "type": "ListOrMediaType",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "SearchStatus",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "truncated",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "ScreeningHit",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "entity_id",
+      "entry_id",
+      "features"
+    ],
+    "fields": [
+      {
+        "name": "entity_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "entry_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "features",
+        "type": "HitFeatures",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Session",
+    "schemaVersion": "2.0.0",
+    "required": [],
+    "fields": [
+      {
+        "name": "artifact_hash",
+        "type": "Hash",
+        "required": false
+      },
+      {
+        "name": "baseline",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "challenge_id",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "features",
+        "type": "object",
+        "required": false
+      },
+      {
+        "name": "modality",
+        "type": "Id",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Shipment",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "quantity"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "quantity",
+        "type": "Decimal",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "SkillExecution",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "skill_id",
+      "payload",
+      "lock",
+      "status"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "lock",
+        "type": "ExecutionLock",
+        "required": true
+      },
+      {
+        "name": "payload",
+        "type": "JsonObject",
+        "required": true
+      },
+      {
+        "name": "skill_id",
+        "type": "value",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "SkillStatus",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "SourceOfFunds",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "claim",
+      "evidence_ids",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "claim",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "SourceOfWealth",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "claim",
+      "evidence_ids",
+      "verified"
+    ],
+    "fields": [
+      {
+        "name": "claim",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "verified",
+        "type": "Bool",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "SourceRecord",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "content",
+      "source",
+      "coverage"
+    ],
+    "fields": [
+      {
+        "name": "content",
+        "type": "SourceContent",
+        "required": true
+      },
+      {
+        "name": "coverage",
+        "type": "Coverage",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "source",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Task",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "role",
+      "status",
+      "dependencies",
+      "skill_id",
+      "parameters"
+    ],
+    "fields": [
+      {
+        "name": "dependencies",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "parameters",
+        "type": "JsonObject",
+        "required": true
+      },
+      {
+        "name": "role",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "skill_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "TaskStatus",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "TimelineEvent",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "timestamp",
+      "subject",
+      "change"
+    ],
+    "fields": [
+      {
+        "name": "change",
+        "type": "JsonObject",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "timestamp",
+        "type": "Timestamp",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "TradeRecord",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "invoice_id",
+      "shipment_id"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "invoice_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "shipment_id",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Transaction",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "source",
+      "target",
+      "amount",
+      "currency",
+      "timestamp",
+      "event_id",
+      "status"
+    ],
+    "fields": [
+      {
+        "name": "amount",
+        "type": "Decimal",
+        "required": true
+      },
+      {
+        "name": "country",
+        "type": "Id",
+        "required": false
+      },
+      {
+        "name": "currency",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "event_id",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "source",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "TransactionStatus",
+        "required": true
+      },
+      {
+        "name": "target",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "timestamp",
+        "type": "Timestamp",
+        "required": true
+      },
+      {
+        "name": "transaction_type",
+        "type": "Id",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Typology",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "description",
+      "rule_refs",
+      "required_features"
+    ],
+    "fields": [
+      {
+        "name": "description",
+        "type": "Text",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "required_features",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "rule_refs",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "VerificationRecord",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "subject",
+      "status",
+      "method",
+      "evidence_ids"
+    ],
+    "fields": [
+      {
+        "name": "evidence_ids",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "method",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "VerificationStatus",
+        "required": true
+      },
+      {
+        "name": "subject",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "WatchlistEntry",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "name",
+      "identifiers",
+      "list_type",
+      "list_version",
+      "coverage"
+    ],
+    "fields": [
+      {
+        "name": "coverage",
+        "type": "Coverage",
+        "required": true
+      },
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "identifiers",
+        "type": "array",
+        "required": true
+      },
+      {
+        "name": "list_type",
+        "type": "ListType",
+        "required": true
+      },
+      {
+        "name": "list_version",
+        "type": "Id",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "Id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "WorkflowDefinition",
+    "schemaVersion": "2.0.0",
+    "required": [
+      "steps"
+    ],
+    "fields": [
+      {
+        "name": "extensions",
+        "type": "Extensions",
+        "required": false
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "required": true
+      }
+    ]
+  }
+]

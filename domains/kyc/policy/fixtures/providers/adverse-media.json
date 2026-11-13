@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "harness.fixtures.screening.v1",
+  "capability": "screening.adverse-media",
+  "description": "Provider-neutral adverse media results. The lookback window and which categories count as relevant are owner input D02; these fixtures deliberately straddle the placeholder five-year boundary.",
+  "thresholdsOwnerInput": "D02",
+  "fixtures": [
+    {
+      "id": "AM-CLEAR-001",
+      "summary": "Nothing adverse found.",
+      "subject": { "name": "FIXTURE Alice Nakamura", "dateOfBirth": "1984-06-11", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-media-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "articles": []
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "AM-IN-WINDOW-001",
+      "summary": "Financial crime allegation inside the lookback window and in a relevant category.",
+      "subject": { "name": "FIXTURE Gregor Halloran", "dateOfBirth": "1975-05-05", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-media-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "articles": [
+          {
+            "articleId": "FIXTURE-MEDIA-7001",
+            "title": "FIXTURE: regulator opens inquiry into fictional trading firm",
+            "publisher": "FIXTURE Business Wire",
+            "url": "https://fixtures.invalid/media/7001",
+            "publishedAt": "2024-08-14T00:00:00.000Z",
+            "category": "FINANCIAL_CRIME",
+            "subjectConfidence": 0.93,
+            "allegationStatus": "ALLEGED"
+          }
+        ]
+      },
+      "expected": { "findingType": "ADVERSE_MEDIA", "screeningStatus": "OK" }
+    },
+    {
+      "id": "AM-OUT-OF-WINDOW-001",
+      "summary": "Relevant category but older than the placeholder lookback window. Whether it counts is D02's call.",
+      "subject": { "name": "FIXTURE Gregor Halloran", "dateOfBirth": "1975-05-05", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-media-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "articles": [
+          {
+            "articleId": "FIXTURE-MEDIA-7002",
+            "title": "FIXTURE: historic fine reported against unrelated entity",
+            "publisher": "FIXTURE Business Wire",
+            "url": "https://fixtures.invalid/media/7002",
+            "publishedAt": "2016-02-09T00:00:00.000Z",
+            "category": "FINANCIAL_CRIME",
+            "subjectConfidence": 0.9,
+            "allegationStatus": "CONCLUDED"
+          }
+        ]
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK", "ownerInputRefs": ["D02"] }
+    },
+    {
+      "id": "AM-IRRELEVANT-CATEGORY-001",
+      "summary": "Recent and about the subject, but in a category outside the relevance standard.",
+      "subject": { "name": "FIXTURE Yuki Tanaka", "dateOfBirth": "1992-04-17", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-media-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "articles": [
+          {
+            "articleId": "FIXTURE-MEDIA-7010",
+            "title": "FIXTURE: local sports dispute goes to arbitration",
+            "publisher": "FIXTURE Local Times",
+            "url": "https://fixtures.invalid/media/7010",
+            "publishedAt": "2025-11-02T00:00:00.000Z",
+            "category": "CIVIL_DISPUTE",
+            "subjectConfidence": 0.95,
+            "allegationStatus": "ALLEGED"
+          }
+        ]
+      },
+      "expected": { "findingType": "NO_MATERIAL_MATCH", "screeningStatus": "OK" }
+    },
+    {
+      "id": "AM-AMBIGUOUS-SUBJECT-001",
+      "summary": "Relevant and recent, but it may be a different person with the same name. This is an identity question, not a media question.",
+      "subject": { "name": "FIXTURE John Smith", "dateOfBirth": "1972-11-30", "country": "US" },
+      "result": {
+        "status": "OK",
+        "provider": "PROVIDER_NEUTRAL_FIXTURE",
+        "listVersion": "fixture-media-2026-03-01",
+        "listPublishedAt": "2026-03-01T00:00:00.000Z",
+        "screenedAt": "2026-03-02T11:00:00.000Z",
+        "articles": [
+          {
+            "articleId": "FIXTURE-MEDIA-7020",
+            "title": "FIXTURE: fraud charges filed against man named John Smith",
+            "publisher": "FIXTURE National Register",
+            "url": "https://fixtures.invalid/media/7020",
+            "publishedAt": "2025-06-21T00:00:00.000Z",
+            "category": "FRAUD",
+            "subjectConfidence": 0.41,
+            "allegationStatus": "ALLEGED"
+          }
+        ]
+      },
+      "expected": { "findingType": "IDENTITY_CONFLICT", "screeningStatus": "OK" }
+    }
+  ]
+}

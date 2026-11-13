@@ -1,0 +1,11 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.product.card
+  version: 1.0.0
+  layer: product
+  appliesTo: { products: [card] }
+  status: CANDIDATE
+  ownerRole: kyb-policy-owner
+  description: Card products; no controls beyond the institution's.
+values: {}

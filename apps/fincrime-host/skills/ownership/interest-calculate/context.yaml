@@ -1,0 +1,27 @@
+dynamic_target: null
+requirements:
+- fields:
+  - owner
+  - owned
+  - interest
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: OwnershipInterest
+  optional: false
+- fields:
+  - owner
+  - owned
+  - lower
+  - upper
+  - lower_inclusive
+  - upper_inclusive
+  max_age_seconds: null
+  min_count: 0
+  model_visible: true
+  nullable_fields: []
+  object_type: OwnershipRange
+  optional: true
+schema_version: 2.0.0
+skill_id: ownership.interest.calculate

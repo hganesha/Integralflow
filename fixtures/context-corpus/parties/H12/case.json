@@ -1,0 +1,112 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h12.entity.trust",
+  "external_ref": "corpus-H12",
+  "party_id": "H12",
+  "record_count": 140,
+  "relationship_record_id": "h12.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h12.entity.trust",
+      "identifiers": [],
+      "name": "Marchetti Family Trust",
+      "ref": "trust",
+      "role": "customer",
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h12.entity.settlor",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H12-PP-0001"
+        }
+      ],
+      "name": "Aurelio Marchetti",
+      "ref": "settlor",
+      "role": "settlor",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h12.entity.trustee-co",
+      "identifiers": [],
+      "name": "Seaview Trustees (Jersey) Ltd",
+      "ref": "trustee_co",
+      "role": "trustee",
+      "subject_type": "legal_entity"
+    },
+    {
+      "entity_id": "h12.entity.trustee-ind",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "SE-SPECIMEN",
+          "value": "SPECIMEN-H12-PP-0002"
+        }
+      ],
+      "name": "Marit Lindqvist",
+      "ref": "trustee_ind",
+      "role": "trustee",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h12.entity.protector",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H12-PP-0003"
+        }
+      ],
+      "name": "Quentin Marlowe",
+      "ref": "protector",
+      "role": "protector",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h12.entity.ben1",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H12-PP-0004"
+        }
+      ],
+      "name": "Livia Marchetti",
+      "ref": "ben1",
+      "role": "beneficiary",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h12.entity.ben2",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H12-PP-0005"
+        }
+      ],
+      "name": "Giacomo Marchetti",
+      "ref": "ben2",
+      "role": "beneficiary",
+      "subject_type": "individual"
+    },
+    {
+      "entity_id": "h12.entity.ben3",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "GB-SPECIMEN",
+          "value": "SPECIMEN-H12-PP-0006"
+        }
+      ],
+      "name": "Elodie Marchetti",
+      "ref": "ben3",
+      "role": "beneficiary",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

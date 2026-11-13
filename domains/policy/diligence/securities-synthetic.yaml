@@ -1,0 +1,84 @@
+# The synthetic securities firm's customer due-diligence design (Product Policy Studio phase G). Not a
+# real firm's policy: every value is a CANDIDATE for its policy owner. Columns are taxonomy nodes, so
+# a prime brokerage case takes BRK.PRIME and a cash account BRK.RETAIL. Securities products are
+# policy-only until the skill library's Product record carries them (docs/implementation/product-policy-library-change-request.md).
+apiVersion: harness.factory/diligence-design-v1
+kind: DiligenceDesign
+metadata:
+  id: diligence.securities-synthetic
+  institution: securities.synthetic
+  version: 1.0.0
+  status: CANDIDATE
+  ownerRole: installation.policy.owner
+  description: Base due-diligence levels by party type and securities product, with the risk rules that escalate them.
+spec:
+  levels: [SDD, CDD, EDD]
+  simplifiedLevel: SDD
+  inputProfile: canonical.onboarding.v2
+  inputs:
+    legalForm: /scope/legalForm
+  partyTypes:
+    - { id: individual, label: Individual, customerType: individual, legalForms: [individual] }
+    - { id: company, label: Company, customerType: corporate, legalForms: [corporation, llc] }
+    - { id: partnership, label: Partnership, customerType: corporate, legalForms: [general_partnership, limited_partnership] }
+    - { id: fund, label: Fund or pension, customerType: corporate, legalForms: [fund, pension] }
+    - { id: trust, label: Trust or foundation, customerType: corporate, legalForms: [ordinary_trust, statutory_trust, estate, foundation] }
+  products: [BRK, BRK.RETAIL, BRK.PRIME, BRK.FINANCING, CUS, WLT]
+  matrix:
+    individual:  { BRK: CDD, BRK.RETAIL: CDD, BRK.PRIME: EDD, BRK.FINANCING: EDD, CUS: CDD, WLT: CDD }
+    company:     { BRK: CDD, BRK.RETAIL: CDD, BRK.PRIME: EDD, BRK.FINANCING: EDD, CUS: CDD, WLT: CDD }
+    partnership: { BRK: CDD, BRK.RETAIL: CDD, BRK.PRIME: EDD, BRK.FINANCING: EDD, CUS: CDD, WLT: CDD }
+    fund:        { BRK: CDD, BRK.RETAIL: CDD, BRK.PRIME: CDD, BRK.FINANCING: CDD, CUS: CDD, WLT: CDD }
+    trust:       { BRK: CDD, BRK.RETAIL: CDD, BRK.PRIME: EDD, BRK.FINANCING: EDD, CUS: EDD, WLT: EDD }
+  overlays:
+    - id: overlay.pep
+      label: Politically exposed person
+      description: A verified PEP relationship, or an open PEP signal on the case.
+      enabled: true
+      requires: [/facts/selected/policyRecordPEPRelationship, /facts/selected/policyCaseFindings]
+      when:
+        any:
+          - some: { path: /facts/selected/policyRecordPEPRelationship, where: { path: /data/verified, op: eq, value: true } }
+          - some: { path: /facts/selected/policyCaseFindings, where: { all: [{ path: /findingType, op: eq, value: PEP_SIGNAL }, { path: /status, op: eq, value: OPEN }] } }
+      effect:
+        escalateTo: EDD
+        requireApproval: { role: Case.Reviewer, quorum: 2, reason: Senior approval to establish a relationship with a politically exposed person. }
+    - id: overlay.high-risk-geography
+      label: High-risk geography
+      description: Exposure to a country on the firm's high-risk list (candidate list; the owner maintains it).
+      enabled: true
+      requires: [/facts/selected/policyRecordGeographyExposure]
+      when:
+        some: { path: /facts/selected/policyRecordGeographyExposure, where: { path: /data/country, op: in, value: [IR, KP, MM] } }
+      effect: { escalateBy: 1 }
+    - id: overlay.complex-ownership
+      label: Complex or opaque ownership
+      description: Three or more recorded ownership interests in a company, partnership or trust.
+      enabled: true
+      appliesTo: { partyTypes: [company, partnership, trust] }
+      requires: [/facts/selected/packOwnership]
+      when: { path: /facts/selected/packOwnership, op: count_gte, value: 3 }
+      effect: { escalateTo: EDD, addRequirements: [EVD-PUBLIC-SOURCE-RESEARCH] }
+    - id: overlay.leveraged-trading-risk
+      label: Leveraged trading with high transaction risk
+      description: A transaction risk factor of 0.7 or more on prime brokerage or securities financing.
+      enabled: true
+      appliesTo: { products: [BRK.PRIME, BRK.FINANCING] }
+      requires: [/facts/selected/policyRecordRiskFactor]
+      when:
+        some: { path: /facts/selected/policyRecordRiskFactor, where: { all: [{ path: /data/name, op: eq, value: transaction }, { path: /data/score, op: gte, value: "0.7" }] } }
+      effect: { escalateBy: 1 }
+  requirements:
+    SDD: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING]
+    CDD: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING, EVD-CIP-ADDRESS, EVD-IDENTITY-VERIFICATION, EVD-PEP-SCREENING, EVD-RELATIONSHIP-PURPOSE, EVD-BENEFICIAL-OWNERSHIP]
+    EDD: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING, EVD-CIP-ADDRESS, EVD-IDENTITY-VERIFICATION, EVD-PEP-SCREENING, EVD-RELATIONSHIP-PURPOSE, EVD-BENEFICIAL-OWNERSHIP, EVD-ADVERSE-MEDIA, EVD-SOURCE-OF-FUNDS, EVD-EDD-NARRATIVE]
+  # Screening type → the obligation that requires it; the decision lists the types its requirements imply.
+  screening: { sanctions: EVD-SANCTIONS-SCREENING, pep: EVD-PEP-SCREENING, adverse_media: EVD-ADVERSE-MEDIA }
+  # What a customer brings when they hold a product in another role (CANDIDATE values). An underlying
+  # investor in an omnibus or fund account is identified and screened; an authorised trader on another
+  # party's account is identified and screened. A role not listed here leaves the decision unresolved.
+  roleRequirements:
+    UNDERLYING_INVESTOR: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING, EVD-PEP-SCREENING, EVD-SOURCE-OF-FUNDS]
+    AUTHORIZED_USER: [EVD-CIP-IDENTITY-DOCUMENT, EVD-SANCTIONS-SCREENING]
+    INTERMEDIARY: [EVD-BENEFICIAL-OWNERSHIP, EVD-RELATIONSHIP-PURPOSE]
+    COUNTERPARTY: [EVD-SANCTIONS-SCREENING]

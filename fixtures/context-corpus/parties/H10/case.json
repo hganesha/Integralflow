@@ -1,0 +1,26 @@
+{
+  "as_of": "2026-09-30T00:00:00Z",
+  "case_type": "kyc_onboarding",
+  "customer_entity_id": "h10.entity.devon",
+  "external_ref": "corpus-H10",
+  "party_id": "H10",
+  "record_count": 1506,
+  "relationship_record_id": "h10.bankingrelationship.relationship",
+  "subjects": [
+    {
+      "entity_id": "h10.entity.devon",
+      "identifiers": [
+        {
+          "identifier_type": "passport",
+          "source": "NL-SPECIMEN",
+          "value": "SPECIMEN-H10-PP-0001"
+        }
+      ],
+      "name": "Devon Achterberg",
+      "ref": "devon",
+      "role": "customer",
+      "subject_type": "individual"
+    }
+  ],
+  "tenant_id": "tenant-synthetic"
+}

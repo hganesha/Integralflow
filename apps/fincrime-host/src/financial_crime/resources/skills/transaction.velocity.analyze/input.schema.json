@@ -1,0 +1,15 @@
+{
+  "$id": "urn:financial-crime:skill:transaction.velocity.analyze:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "window_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "window_seconds"
+  ],
+  "type": "object"
+}

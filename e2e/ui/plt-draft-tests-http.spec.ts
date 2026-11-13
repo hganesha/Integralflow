@@ -1,0 +1,41 @@
+import { expect, test } from "@playwright/test";
+import { apiCall } from "./authoring-support";
+import { expectAccessible } from "./support";
+
+// A migrated HTTP stack with a writable copy of the conformance draft (vendor.lookup).
+test.skip(!process.env.DRAFT_TEST_HTTP_ID || !process.env.CONTEXT_HTTP_URL, "Requires an isolated HTTP conformance draft.");
+test("HTTP: execute a draft, inspect real results on the canvas, and recover history on reload", async ({ page }) => {
+  const id = process.env.DRAFT_TEST_HTTP_ID!;
+  const errors: string[] = [];
+  page.on("pageerror", error => errors.push(error.message));
+  await page.goto(`/platform/drafts/${id}?tab=workflow`);
+  await expect(page.getByRole("button", { name: "Test draft", exact: true })).toBeVisible();
+  const before = await (await page.request.get(`/api/v1/authoring/drafts/${id}`)).json();
+  await page.getByRole("button", { name: "Test draft", exact: true }).click();
+  const form = page.getByRole("form", { name: "Test draft", exact: true });
+  await form.getByLabel("Sample data", { exact: true }).selectOption("synthetic-company");
+  const values = JSON.parse(await form.getByLabel("Test data (JSON)", { exact: true }).inputValue());
+  values.input.vendorName = "Acme sample";
+  values.capabilityOutputs["vendor.lookup"] = { vendor: "Acme sample", fixture: true };
+  await form.getByLabel("Test data (JSON)", { exact: true }).fill(JSON.stringify(values));
+  await form.getByRole("button", { name: "Run draft test", exact: true }).click();
+  const results = page.getByRole("region", { name: "Draft test results", exact: true });
+  await expect(results.getByText("Test completed", { exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText("Test: completed", { exact: true })).toHaveCount(3);
+  await results.getByRole("button", { name: "Vendor lookup Completed", exact: true }).click();
+  await expect(results.getByRole("heading", { name: "Vendor lookup · Completed", exact: true })).toBeVisible();
+  await expect(results.getByText("Acme sample", { exact: false }).first()).toBeVisible();
+  const after = await (await page.request.get(`/api/v1/authoring/drafts/${id}`)).json();
+  expect(after.revision).toBe(before.revision); expect(after.status).toBe(before.status);
+  await expectAccessible(page);
+  await page.reload();
+  await expect(page.getByText("Test completed", { exact: true })).toBeVisible();
+  await expect(page.getByText("Test: completed", { exact: true })).toHaveCount(3);
+  const current = await (await page.request.get(`/api/v1/authoring/drafts/${id}`)).json();
+  current.parsedWorkflow.spec.nodes[0]!.name = "Updated intake";
+  const saved = await apiCall(page, "PUT", `/v1/authoring/drafts/${id}`, { expectedRevision: current.revision, packageSource: current.packageSource, workflowSource: JSON.stringify(current.parsedWorkflow) });
+  expect(saved.status).toBe(200);
+  await expect(page.getByText(/This test used revision .* The canvas is now revision/)).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Test: completed", { exact: true })).toHaveCount(0);
+  expect(errors).toEqual([]);
+});

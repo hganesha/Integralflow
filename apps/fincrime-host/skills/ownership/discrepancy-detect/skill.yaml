@@ -1,0 +1,148 @@
+audit_fields:
+- actor
+- policy_hash
+- context_hash
+- code_hash
+- profile_hash
+- trace_id
+authorization:
+- skill:ownership.discrepancy.detect
+bundle_code_hash: fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20
+business_outcome: Compare declared and discovered ownership snapshots field by field.
+code_hash: 2043b6fd74e942d3e5cf175d800bf342ea610c4641b6a91bb4277215691b98e0
+composition_type: atomic
+context_freshness: per requirement and pinned policy; no implicit freshness guarantee
+cost_latency_budget:
+  timeout_seconds: 30
+data_classification: internal
+dependencies:
+  capabilities: []
+  libraries:
+  - financial-crime-skills==0.5.0
+  skills: []
+deprecation_policy: new version for contract changes
+description: Compare declared and discovered ownership snapshots field by field.
+effects: read_only
+entrypoint: financial_crime.skills.ownership:discrepancy
+evaluation_profile: ownership.discrepancy.detect-synthetic-v1
+evidence_requirements: immutable selected source refs and per-finding citations; synthetic
+  sources labeled
+execution_mode: code
+failure_codes:
+- ACCESS_DENIED
+- CONTEXT_MISSING
+- CONTEXT_STALE
+- CONTROL_FAILED
+- INPUT_INVALID
+- INTEGRITY_FAILURE
+- POLICY_UNRESOLVED
+- TIMEOUT
+harness_name: ownership-discrepancy-detect
+human_interrupt_conditions:
+- 'none for the skill itself: its output is an observation; the parent workflow''s
+  checkpoints decide whether a person acts'
+id: ownership.discrepancy.detect
+idempotency: tenant+actor+key with request hash conflict detection
+input_schema:
+  $defs:
+    Fraction:
+      pattern: ^(?:0(?:\.[0-9]+)?|1(?:\.0+)?)$
+      type: string
+  $id: urn:financial-crime:skill:ownership.discrepancy.detect:input:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    declared:
+      additionalProperties:
+        $ref: '#/$defs/Fraction'
+      type: object
+      x-dynamic-map-reason: keyed collection
+    discovered:
+      additionalProperties:
+        $ref: '#/$defs/Fraction'
+      type: object
+      x-dynamic-map-reason: keyed collection
+  required:
+  - declared
+  - discovered
+  type: object
+instruction_hash: 06136159af92ff25a11a0ab5b05f8666e3e9a1ecb5d2b203d98d9e403639ed97
+instructions: SKILL.md
+jurisdiction_scope:
+- synthetic-neutral
+limitations:
+- This package is an implemented synthetic reference, not a qualified production service.
+  Its scope is the behavior stated above and the typed input/output contracts. Independent
+  representative evaluation, approved institution policy and supported source mappings
+  remain required. No independent real-source accuracy or institution-specific acceptance
+  authority is established by the bundled examples.
+maturity: implemented_synthetic
+optional_context: []
+output_schema:
+  $defs:
+    Change:
+      additionalProperties: false
+      properties:
+        after:
+          $ref: '#/$defs/JsonValue'
+        before:
+          $ref: '#/$defs/JsonValue'
+        field:
+          $ref: '#/$defs/Id'
+      required:
+      - field
+      - before
+      - after
+      type: object
+    Id:
+      maxLength: 512
+      minLength: 1
+      type: string
+    JsonValue:
+      anyOf:
+      - type: 'null'
+      - type: boolean
+      - maxLength: 200000
+        type: string
+      - type: number
+      - items:
+          $ref: '#/$defs/JsonValue'
+        maxItems: 10000
+        type: array
+      - additionalProperties:
+          $ref: '#/$defs/JsonValue'
+        type: object
+        x-dynamic-map-reason: raw JSON source value
+  $id: urn:financial-crime:skill:ownership.discrepancy.detect:output:0.3.0
+  $schema: https://json-schema.org/draft/2020-12/schema
+  additionalProperties: false
+  properties:
+    discrepancies:
+      items:
+        $ref: '#/$defs/Change'
+      maxItems: 10000
+      type: array
+  required:
+  - discrepancies
+  type: object
+owner: financial-crime-skills
+permitted_capabilities: []
+policy_context_fields:
+- freshness_seconds
+- jurisdiction
+- permissions
+- version
+policy_gates:
+- unknown != pass
+- no automatic consequential decision
+preconditions:
+- authorized purpose
+- pinned policy
+- satisfied required context
+provider_policy: explicit allowlist; synthetic local sources by default
+required_context: []
+retry_policy:
+  external_uncertain: reconcile
+  max_attempts: 1
+semver: 0.3.0
+timeout: 30

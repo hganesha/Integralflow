@@ -1,0 +1,308 @@
+# Cross-cutting product attributes: risk combinations are attributes, never extra product leaves.
+apiVersion: harness.factory/product-attributes-v1
+kind: ProductAttributes
+metadata:
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  attributes:
+  - id: product_id
+    group: identity
+    name: Product
+    description: The canonical product node.
+    type: string
+    setAt: product
+  - id: product_status
+    group: identity
+    name: Product status
+    description: Whether the product is offered.
+    type: enum
+    values:
+    - ACTIVE
+    - CLOSED_TO_NEW
+    - RETIRED
+    setAt: offering
+  - id: legal_entity
+    group: institution
+    name: Legal entity
+    description: The institution legal entity that provides the product.
+    type: string
+    setAt: offering
+  - id: booking_entity
+    group: institution
+    name: Booking entity
+    description: Where the relationship is booked.
+    type: string
+    setAt: offering
+  - id: business_unit
+    group: institution
+    name: Business unit
+    description: The business line that owns the offering.
+    type: string
+    setAt: offering
+  - id: eligible_party_types
+    group: eligibility
+    name: Eligible party types
+    description: Party classifications the offering may serve.
+    type: enum_list
+    values:
+    - INDIVIDUAL
+    - SOLE_PROPRIETOR
+    - LEGAL_ENTITY
+    - PARTNERSHIP
+    - TRUST
+    - INVESTMENT_FUND
+    - FINANCIAL_INSTITUTION
+    - GOVERNMENT
+    - NONPROFIT
+    setAt: offering
+  - id: regulatory_regime
+    group: regulatory
+    name: Regulatory regime
+    description: The regime under which the offering is provided.
+    type: enum_list
+    values:
+    - BANKING
+    - BROKER_DEALER
+    - INVESTMENT_ADVISER
+    - INSURER
+    - VASP
+    - MSB
+    - FUND_MANAGER
+    - TRUST_COMPANY
+    setAt: offering
+  - id: booking_jurisdiction
+    group: jurisdiction
+    name: Booking jurisdiction
+    description: ISO country where the relationship is booked.
+    type: string
+    setAt: offering
+  - id: customer_jurisdictions
+    group: jurisdiction
+    name: Customer jurisdictions
+    description: Countries the customer is resident in or established in.
+    type: string_list
+    setAt: relationship
+  - id: transaction_jurisdictions
+    group: jurisdiction
+    name: Transaction jurisdictions
+    description: Countries funds or assets move to or from.
+    type: string_list
+    setAt: relationship
+  - id: account_arrangement
+    group: structure
+    name: Account arrangement
+    description: 'How the account is held: an arrangement, not a product.'
+    type: enum
+    values:
+    - INDIVIDUAL
+    - JOINT
+    - OMNIBUS
+    - POOLED
+    - NOMINEE
+    - FIDUCIARY
+    - SEGREGATED
+    setAt: relationship
+  - id: ownership_roles
+    group: ownership
+    name: Ownership and control roles
+    description: Beneficial owners, controllers, trustees, signatories and authorised traders.
+    type: enum_list
+    values:
+    - BENEFICIAL_OWNER
+    - CONTROLLER
+    - TRUSTEE
+    - SETTLOR
+    - BENEFICIARY
+    - SIGNATORY
+    - AUTHORISED_TRADER
+    - DIRECTOR
+    setAt: relationship
+  - id: funding_methods
+    group: funding
+    name: Funding methods
+    description: How the relationship is funded.
+    type: enum_list
+    values:
+    - CASH
+    - WIRE
+    - ACH
+    - CARD
+    - THIRD_PARTY
+    - SECURITIES_TRANSFER
+    - DIGITAL_ASSET
+    setAt: offering
+  - id: third_party_funding
+    group: funding
+    name: Third-party funding
+    description: Whether a party other than the customer may fund it.
+    type: boolean
+    setAt: offering
+  - id: expected_monthly_value
+    group: behaviour
+    name: Expected monthly value
+    description: Expected value moved per month.
+    type: money
+    setAt: relationship
+  - id: expected_monthly_count
+    group: behaviour
+    name: Expected monthly transactions
+    description: Expected number of transactions per month.
+    type: number
+    setAt: relationship
+  - id: counterparty_types
+    group: behaviour
+    name: Counterparty types
+    description: Kinds of counterparties expected.
+    type: string_list
+    setAt: relationship
+  - id: payment_corridors
+    group: behaviour
+    name: Payment corridors
+    description: "Expected origin\u2013destination country pairs."
+    type: string_list
+    setAt: relationship
+  - id: channels
+    group: channel
+    name: Access channels
+    description: How the product is accessed.
+    type: enum_list
+    values:
+    - BRANCH
+    - DIGITAL
+    - API
+    - INTERMEDIARY
+    - ADVISER
+    - AGENT
+    setAt: offering
+  - id: non_face_to_face
+    group: channel
+    name: Non-face-to-face onboarding
+    description: Whether customers may onboard without meeting in person.
+    type: boolean
+    setAt: offering
+  - id: credit_exposure
+    group: exposure
+    name: Credit exposure
+    description: Whether the institution extends credit.
+    type: boolean
+    setAt: product
+  - id: leverage
+    group: exposure
+    name: Leverage
+    description: Whether margin or leverage is available.
+    type: boolean
+    setAt: offering
+  - id: collateral
+    group: exposure
+    name: Collateral
+    description: Collateral taken, if any.
+    type: enum_list
+    values:
+    - CASH
+    - SECURITIES
+    - REAL_ESTATE
+    - RECEIVABLES
+    - DIGITAL_ASSETS
+    - OTHER
+    setAt: offering
+  - id: custody_of_assets
+    group: exposure
+    name: Custody of assets
+    description: Whether the institution holds client assets.
+    type: boolean
+    setAt: product
+  - id: intermediaries
+    group: intermediary
+    name: Intermediaries
+    description: Introducing brokers, correspondents, custodians or payment facilitators involved.
+    type: enum_list
+    values:
+    - INTRODUCING_BROKER
+    - CORRESPONDENT
+    - SUB_CUSTODIAN
+    - PAYMENT_FACILITATOR
+    - PROGRAM_MANAGER
+    - INVESTMENT_ADVISER
+    - PLACEMENT_AGENT
+    setAt: offering
+  - id: nested_access
+    group: intermediary
+    name: Nested access
+    description: Whether the intermediary's own customers transact through the relationship.
+    type: boolean
+    setAt: relationship
+  - id: currencies
+    group: asset
+    name: Currencies
+    description: Currencies the product holds or moves.
+    type: string_list
+    setAt: offering
+  - id: asset_types
+    group: asset
+    name: Asset types
+    description: Instruments or assets involved, by canonical instrument class.
+    type: string_list
+    setAt: offering
+  - id: asset_transferability
+    group: asset
+    name: Asset transferability
+    description: How readily held value can be transferred to others.
+    type: enum
+    values:
+    - NONE
+    - RESTRICTED
+    - FREE
+    - BEARER
+    setAt: product
+  - id: cross_border
+    group: risk
+    name: Cross-border exposure
+    description: Whether the relationship involves other jurisdictions.
+    type: boolean
+    setAt: relationship
+  - id: ownership_complexity
+    group: risk
+    name: Ownership complexity
+    description: Whether ownership is layered, nominee or otherwise opaque.
+    type: enum
+    values:
+    - SIMPLE
+    - LAYERED
+    - OPAQUE
+    setAt: relationship
+  - id: cash_intensity
+    group: risk
+    name: Cash intensity
+    description: Share of activity expected in physical cash.
+    type: enum
+    values:
+    - NONE
+    - LOW
+    - HIGH
+    setAt: relationship
+  - id: monitoring_profile
+    group: monitoring
+    name: Monitoring profile
+    description: Transaction monitoring scenarios that apply.
+    type: string_list
+    setAt: offering
+  - id: periodic_review_months
+    group: monitoring
+    name: Periodic review interval
+    description: Months between periodic reviews, set by policy.
+    type: number
+    setAt: offering
+  - id: lifecycle_stage
+    group: lifecycle
+    name: Lifecycle stage
+    description: Where the relationship is in its lifecycle.
+    type: enum
+    values:
+    - ORIGINATION
+    - ACTIVATION
+    - SERVICING
+    - SUSPENDED
+    - TERMINATED
+    setAt: relationship

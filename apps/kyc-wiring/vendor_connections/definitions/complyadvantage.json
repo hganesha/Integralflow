@@ -1,0 +1,64 @@
+{
+  "provider_id": "complyadvantage",
+  "version": "documented-public",
+  "bases": {
+    "eu": "https://api.complyadvantage.com",
+    "us": "https://api.us.complyadvantage.com",
+    "ap": "https://api.ap.complyadvantage.com"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "prefix": "Token ",
+    "keys": [
+      "API_KEY"
+    ]
+  },
+  "sources": [
+    "https://docs.complyadvantage.com/api-docs"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "create_search": {
+      "method": "POST",
+      "path": "/searches",
+      "required_body": [
+        "search_term"
+      ],
+      "required_query": [],
+      "body_example": {
+        "search_term": "YOUR_SUBJECT_NAME",
+        "fuzziness": 0.6,
+        "filters": {
+          "types": [
+            "sanction",
+            "pep"
+          ]
+        }
+      },
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": "/content/data/id",
+      "source": "https://docs.complyadvantage.com/api-docs",
+      "allowed_input_headers": [],
+      "response": "json"
+    },
+    "get_search": {
+      "method": "GET",
+      "path": "/searches/{id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "screening",
+      "status_pointer": null,
+      "resource_pointer": "/content/data/id",
+      "source": "https://docs.complyadvantage.com/api-docs",
+      "allowed_input_headers": [],
+      "response": "json"
+    }
+  }
+}

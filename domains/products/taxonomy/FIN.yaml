@@ -1,0 +1,42 @@
+# Fintech & embedded finance. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: FIN
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - FINTECH
+  - PAYMENTS
+  name: Fintech & embedded finance
+  definition: Financial services delivered by or through technology platforms.
+  regulatedActivities:
+  - PAYMENT_SERVICES
+  riskDimensions:
+  - NEW_TECHNOLOGY
+  - NESTED_ACCESS
+  - INTERMEDIARY_RISK
+  classes:
+  - code: BAAS
+    name: Banking as a service
+    definition: A bank providing accounts and payments to a platform's customers.
+  - code: EMBEDDED_LENDING
+    name: Embedded lending
+    definition: Credit offered inside a non-financial platform's journey.
+  - code: MARKETPLACES
+    name: Marketplace payments
+    definition: Collecting and splitting payments between a marketplace and its sellers.
+  - code: OPEN_BANKING
+    name: Open banking services
+    definition: Account information and payment initiation through banking APIs.
+  - code: EARNED_WAGE
+    name: Earned wage access
+    definition: Advances on wages already earned.
+  - code: PEER_TO_PEER
+    name: Peer-to-peer platforms
+    definition: Platforms matching individual lenders, payers or investors.
+  - code: NEOBANK
+    name: Digital-only banking
+    definition: Accounts and cards offered only through digital channels.

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SurfaceInstance",
+  "description": "A rendered A2UI slot: allowlisted components with props and data bindings. Rendered only after validation against ComponentDescriptor.props_schema.",
+  "x-urn": "urn:financial-crime:ui-proposed:SurfaceInstance:0.1.0",
+  "x-status": "proposed \u2014 UI-local until reviewed; migrate to schemas/presentation/SurfaceInstance.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "surface_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "intent_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "template_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "slot": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "composed_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "agent",
+            "deterministic_service"
+          ]
+        },
+        "identity_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "required": [
+        "kind",
+        "identity_ref"
+      ]
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "component_version": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+          },
+          "props": {
+            "type": "object"
+          },
+          "bindings": {
+            "type": "array",
+            "items": {
+              "$ref": "../../../../schemas/runtime/Ref.schema.json"
+            }
+          }
+        },
+        "required": [
+          "component_id",
+          "component_version",
+          "props",
+          "bindings"
+        ]
+      },
+      "minItems": 1
+    },
+    "object_versions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../../../schemas/runtime/Ref.schema.json"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "surface_id",
+    "revision",
+    "intent_id",
+    "template_id",
+    "slot",
+    "composed_by",
+    "components",
+    "object_versions",
+    "created_at"
+  ]
+}

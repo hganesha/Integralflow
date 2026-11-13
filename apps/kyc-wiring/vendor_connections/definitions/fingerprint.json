@@ -1,0 +1,1474 @@
+{
+  "provider_id": "fingerprint",
+  "version": "4",
+  "bases": {
+    "global": "https://api.fpjs.io/v4",
+    "eu": "https://eu.api.fpjs.io/v4",
+    "ap": "https://ap.api.fpjs.io/v4"
+  },
+  "auth": {
+    "type": "header",
+    "name": "Authorization",
+    "prefix": "Bearer ",
+    "keys": [
+      "SECRET_API_KEY"
+    ]
+  },
+  "sources": [
+    "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "analyzeRequestForAutomationIntelligence": {
+      "method": "POST",
+      "path": "/edge",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/edge",
+      "openapi_method": "post",
+      "summary": "Collect Automation Intelligence.",
+      "body_required": true,
+      "parameters": [],
+      "body_schema": {
+        "$ref": "#/$defs/doc_de507b6fa2820d7d"
+      },
+      "responses": {
+        "200": {
+          "description": "OK.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_641cfd9ee0bf4e95"
+              },
+              "examples": {
+                "200-ok-bot-detected": {
+                  "summary": "Example response when a bot was detected.",
+                  "externalValue": "examples/edge/analyze_200.json"
+                },
+                "200-ok-bot-not-detected": {
+                  "summary": "Example response when a bot was not detected.",
+                  "externalValue": "examples/edge/analyze_200_non_bot.json"
+                },
+                "200-ok-proxy-detected": {
+                  "summary": "Example response when a proxy was detected.",
+                  "externalValue": "examples/edge/analyze_200_proxy.json"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request. The request payload is not valid.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "400-unknown-field": {
+                  "summary": "Error response when an unknown field is provided.",
+                  "externalValue": "examples/errors/400_edge_unknown_field.json"
+                },
+                "400-ip-required": {
+                  "summary": "Error response when an IP address was not provided.",
+                  "externalValue": "examples/errors/400_edge_ip_required.json"
+                },
+                "400-read-timeout": {
+                  "summary": "Error response if the request is not sent within 5 seconds.",
+                  "externalValue": "examples/errors/400_request_read_timeout.json"
+                }
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden. Access to this API is denied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "403-secret-api-key-required": {
+                  "summary": "Error response when the secret API key was not provided.",
+                  "externalValue": "examples/errors/403_secret_api_key_required.json"
+                },
+                "403-secret-api-key-not-found": {
+                  "summary": "Error response when the provided secret API key does not exist.",
+                  "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                },
+                "403-wrong-region": {
+                  "summary": "Error response when the API region is different from the region, the calling workspace is configured with.",
+                  "externalValue": "examples/errors/403_wrong_region.json"
+                }
+              }
+            }
+          }
+        },
+        "413": {
+          "description": "Bad request. The request payload is too large.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "413": {
+                  "summary": "Payload too large error",
+                  "externalValue": "examples/errors/413_payload_too_large.json"
+                }
+              }
+            }
+          }
+        },
+        "429": {
+          "description": "Too Many Requests. The request is throttled.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "429-too-many-requests-error": {
+                  "summary": "Too many requests error",
+                  "externalValue": "examples/errors/429_too_many_requests.json"
+                }
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Workspace error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getEvent": {
+      "method": "GET",
+      "path": "/events/{event_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/events/{event_id}",
+      "openapi_method": "get",
+      "summary": "Get an event by event ID",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "event_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "examples": [
+              "1708102555327.NLOjmg"
+            ]
+          },
+          "description": "The unique [identifier](https://docs.fingerprint.com/reference/js-agent-get-function#event_id) of each identification request (`requestId` can be used in its place)."
+        },
+        {
+          "name": "ruleset_id",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "examples": [
+              "D6N9Kbk9HRWrIWGz"
+            ]
+          },
+          "description": "The ID of the ruleset to evaluate against the event, producing the action to take for this event.\nThe resulting action is returned in the `rule_action` attribute of the response.\n"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_412e941f9ecc562e"
+              },
+              "examples": {
+                "200-ok": {
+                  "summary": "Example response",
+                  "externalValue": "examples/events/get_event_200.json"
+                },
+                "200-ok-with-ruleset": {
+                  "summary": "Example response with rule_action (when ruleset_id is provided)",
+                  "externalValue": "examples/events/get_event_ruleset_200.json"
+                },
+                "200-ok-with-bot-info": {
+                  "summary": "Example response with bot_info",
+                  "externalValue": "examples/events/get_event_with_bot_info_200.json"
+                },
+                "200-ok-with-edge": {
+                  "summary": "Example event from the Automation Intelligence API with Bot and IP intelligence",
+                  "externalValue": "examples/events/get_event_with_edge_200.json"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request. The event ID provided is not valid.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "400-bad-request": {
+                  "summary": "Error response when the provided event ID is invalid.",
+                  "externalValue": "examples/errors/400_event_id_invalid.json"
+                },
+                "400-ruleset-not-found": {
+                  "summary": "Error response when the ruleset with the provided ID is not found.",
+                  "externalValue": "examples/errors/400_ruleset_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden. Access to this API is denied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "403-secret-api-key-required": {
+                  "summary": "Error response when the secret API key was not provided.",
+                  "externalValue": "examples/errors/403_secret_api_key_required.json"
+                },
+                "403-secret-api-key-not-found": {
+                  "summary": "Error response when the provided secret API key does not exist.",
+                  "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found. The event ID cannot be found in this workspace's data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "404-request-not-found": {
+                  "summary": "Error response when the provided event ID does not exist.",
+                  "externalValue": "examples/errors/404_event_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "429": {
+          "description": "Too Many Requests. The request is throttled.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "429-too-many-requests-error": {
+                  "summary": "Too many requests error",
+                  "externalValue": "examples/errors/429_too_many_requests.json"
+                }
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Workspace error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "500-error": {
+                  "summary": "Request failed",
+                  "externalValue": "examples/errors/500_internal_server_error.json"
+                }
+              }
+            }
+          }
+        },
+        "503": {
+          "description": "Service Temporarily Unavailable.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "503-service-temporarily-unavailable": {
+                  "summary": "Error response when the service is temporarily unavailable.",
+                  "externalValue": "examples/errors/503_service_unavailable.json"
+                }
+              }
+            }
+          }
+        },
+        "504": {
+          "description": "Gateway Timeout.",
+          "x-deprecated-response": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              }
+            }
+          }
+        }
+      }
+    },
+    "updateEvent": {
+      "method": "PATCH",
+      "path": "/events/{event_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/events/{event_id}",
+      "openapi_method": "patch",
+      "summary": "Update an event",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "event_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "examples": [
+              "1708102555327.NLOjmg"
+            ]
+          },
+          "description": "The unique event [identifier](https://docs.fingerprint.com/reference/js-agent-get-function#event_id)."
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_c020a554ee661106"
+      },
+      "responses": {
+        "200": {
+          "description": "OK."
+        },
+        "400": {
+          "description": "Bad request. The request payload is not valid.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "example": {
+                  "summary": "Error response when the specified request payload is not valid and cannot be parsed.",
+                  "externalValue": "examples/errors/400_request_body_invalid.json"
+                }
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden. Access to this API is denied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "403-secret-api-key-required": {
+                  "summary": "Error response when the secret API key was not provided.",
+                  "externalValue": "examples/errors/403_secret_api_key_required.json"
+                },
+                "403-secret-api-key-not-found": {
+                  "summary": "Error response when the provided secret API key does not exist.",
+                  "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                },
+                "403-wrong-region": {
+                  "summary": "Error response when the API region is different from the region, the calling workspace is configured with.",
+                  "externalValue": "examples/errors/403_wrong_region.json"
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found. The event ID cannot be found in this workspace's data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "404-request-not-found": {
+                  "summary": "Error response when the provided event ID does not exist.",
+                  "externalValue": "examples/errors/404_event_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "409": {
+          "description": "Conflict. The event is not mutable yet.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "example": {
+                  "summary": "Error response when the event is not mutable yet.",
+                  "externalValue": "examples/errors/409_state_not_ready.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "submitEventFeedback": {
+      "method": "POST",
+      "path": "/events/{event_id}/feedback",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/events/{event_id}/feedback",
+      "openapi_method": "post",
+      "summary": "Submit feedback for an event",
+      "body_required": true,
+      "parameters": [
+        {
+          "name": "event_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "examples": [
+              "1708102555327.NLOjmg"
+            ]
+          },
+          "description": "The [event ID](https://docs.fingerprint.com/reference/js-agent-v4-get-function#event_id) of the identification event you want to submit feedback for.\n"
+        }
+      ],
+      "body_schema": {
+        "$ref": "#/$defs/doc_295a90094a0e5fe1"
+      },
+      "responses": {
+        "202": {
+          "description": "Accepted. The feedback has been accepted and will be processed asynchronously."
+        },
+        "400": {
+          "description": "Bad request. The request payload is not valid.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "400-bad-request": {
+                  "summary": "Error response when the request body is invalid.",
+                  "externalValue": "examples/errors/400_request_body_invalid.json"
+                }
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden. Access to this API is denied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "403-secret-api-key-required": {
+                  "summary": "Error response when the secret API key was not provided.",
+                  "externalValue": "examples/errors/403_secret_api_key_required.json"
+                },
+                "403-secret-api-key-not-found": {
+                  "summary": "Error response when the provided secret API key does not exist.",
+                  "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found. The event ID cannot be found in this workspace's data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "404-event-not-found": {
+                  "summary": "Error response when the provided event ID does not exist.",
+                  "externalValue": "examples/errors/404_event_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "429": {
+          "description": "Too Many Requests. The request is throttled.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "429-too-many-requests-error": {
+                  "summary": "Too many requests error",
+                  "externalValue": "examples/errors/429_too_many_requests.json"
+                }
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "500-error": {
+                  "summary": "Request failed",
+                  "externalValue": "examples/errors/500_internal_server_error.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "searchEvents": {
+      "method": "GET",
+      "path": "/events",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/events",
+      "openapi_method": "get",
+      "summary": "Search events",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 100,
+            "examples": [
+              10
+            ]
+          },
+          "description": "Maximum number of events to return. Defaults to 10 when omitted. Results are selected from the time range (`start`, `end`), ordered by `reverse`, then truncated to provided `limit` size. So `reverse=true` returns the oldest N=`limit` events, otherwise the newest N=`limit` events.\n"
+        },
+        {
+          "name": "pagination_key",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "S9rgMMUb4z3X5t5pr_tSgoSZlmyF0O8X7kCV2m981-iY1LmRTjraa1rTk3L-hQExnDWCi0RA-zAIjaVSTNO2AN2eqQWgzT0RjbieMxRfSdkM-HmOhdOgdQvYfPG3vqU1DJKh4Q"
+            ]
+          },
+          "description": "Use `pagination_key` to get the next page of results.\n\nWhen more results are available (e.g., you requested up to 100 results for your query using `limit`, but there are more than 100 events total matching your request), the `pagination_key` field is added to the response. The pagination key is an arbitrary string that should not be interpreted in any way and should be passed as-is. In the following request, use that value in the `pagination_key` parameter to get the next page of results:\n\n1. First request, returning most recent 100 events: `GET api-base-url/events?limit=100`\n2. Use `response.pagination_key` to get the next page of results: `GET api-base-url/events?limit=100&pagination_key=S9rgMMUb4z3X5t5pr_tSgoSZlmyF0O8X7kCV2m981-iY1LmRTjraa1rTk3L-hQExnDWCi0RA-zAIjaVSTNO2AN2eqQWgzT0RjbieMxRfSdkM-HmOhdOgdQvYfPG3vqU1DJKh4Q`\n"
+        },
+        {
+          "name": "visitor_id",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "Ibk1527CUFmcnjLwIs4A9"
+            ]
+          },
+          "description": "Unique [visitor identifier](https://docs.fingerprint.com/reference/js-agent-get-function#visitor_id) issued by Fingerprint Identification and all active Smart Signals.\n\nFilter events by matching Visitor ID (`identification.visitor_id` property).\n"
+        },
+        {
+          "name": "high_recall_id",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "Ibk1527CUFmcnjLwIs4A9"
+            ]
+          },
+          "description": "The High Recall ID is a supplementary browser identifier designed for use cases that require wider coverage over precision. Compared to the standard visitor ID, the High Recall ID strives to match incoming browsers more generously (rather than precisely) with existing browsers and thus identifies fewer browsers as new. The High Recall ID is best suited for use cases that are sensitive to browsers being identified as new and where mismatched browsers are not detrimental.\n\nFilter events by matching High Recall ID (`supplementary_id_high_recall.visitor_id` property).\n"
+        },
+        {
+          "name": "bot",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "all",
+              "good",
+              "bad",
+              "none"
+            ]
+          },
+          "description": "Filter events by the Bot Detection result, specifically:\n  `all` - events where any kind of bot was detected.\n  `good` - events where a good bot was detected.\n  `bad` - events where a bad bot was detected.\n  `none` - events where no bot was detected.\n> Note: When using this parameter, only events with the `bot` property set to a valid value are returned. Events without a `bot` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "bot_info",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "all",
+              "none"
+            ]
+          },
+          "description": "Filter events by their Bot Info result, specifically:\n  - `all` - events where any kind of bot was detected.\n  - `none` - events where no bot was detected, and no `bot_info` was present.\n"
+        },
+        {
+          "name": "bot_info_category",
+          "in": "query",
+          "style": "form",
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/doc_2b25fd1004c9311f"
+            }
+          },
+          "description": "Filter events by their Bot Info Category.\n\nMultiple categories can be provided using the repeated keys syntax. For example, `bot_info_category=ai_agent&bot_info_category=ai_assistant`, will match events with a Bot Info Category of `ai_agent` or `ai_assistant`. Other notations like comma-separated or bracket notation are not supported.\n"
+        },
+        {
+          "name": "bot_info_identity",
+          "in": "query",
+          "style": "form",
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/doc_ec86a5bb3ff0e372"
+            }
+          },
+          "description": "Filter events by their Bot Info Identity type.\n\nMultiple identity types can be provided using the repeated keys syntax. For example, `bot_info_identity=verified&bot_info_identity=signed`, will match events with a Bot Info Identity of `verified` or `signed`. Other notations like comma-separated or bracket notation are not supported.\n"
+        },
+        {
+          "name": "bot_info_confidence",
+          "in": "query",
+          "style": "form",
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/doc_9f3be137db14d3d8"
+            }
+          },
+          "description": "Filter events by their Bot Info Confidence.\n\nMultiple confidences can be provided using the repeated keys syntax. For example, `bot_info_confidence=high&bot_info_confidence=medium`, will match events with a Bot Info Confidence of `high` or `medium`. Other notations like comma-separated or bracket notation are not supported.\n"
+        },
+        {
+          "name": "bot_info_provider",
+          "in": "query",
+          "style": "form",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "examples": [
+                "OpenAI"
+              ]
+            }
+          },
+          "description": "Filter events by their Bot Info Provider. The provider must match exactly, partial or wildcard matching is not supported.\n\nMultiple Providers can be provided using the repeated keys syntax. For example, `bot_info_provider=OpenAI&bot_info_provider=AWS`, will match events with a Bot Info Provider of `OpenAI` or `AWS`. Other notations like comma-separated or bracket notation are not supported.\n"
+        },
+        {
+          "name": "bot_info_name",
+          "in": "query",
+          "style": "form",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "examples": [
+                "ChatGPT-User"
+              ]
+            }
+          },
+          "description": "Filter events by their Bot Info Name. The name must match exactly, partial or wildcard matching is not supported.\n\nMultiple Names can be provided using the repeated keys syntax. For example, `bot_info_name=ChatGPT%20Agent&bot_info_name=Bedrock%20AgentCore`, will match events with a Bot Info Name of `ChatGPT Agent` or `Bedrock AgentCore`. Other notations like comma-separated or bracket notation are not supported.\n"
+        },
+        {
+          "name": "ip_address",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "61.127.217.15"
+            ]
+          },
+          "description": "Filter events by IP address or IP range (if CIDR notation is used). If CIDR notation is not used, a /32 for IPv4 or /128 for IPv6 is assumed.\nExamples of range based queries: 10.0.0.0/24, 192.168.0.1/32\n"
+        },
+        {
+          "name": "asn",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "12876"
+            ]
+          },
+          "description": "Filter events by the ASN associated with the event's IP address.\nThis corresponds to the `ip_info.(v4|v6).asn` property in the response.\n"
+        },
+        {
+          "name": "linked_id",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "somelinkedId"
+            ]
+          },
+          "description": "Filter events by your custom identifier.\n\nYou can use [linked IDs](https://docs.fingerprint.com/reference/js-agent-get-function#linkedid) to associate identification requests with your own identifier, for example, session ID, purchase ID, or transaction ID. You can then use this `linked_id` parameter to retrieve all events associated with your custom identifier.\n"
+        },
+        {
+          "name": "url",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "https://example.com/login"
+            ]
+          },
+          "description": "Filter events by the URL (`url` property) associated with the event.\n"
+        },
+        {
+          "name": "bundle_id",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "com.example.app"
+            ]
+          },
+          "description": "Filter events by the Bundle ID (iOS) associated with the event.\n"
+        },
+        {
+          "name": "package_name",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "com.example.app"
+            ]
+          },
+          "description": "Filter events by the Package Name (Android) associated with the event.\n"
+        },
+        {
+          "name": "origin",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "https://example.com"
+            ]
+          },
+          "description": "Filter events by the origin field of the event. This is applicable to web events only (e.g., https://example.com)\n"
+        },
+        {
+          "name": "start",
+          "in": "query",
+          "schema": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "date-time",
+                "examples": [
+                  "2026-01-01T00:00:00Z"
+                ]
+              },
+              {
+                "type": "integer",
+                "format": "int64",
+                "examples": [
+                  1767225600000
+                ]
+              }
+            ],
+            "examples": [
+              "2026-01-01T00:00:00Z"
+            ]
+          },
+          "description": "Include events that happened after the provided `start` date formatted as an RFC3339 timestamp. For backward compatibility, a Unix milliseconds timestamp is also accepted. Defaults to 7 days ago. Setting `start` does not change the default `end` date of `now` \u2014 adjust it separately if needed.\n"
+        },
+        {
+          "name": "end",
+          "in": "query",
+          "schema": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "date-time",
+                "examples": [
+                  "2026-01-31T23:59:59Z"
+                ]
+              },
+              {
+                "type": "integer",
+                "format": "int64",
+                "examples": [
+                  1769903999000
+                ]
+              }
+            ],
+            "examples": [
+              "2026-01-31T23:59:59Z"
+            ]
+          },
+          "description": "Include events that happened before the provided `end` date formatted as an RFC3339 timestamp. For backward compatibility, a Unix milliseconds timestamp is also accepted. Defaults to now. Setting `end` does not change the default `start` date of `7 days ago` \u2014 adjust it separately if needed.\n"
+        },
+        {
+          "name": "reverse",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "When `true`, sort events oldest first (ascending timestamp order). Defaults to `false` (newest first, descending timestamp order).\n"
+        },
+        {
+          "name": "suspect",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events previously tagged as suspicious via the [Update API](https://docs.fingerprint.com/reference/server-api-v4-update-event).\n> Note: When using this parameter, only events with the `suspect` property explicitly set to `true` or `false` are returned. Events with undefined `suspect` property are left out of the response.\n"
+        },
+        {
+          "name": "vpn",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by VPN Detection result.\n> Note: When using this parameter, only events with the `vpn` property set to `true` or `false` are returned. Events without a `vpn` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "virtual_machine",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Virtual Machine Detection result.\n> Note: When using this parameter, only events with the `virtual_machine` property set to `true` or `false` are returned. Events without a `virtual_machine` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "tampering",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Browser Tampering Detection result.\n> Note: When using this parameter, only events with the `tampering` property set to `true` or `false` are returned. Events without a `tampering` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "anti_detect_browser",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Anti-detect Browser Detection result.\n> Note: When using this parameter, only events with the `tampering_details.anti_detect_browser` property set to `true` or `false` are returned. Events without a `tampering` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "incognito",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Browser Incognito Detection result.\n> Note: When using this parameter, only events with the `incognito` property set to `true` or `false` are returned. Events without an `incognito` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "privacy_settings",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Privacy Settings Detection result.\n> Note: When using this parameter, only events with the `privacy_settings` property set to `true` or `false` are returned. Events without a `privacy_settings` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "jailbroken",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Jailbroken Device Detection result.\n> Note: When using this parameter, only events with the `jailbroken` property set to `true` or `false` are returned. Events without a `jailbroken` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "frida",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Frida Detection result.\n> Note: When using this parameter, only events with the `frida` property set to `true` or `false` are returned. Events without a `frida` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "factory_reset",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Factory Reset Detection result.\n> Note: When using this parameter, only events with a `factory_reset_timestamp` property populated are included. Events without a `factory_reset_timestamp` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "cloned_app",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Cloned App Detection result.\n> Note: When using this parameter, only events with the `cloned_app` property set to `true` or `false` are returned. Events without a `cloned_app` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "emulator",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Android Emulator Detection result.\n> Note: When using this parameter, only events with the `emulator` property set to `true` or `false` are returned. Events without an `emulator` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "root_apps",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Rooted Device Detection result.\n> Note: When using this parameter, only events with the `root_apps` property set to `true` or `false` are returned. Events without a `root_apps` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "vpn_confidence",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "description": "Filter events by VPN Detection result confidence level.\n`high` - events with high VPN Detection confidence.\n`medium` - events with medium VPN Detection confidence.\n`low` - events with low VPN Detection confidence.\n> Note: When using this parameter, only events with the `vpn.confidence` property set to a valid value are returned. Events without a `vpn` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "min_suspect_score",
+          "in": "query",
+          "schema": {
+            "type": "number",
+            "format": "float",
+            "examples": [
+              7.5
+            ]
+          },
+          "description": "Filter events with Suspect Score result above a provided minimum threshold.\n> Note: When using this parameter, only events where the `suspect_score` property set to a value exceeding your threshold are returned. Events without a `suspect_score` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "developer_tools",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Developer Tools detection result.\n> Note: When using this parameter, only events with the `developer_tools` property set to `true` or `false` are returned. Events without a `developer_tools` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "location_spoofing",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Location Spoofing detection result.\n> Note: When using this parameter, only events with the `location_spoofing` property set to `true` or `false` are returned. Events without a `location_spoofing` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "mitm_attack",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by MITM (Man-in-the-Middle) Attack detection result.\n> Note: When using this parameter, only events with the `mitm_attack` property set to `true` or `false` are returned. Events without a `mitm_attack` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "rare_device",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Device Rarity detection result.\n> Note: When using this parameter, only events with the `rare_device` property set to `true` or `false` are returned. Events without a Device Rarity Smart Signal result are left out of the response.\n\n> This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+        },
+        {
+          "name": "rare_device_percentile_bucket",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "<p95",
+              "p95-p99",
+              "p99-p99.5",
+              "p99.5-p99.9",
+              "p99.9+",
+              "not_seen"
+            ]
+          },
+          "description": "Filter events by Device Rarity percentile bucket.\n`<p95` - device configuration is in the bottom 95% (most common).\n`p95-p99` - device is in the 95th to 99th percentile.\n`p99-p99.5` - device is in the 99th to 99.5th percentile.\n`p99.5-p99.9` - device is in the 99.5th to 99.9th percentile.\n`p99.9+` - device is in the top 0.1% (rarest).\n`not_seen` - device configuration has never been observed before.\n\n> This Smart Signal is currently in beta and only available to select customers. If you are interested, please [contact our support team](https://fingerprint.com/support/).\n"
+        },
+        {
+          "name": "proxy",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Proxy detection result.\n> Note: When using this parameter, only events with the `proxy` property set to `true` or `false` are returned. Events without a `proxy` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "sdk_version",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "3.11.14"
+            ]
+          },
+          "description": "Filter events by a specific SDK version associated with the identification event (`sdk.version` property). Example: `3.11.14`\n"
+        },
+        {
+          "name": "sdk_platform",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "js",
+              "android",
+              "ios"
+            ]
+          },
+          "description": "Filter events by the SDK Platform associated with the identification event (`sdk.platform` property) .\n`js` - Javascript agent (Web).\n`ios` - Apple iOS based devices.\n`android` - Android based devices.\n"
+        },
+        {
+          "name": "environment",
+          "in": "query",
+          "description": "Filter for events by providing one or more environment IDs (`environment_id` property).\n\n### Array syntax\nTo provide multiple environment IDs, use the repeated keys syntax (`environment=env1&environment=env2`).\nOther notations like comma-separated (`environment=env1,env2`) or bracket notation (`environment[]=env1&environment[]=env2`) are not supported.\n",
+          "required": false,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "examples": [
+                "ae_47abaca3db2c7c43"
+              ]
+            }
+          },
+          "style": "form"
+        },
+        {
+          "name": "proximity_id",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "examples": [
+              "C9rJYBlOFsAfBwQ"
+            ]
+          },
+          "description": "Filter events by the most precise Proximity ID provided by default.\n> Note: When using this parameter, only events with the `proximity.id` property matching the provided ID are returned. Events without a `proximity` result are left out of the response.\n"
+        },
+        {
+          "name": "total_hits",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000,
+            "examples": [
+              100
+            ]
+          },
+          "description": "When set, the response will include a `total_hits` property with a count of total query matches across all pages, up to the specified limit.\n"
+        },
+        {
+          "name": "tor_node",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Tor Node detection result.\n> Note: When using this parameter, only events with the `tor_node` property set to `true` or `false` are returned. Events without a `tor_node` detection result are left out of the response.\n"
+        },
+        {
+          "name": "incremental_identification_status",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "partially_completed",
+              "completed"
+            ]
+          },
+          "description": "Filter events by their incremental identification status (`incremental_identification_status` property). Non incremental identification events are left out of the response.\n"
+        },
+        {
+          "name": "simulator",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by iOS Simulator Detection result.\n\n> Note: When using this parameter, only events with the `simulator` property set to `true` or `false` are returned. Events without a `simulator` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "active_call",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "Filter events by Active Call Detection result on mobile devices.\n\n> Note: When using this parameter, only events with the `active_call` property set to `true` or `false` are returned. Events without an `active_call` Smart Signal result are left out of the response.\n"
+        },
+        {
+          "name": "source",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "edge"
+              ]
+            }
+          },
+          "description": "Selects the source of events to search. When omitted, only traditional identification events generated from devices are returned (the default behavior). When set to `edge`, only Automation Intelligence (Edge) events are returned.\n\nTo retrieve all events regardless of source, you must make two requests. One with the `source` parameter set to `edge`, and another with the `source` parameter omitted.\n\n> Note: The Automation Intelligence API is in public preview testing phase.  If you encounter any issues, please [contact](https://fingerprint.com/support/) our support team.\n"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Events matching the filter(s).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_40e6372f074fc9e6"
+              },
+              "examples": {
+                "200-ok": {
+                  "summary": "Example results",
+                  "externalValue": "examples/events/search/get_event_search_200.json"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request. One or more supplied search parameters are invalid, or a required parameter is missing.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "400-limit-invalid": {
+                  "summary": "Error response when no limit is supplied, or is invalid.",
+                  "externalValue": "examples/errors/400_limit_invalid.json"
+                },
+                "400-ip-address-invalid": {
+                  "summary": "Error response when an invalid IP address is supplied, or is not using CIDR notation.",
+                  "externalValue": "examples/errors/400_ip_address_invalid.json"
+                },
+                "400-bot-type-invalid": {
+                  "summary": "Error response when an invalid bot type is specified, must be one of `good`, `bad`, `all`, or `none`.",
+                  "externalValue": "examples/errors/400_bot_type_invalid.json"
+                },
+                "400-reverse-invalid": {
+                  "summary": "Error response when the reverse parameter is invalid.",
+                  "externalValue": "examples/errors/400_reverse_invalid.json"
+                },
+                "400-start-time-invalid": {
+                  "summary": "Error response when an invalid start time is supplied.",
+                  "externalValue": "examples/errors/400_start_time_invalid.json"
+                },
+                "400-end-time-invalid": {
+                  "summary": "Error response when an invalid end time is supplied.",
+                  "externalValue": "examples/errors/400_end_time_invalid.json"
+                },
+                "400-visitor-id-invalid": {
+                  "summary": "Error response when an invalid visitor ID is supplied.",
+                  "externalValue": "examples/errors/400_visitor_id_invalid.json"
+                },
+                "400-linked-id-invalid": {
+                  "summary": "Error response when an invalid (too large) linked ID is supplied.",
+                  "externalValue": "examples/errors/400_linked_id_invalid.json"
+                },
+                "400-pagination-key-invalid": {
+                  "summary": "Error response when an invalid pagination key is supplied.",
+                  "externalValue": "examples/errors/400_pagination_key_invalid.json"
+                }
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden. Access to this API is denied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "403-secret-api-key-required": {
+                  "summary": "Error response when the secret API key was not provided.",
+                  "externalValue": "examples/errors/403_secret_api_key_required.json"
+                },
+                "403-secret-api-key-not-found": {
+                  "summary": "Error response when the provided secret API key does not exist.",
+                  "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                },
+                "403-wrong-region": {
+                  "summary": "Error response when the API region does not match the region of your Fingerprint workspace.",
+                  "externalValue": "examples/errors/403_wrong_region.json"
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found. The requested visitor does not exist in this workspace's data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "404-visitor-not-found": {
+                  "summary": "Error response when the visitor provided in the `visitor_id` filter does not exist.",
+                  "externalValue": "examples/errors/404_visitor_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "429": {
+          "description": "Too Many Requests. The request is throttled.\n",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "429-too-many-requests-error": {
+                  "summary": "Too many requests error",
+                  "externalValue": "examples/errors/429_too_many_requests.json"
+                }
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Workspace error.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "500-error": {
+                  "summary": "Request failed",
+                  "externalValue": "examples/errors/500_internal_server_error.json"
+                }
+              }
+            }
+          }
+        },
+        "503": {
+          "description": "Service Temporarily Unavailable.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "503-service-temporarily-unavailable": {
+                  "summary": "Error response when the service is temporarily unavailable.",
+                  "externalValue": "examples/errors/503_service_unavailable.json"
+                }
+              }
+            }
+          }
+        },
+        "504": {
+          "description": "Gateway Timeout.",
+          "x-deprecated-response": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              }
+            }
+          }
+        }
+      }
+    },
+    "deleteVisitorData": {
+      "method": "DELETE",
+      "path": "/visitors/{visitor_id}",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "vendor_native",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://raw.githubusercontent.com/fingerprintjs/openapi/main/schemas/fingerprint-server-api-v4.yaml",
+      "allowed_input_headers": [],
+      "response": "json",
+      "openapi_path": "/visitors/{visitor_id}",
+      "openapi_method": "delete",
+      "summary": "Delete a visitor ID",
+      "body_required": false,
+      "parameters": [
+        {
+          "name": "visitor_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "examples": [
+              "Ibk1527CUFmcnjLwIs4A9"
+            ]
+          },
+          "description": "The [visitor ID](https://docs.fingerprint.com/reference/js-agent-get-function#visitor_id) you want to delete."
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK. The visitor ID is scheduled for deletion."
+        },
+        "400": {
+          "description": "Bad request. The visitor ID parameter is missing or in the wrong format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "400-visitor-id-required": {
+                  "summary": "Error response when the request does not include a visitor ID.",
+                  "externalValue": "examples/errors/400_visitor_id_required.json"
+                },
+                "400-visitor-id-invalid": {
+                  "summary": "Error response when the visitor ID is incorrectly formatted.",
+                  "externalValue": "examples/errors/400_visitor_id_invalid.json"
+                }
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden. Access to this API is denied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "403-secret-api-key-required": {
+                  "summary": "Error response when the secret API key was not provided.",
+                  "externalValue": "examples/errors/403_secret_api_key_required.json"
+                },
+                "403-secret-api-key-not-found": {
+                  "summary": "Error response when the provided secret API key does not exist.",
+                  "externalValue": "examples/errors/403_secret_api_key_not_found.json"
+                },
+                "403-wrong-region": {
+                  "summary": "Error response when the API region is different from the region, the calling workspace is configured with.",
+                  "externalValue": "examples/errors/403_wrong_region.json"
+                },
+                "403-subscription-not-active": {
+                  "summary": "Error response when the subscription is not active.",
+                  "externalValue": "examples/errors/403_subscription_not_active.json"
+                },
+                "403-feature-not-enabled": {
+                  "summary": "Error response when this feature is not enabled for a subscription.",
+                  "externalValue": "examples/errors/403_feature_not_enabled.json"
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found. The visitor ID cannot be found in this workspace's data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "404-visitor-not-found": {
+                  "summary": "Error response when the visitor ID cannot be found in this workspace's data.",
+                  "externalValue": "examples/errors/404_visitor_not_found.json"
+                }
+              }
+            }
+          }
+        },
+        "429": {
+          "description": "Too Many Requests. The request is throttled.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/$defs/doc_8d49adcafcc6494a"
+              },
+              "examples": {
+                "429-too-many-requests": {
+                  "summary": "Error response when the limit on the provided secret API key requests per second has been exceeded.",
+                  "externalValue": "examples/errors/429_too_many_requests.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "openapi_file": "schemas/fingerprint.json"
+}

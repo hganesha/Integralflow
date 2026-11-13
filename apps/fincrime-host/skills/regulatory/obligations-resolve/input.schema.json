@@ -1,0 +1,17 @@
+{
+  "$id": "urn:financial-crime:skill:regulatory.obligations.resolve:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "report_type": {
+      "enum": [
+        "SAR",
+        "CTR"
+      ]
+    }
+  },
+  "required": [
+    "report_type"
+  ],
+  "type": "object"
+}

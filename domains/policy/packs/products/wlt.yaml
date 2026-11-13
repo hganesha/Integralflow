@@ -1,0 +1,15 @@
+apiVersion: harness.factory/policy-pack-layer-v1
+kind: PolicyPackLayer
+metadata:
+  id: pack.product.family.wlt
+  version: 1.0.0
+  layer: product
+  # A taxonomy node: every wealth product beneath WLT inherits this layer.
+  appliesTo: { products: [WLT] }
+  status: CANDIDATE
+  ownerRole: kyb-policy-owner
+  description: The wealth family; managing a client's wealth calls for adverse media screening as well.
+values:
+  required_screening_types:
+    value: [sanctions, pep, adverse_media]
+    basis: { text: "Firm appetite: wealth managed on a client's behalf is searched for negative news about the client first." }

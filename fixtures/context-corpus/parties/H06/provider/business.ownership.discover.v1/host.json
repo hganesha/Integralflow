@@ -1,0 +1,325 @@
+{
+  "coverage": {
+    "checked_scope": [
+      "corpus"
+    ],
+    "status": "partial"
+  },
+  "entities": [
+    {
+      "entity_id": "e-atlantic-meridian",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.atlantic-meridian"
+        },
+        {
+          "jurisdiction": "CY",
+          "scheme": "company_registration",
+          "value": "SYN-CY-HE412210"
+        }
+      ],
+      "jurisdiction": "CY",
+      "names": [
+        {
+          "full": "Atlantic Meridian Holdings Ltd",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.atlantic-meridian"
+      ]
+    },
+    {
+      "entity_id": "e-b1",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.b1"
+        }
+      ],
+      "names": [
+        {
+          "full": "Radomir Veselin Kostadinov",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.b1"
+      ]
+    },
+    {
+      "entity_id": "e-b2",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.b2"
+        }
+      ],
+      "names": [
+        {
+          "full": "Anselm Drakon Voss",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.b2"
+      ]
+    },
+    {
+      "entity_id": "e-bellmont-lux",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.bellmont-lux"
+        },
+        {
+          "jurisdiction": "LU",
+          "scheme": "company_registration",
+          "value": "SYN-LU-B284917"
+        }
+      ],
+      "jurisdiction": "LU",
+      "names": [
+        {
+          "full": "Bellmont Luxembourg S.\u00e0 r.l.",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.bellmont-lux"
+      ]
+    },
+    {
+      "entity_id": "e-bellmont-us",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.bellmont-us"
+        },
+        {
+          "jurisdiction": "US-DE",
+          "scheme": "company_registration",
+          "value": "SYN-DE-7345221"
+        }
+      ],
+      "jurisdiction": "US-DE",
+      "names": [
+        {
+          "full": "Bellmont Atlantic Holdings Inc.",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.bellmont-us"
+      ]
+    },
+    {
+      "entity_id": "e-c",
+      "entity_type": "person",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.c"
+        }
+      ],
+      "names": [
+        {
+          "full": "Leontine Maribel Aldous-Frye",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.c"
+      ]
+    },
+    {
+      "entity_id": "e-seabright",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.seabright"
+        },
+        {
+          "jurisdiction": "VG",
+          "scheme": "company_registration",
+          "value": "SYN-VG-2284719"
+        }
+      ],
+      "jurisdiction": "VG",
+      "names": [
+        {
+          "full": "Seabright Capital Ltd",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.seabright"
+      ]
+    },
+    {
+      "entity_id": "e-tortuga",
+      "entity_type": "organization",
+      "identifiers": [
+        {
+          "scheme": "corpus_entity",
+          "value": "h06.entity.tortuga"
+        },
+        {
+          "jurisdiction": "VG",
+          "scheme": "company_registration",
+          "value": "SYN-VG-2291034"
+        }
+      ],
+      "jurisdiction": "VG",
+      "names": [
+        {
+          "full": "Tortuga Nominees Ltd",
+          "kind": "legal"
+        }
+      ],
+      "source_record_ids": [
+        "h06.entity.tortuga"
+      ]
+    }
+  ],
+  "evidence": [],
+  "execution": {
+    "provider_observed_at": "2026-09-30T00:00:00Z",
+    "received_at": "2026-09-30T00:00:00Z",
+    "status": "completed"
+  },
+  "relationships": [
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-bellmont-lux",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 100.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-01",
+      "to_entity_id": "e-bellmont-us",
+      "type": "owns",
+      "valid_from": "2019-06-01"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-atlantic-meridian",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 60.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-02",
+      "to_entity_id": "e-bellmont-lux",
+      "type": "owns",
+      "valid_from": "2018-02-01"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-tortuga",
+      "ownership": {
+        "directness": "direct",
+        "kind": "equity",
+        "lower_inclusive": true,
+        "lower_percent": 25.0,
+        "upper_inclusive": true,
+        "upper_percent": 40.0
+      },
+      "relationship_id": "own-03",
+      "to_entity_id": "e-bellmont-lux",
+      "type": "owns",
+      "valid_from": "2018-02-01"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-b1",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 30.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-04",
+      "to_entity_id": "e-atlantic-meridian",
+      "type": "owns",
+      "valid_from": "2017-09-12"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-b2",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 20.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-05",
+      "to_entity_id": "e-atlantic-meridian",
+      "type": "owns",
+      "valid_from": "2017-09-12"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-seabright",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 45.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-06",
+      "to_entity_id": "e-atlantic-meridian",
+      "type": "owns",
+      "valid_from": "2017-09-12"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-bellmont-lux",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 5.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-07",
+      "to_entity_id": "e-atlantic-meridian",
+      "type": "owns",
+      "valid_from": "2021-03-01"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-c",
+      "ownership": {
+        "directness": "direct",
+        "exact_percent": 100.0,
+        "kind": "equity"
+      },
+      "relationship_id": "own-08",
+      "to_entity_id": "e-seabright",
+      "type": "owns",
+      "valid_from": "2016-11-04"
+    },
+    {
+      "assertion_status": "confirmed",
+      "from_entity_id": "e-seabright",
+      "ownership": {
+        "directness": "direct",
+        "kind": "control"
+      },
+      "relationship_id": "ctl-01",
+      "to_entity_id": "e-atlantic-meridian",
+      "type": "controls"
+    }
+  ],
+  "result": {
+    "completeness": "unknown",
+    "kind": "ownership",
+    "root_entity_id": "e-bellmont-us"
+  },
+  "result_id": "corpus-ownership-h06",
+  "subject_entity_id": "e-bellmont-us"
+}

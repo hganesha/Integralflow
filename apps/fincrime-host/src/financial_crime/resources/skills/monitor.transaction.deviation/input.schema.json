@@ -1,0 +1,24 @@
+{
+  "$defs": {
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:monitor.transaction.deviation:input:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_totals": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Decimal"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "keyed collection"
+    }
+  },
+  "required": [
+    "expected_totals"
+  ],
+  "type": "object"
+}

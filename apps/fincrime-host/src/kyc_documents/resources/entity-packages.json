@@ -1,0 +1,117 @@
+{
+  "packages": {
+    "association_club_society": [
+      "association_registration",
+      "association_constitution",
+      "officeholder_list",
+      "meeting_minutes"
+    ],
+    "charity_or_nonprofit": [
+      "charity_registration",
+      "association_constitution",
+      "nonprofit_program_description",
+      "donor_or_grant_agreement"
+    ],
+    "cooperative_or_mutual": [
+      "cooperative_registration",
+      "association_constitution",
+      "officeholder_list",
+      "meeting_minutes"
+    ],
+    "estate": [
+      "death_certificate",
+      "grant_of_probate",
+      "letters_of_administration",
+      "estate_distribution_statement"
+    ],
+    "foreign_branch": [
+      "branch_registration",
+      "company_registry_extract",
+      "delegated_authority_letter"
+    ],
+    "foundation": [
+      "foundation_charter",
+      "officeholder_list",
+      "ownership_structure_chart"
+    ],
+    "general_partnership": [
+      "partnership_agreement",
+      "partnership_interest_schedule",
+      "partner_resolution"
+    ],
+    "government_or_public_body": [
+      "government_enabling_instrument",
+      "appointment_instrument",
+      "account_mandate"
+    ],
+    "individual": [
+      "passport",
+      "national_identity_card",
+      "individual_account_application",
+      "individual_tax_self_certification"
+    ],
+    "investment_fund": [
+      "fund_prospectus",
+      "fund_constituting_agreement",
+      "fund_provider_appointment",
+      "investor_subscription_record"
+    ],
+    "joint_venture": [
+      "joint_venture_agreement",
+      "ownership_structure_chart",
+      "account_mandate"
+    ],
+    "limited_partnership": [
+      "limited_partnership_agreement",
+      "partnership_interest_schedule",
+      "account_mandate"
+    ],
+    "listed_company": [
+      "company_registry_extract",
+      "annual_report",
+      "substantial_shareholder_disclosure",
+      "board_resolution"
+    ],
+    "llc": [
+      "certificate_of_incorporation",
+      "llc_operating_agreement",
+      "shareholder_register",
+      "account_mandate"
+    ],
+    "llp": [
+      "business_registration_certificate",
+      "llp_agreement",
+      "partner_resolution"
+    ],
+    "pension_arrangement": [
+      "pension_scheme_rules",
+      "trustee_appointment_deed",
+      "trust_accounts"
+    ],
+    "private_company": [
+      "certificate_of_incorporation",
+      "articles_of_association",
+      "shareholder_register",
+      "board_resolution"
+    ],
+    "sole_proprietor": [
+      "trade_name_registration",
+      "business_registration_certificate",
+      "passport",
+      "tax_registration_certificate"
+    ],
+    "spv_or_holding_company": [
+      "certificate_of_incorporation",
+      "ownership_structure_chart",
+      "business_profile",
+      "initial_funding_declaration"
+    ],
+    "trust": [
+      "trust_deed",
+      "trustee_appointment_deed",
+      "beneficiary_schedule",
+      "trustee_resolution"
+    ]
+  },
+  "selection_semantics": "candidate_evidence_options_not_mandatory_checklists"
+}

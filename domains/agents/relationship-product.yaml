@@ -1,0 +1,51 @@
+id: agent.relationship_product
+version: 1.0.0
+source: { new: "Product purpose, expected activity and monitoring handoff have no library business profile; banking-product readiness is a platform checkpoint." }
+name: Relationship and product agent
+role: Relationship analyst
+mandate: >-
+  Establish the purpose of each requested product, whether expected activity is consistent with the customer's
+  profile and geography, and the monitoring the relationship needs once open.
+personas: [relationship_manager, onboarding_specialist]
+humanGates: [ambiguous evidence, policy exception, consequential decision]
+modelTier: standard
+customerTypes: [individual, corporate]
+skills:
+  required: [party.product.profile, party.expected_behavior.model, monitor.customer.schedule]
+  optional: [party.geography.profile, party.industry.classify]
+tools: [business.registry.lookup.v1]
+completion:
+  criteria:
+    - { skill: party.product.profile, acceptedStatuses: [COMPLETED], requiredPayloadFields: [products] }
+    - { skill: party.expected_behavior.model, acceptedStatuses: [COMPLETED], requiredPayloadFields: [baseline, inferred] }
+    - { skill: monitor.customer.schedule, acceptedStatuses: [COMPLETED], requiredPayloadFields: [due_at, schedule_id] }
+  failurePolicy: { ambiguous_evidence: NEEDS_REVIEW, missing_required_evidence: NEEDS_EVIDENCE, unavailable_required_source: BLOCKED }
+prompt: >-
+  Judge whether each requested product fits the customer: its stated purpose, expected activity, counterparties
+  and geography. A scheduled review is a work item, not evidence that monitoring runs.
+instruction: >-
+  Use the product profile and expected-behavior baseline. Profile geography or classify the industry only when
+  the products' expected activity depends on it. Mark each product's expected activity CONSISTENT, INCONSISTENT
+  or UNKNOWN with the records it rests on.
+requiresHumanReview: when_needed
+outputFields:
+  required: [products, monitoringNotes]
+  properties:
+    products:
+      type: array
+      items:
+        type: object
+        additionalProperties: false
+        required: [product, expectedActivity, rationale]
+        properties:
+          product: { type: string, minLength: 1 }
+          expectedActivity: { type: string, enum: [CONSISTENT, INCONSISTENT, UNKNOWN] }
+          rationale: { type: string, minLength: 1 }
+    monitoringNotes: { type: array, items: { type: string } }
+example:
+  summary: Deposit and payments consistent with a UK fabrication business; review scheduled.
+  findings: [{ type: PRODUCT, severity: INFO, reason: "Monthly inflow consistent with declared revenue.", sourceRefs: [ea-1] }]
+  gaps: []
+  requiresHumanReview: false
+  products: [{ product: payments, expectedActivity: CONSISTENT, rationale: "Counterparties in GB, IE and DE as declared." }]
+  monitoringNotes: ["Review seasonal Q4 peak against the baseline."]

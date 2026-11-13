@@ -1,0 +1,187 @@
+{
+  "agent_profile": "agent.decision_support",
+  "api_version": "fincrime.tasks/v1",
+  "completion_criteria": [
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "evaluations",
+        "outcome"
+      ],
+      "requires_human_decision": false,
+      "step_id": "decision_rules_evaluate"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "gaps"
+      ],
+      "requires_human_decision": false,
+      "step_id": "decision_gaps_evaluate"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "recommendation",
+        "reasons"
+      ],
+      "requires_human_decision": false,
+      "step_id": "decision_recommendation_generate"
+    },
+    {
+      "accepted_statuses": [
+        "COMPLETED"
+      ],
+      "required_payload_fields": [
+        "role",
+        "eligible_actors"
+      ],
+      "requires_human_decision": false,
+      "step_id": "decision_approval_route"
+    },
+    {
+      "accepted_statuses": [
+        "NEEDS_REVIEW"
+      ],
+      "required_payload_fields": [
+        "action",
+        "review_required"
+      ],
+      "requires_human_decision": true,
+      "step_id": "decision_human_review"
+    }
+  ],
+  "failure_policy": {
+    "ambiguous_evidence": "NEEDS_REVIEW",
+    "missing_required_evidence": "NEEDS_EVIDENCE",
+    "unavailable_required_source": "BLOCKED"
+  },
+  "id": "task.decision_support",
+  "input_fields": [
+    "action",
+    "facts"
+  ],
+  "input_schema": {
+    "$defs": {
+      "JsonObject": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object",
+        "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+      },
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "maxLength": 200000,
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "items": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "maxItems": 10000,
+            "type": "array"
+          },
+          {
+            "additionalProperties": {
+              "$ref": "#/$defs/JsonValue"
+            },
+            "type": "object",
+            "x-dynamic-map-reason": "raw JSON source value"
+          }
+        ]
+      }
+    },
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "action": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "facts": {
+        "$ref": "#/$defs/JsonObject"
+      }
+    },
+    "required": [
+      "facts",
+      "action"
+    ],
+    "type": "object"
+  },
+  "objective": "Reconcile applicable obligations and evidence into a product-specific recommendation, restrictions, approval authority and monitoring handoff for authorized human review.",
+  "steps": [
+    {
+      "dependencies": [],
+      "id": "decision_rules_evaluate",
+      "input_bindings": {
+        "facts": "facts"
+      },
+      "parameters": {},
+      "skill_id": "decision.rules.evaluate",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "decision_rules_evaluate"
+      ],
+      "id": "decision_gaps_evaluate",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "decision.gaps.evaluate",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "decision_gaps_evaluate"
+      ],
+      "id": "decision_recommendation_generate",
+      "input_bindings": {},
+      "parameters": {},
+      "skill_id": "decision.recommendation.generate",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "decision_recommendation_generate"
+      ],
+      "id": "decision_approval_route",
+      "input_bindings": {
+        "action": "action"
+      },
+      "parameters": {},
+      "skill_id": "decision.approval.route",
+      "skill_version": "0.3.0"
+    },
+    {
+      "dependencies": [
+        "decision_approval_route"
+      ],
+      "id": "decision_human_review",
+      "input_bindings": {
+        "action": "action"
+      },
+      "parameters": {},
+      "skill_id": "decision.human.review",
+      "skill_version": "0.3.0"
+    }
+  ],
+  "version": "1.0.0"
+}

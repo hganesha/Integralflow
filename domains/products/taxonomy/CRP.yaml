@@ -1,0 +1,42 @@
+# Correspondent & FI services. Candidate canonical content at class level, not an official regulatory classification.
+apiVersion: harness.factory/product-domain-v1
+kind: ProductDomain
+metadata:
+  code: CRP
+  version: 1.0.0
+  status: CANDIDATE
+  owner: platform.product-taxonomy
+spec:
+  sectors:
+  - BANKING
+  name: Correspondent & FI services
+  definition: Services one financial institution provides to another, including access for the other's customers.
+  regulatedActivities:
+  - CORRESPONDENT_SERVICES
+  riskDimensions:
+  - NESTED_ACCESS
+  - INTERMEDIARY_RISK
+  - CROSS_BORDER
+  - GEOGRAPHIC_EXPOSURE
+  classes:
+  - code: CORRESPONDENT_ACCOUNTS
+    name: Correspondent accounts
+    definition: Accounts held for a respondent institution to send and receive payments.
+  - code: PAYABLE_THROUGH
+    name: Payable-through accounts
+    definition: Correspondent accounts the respondent's customers can use directly.
+  - code: NESTED_CLEARING
+    name: Downstream & nested clearing
+    definition: Correspondent access offered on to other institutions.
+  - code: USD_CLEARING
+    name: Currency clearing
+    definition: Clearing a currency for institutions without direct system access.
+  - code: TRADE_SERVICES_FI
+    name: Trade services for banks
+    definition: Confirming and advising letters of credit for other banks.
+  - code: BANKNOTES
+    name: Wholesale banknotes
+    definition: Buying and selling physical currency with other institutions.
+  - code: AGENCY_BANKING
+    name: Agency & sponsor banking
+    definition: Sponsoring other institutions into payment schemes or systems.

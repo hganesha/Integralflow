@@ -1,0 +1,3811 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "urn:ehf:control-ui:views",
+ "title": "Frozen view models of the replaced control-ui BFF (generated from types.ts; do not edit)",
+ "x-source": {
+  "repository": "ehfconcept",
+  "file": "apps/control-ui/src/lib/types.ts",
+  "sha256": "7118de07e81b97f1fa32f466943fe9ca7b8f1b50ce512436e38ae485e6c33b45",
+  "amended": "2026-11-08: apps/control-ui is removed, so this snapshot can no longer be re-frozen. Cloud-vendor values were removed by hand to match the cloud-neutral @ehf/contracts (provider kinds follow providerKindSchema; runtime targets follow runtimeTargetSchema, built-in adapters local_http, hosted_http, databricks) and the deployment-studio view models were dropped with /v1/deployments/* (CONTRACT-GAPS GAP-116)."
+ },
+ "$defs": {
+  "AdapterDescriptorView": {
+   "additionalProperties": false,
+   "properties": {
+    "bindingOptions": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "description": {
+        "type": "string"
+       },
+       "label": {
+        "type": "string"
+       },
+       "value": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "value",
+       "label"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "credentialState": {
+     "enum": [
+      "Configured",
+      "Missing",
+      "Not required"
+     ],
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "supportedKinds": {
+     "items": {
+      "enum": [
+       "model",
+       "tool",
+       "deterministic"
+      ],
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "id",
+    "label",
+    "supportedKinds",
+    "credentialState",
+    "bindingOptions"
+   ],
+   "type": "object"
+  },
+  "AdminChangeView": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "create",
+      "update",
+      "activate",
+      "disable"
+     ],
+     "type": "string"
+    },
+    "actorId": {
+     "type": "string"
+    },
+    "actorRoles": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "after": {},
+    "afterDigest": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "before": {},
+    "beforeDigest": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "changeId": {
+     "type": "string"
+    },
+    "occurredAt": {
+     "type": "string"
+    },
+    "reason": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "resourceId": {
+     "type": "string"
+    },
+    "resourceKind": {
+     "enum": [
+      "provider",
+      "model-profile",
+      "platform-setting"
+     ],
+     "type": "string"
+    }
+   },
+   "required": [
+    "changeId",
+    "occurredAt",
+    "actorId",
+    "actorRoles",
+    "resourceKind",
+    "resourceId",
+    "action",
+    "beforeDigest",
+    "afterDigest",
+    "before",
+    "after",
+    "reason"
+   ],
+   "type": "object"
+  },
+  "AdminModelProfileDocumentView": {
+   "additionalProperties": false,
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "maxConcurrency": {
+     "type": "number"
+    },
+    "maxOutputTokens": {
+     "type": "number"
+    },
+    "model": {
+     "type": "string"
+    },
+    "provider": {
+     "type": "string"
+    },
+    "timeoutMs": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "id",
+    "provider",
+    "model",
+    "maxOutputTokens",
+    "timeoutMs",
+    "maxConcurrency"
+   ],
+   "type": "object"
+  },
+  "AdminModelProfileRevisionView": {
+   "additionalProperties": false,
+   "properties": {
+    "createdAt": {
+     "type": "string"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "digest": {
+     "type": "string"
+    },
+    "note": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "profile": {
+     "$ref": "#/$defs/AdminModelProfileDocumentView"
+    },
+    "revision": {
+     "type": "number"
+    },
+    "status": {
+     "enum": [
+      "active",
+      "superseded",
+      "disabled"
+     ],
+     "type": "string"
+    }
+   },
+   "required": [
+    "revision",
+    "digest",
+    "status",
+    "note",
+    "createdAt",
+    "createdBy",
+    "profile"
+   ],
+   "type": "object"
+  },
+  "AdminModelProfileView": {
+   "additionalProperties": false,
+   "properties": {
+    "createdAt": {
+     "type": "string"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "digest": {
+     "type": "string"
+    },
+    "note": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "profile": {
+     "$ref": "#/$defs/AdminModelProfileDocumentView"
+    },
+    "revision": {
+     "type": "number"
+    },
+    "revisions": {
+     "items": {
+      "$ref": "#/$defs/AdminModelProfileRevisionView"
+     },
+     "type": "array"
+    },
+    "status": {
+     "enum": [
+      "active",
+      "superseded",
+      "disabled"
+     ],
+     "type": "string"
+    }
+   },
+   "required": [
+    "createdAt",
+    "createdBy",
+    "digest",
+    "note",
+    "profile",
+    "revision",
+    "revisions",
+    "status"
+   ],
+   "type": "object"
+  },
+  "AdminProviderItemView": {
+   "additionalProperties": false,
+   "properties": {
+    "createdAt": {
+     "type": "string"
+    },
+    "credentialPresent": {
+     "type": [
+      "boolean",
+      "null"
+     ]
+    },
+    "deploymentManaged": {
+     "type": "boolean"
+    },
+    "digest": {
+     "type": "string"
+    },
+    "provider": {
+     "$ref": "#/$defs/AdminProviderView"
+    },
+    "updatedAt": {
+     "type": "string"
+    },
+    "updatedBy": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "provider",
+    "digest",
+    "createdAt",
+    "updatedAt",
+    "updatedBy",
+    "credentialPresent"
+   ],
+   "type": "object"
+  },
+  "AdminProviderView": {
+   "additionalProperties": false,
+   "properties": {
+    "appName": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "baseUrl": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "credentialRef": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "displayName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "kind": {
+     "enum": [
+      "openrouter",
+      "openai_compatible",
+      "recorded"
+     ],
+     "type": "string"
+    },
+    "siteUrl": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "status": {
+     "enum": [
+      "active",
+      "disabled"
+     ],
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "kind",
+    "displayName",
+    "baseUrl",
+    "credentialRef",
+    "siteUrl",
+    "appName",
+    "status"
+   ],
+   "type": "object"
+  },
+  "AdminSettingFieldView": {
+   "additionalProperties": false,
+   "properties": {
+    "appliesAt": {
+     "description": "Per field, because a section's fields are genuinely mixed.",
+     "enum": [
+      "live",
+      "restart"
+     ],
+     "type": "string"
+    },
+    "envName": {
+     "type": "string"
+    },
+    "envPresent": {
+     "description": "Whether the named variable is set where the control plane can see it.",
+     "type": "boolean"
+    },
+    "help": {
+     "type": "string"
+    },
+    "kind": {
+     "enum": [
+      "string",
+      "number",
+      "boolean",
+      "enum",
+      "url",
+      "json"
+     ],
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "nullable": {
+     "type": "boolean"
+    },
+    "options": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "path": {
+     "description": "Dot path within the section value, e.g. `defaultBudgets.maxCostUsd`.",
+     "type": "string"
+    },
+    "service": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "path",
+    "label",
+    "kind",
+    "appliesAt",
+    "service",
+    "help",
+    "envPresent"
+   ],
+   "type": "object"
+  },
+  "AdminSettingSection": {
+   "enum": [
+    "dispatcher",
+    "gateway",
+    "envelope",
+    "authoring",
+    "runtime",
+    "observability",
+    "caseStore",
+    "database",
+    "outbox",
+    "evidence"
+   ],
+   "type": "string"
+  },
+  "AdminSettingSectionView": {
+   "additionalProperties": false,
+   "properties": {
+    "appliesAt": {
+     "enum": [
+      "live",
+      "restart",
+      "mixed"
+     ],
+     "type": "string"
+    },
+    "deploymentManaged": {
+     "type": "boolean"
+    },
+    "fields": {
+     "items": {
+      "$ref": "#/$defs/AdminSettingFieldView"
+     },
+     "type": "array"
+    },
+    "section": {
+     "$ref": "#/$defs/AdminSettingSection"
+    },
+    "service": {
+     "type": "string"
+    },
+    "source": {
+     "description": "Which authority the running services are obeying for this section.",
+     "enum": [
+      "store",
+      "environment",
+      "default"
+     ],
+     "type": "string"
+    },
+    "summary": {
+     "type": "string"
+    },
+    "updatedAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "updatedBy": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "value": {
+     "$ref": "#/$defs/Record_unknown"
+    }
+   },
+   "required": [
+    "section",
+    "value",
+    "source",
+    "updatedAt",
+    "updatedBy",
+    "service",
+    "appliesAt",
+    "summary",
+    "fields"
+   ],
+   "type": "object"
+  },
+  "AgentRegistrationView": {
+   "additionalProperties": false,
+   "properties": {
+    "caseWrites": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "commandType": {
+        "type": "string"
+       },
+       "payload": {
+        "$ref": "#/$defs/Record_unknown"
+       },
+       "payloadSchema": {
+        "$ref": "#/$defs/Record_unknown"
+       },
+       "when": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "commandType",
+       "payload",
+       "payloadSchema"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "description": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "inputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "modelProfileId": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "outputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "primaryCapabilityId": {
+     "type": "string"
+    },
+    "prompt": {
+     "type": "string"
+    },
+    "role": {
+     "type": "string"
+    },
+    "runtimeTarget": {
+     "description": "`<adapter>` or `<adapter>:<binding>` (packages/contracts runtimeTargetSchema). Built-in adapters: local_http, hosted_http, databricks.",
+     "pattern": "^[a-z][a-z0-9_]{1,39}(:[a-z0-9][a-z0-9._-]{0,99})?$",
+     "type": "string"
+    },
+    "skillIds": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "source": {
+     "$ref": "#/$defs/AuthoringSourceView"
+    },
+    "status": {
+     "enum": [
+      "draft",
+      "active",
+      "deprecated"
+     ],
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "description",
+    "role",
+    "prompt",
+    "modelProfileId",
+    "runtimeTarget",
+    "skillIds",
+    "caseWrites",
+    "inputSchema",
+    "outputSchema",
+    "source",
+    "version",
+    "status"
+   ],
+   "type": "object"
+  },
+  "AgentRegistryItemView": {
+   "additionalProperties": false,
+   "properties": {
+    "agent": {
+     "$ref": "#/$defs/AgentRegistrationView"
+    },
+    "createdAt": {
+     "type": "string"
+    },
+    "digest": {
+     "type": "string"
+    },
+    "updatedAt": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "agent",
+    "digest",
+    "createdAt",
+    "updatedAt"
+   ],
+   "type": "object"
+  },
+  "AuthoringDiagnostic": {
+   "additionalProperties": false,
+   "properties": {
+    "code": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    },
+    "path": {
+     "type": "string"
+    },
+    "severity": {
+     "enum": [
+      "error",
+      "warning",
+      "info"
+     ],
+     "type": "string"
+    }
+   },
+   "required": [
+    "code",
+    "severity",
+    "path",
+    "message"
+   ],
+   "type": "object"
+  },
+  "AuthoringDraftView": {
+   "additionalProperties": false,
+   "properties": {
+    "approvedBy": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "compiledPlan": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/CompiledHarnessPlan"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "createdAt": {
+     "type": "string"
+    },
+    "diagnostics": {
+     "items": {
+      "$ref": "#/$defs/AuthoringDiagnostic"
+     },
+     "type": "array"
+    },
+    "domain": {
+     "type": "string"
+    },
+    "draftId": {
+     "type": "string"
+    },
+    "evaluationReport": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/EvaluationReportView"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "events": {
+     "items": {
+      "$ref": "#/$defs/AuthoringEvent"
+     },
+     "type": "array"
+    },
+    "name": {
+     "type": "string"
+    },
+    "packageSource": {
+     "type": "string"
+    },
+    "parsedPackage": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "parsedWorkflow": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "publishedPlanDigest": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "revision": {
+     "type": "number"
+    },
+    "sourceFiles": {
+     "$ref": "#/$defs/Record_string"
+    },
+    "status": {
+     "$ref": "#/$defs/AuthoringStatus"
+    },
+    "updatedAt": {
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    },
+    "workflowSource": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "draftId",
+    "name",
+    "domain",
+    "version",
+    "status",
+    "revision",
+    "packageSource",
+    "workflowSource",
+    "parsedPackage",
+    "parsedWorkflow",
+    "compiledPlan",
+    "diagnostics",
+    "evaluationReport",
+    "approvedBy",
+    "publishedPlanDigest",
+    "createdAt",
+    "updatedAt"
+   ],
+   "type": "object"
+  },
+  "AuthoringEvent": {
+   "additionalProperties": false,
+   "properties": {
+    "actor": {
+     "type": "string"
+    },
+    "details": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "eventId": {
+     "type": "string"
+    },
+    "eventType": {
+     "type": "string"
+    },
+    "occurredAt": {
+     "type": "string"
+    },
+    "revision": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "eventId",
+    "revision",
+    "eventType",
+    "actor",
+    "details",
+    "occurredAt"
+   ],
+   "type": "object"
+  },
+  "AuthoringSourceView": {
+   "additionalProperties": false,
+   "properties": {
+    "path": {
+     "type": "string"
+    },
+    "revision": {
+     "type": "string"
+    },
+    "type": {
+     "enum": [
+      "manual",
+      "github"
+     ],
+     "type": "string"
+    },
+    "url": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "type"
+   ],
+   "type": "object"
+  },
+  "AuthoringStatus": {
+   "enum": [
+    "DRAFT",
+    "COMPILED",
+    "EVALUATED",
+    "APPROVED",
+    "PUBLISHED"
+   ],
+   "type": "string"
+  },
+  "CapabilityRegistrationView": {
+   "additionalProperties": false,
+   "properties": {
+    "adapterBindingId": {
+     "type": "string"
+    },
+    "dataClasses": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "description": {
+     "type": "string"
+    },
+    "effect": {
+     "enum": [
+      "none",
+      "read",
+      "reversible",
+      "paid",
+      "external",
+      "destructive"
+     ],
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "idempotent": {
+     "type": "boolean"
+    },
+    "inputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "kind": {
+     "enum": [
+      "model",
+      "tool",
+      "deterministic"
+     ],
+     "type": "string"
+    },
+    "maxAttempts": {
+     "type": "number"
+    },
+    "outputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "owner": {
+     "type": "string"
+    },
+    "status": {
+     "enum": [
+      "draft",
+      "active",
+      "deprecated"
+     ],
+     "type": "string"
+    },
+    "timeoutMs": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "id",
+    "kind",
+    "effect",
+    "adapterBindingId",
+    "inputSchema",
+    "outputSchema",
+    "timeoutMs",
+    "maxAttempts",
+    "idempotent",
+    "description",
+    "owner",
+    "dataClasses",
+    "status"
+   ],
+   "type": "object"
+  },
+  "CapabilityRegistryItemView": {
+   "additionalProperties": false,
+   "properties": {
+    "capability": {
+     "$ref": "#/$defs/CapabilityRegistrationView"
+    },
+    "createdAt": {
+     "type": "string"
+    },
+    "digest": {
+     "type": "string"
+    },
+    "updatedAt": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "capability",
+    "digest",
+    "createdAt",
+    "updatedAt"
+   ],
+   "type": "object"
+  },
+  "CaseActivityView": {
+   "additionalProperties": false,
+   "properties": {
+    "actorLabel": {
+     "type": "string"
+    },
+    "authority": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "eventDigest": {
+     "type": "string"
+    },
+    "eventId": {
+     "type": "string"
+    },
+    "eventType": {
+     "type": "string"
+    },
+    "evidenceRefs": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "occurredAt": {
+     "type": "string"
+    },
+    "payload": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "previousEventDigest": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sequence": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "eventId",
+    "sequence",
+    "eventType",
+    "occurredAt",
+    "actorLabel",
+    "evidenceRefs",
+    "eventDigest",
+    "previousEventDigest",
+    "payload",
+    "authority"
+   ],
+   "type": "object"
+  },
+  "CaseDetailView": {
+   "additionalProperties": false,
+   "properties": {
+    "activities": {
+     "items": {
+      "$ref": "#/$defs/CaseActivityView"
+     },
+     "type": "array"
+    },
+    "case": {
+     "$ref": "#/$defs/CaseSummaryView"
+    },
+    "counts": {
+     "$ref": "#/$defs/Record_number"
+    },
+    "etag": {
+     "type": "string"
+    },
+    "executionRefs": {
+     "items": {
+      "$ref": "#/$defs/Record_unknown"
+     },
+     "type": "array"
+    },
+    "generatedAt": {
+     "type": "string"
+    },
+    "graph": {
+     "additionalProperties": false,
+     "properties": {
+      "categories": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "edges": {
+       "items": {
+        "$ref": "#/$defs/ExplorerGraphEdge"
+       },
+       "type": "array"
+      },
+      "nodes": {
+       "items": {
+        "$ref": "#/$defs/ExplorerGraphNode"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "nodes",
+      "edges",
+      "categories"
+     ],
+     "type": "object"
+    },
+    "ledger": {
+     "additionalProperties": false,
+     "properties": {
+      "checkedEvents": {
+       "type": "number"
+      },
+      "eventCount": {
+       "type": "number"
+      },
+      "failedSequence": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "headDigest": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "latestSequence": {
+       "type": "number"
+      },
+      "valid": {
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "eventCount",
+      "latestSequence",
+      "headDigest",
+      "valid",
+      "checkedEvents",
+      "failedSequence"
+     ],
+     "type": "object"
+    },
+    "viewSchema": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "generatedAt",
+    "viewSchema",
+    "etag",
+    "case",
+    "counts",
+    "graph",
+    "activities",
+    "executionRefs",
+    "ledger"
+   ],
+   "type": "object"
+  },
+  "CaseSummaryView": {
+   "additionalProperties": false,
+   "properties": {
+    "caseId": {
+     "type": "string"
+    },
+    "caseSequence": {
+     "type": "number"
+    },
+    "caseType": {
+     "type": "string"
+    },
+    "classification": {
+     "type": "string"
+    },
+    "createdAt": {
+     "type": "string"
+    },
+    "externalRef": {
+     "type": "string"
+    },
+    "harnessPlanDigest": {
+     "type": "string"
+    },
+    "jurisdiction": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    },
+    "tenantId": {
+     "type": "string"
+    },
+    "updatedAt": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "tenantId",
+    "caseId",
+    "caseType",
+    "jurisdiction",
+    "status",
+    "caseSequence",
+    "externalRef",
+    "harnessPlanDigest",
+    "classification",
+    "createdAt",
+    "updatedAt"
+   ],
+   "type": "object"
+  },
+  "CompiledHarnessPlan": {
+   "additionalProperties": false,
+   "properties": {
+    "admittedAt": {
+     "type": "string"
+    },
+    "budgets": {
+     "$ref": "#/$defs/PlanBudgets"
+    },
+    "compilerVersion": {
+     "type": "string"
+    },
+    "dependencies": {
+     "items": {
+      "$ref": "#/$defs/PlanDependency"
+     },
+     "type": "array"
+    },
+    "domain": {
+     "type": "string"
+    },
+    "edges": {
+     "items": {
+      "$ref": "#/$defs/PlanEdge"
+     },
+     "type": "array"
+    },
+    "failurePolicy": {
+     "additionalProperties": false,
+     "properties": {
+      "defaultAction": {
+       "type": "string"
+      },
+      "effectSafeGuard": {
+       "type": "string"
+      },
+      "fencingMode": {
+       "type": "string"
+      },
+      "retryBackoff": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "defaultAction",
+      "retryBackoff",
+      "fencingMode",
+      "effectSafeGuard"
+     ],
+     "type": "object"
+    },
+    "inputSchema": {
+     "additionalProperties": false,
+     "properties": {
+      "properties": {
+       "$ref": "#/$defs/Record_Anonymous1"
+      },
+      "required": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "type": {
+       "const": "object",
+       "type": "string"
+      }
+     },
+     "required": [
+      "type",
+      "properties"
+     ],
+     "type": "object"
+    },
+    "name": {
+     "type": "string"
+    },
+    "nodes": {
+     "items": {
+      "$ref": "#/$defs/PlanNode"
+     },
+     "type": "array"
+    },
+    "objective": {
+     "type": "string"
+    },
+    "outputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "packageVersion": {
+     "type": "string"
+    },
+    "planDigest": {
+     "type": "string"
+    },
+    "schemaVersion": {
+     "type": "string"
+    },
+    "terminalOutcomes": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "category": {
+        "enum": [
+         "completed",
+         "manual_review",
+         "denied"
+        ],
+        "type": "string"
+       },
+       "code": {
+        "type": "string"
+       },
+       "description": {
+        "type": "string"
+       },
+       "label": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "code",
+       "label",
+       "description",
+       "category"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "schemaVersion",
+    "planDigest",
+    "name",
+    "packageVersion",
+    "domain",
+    "objective",
+    "compilerVersion",
+    "admittedAt",
+    "inputSchema",
+    "outputSchema",
+    "terminalOutcomes",
+    "failurePolicy",
+    "budgets",
+    "dependencies",
+    "nodes",
+    "edges"
+   ],
+   "type": "object"
+  },
+  "CostView": {
+   "additionalProperties": false,
+   "properties": {
+    "complete": {
+     "type": "boolean"
+    },
+    "reportedUsd": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "reportedUsd",
+    "complete"
+   ],
+   "type": "object"
+  },
+  "EvaluationReportView": {
+   "additionalProperties": false,
+   "properties": {
+    "checks": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "detail": {
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "label": {
+        "type": "string"
+       },
+       "passed": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "id",
+       "label",
+       "passed",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "evaluatedAt": {
+     "type": "string"
+    },
+    "passed": {
+     "type": "boolean"
+    },
+    "planDigest": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "passed",
+    "evaluatedAt",
+    "planDigest",
+    "checks"
+   ],
+   "type": "object"
+  },
+  "ExplorerGraphEdge": {
+   "additionalProperties": false,
+   "properties": {
+    "from": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "to": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "from",
+    "to",
+    "label"
+   ],
+   "type": "object"
+  },
+  "ExplorerGraphNode": {
+   "additionalProperties": false,
+   "properties": {
+    "category": {
+     "type": "string"
+    },
+    "data": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "id": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    },
+    "subtitle": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "label",
+    "subtitle",
+    "category",
+    "data"
+   ],
+   "type": "object"
+  },
+  "FailureBannerInfo": {
+   "additionalProperties": false,
+   "properties": {
+    "attempt": {
+     "type": "number"
+    },
+    "errorCode": {
+     "type": "string"
+    },
+    "explanation": {
+     "type": "string"
+    },
+    "externalEffectOccurred": {
+     "type": "boolean"
+    },
+    "failingNodeId": {
+     "type": "string"
+    },
+    "failingNodeName": {
+     "type": "string"
+    },
+    "fencingEpoch": {
+     "type": "number"
+    },
+    "lastCommittedCheckpoint": {
+     "type": "string"
+    },
+    "retryPermitted": {
+     "type": "boolean"
+    },
+    "suggestedOperatorAction": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "errorCode",
+    "title",
+    "explanation",
+    "failingNodeId",
+    "failingNodeName",
+    "attempt",
+    "fencingEpoch",
+    "retryPermitted",
+    "externalEffectOccurred",
+    "lastCommittedCheckpoint",
+    "suggestedOperatorAction"
+   ],
+   "type": "object"
+  },
+  "GatewayDecisionView": {
+   "additionalProperties": false,
+   "properties": {
+    "adapterBindingId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "attempt": {
+     "type": "number"
+    },
+    "capabilityId": {
+     "type": "string"
+    },
+    "decision": {
+     "enum": [
+      "allowed",
+      "denied"
+     ],
+     "type": "string"
+    },
+    "effect": {
+     "type": "string"
+    },
+    "envelopeDigest": {
+     "type": "string"
+    },
+    "fencingEpoch": {
+     "type": "number"
+    },
+    "idempotencyKey": {
+     "type": "string"
+    },
+    "latencyMs": {
+     "type": "number"
+    },
+    "nodeId": {
+     "type": "string"
+    },
+    "occurredAt": {
+     "type": "string"
+    },
+    "reasonCode": {
+     "type": "string"
+    },
+    "receiptId": {
+     "type": "string"
+    },
+    "requestDigest": {
+     "type": "string"
+    },
+    "resultDigest": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "resultStatus": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "runId": {
+     "type": "string"
+    },
+    "spanId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "traceId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "receiptId",
+    "occurredAt",
+    "runId",
+    "nodeId",
+    "attempt",
+    "fencingEpoch",
+    "capabilityId",
+    "effect",
+    "decision",
+    "reasonCode",
+    "adapterBindingId",
+    "latencyMs",
+    "resultStatus",
+    "envelopeDigest",
+    "requestDigest",
+    "resultDigest",
+    "idempotencyKey",
+    "traceId",
+    "spanId"
+   ],
+   "type": "object"
+  },
+  "GatewayStatusView": {
+   "additionalProperties": false,
+   "properties": {
+    "calls24h": {
+     "type": "number"
+    },
+    "denials24h": {
+     "type": "number"
+    },
+    "envelopeVerifierStatus": {
+     "type": "string"
+    },
+    "generatedAt": {
+     "type": "string"
+    },
+    "lastConnectionLatencyMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "lastConnectionMessage": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "lastConnectionTestAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "openRouterState": {
+     "enum": [
+      "Configured",
+      "Missing",
+      "Unreachable"
+     ],
+     "type": "string"
+    },
+    "openSanctionsState": {
+     "enum": [
+      "Configured",
+      "Missing",
+      "Unreachable"
+     ],
+     "type": "string"
+    },
+    "readiness": {
+     "enum": [
+      "Ready",
+      "Degraded",
+      "Unavailable"
+     ],
+     "type": "string"
+    },
+    "runtimeMode": {
+     "enum": [
+      "OpenRouter",
+      "Recorded"
+     ],
+     "type": "string"
+    },
+    "telemetryFreshThrough": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "readiness",
+    "openRouterState",
+    "openSanctionsState",
+    "runtimeMode",
+    "lastConnectionTestAt",
+    "lastConnectionLatencyMs",
+    "lastConnectionMessage",
+    "envelopeVerifierStatus",
+    "calls24h",
+    "denials24h",
+    "generatedAt",
+    "telemetryFreshThrough"
+   ],
+   "type": "object"
+  },
+  "HarnessDetail": {
+   "additionalProperties": false,
+   "properties": {
+    "admittedAt": {
+     "type": "string"
+    },
+    "capabilityCount": {
+     "type": "number"
+    },
+    "compilerVersion": {
+     "type": "string"
+    },
+    "completedRuns": {
+     "type": "number"
+    },
+    "completionRatePct": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "domain": {
+     "type": "string"
+    },
+    "edgeCount": {
+     "type": "number"
+    },
+    "edgesPreview": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "from": {
+        "type": "string"
+       },
+       "to": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "from",
+       "to"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "effectfulCapabilityCount": {
+     "type": "number"
+    },
+    "fixture": {
+     "type": "boolean"
+    },
+    "lastRunAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "meanReportedCost": {
+     "$ref": "#/$defs/CostView"
+    },
+    "modelTiers": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "name": {
+     "type": "string"
+    },
+    "nodeCount": {
+     "type": "number"
+    },
+    "nodesPreview": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       },
+       "primitive": {
+        "$ref": "#/$defs/NodePrimitive"
+       },
+       "x": {
+        "type": "number"
+       },
+       "y": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "id",
+       "name",
+       "primitive",
+       "x",
+       "y"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "objective": {
+     "type": "string"
+    },
+    "p50DurationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "p95DurationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "packageVersion": {
+     "type": "string"
+    },
+    "plan": {
+     "$ref": "#/$defs/CompiledHarnessPlan"
+    },
+    "planDigest": {
+     "type": "string"
+    },
+    "runs": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "admittedAt",
+    "capabilityCount",
+    "compilerVersion",
+    "completedRuns",
+    "completionRatePct",
+    "domain",
+    "edgeCount",
+    "edgesPreview",
+    "effectfulCapabilityCount",
+    "fixture",
+    "lastRunAt",
+    "meanReportedCost",
+    "modelTiers",
+    "name",
+    "nodeCount",
+    "nodesPreview",
+    "objective",
+    "p50DurationMs",
+    "p95DurationMs",
+    "packageVersion",
+    "plan",
+    "planDigest",
+    "runs"
+   ],
+   "type": "object"
+  },
+  "HarnessSummary": {
+   "additionalProperties": false,
+   "properties": {
+    "admittedAt": {
+     "type": "string"
+    },
+    "capabilityCount": {
+     "type": "number"
+    },
+    "compilerVersion": {
+     "type": "string"
+    },
+    "completedRuns": {
+     "type": "number"
+    },
+    "completionRatePct": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "domain": {
+     "type": "string"
+    },
+    "edgeCount": {
+     "type": "number"
+    },
+    "edgesPreview": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "from": {
+        "type": "string"
+       },
+       "to": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "from",
+       "to"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "effectfulCapabilityCount": {
+     "type": "number"
+    },
+    "lastRunAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "meanReportedCost": {
+     "$ref": "#/$defs/CostView"
+    },
+    "modelTiers": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "name": {
+     "type": "string"
+    },
+    "nodeCount": {
+     "type": "number"
+    },
+    "nodesPreview": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       },
+       "primitive": {
+        "$ref": "#/$defs/NodePrimitive"
+       },
+       "x": {
+        "type": "number"
+       },
+       "y": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "id",
+       "name",
+       "primitive",
+       "x",
+       "y"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "objective": {
+     "type": "string"
+    },
+    "p50DurationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "p95DurationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "packageVersion": {
+     "type": "string"
+    },
+    "planDigest": {
+     "type": "string"
+    },
+    "runs": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "planDigest",
+    "name",
+    "packageVersion",
+    "domain",
+    "objective",
+    "compilerVersion",
+    "admittedAt",
+    "nodeCount",
+    "edgeCount",
+    "modelTiers",
+    "capabilityCount",
+    "effectfulCapabilityCount",
+    "runs",
+    "completedRuns",
+    "completionRatePct",
+    "meanReportedCost",
+    "p50DurationMs",
+    "p95DurationMs",
+    "lastRunAt",
+    "nodesPreview",
+    "edgesPreview"
+   ],
+   "type": "object"
+  },
+  "ModelTierProfileView": {
+   "additionalProperties": false,
+   "properties": {
+    "concurrencyLimit": {
+     "type": "number"
+    },
+    "credentialState": {
+     "enum": [
+      "Configured",
+      "Missing"
+     ],
+     "type": "string"
+    },
+    "enabled": {
+     "type": "boolean"
+    },
+    "lastSuccessAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "maxInputTokens": {
+     "type": "number"
+    },
+    "maxOutputTokens": {
+     "type": "number"
+    },
+    "profileDigest": {
+     "type": "string"
+    },
+    "purpose": {
+     "type": "string"
+    },
+    "resolvedOpenRouterModel": {
+     "type": "string"
+    },
+    "tierId": {
+     "type": "string"
+    },
+    "timeoutMs": {
+     "type": "number"
+    },
+    "version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "tierId",
+    "version",
+    "purpose",
+    "profileDigest",
+    "resolvedOpenRouterModel",
+    "maxInputTokens",
+    "maxOutputTokens",
+    "timeoutMs",
+    "concurrencyLimit",
+    "enabled",
+    "credentialState",
+    "lastSuccessAt"
+   ],
+   "type": "object"
+  },
+  "NativeTraceSpan": {
+   "additionalProperties": false,
+   "properties": {
+    "depth": {
+     "type": "number"
+    },
+    "durationMs": {
+     "type": "number"
+    },
+    "operationName": {
+     "type": "string"
+    },
+    "parentSpanId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "serviceName": {
+     "type": "string"
+    },
+    "spanId": {
+     "type": "string"
+    },
+    "startOffsetMs": {
+     "type": "number"
+    },
+    "startTime": {
+     "type": "string"
+    },
+    "status": {
+     "enum": [
+      "ok",
+      "error"
+     ],
+     "type": "string"
+    },
+    "tags": {
+     "$ref": "#/$defs/Record_unknown"
+    }
+   },
+   "required": [
+    "spanId",
+    "parentSpanId",
+    "operationName",
+    "serviceName",
+    "startTime",
+    "startOffsetMs",
+    "durationMs",
+    "depth",
+    "status",
+    "tags"
+   ],
+   "type": "object"
+  },
+  "NativeTraceView": {
+   "additionalProperties": false,
+   "properties": {
+    "durationMs": {
+     "type": "number"
+    },
+    "generatedAt": {
+     "type": "string"
+    },
+    "rawViewerUrl": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "services": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "spanCount": {
+     "type": "number"
+    },
+    "spans": {
+     "items": {
+      "$ref": "#/$defs/NativeTraceSpan"
+     },
+     "type": "array"
+    },
+    "startedAt": {
+     "type": "string"
+    },
+    "traceId": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "generatedAt",
+    "traceId",
+    "startedAt",
+    "durationMs",
+    "spanCount",
+    "services",
+    "rawViewerUrl",
+    "spans"
+   ],
+   "type": "object"
+  },
+  "NodeAttemptView": {
+   "additionalProperties": false,
+   "properties": {
+    "attempt": {
+     "type": "number"
+    },
+    "authority": {
+     "additionalProperties": false,
+     "properties": {
+      "attempt": {
+       "type": "number"
+      },
+      "audience": {
+       "type": "string"
+      },
+      "capabilityScope": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "effectScope": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "executionEnvelopeId": {
+       "type": "string"
+      },
+      "expiresAt": {
+       "type": "string"
+      },
+      "fencingEpoch": {
+       "type": "number"
+      },
+      "issuedAt": {
+       "type": "string"
+      },
+      "permissionEnvelopeDigest": {
+       "type": "string"
+      },
+      "planDigest": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "planDigest",
+      "permissionEnvelopeDigest",
+      "executionEnvelopeId",
+      "audience",
+      "issuedAt",
+      "expiresAt",
+      "capabilityScope",
+      "effectScope",
+      "attempt",
+      "fencingEpoch"
+     ],
+     "type": "object"
+    },
+    "capabilityCalls": {
+     "items": {
+      "$ref": "#/$defs/GatewayDecisionView"
+     },
+     "type": "array"
+    },
+    "completedAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "durationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "fencingEpoch": {
+     "type": "number"
+    },
+    "inputSchemaValid": {
+     "type": "boolean"
+    },
+    "nodeId": {
+     "type": "string"
+    },
+    "nodeName": {
+     "type": "string"
+    },
+    "outputSchemaValid": {
+     "type": [
+      "boolean",
+      "null"
+     ]
+    },
+    "primitive": {
+     "$ref": "#/$defs/NodePrimitive"
+    },
+    "redactedInput": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "retryClassification": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "startedAt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "state": {
+     "$ref": "#/$defs/NodeExecutionState"
+    },
+    "usage": {
+     "anyOf": [
+      {
+       "additionalProperties": false,
+       "properties": {
+        "adapterVersion": {
+         "type": "string"
+        },
+        "inputTokens": {
+         "type": "number"
+        },
+        "latencyMs": {
+         "type": "number"
+        },
+        "maxOutputTokens": {
+         "type": "number"
+        },
+        "outputTokens": {
+         "type": "number"
+        },
+        "providerRequestId": {
+         "type": "string"
+        },
+        "reportedCost": {
+         "$ref": "#/$defs/CostView"
+        },
+        "requestedTier": {
+         "type": "string"
+        },
+        "resolvedOpenRouterModel": {
+         "type": "string"
+        },
+        "temperature": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "requestedTier",
+        "resolvedOpenRouterModel",
+        "adapterVersion",
+        "providerRequestId",
+        "temperature",
+        "maxOutputTokens",
+        "inputTokens",
+        "outputTokens",
+        "reportedCost",
+        "latencyMs"
+       ],
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "validatedOutput": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Record_unknown"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "validationDiagnostics": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "nodeId",
+    "nodeName",
+    "primitive",
+    "state",
+    "attempt",
+    "fencingEpoch",
+    "startedAt",
+    "completedAt",
+    "durationMs",
+    "retryClassification",
+    "inputSchemaValid",
+    "outputSchemaValid",
+    "redactedInput",
+    "validatedOutput",
+    "validationDiagnostics",
+    "authority",
+    "usage",
+    "capabilityCalls"
+   ],
+   "type": "object"
+  },
+  "NodeExecutionState": {
+   "enum": [
+    "not_reached",
+    "queued",
+    "executing",
+    "completed",
+    "skipped",
+    "retrying",
+    "denied",
+    "failed",
+    "terminal"
+   ],
+   "type": "string"
+  },
+  "NodePrimitive": {
+   "enum": [
+    "input",
+    "transform",
+    "agent",
+    "model",
+    "tool",
+    "condition",
+    "evaluate",
+    "join",
+    "aggregator",
+    "approval",
+    "group",
+    "subgraph",
+    "gate",
+    "fanout",
+    "output"
+   ],
+   "type": "string"
+  },
+  "OverviewIssueItem": {
+   "additionalProperties": false,
+   "properties": {
+    "category": {
+     "enum": [
+      "gateway_denial",
+      "invalid_output",
+      "budget_exhaustion",
+      "stale_fencing_attempt",
+      "worker_unavailable"
+     ],
+     "type": "string"
+    },
+    "code": {
+     "type": "string"
+    },
+    "harnessName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "nodeId": {
+     "type": "string"
+    },
+    "occurredAt": {
+     "type": "string"
+    },
+    "runId": {
+     "type": "string"
+    },
+    "summary": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "category",
+    "code",
+    "title",
+    "runId",
+    "harnessName",
+    "nodeId",
+    "occurredAt",
+    "summary"
+   ],
+   "type": "object"
+  },
+  "OverviewView": {
+   "additionalProperties": false,
+   "properties": {
+    "activeRuns": {
+     "items": {
+      "$ref": "#/$defs/RunSummary"
+     },
+     "type": "array"
+    },
+    "activeRunsCount": {
+     "type": "number"
+    },
+    "admittedHarnessesCount": {
+     "type": "number"
+    },
+    "deniedCount": {
+     "type": "number"
+    },
+    "failedCount": {
+     "type": "number"
+    },
+    "fixture": {
+     "type": "boolean"
+    },
+    "generatedAt": {
+     "type": "string"
+    },
+    "globalReadiness": {
+     "enum": [
+      "Ready",
+      "Degraded",
+      "Unavailable"
+     ],
+     "type": "string"
+    },
+    "modelTiers": {
+     "items": {
+      "$ref": "#/$defs/ModelTierProfileView"
+     },
+     "type": "array"
+    },
+    "needsAttentionCount": {
+     "type": "number"
+    },
+    "queuedCount": {
+     "type": "number"
+    },
+    "recentIssues": {
+     "items": {
+      "$ref": "#/$defs/OverviewIssueItem"
+     },
+     "type": "array"
+    },
+    "reportedCost24h": {
+     "$ref": "#/$defs/CostView"
+    },
+    "retryingCount": {
+     "type": "number"
+    },
+    "runningCount": {
+     "type": "number"
+    },
+    "runtimeMode": {
+     "enum": [
+      "OpenRouter",
+      "Recorded"
+     ],
+     "type": "string"
+    },
+    "serviceStatus": {
+     "items": {
+      "$ref": "#/$defs/ServiceReadinessItem"
+     },
+     "type": "array"
+    },
+    "staleLeaseCount": {
+     "type": "number"
+    },
+    "telemetryFreshThrough": {
+     "type": "string"
+    },
+    "window": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "window",
+    "admittedHarnessesCount",
+    "activeRunsCount",
+    "queuedCount",
+    "runningCount",
+    "retryingCount",
+    "needsAttentionCount",
+    "failedCount",
+    "deniedCount",
+    "staleLeaseCount",
+    "reportedCost24h",
+    "activeRuns",
+    "recentIssues",
+    "serviceStatus",
+    "modelTiers",
+    "runtimeMode",
+    "fixture",
+    "globalReadiness",
+    "generatedAt",
+    "telemetryFreshThrough"
+   ],
+   "type": "object"
+  },
+  "PlanAgent": {
+   "additionalProperties": false,
+   "properties": {
+    "description": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "modelProfileId": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "prompt": {
+     "type": "string"
+    },
+    "role": {
+     "type": "string"
+    },
+    "runtimeTarget": {
+     "type": "string"
+    },
+    "skillIds": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "description",
+    "role",
+    "modelProfileId",
+    "prompt",
+    "skillIds"
+   ],
+   "type": "object"
+  },
+  "PlanBudgets": {
+   "additionalProperties": false,
+   "properties": {
+    "maxCapabilityCalls": {
+     "type": "number"
+    },
+    "maxConcurrency": {
+     "type": "number"
+    },
+    "maxCostUsd": {
+     "type": "number"
+    },
+    "maxDurationMs": {
+     "type": "number"
+    },
+    "maxModelCalls": {
+     "type": "number"
+    },
+    "maxRetries": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "maxDurationMs",
+    "maxModelCalls",
+    "maxCapabilityCalls",
+    "maxCostUsd",
+    "maxRetries",
+    "maxConcurrency"
+   ],
+   "type": "object"
+  },
+  "PlanDependency": {
+   "additionalProperties": false,
+   "properties": {
+    "digest": {
+     "type": "string"
+    },
+    "kind": {
+     "enum": [
+      "schema",
+      "adapter",
+      "policy_envelope",
+      "evaluator",
+      "source"
+     ],
+     "type": "string"
+    },
+    "packageId": {
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "packageId",
+    "version",
+    "digest",
+    "kind"
+   ],
+   "type": "object"
+  },
+  "PlanEdge": {
+   "additionalProperties": false,
+   "properties": {
+    "conditionLabel": {
+     "type": "string"
+    },
+    "from": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "mappingSummary": {
+     "type": "string"
+    },
+    "to": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "from",
+    "to",
+    "mappingSummary"
+   ],
+   "type": "object"
+  },
+  "PlanNode": {
+   "additionalProperties": false,
+   "properties": {
+    "agent": {
+     "$ref": "#/$defs/PlanAgent"
+    },
+    "agentRef": {
+     "type": "string"
+    },
+    "allowedEffects": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "capabilityId": {
+     "type": "string"
+    },
+    "caseWrites": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "commandType": {
+        "type": "string"
+       },
+       "payloadSchema": {
+        "$ref": "#/$defs/Record_unknown"
+       },
+       "when": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "commandType",
+       "payloadSchema"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "effectClass": {
+     "enum": [
+      "none",
+      "read_only",
+      "external_mutation",
+      "ledger_hold"
+     ],
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "inputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "maxCostUsd": {
+     "type": "number"
+    },
+    "maxRetries": {
+     "type": "number"
+    },
+    "modelTier": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "outputSchema": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "permissionEnvelopeDigest": {
+     "type": "string"
+    },
+    "primitive": {
+     "$ref": "#/$defs/NodePrimitive"
+    },
+    "purpose": {
+     "type": "string"
+    },
+    "skillRefs": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "sourceKind": {
+     "type": "string"
+    },
+    "timeoutMs": {
+     "type": "number"
+    },
+    "x": {
+     "type": "number"
+    },
+    "y": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "primitive",
+    "purpose",
+    "x",
+    "y",
+    "effectClass",
+    "allowedEffects",
+    "permissionEnvelopeDigest",
+    "timeoutMs",
+    "maxRetries",
+    "maxCostUsd",
+    "inputSchema",
+    "outputSchema",
+    "caseWrites"
+   ],
+   "type": "object"
+  },
+  "PolicyCompilationView": {
+   "additionalProperties": false,
+   "properties": {
+    "files": {
+     "$ref": "#/$defs/Record_string"
+    },
+    "manifest": {
+     "additionalProperties": false,
+     "properties": {
+      "bundleDigest": {
+       "type": "string"
+      },
+      "bundleId": {
+       "type": "string"
+      },
+      "dataDigest": {
+       "type": "string"
+      },
+      "gates": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "allowedOutcomes": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         },
+         "entrypoint": {
+          "type": "string"
+         },
+         "gateId": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "gateId",
+         "entrypoint",
+         "allowedOutcomes"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "opaVersion": {
+       "type": "string"
+      },
+      "policyId": {
+       "type": "string"
+      },
+      "policyVersion": {
+       "type": "string"
+      },
+      "ruleIds": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "sourceDigest": {
+       "type": "string"
+      },
+      "testsDigest": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "bundleId",
+      "policyId",
+      "policyVersion",
+      "sourceDigest",
+      "bundleDigest",
+      "opaVersion",
+      "dataDigest",
+      "gates",
+      "ruleIds",
+      "testsDigest"
+     ],
+     "type": "object"
+    },
+    "productionEligible": {
+     "type": "boolean"
+    },
+    "releaseBlockers": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "owner": {
+        "type": "string"
+       },
+       "path": {
+        "type": "string"
+       },
+       "reasonCode": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       },
+       "title": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "id",
+       "status",
+       "reasonCode"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "manifest",
+    "productionEligible",
+    "releaseBlockers",
+    "files"
+   ],
+   "type": "object"
+  },
+  "PolicyStudioTemplate": {
+   "additionalProperties": false,
+   "properties": {
+    "files": {
+     "$ref": "#/$defs/Record_string"
+    },
+    "id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "files"
+   ],
+   "type": "object"
+  },
+  "Record_Anonymous1": {
+   "additionalProperties": {
+    "additionalProperties": false,
+    "properties": {
+     "default": {},
+     "description": {
+      "type": "string"
+     },
+     "enum": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array"
+     },
+     "title": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "type"
+    ],
+    "type": "object"
+   },
+   "type": "object"
+  },
+  "Record_NodeAttemptView": {
+   "additionalProperties": {
+    "$ref": "#/$defs/NodeAttemptView"
+   },
+   "type": "object"
+  },
+  "Record_number": {
+   "additionalProperties": {
+    "type": "number"
+   },
+   "type": "object"
+  },
+  "Record_string": {
+   "additionalProperties": {
+    "type": "string"
+   },
+   "type": "object"
+  },
+  "Record_unknown": {
+   "additionalProperties": {},
+   "type": "object"
+  },
+  "RunDetail": {
+   "additionalProperties": false,
+   "properties": {
+    "attempt": {
+     "type": "number"
+    },
+    "capabilityCalls": {
+     "type": "number"
+    },
+    "cost": {
+     "$ref": "#/$defs/CostView"
+    },
+    "currentNodeId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "domain": {
+     "type": "string"
+    },
+    "durationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "events": {
+     "items": {
+      "$ref": "#/$defs/RunEventView"
+     },
+     "type": "array"
+    },
+    "failureInfo": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/FailureBannerInfo"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "fencingEpoch": {
+     "type": "number"
+    },
+    "fixture": {
+     "type": "boolean"
+    },
+    "harnessName": {
+     "type": "string"
+    },
+    "idempotencyKey": {
+     "type": "string"
+    },
+    "inputPayload": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "modelCalls": {
+     "type": "number"
+    },
+    "modelTiers": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "needsAttention": {
+     "type": "boolean"
+    },
+    "nodeAttempts": {
+     "$ref": "#/$defs/Record_NodeAttemptView"
+    },
+    "packageVersion": {
+     "type": "string"
+    },
+    "plan": {
+     "$ref": "#/$defs/CompiledHarnessPlan"
+    },
+    "planDigest": {
+     "type": "string"
+    },
+    "recentEventsPreview": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "code": {
+        "type": "string"
+       },
+       "occurredAt": {
+        "type": "string"
+       },
+       "sequence": {
+        "type": "number"
+       },
+       "summary": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "sequence",
+       "code",
+       "summary",
+       "occurredAt"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "rootSpanId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "runId": {
+     "type": "string"
+    },
+    "startedAt": {
+     "type": "string"
+    },
+    "status": {
+     "$ref": "#/$defs/RunStatus"
+    },
+    "terminalOutcome": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "traceId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "traceViewerUrl": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "updatedAt": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "attempt",
+    "capabilityCalls",
+    "cost",
+    "currentNodeId",
+    "domain",
+    "durationMs",
+    "events",
+    "failureInfo",
+    "fencingEpoch",
+    "fixture",
+    "harnessName",
+    "idempotencyKey",
+    "inputPayload",
+    "modelCalls",
+    "modelTiers",
+    "needsAttention",
+    "nodeAttempts",
+    "packageVersion",
+    "plan",
+    "planDigest",
+    "rootSpanId",
+    "runId",
+    "startedAt",
+    "status",
+    "terminalOutcome",
+    "traceId",
+    "traceViewerUrl",
+    "updatedAt"
+   ],
+   "type": "object"
+  },
+  "RunEventView": {
+   "additionalProperties": false,
+   "properties": {
+    "attempt": {
+     "type": "number"
+    },
+    "code": {
+     "type": "string"
+    },
+    "details": {
+     "$ref": "#/$defs/Record_unknown"
+    },
+    "durationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "fencingEpoch": {
+     "type": "number"
+    },
+    "id": {
+     "type": "string"
+    },
+    "isKnownCode": {
+     "type": "boolean"
+    },
+    "nodeId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "occurredAt": {
+     "type": "string"
+    },
+    "runId": {
+     "type": "string"
+    },
+    "sequence": {
+     "type": "number"
+    },
+    "status": {
+     "type": "string"
+    },
+    "summary": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "runId",
+    "sequence",
+    "occurredAt",
+    "code",
+    "nodeId",
+    "attempt",
+    "fencingEpoch",
+    "status",
+    "durationMs",
+    "summary",
+    "details",
+    "isKnownCode"
+   ],
+   "type": "object"
+  },
+  "RunStatus": {
+   "enum": [
+    "queued",
+    "running",
+    "retrying",
+    "completed",
+    "manual_review",
+    "denied",
+    "failed"
+   ],
+   "type": "string"
+  },
+  "RunSummary": {
+   "additionalProperties": false,
+   "properties": {
+    "attempt": {
+     "type": "number"
+    },
+    "capabilityCalls": {
+     "type": "number"
+    },
+    "cost": {
+     "$ref": "#/$defs/CostView"
+    },
+    "currentNodeId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "domain": {
+     "type": "string"
+    },
+    "durationMs": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "fencingEpoch": {
+     "type": "number"
+    },
+    "fixture": {
+     "type": "boolean"
+    },
+    "harnessName": {
+     "type": "string"
+    },
+    "modelCalls": {
+     "type": "number"
+    },
+    "modelTiers": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "needsAttention": {
+     "type": "boolean"
+    },
+    "packageVersion": {
+     "type": "string"
+    },
+    "planDigest": {
+     "type": "string"
+    },
+    "recentEventsPreview": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "code": {
+        "type": "string"
+       },
+       "occurredAt": {
+        "type": "string"
+       },
+       "sequence": {
+        "type": "number"
+       },
+       "summary": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "sequence",
+       "code",
+       "summary",
+       "occurredAt"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "rootSpanId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "runId": {
+     "type": "string"
+    },
+    "startedAt": {
+     "type": "string"
+    },
+    "status": {
+     "$ref": "#/$defs/RunStatus"
+    },
+    "terminalOutcome": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "traceId": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "traceViewerUrl": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "updatedAt": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "runId",
+    "planDigest",
+    "harnessName",
+    "packageVersion",
+    "domain",
+    "status",
+    "terminalOutcome",
+    "currentNodeId",
+    "attempt",
+    "fencingEpoch",
+    "modelTiers",
+    "modelCalls",
+    "capabilityCalls",
+    "cost",
+    "durationMs",
+    "startedAt",
+    "updatedAt",
+    "fixture",
+    "traceId",
+    "rootSpanId",
+    "traceViewerUrl",
+    "needsAttention"
+   ],
+   "type": "object"
+  },
+  "ServiceReadinessItem": {
+   "additionalProperties": false,
+   "properties": {
+    "detail": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "latencyMs": {
+     "type": "number"
+    },
+    "name": {
+     "type": "string"
+    },
+    "status": {
+     "enum": [
+      "Ready",
+      "Degraded",
+      "Unavailable"
+     ],
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "status",
+    "detail",
+    "latencyMs"
+   ],
+   "type": "object"
+  },
+  "SkillRegistrationView": {
+   "additionalProperties": false,
+   "properties": {
+    "allowedCapabilityIds": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "description": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "instructions": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "source": {
+     "$ref": "#/$defs/AuthoringSourceView"
+    },
+    "status": {
+     "enum": [
+      "draft",
+      "active",
+      "deprecated"
+     ],
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "name",
+    "description",
+    "instructions",
+    "allowedCapabilityIds",
+    "source",
+    "version",
+    "status"
+   ],
+   "type": "object"
+  },
+  "SkillRegistryItemView": {
+   "additionalProperties": false,
+   "properties": {
+    "createdAt": {
+     "type": "string"
+    },
+    "digest": {
+     "type": "string"
+    },
+    "skill": {
+     "$ref": "#/$defs/SkillRegistrationView"
+    },
+    "updatedAt": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "skill",
+    "digest",
+    "createdAt",
+    "updatedAt"
+   ],
+   "type": "object"
+  },
+  "SystemView": {
+   "additionalProperties": false,
+   "properties": {
+    "buildMetadata": {
+     "additionalProperties": false,
+     "properties": {
+      "adapterBundleVersion": {
+       "type": "string"
+      },
+      "apiVersion": {
+       "type": "string"
+      },
+      "builtAt": {
+       "type": "string"
+      },
+      "commitSha": {
+       "type": "string"
+      },
+      "compilerVersion": {
+       "type": "string"
+      },
+      "runtimeVersion": {
+       "type": "string"
+      },
+      "uiVersion": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "uiVersion",
+      "apiVersion",
+      "runtimeVersion",
+      "compilerVersion",
+      "adapterBundleVersion",
+      "commitSha",
+      "builtAt"
+     ],
+     "type": "object"
+    },
+    "componentReadiness": {
+     "items": {
+      "$ref": "#/$defs/ServiceReadinessItem"
+     },
+     "type": "array"
+    },
+    "databaseMigrationVersion": {
+     "type": "string"
+    },
+    "environment": {
+     "const": "local",
+     "type": "string"
+    },
+    "fixture": {
+     "type": "boolean"
+    },
+    "generatedAt": {
+     "type": "string"
+    },
+    "globalReadiness": {
+     "enum": [
+      "Ready",
+      "Degraded",
+      "Unavailable"
+     ],
+     "type": "string"
+    },
+    "knownPocLimitations": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "area": {
+        "type": "string"
+       },
+       "explanation": {
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "id",
+       "area",
+       "explanation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "queueWorkState": {
+     "additionalProperties": false,
+     "properties": {
+      "activeWorkers": {
+       "type": "number"
+      },
+      "fencingAuthority": {
+       "type": "string"
+      },
+      "leased": {
+       "type": "number"
+      },
+      "ready": {
+       "type": "number"
+      },
+      "retrying": {
+       "type": "number"
+      },
+      "stale": {
+       "type": "number"
+      }
+     },
+     "required": [
+      "ready",
+      "leased",
+      "retrying",
+      "stale",
+      "activeWorkers",
+      "fencingAuthority"
+     ],
+     "type": "object"
+    },
+    "runtimeIsolation": {
+     "additionalProperties": false,
+     "properties": {
+      "defaultProvider": {
+       "enum": [
+        "local_http",
+        "hosted_http",
+        "databricks"
+       ],
+       "type": "string"
+      },
+      "mixedTargetsAllowed": {
+       "const": false,
+       "type": "boolean"
+      },
+      "providers": {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "authentication": {
+          "type": "string"
+         },
+         "boundary": {
+          "type": "string"
+         },
+         "configured": {
+          "type": "boolean"
+         },
+         "id": {
+          "enum": [
+           "local_http",
+           "hosted_http",
+           "databricks"
+          ],
+          "type": "string"
+         },
+         "name": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "id",
+         "name",
+         "boundary",
+         "authentication",
+         "configured"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "scope": {
+       "const": "harness_invocation",
+       "type": "string"
+      },
+      "selectionAuthority": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "scope",
+      "defaultProvider",
+      "selectionAuthority",
+      "mixedTargetsAllowed",
+      "providers"
+     ],
+     "type": "object"
+    },
+    "runtimeMode": {
+     "enum": [
+      "OpenRouter",
+      "Recorded"
+     ],
+     "type": "string"
+    },
+    "supportedPrimitives": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "description": {
+        "type": "string"
+       },
+       "deterministicReplay": {
+        "type": "boolean"
+       },
+       "primitive": {
+        "$ref": "#/$defs/NodePrimitive"
+       },
+       "profileVersion": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "primitive",
+       "profileVersion",
+       "deterministicReplay",
+       "description"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "telemetryFreshThrough": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "globalReadiness",
+    "runtimeMode",
+    "environment",
+    "fixture",
+    "componentReadiness",
+    "runtimeIsolation",
+    "buildMetadata",
+    "queueWorkState",
+    "databaseMigrationVersion",
+    "supportedPrimitives",
+    "knownPocLimitations",
+    "generatedAt",
+    "telemetryFreshThrough"
+   ],
+   "type": "object"
+  },
+  "ToolCapabilityView": {
+   "additionalProperties": false,
+   "properties": {
+    "adapterBindingId": {
+     "type": "string"
+    },
+    "adapterVersion": {
+     "type": "string"
+    },
+    "capabilityId": {
+     "type": "string"
+    },
+    "credentialState": {
+     "enum": [
+      "Configured",
+      "Missing",
+      "Not required"
+     ],
+     "type": "string"
+    },
+    "effectClass": {
+     "enum": [
+      "read_only",
+      "external_mutation",
+      "ledger_hold"
+     ],
+     "type": "string"
+    },
+    "health": {
+     "enum": [
+      "Healthy",
+      "Degraded",
+      "Unreachable"
+     ],
+     "type": "string"
+    },
+    "requestSchemaVersion": {
+     "type": "string"
+    },
+    "resultSchemaVersion": {
+     "type": "string"
+    },
+    "retryPolicy": {
+     "type": "string"
+    },
+    "timeoutMs": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "capabilityId",
+    "effectClass",
+    "adapterBindingId",
+    "adapterVersion",
+    "requestSchemaVersion",
+    "resultSchemaVersion",
+    "timeoutMs",
+    "retryPolicy",
+    "credentialState",
+    "health"
+   ],
+   "type": "object"
+  }
+ }
+}

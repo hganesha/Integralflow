@@ -1,0 +1,422 @@
+[
+  {
+    "url": "https://api.gleif.org/docs",
+    "http_status": 200,
+    "final_url": "https://documenter.getpostman.com/view/7679680/SVYrrxuU?version=latest",
+    "sha256": "88923678056dca7b314a8eb4a6a75875fdbb4f10006d3e5d9b305d665ba19852",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://api.namescan.io/doc/index.html?v=6",
+    "http_status": 200,
+    "final_url": "https://api.namescan.io/doc/index.html?v=6",
+    "sha256": "44c6e9d07cbc1db7b942ecba303b2ca1af0075d4e9be1ae5ce99c343356adab9",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://api.opencorporates.com/documentation/API-Reference",
+    "http_status": 200,
+    "final_url": "https://api.opencorporates.com/documentation/API-Reference",
+    "sha256": "f59b71d04c521632b696c12644d111948fde3cc98cba9c8c52ec8743443ddb3a",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://api.opensanctions.org/openapi.json",
+    "http_status": 200,
+    "final_url": "https://api.opensanctions.org/openapi.json",
+    "sha256": "d318014eedfb0f24733f0deff975ca5f096300450a92247cdd0ba34084c21ae9",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://avoindata.prh.fi/en/index.html",
+    "http_status": 404,
+    "final_url": "https://avoindata.prh.fi/en/index.html",
+    "sha256": "9f51d9ca142a4378477a8f92c2dd74107d289888a28174b9e91300ba03cf5b45",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://data.brreg.no/enhetsregisteret/api/docs/index.html",
+    "http_status": 200,
+    "final_url": "https://data.brreg.no/enhetsregisteret/api/dokumentasjon/no/index.html",
+    "sha256": "a7806ef1bc286a74830f41f9a5b7807ce07db26b7c812497f15505456f58f910",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://dev.maxmind.com/minfraud/api-documentation/requests/",
+    "http_status": 200,
+    "final_url": "https://dev.maxmind.com/minfraud/api-documentation/requests/",
+    "sha256": "8a564f17385ee642e9b4ef846f626ad3d12e1718a62018d94906e2bf445186f1",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://dev.maxmind.com/minfraud/sandbox-environment/",
+    "http_status": 200,
+    "final_url": "https://dev.maxmind.com/minfraud/sandbox-environment/",
+    "sha256": "ea900216f3e84067ecf1c09404bec560e2b711d1b955d99d9e2091a4ce1e151c",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://devdocs.veriff.com/apidocs/v1sessionsiddecision-1",
+    "http_status": 200,
+    "final_url": "https://devdocs.veriff.com/apidocs/v1sessionsiddecision-1",
+    "sha256": "16eaa76068ee560a2eb97a6f124f645ea00221e711ac9845763377c224357497",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://devdocs.veriff.com/apidocs/v1sessionsidwatchlist-screening-1",
+    "http_status": 200,
+    "final_url": "https://devdocs.veriff.com/apidocs/v1sessionsidwatchlist-screening-1",
+    "sha256": "58fdb5750317b0eff7ce58c3c36c5614ddfa30c575ef63f444fff3f4db0e7aed",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://devdocs.veriff.com/docs/proof-of-address-capture",
+    "http_status": 200,
+    "final_url": "https://devdocs.veriff.com/docs/proof-of-address-capture",
+    "sha256": "8a1fbee1271673a67aff2e1b9fff19b370b34ff14d6a3771b77c51801074eef5",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+    "http_status": 200,
+    "final_url": "https://developer-specs.company-information.service.gov.uk/api.ch.gov.uk-specifications/swagger-2.0/spec/swagger.json",
+    "sha256": "f9f566b30896ebb568a236d2498487b27b9f71edcdeb39d738390f6acb72b3a0",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developer.incode.com/openapi.json",
+    "http_status": 200,
+    "final_url": "https://developer.incode.com/openapi.json",
+    "sha256": "59bca2114b83fb52dc8c40466a3130683b3dd8fac7e6a9a7feff2ad3002b4814",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developer.telesign.com/enterprise/docs/phone-id-tutorial-use-identity-attributes",
+    "http_status": 200,
+    "final_url": "https://developer.telesign.com/enterprise/docs/phone-id-tutorial-use-identity-attributes",
+    "sha256": "82d80a3926c8b69b9397782f4bb5f313774f7d30c4204af3e52cbac0c78877b1",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developer.telesign.com/standard/reference/score-api-get-started",
+    "http_status": 200,
+    "final_url": "https://developer.telesign.com/enterprise",
+    "sha256": "8021f930adecedb36a79f71a6511137f2bf2a2ceebae4e6ab10800b5357a64e1",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+    "http_status": 200,
+    "final_url": "https://developers.belvo.com/products/aggregation_brazil/aggregation-brazil-integration-widget",
+    "sha256": "d86be1d27017a622aa7a5105b7c68c7eaf1c7fcdac930bb0c5378376bf111d27",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developers.dilisense.com/products/adverse-media-screening-api/",
+    "http_status": 200,
+    "final_url": "https://developers.dilisense.com/products/adverse-media-screening-api/",
+    "sha256": "80c9b5cccf43ffcb6811e933bae6a94d56c4eb24e7bb6da0dba4758e3d79c3f5",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developers.dilisense.com/products/aml-database/",
+    "http_status": 200,
+    "final_url": "https://developers.dilisense.com/products/aml-database/",
+    "sha256": "b90c5531b5430021249c68349cc1afd7ba4ec62ae1b1fe380b666fc36ed17e85",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developers.dilisense.com/products/ongoing-monitoring/",
+    "http_status": 200,
+    "final_url": "https://developers.dilisense.com/products/ongoing-monitoring/",
+    "sha256": "08d3188c674ce490004a77f0e09736965ead2c989eba01231cfadfd401fcbe44",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developers.shuftipro.com/docs/verification_endpoints/requests",
+    "http_status": 200,
+    "final_url": "https://developers.shuftipro.com/docs/verification_endpoints/requests",
+    "sha256": "7f4711a35d0d190d8a0f6b2cffdb0e3184023813a485f9028db7b1f505781596",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://developers.shuftipro.com/docs/verification_endpoints/responses",
+    "http_status": 200,
+    "final_url": "https://developers.shuftipro.com/docs/verification_endpoints/responses",
+    "sha256": "128b9831b939fdb3707b307c84706c3aaf9c722702c1608fba1db398f9f48f2c",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.complyadvantage.com/api-docs",
+    "http_status": 200,
+    "final_url": "https://docs.complyadvantage.com/api-docs",
+    "sha256": "cc932888b4784426eca7b806fe3c3574eb19b8084a2749010cab82168afe74d2",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+    "http_status": 200,
+    "final_url": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-a-document-check",
+    "sha256": "4574d8577529c0460d14595868bda01a09271457812c93a652e7a7e24bba4198",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-an-aml-screening-check",
+    "http_status": 200,
+    "final_url": "https://docs.complycube.com/documentation/quick-guides/api-quick-guide/run-an-aml-screening-check",
+    "sha256": "c30dfbab441882f3e8d9a79cfe4445691f46915691ae8582ab8b9704e989d865",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.dojah.io/api-reference/address-verification/fetch-address-verification-data",
+    "http_status": 200,
+    "final_url": "https://docs.dojah.io/api-reference/address-verification/fetch-address-verification-data",
+    "sha256": "f2b90f574706a1029e68a66ab344bbaacacd380fd8c1ca89a0b12861b24150b6",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.dojah.io/api-reference/financial-credit/nuban-kyc-status",
+    "http_status": 200,
+    "final_url": "https://docs.dojah.io/api-reference/financial-credit/nuban-kyc-status",
+    "sha256": "0f8ae9dea208968fae7fe899004fa09e8382735aae3986953f5285c7a6b0cb5a",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.dojah.io/api-reference/individual-verification/nigeria/lookup-nin",
+    "http_status": 200,
+    "final_url": "https://docs.dojah.io/api-reference/individual-verification/nigeria/lookup-nin",
+    "sha256": "ab1e838b567b60425302a4b136528e52a1f71a914bb38f6e589c1472515850eb",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.fintoc.com/docs/quickstart",
+    "http_status": 200,
+    "final_url": "https://docs.fintoc.com/guides/movements/overview-data-aggregation/quickstart",
+    "sha256": "24c3feccd7eba6b63969422be6f46b87dd0d7cead915c0a92656559a2f9a22c1",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.flagright.com/framl-api/api-reference/api-reference/business-user-events/get",
+    "http_status": 200,
+    "final_url": "https://docs.flagright.com/framl-api/api-reference/api-reference/business-user-events/get",
+    "sha256": "45f47eab86510995f93eb2bbfda6ce91089e7b20c0f9b31d6156d14e54a5afbb",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.flagright.com/framl-api/api-reference/api-reference/transaction-events/get",
+    "http_status": 200,
+    "final_url": "https://docs.flagright.com/framl-api/api-reference/api-reference/transaction-events/get",
+    "sha256": "74c3f74456a1f19105237dbe7ff444c5b6ec760191d0e545bf4787f14dcd9dd9",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.flagright.com/guides/use-cases/swift-payments",
+    "http_status": 200,
+    "final_url": "https://docs.flagright.com/guides/use-cases/swift-payments",
+    "sha256": "7b7dfd125377d1a206c5f377cd6edb710f9251ca496231c770cca702260fa112",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.flinks.com/openapi.yaml",
+    "http_status": 200,
+    "final_url": "https://docs.flinks.com/openapi.yaml",
+    "sha256": "5c69c878f323ef2b4ae8952662e712a52b441db9006f55ceda93461152f6d6d6",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.middesk.com/build/api-keys",
+    "http_status": 200,
+    "final_url": "https://docs.middesk.com/build/api-keys",
+    "sha256": "097a7250e384c51f5a2c66374671ae3a1ca613c21d361198f4844258ffa16859",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.middesk.com/online-presence/web-presence",
+    "http_status": 200,
+    "final_url": "https://docs.middesk.com/online-presence/web-presence",
+    "sha256": "f2ead500d94fdf0111b5a378f2d2f32ee4fbf67810857a885a46e69bb51b9be4",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.mono.co/api/telco-data/integration-guide",
+    "http_status": 200,
+    "final_url": "https://docs.mono.co/api/telco-data/integration-guide",
+    "sha256": "861da6c806e0cb0d69bc3125fe4608d1386fe0fae0a3daa79ca14f3a9535b102",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.prembly.com/docs/company-search-by-person-copy-16",
+    "http_status": 200,
+    "final_url": "https://docs.prembly.com/docs/company-search-by-person-copy-16",
+    "sha256": "b2b72227990655ed2e59699ce5a59ef7c14ed0c3c3a7babe9afc3df92d5612d3",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.prembly.com/docs/international-passport-copy-2",
+    "http_status": 200,
+    "final_url": "https://docs.prembly.com/docs/international-passport-copy-2",
+    "sha256": "f4bc98f4daee1edf0f70274b741d03938ac742a05df5fbe1b14a316e5664fb43",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.prembly.com/docs/national-id",
+    "http_status": 200,
+    "final_url": "https://docs.prembly.com/docs/national-id",
+    "sha256": "e9c0b48723cce1260b0ca421b1b6641e191de55ec726a32bc38709faf769a984",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.seon.io/api-reference/fraud-api",
+    "http_status": 200,
+    "final_url": "https://docs.seon.io/api-reference/fraud-api",
+    "sha256": "f9df5f696f26eb7d497d7dcb1ca4027814e4d66a77b1ad8455b125013f32f815",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.sumsub.com/reference/authentication",
+    "http_status": 200,
+    "final_url": "https://docs.sumsub.com/reference/authentication",
+    "sha256": "199a9e7a7727cbdd46c85c55c5ea50aab8b7d4fbe9d078938dbde41c5bf62d6a",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.sumsub.com/reference/create-applicant",
+    "http_status": 200,
+    "final_url": "https://docs.sumsub.com/reference/create-applicant",
+    "sha256": "ff9295f6354c43085c8516c4f2cc696373eae2952c6d1de33a150e3003cab5e6",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.sumsub.com/reference/get-aml-case-data",
+    "http_status": 200,
+    "final_url": "https://docs.sumsub.com/reference/get-aml-case-data",
+    "sha256": "fbc0a67f20495845cebdb17a769692ad0737dde2a8e15fe2eac263605a889c95",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.sumsub.com/reference/get-applicant-data",
+    "http_status": 200,
+    "final_url": "https://docs.sumsub.com/reference/get-applicant-data",
+    "sha256": "036ab4866b12eb221bdab06121d35bb28c91e05d5208da7e5bd8a79f01b11ac4",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.sumsub.com/reference/get-applicant-review-status",
+    "http_status": 200,
+    "final_url": "https://docs.sumsub.com/reference/get-applicant-review-status",
+    "sha256": "375f2923238391754124f33084bf5ef18b53c6564737d53b54354c2976fad0c8",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.truelayer.com/docs/account-and-card-data",
+    "http_status": 200,
+    "final_url": "https://docs.truelayer.com/docs/account-and-card-data",
+    "sha256": "1d215592e2abc39d160c4967a818d7c3b015763e2e67b36521bbd165d92b128a",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.truelayer.com/reference/getaccount",
+    "http_status": 200,
+    "final_url": "https://docs.truelayer.com/reference/getaccount",
+    "sha256": "f123fbdd21a534321a721dc97a014e1df522ad0eb50a3aa33eeac26df8cb96f9",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.truora.com/",
+    "http_status": 200,
+    "final_url": "https://dev.truora.com/docs/",
+    "sha256": "c94dc41b75ba7e107821835986e95a95334a55749ec41b23536cd1b3b9fdf0b8",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.unit21.ai/reference/encryption",
+    "http_status": 200,
+    "final_url": "https://docs-login.prod1.unit21.com/?redirect=%2Freference%2Fencryption",
+    "sha256": "f71407cea2ea655beb042abfafc43f752465540e49417e901847134e1a4a4e35",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.unit21.ai/reference/placeholder-objects",
+    "http_status": 200,
+    "final_url": "https://docs-login.prod1.unit21.com/?redirect=%2Freference%2Fplaceholder-objects",
+    "sha256": "f71407cea2ea655beb042abfafc43f752465540e49417e901847134e1a4a4e35",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.withpersona.com/reference/introduction",
+    "http_status": 200,
+    "final_url": "https://docs.withpersona.com/api-introduction",
+    "sha256": "5720155c7d1ee72d22f89b4667f3b40a302b8f4b9bf09aa2cca4b7042baf6b81",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.yapily.com/api-reference/financial-data/get-account-transactions",
+    "http_status": 200,
+    "final_url": "https://docs.yapily.com/api-reference/financial-data/get-account-transactions",
+    "sha256": "cb966a146f87d12b3b59c2b0191884580819c05f4638cb286758c35900241c0e",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://docs.yapily.com/api-reference/financial-data/get-accounts",
+    "http_status": 200,
+    "final_url": "https://docs.yapily.com/api-reference/financial-data/get-accounts",
+    "sha256": "e882218c5d9a4d87f7ce643ace170377d33d30215665015692e67d2c499a8bab",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://documentation.idenfy.com/kyc/generate-token",
+    "http_status": 200,
+    "final_url": "https://documentation.idenfy.com/kyc/generate-token",
+    "sha256": "ad5af6975bda517d0819a86ed4fa265f05ed06982b97abc184018bff7085841f",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://ipinfo.io/developers/core-api",
+    "http_status": 200,
+    "final_url": "https://ipinfo.io/developers/core-api",
+    "sha256": "bbd5968be4bd064cf9c2e4a146c276439777f261290defb646b251569b612684",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "http_status": 202,
+    "final_url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://ofac.treasury.gov/sanctions-list-service",
+    "http_status": 200,
+    "final_url": "https://ofac.treasury.gov/sanctions-list-service",
+    "sha256": "8773d9b0667b254cfcfa29763b164dcf2c8360d53ee605730d0ec5066fac0dd7",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://support.twilio.com/hc/en-us/articles/360050891214-Getting-started-with-the-Twilio-lookup-API",
+    "http_status": 403,
+    "final_url": "https://support.twilio.com/hc/en-us/articles/360050891214-Getting-started-with-the-Twilio-lookup-API",
+    "sha256": "75ef2305a4bfeeddc5ea6797a1bb9efc8efc5920a986fa2db80dbaaa3d3526c0",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "http_status": 200,
+    "final_url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "sha256": "86a1cf36292d3b1e5db25436046e9419259606ab5c74c414bd42962e327210a8",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://www.ipqualityscore.com/documentation/about-ipqs-apis/submitting-data-to-ipqs-apis",
+    "http_status": 403,
+    "final_url": "https://www.ipqualityscore.com/documentation/about-ipqs-apis/submitting-data-to-ipqs-apis",
+    "sha256": "b5dcb090604e99cd69e187545dd281b92ca2ab885247734d2688efb6557acf1c",
+    "retrieved_at": "2026-10-15"
+  },
+  {
+    "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    "http_status": 403,
+    "final_url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+    "sha256": "45bad406626c59158cfee65332953bd72abfc3d7c61e095cbe0aa174c838dd20",
+    "retrieved_at": "2026-10-15"
+  }
+]

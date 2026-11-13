@@ -1,0 +1,56 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "WealthAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "claim": {
+          "$ref": "#/$defs/Text"
+        },
+        "corroborated": {
+          "$ref": "#/$defs/Bool"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "plausibility_review_required": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "id",
+        "claim",
+        "corroborated",
+        "plausibility_review_required"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:skill:edd.source_of_wealth.assess:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessments": {
+      "items": {
+        "$ref": "#/$defs/WealthAssessment"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "assessments"
+  ],
+  "type": "object"
+}

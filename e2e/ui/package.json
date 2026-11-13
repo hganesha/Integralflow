@@ -1,0 +1,17 @@
+{
+  "name": "@ehf/e2e-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Playwright journeys and acceptance tests for apps/web on the mock (BUILD-SPEC v2 \u00a711.3).",
+  "scripts": {
+    "e2e": "playwright test --trace off",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@axe-core/playwright": "4.13.0",
+    "@ehf/web": "workspace:*",
+    "fastify": "5.12.5"
+  }
+}

@@ -1,0 +1,15 @@
+dynamic_target: null
+requirements:
+- fields:
+  - scope
+  - expires_at
+  - issuer
+  - approved
+  max_age_seconds: null
+  min_count: 1
+  model_visible: true
+  nullable_fields: []
+  object_type: Exception
+  optional: false
+schema_version: 2.0.0
+skill_id: decision.exceptions.evaluate

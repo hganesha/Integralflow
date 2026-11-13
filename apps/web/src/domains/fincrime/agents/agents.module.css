@@ -1,0 +1,69 @@
+/* Agent Studio (AGT-01…05). Token variables only. */
+.stack { display: flex; flex-direction: column; gap: var(--space-6); }
+.section { display: flex; flex-direction: column; gap: var(--space-3); }
+.sectionTitle { margin: 0; font-size: var(--text-lg); line-height: var(--lh-lg); font-weight: var(--weight-semibold); }
+.subTitle { margin: 0; font-size: var(--text-md); line-height: var(--lh-md); font-weight: var(--weight-semibold); }
+.muted { color: var(--ink-3); }
+.small { font-size: var(--text-sm); }
+.mono { font-family: var(--font-mono); font-size: var(--text-xs); overflow-wrap: anywhere; }
+.section table th[scope="row"] { min-width:180px; }
+.card > p { flex:1; }
+.inline { display: inline-flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+.panel { background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); padding: var(--card-pad); }
+
+/* Object header: title + catalog provenance */
+.header { display: flex; flex-direction: column; gap: var(--space-2); }
+.headerTop { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.title { margin: 0; font-size: var(--text-2xl); line-height: var(--lh-2xl); font-weight: var(--weight-semibold); }
+.provenance { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0; font-size: var(--text-sm); color: var(--ink-2); }
+.provenance > div { display: inline-flex; gap: var(--space-2); align-items: center; }
+.provenance dt { color: var(--ink-3); }
+.provenance dd { margin: 0; }
+
+/* Workforce Atlas cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+.card { display: flex; flex-direction: column; gap: var(--space-2); height: 100%; padding: var(--space-4); background: var(--surface-panel); border: 1px solid var(--line-1); border-radius: var(--radius-md); }
+.card:hover { border-color: var(--line-2); box-shadow: var(--shadow-1); }
+.cardTitle { margin: 0; font-size: var(--text-md); line-height: var(--lh-md); font-weight: var(--weight-semibold); }
+.cardTitle a { color: var(--ink-1); text-decoration: none; }
+.cardTitle a:hover { text-decoration: underline; }
+.cardTitle a:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-xs); }
+.cardId { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--ink-2); background: var(--surface-well); border-radius: var(--radius-xs); padding: 1px var(--space-2); align-self: flex-start; }
+.mandate { margin: 0; font-size: var(--text-sm); color: var(--ink-2); flex: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--space-1) var(--space-3); margin: 0; font-size: var(--text-sm); }
+.facts dt { color: var(--ink-3); }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.counts { display: inline-flex; gap: var(--space-3); font-variant-numeric: tabular-nums; }
+.tagList { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+.tag { font-size: var(--text-xs); padding: 1px var(--space-2); border: 1px solid var(--line-1); border-radius: var(--radius-pill); background: var(--surface-well); color: var(--ink-2); }
+
+/* Key/value strips and plain lists */
+.kv { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-3) var(--space-5); margin: 0; }
+.kv > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.kv dt { color: var(--ink-2); font-size: var(--text-xs); }
+.kv dd { margin: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.plainList { margin: 0; padding-left: var(--space-5); display: flex; flex-direction: column; gap: var(--space-1); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-5); }
+
+/* Dependency map: columns by rank, lanes by parallelGroup */
+.map { display: flex; align-items: stretch; gap: var(--space-2); overflow-x: auto; padding: var(--space-3); background: var(--surface-raised); border: 1px solid var(--line-1); border-radius: var(--radius-md); list-style: none; margin: 0; }
+.stage { display: flex; flex-direction: column; gap: var(--space-2); min-width: 210px; }
+.stageLabel { font-size: var(--text-xs); color: var(--ink-3); }
+.arrow { align-self: center; color: var(--ink-3); flex: none; }
+.lane { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-2); border: 1px dashed transparent; border-radius: var(--radius-sm); }
+.lane[data-parallel="true"] { border-color: var(--line-2); background: var(--surface-well); }
+.laneLabel { font-size: var(--text-xs); color: var(--ink-2); display: inline-flex; gap: var(--space-1); align-items: center; }
+.step { display: flex; flex-direction: column; gap: 2px; width: 100%; min-width: 0; overflow-wrap: anywhere; text-align: left; padding: var(--space-2) var(--space-3); background: var(--surface-panel); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); color: var(--ink-1); font: inherit; cursor: pointer; }
+.step:hover { border-color: var(--ink-3); }
+.step:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.step[aria-pressed="true"] { border-color: var(--tone-info-fg); box-shadow: inset 0 0 0 1px var(--tone-info-fg); }
+.stepName { font-weight: var(--weight-medium); font-size: var(--text-sm); display: inline-flex; gap: var(--space-1); align-items: center; }
+.stepSkill { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--ink-2); }
+.gate { color: var(--tone-attention-fg); display: inline-flex; }
+
+/* Requirement rows */
+.reqStatus { display: inline-flex; align-items: center; gap: var(--space-1); white-space: nowrap; }
+.inspector { display: flex; flex-direction: column; gap: var(--space-4); }
+.note { margin: 0; font-size: var(--text-sm); color: var(--ink-2); }
+.reqCell { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); }

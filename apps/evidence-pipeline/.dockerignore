@@ -1,0 +1,9 @@
+.venv
+tests
+examples
+real_evaluation
+scripts
+kyc_data
+results
+**/__pycache__
+.pytest_cache

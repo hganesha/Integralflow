@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "Bool": {
+      "type": "boolean"
+    },
+    "ExceptionEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "valid": {
+          "$ref": "#/$defs/Bool"
+        }
+      },
+      "required": [
+        "id",
+        "valid"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:skill:decision.exceptions.evaluate:output:0.3.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exceptions": {
+      "items": {
+        "$ref": "#/$defs/ExceptionEvaluation"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "exceptions"
+  ],
+  "type": "object"
+}

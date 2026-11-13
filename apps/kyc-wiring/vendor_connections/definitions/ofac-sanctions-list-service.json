@@ -1,0 +1,33 @@
+{
+  "provider_id": "ofac-sanctions-list-service",
+  "version": "documented-public",
+  "bases": {
+    "default": "https://sanctionslistservice.ofac.treas.gov"
+  },
+  "auth": {
+    "type": "none",
+    "keys": []
+  },
+  "sources": [
+    "https://ofac.treasury.gov/sanctions-list-service"
+  ],
+  "notes": "",
+  "maturity": "implemented_unverified",
+  "live_tested": false,
+  "operations": {
+    "download_sdn": {
+      "method": "GET",
+      "path": "/api/PublicationPreview/exports/SDN.XML",
+      "required_body": [],
+      "required_query": [],
+      "body_example": null,
+      "content": "json",
+      "semantics": "dataset",
+      "status_pointer": null,
+      "resource_pointer": null,
+      "source": "https://ofac.treasury.gov/sanctions-list-service",
+      "allowed_input_headers": [],
+      "response": "xml"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+└── /
+    ├── health/
+    │   ├── live (GET, HEAD)
+    │   └── ready (GET, HEAD)
+    ├── a
+    │   ├── pi/v1/
+    │   │   ├── s
+    │   │   │   ├── ession (GET, HEAD)
+    │   │   │   └── ource-policies/
+    │   │   │       ├── artifacts (GET, HEAD, POST)
+    │   │   │       │   └── /
+    │   │   │       │       └── :kind
+    │   │   │       │           └── /
+    │   │   │       │               └── :digest
+    │   │   │       │                   └── /
+    │   │   │       │                       ├── approve (POST)
+    │   │   │       │                       └── revoke (POST)
+    │   │   │       ├── decisions/
+    │   │   │       │   └── :runId (GET, HEAD)
+    │   │   │       └── eligibility (POST)
+    │   │   ├── c
+    │   │   │   ├── atalogs (GET, HEAD)
+    │   │   │   │   └── /
+    │   │   │   │       └── :kind
+    │   │   │   │           └── /
+    │   │   │   │               └── :entryId (GET, HEAD)
+    │   │   │   └── ontext/
+    │   │   │       ├── d
+    │   │   │       │   ├── ocuments/
+    │   │   │       │   │   └── :caseId
+    │   │   │       │   │       └── /
+    │   │   │       │   │           ├── index (POST)
+    │   │   │       │   │           │   └── /
+    │   │   │       │   │           │       └── :documentId (DELETE)
+    │   │   │       │   │           ├── citations/resolve (POST)
+    │   │   │       │   │           └── search (POST)
+    │   │   │       │   └── efinitions (GET, HEAD, POST)
+    │   │   │       ├── mapping
+    │   │   │       │   ├── s/
+    │   │   │       │   │   ├── validate (POST)
+    │   │   │       │   │   └── :id
+    │   │   │       │   │       └── /
+    │   │   │       │   │           ├── enable (POST)
+    │   │   │       │   │           │   └── ment (GET, HEAD)
+    │   │   │       │   │           └── pause (POST)
+    │   │   │       │   └── -templates (GET, HEAD)
+    │   │   │       ├── re
+    │   │   │       │   ├── fresh-schedules (GET, HEAD, POST)
+    │   │   │       │   │   └── /
+    │   │   │       │   │       └── :id
+    │   │   │       │   │           └── /
+    │   │   │       │   │               ├── retry (POST)
+    │   │   │       │   │               └── tick (POST)
+    │   │   │       │   ├── lationships (GET, HEAD)
+    │   │   │       │   └── sources/
+    │   │   │       │       └── :id
+    │   │   │       │           └── /discover (POST)
+    │   │   │       └── s
+    │   │   │           ├── ample-runs (GET, HEAD, POST)
+    │   │   │           │   └── /
+    │   │   │           │       └── :id (GET, HEAD)
+    │   │   │           └── chema (GET, HEAD)
+    │   │   ├── external-
+    │   │   │   ├── capability-bindings/
+    │   │   │   │   └── :bindingId (GET, HEAD, POST)
+    │   │   │   └── providers (GET, HEAD, POST)
+    │   │   │       └── /
+    │   │   │           └── :providerId
+    │   │   │               └── /connections (POST)
+    │   │   ├── authoring/
+    │   │   │   ├── policies (GET, HEAD)
+    │   │   │   ├── source-policies/
+    │   │   │   │   ├── compile (POST)
+    │   │   │   │   └── simulate (POST)
+    │   │   │   └── drafts (GET, HEAD)
+    │   │   │       └── /
+    │   │   │           └── :draftId (GET, HEAD, PUT)
+    │   │   │               └── /
+    │   │   │                   ├── context-
+    │   │   │                   │   ├── classification-policies (PUT)
+    │   │   │                   │   └── selectors (PUT)
+    │   │   │                   └── nodes/
+    │   │   │                       └── :nodeId
+    │   │   │                           └── /case-writes (PUT)
+    │   │   ├── runs (POST)
+    │   │   ├── intelligence (GET, HEAD)
+    │   │   │   └── /
+    │   │   │       ├── candidates (POST)
+    │   │   │       └── bindings/
+    │   │   │           └── :bindingId
+    │   │   │               └── /checks (POST)
+    │   │   ├── fincrime/c
+    │   │   │   ├── atalog (GET, HEAD)
+    │   │   │   └── ontext/
+    │   │   │       ├── ontology (GET, HEAD)
+    │   │   │       ├── p
+    │   │   │       │   ├── roducts (GET, HEAD)
+    │   │   │       │   │   └── /
+    │   │   │       │   │       └── :productId (GET, HEAD)
+    │   │   │       │   └── ackets
+    │   │   │       │       └── :preview (POST)
+    │   │   │       └── readiness (GET, HEAD)
+    │   │   └── gateway/
+    │   │       ├── adapters (GET, HEAD)
+    │   │       └── registry (GET, HEAD)
+    │   └── uth/
+    │       ├── log
+    │       │   ├── in (GET, HEAD)
+    │       │   └── out (POST)
+    │       └── callback (GET, HEAD)
+    └── onboarding (GET, HEAD)

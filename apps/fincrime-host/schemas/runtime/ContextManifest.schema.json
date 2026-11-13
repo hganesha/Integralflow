@@ -1,0 +1,304 @@
+{
+  "$defs": {
+    "ContextGap": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "CONTEXT_MISSING",
+            "CONTEXT_STALE"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "fields": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fields"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "object": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Object"
+        },
+        "object_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Object Type"
+        },
+        "optional": {
+          "title": "Optional",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "optional"
+      ],
+      "title": "ContextGap",
+      "type": "object"
+    },
+    "ContextScope": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Case Id"
+        },
+        "complete_for_declared_scope": {
+          "title": "Complete For Declared Scope",
+          "type": "boolean"
+        },
+        "explicit_refs": {
+          "title": "Explicit Refs",
+          "type": "boolean"
+        },
+        "subjects": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Subjects",
+          "type": "array"
+        }
+      },
+      "required": [
+        "subjects",
+        "case_id",
+        "explicit_refs",
+        "complete_for_declared_scope"
+      ],
+      "title": "ContextScope",
+      "type": "object"
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Object Id",
+          "type": "string"
+        },
+        "object_type": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Object Type",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "2.0.0",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "tenant_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Tenant Id",
+          "type": "string"
+        },
+        "version_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Version Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "title": "Ref",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actor_ref": {
+      "title": "Actor Ref",
+      "type": "string"
+    },
+    "as_of_time": {
+      "format": "date-time",
+      "title": "As Of Time",
+      "type": "string"
+    },
+    "authorization_hash": {
+      "title": "Authorization Hash",
+      "type": "string"
+    },
+    "compiler_version": {
+      "default": "0.5.0",
+      "title": "Compiler Version",
+      "type": "string"
+    },
+    "content_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Content Hashes",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "gaps": {
+      "items": {
+        "$ref": "#/$defs/ContextGap"
+      },
+      "title": "Gaps",
+      "type": "array"
+    },
+    "knowledge_cutoff": {
+      "format": "date-time",
+      "title": "Knowledge Cutoff",
+      "type": "string"
+    },
+    "model_view": {
+      "title": "Model View",
+      "type": "string"
+    },
+    "policy_fields": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Policy Fields",
+      "type": "array"
+    },
+    "policy_hash": {
+      "title": "Policy Hash",
+      "type": "string"
+    },
+    "policy_ref": {
+      "$ref": "#/$defs/Ref"
+    },
+    "profile_hash": {
+      "title": "Profile Hash",
+      "type": "string"
+    },
+    "purpose": {
+      "title": "Purpose",
+      "type": "string"
+    },
+    "refs": {
+      "items": {
+        "$ref": "#/$defs/Ref"
+      },
+      "title": "Refs",
+      "type": "array"
+    },
+    "requirements_hash": {
+      "title": "Requirements Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "2.0.0",
+      "default": "2.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "scope": {
+      "$ref": "#/$defs/ContextScope"
+    },
+    "selected_fields": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Selected Fields",
+      "type": "object",
+      "x-dynamic-map-reason": "typed keyed runtime values; business payloads are validated by their selected skill contract"
+    },
+    "skill_id": {
+      "title": "Skill Id",
+      "type": "string"
+    },
+    "skill_version": {
+      "title": "Skill Version",
+      "type": "string"
+    },
+    "structured_hash": {
+      "title": "Structured Hash",
+      "type": "string"
+    },
+    "synthetic": {
+      "title": "Synthetic",
+      "type": "boolean"
+    },
+    "tenant_id": {
+      "title": "Tenant Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tenant_id",
+    "actor_ref",
+    "purpose",
+    "skill_id",
+    "skill_version",
+    "profile_hash",
+    "policy_hash",
+    "policy_ref",
+    "policy_fields",
+    "requirements_hash",
+    "authorization_hash",
+    "as_of_time",
+    "knowledge_cutoff",
+    "refs",
+    "content_hashes",
+    "selected_fields",
+    "gaps",
+    "scope",
+    "model_view",
+    "structured_hash",
+    "synthetic"
+  ],
+  "title": "ContextManifest",
+  "type": "object"
+}
